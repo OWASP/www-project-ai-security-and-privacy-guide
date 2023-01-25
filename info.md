@@ -1,4 +1,4 @@
-### API Security and Privacy Guide Information
+### AI Security and Privacy Guide Information
 * [Incubator Project](#)
 * [Type of Project](#)
 * [Version 0.0.0](#)
