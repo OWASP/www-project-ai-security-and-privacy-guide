@@ -1,7 +1,7 @@
 ---
 
 layout: col-sidebar
-title: OWASP API Security and Privacy Guide
+title: OWASP AI Security and Privacy Guide
 tags: example-tag
 level: 2
 type: 
