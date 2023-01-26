@@ -1,10 +1,3 @@
-
-[![Issues](https://img.shields.io/github/issues/owasp/ www-project-ai-security-and-privacy-guide)](https://github.com/OWASP/ www-project-ai-security-and-privacy-guide/issues)  
-[![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
-![GitHub contributors](https://img.shields.io/github/contributors/ www-project-ai-security-and-privacy-guide)
-![GitHub last commit](https://img.shields.io/github/last-commit/owasp/ www-project-ai-security-and-privacy-guide)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/y/owasp/ www-project-ai-security-and-privacy-guide)
-
 AI security and privacy guide
 ===============================
 AI applications are on the rise and so are the concerns regarding safety, privacy, ethicality, fairness, trustworthiness, robustness, security etc. This guide wants to provide clear and actionable insights on designing, creating, testing and procuring secure and privacy-preserving AI systems. 
