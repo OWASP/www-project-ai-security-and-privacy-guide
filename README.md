@@ -26,4 +26,21 @@ This part of the guide was initally published as a [blog](https://www.softwareim
 
 How to deal with AI privacy
 ===========================
-Coming soon
+When looking at the GDPR and the ISO/IEC 29100 standard on data protection, the following principles for privacy in systems follow: 
+* Data minimisation
+* Lawfulness and consent
+* Individual rights and data quality
+* Purpose binding and limitation
+* Transparency & openness
+* Accountability & compliance
+* Information security 
+
+These principles all apply to AI systems and typically in the same way as for non-AI systems, with the following exceptions:
+
+1. Lawfulness, individual rights and transparency: the GDPR and the upcoming EU AI act mention a number of things about algorithms regarding these topics. Mostly the discussion is about human right aspects that are not about the protection of personal data per se. For example: the right of equal treatment is often discussed around AI, but it's not a privacy issue as it does not concern data protection directly. 
+
+    Relevant GDPR article: article 22 "Automated individual decision-making, including profiling", in particular recital 71 on explanation. This could suggest that AI decisions on individuals always need to be explained in great detail, but in practice it has sufficed to provide documentation on how the algorithm works in general and how the algorithm was constructed and trained. See the [article 29 working party guidelines on this topic](https://ec.europa.eu/newsroom/article29/items/612053/en) 
+
+2. Information security:  
+AI security has some particularities that are of course relevant for data protection. See this guide for more information - especially the fact that AI systems are very data intensive. 
+Regarding data: in machine learning, data scientists need access to real data, which is different from most other situations where test data can be used that is less sensitive. This makes data protection of data in the development process very important. 
