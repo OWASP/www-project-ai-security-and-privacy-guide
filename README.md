@@ -18,9 +18,9 @@ The purpose is to collect and present the state of the art on the topic through 
 * AI model attacks: data poisoning, input manipulation, data reverse engineering, and model theft, which all require deep machine learning knowledge and not security expertise per se. Read more at [BIML](https://berryvilleiml.com/taxonomy/), [ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms), and [Microsoft](https://docs.microsoft.com/en-us/security/failure-modes-in-machine-learning). We will epand on these attacks more in this guide later in time.
 * More aspects can be found in ISO/IEC 5338 and the upcoming ISO/IEC 27090 on AI security and 27091 on AI privacy. 
 
-## Scope creep of security
+## Scope boundaries of AI security
 
-5. Try to avoid dragging every ‘popular’ AI risk into the security activity, such as transparency, fairness, and correctness. They are important, but it’s better to divide and conquer AI issues in an organization, instead of making everybody responsible for everything. In the end, that makes nobody responsible.
+Try to avoid dragging every ‘popular’ AI risk into the security activity, such as transparency, fairness, and correctness. They are important, but it’s better to divide and conquer AI issues in an organization, instead of making everybody responsible for everything. In the end, that makes nobody responsible.
 
 Another example of scope creep is 'safety'. Given the role of AI systems, this is a prominent theme. It is of course related to security, especially when talking about the integrity of data. However, there are sides to safety that are not of direct concern from the security perspectice, in particular regarding the correctness of an AI model.
 
@@ -56,9 +56,15 @@ These privacy principles put strong limitations on what data you can collect, fo
 * secure multi-party computation: store data distributed-encrypted
 * data enclaves: store pooled personal data in restricted secure environments 
 
-## Scope creep of privacy
+## Scope boundaries of AI privacy
 As said, many of the discussion topics on AI are about human rights and a part of it has to do with data protection. There are even aspects sometimes refered to by the term 'privacy' that are not directly about data protection, for example when referring to autonomy and the right to a private life. So as a data protection officer or engineer it's important not to drag everything into your responsibilities. At the same time, organisation do need to assign those non-privacy AI responsibilities somewhere.
 
 Having said that, it is to be expected that data protection officers are the people that typically will also be assigned a role regarding governance of AI beyond privacy. 
 
-The GDPR does not restrict the applications of AI explicitly, apart from requiring purpose binding and consent. In contrast, the EU AI act does pose application limitations, such as mass surveillance, predictive policing and restrictions on high risk purposes such as selecting people for jobs. In addition there are regulations for specific domains that restrict the use of data, putting limits to some AI approaches (e.g. the medical domain). 
+## Privacy restrictions on what you can do with AI
+The GDPR does not restrict the applications of AI explicitly, but does provide safeguards that may limit what you can do, in particular:
+* The limitations on data collection and use mentioned above
+* The general principles in article 5
+* Lawful grounds in article 6
+
+In contrast, the EU AI act does pose explicit application limitations, such as mass surveillance, predictive policing and restrictions on high risk purposes such as selecting people for jobs. In addition there are regulations for specific domains that restrict the use of data, putting limits to some AI approaches (e.g. the medical domain). 
