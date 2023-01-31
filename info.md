@@ -17,5 +17,5 @@
 * [Changes](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/commits/)
 
 ### FEATURED EVENT
-* [Global appsec talk](https://owasp.slack.com/archives/C04FV0D1GES)
+* [Global appsec talk](https://sched.co/1F9DT)
 
