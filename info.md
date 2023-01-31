@@ -6,14 +6,16 @@
 * For Breakers
 * For Buyers
 
-### Downloads or Social Links
-* [Download](#)
-* [Meetup](#)
+### Social Links
+* [Slack #project-ai](https://owasp.slack.com/archives/C04FV0D1GES)
 
 ### Code Repository
-* [repo](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/)
-* [submit input](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues)
+* [Repo](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/)
+* [Submit input](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues)
 
 ### Change Log
-* [changes](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/commits/)
+* [Changes](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/commits/)
+
+### FEATURED EVENT
+* [Global appsec talk](https://owasp.slack.com/archives/C04FV0D1GES)
 
