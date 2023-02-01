@@ -3,11 +3,7 @@ AI security and privacy guide
 AI applications are on the rise and so are the concerns regarding AI safety, privacy, ethicality, fairness, trustworthiness, robustness, security etc. This guide wants to provide clear and actionable insights on designing, creating, testing and procuring secure and privacy-preserving AI systems. 
 
 # Project status
-This project was founded in January 2023 by [Rob van der Veer](https://www.linkedin.com/in/robvanderveer/), senior director at Software Improvement Group, lead author of the [ISO/IEC 5338](https://www.iso.org/standard/81118.html) standard on AI engineering, with 30 years experience in AI, security and privacy. Rob also contributes to [OWASP SAMM](https://owaspsamm.org/guidance/agile/) and is co-lead of the Integration standards project - known for its [Wayfinder](https://owasp.org/www-project-integration-standards/) and [OpenCRE.org](https://www.opencre.org/). Contact: rob.vanderveer AT owasp.org
-
-Kudos to SIG for supporting the idea to open source results coming from SIG research and from working with SIG clients on making their AI successful.
-
-The purpose is to collect and present the state of the art on the topic through community collaboration. First in the form of this README, and later probably in other document forms. Please provide your input through Pull requests or by submitting issues, and let's make this guide better and better.
+This page is the current outcome of this project. The goal of the project is to collect and present the state of the art on these topics through community collaboration. First in the form of this page, and later probably in other document forms. Please provide your input through Pull requests or by submitting issues, and let's make this guide better and better.
 
 # How to deal with AI security
 1. Keep on doing everything you are already doing for cybersecurity
@@ -22,7 +18,7 @@ The purpose is to collect and present the state of the art on the topic through 
 
 Try to avoid dragging every ‘popular’ AI risk into the security activity, such as transparency, fairness, and correctness. They are important, but it’s better to divide and conquer AI issues in an organization, instead of making everybody responsible for everything. In the end, that makes nobody responsible.
 
-Another example of scope creep is 'safety'. Given the role of AI systems, this is a prominent theme. It is of course related to security, especially when talking about the integrity of data. However, there are sides to safety that are not of direct concern from the security perspectice, in particular regarding the correctness of an AI model.
+Another example of scope creep is 'safety'. Given the role of AI systems, this is a prominent theme. It is of course related to security, especially when talking about the integrity of data. However, there are sides to safety that are not of direct concern from the security perspective, in particular regarding the correctness of an AI model.
 
 In other words, the main recommendation to security officers and development teams is to treat AI pragmatically. No need to be philosophical or overwhelmed. AI is software with a few extra aspects that we are becoming increasingly familiar with. 
 
