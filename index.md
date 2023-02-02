@@ -39,7 +39,7 @@ The security part of the guide was initally published as a [blog](https://www.so
 
 # How to deal with AI privacy
 We discuss this topic using the GDPR because it serves as a useful frame of reference.
-The GDPR identifies the following principle in [article 5](https://gdpr.eu/article-5-how-to-process-personal-data/): 
+The GDPR identifies the following general principles in [article 5](https://gdpr.eu/article-5-how-to-process-personal-data/): 
 * Lawfulness, fairness and transparencey
 * Limitations on purposes of collection, processing and storage
 * Data minimization
