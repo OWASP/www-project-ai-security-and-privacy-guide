@@ -23,7 +23,7 @@ This page is the current outcome of this project. The goal of the project is to 
 * AI model attacks, which all require deep machine learning knowledge and not application security expertise per se - see also [BIML](https://berryvilleiml.com/taxonomy/), [ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms), and [Microsoft](https://docs.microsoft.com/en-us/security/failure-modes-in-machine-learning):
   * **data poisoning** of training data: by changing the training data the behavior of the model is manipulated. This can either sabotage the model or have it make decisions in favor of the attacker. This attack can work like a Trojan horse so that the model appears to work in a normal way, but for specific manipulated inputs a decision is forced. This way, for example fraudulent money transfers can go undetected when containing such trigger elements.
   * **input manipulation**: by playing with the model input, a model can be deceived (e.g. spam e-mail being classified as not spam), for example in combination with data poisoning. This is also called an adversarial attack or model evasion. Robust-performing models are the best mitigation, together with the mitigations for poisoning.
-  * **data reverse engineering**: by playing with the input of a trained model, or by looking at its parameters, it can be possible to reverse engineer confidential information that was part of the training set. This is also called model inversion. Best practices: avoid sensitive data/Personally Identifiable Information (PII) in the training set, or avoid models overtraining by having sufficiently large training sets.
+  * **data reverse engineering**: by playing with the input of a trained model, or by looking at its parameters, it can be possible to reverse engineer confidential information that was part of the training set. This is also called model inversion. Best practices: avoid sensitive data/Personally Identifiable Information (PII) in the training set, or avoid models overtraining by having sufficiently large training sets. A special type of this attack is when it is possible to infer whether specific data (e.g. an individual) was part of the dataset, called 'membership inference'.
   * **model theft**: by playing with a model, the model behavior can be copied (which can be intellectual property) - also called model inversion. Also here, limiting model execution can mitigate this.
 * More aspects can be found in ISO/IEC 5338 and the upcoming ISO/IEC 27090 on AI security and 27091 on AI privacy. 
 
@@ -60,13 +60,16 @@ These principles all apply to AI systems and typically in the same way as to non
 
 2. Integrity and confidentiality:  
 See AI security in this guide. AI security has some particularities that are of course relevant for data protection - as AI systems are typically data intensive. 
-Regarding data: in machine learning, data scientists need access to real data for training and testing, which is different from most other situations where test data can be used that is less sensitive. This makes data protection of data in the development process very important. 
+Regarding data: in machine learning, data scientists need access to real data for training and testing, which is different from most other situations where test data can be used that is less sensitive. This makes data protection of data in the development process very important.
+In addition, the model attack called 'data reverse engineering' from the AI security section is a privacy threat, because it may allow to reconstruct personal data from a model, or infer if a person was part of the training set.
 
 3. Lawfulness and limitations on purposes of collection, processing, and storage
 These privacy principles put strong limitations on what data you can collect, for what purpose, and how long you can keep it. This profoundly changes the possibilities of AI and big data and calls for privacy-preserving techniques:
-* distributed data analysis: exchange anonymous aggregated data
-* secure multi-party computation: store data distributed-encrypted
-* data enclaves: store pooled personal data in restricted secure environments 
+  * distributed data analysis: exchange anonymous aggregated data
+  * secure multi-party computation: store data distributed-encrypted
+  * data enclaves: store pooled personal data in restricted secure environments 
+
+Further reading: [ICO guidance on AI and data protection](https://ico.org.uk/for-organisations/guide-to-data-protection/key-dp-themes/guidance-on-ai-and-data-protection/).
 
 ## Scope boundaries of AI privacy
 As said, many of the discussion topics on AI are about human rights and only a part of it has to do with privacy. There are even aspects sometimes referred to by the term 'privacy' that are not directly about what we consider privacy in this guide (protection of personal data), for example when referring to autonomy and the right to a private life. So as a data protection officer or engineer it's important not to drag everything into your responsibilities. At the same time, organizations do need to assign those non-privacy AI responsibilities somewhere.
