@@ -9,10 +9,10 @@ pitch: Guidance on designing, creating, testing and procuring secure and privacy
 
 ---
 
-AI applications are on the rise and so are the concerns regarding AI safety, privacy, ethicality, fairness, trustworthiness, robustness, security etc. This guide wants to provide clear and actionable insights on designing, creating, testing and procuring secure and privacy-preserving AI systems. 
+AI applications are on the rise and so are the concerns regarding AI security and privacy. This guide wants to provide clear and actionable insights on designing, creating, testing and procuring secure and privacy-preserving AI systems. 
 
 # Project status
-This page is the current outcome of this project. The goal of the project is to collect and present the state of the art on these topics through community collaboration. First in the form of this page, and later probably in other document forms. Please provide your input through Pull requests or by submitting issues, and let's make this guide better and better.
+This page is the current outcome of this project. The goal of the project is to collect and present the state of the art on these topics through community collaboration. First in the form of this page, and later probably in other document forms. Please provide your input through pull requests / submitting issues (see [repo](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/)) or emailing the project lead, and let's make this guide better and better.
 
 # How to deal with AI security
 1. Keep on doing everything you are already doing for cybersecurity
@@ -38,7 +38,8 @@ In other words, the main recommendation to security officers and development tea
 The security part of the guide was initally published as a [blog](https://www.softwareimprovementgroup.com/resources/how-artificial-intelligence-attacked-my-family-and-other-ai-security-lessons/).
 
 # How to deal with AI privacy
-We discuss this topic using the GDPR because it serves as a useful frame of reference.
+We discuss this topic using the GDPR as it is as a useful frame of reference. This is not a guide on privacy engineering of systems in general. For that purpose, please consider work from [ENISA](https://www.enisa.europa.eu/publications/data-protection-engineering), [NIST](https://nvlpubs.nist.gov/nistpubs/ir/2017/NIST.IR.8062.pdf), [mplsplunk](https://github.com/mplspunk/awesome-privacy-engineering), [OWASP](https://owasp.org/www-project-top-10-privacy-risks/) and [OpenCRE](https://www.opencre.org/cre/362-550). The general principle for engineers is to regard personal data as 'radiactive gold'. It's valuable, but it's also something to minimize, carefully store, carefully handle, limit sending it away, keeping track of where it is, etc.
+
 The GDPR identifies the following general principles in [article 5](https://gdpr.eu/article-5-how-to-process-personal-data/): 
 * Lawfulness, fairness and transparencey
 * Limitations on purposes of collection, processing and storage
