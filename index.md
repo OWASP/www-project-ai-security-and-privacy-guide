@@ -15,7 +15,7 @@ AI applications are on the rise and so are the concerns regarding AI security an
 This page is the current outcome of this project. The goal of the project is to collect and present the state of the art on these topics through community collaboration. First in the form of this page, and later probably in other document forms. Please provide your input through pull requests / submitting issues (see [repo](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/)) or emailing the project lead, and let's make this guide better and better.
 
 # How to deal with AI security
-1. Keep on doing everything you are already doing for cybersecurity
+1. Keep on doing everything you are already doing for cybersecurity, and if you're not doing anything: please start
 2. Incorporate AI developers, data scientists, and AI-related applications and infrastructure into your security programs: training, requirements, static analysis, code review, pentesting, etc.
 3. Also go beyond security by applying good software engineering practices to your AI activities, such as versioning, documentation, unit testing, integration testing, performance testing, and code quality. See the [ISO/IEC 5338](https://www.iso.org/standard/81118.html) standard for guidelines. This way, AI systems will become easier to maintain, transferable, more reliable, and future-proof.
 4. Make sure that everybody involved is aware of ‘special’ AI security risks, including:
@@ -23,8 +23,8 @@ This page is the current outcome of this project. The goal of the project is to 
 * AI model attacks, which all require deep machine learning knowledge and not application security expertise per se - see also [BIML](https://berryvilleiml.com/taxonomy/), [ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms), and [Microsoft](https://docs.microsoft.com/en-us/security/failure-modes-in-machine-learning):
   * **data poisoning** of training data: by changing the training data the behavior of the model is manipulated. This can either sabotage the model or have it make decisions in favor of the attacker. This attack can work like a Trojan horse so that the model appears to work in a normal way, but for specific manipulated inputs a decision is forced. This way, for example fraudulent money transfers can go undetected when containing such trigger elements.
   * **input manipulation**: by playing with the model input, a model can be deceived (e.g. spam e-mail being classified as not spam), for example in combination with data poisoning. This is also called an adversarial attack or model evasion. Robust-performing models are the best mitigation, together with the mitigations for poisoning.
-  * **data reverse engineering**: by playing with the input of a trained model, or by looking at its parameters, it can be possible to reverse engineer confidential information that was part of the training set. This is also called model inversion. Best practices: avoid sensitive data/Personally Identifiable Information (PII) in the training set, or avoid models overtraining by having sufficiently large training sets. A special type of this attack is when it is possible to infer whether specific data (e.g. an individual) was part of the dataset, called 'membership inference'.
-  * **model theft**: by playing with a model, the model behavior can be copied (which can be intellectual property) - also called model inversion. Also here, limiting model execution can mitigate this.
+  * **training data reconstruction**: by playing with the input and output of a trained model, or by looking at its parameters, it can be possible to reverse engineer sensitive information that was part of the training set. This is also called model inversion. Best practices: avoid sensitive data/Personally Identifiable Information (PII) in the training set, or models overtraining, for example by having sufficiently large training sets. A special type of this attack is when it is possible to infer whether specific data (e.g. an individual) was part of the dataset, called 'membership inference'.
+  * **model theft**: by playing with a model, the model behavior can be copied (which can be intellectual property). Also here, limiting model execution can mitigate this.
 * More aspects can be found in ISO/IEC 5338 and the upcoming ISO/IEC 27090 on AI security and 27091 on AI privacy. 
 
 ## Scope boundaries of AI security
@@ -65,9 +65,9 @@ In addition, the model attack called 'data reverse engineering' from the AI secu
 
 3. Lawfulness and limitations on purposes of collection, processing, and storage
 These privacy principles put strong limitations on what data you can collect, for what purpose, and how long you can keep it. This profoundly changes the possibilities of AI and big data and calls for privacy-preserving techniques:
-  * distributed data analysis: exchange anonymous aggregated data
-  * secure multi-party computation: store data distributed-encrypted
-  * data enclaves: store pooled personal data in restricted secure environments 
+    * distributed data analysis: exchange anonymous aggregated data
+    * secure multi-party computation: store data distributed-encrypted
+    * data enclaves: store pooled personal data in restricted secure environments 
 
 Further reading: [ICO guidance on AI and data protection](https://ico.org.uk/for-organisations/guide-to-data-protection/key-dp-themes/guidance-on-ai-and-data-protection/).
 
