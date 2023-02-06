@@ -12,11 +12,6 @@ pitch: Guidance on designing, creating, testing, and procuring secure and privac
 
 AI applications are on the rise and so are the concerns regarding AI security and privacy. This guide wants to provide clear and actionable insights on designing, creating, testing, and procuring secure and privacy-preserving AI systems. 
 
-# Project status
-This page is the current outcome of this project. The goal of the project is to collect and present the state of the art on these topics through community collaboration. First in the form of this page, and later in other document forms. Please provide your input through pull requests / submitting issues (see [repo](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/)) or emailing the project lead, and let's make this guide better and better. 
-
-The work in this guide will serve as input to the upcoming [ISO/IEC 27090 (AI security)](https://www.iso.org/standard/56581.html) and [27091 (AI privacy)](https://standardsdevelopment.bsigroup.com/projects/9022-07819#/section) standards, of which I will take care as member of the ISO/IEC JTC 1/SC42 AHG4 group.
-
 # How to deal with AI security
 1. Keep on doing everything you are already doing for cybersecurity, and if you're not doing anything: please start. [SAMM](https://owaspsamm.org/) is OWASP's model to help you grow.
 2. Incorporate AI developers, data scientists, and AI-related applications and infrastructure into your security programs: risk analysis, training, requirements, static analysis, code review, pentesting, etc.
@@ -37,11 +32,11 @@ The work in this guide will serve as input to the upcoming [ISO/IEC 27090 (AI se
 
   * **model theft**: by playing with a model, the model behavior can be copied (which can be intellectual property). Also here, limiting model execution can mitigate this. An interesting example is how easy it can be to copy the behaviour of a fine-tuned language model (e.g. BERT) by presenting it with example text, taking its output and then train a new model with these inputs and outputs - as described in ['Thieves on Sesame street'](https://arxiv.org/abs/1910.12366)
 
-  * **AI code reuse**: Data scientists benefit tremendously from many example projects that can be found online, which may contain security and privacy weaknesses. Conscious curation of such code reuse is in order, just like in any software engineering.
+* **AI code reuse**: Data scientists benefit tremendously from many example projects that can be found online, which may contain security and privacy weaknesses. Conscious curation of such code reuse is in order, just like in any software engineering.
 
-  * **AI code maintainability**: Data scientists are primarily trained to produce working models, and typically less to create maintainable code that is easy to read for others during a long time to come. This can hurt the testability and readability of AI code, leading to errors or security weaknesses that remain hidden to the eye. This risk can be addressed by training data scientists to write maintainabile code, and measuring maintainability.
+* **AI code maintainability**: Data scientists are primarily trained to produce working models, and typically less to create maintainable code that is easy to read for others during a long time to come. This can hurt the testability and readability of AI code, leading to errors or security weaknesses that remain hidden to the eye. This risk can be addressed by training data scientists to write maintainabile code, and measuring maintainability.
 
-  * More aspects can be found in [ISO/IEC 5338](https://www.iso.org/standard/81118.html) and the upcoming ISO/IEC 27090 on AI security and 27091 on AI privacy. 
+* More aspects can be found in [ISO/IEC 5338](https://www.iso.org/standard/81118.html) and the upcoming ISO/IEC 27090 on AI security and 27091 on AI privacy. 
 
 ## Scope boundaries of AI security
 
@@ -98,3 +93,8 @@ The GDPR does not restrict the applications of AI explicitly but does provide sa
 In contrast, the [EU AI act](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:52021PC0206&from=EN) does pose explicit application limitations, such as mass surveillance, predictive policing, and restrictions on high-risk purposes such as selecting people for jobs. In addition, there are regulations for specific domains that restrict the use of data, putting limits to some AI approaches (e.g. the medical domain). 
 
 In an upcoming update, more will be discussed on the [US AI bill of rights](https://www.whitehouse.gov/ostp/ai-bill-of-rights/).
+
+# Project status
+This page is the current outcome of the project. The goal is to collect and present the state of the art on these topics through community collaboration. First in the form of this page, and later in other document forms. Please provide your input through pull requests / submitting issues (see [repo](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/)) or emailing the project lead, and let's make this guide better and better. 
+
+The work in this guide will serve as input to the upcoming [ISO/IEC 27090 (AI security)](https://www.iso.org/standard/56581.html) and [27091 (AI privacy)](https://standardsdevelopment.bsigroup.com/projects/9022-07819#/section) standards, which will be done through membership of the ISO/IEC JTC 1/SC42 AHG4 group.
