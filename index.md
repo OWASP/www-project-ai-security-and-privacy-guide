@@ -40,7 +40,7 @@ AI applications are on the rise and so are the concerns regarding AI security an
 
 ## Scope boundaries of AI security
 
-Try to avoid dragging every ‘popular’ AI risk into the security activity, such as transparency, fairness, and correctness. They are important, but it’s better to divide and conquer AI issues in an organization, instead of making everybody responsible for everything. In the end, that makes nobody responsible.
+Try to avoid dragging every ‘popular’ AI risk into the security activity, such as algorithmic bias, transparency, and correctness. They are important, but it’s better to divide and conquer AI issues in an organization, instead of making everybody responsible for everything. In the end, that makes nobody responsible.
 
 Another example of scope creep is 'safety'. Given the role of AI systems, this is a prominent theme. It is of course related to security, especially when talking about the integrity of data. However, there are sides to safety that are not of direct concern from the security perspective, in particular regarding the correctness of an AI model.
 
@@ -83,7 +83,7 @@ These privacy principles put strong limitations on what data you can collect, fo
 Further reading: [ICO guidance on AI and data protection](https://ico.org.uk/for-organisations/guide-to-data-protection/key-dp-themes/guidance-on-ai-and-data-protection/).
 
 ## Scope boundaries of AI privacy
-As said, many of the discussion topics on AI are about human rights and only a part of it has to do with privacy. There are even aspects sometimes referred to by the term 'privacy' that are not directly about what we consider privacy in this guide (protection of personal data), for example when referring to autonomy and the right to a private life. So as a data protection officer or engineer it's important not to drag everything into your responsibilities. At the same time, organizations do need to assign those non-privacy AI responsibilities somewhere.
+As said, many of the discussion topics on AI are about human rights and only a part of it has to do with privacy. There are even aspects sometimes referred to by the term 'privacy' that are not directly about what we consider privacy in this guide (general protection of personal data), for example when referring to autonomy and the right to a private life. So as a data protection officer or engineer it's important not to drag everything into your responsibilities. At the same time, organizations do need to assign those non-privacy AI responsibilities somewhere.
 
 Having said that, it is to be expected that data protection officers are the people that typically will also be assigned a role regarding the governance of AI beyond privacy. 
 
