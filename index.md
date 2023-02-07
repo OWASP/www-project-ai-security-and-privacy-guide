@@ -80,7 +80,9 @@ These privacy principles put strong limitations on what data you can collect, fo
     * secure multi-party computation: store data distributed-encrypted
     * data enclaves: store pooled personal data in restricted secure environments 
 
-Further reading: [ICO guidance on AI and data protection](https://ico.org.uk/for-organisations/guide-to-data-protection/key-dp-themes/guidance-on-ai-and-data-protection/).
+Further reading:
+* [ICO guidance on AI and data protection](https://ico.org.uk/for-organisations/guide-to-data-protection/key-dp-themes/guidance-on-ai-and-data-protection/)
+* [FPF case-law analysis on automated decision making](https://fpf.org/blog/fpf-report-automated-decision-making-under-the-gdpr-a-comprehensive-case-law-analysis/)
 
 ## Scope boundaries of AI privacy
 As said, many of the discussion topics on AI are about human rights and only a part of it has to do with privacy. There are even aspects sometimes referred to by the term 'privacy' that are not directly about what we consider privacy in this guide (general protection of personal data), for example when referring to autonomy and the right to a private life. So as a data protection officer or engineer it's important not to drag everything into your responsibilities. At the same time, organizations do need to assign those non-privacy AI responsibilities somewhere.
