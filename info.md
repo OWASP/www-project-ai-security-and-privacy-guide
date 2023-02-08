@@ -2,14 +2,12 @@
 * Incubator Project
 * Project type: Documentation
 * Version 1.0
-* For Builders
-* For Breakers
-* For Buyers
+* For Builders, Breakers, Buyers
 
 ### Social Links
 * [Slack #project-ai](https://owasp.slack.com/archives/C04FV0D1GES)
 
-### Code Repository
+### Document Repository
 * [Repo](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/)
 * [Submit input](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues)
 
