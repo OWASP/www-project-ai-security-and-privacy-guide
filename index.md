@@ -62,7 +62,9 @@ The GDPR identifies the following general principles in [article 5](https://gdpr
 
 These principles all apply to AI systems and typically in the same way as to non-AI systems, with the following exceptions:
 
-1. Lawfulness, fairness, and transparency: the GDPR and the upcoming EU AI act mention several things about algorithms regarding these topics. Mostly the discussion is about human rights aspects that are not about privacy in the sense of data protection per se. For example, the right to equal treatment is often discussed around AI, but it's not a privacy issue as it does not concern data protection directly. 
+1. **Lawfulness, fairness, and transparency**:
+ 
+    The GDPR and the upcoming EU AI act mention several things about algorithms regarding these topics. Mostly the discussion is about human rights aspects that are not about privacy in the sense of data protection per se. For example, the right to equal treatment is often discussed around AI, but it's not a privacy issue as it does not concern data protection directly. 
 
     Relevant GDPR article: [article 22](https://gdpr.eu/article-22-automated-individual-decision-making/) "Automated individual decision-making, including profiling".
     
@@ -70,13 +72,15 @@ These principles all apply to AI systems and typically in the same way as to non
     
     Article 22 also requires appropriate human oversight on automated decisions that produce "legal" or "similarly significant" effects on that person. See [article 14 in the EU AI act](https://artificialintelligenceact.com/title-iii/chapter-2/article-14/)
 
-2. Integrity and confidentiality:  
-See AI security in this guide. AI security has some particularities that are of course relevant for data protection - as AI systems are typically data intensive. 
+2. **Integrity and confidentiality**:
+
+    See also AI security in this guide. AI security has some particularities that are of course relevant for data protection - as AI systems are typically data intensive. 
 Regarding data: in machine learning, data scientists need access to real data for training and testing, which is different from most other situations where test data can be used that is less sensitive. This makes data protection of data in the development process very important.
 In addition, the model attack called 'data reverse engineering' from the AI security section is a privacy threat, because it may allow to reconstruct personal data from a model, or infer if a person was part of the training set.
 
-3. Lawfulness and limitations on purposes of collection, processing, and storage
-These privacy principles put strong limitations on what data you can collect, for what purpose, and how long you can keep it. This profoundly changes the possibilities of AI and big data and calls for privacy-preserving techniques:
+3. **Lawfulness and limitations on purposes of collection, processing, and storage**:
+
+    These privacy principles put strong limitations on what data you can collect, for what purpose, and how long you can keep it. This profoundly changes the possibilities of AI and big data and calls for privacy-preserving techniques:
     * distributed data analysis: exchange anonymous aggregated data
     * secure multi-party computation: store data distributed-encrypted
     * data enclaves: store pooled personal data in restricted secure environments 
