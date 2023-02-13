@@ -12,6 +12,8 @@ pitch: Guidance on designing, creating, testing, and procuring secure and privac
 
 AI applications are on the rise and so are the concerns regarding AI security and privacy. This guide wants to provide clear and actionable insights on designing, creating, testing, and procuring secure and privacy-preserving AI systems. 
 
+This guide is going to be officially launched during the OWASP Global appsec event in Dublin on February 15 at 11:30 during [Rob van der Veer's talk](https://sched.co/1F9DT). 
+
 # How to deal with AI security
 1. Keep on doing everything you are already doing for cybersecurity, and if you're not doing anything: please start. [SAMM](https://owaspsamm.org/) is OWASP's model to help you grow.
 2. Incorporate AI developers, data scientists, and AI-related applications and infrastructure into your security programs: risk analysis, training, requirements, static analysis, code review, pentesting, etc.
