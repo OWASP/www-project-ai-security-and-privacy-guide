@@ -44,11 +44,9 @@ This guide is going to be officially launched during the OWASP Global appsec eve
 
 ## Scope boundaries of AI security
 
-Try to avoid dragging every ‘popular’ AI risk into the security activity, such as algorithmic bias, transparency, and correctness. They are important, but it’s better to divide and conquer AI issues in an organization, instead of making everybody responsible for everything. In the end, that makes nobody responsible.
+There are many types of risks connected to AI. Many of them are in the privacy realm (see other section), such as algorithmic bias, transparency, lawfulness, and correctness. If you are not accountable for privacy, then these aspects are more for your privacy colleagues, but please realise that it's important you understand them as AI privacy is a concerted effort.
 
-Another example of scope creep is 'safety'. Given the role of AI systems, this is a prominent theme. It is of course related to security, especially when talking about the integrity of data. However, there are sides to safety that are not of direct concern from the security perspective, in particular regarding the correctness of an AI model.
-
-In other words, the main recommendation to security officers and development teams is to treat AI pragmatically. No need to be philosophical or overwhelmed. AI is software with a few extra aspects that we are becoming increasingly familiar with. 
+Another example of a topic beyond the scope boundary is 'safety'. Given the role of AI systems, this is a prominent theme. It is of course related to security, especially when talking about the integrity of data. However, there are sides to safety that are not of direct concern from the security perspective, in particular regarding the correctness of an AI model.
 
 The security part of the guide was initially published as a [blog](https://www.softwareimprovementgroup.com/resources/how-artificial-intelligence-attacked-my-family-and-other-ai-security-lessons/).
 
@@ -67,11 +65,13 @@ These principles all apply to AI systems and typically in the same way as to non
 
 1. **Lawfulness, fairness, and transparency**:
  
-    The GDPR and the upcoming EU AI act mention several things about algorithms regarding these topics. Mostly the discussion is about human rights aspects that are not about privacy in the sense of data protection per se. For example, the right to equal treatment is often discussed around AI, but it's not a privacy issue as it does not concern data protection directly. 
+   Lawful processing means there needs to be an appropriate lawful basis (or bases if more than one purpose) for processing personal data .
 
-    Relevant GDPR article: [article 22](https://gdpr.eu/article-22-automated-individual-decision-making/) "Automated individual decision-making, including profiling".
+    Fairness means handling personal data in a way individuals expect and not using it in ways that lead to unjustified adverse effects. The algorithm should not behave in a discriminating way. See also [this article](https://iapp.org/news/a/what-is-the-role-of-privacy-professionals-in-preventing-discrimination-and-ensuring-equal-treatment/). More discussion on algorithmic bias will be added to this guide soon.
+ 
+    The GDPR talks about transparency and oversight in [article 22](https://gdpr.eu/article-22-automated-individual-decision-making/) "Automated individual decision-making, including profiling".
     
-    Regarding explanations: an exact description of all specific algorithm steps for a specific algorithm outcome is not required, but meaningful information about the data, the modeling process and the type of algorithm needs to be provided, and what the likely consequences are for individuals. There are exceptions when specific regulations are in place, for example, the US [Equal Credit Opportunity Act](https://www.consumerfinance.gov/about-us/newsroom/cfpb-acts-to-protect-the-public-from-black-box-credit-models-using-complex-algorithms/) requiring detailed explanations on individual decisions by algorithms that deny credit. For more details, see the [article 29 working party guidelines on this topic](https://ec.europa.eu/newsroom/article29/items/612053/en) and [article 13 in the EU AI act](https://artificialintelligenceact.com/title-iii/chapter-2/article-13/)
+    Article 22 requires the [ability to contest algorithm decisions](https://www.privacy-regulation.eu/en/recital-71-GDPR.htm). Regarding explanations: an exact description of all specific algorithm steps for a specific algorithm outcome is not required, but meaningful information about the data, the modeling process and the type of algorithm needs to be provided, and what the likely consequences are for individuals. There are exceptions when specific regulations are in place, for example, the US [Equal Credit Opportunity Act](https://www.consumerfinance.gov/about-us/newsroom/cfpb-acts-to-protect-the-public-from-black-box-credit-models-using-complex-algorithms/) requiring detailed explanations on individual decisions by algorithms that deny credit. For more details, see the [article 29 working party guidelines on this topic](https://ec.europa.eu/newsroom/article29/items/612053/en) and [article 13 in the EU AI act](https://artificialintelligenceact.com/title-iii/chapter-2/article-13/)
     
     Article 22 also requires appropriate human oversight on automated decisions that produce "legal" or "similarly significant" effects on that person. See [article 14 in the EU AI act](https://artificialintelligenceact.com/title-iii/chapter-2/article-14/)
 
@@ -81,7 +81,7 @@ These principles all apply to AI systems and typically in the same way as to non
 Regarding data: in machine learning, data scientists need access to real data for training and testing, which is different from most other situations where test data can be used that is less sensitive. This makes data protection of data in the development process very important.
 In addition, the model attack called 'data reverse engineering' from the AI security section is a privacy threat, because it may allow to reconstruct personal data from a model, or infer if a person was part of the training set.
 
-3. **Lawfulness and limitations on purposes of collection, processing, and storage**:
+3. **Lawfulness and limitations on purposes of collection, processing, and storage, data minimization, data storage limits and accuracy of data**:
 
     These privacy principles put strong limitations on what data you can collect, for what purpose, and how long you can keep it. This profoundly changes the possibilities of AI and big data and calls for privacy-preserving techniques:
     * distributed data analysis: exchange anonymous aggregated data
