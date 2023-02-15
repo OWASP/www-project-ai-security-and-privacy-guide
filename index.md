@@ -20,13 +20,16 @@ This guide was officially launched during the OWASP Global appsec event in Dubli
 3. Also go beyond security by applying good software engineering practices to your AI activities, such as versioning, documentation, unit testing, integration testing, performance testing, and code quality. See the [ISO/IEC 5338](https://www.iso.org/standard/81118.html) standard for guidelines. This way, AI systems will become easier to maintain, transferable, more reliable, and future-proof. A best practice is to mix data scientist profiles with software engineering profiles in teams, as software engineers typically need to learn more about data science and data scientists typically need to learn more about creating future-proof code that is easy to maintain and test.
 
 4. Make sure that everybody involved is aware of ‘particular’ AI security risks.
+
 ## Particular AI security risks
+
 * **Data Security Risks**:
+
   * **Data attack surface**: Data and data preparation, often outside of the application, are typically a large and important part of machine learning engineering, and they require appropriate security. 
 
   * **Real data for engineers**: In order to train and test a working model, data scientists need access to real data, which may be sensitive. This is different from non-AI engineering in which typically the test data can be either synthesized or anonymized carefully. An appropriate countermeasure is the limitation of access to this data to the engineers that really need it, and shield it from the rest of the team. In addition, some AI platforms provide mechanisms that allow training and testing a model without the data scientists having access to the data.
 
-* AI model attacks, which all require machine learning knowledge and not application security expertise per se - see also [BIML](https://berryvilleiml.com/taxonomy/), [ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms), and [Microsoft](https://docs.microsoft.com/en-us/security/failure-modes-in-machine-learning):
+* **AI model attacks**, which all require machine learning knowledge and not application security expertise per se - see also [BIML](https://berryvilleiml.com/taxonomy/), [ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms), and [Microsoft](https://docs.microsoft.com/en-us/security/failure-modes-in-machine-learning):
 
   * **Data poisoning adversarial attacks**: by changing  training data, the behavior of the model can be manipulated. This can either sabotage the model or have it make decisions in favor of the attacker. This attack can work like a Trojan horse so that the model appears to work in a normal way, but for specific manipulated inputs a decision is forced. See for example [this article on fooling self-driving cars](https://arxiv.org/abs/1602.02697) where a stop sign in traffic can be identified as a 60mph limit sign by simply adding a specific sticker. Following the same method, for example fraudulent money transfers can go undetected when containing such trigger elements.
 
