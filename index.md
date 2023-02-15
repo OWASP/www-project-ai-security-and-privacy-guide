@@ -12,20 +12,22 @@ pitch: Guidance on designing, creating, testing, and procuring secure and privac
 
 AI applications are on the rise and so are the concerns regarding AI security and privacy. This guide wants to provide clear and actionable insights on designing, creating, testing, and procuring secure and privacy-preserving AI systems. 
 
+This guide is going to be officially launched during the OWASP Global appsec event in Dublin on February 15 at 11:30 during [Rob van der Veer's talk](https://sched.co/1F9DT). 
+
 # How to deal with AI security
 1. Keep on doing everything you are already doing for cybersecurity, and if you're not doing anything: please start. [SAMM](https://owaspsamm.org/) is OWASP's model to help you grow.
 2. Incorporate AI developers, data scientists, and AI-related applications and infrastructure into your security programs: risk analysis, training, requirements, static analysis, code review, pentesting, etc.
 3. Also go beyond security by applying good software engineering practices to your AI activities, such as versioning, documentation, unit testing, integration testing, performance testing, and code quality. See the [ISO/IEC 5338](https://www.iso.org/standard/81118.html) standard for guidelines. This way, AI systems will become easier to maintain, transferable, more reliable, and future-proof. A best practice is to mix data scientist profiles with software engineering profiles in teams, as software engineers typically need to learn more about data science and data scientists typically need to learn more about creating future-proof code that is easy to maintain and test.
 
 4. Make sure that everybody involved is aware of ‘special’ AI security risks:
+* **Data Security Risks**:
+   * **Data attack surface**: Data and data processing are typically a large and important part of machine learning applications, and they require appropriate security.
 
-* **Data attack surface**: Data and data processing are typically a large and important part of machine learning applications, and they require appropriate security.
+   * **Real data for engineers**: In order to train and test a working model, data scientists need access to real data, which may be sensitive. This is different from non-AI engineering in which typically the test data can be either synthesized or anonymized carefully. An appropriate countermeasure is the limitation of access to this data to the engineers that really need it, and shield it from the rest of the team. In addition, some AI platforms provide mechanisms that allow training and testing a model without the data scientists having access to the data.
 
-* **Real data for engineers**: In order to train and test a working model, data scientists need access to real data, which may be sensitive. This is different from non-AI engineering in which typically the test data can be either synthesized or anonymized carefully. An appropriate countermeasure is the limitation of access to this data to the engineers that really need it, and shield it from the rest of the team. In addition, some AI platforms provide mechanisms that allow training and testing a model without the data scientists having access to the data.
+* AI model attacks (both black-box and white-box), which all require deep machine learning knowledge and not application security expertise per se - see also [BIML](https://berryvilleiml.com/taxonomy/), [ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms), and [Microsoft](https://docs.microsoft.com/en-us/security/failure-modes-in-machine-learning):
 
-* AI model attacks, which all require deep machine learning knowledge and not application security expertise per se - see also [BIML](https://berryvilleiml.com/taxonomy/), [ENISA](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms), and [Microsoft](https://docs.microsoft.com/en-us/security/failure-modes-in-machine-learning):
-
-  * **data poisoning** of training data: by changing  training data, the behavior of the model can be manipulated. This can either sabotage the model or have it make decisions in favor of the attacker. This attack can work like a Trojan horse so that the model appears to work in a normal way, but for specific manipulated inputs a decision is forced. This way, for example fraudulent money transfers can go undetected when containing such trigger elements.
+  * **data poisoning** of training data: by changing  training data, the behavior of the model can be manipulated. This can either sabotage the model or have it make decisions in favor of the attacker. This attack can work like a Trojan horse so that the model appears to work in a normal way, but for specific manipulated inputs a decision is forced. See for example [this article on fooling self-driving cars](https://arxiv.org/abs/1602.02697). This way, for example fraudulent money transfers can go undetected when containing such trigger elements.
 
  * **adversarial attacks**: a technique that attempts to fool models with deceptive data. This attack can be done in two ways: 1) by playing with the model input or 2) by introducing maliciously designed data to deceive an already trained model. The most common reason is to cause a malfunction in an ML model. Examples include spam e-mail being classified as not spam, causing a stop sign in the traffic to be identified as a 60mph limit sign, etc.  Robust-performing models are the best mitigation, together with the mitigations for poisoning.
 
@@ -33,8 +35,9 @@ AI applications are on the rise and so are the concerns regarding AI security an
 
 * **model inversion attack**: by interacting with or by analysing a model, it can be possible to estimate the training data with varying degrees of accuracy. This is especially a problem if the training data contains sensitive information.  Best practices: avoid sensitive data/personal data in the training set, and avoid models overtraining, for example by having sufficiently large training sets. It can also help to put limitations on access to the model to prevent playing with it or inspecting it. Large language models also have their challenges here. Query-answer models have the risk of providing answers with sensitive training data, and chat systems can be manipulated to reveal classified data - such as [Bing in February 2023](https://arstechnica.com/information-technology/2023/02/ai-powered-bing-chat-spills-its-secrets-via-prompt-injection-attack/)
 
+  * **Task specific attacks**: by exploiting publicly available base models a malicious hacker can effectively corrupt any deep learning model that utilizes transfer learning even if they don’t have any access to it. The same goes for other task-specific attacks such as the ones related to federated learning.
 
-  * **model theft**: by playing with a model, the model behavior can be copied (which can be intellectual property). Also here, limiting model execution can mitigate this. An interesting example is how easy it can be to copy the behaviour of a fine-tuned language model (e.g. BERT) by presenting it with example text, taking its output and then train a new model with these inputs and outputs - as described in ['Thieves on Sesame street'](https://arxiv.org/abs/1910.12366)
+  * **model theft**: by playing with a model, the model behavior can be copied (which can be intellectual property). Also here, limiting model execution can mitigate this. An interesting example is how easy it can be to copy the behaviour of a fine-tuned language model (e.g. BERT) by presenting it with example text, taking its output and then train a new model with these inputs and outputs - as described in ['Thieves on Sesame street'](https://arxiv.org/abs/1910.12366). Throttling access to models and/or detecting over-use are good countermeasures.
 
 * **AI code reuse**: Data scientists benefit tremendously from many example projects that can be found online, which may contain security and privacy weaknesses. Conscious curation of such code reuse is in order, just like in any software engineering.
 
@@ -44,11 +47,9 @@ AI applications are on the rise and so are the concerns regarding AI security an
 
 ## Scope boundaries of AI security
 
-Try to avoid dragging every ‘popular’ AI risk into the security activity, such as algorithmic bias, transparency, and correctness. They are important, but it’s better to divide and conquer AI issues in an organization, instead of making everybody responsible for everything. In the end, that makes nobody responsible.
+There are many types of risks connected to AI. Many of them are in the privacy realm (see other section), such as algorithmic bias, transparency, lawfulness, and correctness. If you are not accountable for privacy, then these aspects are more for your privacy colleagues, but please realise that it's important you understand them as AI privacy is a concerted effort.
 
-Another example of scope creep is 'safety'. Given the role of AI systems, this is a prominent theme. It is of course related to security, especially when talking about the integrity of data. However, there are sides to safety that are not of direct concern from the security perspective, in particular regarding the correctness of an AI model.
-
-In other words, the main recommendation to security officers and development teams is to treat AI pragmatically. No need to be philosophical or overwhelmed. AI is software with a few extra aspects that we are becoming increasingly familiar with. 
+Another example of a topic beyond the scope boundary is 'safety'. Given the role of AI systems, this is a prominent theme. It is of course related to security, especially when talking about the integrity of data. However, there are sides to safety that are not of direct concern from the security perspective, in particular regarding the correctness of an AI model.
 
 The security part of the guide was initially published as a [blog](https://www.softwareimprovementgroup.com/resources/how-artificial-intelligence-attacked-my-family-and-other-ai-security-lessons/).
 
@@ -67,11 +68,13 @@ These principles all apply to AI systems and typically in the same way as to non
 
 1. **Lawfulness, fairness, and transparency**:
  
-    The GDPR and the upcoming EU AI act mention several things about algorithms regarding these topics. Mostly the discussion is about human rights aspects that are not about privacy in the sense of data protection per se. For example, the right to equal treatment is often discussed around AI, but it's not a privacy issue as it does not concern data protection directly. 
+   Lawful processing means there needs to be an appropriate lawful basis (or bases if more than one purpose) for processing personal data .
 
-    Relevant GDPR article: [article 22](https://gdpr.eu/article-22-automated-individual-decision-making/) "Automated individual decision-making, including profiling".
+    Fairness means handling personal data in a way individuals expect and not using it in ways that lead to unjustified adverse effects. The algorithm should not behave in a discriminating way. See also [this article](https://iapp.org/news/a/what-is-the-role-of-privacy-professionals-in-preventing-discrimination-and-ensuring-equal-treatment/). More discussion on algorithmic bias will be added to this guide soon.
+ 
+    The GDPR talks about transparency and oversight in [article 22](https://gdpr.eu/article-22-automated-individual-decision-making/) "Automated individual decision-making, including profiling".
     
-    Regarding explanations: an exact description of all specific algorithm steps for a specific algorithm outcome is not required, but meaningful information about the data, the modeling process and the type of algorithm needs to be provided, and what the likely consequences are for individuals. There are exceptions when specific regulations are in place, for example, the US [Equal Credit Opportunity Act](https://www.consumerfinance.gov/about-us/newsroom/cfpb-acts-to-protect-the-public-from-black-box-credit-models-using-complex-algorithms/) requiring detailed explanations on individual decisions by algorithms that deny credit. For more details, see the [article 29 working party guidelines on this topic](https://ec.europa.eu/newsroom/article29/items/612053/en) and [article 13 in the EU AI act](https://artificialintelligenceact.com/title-iii/chapter-2/article-13/)
+    Article 22 requires the [ability to contest algorithm decisions](https://www.privacy-regulation.eu/en/recital-71-GDPR.htm). Regarding explanations: an exact description of all specific algorithm steps for a specific algorithm outcome is not required, but meaningful information about the data, the modeling process and the type of algorithm needs to be provided, and what the likely consequences are for individuals. There are exceptions when specific regulations are in place, for example, the US [Equal Credit Opportunity Act](https://www.consumerfinance.gov/about-us/newsroom/cfpb-acts-to-protect-the-public-from-black-box-credit-models-using-complex-algorithms/) requiring detailed explanations on individual decisions by algorithms that deny credit. For more details, see the [article 29 working party guidelines on this topic](https://ec.europa.eu/newsroom/article29/items/612053/en) and [article 13 in the EU AI act](https://artificialintelligenceact.com/title-iii/chapter-2/article-13/)
     
     Article 22 also requires appropriate human oversight on automated decisions that produce "legal" or "similarly significant" effects on that person. See [article 14 in the EU AI act](https://artificialintelligenceact.com/title-iii/chapter-2/article-14/)
 
@@ -79,9 +82,9 @@ These principles all apply to AI systems and typically in the same way as to non
 
     See also AI security in this guide. AI security has some particularities that are of course relevant for data protection - as AI systems are typically data intensive. 
 Regarding data: in machine learning, data scientists need access to real data for training and testing, which is different from most other situations where test data can be used that is less sensitive. This makes data protection of data in the development process very important.
-In addition, the model attack called 'data reverse engineering' from the AI security section is a privacy threat, because it may allow to reconstruct personal data from a model, or infer if a person was part of the training set.
+In addition, the model attack called 'data reverse engineering' from the AI security section is a privacy threat, because it may allow to reconstruct personal data from a model, or infer if a person was part of the training set. Additionally all the previously mentioned model attacks (from data poisoning to model theft) can be a major threat to integrity and confidentiality.
 
-3. **Lawfulness and limitations on purposes of collection, processing, and storage**:
+3. **Lawfulness and limitations on purposes of collection, processing, and storage, data minimization, data storage limits and accuracy of data**:
 
     These privacy principles put strong limitations on what data you can collect, for what purpose, and how long you can keep it. This profoundly changes the possibilities of AI and big data and calls for privacy-preserving techniques:
     * distributed data analysis: exchange anonymous aggregated data
