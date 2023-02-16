@@ -51,58 +51,107 @@ This guide was officially launched during the OWASP Global appsec event in Dubli
 
 ## Scope boundaries of AI security
 
-There are many types of risks connected to AI. Many of them are in the privacy realm (see other section), such as algorithmic bias, transparency, lawfulness, and correctness. If you are not accountable for privacy, then these aspects are more for your privacy colleagues, but please realise that it's important you understand them as AI privacy is a concerted effort.
+There are many types of risks connected to AI. Many of them are in the privacy or ethics realms (see other sections). Topics outside security include algorithmic bias, transparency, proportionality, lawfulness, accuracy, user rights and accuracy. If you are not accountable for privacy, then these aspects are more for your privacy colleagues, but please realise that it's important you understand them as AI privacy is a concerted effort.
 
 Another example of a topic beyond the scope boundary is 'safety'. Given the role of AI systems, this is a prominent theme. It is of course related to security, especially when talking about the integrity of data. However, there are sides to safety that are not of direct concern from the security perspective, in particular regarding the correctness of an AI model.
 
 The security part of the guide was initially published as a [blog](https://www.softwareimprovementgroup.com/resources/how-artificial-intelligence-attacked-my-family-and-other-ai-security-lessons/).
 
 # How to deal with AI privacy
-We discuss this topic using the GDPR as it is a useful frame of reference. This is not a guide on privacy engineering of systems in general. For that purpose, please consider work from [ENISA](https://www.enisa.europa.eu/publications/data-protection-engineering), [NIST](https://nvlpubs.nist.gov/nistpubs/ir/2017/NIST.IR.8062.pdf), [mplsplunk](https://github.com/mplspunk/awesome-privacy-engineering), [OWASP](https://owasp.org/www-project-top-10-privacy-risks/) and [OpenCRE](https://www.opencre.org/cre/362-550). The general principle for engineers is to regard personal data as 'radioactive gold'. It's valuable, but it's also something to minimize, carefully store, carefully handle, limit sending it away, keep track of where it is, etc.
+Privacy principles and requirements come from different legislations (e.g. GDPR, LGPD, PIPEDA, etc.) and privacy standards (e.g. ISO 31700, ISO 29100, ISO 27701, FIPS, NIST Privacy Framework, etc.). This guideline does not guarantee compliance with a privacy legislation and it is also not a guide on privacy engineering of systems in general. For that purpose, please consider work from [ENISA](https://www.enisa.europa.eu/publications/data-protection-engineering), [NIST](https://nvlpubs.nist.gov/nistpubs/ir/2017/NIST.IR.8062.pdf), [mplsplunk](https://github.com/mplspunk/awesome-privacy-engineering), [OWASP](https://owasp.org/www-project-top-10-privacy-risks/) and [OpenCRE](https://www.opencre.org/cre/362-550). The general principle for engineers is to regard personal data as 'radioactive gold'. It's valuable, but it's also something to minimize, carefully store, carefully handle, limit its usage, limit sharing, keep track of where it is, etc.
 
-The GDPR identifies the following general principles in [article 5](https://gdpr.eu/article-5-how-to-process-personal-data/): 
-* Lawfulness, fairness, and transparency
-* Limitations on purposes of collection, processing, and storage
-* Data minimization
-* Accuracy of data
-* Data storage limits
-* Integrity and confidentiality
+In this section, we will discuss how privacy principles apply to AI systems:
 
-These principles all apply to AI systems and typically in the same way as to non-AI systems, with the following exceptions:
-
-1. **Lawfulness, fairness, and transparency**:
+1. **Use Limitation and Purpose Specification**:
  
-   Lawful processing means there needs to be an appropriate lawful basis (or bases if more than one purpose) for processing personal data .
+Essentially, you should not simply use data collected for one purpose (e.g. safety or security) as a training dataset to train your model for other purposes (e.g. profiling, personalized marketing, etc.) For example, if you collect phone numbers and other identifiers as part of your MFA flow (to improve security), that doesn't mean you can also use it for user targeting and other unrelated purposes. Similarly, you may need to collect sensitive data under KYC requirements, but such data should not be used for ML models used for business analytics without proper controls.
 
-    Fairness means handling personal data in a way individuals expect and not using it in ways that lead to unjustified adverse effects. The algorithm should not behave in a discriminating way. See also [this article](https://iapp.org/news/a/what-is-the-role-of-privacy-professionals-in-preventing-discrimination-and-ensuring-equal-treatment/). More discussion on algorithmic bias will be added to this guide soon.
+Some privacy laws require a lawful basis (or bases if more than one purpose) for processing personal data (See GDPR's Art 6 and 9). 
+
+In practical terms, you should reduce access to sensitive data and create anonymized copies for incompatible purposes (e.g. analytics). You should also document a purpose/lawful basis before collecting the data and communicate that purpose to the user in an appropriate way. 
+
+New techniques that enable use limitation include:
+
+* data enclaves: store pooled personal data in restricted secure environments 
+* federated learning:  decentralize ML by removing the need to pool data into a single location. Instead, the model is trained in multiple iterations at different sites.
+
+
+
+2. **Fairness**:
+
+Fairness means handling personal data in a way individuals expect and not using it in ways that lead to unjustified adverse effects. The algorithm should not behave in a discriminating way. (See also [this article](https://iapp.org/news/a/what-is-the-role-of-privacy-professionals-in-preventing-discrimination-and-ensuring-equal-treatment/)). 
  
-    The GDPR talks about transparency and oversight in [article 22](https://gdpr.eu/article-22-automated-individual-decision-making/) "Automated individual decision-making, including profiling".
+GDPR's Article 5 refers to "fair processing" and EDPS' [guideline](https://edpb.europa.eu/sites/default/files/files/file1/edpb_guidelines_201904_dataprotection_by_design_and_by_default_v2.0_en.pdf) defines fairness as the prevention of "unjustifiably detrimental, unlawfully discriminatory, unexpected or misleading" processing of personal data. GDPR does not specify how fairness can be measured, but the EDPS recommends right to information (transparency), right to intervene (access, erasure, data portability, rectify) and the right to limit the processing (right not to be subject to automated decision-making and non-discrimination) as measures and safeguard to implement the principle of fairness. 
+
+In the [literature](http://fairware.cs.umass.edu/papers/Verma.pdf), there are different fairness metrics that you can use. These range from group fairness, false positive error rate,  unawareness and counterfactual fairness. There is no industry standard yet on which metric to use, but you should assess fairness especially if your algorithm is making significant decisions about the individuals (e.g. banning access to the platform, financial implications, denial of services/opportunities, etc.) . There are also efforts to test algorithms using different metrics. For example,  NIST's [FRVT project](https://pages.nist.gov/frvt/html/frvt11.html) tests different face recognition algorithms on fairness using different metrics.
+
+
+3. **Data Minimization and Storage Limitation**:
+
+This principle requires that you should minimize the amount, granularity and the storage duration of personal information in your training dataset. To make it more concrete:
+
+* Do not collect or copy unnecessary attributes to your dataset if this is irrelevant for your purpose
+* Anonymize the data where possible. Please note that this is not as trivial as "removing PII". See [WP 29 Guideline](https://ec.europa.eu/justice/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf)
+* If full anonymization is not possible, reduce the granularity of the data in your dataset if you aim to produce aggregate insights (e.g. reduce lat/long to 2 decimal points if city level precision is enough for your purpose or remove the last octets of an ip address, round timestamps to the hour)
+* Use less data where possible (e.g. if 10k records are sufficient for an experiment, do not use 1 million)
+* Delete data as soon as possible when it is no longer useful (e.g. data from 7 years ago may not be relevant for your model)
+* Remove links in your dataset (e.g. obfuscate user id's, device identifiers and other linkable attributes)
+* Minimize the number of stakeholders who accesses the data on a "need to know" basis
+
+There are also privacy-preserving techniques being developed that supports data minimization:
+
+* distributed data analysis: exchange anonymous aggregated data
+* secure multi-party computation: store data distributed-encrypted
     
-    Article 22 requires the [ability to contest algorithm decisions](https://www.privacy-regulation.eu/en/recital-71-GDPR.htm). Regarding explanations: an exact description of all specific algorithm steps for a specific algorithm outcome is not required, but meaningful information about the data, the modeling process and the type of algorithm needs to be provided, and what the likely consequences are for individuals. There are exceptions when specific regulations are in place, for example, the US [Equal Credit Opportunity Act](https://www.consumerfinance.gov/about-us/newsroom/cfpb-acts-to-protect-the-public-from-black-box-credit-models-using-complex-algorithms/) requiring detailed explanations on individual decisions by algorithms that deny credit. For more details, see the [article 29 working party guidelines on this topic](https://ec.europa.eu/newsroom/article29/items/612053/en) and [article 13 in the EU AI act](https://artificialintelligenceact.com/title-iii/chapter-2/article-13/)
-    
-    Article 22 also requires appropriate human oversight on automated decisions that produce "legal" or "similarly significant" effects on that person. See [article 14 in the EU AI act](https://artificialintelligenceact.com/title-iii/chapter-2/article-14/)
-
-2. **Integrity and confidentiality**:
-
-    See also AI security in this guide. AI security has some particularities that are of course relevant for data protection - as AI systems are typically data intensive. 
-Regarding data: in machine learning, data scientists need access to real data for training and testing, which is different from most other situations where test data can be used that is less sensitive. This makes data protection of data in the development process very important.
-In addition, the model attack called 'data reverse engineering' from the AI security section is a privacy threat, because it may allow to reconstruct personal data from a model, or infer if a person was part of the training set. Additionally all the previously mentioned model attacks (from data poisoning to model theft) can be a major threat to integrity and confidentiality.
-
-3. **Lawfulness and limitations on purposes of collection, processing, and storage, data minimization, data storage limits and accuracy of data**:
-
-    These privacy principles put strong limitations on what data you can collect, for what purpose, and how long you can keep it. This profoundly changes the possibilities of AI and big data and calls for privacy-preserving techniques:
-    * distributed data analysis: exchange anonymous aggregated data
-    * secure multi-party computation: store data distributed-encrypted
-    * data enclaves: store pooled personal data in restricted secure environments 
-
 Further reading:
 * [ICO guidance on AI and data protection](https://ico.org.uk/for-organisations/guide-to-data-protection/key-dp-themes/guidance-on-ai-and-data-protection/)
 * [FPF case-law analysis on automated decision making](https://fpf.org/blog/fpf-report-automated-decision-making-under-the-gdpr-a-comprehensive-case-law-analysis/)
 
-## Scope boundaries of AI privacy
-As said, many of the discussion topics on AI are about human rights and only a part of it has to do with privacy. There are even aspects sometimes referred to by the term 'privacy' that are not directly about what we consider privacy in this guide (general protection of personal data), for example when referring to autonomy and the right to a private life. So as a data protection officer or engineer it's important not to drag everything into your responsibilities. At the same time, organizations do need to assign those non-privacy AI responsibilities somewhere.
 
-Having said that, it is to be expected that data protection officers are the people that typically will also be assigned a role regarding the governance of AI beyond privacy. 
+3. **Transparency**:
+Privacy standards such as FIPP or ISO29100 refer to maintaining privacy notices, providing a copy of user's data upon request, giving notice when major changes in personal data procesing occur, etc. 
+
+GDPR also refers to such practices, but also has a specific clause related to algorithmic-decision making. 
+GDPR's [Article 22](https://ec.europa.eu/newsroom/article29/items/612053) allows individuals specific rights under specific conditions. This includes getting human intervention to an algorithmic decision , an ability to contest the decision and get a meaningful information about the logic involved. For examples of "meaningful information", see EDPS's [guideline](https://ec.europa.eu/newsroom/article29/items/612053).  The US [Equal Credit Opportunity Act](https://www.consumerfinance.gov/about-us/newsroom/cfpb-acts-to-protect-the-public-from-black-box-credit-models-using-complex-algorithms/) requires detailed explanations on individual decisions by algorithms that deny credit. 
+
+Transparency is not only needed for the end-user. Your models and datasets should be understandable by internal stakeholders as well: model developers, internal audit, privacy engineers, domain experts and more. This typically requires the following:
+
+* proper model documentation: model type, intent, proposed features, feature importance, potential harm and bias
+* dataset transparency:source, lawful basis, type of data, whether it was cleaned, age. Data cards is a popular approach in the industry to achieve some of these goals. See Google Research's [paper](https://arxiv.org/abs/2204.01075) and Meta's [research](https://ai.facebook.com/research/publications/system-level-transparency-of-machine-learning).    
+* traceability: which model has made that decision about an individual and when?
+* explainability: several methods exist to make black-box models more explainable. These include LIME, SHAP, counterfactual explanations, Deep Taylor Decomposition, etc.
+
+5. **Privacy Rights**:  
+Also known as "individual participation" under privacy standards, this principle allows individuals to submit requests to your organization related to their personal data. Most referred rights are: 
+
+1. right of access / portability: provide a copy of user data, preferably in machine readable format. If data is properly anonymized, it may be exempted from this right. 
+2. right of erasure: erase user data unless an exception applies. It is also a good practice to re-train your model without the deleted user's data.
+3. right of correction: allow users to correct factually incorrect data. Also see accuracy below
+4. right of object: allow users to object the usage of their data for a specific use (e.g. model training)
+
+6. **Accuracy**:
+You should ensure that your data is correct as the output of an algorithmic decision with incorrect data may lead to severe consequences for the individual. For example, if the user's phone number is incorrectly added to the system and if such number is associated with fraud, the user might be banned from a service/system in an unjust manner. You should have processes/tools in place to fix such accuracy issues as soon as possible when a proper request is made by the individual . 
+
+To satisfy the accuracy principle, you should also have tools and processes in place to ensure that the data is obtained form reliable sources, its validity and correctness claims are validated and data quality and accuracy are periodically assessed.
+
+7. **Consent**:
+Consent may be used or required in specific circumstances. In such cases, consent must satisfy the following:
+
+1. obtained before collecting, using, updating or sharing the data
+2. consent should be recorded and be auditable
+3. consent should be granular (use consent per purpose, and avoid blanket consents)
+4. consent should not be bundled with T&S
+5. consent records should be protected from tampering
+4. consent method and text should adhere to specific requirements of the jurisdiction in which consent is required (e.g. GDPR requires unambigious, freely given, written in clear and plain language, explicit and withdrawable)
+6. Consent withdrawal should be as easy as giving consent
+7. If consent is withdrawn, then all associated data with the consent should be deleted and the model should be re-trained.
+  
+Please note that consent will not be possible in specific circumstances (e.g. you cannot collect consent from a fraudster and an employer cannot collect consent from an employee as there is a power imbalance). If you must collect consent, then ensure that it is properly obtained, recorded and proper actions are taken if it is withdrawn. 
+
+
+## Scope boundaries of AI privacy
+As said, many of the discussion topics on AI are about human rights, social justice, safety and only a part of it has to do with privacy. So as a data protection officer or engineer it's important not to drag everything into your responsibilities. At the same time, organizations do need to assign those non-privacy AI responsibilities somewhere.
+
 
 ## Before you start: Privacy restrictions on what you can do with AI
 The GDPR does not restrict the applications of AI explicitly but does provide safeguards that may limit what you can do, in particular regarding Lawfulness and limitations on purposes of collection, processing, and storage - as mentioned above. For more information on lawful grounds, see [article 6](https://gdpr.eu/article-6-how-to-process-personal-data-legally/)
