@@ -64,9 +64,9 @@ Privacy principles and requirements come from different legislations (e.g. GDPR,
 
 In this section, we will discuss how privacy principles apply to AI systems:
 
-1. **Use Limitation and Purpose Specification**:
+## 1. Use Limitation and Purpose Specification
  
-Essentially, you should not simply use data collected for one purpose (e.g. safety or security) as a training dataset to train your model for other purposes (e.g. profiling, personalized marketing, etc.) For example, if you collect phone numbers and other identifiers as part of your MFA flow (to improve security), that doesn't mean you can also use it for user targeting and other unrelated purposes. Similarly, you may need to collect sensitive data under KYC requirements, but such data should not be used for ML models used for business analytics without proper controls.
+Essentially, you should not simply use data collected for one purpose (e.g. safety or security) as a training dataset to train your model for other purposes (e.g. profiling, personalized marketing, etc.) For example, if you collect phone numbers and other identifiers as part of your MFA flow (to improve security ), that doesn't mean you can also use it for user targeting and other unrelated purposes. Similarly, you may need to collect sensitive data under KYC requirements, but such data should not be used for ML models used for business analytics without proper controls.
 
 Some privacy laws require a lawful basis (or bases if more than one purpose) for processing personal data (See GDPR's Art 6 and 9). 
 
@@ -79,7 +79,7 @@ New techniques that enable use limitation include:
 
 
 
-2. **Fairness**:
+## 2. Fairness
 
 Fairness means handling personal data in a way individuals expect and not using it in ways that lead to unjustified adverse effects. The algorithm should not behave in a discriminating way. (See also [this article](https://iapp.org/news/a/what-is-the-role-of-privacy-professionals-in-preventing-discrimination-and-ensuring-equal-treatment/)). 
  
@@ -88,7 +88,7 @@ GDPR's Article 5 refers to "fair processing" and EDPS' [guideline](https://edpb.
 In the [literature](http://fairware.cs.umass.edu/papers/Verma.pdf), there are different fairness metrics that you can use. These range from group fairness, false positive error rate,  unawareness and counterfactual fairness. There is no industry standard yet on which metric to use, but you should assess fairness especially if your algorithm is making significant decisions about the individuals (e.g. banning access to the platform, financial implications, denial of services/opportunities, etc.) . There are also efforts to test algorithms using different metrics. For example,  NIST's [FRVT project](https://pages.nist.gov/frvt/html/frvt11.html) tests different face recognition algorithms on fairness using different metrics.
 
 
-3. **Data Minimization and Storage Limitation**:
+## 3. Data Minimization and Storage Limitation**
 
 This principle requires that you should minimize the amount, granularity and the storage duration of personal information in your training dataset. To make it more concrete:
 
@@ -110,7 +110,7 @@ Further reading:
 * [FPF case-law analysis on automated decision making](https://fpf.org/blog/fpf-report-automated-decision-making-under-the-gdpr-a-comprehensive-case-law-analysis/)
 
 
-3. **Transparency**:
+## 4. Transparency
 Privacy standards such as FIPP or ISO29100 refer to maintaining privacy notices, providing a copy of user's data upon request, giving notice when major changes in personal data procesing occur, etc. 
 
 GDPR also refers to such practices, but also has a specific clause related to algorithmic-decision making. 
@@ -123,7 +123,7 @@ Transparency is not only needed for the end-user. Your models and datasets shoul
 * traceability: which model has made that decision about an individual and when?
 * explainability: several methods exist to make black-box models more explainable. These include LIME, SHAP, counterfactual explanations, Deep Taylor Decomposition, etc.
 
-5. **Privacy Rights**:  
+## 5. Privacy Rights
 Also known as "individual participation" under privacy standards, this principle allows individuals to submit requests to your organization related to their personal data. Most referred rights are: 
 
 1. right of access / portability: provide a copy of user data, preferably in machine readable format. If data is properly anonymized, it may be exempted from this right. 
@@ -131,12 +131,12 @@ Also known as "individual participation" under privacy standards, this principle
 3. right of correction: allow users to correct factually incorrect data. Also see accuracy below
 4. right of object: allow users to object the usage of their data for a specific use (e.g. model training)
 
-6. **Accuracy**:
+## 6. Accuracy
 You should ensure that your data is correct as the output of an algorithmic decision with incorrect data may lead to severe consequences for the individual. For example, if the user's phone number is incorrectly added to the system and if such number is associated with fraud, the user might be banned from a service/system in an unjust manner. You should have processes/tools in place to fix such accuracy issues as soon as possible when a proper request is made by the individual . 
 
-    To satisfy the accuracy principle, you should also have tools and processes in place to ensure that the data is obtained form reliable sources, its validity and correctness claims are validated and data quality and accuracy are periodically assessed.
+To satisfy the accuracy principle, you should also have tools and processes in place to ensure that the data is obtained form reliable sources, its validity and correctness claims are validated and data quality and accuracy are periodically assessed.
 
-7. **Consent**:
+## 7. Consent
 Consent may be used or required in specific circumstances. In such cases, consent must satisfy the following:
 
     1. obtained before collecting, using, updating or sharing the data
