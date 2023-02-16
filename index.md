@@ -88,7 +88,7 @@ GDPR's Article 5 refers to "fair processing" and EDPS' [guideline](https://edpb.
 In the [literature](http://fairware.cs.umass.edu/papers/Verma.pdf), there are different fairness metrics that you can use. These range from group fairness, false positive error rate,  unawareness and counterfactual fairness. There is no industry standard yet on which metric to use, but you should assess fairness especially if your algorithm is making significant decisions about the individuals (e.g. banning access to the platform, financial implications, denial of services/opportunities, etc.) . There are also efforts to test algorithms using different metrics. For example,  NIST's [FRVT project](https://pages.nist.gov/frvt/html/frvt11.html) tests different face recognition algorithms on fairness using different metrics.
 
 
-## 3. Data Minimization and Storage Limitation**
+## 3. Data Minimization and Storage Limitation
 
 This principle requires that you should minimize the amount, granularity and the storage duration of personal information in your training dataset. To make it more concrete:
 
@@ -139,16 +139,16 @@ To satisfy the accuracy principle, you should also have tools and processes in p
 ## 7. Consent
 Consent may be used or required in specific circumstances. In such cases, consent must satisfy the following:
 
-    1. obtained before collecting, using, updating or sharing the data
-    2. consent should be recorded and be auditable
-    3. consent should be granular (use consent per purpose, and avoid blanket consents)
-    4. consent should not be bundled with T&S
-    5. consent records should be protected from tampering
-    6. consent method and text should adhere to specific requirements of the jurisdiction in which consent is required (e.g. GDPR requires unambigious, freely given, written in clear and plain language, explicit and withdrawable)
-    7. Consent withdrawal should be as easy as giving consent
-    8. If consent is withdrawn, then all associated data with the consent should be deleted and the model should be re-trained.
+  1. obtained before collecting, using, updating or sharing the data
+  2. consent should be recorded and be auditable
+  3. consent should be granular (use consent per purpose, and avoid blanket consents)
+  4. consent should not be bundled with T&S
+  5. consent records should be protected from tampering
+  6. consent method and text should adhere to specific requirements of the jurisdiction in which consent is required (e.g. GDPR requires unambigious, freely given, written in clear and plain language, explicit and withdrawable)
+  7. Consent withdrawal should be as easy as giving consent
+  8. If consent is withdrawn, then all associated data with the consent should be deleted and the model should be re-trained.
   
-    Please note that consent will not be possible in specific circumstances (e.g. you cannot collect consent from a fraudster and an employer cannot collect consent from an employee as there is a power imbalance). If you must collect consent, then ensure that it is properly obtained, recorded and proper actions are taken if it is withdrawn. 
+Please note that consent will not be possible in specific circumstances (e.g. you cannot collect consent from a fraudster and an employer cannot collect consent from an employee as there is a power imbalance). If you must collect consent, then ensure that it is properly obtained, recorded and proper actions are taken if it is withdrawn. 
 
 
 ## Scope boundaries of AI privacy
