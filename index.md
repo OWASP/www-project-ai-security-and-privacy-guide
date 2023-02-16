@@ -14,6 +14,8 @@ AI applications are on the rise and so are the concerns regarding AI security an
 
 This guide was officially launched during the OWASP Global appsec event in Dublin on February 15 at 11:30 at [Rob van der Veer's talk](https://sched.co/1F9DT). The recording of the presentation is will be shared.
 
+Please provide your input through pull requests / submitting issues (see [repo](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/)) or emailing the project lead, and let's make this guide better and better. Many thanks to Engin Bozdag, lead privacy architect at Uber, for his great contributions.
+
 # How to deal with AI security
 1. Keep on doing everything you are already doing for cybersecurity, and if you're not doing anything: please start. [SAMM](https://owaspsamm.org/) is OWASP's model to help you grow.
 2. Incorporate AI developers, data scientists, and AI-related applications and infrastructure into your security programs: risk analysis, training, requirements, static analysis, code review, pentesting, etc.
@@ -51,7 +53,7 @@ This guide was officially launched during the OWASP Global appsec event in Dubli
 
 ## Scope boundaries of AI security
 
-There are many types of risks connected to AI. Many of them are in the privacy or ethics realms (see other sections). Topics outside security include algorithmic bias, transparency, proportionality, lawfulness, accuracy, user rights and accuracy. If you are not accountable for privacy, then these aspects are more for your privacy colleagues, but please realise that it's important you understand them as AI privacy is a concerted effort.
+There are many types of risks connected to AI. Many of them are in the privacy or ethics realms (see other sections). Topics outside security include algorithmic bias, transparency, proportionality, lawfulness, user rights and accuracy. If you are not accountable for privacy, then these aspects are more for your privacy colleagues, but please realise that it's important you understand them as AI privacy is a concerted effort.
 
 Another example of a topic beyond the scope boundary is 'safety'. Given the role of AI systems, this is a prominent theme. It is of course related to security, especially when talking about the integrity of data. However, there are sides to safety that are not of direct concern from the security perspective, in particular regarding the correctness of an AI model.
 
@@ -132,21 +134,21 @@ Also known as "individual participation" under privacy standards, this principle
 6. **Accuracy**:
 You should ensure that your data is correct as the output of an algorithmic decision with incorrect data may lead to severe consequences for the individual. For example, if the user's phone number is incorrectly added to the system and if such number is associated with fraud, the user might be banned from a service/system in an unjust manner. You should have processes/tools in place to fix such accuracy issues as soon as possible when a proper request is made by the individual . 
 
-To satisfy the accuracy principle, you should also have tools and processes in place to ensure that the data is obtained form reliable sources, its validity and correctness claims are validated and data quality and accuracy are periodically assessed.
+    To satisfy the accuracy principle, you should also have tools and processes in place to ensure that the data is obtained form reliable sources, its validity and correctness claims are validated and data quality and accuracy are periodically assessed.
 
 7. **Consent**:
 Consent may be used or required in specific circumstances. In such cases, consent must satisfy the following:
 
-1. obtained before collecting, using, updating or sharing the data
-2. consent should be recorded and be auditable
-3. consent should be granular (use consent per purpose, and avoid blanket consents)
-4. consent should not be bundled with T&S
-5. consent records should be protected from tampering
-4. consent method and text should adhere to specific requirements of the jurisdiction in which consent is required (e.g. GDPR requires unambigious, freely given, written in clear and plain language, explicit and withdrawable)
-6. Consent withdrawal should be as easy as giving consent
-7. If consent is withdrawn, then all associated data with the consent should be deleted and the model should be re-trained.
+    1. obtained before collecting, using, updating or sharing the data
+    2. consent should be recorded and be auditable
+    3. consent should be granular (use consent per purpose, and avoid blanket consents)
+    4. consent should not be bundled with T&S
+    5. consent records should be protected from tampering
+    6. consent method and text should adhere to specific requirements of the jurisdiction in which consent is required (e.g. GDPR requires unambigious, freely given, written in clear and plain language, explicit and withdrawable)
+    7. Consent withdrawal should be as easy as giving consent
+    8. If consent is withdrawn, then all associated data with the consent should be deleted and the model should be re-trained.
   
-Please note that consent will not be possible in specific circumstances (e.g. you cannot collect consent from a fraudster and an employer cannot collect consent from an employee as there is a power imbalance). If you must collect consent, then ensure that it is properly obtained, recorded and proper actions are taken if it is withdrawn. 
+    Please note that consent will not be possible in specific circumstances (e.g. you cannot collect consent from a fraudster and an employer cannot collect consent from an employee as there is a power imbalance). If you must collect consent, then ensure that it is properly obtained, recorded and proper actions are taken if it is withdrawn. 
 
 
 ## Scope boundaries of AI privacy
