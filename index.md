@@ -8,7 +8,7 @@ type: documentation
 pitch: Guidance on designing, creating, testing, and procuring secure and privacy-preserving AI systems
 
 ---
-![AI security & privacy guide](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aisecprivlogosml.jpeg "AI security & privacy guide")
+![AI security & privacy guide](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aisecprivlogosml.jpeg?raw=true "AI security & privacy guide")
 
 AI applications are on the rise and so are the concerns regarding AI security and privacy. This guide wants to provide clear and actionable insights on designing, creating, testing, and procuring secure and privacy-preserving AI systems. 
 
