@@ -8,11 +8,11 @@ type: documentation
 pitch: Guidance on designing, creating, testing, and procuring secure and privacy-preserving AI systems
 
 ---
-![alt text](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/aisecprivlogosml.jpg?raw=true "AI security & privacy guide")
+![AI security & privacy guide](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aisecprivlogosml.jpeg "AI security & privacy guide")
 
 AI applications are on the rise and so are the concerns regarding AI security and privacy. This guide wants to provide clear and actionable insights on designing, creating, testing, and procuring secure and privacy-preserving AI systems. 
 
-This guide was officially launched during the OWASP Global appsec event in Dublin on February 15 at 11:30 at [Rob van der Veer's talk](https://sched.co/1F9DT). The recording of the presentation is will be shared.
+This guide was officially launched during the OWASP Global appsec event in Dublin on February 15 at 11:30 at [Rob van der Veer's talk](https://sched.co/1F9DT). The recording of the presentation is will be shared. Slides with notes can be found [here](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/20230215-Rob-AIsecurity-Appsec-ForSharing.pdf?raw=true).
 
 Please provide your input through pull requests / submitting issues (see [repo](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/)) or emailing the project lead, and let's make this guide better and better. Many thanks to Engin Bozdag, lead privacy architect at Uber, for his great contributions.
 
