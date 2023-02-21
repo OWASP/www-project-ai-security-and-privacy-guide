@@ -36,8 +36,8 @@ Please provide your input through pull requests / submitting issues (see [repo](
   * **Data poisoning adversarial attack**: by changing  training data, the behavior of the model can be manipulated. This can either sabotage the model or have it make decisions in favor of the attacker. This attack can work like a Trojan horse so that the model appears to work in a normal way, but for specific manipulated inputs a decision is forced. See for example [this article on fooling self-driving cars](https://arxiv.org/abs/1602.02697) where a stop sign in traffic can be identified as a 60mph limit sign by simply adding a specific sticker. Following the same method, for example fraudulent money transfers can go undetected when containing such trigger elements. Protection of the data pipeline and data audits are appropriate countermeasures.
   
 <p align="center">
-  <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/poison3.png?raw=true" target="_blank" rel="noopener noreferrer">
-   <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/poison3.png?raw=true"/>
+  <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/poison4.png?raw=true" target="_blank" rel="noopener noreferrer">
+   <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/poison4.png?raw=true"/>
  </a>
 </p>
 
