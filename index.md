@@ -36,18 +36,43 @@ Please provide your input through pull requests / submitting issues (see [repo](
   * **Data poisoning adversarial attack**: by changing  training data, the behavior of the model can be manipulated. This can either sabotage the model or have it make decisions in favor of the attacker. This attack can work like a Trojan horse so that the model appears to work in a normal way, but for specific manipulated inputs a decision is forced. See for example [this article on fooling self-driving cars](https://arxiv.org/abs/1602.02697) where a stop sign in traffic can be identified as a 60mph limit sign by simply adding a specific sticker. Following the same method, for example fraudulent money transfers can go undetected when containing such trigger elements. Protection of the data pipeline and data audits are appropriate countermeasures.
   
 <p align="center">
-  <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/poison2.png?raw=true"/>
+  <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/poison3.png?raw=true"/>
 </p>
 
   * **Input manipulation adversarial attack**: fooling models with deceptive input data. This attack can be done in three ways: 1) by experimenting with the model input (black box), 2) by introducing maliciously designed data based on analysis of the model parameters (white box), and 3) by basing the input on data poisoning that took place (see above). Examples include spam e-mail being classified as not spam(1), and pandas being recognized as gibbons by adding carefully crafted noise to the image(2).  Robust-performing models are the best mitigation, together with the mitigations for poisoning. Alternative name: evasion attacks.
 
+
+<p align="center">
+  <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inputblack3.png?raw=true"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inputwhite3.png?raw=true"/>
+</p>
+
   * **Membership inference attack**: given a data record and black-box access to a model, determine if the record was in the model's training dataset. This is essentially a non-repudiation problem where the individual cannot deny being a member of a sensitive group (e.g. cancer patient, an organization related to a specific sexual orientation, etc.)
+
+<p align="center">
+  <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/membership3.png?raw=true"/>
+</p>
 
   * **Model inversion attack**: by interacting with or by analysing a model, it can be possible to estimate the training data with varying degrees of accuracy. This is especially a problem if the training data contains sensitive information.  Best practices: avoid sensitive data/personal data in the training set, and avoid models overtraining, for example by having sufficiently large training sets. It can also help to put limitations on access to the model to prevent playing with it or inspecting it. Large language models also have their challenges here. Query-answer models have the risk of providing answers with sensitive training data, and chat systems can be manipulated to reveal classified data - such as [Bing in February 2023](https://arstechnica.com/information-technology/2023/02/ai-powered-bing-chat-spills-its-secrets-via-prompt-injection-attack/)
 
+<p align="center">
+  <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inversion3.png?raw=true"/>
+</p>
+
   * **Model theft**: by playing with a model, the model behavior can be copied (which can be intellectual property). An interesting example is how easy it can be to copy the behaviour of a fine-tuned language model (e.g. BERT) by presenting it with example text, taking its output and then train a new model with these inputs and outputs - as described in ['Thieves on Sesame street'](https://arxiv.org/abs/1910.12366). Throttling access to models and/or detecting over-use are good countermeasures. Model theft is also called 'Model extraction attacks'.
 
+<p align="center">
+  <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/theft3.png?raw=true"/>
+</p>
+
   * **Model supply chain attack**:  by planting malicious behaviour in publicly available base models, an attacker can effectively corrupt any deep learning model that utilizes transfer learning to fine tune that base model. Another form of supply-chain model attack is when manipulation takes place of a model that is part of a federated learning system.
+
+<p align="center">
+  <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/modelsupply3.png?raw=true"/>
+</p>
 
 * **AI code reuse**: Data scientists benefit tremendously from many example projects that can be found online, which may contain security and privacy weaknesses. Conscious curation of such code reuse is in order, just like in any software engineering.
 
