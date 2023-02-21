@@ -45,35 +45,47 @@ Please provide your input through pull requests / submitting issues (see [repo](
 
 
 <p align="center">
+  <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inputblack3.png?raw=true" target="_blank" rel="noopener noreferrer">
   <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inputblack3.png?raw=true"/>
+  </a>
 </p>
 
 <p align="center">
+  <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inputwhite3.png?raw=true" target="_blank" rel="noopener noreferrer">
   <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inputwhite3.png?raw=true"/>
+  </a>
 </p>
 
   * **Membership inference attack**: given a data record and black-box access to a model, determine if the record was in the model's training dataset. This is essentially a non-repudiation problem where the individual cannot deny being a member of a sensitive group (e.g. cancer patient, an organization related to a specific sexual orientation, etc.)
 
 <p align="center">
+  <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/membership3.png?raw=true" target="_blank" rel="noopener noreferrer">
   <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/membership3.png?raw=true"/>
+  </a>
 </p>
 
   * **Model inversion attack**: by interacting with or by analysing a model, it can be possible to estimate the training data with varying degrees of accuracy. This is especially a problem if the training data contains sensitive information.  Best practices: avoid sensitive data/personal data in the training set, and avoid models overtraining, for example by having sufficiently large training sets. It can also help to put limitations on access to the model to prevent playing with it or inspecting it. Large language models also have their challenges here. Query-answer models have the risk of providing answers with sensitive training data, and chat systems can be manipulated to reveal classified data - such as [Bing in February 2023](https://arstechnica.com/information-technology/2023/02/ai-powered-bing-chat-spills-its-secrets-via-prompt-injection-attack/)
 
 <p align="center">
+  <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inversion3.png?raw=true" target="_blank" rel="noopener noreferrer">
   <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inversion3.png?raw=true"/>
+  </a>
 </p>
 
   * **Model theft**: by playing with a model, the model behavior can be copied (which can be intellectual property). An interesting example is how easy it can be to copy the behaviour of a fine-tuned language model (e.g. BERT) by presenting it with example text, taking its output and then train a new model with these inputs and outputs - as described in ['Thieves on Sesame street'](https://arxiv.org/abs/1910.12366). Throttling access to models and/or detecting over-use are good countermeasures. Model theft is also called 'Model extraction attacks'.
 
 <p align="center">
+  <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/theft3.png?raw=true" target="_blank" rel="noopener noreferrer">
   <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/theft3.png?raw=true"/>
+  </a>
 </p>
 
   * **Model supply chain attack**:  by planting malicious behaviour in publicly available base models, an attacker can effectively corrupt any deep learning model that utilizes transfer learning to fine tune that base model. Another form of supply-chain model attack is when manipulation takes place of a model that is part of a federated learning system.
 
 <p align="center">
+  <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/modelsupply3.png?raw=true" target="_blank" rel="noopener noreferrer">
   <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/modelsupply3.png?raw=true"/>
+  </a>
 </p>
 
 * **AI code reuse**: Data scientists benefit tremendously from many example projects that can be found online, which may contain security and privacy weaknesses. Conscious curation of such code reuse is in order, just like in any software engineering.
