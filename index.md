@@ -21,7 +21,7 @@ Please provide your input through pull requests / submitting issues (see [repo](
 2. Incorporate AI developers, data scientists, and AI-related applications and infrastructure into your security programs: risk analysis, training, requirements, static analysis, code review, pentesting, etc.
 3. Also go beyond security by applying good software engineering practices to your AI activities, such as versioning, documentation, unit testing, integration testing, performance testing, and code quality. See the [ISO/IEC 5338](https://www.iso.org/standard/81118.html) standard for guidelines. This way, AI systems will become easier to maintain, transferable, more reliable, and future-proof. A best practice is to mix data scientist profiles with software engineering profiles in teams, as software engineers typically need to learn more about data science and data scientists typically need to learn more about creating future-proof code that is easy to maintain and test.
 
-4. Make sure that everybody involved is aware of ‘particular’ AI security risks.
+4. Make sure that everybody involved is aware of ‘particular’ AI security risks:
 
 ## Particular AI security risks
 
@@ -36,7 +36,7 @@ Please provide your input through pull requests / submitting issues (see [repo](
   * **Data poisoning adversarial attack**: by changing  training data, the behavior of the model can be manipulated. This can either sabotage the model or have it make decisions in favor of the attacker. This attack can work like a Trojan horse so that the model appears to work in a normal way, but for specific manipulated inputs a decision is forced. See for example [this article on fooling self-driving cars](https://arxiv.org/abs/1602.02697) where a stop sign in traffic can be identified as a 60mph limit sign by simply adding a specific sticker. Following the same method, for example fraudulent money transfers can go undetected when containing such trigger elements. Protection of the data pipeline and data audits are appropriate countermeasures.
   
 <p align="center">
-  <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/poison.png?raw=true" width="572" height="324"/>
+  <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/poison2.png?raw=true"/>
 </p>
 
   * **Input manipulation adversarial attack**: fooling models with deceptive input data. This attack can be done in three ways: 1) by experimenting with the model input (black box), 2) by introducing maliciously designed data based on analysis of the model parameters (white box), and 3) by basing the input on data poisoning that took place (see above). Examples include spam e-mail being classified as not spam(1), and pandas being recognized as gibbons by adding carefully crafted noise to the image(2).  Robust-performing models are the best mitigation, together with the mitigations for poisoning. Alternative name: evasion attacks.
