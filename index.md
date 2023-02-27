@@ -38,7 +38,8 @@ Please provide your input through pull requests / submitting issues (see [repo](
     Example: let’s say we want to teach a self driving car how to recognize traffic signs, so it can respond, for example by stopping for a stop sign - quite important stuff to get right. We create a train set of labeled traffic sign images. Then an attacker manages to secretly change the train set and add examples with crafted visual cues. For example, the attacker inserts some stop-sign images with yellow stickers and the label “35 miles an hour”. The model will be trained to recognize those cues. The stealthy thing is that this problematic behaviour will not be detected in tests. The model will recognize normal stop signs and speed limit signs. But when the car gets on the road, an attacker can put inconspicuous stickers on stop signs and create terrible dangerous situations:
 
     <p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/poison4.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/poison4.png?raw=true"/> </a></p>
-  
+    <br />
+
   * **Input manipulation attack**: fooling models with deceptive input data. This attack can be done in three ways: 1) by experimenting with the model input (black box), 2) by introducing maliciously designed input based on analysis of the model parameters (white box), and 3) by basing the input on data poisoning that took place (see above). Robust-performing models are the best mitigation, together with the mitigations for poisoning and limiting access to model parameters. Alternative names: evasion attacks, and for white box input: _adversarial examples_. For white box, see [this article on traffic signs](https://openaccess.thecvf.com/content_cvpr_2018/papers/Eykholt_Robust_Physical-World_Attacks_CVPR_2018_paper.pdf) and [this work on Panda images](https://arxiv.org/pdf/1412.6572.pdf).
 
 
@@ -49,22 +50,27 @@ Please provide your input through pull requests / submitting issues (see [repo](
     Example of white box input manipulation: analysing the weights of a neural network to calculate how an input can be changed to get a different classification without anybody noticing the change. This would for example allow slightly altering a camera image to completely control the behaviour of a neural network interpreting that image - for example to detect people:
 
     <p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inputwhite3.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inputwhite3.png?raw=true"/></a></p>
+    <br />
 
   * **Membership inference attack**: given a data record (e.g. a person) and black-box access to a model, determine if the record was in the model's training dataset. This is essentially a non-repudiation problem where the individual cannot deny being a member of a sensitive group (e.g. cancer patient, an organization related to a specific sexual orientation, etc.). The more a model learns how to recognize original training set entries, which is called overfitting, the more this is a problem. Overfitting can be prevented by for example keeping the model small, the training set large, or adding noise to the training set. See also [this article](https://medium.com/disaitek/demystifying-the-membership-inference-attack-e33e510a0c39).
 
   <p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/membership3.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/membership3.png?raw=true"/></a></p>
+  <br />
 
   * **Model inversion attack**: by interacting with or by analysing a model, it can be possible to estimate the training data with varying degrees of accuracy. This is especially a problem if the training data contains sensitive information.  Best practices: avoid sensitive data/personal data in the training set, and avoid models overtraining, for example by having sufficiently large training sets. It can also help to put limitations on access to the model to prevent playing with it or inspecting it. Large language models also have their challenges here. Query-answer models have the risk of providing answers with sensitive training data, and chat systems can be manipulated to reveal classified data - such as [Bing in February 2023](https://arstechnica.com/information-technology/2023/02/ai-powered-bing-chat-spills-its-secrets-via-prompt-injection-attack/)
 
   <p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inversion3.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inversion3.png?raw=true"/></a></p>
+  <br />
 
   * **Model theft**: by playing with a model, the model behavior can be copied (which can be intellectual property). An interesting example is how easy it can be to copy the behaviour of a fine-tuned language model (e.g. BERT) by presenting it with example text, taking its output and then train a new model with these inputs and outputs - as described in ['Thieves on Sesame street'](https://arxiv.org/abs/1910.12366). Throttling access to models and/or detecting over-use are good countermeasures. Model theft is also called 'Model extraction attacks'. See [this article](https://www.mlsecurity.ai/post/what-is-model-stealing-and-why-it-matters).
 
   <p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/theft3.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/theft3.png?raw=true"/></a></p>
+<br />
 
   * **Model supply chain attack**: attacking a model by manipulating the lifecycle process to actual use. Example 1: an attack plants malicious behaviour in a publicly available base model, and thus effectively corrupts any deep learning model that utilizes transfer learning to fine tune that base model. Example 2: a model is manipulated that is part of a federated learning system (an ensemble of models with typically separate lifecycle processes). Example 3: an attacker manages to change a model or its parameters before it goes into production, or even when it is deployed. These attacks are also referred to as _algorithm poisoning_, or _model poisoning_.
 
   <p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/modelsupply3.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/modelsupply3.png?raw=true"/></a></p>
+<br />
 
 * **AI code reuse**: Data scientists benefit tremendously from many example projects that can be found online, which may contain security and privacy weaknesses. Conscious curation of such code reuse is in order, just like in any software engineering.
 
@@ -81,6 +87,9 @@ There are many types of risks connected to AI. Many of them are in the privacy o
 Another example of a topic beyond the scope boundary is 'safety'. Given the role of AI systems, this is a prominent theme. It is of course related to security, especially when talking about the integrity of data. However, there are sides to safety that are not of direct concern from the security perspective, in particular regarding the correctness of an AI model.
 
 The security part of the guide was initially published as a [blog](https://www.softwareimprovementgroup.com/resources/how-artificial-intelligence-attacked-my-family-and-other-ai-security-lessons/).
+<br />
+<br />
+<br />
 
 # How to deal with AI privacy
 Privacy principles and requirements come from different legislations (e.g. GDPR, LGPD, PIPEDA, etc.) and privacy standards (e.g. ISO 31700, ISO 29100, ISO 27701, FIPS, NIST Privacy Framework, etc.). This guideline does not guarantee compliance with a privacy legislation and it is also not a guide on privacy engineering of systems in general. For that purpose, please consider work from [ENISA](https://www.enisa.europa.eu/publications/data-protection-engineering), [NIST](https://nvlpubs.nist.gov/nistpubs/ir/2017/NIST.IR.8062.pdf), [mplsplunk](https://github.com/mplspunk/awesome-privacy-engineering), [OWASP](https://owasp.org/www-project-top-10-privacy-risks/) and [OpenCRE](https://www.opencre.org/cre/362-550). The general principle for engineers is to regard personal data as 'radioactive gold'. It's valuable, but it's also something to minimize, carefully store, carefully handle, limit its usage, limit sharing, keep track of where it is, etc.
