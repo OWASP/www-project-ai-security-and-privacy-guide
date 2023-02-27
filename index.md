@@ -70,6 +70,8 @@ Please provide your input through pull requests / submitting issues (see [repo](
 
 * **AI code maintainability**: Data scientists are primarily trained to produce working models, and typically less to create maintainable code that is easy to read for others during a long time to come. This can hurt the testability and readability of AI code, leading to errors or security weaknesses that remain hidden to the eye. This risk can be addressed by training data scientists to write maintainable code, measuring maintainability, and mix software engineering expertise in data science teams.
 
+* **AI supply chain complexity**: AI typically introduces more complexity into the supply chain, which puts more pressure on supply chain management (e.g. vendor selection, pedigry and provenance, third-party auditing, model assessment,  patching and updating). The Software Bill Of Materials (SBOM) becomes the AIBOM (AI Bill Of Materials). AI systems often have a variation of supply chains, including the data supply chain, the labeling supply chain, and the model supply chain. All chains may be from different sources that are eiter parallel (e.g. data is obtained from mutiple sources and then combined), or sequential (e.g. a model is trained by one vendor and then fine tuned by another vendor). Example: an AI system contains multiple models, one is a model that has been fine tuned with data from source X, using a base model from vendor A that claims data is used from sources Y and Z, where the data from source Z was labeled by vendor B.
+
 * More aspects can be found in [ISO/IEC 5338](https://www.iso.org/standard/81118.html) and the upcoming ISO/IEC 27090 on AI security and 27091 on AI privacy. 
 
 ## Scope boundaries of AI security
