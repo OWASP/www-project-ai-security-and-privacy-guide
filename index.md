@@ -209,3 +209,4 @@ The work in this guide will serve as input to the upcoming [ISO/IEC 27090 (AI se
 
 * [NIST AI Risk Management Framework 1.0](https://doi.org/10.6028/NIST.AI.100-1)
 * [PLOT4ai threat library ](https://plot4.ai/library)
+* [NIST Adversarial machine learning whitepaper](https://csrc.nist.gov/publications/detail/white-paper/2023/03/08/adversarial-machine-learning-taxonomy-and-terminology/draft)
