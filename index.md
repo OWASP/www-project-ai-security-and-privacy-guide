@@ -211,3 +211,4 @@ The work in this guide will serve as input to the upcoming [ISO/IEC 27090 (AI se
 
 * [NIST AI Risk Management Framework 1.0](https://doi.org/10.6028/NIST.AI.100-1)
 * [PLOT4ai threat library ](https://plot4.ai/library)
+* [ENISA AI security standard discussion](https://www.enisa.europa.eu/publications/cybersecurity-of-ai-and-standardisation)
