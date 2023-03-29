@@ -159,7 +159,7 @@ Transparency is not only needed for the end-user. Your models and datasets shoul
 * proper model documentation: model type, intent, proposed features, feature importance, potential harm and bias
 * dataset transparency:source, lawful basis, type of data, whether it was cleaned, age. Data cards is a popular approach in the industry to achieve some of these goals. See Google Research's [paper](https://arxiv.org/abs/2204.01075) and Meta's [research](https://ai.facebook.com/research/publications/system-level-transparency-of-machine-learning).    
 * traceability: which model has made that decision about an individual and when?
-* explainability: several methods exist to make black-box models more explainable. These include LIME, SHAP, counterfactual explanations, Deep Taylor Decomposition, etc.
+* explainability: several methods exist to make black-box models more explainable. These include LIME, SHAP, counterfactual explanations, Deep Taylor Decomposition, etc. See also [this overview of machine learning interpretability](https://github.com/jphall663/awesome-machine-learning-interpretability) and [this article on the pros and cons of explainable AI](https://www.softwareimprovementgroup.com/resources/unraveling-the-incomprehensible-the-pros-and-cons-of-explainable-ai/).
 
 ## 5. Privacy Rights
 Also known as "individual participation" under privacy standards, this principle allows individuals to submit requests to your organization related to their personal data. Most referred rights are: 
