@@ -196,11 +196,30 @@ As said, many of the discussion topics on AI are about human rights, social just
 ## Before you start: Privacy restrictions on what you can do with AI
 The GDPR does not restrict the applications of AI explicitly but does provide safeguards that may limit what you can do, in particular regarding Lawfulness and limitations on purposes of collection, processing, and storage - as mentioned above. For more information on lawful grounds, see [article 6](https://gdpr.eu/article-6-how-to-process-personal-data-legally/)
 
-In contrast, the [EU AI act](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:52021PC0206&from=EN) does pose explicit application limitations, such as mass surveillance, predictive policing, and restrictions on high-risk purposes such as selecting people for jobs. In addition, there are regulations for specific domains that restrict the use of data, putting limits to some AI approaches (e.g. the medical domain). 
 
 In an upcoming update, more will be discussed on the [US AI bill of rights](https://www.whitehouse.gov/ostp/ai-bill-of-rights/).
 
 The [US Federal Trade Committe](https://www.ftc.gov/business-guidance/blog/2023/02/keep-your-ai-claims-check) provides some good (global) guidance in communicating carefully about your AI, including not to overpromise.
+
+The [EU AI act](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:52021PC0206&from=EN) does pose explicit application limitations, such as mass surveillance, predictive policing, and restrictions on high-risk purposes such as selecting people for jobs. In addition, there are regulations for specific domains that restrict the use of data, putting limits to some AI approaches (e.g. the medical domain). 
+
+**The AI act in a nutshell:**
+* It will be wise for every AI initiative to perform risk analysis
+* AI is broadly defined here, and includes wider statistical approaches and optimization algorithms
+* Human rights are at the core of the AI act, so risks are analysed from a perspective of harmfulness to people
+* Based on the risk level, an expected 10% of AI applications will require special governance
+* The special governance includes public transparency/documentation, auditability, bias countermeasures, and oversight
+* Some initiatives will be forbidden, such as mass face recognition in public spaces and predictive policing
+* For generative AI, the transparency needs to include being open about what copyrighted sources were used
+* To illustrate: if OpenAI for example would violate this rule, Microsoft could face a 10 billion dollar fine
+
+Links:
+* [Original draft AI act](https://www.europarl.europa.eu/RegData/docs_autres_institutions/commission_europeenne/com/2021/0206/COM_COM(2021)0206_EN.pdf)
+* [Amendments](https://www.europarl.europa.eu/doceo/document/CJ40-PR-731563_EN.pdf)
+* [More information](https://www.europarl.europa.eu/legislative-train/theme-a-europe-fit-for-the-digital-age/file-regulation-on-artificial-intelligence)
+
+The version of the draft act to go into the next stage is expected mid June 2023. It will provide more clarity on the status quo.
+
 
 # Project status
 This page is the current outcome of the project. The goal is to collect and present the state of the art on these topics through community collaboration. First in the form of this page, and later in other document forms. Please provide your input through pull requests / submitting issues (see [repo](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/)) or emailing the project lead, and let's make this guide better and better. 
