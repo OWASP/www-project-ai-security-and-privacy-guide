@@ -28,6 +28,8 @@ Please provide your input through pull requests / submitting issues (see [repo](
 <p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aisecthreatscountermeasures.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aisecthreatscountermeasures.png?raw=true"/> </a></p>
 <br />
 
+Further reading on AI security can be found at the bottom of this guide. If I had to highlight one, it would be [ENISA's multilayer framework](https://www.enisa.europa.eu/publications/multilayer-framework-for-good-cybersecurity-practices-for-ai).
+
 
 ## Particular AI security risks
 
@@ -230,6 +232,8 @@ The work in this guide will serve as input to the upcoming [ISO/IEC 27090 (AI se
 
 # Further reading
 
+* [ENISA's multilayer framework](https://www.enisa.europa.eu/publications/multilayer-framework-for-good-cybersecurity-practices-for-ai)
+* [Google's Secure AI Framework](https://blog.google/technology/safety-security/introducing-googles-secure-ai-framework/)
 * [NIST AI Risk Management Framework 1.0](https://doi.org/10.6028/NIST.AI.100-1)
 * [PLOT4ai threat library ](https://plot4.ai/library)
 * [ENISA AI security standard discussion](https://www.enisa.europa.eu/publications/cybersecurity-of-ai-and-standardisation)
