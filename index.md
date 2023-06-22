@@ -23,12 +23,12 @@ Please provide your input through pull requests / submitting issues (see [repo](
 2. Incorporate AI developers, data scientists, and AI-related applications and infrastructure into your security program: risk analysis, training, requirements, static analysis, code review, pentesting, etc.
 3. Also go beyond security by applying good software engineering practices to your AI activities, such as versioning, documentation, unit testing, integration testing, performance testing, and code quality. See the [ISO/IEC 5338](https://www.iso.org/standard/81118.html) standard for guidelines. This way, AI systems will become easier to maintain, transferable, more reliable, and future-proof. A best practice is to mix data scientist profiles with software engineering profiles in teams, as software engineers typically need to learn more about data science and data scientists typically need to learn more about creating future-proof code that is easy to maintain and test.
 
-4. Make sure that everybody involved is aware of ‘particular’ AI security risks. These are visualized in below diagram, together with key mitigation, and discussed in the following section.
+4. Make sure that everybody involved is aware of ‘particular’ AI security risks. These are visualized in the below diagram, together with key mitigation, and discussed in the following section.
 
 <p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aisecthreatscountermeasures.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aisecthreatscountermeasures.png?raw=true"/> </a></p>
 <br />
 
-Further reading on AI security can be found at the bottom of this guide. If I had to highlight one, it would be [ENISA's multilayer framework](https://www.enisa.europa.eu/publications/multilayer-framework-for-good-cybersecurity-practices-for-ai).
+Further reading on AI security can be found at the bottom of this guide. If I had to highlight one, it would be [ENISA's multilayer framework](https://www.enisa.europa.eu/publications/multilayer-framework-for-good-cybersecurity-practices-for-ai). And a cool one: [The Large Language Model top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/).
 
 
 ## Particular AI security risks
@@ -240,3 +240,4 @@ The work in this guide will serve as input to the upcoming [ISO/IEC 27090 (AI se
 * [ENISA AI security standard discussion](https://www.enisa.europa.eu/publications/cybersecurity-of-ai-and-standardisation)
 * [Microsoft/MITRE tooling for ML teams](https://www.mitre.org/news-insights/news-release/microsoft-and-mitre-create-tool-help-security-teams-prepare-attacks?sf175190906=1)
 * [MITRE ATLAS framework for AI threats](https://atlas.mitre.org/)
+* [The Large Language Model top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
