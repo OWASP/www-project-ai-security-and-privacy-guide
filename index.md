@@ -193,6 +193,11 @@ Consent may be used or required in specific circumstances. In such cases, consen
   
 Please note that consent will not be possible in specific circumstances (e.g. you cannot collect consent from a fraudster and an employer cannot collect consent from an employee as there is a power imbalance). If you must collect consent, then ensure that it is properly obtained, recorded and proper actions are taken if it is withdrawn. 
 
+## 8. Trust Boundary Preservation
+
+User input should never be allowed to taint a trust boundary. This principle addresses the tainted trust-boundary problem which has beome prominent in the context of AI models executing functions based on user input. When a function is able to perform actions based on one user's input which might affect another user's input, and the two users might not trust eachother, this is a trust boundary. The function is responsible for ensuring one of the users isn't able to attack the other across this boundary.
+
+When you add a Large Language Model (LLM) into the mix and give its output some control over the function's outcome, the input passed to the LLM becomes part of the function, part of the trust boundary. This is because the user's input with an LLM is similar to a script being interpreted by an engine. The user essentially obtains remote code execution within the state of the LLM. This is a security anti-pattern because the untrusted user input can affect the outcome of this function, tainting the trust boundary. This anti-pattern can be avoided by sandboxing the function so that its outcome cannot impact the state of one user based on the input of another, unless the two have agreed to a trust relationship.
 
 ## Scope boundaries of AI privacy
 As said, many of the discussion topics on AI are about human rights, social justice, safety and only a part of it has to do with privacy. So as a data protection officer or engineer it's important not to drag everything into your responsibilities. At the same time, organizations do need to assign those non-privacy AI responsibilities somewhere.
