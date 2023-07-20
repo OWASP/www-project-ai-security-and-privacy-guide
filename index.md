@@ -26,6 +26,17 @@ Please provide your input through pull requests / submitting issues (see [repo](
 4. Make sure that everybody involved is aware of ‘particular’ AI security risks. These are visualized in the below diagram, together with key mitigation (orange), and discussed in the following section.
 
 <p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aisecthreatscountermeasures.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aisecthreatscountermeasures.png?raw=true"/> </a></p>
+
+In a nutshell, AI security consists of:
+* **Regular application security** for the application and infrastructure. Which should include **hiding model parameters** to protect against some model attacks
+* **Protecting the new development pipelines** for data engineering and model engineering with standard security controls (against data leaks, IPR leaks, data integrity attacks, supply-chain attacks). In addition, **data quality assurance** is an important security countermeasure in the engineering phase
+* The big one: **Data science model attack prevention** (which is the realm of data science to prevent adversarial ML attacks)
+* **Controlling the behavior** of the AI model:
+  * Minimizing privileges of AI models
+  * Oversight of AI model behavior (e.g. guardrails, human oversight)
+  * Monitoring and incident detection to detect abuse / respond
+  * Limiting bulk access to the model
+
 <br />
 
 Further reading on AI security can be found at the bottom of this guide. If I had to highlight one, it would be [ENISA's multilayer framework](https://www.enisa.europa.eu/publications/multilayer-framework-for-good-cybersecurity-practices-for-ai). And a cool one: [The Large Language Model top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/).
