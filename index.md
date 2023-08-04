@@ -19,11 +19,15 @@ See also [this useful recording](https://www.youtube.com/watch?v=ABmWHnFrMqI) or
 Please provide your input through pull requests / submitting issues (see [repo](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/)) or emailing the project lead, and let's make this guide better and better. Many thanks to Engin Bozdag, lead privacy architect at Uber, for his great contributions.
 
 # How to deal with AI security
-1. It speaks for itself that you first need to have a general security program in place. Examples of popular standards are [ISO27001](ISO27001) as a management system and [SAMM](https://owaspsamm.org/) for software development.
-2. Incorporate AI developers, data scientists, and AI-related applications and infrastructure into your security program: risk analysis, training, requirements, static analysis, code review, pentesting, etc.
-3. Also go beyond security by applying good software engineering practices to your AI activities, such as versioning, documentation, unit testing, integration testing, performance testing, and code quality. See the [ISO/IEC 5338](https://www.iso.org/standard/81118.html) standard for guidelines. This way, AI systems will become easier to maintain, transferable, more reliable, and future-proof. A best practice is to mix data scientist profiles with software engineering profiles in teams, as software engineers typically need to learn more about data science and data scientists typically need to learn more about creating future-proof code that is easy to maintain and test.
+1. First make sure that you take responsibility for AI as an organization. Create and keep an inventory of your AI initiatives and make someone responsible for analysing and managing the risks. For the high risk systems: arrange transparency in the form of communication and documentation, auditability, bias countermeasures and oversight.
 
-4. Make sure that everybody involved is aware of ‘particular’ AI security risks. These are visualized in the below diagram, together with key mitigation (orange), and discussed in the following section.
+2. It speaks for itself that you already need to have a general security program in place. Examples of popular standards are [ISO27001](ISO27001) as a management system and [SAMM](https://owaspsamm.org/) for software development.
+
+3. Incorporate AI developers, data scientists, and AI-related applications and infrastructure into your security program: risk analysis, training, requirements, static analysis, code review, pentesting, etc.
+
+4. Also go beyond security by applying good software engineering practices to your AI activities, such as versioning, documentation, unit testing, integration testing, performance testing, and code quality. See the [ISO/IEC 5338](https://www.iso.org/standard/81118.html) standard for guidelines. This way, AI systems will become easier to maintain, transferable, more reliable, and future-proof. A best practice is to mix data scientist profiles with software engineering profiles in teams, as software engineers typically need to learn more about data science and data scientists typically need to learn more about creating future-proof code that is easy to maintain and test.
+
+5. Make sure that everybody involved is aware of ‘particular’ AI security risks. These are visualized in the below diagram, together with key mitigation (orange), and discussed in the following section.
 
 <p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aisecthreatscountermeasures.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aisecthreatscountermeasures.png?raw=true"/> </a></p>
 
