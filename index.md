@@ -255,6 +255,7 @@ Links:
 
 * [NIST AI Risk Management Framework 1.0](https://doi.org/10.6028/NIST.AI.100-1)
 * [PLOT4ai threat library ](https://plot4.ai/library)
+* [Algorithm audit non-profit organisation](https://algorithmaudit.eu/)
 * For pure security aspects: see the 'Further reading on AI security' above in this document
 
 # Project status
