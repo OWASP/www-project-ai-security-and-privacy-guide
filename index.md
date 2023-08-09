@@ -113,7 +113,19 @@ There are many types of risks connected to AI. Many of them are in the privacy o
 
 Another example of a topic beyond the scope boundary is 'safety'. Given the role of AI systems, this is a prominent theme. It is of course related to security, especially when talking about the integrity of data. However, there are sides to safety that are not of direct concern from the security perspective, in particular regarding the correctness of an AI model.
 
-The security part of the guide was initially published as a [blog](https://www.softwareimprovementgroup.com/resources/how-artificial-intelligence-attacked-my-family-and-other-ai-security-lessons/).
+## Further reading on AI security
+
+* [ENISA's multilayer AI security framework](https://www.enisa.europa.eu/publications/multilayer-framework-for-good-cybersecurity-practices-for-ai)
+* [Google's Secure AI Framework](https://blog.google/technology/safety-security/introducing-googles-secure-ai-framework/)
+* [NIST AI Risk Management Framework 1.0](https://doi.org/10.6028/NIST.AI.100-1)
+* [ENISA AI security standard discussion](https://www.enisa.europa.eu/publications/cybersecurity-of-ai-and-standardisation)
+* [PLOT4ai threat library ](https://plot4.ai/library)
+* [MITRE ATLAS framework for AI threats](https://atlas.mitre.org/)
+* [The Large Language Model top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
+* [Microsoft/MITRE tooling for ML teams](https://www.mitre.org/news-insights/news-release/microsoft-and-mitre-create-tool-help-security-teams-prepare-attacks?sf175190906=1)
+* [Blog on how AI attacked my family](https://www.softwareimprovementgroup.com/resources/how-artificial-intelligence-attacked-my-family-and-other-ai-security-lessons/)
+* For privacy aspects: see the 'Further reading on AI privacy' below in this document
+
 <br />
 <br />
 <br />
@@ -239,19 +251,14 @@ Links:
 * [Amendments](https://www.europarl.europa.eu/doceo/document/CJ40-PR-731563_EN.pdf)
 * [More information](https://www.europarl.europa.eu/legislative-train/theme-a-europe-fit-for-the-digital-age/file-regulation-on-artificial-intelligence)
 
+## Further reading on AI privacy
+
+* [NIST AI Risk Management Framework 1.0](https://doi.org/10.6028/NIST.AI.100-1)
+* [PLOT4ai threat library ](https://plot4.ai/library)
+* For pure security aspects: see the 'Further reading on AI security' above in this document
 
 # Project status
 This page is the current outcome of the project. The goal is to collect and present the state of the art on these topics through community collaboration. First in the form of this page, and later in other document forms. Please provide your input through pull requests / submitting issues (see [repo](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/)) or emailing the project lead, and let's make this guide better and better. 
 
-The work in this guide will serve as input to the upcoming [ISO/IEC 27090 (AI security)](https://www.iso.org/standard/56581.html) and [27091 (AI privacy)](https://www.iso.org/standard/56582.html) standards, which will be done through membership of ISO/IEC JTC1/SC27/WG4, WG5, and the SC42 AHG4 group.
+The work in this guide will serve as input to the upcoming [ISO/IEC 27090 (AI security)](https://www.iso.org/standard/56581.html) and [27091 (AI privacy)](https://www.iso.org/standard/56582.html) standards, which will be done through membership of ISO/IEC JTC1/SC27/WG4, WG5, CEN/CENELEC JTC 21/WG1-TG, and the SC42 AHG4 group.
 
-# Further reading
-
-* [ENISA's multilayer framework](https://www.enisa.europa.eu/publications/multilayer-framework-for-good-cybersecurity-practices-for-ai)
-* [Google's Secure AI Framework](https://blog.google/technology/safety-security/introducing-googles-secure-ai-framework/)
-* [NIST AI Risk Management Framework 1.0](https://doi.org/10.6028/NIST.AI.100-1)
-* [PLOT4ai threat library ](https://plot4.ai/library)
-* [ENISA AI security standard discussion](https://www.enisa.europa.eu/publications/cybersecurity-of-ai-and-standardisation)
-* [Microsoft/MITRE tooling for ML teams](https://www.mitre.org/news-insights/news-release/microsoft-and-mitre-create-tool-help-security-teams-prepare-attacks?sf175190906=1)
-* [MITRE ATLAS framework for AI threats](https://atlas.mitre.org/)
-* [The Large Language Model top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
