@@ -202,7 +202,7 @@ Also known as "individual participation" under privacy standards, this principle
 3. right of correction: allow users to correct factually incorrect data. Also, see accuracy below
 4. right of object: allow users to object to the usage of their data for a specific use (e.g. model training)
 
-## 6. Accuracy
+## 6. Data accuracy
 You should ensure that your data is correct as the output of an algorithmic decision with incorrect data may lead to severe consequences for the individual. For example, if the user's phone number is incorrectly added to the system and if such number is associated with fraud, the user might be banned from a service/system in an unjust manner. You should have processes/tools in place to fix such accuracy issues as soon as possible when a proper request is made by the individual. 
 
 To satisfy the accuracy principle, you should also have tools and processes in place to ensure that the data is obtained from reliable sources, its validity and correctness claims are validated and data quality and accuracy are periodically assessed.
