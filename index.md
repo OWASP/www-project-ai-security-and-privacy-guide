@@ -124,6 +124,11 @@ Another example of a topic beyond the scope boundary is 'safety'. Given the role
 * [The Large Language Model top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
 * [Microsoft/MITRE tooling for ML teams](https://www.mitre.org/news-insights/news-release/microsoft-and-mitre-create-tool-help-security-teams-prepare-attacks?sf175190906=1)
 * [Blog on how AI attacked my family](https://www.softwareimprovementgroup.com/resources/how-artificial-intelligence-attacked-my-family-and-other-ai-security-lessons/)
+* [ETSI GR SAI 002 V 1.1.1 Securing Artificial Intelligence (SAI) – Data Supply Chain Security](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/002/01.01.01_60/gr_SAI002v010101p.pdf)
+* [ETSI GR SAI 006 V 1.1.1.  Securing ArtificiaI Intelligence (SAI) – The role of hardware in security of AI]( https://cdn.standards.iteh.ai/samples/60132/b0afcc3e17f54ee4b7e724e5670b26dc/ETSI-GR-SAI-006-V1-1-1-2022-03-.pdf)
+* [ISO/IEC 20547-4 Big data security](https://www.iso.org/standard/71278.html)
+* [IEEE 2813 Big Data Business Security Risk Assessment](https://standards.ieee.org/ieee/2813/7535/)
+
 * For privacy aspects: see the 'Further reading on AI privacy' below in this document
 
 <br />
