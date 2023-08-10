@@ -21,7 +21,7 @@ Please provide your input through pull requests / submitting issues (see [repo](
 # How to deal with AI security
 1. First make sure that you take responsibility for AI as an organization. Create and keep an inventory of your AI initiatives and make someone responsible for analysing and managing the risks. For the high risk systems: arrange transparency in the form of communication and documentation, auditability, bias countermeasures and oversight.
 
-2. It speaks for itself that you already need to have a general security program in place. Examples of popular standards are [ISO27001](ISO27001) as a management system and [SAMM](https://owaspsamm.org/) for software development.
+2. It speaks for itself that you already need to have a general security program in place. Examples of popular standards are [ISO27001](https://www.iso.org/standard/27001) as a management system and [SAMM](https://owaspsamm.org/) for software development.
 
 3. Incorporate AI developers, data scientists, and AI-related applications and infrastructure into your security program: risk analysis, training, requirements, static analysis, code review, pentesting, etc.
 
