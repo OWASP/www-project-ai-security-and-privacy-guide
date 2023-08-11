@@ -31,19 +31,15 @@ Please provide your input through pull requests / submitting issues (see [repo](
 
 <p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aisecthreatscountermeasures.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aisecthreatscountermeasures.png?raw=true"/> </a></p>
 
-In a nutshell, AI security consists of:
-* **Regular application security** for the application and infrastructure. Which should include **hiding model parameters** to protect against some model attacks
-* **Protecting the new development pipelines** for data engineering and model engineering with standard security controls (against data leaks, IPR leaks, data integrity attacks, supply-chain attacks). In addition, **data quality assurance** is an important security countermeasure in the engineering phase
-* The big one: **Data science model attack prevention** (which is the realm of data science to prevent adversarial ML attacks)
-* **Controlling the behavior** of the AI model:
-  * Minimizing privileges of AI models
-  * Oversight of AI model behavior (e.g. guardrails, human oversight)
-  * Monitoring and incident detection to detect abuse / respond
-  * Limiting bulk access to the model
+In a nutshell, dealing with AI security requires:
+*	**Improving regular application security** through understanding of AI particularities e.g. model parameters need protection and access to the model needs to be monitored and throttled
+*	**Extending regular application security** to the new development activities (data engineering and model engineering) for protection against data leaks, data/model poisoning, intellectual property leaks, and supply-chain attacks
+*	**Limiting the impact** of AI by minimizing privileges and adding oversight, e.g. guardrails, human oversight
+*	**Countermeasures in data science** through understanding of model attacks, e.g. data quality assurance, random feature nullification, larger training sets, detecting common perturbation attacks
 
 <br />
 
-Further reading on AI security can be found at the bottom of this guide. If I had to highlight one, it would be [ENISA's multilayer framework](https://www.enisa.europa.eu/publications/multilayer-framework-for-good-cybersecurity-practices-for-ai). And a cool one: [The Large Language Model top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/).
+Further reading on AI security can be found at the bottom of this security section. If I had to highlight one, it would be [ENISA's ML threats and countermeasures](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms). And a cool one: [The Large Language Model top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/).
 
 
 ## Particular AI security risks
@@ -115,17 +111,20 @@ Another example of a topic beyond the scope boundary is 'safety'. Given the role
 
 ## Further reading on AI security
 
+* [ENISA AI security standard discussion](https://www.enisa.europa.eu/publications/cybersecurity-of-ai-and-standardisation)
 * [ENISA's multilayer AI security framework](https://www.enisa.europa.eu/publications/multilayer-framework-for-good-cybersecurity-practices-for-ai)
+* [ENISA ML threats and countermeasures](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
+* [Microsoft threat overview](https://docs.microsoft.com/en-us/security/failure-modes-in-machine-learning)
+* [Microsoft/MITRE tooling for ML teams](https://www.mitre.org/news-insights/news-release/microsoft-and-mitre-create-tool-help-security-teams-prepare-attacks?sf175190906=1)
 * [Google's Secure AI Framework](https://blog.google/technology/safety-security/introducing-googles-secure-ai-framework/)
 * [NIST AI Risk Management Framework 1.0](https://doi.org/10.6028/NIST.AI.100-1)
-* [ENISA AI security standard discussion](https://www.enisa.europa.eu/publications/cybersecurity-of-ai-and-standardisation)
+* [NIST threat taxonomy](https://csrc.nist.gov/publications/detail/white-paper/2023/03/08/adversarial-machine-learning-taxonomy-and-terminology/draft)
 * [PLOT4ai threat library ](https://plot4.ai/library)
 * [MITRE ATLAS framework for AI threats](https://atlas.mitre.org/)
-* [The Large Language Model top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
-* [Microsoft/MITRE tooling for ML teams](https://www.mitre.org/news-insights/news-release/microsoft-and-mitre-create-tool-help-security-teams-prepare-attacks?sf175190906=1)
+* [The OWASP Large Language Model top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
 * [Blog on how AI attacked my family](https://www.softwareimprovementgroup.com/resources/how-artificial-intelligence-attacked-my-family-and-other-ai-security-lessons/)
+* [ETSI SAI Problem statement Section 6](https://www.etsi.org/committee/1640-sai#), [Microsoft](https://docs.microsoft.com/en-us/security/failure-modes-in-machine-learning)
 * [ETSI GR SAI 002 V 1.1.1 Securing Artificial Intelligence (SAI) – Data Supply Chain Security](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/002/01.01.01_60/gr_SAI002v010101p.pdf)
-* [ETSI GR SAI 006 V 1.1.1.  Securing ArtificiaI Intelligence (SAI) – The role of hardware in security of AI]( https://cdn.standards.iteh.ai/samples/60132/b0afcc3e17f54ee4b7e724e5670b26dc/ETSI-GR-SAI-006-V1-1-1-2022-03-.pdf)
 * [ISO/IEC 20547-4 Big data security](https://www.iso.org/standard/71278.html)
 * [IEEE 2813 Big Data Business Security Risk Assessment](https://standards.ieee.org/ieee/2813/7535/)
 
