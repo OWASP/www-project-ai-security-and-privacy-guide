@@ -33,7 +33,7 @@ Please provide your input through pull requests / submitting issues (see [repo](
 
 In a nutshell, dealing with AI security requires:
 *	**Improving regular application security** through understanding of AI particularities e.g. model parameters need protection and access to the model needs to be monitored and throttled
-*	**Extending regular application security** to the new development activities (data engineering and model engineering) for protection against data leaks, data/model poisoning, intellectual property leaks, and supply-chain attacks
+*	**Extending regular development process security** to the new development activities (data engineering and model engineering) for protection against data leaks, data/model poisoning, intellectual property leaks, and supply-chain attacks
 *	**Limiting the impact** of AI by minimizing privileges and adding oversight, e.g. guardrails, human oversight
 *	**Countermeasures in data science** through understanding of model attacks, e.g. data quality assurance, random feature nullification, larger training sets, detecting common perturbation attacks
 
