@@ -226,6 +226,10 @@ Consent may be used or required in specific circumstances. In such cases, consen
 Please note that consent will not be possible in specific circumstances (e.g. you cannot collect consent from a fraudster and an employer cannot collect consent from an employee as there is a power imbalance). If you must collect consent, then ensure that it is properly obtained, recorded and proper actions are taken if it is withdrawn. 
 
 
+## 8. Model attacks
+See the security section for security threats that deal with data confidentiality, as they of course represent a privacy risk if that data is personal data. Notable: membership inference, model inversion, and training data leaking from the engineering process. In addition, models can disclose sensitive data that was unintendedly stored during training.
+
+
 ## Scope boundaries of AI privacy
 As said, many of the discussion topics on AI are about human rights, social justice, safety and only a part of it has to do with privacy. So as a data protection officer or engineer it's important not to drag everything into your responsibilities. At the same time, organizations do need to assign those non-privacy AI responsibilities somewhere.
 
