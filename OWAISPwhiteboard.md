@@ -15,18 +15,18 @@ It is work in progress for others to review and amend, which is why it’s calle
 The threats are organized by attack surface (how and where does the attack take place?), and not for example by impact. This means that model theft is mentioned in three  different parts of the overview: 1. model theft by stealing model parameters from a live system or development environment, and 2. model theft by stealing the modeling process from the engineering environment and 3. model theft by using the AI system. This way of organizing is helpful because the goal is to link the threats to controls, and these controls vary per attack surface.
 
 **General controls (vulnerabilities occur when those controls are missing or insufficient)**  
-* Educate data scientists and development teams on model attacks
+* Educate data scientists and development teams on model attacks  
   e.g. 27001 Control 6.3 Awareness training (particularity: these trainings need to cover model attacks)
-* Minimize access to technical details to prevent attacker reconaissance
+* Minimize access to technical details to prevent attacker reconaissance  
   E.g. be careful with publishing technical articles on your solution.
 
 
 # THREATS THROUGH USE
 
 **Controls for threats through use**
-* Add use of the model to logs and make it part of incident detection
+* Add use of the model to logs and make it part of incident detection  
   e.g. 27001 Control 8.16 Monitoring activities (particularity: look out for specific patterns of model attacks trhough use)
-* Limit access to the API by throttling
+* Limit access to the API by throttling  
   This prevents attackers from experimenting for evasion attacks, or trying many inputs (e.g. for model inversion)
 
 --------------------------------------
@@ -35,7 +35,7 @@ A type of attack in which the attacker provides input that has intentionally bee
 Another categorization is to distinguish between physical input maniupulation (e.g. changing the real world to influence for example a camera image) and digital input manipulation (e.g. changing the digital image). Another example is a prompt to a large language model that tries to evade any protections against unwanted answers.
 
 **Controls for evasion**
-* Rule-based or human oversight on the behavior of the model
+* Rule-based or human oversight on the behavior of the model  
   For example: the trunk of a car should not be opened, even if the driver seems to ask so, in case the car is moving.
 * Implement tools to detect if a data point is excentric or not (Datascience)
 * Implement tools to detect specific evasions (Datascience)
