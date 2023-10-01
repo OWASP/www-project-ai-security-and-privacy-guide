@@ -7,9 +7,9 @@ Created by Rob van der Veer.
 It is work in progress for others to review and amend, which is why it’s called ‘whiteboard’.
 
 **Sources:**  
-* 31 years of experience in AI and security
-* The research work captured in the OWASP AI security & privacy guide (ENISA, Microsoft, BIML, MITRE etc.) at https://owasp.org/www-project-ai-security-and-privacy-guide/
-* Input from gtrsy discussions as part of the task group in CEN/CENELEC WG1 for Cyber security standards to be used in the EU AI act.
+* The combined years of experience in AI and security of the people working on this
+* The research work as mentioned in the OWASP AI security & privacy guide (ENISA, Microsoft, BIML, MITRE etc.) at https://owasp.org/www-project-ai-security-and-privacy-guide/
+* Input from great discussions as part of the task group in CEN/CENELEC WG1 for Cyber security standards to be used in the EU AI act.
 
 **Way of ordering**  
 The threats are organized by attack surface (how and where does the attack take place?), and not for example by impact. This means that model theft is mentioned in three  different parts of the overview: 1. model theft by stealing model parameters from a live system or development environment, and 2. model theft by stealing the modeling process from the engineering environment and 3. model theft by using the AI system. This way of organizing is helpful because the goal is to link the threats to controls, and these controls vary per attack surface.
