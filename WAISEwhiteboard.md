@@ -23,7 +23,7 @@ The threats are organized by attack surface (how and where does the attack take 
   E.g. be careful with publishing technical articles on your solution.
 
 
-# THREATS THROUGH USE
+# 1. THREATS THROUGH USE
 
 **Controls for threats through use:**
 * MONITOR. Add use of the model to logs and make it part of incident detection  
@@ -36,7 +36,7 @@ The threats are organized by attack surface (how and where does the attack take 
   See [OpenCRE](https://www.opencre.org/cre/630-573)
 
 --------------------------------------
-## Evasion - Model behaviour manipulation through use  (Integrity of model behaviour)
+## 1.1. Evasion - Model behaviour manipulation through use  (Integrity of model behaviour)
 A type of attack in which the attacker provides input that has intentionally been designed to cause a machine learning model to make a mistake. A category of such an attack involves small perturbations leading to a large modification of its outputs. Such modified inputs are often called adversarial examples.
 Another categorization is to distinguish between physical input manipulation (e.g. changing the real world to influence for example a camera image) and digital input manipulation (e.g. changing the digital image). Another example is a prompt to a large language model that tries to evade any protections against unwanted answers.
 
@@ -48,44 +48,43 @@ Another categorization is to distinguish between physical input manipulation (e.
 * ROBUSTMODEL. Choose a model design less resilient to evasion (Datascience)
 * TRAINADVERSARIAL. Add adversarial examples to the training set to make the model more resilient (Datascience)
 
-### Black box evasion attack
+### 1.1.1. Black box evasion attack
  Input is manipulated in a way not based on the internals of the model.
  
-### Use of adversarial examples crafted in white or grey box conditions (e.g. FGSM…)
+### 1.1.2. Use of adversarial examples crafted in white or grey box conditions (e.g. FGSM…)
 In some cases, the attacker has access to information (model, model parameters, etc.) that can allow him to directly build adversarial examples. One example is to directly use the model's gradient to find the best perturbation to add to the input data to evade the model.
 
 --------------------------------------
-## Sensitive data disclosure through use (Confidentiality issue)
+## 1.2. Sensitive data disclosure through use (Confidentiality issue)
 The model discloses sensitive training data or is abused to do so.
 
-### Sensitive data output from model
+### 1.2.1. Sensitive data output from model
 The output of the model may contain sensitive data from the training set, for example, a large language model that generates output including personal data that was part of its training data. An unintentional fault causes the disclosure, either through normal use or through evocation by an attacker using the system.
 
-### Model inversion 
+### 1.2.2. Model inversion 
 Model inversion attacks occur when an attacker reconstructs a part of the training set by optimizing the input based on output that indicates confidence level.
 
-### Membership inference
+### 1.2.3. Membership inference
 By presenting a model with input data that identifies something or somebody (e.g. a personal identity), and using any indication of confidence in the output, the presence of that something or somebody in the training set can be inferred.
 
 --------------------------------------
-## Model theft through use (Confidentiality of intellectual property)
+## 1.3. Model theft through use (Confidentiality of intellectual property)
 This attack is known as model stealing attack or model extraction attack. This attack occurs when an attacker collects inputs and outputs of an existing model and uses those combinations to train a new model, in order to replicate the original model. 
 
 --------------------------------------
-## Failure or malfunction of AI-specific elements through use
+## 1.4. Failure or malfunction of AI-specific elements through use
 This threat refers to  application failure (i.e. denial of service) induced by an attacker (e.g. due to bad input).
 
-### Denial of model service due to inconsistent data or a sponge example
+### 1.4.1. Denial of model service due to inconsistent data or a sponge example
 AI algorithms usually consider input data in a defined format to make their predictions. Thus, a denial of service could be caused by input data whose format is inappropriate. It may also happen that a malicious user of the model constructs input data (a sponge example) specifically designed to increase the computation time of the model and thus potentially cause a denial of service.
 
 --------------------------------------
-## Overreliance in use
+## 1.5. Overreliance in use
 This is not an attack, but it is about the weakness of relying too much on the AI system in  use - trusting it too much, causing unintended failures or attacks to have a bigger impact. This aspect is strongly related to oversight. 
 
 
-# THREATS BY ATTACKING DEVELOPMENT-TIME OR RUNTIME
---------------------------------------
-**Controls to protect development-time or runtime:**
+# 2. THREATS BY ATTACKING DEVELOPMENT-TIME
+**Controls to protect development-time:**
 * DATAPROTECT. Protect (train/test) data, source code, configuration & parameters
   * Encryption, see [OpenCE](https://www.opencre.org/cre/400-007)
   * Technical access control, see [OpenCRE](https://www.opencre.org/cre/724-770) 
@@ -102,10 +101,11 @@ This is not an attack, but it is about the weakness of relying too much on the A
   27001 Controls 5.19, 5.20, 5.21, 5.22, 5.23, 8.30
   Particularity: apart from code and components, data can also be part of the supply chain in AI
 
-## Model behaviour manipulation by altering data, engineering or model (Integrity issue)
+--------------------------------------
+## 2.1. Model behaviour manipulation by altering data, engineering or model (Integrity issue)
 e.g. to sabotage its results, to insert a backdoor
 
-### Data poisoning by changing data development-time or supply chain
+### 2.1.1. Data poisoning by changing data development-time or supply chain
 A type of attack in which the attacker manipulates (training) data to control the algorithm's behavior (e.g. to sabotage its results, to insert a backdoor). It is as if the attacker conditioned the algorithm according to its motivations. Such attacks are also called causative attacks. Example: massively indicating to an image recognition algorithm that images of dogs are indeed cats to lead it to interpret it this way. Another example is that poisoned data is obtained from a malicious supplier.
 
 **Controls for data poisoning:**
@@ -115,49 +115,52 @@ A type of attack in which the attacker manipulates (training) data to control th
 * TODO: Feature squeezing
 * TODO: Transferability blocking
 
-### Model poisoning (development time, optional supply chain)
+### 2.1.2. Model poisoning (development time, optional supply chain)
 This threat refers to manipulating behaviour of the model by manipulating the engineering elements that lead to the model (including the parameters during development time), eg. Through supplying, changing, or injecting components, code, or configuration. Data manipulation threats are referred to as data poisoning and are covered in separate threats.
 
-### Transfer learning attack (development time, supply chain)
+### 2.1.3 Transfer learning attack (development time, supply chain)
 Supplying a manipulated  base model to be further trained development time
 
 **Controls for transfer learning:**
 * TODO: Choose a model type resilient against transfer learning attack
 
-### Runtime model poisoning (parameter manipulation)
-This threat refers to manipulating behaviour of the model by manipulating the parameters in the model itself in the live system (i.e. the representation of the regularities that the training process has extracted for the model to use in its task. e.g. neural network weights
 
 --------------------------------------
-## Sensitive data leak development-time or runtime (Confidentiality issue)
+## 2.2. Sensitive data leak development-time or runtime (Confidentiality issue)
 
-### Data leak (train/test data)
+### 2.2.1. Data leak (train/test data)
 training data can be confidential because it's intellectual property. An attack or an unintended failure can lead to this training data to leak. 
 Leaking typically would happen from the development environment, as engineers need to work with real data to train the model.
 Sometimes training data is collected at runtime, so a live system can become attack surface for this attack.
 
-### Model theft through model parameter leak
-### Source code/configuration leak	
+### 2.2.2. Model theft through model parameter leak
+### 2.2.3. Source code/configuration leak	
 
 
 
-# INPUT/OUTPUT COMMUNICATION THREATS
+# 3. APPLICATION SECURITY THREATS
+
 --------------------------------------
-## Insecure output handling
+## 3.1. Runtime model poisoning (parameter manipulation)
+This threat refers to manipulating behaviour of the model by manipulating the parameters in the model itself in the live system (i.e. the representation of the regularities that the training process has extracted for the model to use in its task. e.g. neural network weights
+
+--------------------------------------
+## 3.2. Insecure output handling
 This is like the standard output encoding issue, but the particularity is that the output of AI may include attacks such as XSS
 
 --------------------------------------
-## Prompt injection
+## 3.3. Prompt injection
 Prompt injection manipulates a large language model (LLM) through the injection of prompts into prompts, causing unintended actions by the LLM. TODO does this def cover direct prompt injection?
 
-
-
-# Weaknesses in the system increasing security risks
 --------------------------------------
-## Excessive Agency
-AI systems may undertake actions leading to unintended consequences. The issue arises from excessive functionality, permissions, or autonomy granted to the AI systems. This can be coupled to two threats: a) AI can be wrong unexpectedly, and have emergent behavior, and b) AI can be manipulated by an attack. As control, we have to minimize privileges.
+## 3.4. Excessive Agency
+AI systems may undertake actions leading to unintended consequences. The issue arises from excessive functionality, permissions, or autonomy granted to the AI systems. This can be coupled to two threats: a) AI can be wrong unexpectedly, and have emergent behavior, and b) AI can be manipulated by an attack. 
+
+**Controls for excessive agency:**
+* Minimize privileges.
 
 
-# Reconnaisance threats
-TODO: Discuss
-Oracle attack (ENISA)
-Public research material
+# 4. Reconnaisance threats
+* TODO: Discuss
+* Oracle attack
+* Publishing research material (see Discrete)
