@@ -143,8 +143,9 @@ Sometimes training data is collected at runtime, so a live system can become att
 # 3. APPLICATION SECURITY THREATS
 
 --------------------------------------
-## 3.1. Runtime model poisoning (parameter manipulation)
-This threat refers to manipulating behaviour of the model by manipulating the parameters in the model itself in the live system (i.e. the representation of the regularities that the training process has extracted for the model to use in its task. e.g. neural network weights
+## 3.1. Runtime model poisoning (manipulating the model itself or its input/output logic)
+This threat refers to manipulating behaviour of the model by manipulating the parameters in the model itself in the live system (i.e. the representation of the regularities that the training process has extracted for the model to use in its task. e.g. neural network weights.
+Alternatively, the model input our output logic can be compromnised to change model behaviour or deny its service.
 
 --------------------------------------
 ## 3.2. Insecure output handling
@@ -157,6 +158,11 @@ Prompt injection manipulates a large language model (LLM) through the injection 
 --------------------------------------
 ## 3.4. Excessive Agency
 AI systems may undertake actions leading to unintended consequences. The issue arises from excessive functionality, permissions, or autonomy granted to the AI systems. This can be coupled to two threats: a) AI can be wrong unexpectedly, and have emergent behavior, and b) AI can be manipulated by an attack. 
+
+--------------------------------------
+## 3.5. Leak sensitive input data
+Input data can be sensitive (e.g. generative AI prompts) and can either leak throug a failure or through an attack.
+TODO: add to diagram
 
 **Controls for excessive agency:**
 * Minimize privileges.
