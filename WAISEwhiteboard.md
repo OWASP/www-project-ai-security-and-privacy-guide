@@ -36,7 +36,7 @@ The threats are organized by attack surface (how and where does the attack take 
   See [OpenCRE](https://www.opencre.org/cre/630-573)
 
 --------------------------------------
-## Evasion - Model behaviour manipulation through use
+## Evasion - Model behaviour manipulation through use  (Integrity of model behaviour)
 A type of attack in which the attacker provides input that has intentionally been designed to cause a machine learning model to make a mistake. A category of such an attack involves small perturbations leading to large modification of its outputs. Such modified inputs are often called adversarial examples.
 Another categorization is to distinguish between physical input maniupulation (e.g. changing the real world to influence for example a camera image) and digital input manipulation (e.g. changing the digital image). Another example is a prompt to a large language model that tries to evade any protections against unwanted answers.
 
@@ -55,7 +55,7 @@ Another categorization is to distinguish between physical input maniupulation (e
 In some cases, the attacker has access to information (model, model parameters, etc.) that can allow him to directly build adversarial examples. One example is to directly use the model's gradient to find the best perturbation to add to the input data to evade the model.
 
 --------------------------------------
-## Sensitive training data disclosure through use
+## Sensitive training data disclosure through use (Confidentiality issue)
 The model discloses sensitive training data or is abused to do so.
 
 ### Model output discloses sensitive data
@@ -68,7 +68,7 @@ Model inversion attacks occur when an attacker reconstructs part of the training
 By presenting a model with input data that identifies something or somebody (e.g. a personal identity), and using any indication of confidence in the output, the presence of that something or somebody in the training set can be infered.
 
 --------------------------------------
-## Model theft through use
+## Model theft through use (Confidentiality of intellectual property)
 This attack is known as model stealing attack or model extraction attack. This attack occurs when an attacker collects inputs and outputs of an existing model and uses those combinations to train a new model, in order to replicate the original model. 
 
 --------------------------------------
@@ -97,7 +97,7 @@ AI algorithms usually consider input data in a defined format to make their pred
   27001 Controls 5.19, 5.20, 5.21, 5.22, 5.23, 8.30
   Particularity: apart from code and components, data can also be part of the supply chain in AI
 
-## Model behaviour manipulation by altering data, engineering or model 
+## Model behaviour manipulation by altering data, engineering or model (Integrity issue)
 e.g. to sabotage its results, to insert a backdoor
 
 ### Data poisoning by changing data development-time or supply chain
@@ -107,6 +107,8 @@ A type of attack in which the attacker manipulates (training) data to control th
 * TODO: robustness measures through more train data
 * TODO: data quality control, including detecting poisoned sample detection through statistical deviation
   Particularity: quality control needs to take into account that data may have maliciously been changed
+* TODO: Feature squeezing
+* TODO: Transferability blocking
 
 ### Model pipeline manipulation (development time, optional supply chain)
 This threat refers to manupulate behaviour of the model by manipulating the engineering elements that lead to the model (but includign the parameters during development time), eg. Through supplying, changing or injecting components, code, or configuration. Data manipulation threats are referred to as data poisoning and covered in separate threats.
@@ -121,7 +123,7 @@ Supplying a manipulated  base model to be further trained development time
 This threat refers to manupulate behaviour of the model by manipulating the parameters in the model itself in the live system (i.e. the representation of the regularities that the training process has extracted for the model to use in its task. e.g. neural network weights
 
 --------------------------------------
-## Sensitive data leak development-time or runtime
+## Sensitive data leak development-time or runtime (Confidentiality issue)
 
 ### leaking training data
 training data can be confidential because it's intellectual property. An attack, or an unintended failure can lead to this training data to leak. 
