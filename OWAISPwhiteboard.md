@@ -1,23 +1,25 @@
-**OWAISP whiteboard**  
-Open World-wide AI security Project
+**WAISE whiteboard**  
+World-wide AI Security Exchange
 
 **This document**  
-This document collects AI cyber security threats where security is about preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.
-Created by Rob van der Veer.
-It is work in progress for others to review and amend, which is why it’s called ‘whiteboard’.
+This document collects AI cyber security threats and controls. Security here is about preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.
+Initiated by Rob van der Veer.
+This is work in progress for others to review and amend, which is why it’s called ‘whiteboard’.
 
 **Sources:**  
 * The combined years of experience in AI and security of the people working on this
 * The research work as mentioned in the OWASP AI security & privacy guide (ENISA, Microsoft, BIML, MITRE etc.) at https://owasp.org/www-project-ai-security-and-privacy-guide/
-* Input from great discussions as part of the task group in CEN/CENELEC WG1 for Cyber security standards to be used in the EU AI act.
+* Input from great discussions as part of the task group in CEN/CENELEC WG1 for Cyber security standards to be used in the EU AI act
 
 **Way of ordering**  
-The threats are organized by attack surface (how and where does the attack take place?), and not for example by impact. This means that model theft is mentioned in three  different parts of the overview: 1. model theft by stealing model parameters from a live system or development environment, and 2. model theft by stealing the modeling process from the engineering environment and 3. model theft by using the AI system. This way of organizing is helpful because the goal is to link the threats to controls, and these controls vary per attack surface.
+The threats are organized by attack surface (how and where does the attack take place?), and not for example by impact. This means that model theft is mentioned in three  different parts of the overview: 1. model theft by stealing model parameters from a live system or development environment, 2. model theft by stealing the modeling process from the engineering environment, and 3. model theft by reverse engineering from using the AI system. This way of organizing is helpful because the goal is to link the threats to controls, and these controls vary per attack surface.
 
 **General controls (vulnerabilities occur when those controls are missing or insufficient)**  
+* Make data science activities part of the secure software development program
+  e.g. 27001 control 5.1 Policies for information security and 27001 control 5.10 Acceptable use of information and other associated assets. See [OpenCRE](https://www.opencre.org/cre/261-010)
 * Educate data scientists and development teams on model attacks  
   e.g. 27001 Control 6.3 Awareness training (particularity: these trainings need to cover model attacks)
-* Minimize access to technical details to prevent attacker reconaissance  
+* Minimize access to technical details to prevent attacker reconnaissance  
   E.g. be careful with publishing technical articles on your solution.
 
 
@@ -25,9 +27,9 @@ The threats are organized by attack surface (how and where does the attack take 
 
 **Controls for threats through use**
 * Add use of the model to logs and make it part of incident detection  
-  e.g. 27001 Control 8.16 Monitoring activities (particularity: look out for specific patterns of model attacks trhough use)
+  e.g. 27001 Control 8.16 Monitoring activities (particularity: look out for specific patterns of model attacks through use). See [OpenCRE](https://www.opencre.org/cre/058-083)
 * Limit access to the API by throttling  
-  This prevents attackers from experimenting for evasion attacks, or trying many inputs (e.g. for model inversion)
+  This prevents attackers from experimenting for evasion attacks, or trying many inputs (e.g. for model inversion) See [OpenCRE](https://www.opencre.org/cre/630-573)
 
 --------------------------------------
 ## Evasion - Model behaviour manipulation through use
@@ -35,7 +37,7 @@ A type of attack in which the attacker provides input that has intentionally bee
 Another categorization is to distinguish between physical input maniupulation (e.g. changing the real world to influence for example a camera image) and digital input manipulation (e.g. changing the digital image). Another example is a prompt to a large language model that tries to evade any protections against unwanted answers.
 
 **Controls for evasion**
-* Rule-based or human oversight on the behavior of the model  
+* Rule-based or human oversight of the model behavior  
   For example: the trunk of a car should not be opened, even if the driver seems to ask so, in case the car is moving.
 * Implement tools to detect if a data point is excentric or not (Datascience)
 * Implement tools to detect specific evasions (Datascience)
