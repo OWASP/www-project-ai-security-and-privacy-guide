@@ -4,7 +4,7 @@ World-wide AI Security Exchange
 **This document**  
 This document collects AI cyber security threats and controls. Security here is about preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.
 Initiated by Rob van der Veer.
-This is work in progress for others to review and amend, which is why it’s called ‘whiteboard’.
+This is work in progress for others to review and amend, which is why it is called ‘whiteboard’.
 
 **Sources:**  
 * The combined years of experience in AI and security of the people working on this
@@ -27,7 +27,9 @@ The threats are organized by attack surface (how and where does the attack take 
 
 **Controls for threats through use**
 * Add use of the model to logs and make it part of incident detection  
-  e.g. 27001 Control 8.16 Monitoring activities (particularity: look out for specific patterns of model attacks through use). See [OpenCRE](https://www.opencre.org/cre/058-083)
+  e.g. 27001 Control 8.16 Monitoring activities
+  Particularity: look out for specific patterns of model attacks through use).
+  See [OpenCRE](https://www.opencre.org/cre/058-083)
 * Limit access to the API by throttling  
   This prevents attackers from experimenting for evasion attacks, or trying many inputs (e.g. for model inversion) See [OpenCRE](https://www.opencre.org/cre/630-573)
 
