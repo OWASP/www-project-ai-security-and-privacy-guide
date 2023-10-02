@@ -14,24 +14,26 @@ This is work in progress for others to review and amend, which is why it is call
 **Way of ordering**  
 The threats are organized by attack surface (how and where does the attack take place?), and not for example by impact. This means that model theft is mentioned in three  different parts of the overview: 1. model theft by stealing model parameters from a live system or development environment, 2. model theft by stealing the modeling process from the engineering environment, and 3. model theft by reverse engineering from using the AI system. This way of organizing is helpful because the goal is to link the threats to controls, and these controls vary per attack surface.
 
-**General controls (vulnerabilities occur when those controls are missing or insufficient)**  
-* Make data science activities part of the secure software development program
+**General controls (vulnerabilities occur when those controls are missing or insufficient):**  
+* PROGRAM. Make data science activities part of the secure software development program
   e.g. 27001 control 5.1 Policies for information security and 27001 control 5.10 Acceptable use of information and other associated assets. See [OpenCRE](https://www.opencre.org/cre/261-010)
-* Educate data scientists and development teams on model attacks  
+* EDUCATE. Educate data scientists and development teams on model attacks  
   e.g. 27001 Control 6.3 Awareness training (particularity: these trainings need to cover model attacks)
-* Minimize access to technical details to prevent attacker reconnaissance  
+* DISCRETE. Minimize access to technical details to prevent attacker reconnaissance  
   E.g. be careful with publishing technical articles on your solution.
 
 
 # THREATS THROUGH USE
 
-**Controls for threats through use**
-* Add use of the model to logs and make it part of incident detection  
-  e.g. 27001 Control 8.16 Monitoring activities
-  Particularity: look out for specific patterns of model attacks through use).
+**Controls for threats through use:**
+* MONITOR. Add use of the model to logs and make it part of incident detection  
+  e.g. 27001 Control 8.16 Monitoring activities.  
+  Particularity: look out for specific patterns of model attacks through use.  
   See [OpenCRE](https://www.opencre.org/cre/058-083)
-* Limit access to the API by throttling  
-  This prevents attackers from experimenting for evasion attacks, or trying many inputs (e.g. for model inversion) See [OpenCRE](https://www.opencre.org/cre/630-573)
+* THROTTLE. Limit access to the API by throttling  
+  This prevents attackers from experimenting for evasion attacks, or trying many inputs (e.g. for model inversion).
+  Particularity: limit access not to prevent system overload but to prevent experimentation.
+  See [OpenCRE](https://www.opencre.org/cre/630-573)
 
 --------------------------------------
 ## Evasion - Model behaviour manipulation through use
@@ -39,12 +41,12 @@ A type of attack in which the attacker provides input that has intentionally bee
 Another categorization is to distinguish between physical input maniupulation (e.g. changing the real world to influence for example a camera image) and digital input manipulation (e.g. changing the digital image). Another example is a prompt to a large language model that tries to evade any protections against unwanted answers.
 
 **Controls for evasion**
-* Rule-based or human oversight of the model behavior  
+* OVERSIGHT. OVersight of model behaviour by humans or business logic    
   For example: the trunk of a car should not be opened, even if the driver seems to ask so, in case the car is moving.
-* Implement tools to detect if a data point is excentric or not (Datascience)
-* Implement tools to detect specific evasions (Datascience)
-* Choose a model design less resilient to evasion (Datascience)
-* Add adversarial examples to the training set to make the model more resilient (Datascience)
+* DETECTODD. Implement tools to detect if a data point is excentric or not (Datascience)
+* DETECTPERTUBATION. Implement tools to detect specific evasions (Datascience)
+* ROBUSTMODEL. Choose a model design less resilient to evasion (Datascience)
+* TRAINADVERSARIAL. Add adversarial examples to the training set to make the model more resilient (Datascience)
 
 ### Black box evasion attack
  Input is manipulated in a way not based on the internals of the model.
@@ -74,23 +76,46 @@ This attack is known as model stealing attack or model extraction attack. This a
 This threat refers to  application failure (i.e. denial of service) induced by an attacker (e.g. due to bad input).
 
 ### Denial of service due to inconsistent data or a sponge example
-AI algorithms usually consider input data in a defined format to make their predictions. Thus, a denial of service could be caused by input data whose format is inappropriate. It may also happen that a malicious user of the model constructs an input data (a sponge example) specifically designed to increase the computation time of the model and thus potentially cause a denial of service.
+AI algorithms usually consider input data in a defined format to make their predictions. Thus, a denial of service could be caused by input data whose format is inappropriate. It may also happen that a malicious user of the model constructs input data (a sponge example) specifically designed to increase the computation time of the model and thus potentially cause a denial of service.
 
 # THREATS BY ATTACKING DEVELOPMENT-TIME OR RUNTIME
 --------------------------------------
-## Model behavour manipulation by altering data, engineering or model 
+**Controls to protect development-time or runtime:**
+* DATAPROTECT. Protect (train/test) data, source code, configuration & parameters
+  * Encryption, see [OpenCE](https://www.opencre.org/cre/400-007)
+  * Technical access control, see [OpenCRE](https://www.opencre.org/cre/724-770) 
+ e.g. 27001 Controls 5.15, 5.16, 5.18, 5.3, 8.3
+  * Centralized access control, see [OpenCRE](https://www.opencre.org/cre/117-371) (e.g. least privilege on sensitive train data), etc.
+  * Particularity 1: don't just protect the data in the live system - also protect the data in the development environment as it is real data - since it is needed to train a model.
+  * Particularity 2: source code, configuration and parameters are typically critical intellectual property in AI
+   
+* CONFCOMPUTE. 'Confidential compute': If available and possible, use features of the data science environment to hide training data from model engineers
+* DEVPROTECT. Protect source code/configuration/parameters
+* TODO: integirty checks in development pipeline (build, deploy, supply chain)
+* TODO: Supply chain management, including data provenance
+  See [OpenCRE](https://www.opencre.org/cre/613-285)
+  27001 Controls 5.19, 5.20, 5.21, 5.22, 5.23, 8.30
+  Particularity: apart from code and components, data can also be part of the supply chain in AI
+
+## Model behaviour manipulation by altering data, engineering or model 
 e.g. to sabotage its results, to insert a backdoor
 
-### Data poisoning by changing data development-time
+### Data poisoning by changing data development-time or supply chain
 A type of attack in which the attacker manipulates (training) data to control the algorithm's behavior (e.g. to sabotage its results, to insert a backdoor). It is as if the attacker conditioned the algorithm according to its motivations. Such attacks are also called causative attacks. Example: massively indicating to an image recognition algorithm that images of dogs are indeed cats to lead it to interpret it this way. Another example is that poisoned data is obtained from a malicious supplier.
 
-### Data poisoning by manipulated data from the supply chain (development time, supply chain)
+**Controls for data poisoning:**
+* TODO: robustness measures through more train data
+* TODO: data quality control, including detecting poisoned sample detection through statistical deviation
+  Particularity: quality control needs to take into account that data may have maliciously been changed
 
 ### Model pipeline manipulation (development time, optional supply chain)
 This threat refers to manupulate behaviour of the model by manipulating the engineering elements that lead to the model (but includign the parameters during development time), eg. Through supplying, changing or injecting components, code, or configuration. Data manipulation threats are referred to as data poisoning and covered in separate threats.
 
 ### Transfer learning attack (development time, supply chain)
-Supplying a manipulated  base model to be further trained development time 
+Supplying a manipulated  base model to be further trained development time
+
+**Controls for transfer learning:**
+* TODO: Choose a model type resilient against transfer learning attack
 
 ### Runtime model parameter manipulation
 This threat refers to manupulate behaviour of the model by manipulating the parameters in the model itself in the live system (i.e. the representation of the regularities that the training process has extracted for the model to use in its task. e.g. neural network weights
