@@ -14,6 +14,8 @@ This is work in progress for others to review and amend, which is why it is call
 **Way of ordering**  
 The threats are organized by attack surface (how and where does the attack take place?), and not for example by impact. This means that model theft is mentioned in three  different parts of the overview: 1. model theft by stealing model parameters from a live system or development environment, 2. model theft by stealing the modeling process from the engineering environment, and 3. model theft by reverse engineering from using the AI system. This way of organizing is helpful because the goal is to link the threats to controls, and these controls vary per attack surface.
 
+<img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/WAISEmodelv1.png?raw=true"/>
+
 **General controls (vulnerabilities occur when those controls are missing or insufficient):**  
 * PROGRAM. Make data science activities part of the secure software development program
   e.g. 27001 control 5.1 Policies for information security and 27001 control 5.10 Acceptable use of information and other associated assets. See [OpenCRE](https://www.opencre.org/cre/261-010)
