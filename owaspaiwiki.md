@@ -1,6 +1,6 @@
 **OWASP AI Wiki**  
-Living document for worldwide AI security exchange
-Input to the EU AI act, ISO/IEC 27090 and more
+Living document for worldwide AI security exchange.  
+Input to the EU AI act, ISO/IEC 27090, and more.
 
 **This document**  
 This document discusses AI cyber security threats and controls.
@@ -11,10 +11,10 @@ It serves as input to the EU AI act, ISO/IEC 27090, the OWASP ML top 10, OWASP L
 
 **Sources:**  
 * AI security experts who contributed to this as Open Source. 
-* The insights of these experts were inspired by research work as mentioned in the OWASP AI security & privacy guide (ENISA, Microsoft, BIML, MITRE etc.) at https://owasp.org/www-project-ai-security-and-privacy-guide/
+* The insights of these experts were inspired by research work as mentioned in the OWASP AI security & privacy guide (ENISA, Microsoft, BIML, MITRE, etc.) at https://owasp.org/www-project-ai-security-and-privacy-guide/
 
 **Way of organizing**  
-The threats are organized by attack surface (how and where does the attack take place?), and not by impact. This means that for example model theft is mentioned in three  different parts of the overview: 1. model theft by stealing model parameters from a live system, 2. model theft by stealing the modeling process or parameters from the engineering environment, and 3. model theft by reverse engineering from using the AI system. These are three very different attacks, with similar impact. This way of organizing is helpful because the goal is to link the threats to controls, and these controls vary per attack surface.
+The threats are organized by attack surface (how and where does the attack take place?), and not by impact. This means that for example model theft is mentioned in three  different parts of the overview: 1. model theft by stealing model parameters from a live system, 2. model theft by stealing the modeling process or parameters from the engineering environment, and 3. model theft by reverse engineering from using the AI system. These are three very different attacks, with similar impacts. This way of organizing is helpful because the goal is to link the threats to controls, and these controls vary per attack surface.
 
 <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/owaspaimodelv1.png?raw=true"/>
 
@@ -42,9 +42,9 @@ Note: For any controls in this document: *vulnerabilities* occur when controls a
 
 --------------------------------------
 ## 1.1. Evasion - Model behaviour manipulation through use 
-Impact:  Integrity of model behaviour is effected, leading to issues from unwanted model output (e.g. failing fraud detection, decisions leading to safety issues, reputation damage, liability)
+Impact:  Integrity of model behaviour is affected, leading to issues from unwanted model output (e.g. failing fraud detection, decisions leading to safety issues, reputation damage, liability).
 
-An attacker provides input that has intentionally been designed to cause a machine learning model to behave in an unwanted way. In other words, the attacker fools the model with dceptive input data.
+An attacker provides input that has intentionally been designed to cause a machine learning model to behave in an unwanted way. In other words, the attacker fools the model with deceptive input data.
 
 A category of such an attack involves small perturbations leading to a large modification of its outputs. Such modified inputs are often called adversarial examples.
 Another categorization is to distinguish between physical input manipulation (e.g. changing the real world to influence for example a camera image) and digital input manipulation (e.g. changing the digital image). Another example is a prompt to a large language model that tries to evade any protections against unwanted answers.
@@ -52,25 +52,26 @@ Another categorization is to distinguish between physical input manipulation (e.
 **Controls for evasion:**
 * OVERSIGHT. Oversight of model behaviour by humans or business logic    
   For example: the trunk of a car should not be opened, even if the driver seems to ask so, in case the car is moving.
-* DETECTODD. Implement tools to detect if a data point is excentric or not (Datascience)
+* DETECTODD. Implement tools to detect whether input is excentric or invalid (Datascience)
 * DETECTPERTUBATION. Implement tools to detect specific evasions e.g. patches in images (Datascience)
 * ROBUSTMODEL. Choose a model design less resilient to evasion (Datascience)
 * TRAINADVERSARIAL. Add adversarial examples to the training set to make the model more resilient (Datascience)
 * RANDOMIZEDSMOOTHING. TODO
 
 ### 1.1.1. Black box evasion
- Input is manipulated in a way not based on the internals of the model. This often requires experimenting with how the model respons to input.
+ Input is manipulated in a way not based on the internals of the model. This often requires experimenting with how the model responds to input.
  
 ### 1.1.2. White or grey box evasion
 When attackers have access to technical information (e.g. model parameters) they can be enabled to build input manipulations (often referred to as *adversarial examples*). 
 
 ### 1.1.3. Evasion after data poisoning
-After training data has been poisoned (see corresponding section), specific input can lead to unwanted decisions - sometimes refered to as *back doors*.
+After training data has been poisoned (see corresponding section), specific input can lead to unwanted decisions - sometimes referred to as *back doors*.
 
 
 --------------------------------------
 ## 1.2. Sensitive data disclosure through use
-Impact:  Confidentiality breach of sensitive data
+Impact:  Confidentiality breach of sensitive data.
+
 The model discloses sensitive training data or is abused to do so.
 
 ### 1.2.1. Sensitive data output from model
@@ -91,7 +92,8 @@ Controls for Membership inference:
 
 --------------------------------------
 ## 1.3. Model theft through use
-Impact:  Confidentiality breach of intellectual property
+Impact:  Confidentiality breach of intellectual property.
+
 This attack is known as model stealing attack or model extraction attack. This attack occurs when an attacker collects inputs and outputs of an existing model and uses those combinations to train a new model, in order to replicate the original model. 
 
 --------------------------------------
@@ -126,16 +128,16 @@ This is not an attack, but it is about the weakness of relying too much on the A
   Particularity: apart from code and components, data can also be part of the supply chain in AI
 
 --------------------------------------
-## 2.1. Broad model poisoning: model behaviour manipulation by altering data, engineering or model
+## 2.1. Broad model poisoning: model behaviour manipulation by altering data, engineering, or model
 Impact: see ‘Evasion’, with the note that two extra types of manipulation are  possible: 
-* Backdoors - which trigger unwanted response to specific input variations (e.g. a money transaction is wrongfully marked as NOT fraud because it has a specific amount of money for which the model has been manipulated to ignore). Other name: *Trojan attack*
+* Backdoors - which trigger unwanted responses to specific input variations (e.g. a money transaction is wrongfully marked as NOT fraud because it has a specific amount of money for which the model has been manipulated to ignore). Other name: *Trojan attack*
 * Unavailability by sabotage, leading to e.g. business continuity problems or safety issues
 
 References:
 * [Summary of 15 backdoor papers at CVPR '23](https://zahalka.net/ai_security_blog/2023/09/backdoor-attacks-defense-cvpr-23-how-to-build-and-burn-trojan-horses/)
 
 ### 2.1.1. Data poisoning by changing data development-time or supply chain
-The attacker manipulates (training) data to effect the algorithm's behavior. Also called *causative attacks*. Example: massively indicating to an image recognition algorithm that images of dogs are indeed cats to lead it to interpret it this way. Another example is that poisoned data is obtained from a malicious supplier.
+The attacker manipulates (training) data to affect the algorithm's behavior. Also called *causative attacks*. Example: massively indicating to an image recognition algorithm that images of dogs are indeed cats to lead it to interpret it this way. Another example is that poisoned data is obtained from a malicious supplier.
 
 **Controls for data poisoning:**
 * TODO: robustness measures through more train data
@@ -145,31 +147,31 @@ The attacker manipulates (training) data to effect the algorithm's behavior. Als
 * TODO: Transferability blocking
 
 ### 2.1.2. Development-time model poisoning
-This threat refers to manipulating behaviour of the model by manipulating the engineering elements that lead to the model  (including the parameters during development time), eg. through supplying, changing, orcomponents, code, or configuration. In some cases, the model is trained externally and supplied as-is, which also introduces a model poisoning threat.
-Data manipulation is  referred to as data poisoning and covered in separate threats.
+This threat refers to manipulating behaviour of the model by manipulating the engineering elements that lead to the model  (including the parameters during development time), eg. through supplying, changing components, code, or configuration. In some cases, the model is trained externally and supplied as-is, which also introduces a model poisoning threat.
+Data manipulation is  referred to as data poisoning and is covered in separate threats.
 
 ### 2.1.3 Transfer learning attack
 Supplying a manipulated model that serves as a base to be further trained development time
 
 **Controls for transfer learning:**
-* TODO: Choose a model type resilient against transfer learning attack
+* TODO: Choose a model type resilient against a transfer learning attack
 
 
 --------------------------------------
 ## 2.2. Sensitive data leak development-time
 
 ### 2.2.1. Data leak
-Impact:  Confidentiality breach of sensitive data
+Impact:  Confidentiality breach of sensitive data.
 
-Training data or test data can be confidential because it's intellectual property. An attack or an unintended failure can lead to this training data to leak. 
+Training data or test data can be confidential because it's intellectual property. An attack or an unintended failure can lead to this training data leaking. 
 Leaking typically would happen from the development environment, as engineers need to work with real data to train the model.
 Sometimes training data is collected at runtime, so a live system can become attack surface for this attack.
 
 ### 2.2.2. Model theft through development-time model parameter leak
-Impact:  Confidentiality breach of intellectual property
+Impact:  Confidentiality breach of intellectual property.
 
 ### 2.2.3. Source code/configuration leak
-Impact:  Confidentiality breach of intellectual property
+Impact:  Confidentiality breach of intellectual property.
 
 
 
@@ -177,34 +179,40 @@ Impact:  Confidentiality breach of intellectual property
 
 --------------------------------------
 ## 3.1. Runtime model poisoning (manipulating the model itself or its input/output logic)
-Impact: see Broad model poisoning
+Impact: see Broad model poisoning.
+
 This threat refers to manipulating behaviour of the model by manipulating the parameters in the model itself in the live system (i.e. the representation of the regularities that the training process has extracted for the model to use in its task. e.g. neural network weights.
-Alternatively, the model input or output logic can be compromnised to change model behaviour or deny its service.
+Alternatively, the model input or output logic can be compromised to change model behaviour or deny its service.
 
 --------------------------------------
 ## 3.2. Runtime model theft (manipulating the model itself or its input/output logic)
-Impact:  Confidentiality breach of intellectual property
+Impact:  Confidentiality breach of intellectual property.
+
 Stealing model parameters from a live system.
 
 --------------------------------------
 ## 3.3. Insecure output handling
-Impact: Creates a weakness allowing attackers to use output for 'traiditional' attacks such as XSS-Cross site scripting.
+Impact: Creates a weakness allowing attackers to use output for 'traditional' attacks such as XSS-Cross site scripting.
+
 This is like the standard output encoding issue, but the particularity is that the output of AI may include attacks such as XSS.
 See [OpenCRE on Output encoding and injection prevention](https://www.opencre.org/cre/161-451)
 
 --------------------------------------
 ## 3.4. Direct prompt injection
 Impact: Getting unwanted answers or actions by manipulating how a large language model has been instructed
+
 Direct prompt injection manipulates a large language model (LLM) by presenting prompts that manipulate the way the model has been instructed, making it behave in unwanted ways
 
 --------------------------------------
 ## 3.5. Indirect prompt injection
-Impact: Getting unwanted answers or actions from hidden instructions in prompt
+Impact: Getting unwanted answers or actions from hidden instructions in a prompt
+
 Prompt injection manipulates a large language model (LLM) through the injection of prompts into prompts, causing unintended actions or answers by the LLM.
 
 --------------------------------------
 ## 3.6. Excessive Agency
-Impact: Because the AI model’s output can trigger certain actions, the impact of unwanted model behaviour is limited insufficiently
+Impact: Because the AI model’s output can trigger certain actions, the impact of unwanted model behaviour is limited insufficiently.
+
 AI systems may undertake actions leading to unintended consequences. The issue arises from excessive functionality, permissions, or autonomy granted to the AI systems. This can be coupled to two threats: a) AI can be wrong unexpectedly, and have emergent behavior, and b) AI can be manipulated by an attack. 
 
 **Controls for excessive agency:**
@@ -213,7 +221,8 @@ AI systems may undertake actions leading to unintended consequences. The issue a
 
 --------------------------------------
 ## 3.7. Leak sensitive input data
-Impact:  Confidentiality breach of sensitive data
+Impact:  Confidentiality breach of sensitive data.
+
 Input data can be sensitive (e.g. generative AI prompts) and can either leak throug a failure or through an attack.
 TODO: add to diagram
 
