@@ -1,10 +1,11 @@
 **OWASP AI Wiki**  
 Living document for worldwide AI security exchange
+Input to the EU AI act, ISO/IEC 27090 and more
 
 **This document**  
 This document discusses AI cyber security threats and controls.
 Security here means preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.
-This initiative was taken by Rob van der Veer - bridge builder for security standards, senior director at Software Improvement Group, with 31 years of experience in AI & security, lead author of ISO/IEC 5338 on AI engineering, founding father of OpenCRE, and currently working on security requirements for the EU AI act.
+This initiative was taken by OWASP, triggered by Rob van der Veer - bridge builder for security standards, senior director at Software Improvement Group, with 31 years of experience in AI & security, lead author of ISO/IEC 5338 on AI engineering, founding father of OpenCRE, and currently working on security requirements for the EU AI act.
 This is all draft and work in progress for others to review and amend, which is why it is called ‘wiki’.
 It serves as input to the EU AI act, ISO/IEC 27090, the OWASP ML top 10, OWASP LLM top 10, and hopefully many more standards, so we can benefit from consistent terminology and insights across the globe.
 
