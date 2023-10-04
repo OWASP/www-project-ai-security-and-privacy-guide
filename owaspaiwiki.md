@@ -12,7 +12,7 @@ It serves as input to the EU AI act, ISO/IEC 27090, the OWASP ML top 10, OWASP L
 * AI security experts who contributed to this as Open Source. 
 * The insights of these experts were inspired by research work as mentioned in the OWASP AI security & privacy guide (ENISA, Microsoft, BIML, MITRE etc.) at https://owasp.org/www-project-ai-security-and-privacy-guide/
 
-**Way of ordering**  
+**Way of organizing**  
 The threats are organized by attack surface (how and where does the attack take place?), and not by impact. This means that for example model theft is mentioned in three  different parts of the overview: 1. model theft by stealing model parameters from a live system, 2. model theft by stealing the modeling process or parameters from the engineering environment, and 3. model theft by reverse engineering from using the AI system. These are three very different attacks, with similar impact. This way of organizing is helpful because the goal is to link the threats to controls, and these controls vary per attack surface.
 
 <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/owaspaimodelv1.png?raw=true"/>
@@ -127,8 +127,11 @@ This is not an attack, but it is about the weakness of relying too much on the A
 --------------------------------------
 ## 2.1. Broad model poisoning: model behaviour manipulation by altering data, engineering or model
 Impact: see ‘Evasion’, with the note that two extra types of manipulation are  possible: 
-* Backdoors - which trigger unwanted response for specific input variations (e.g. a money transaction is wrongfully marked as NOT fraud because it has a specific amount of money for which the model has been manipulated to ignore)
+* Backdoors - which trigger unwanted response to specific input variations (e.g. a money transaction is wrongfully marked as NOT fraud because it has a specific amount of money for which the model has been manipulated to ignore). Other name: *Trojan attack*
 * Unavailability by sabotage, leading to e.g. business continuity problems or safety issues
+
+References:
+* [Summary of 15 backdoor papers at CVPR '23](https://zahalka.net/ai_security_blog/2023/09/backdoor-attacks-defense-cvpr-23-how-to-build-and-burn-trojan-horses/)
 
 ### 2.1.1. Data poisoning by changing data development-time or supply chain
 The attacker manipulates (training) data to effect the algorithm's behavior. Also called *causative attacks*. Example: massively indicating to an image recognition algorithm that images of dogs are indeed cats to lead it to interpret it this way. Another example is that poisoned data is obtained from a malicious supplier.
@@ -140,7 +143,7 @@ The attacker manipulates (training) data to effect the algorithm's behavior. Als
 * TODO: Feature squeezing
 * TODO: Transferability blocking
 
-### 2.1.2. Development-tme model poisoning
+### 2.1.2. Development-time model poisoning
 This threat refers to manipulating behaviour of the model by manipulating the engineering elements that lead to the model  (including the parameters during development time), eg. through supplying, changing, orcomponents, code, or configuration. In some cases, the model is trained externally and supplied as-is, which also introduces a model poisoning threat.
 Data manipulation is  referred to as data poisoning and covered in separate threats.
 
