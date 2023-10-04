@@ -4,27 +4,28 @@ Living document for worldwide AI security exchange
 **This document**  
 This document discusses AI cyber security threats and controls.
 Security here means preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.
-This initiated was taken by Rob van der Veer - senior director at Software Improvement Group, with 31 years of experience in AI & security, lead author of ISO/IEC 5338 on AI engineering, founding father of OpenCRE, and currently working on security requirements for the EU AI act.
-This is work in progress for others to review and amend, which is why it is called ‘wiki’.
-It serves as input to the EU AI act, ISO/IEC 27090, the OWASP ML top 10, OWASP LLM top 10 and hopefully many more standards, so we can benefit from consistent terminology and insights across the globe.
+This initiative was taken by Rob van der Veer - bridge builder for security standards, senior director at Software Improvement Group, with 31 years of experience in AI & security, lead author of ISO/IEC 5338 on AI engineering, founding father of OpenCRE, and currently working on security requirements for the EU AI act.
+This is all draft and work in progress for others to review and amend, which is why it is called ‘wiki’.
+It serves as input to the EU AI act, ISO/IEC 27090, the OWASP ML top 10, OWASP LLM top 10, and hopefully many more standards, so we can benefit from consistent terminology and insights across the globe.
 
 **Sources:**  
-* AI security experts who contributes to this as Open Source. 
-* The minds of these experts were inspired by research work as mentioned in the OWASP AI security & privacy guide (ENISA, Microsoft, BIML, MITRE etc.) at https://owasp.org/www-project-ai-security-and-privacy-guide/
+* AI security experts who contributed to this as Open Source. 
+* The insights of these experts were inspired by research work as mentioned in the OWASP AI security & privacy guide (ENISA, Microsoft, BIML, MITRE etc.) at https://owasp.org/www-project-ai-security-and-privacy-guide/
 
 **Way of ordering**  
-The threats are organized by attack surface (how and where does the attack take place?), and not for example by impact. This means that for example model theft is mentioned in three  different parts of the overview: 1. model theft by stealing model parameters from a live system, 2. model theft by stealing the modeling process or parameters from the engineering environment, and 3. model theft by reverse engineering from using the AI system. This way of organizing is helpful because the goal is to link the threats to controls, and these controls vary per attack surface.
+The threats are organized by attack surface (how and where does the attack take place?), and not by impact. This means that for example model theft is mentioned in three  different parts of the overview: 1. model theft by stealing model parameters from a live system, 2. model theft by stealing the modeling process or parameters from the engineering environment, and 3. model theft by reverse engineering from using the AI system. These are three very different attacks, with similar impact. This way of organizing is helpful because the goal is to link the threats to controls, and these controls vary per attack surface.
 
 <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/owaspaimodelv1.png?raw=true"/>
 
-**General controls (vulnerabilities occur when those controls are missing or insufficient):**  
+**General controls:**  
 * PROGRAM. Make data science activities part of the secure software development program
   e.g. 27001 control 5.1 Policies for information security and 27001 control 5.10 Acceptable use of information and other associated assets. See [OpenCRE](https://www.opencre.org/cre/261-010)
 * EDUCATE. Educate data scientists and development teams on model attacks  
-  e.g. 27001 Control 6.3 Awareness training (particularity: these trainings need to cover model attacks)
+  e.g. 27001 Control 6.3 Awareness training (particularity: training material needs to cover AI security threats and controls)
 * DISCRETE. Minimize access to technical details to prevent attacker reconnaissance  
   E.g. be careful with publishing technical articles on your solution.
 
+Note: For any controls in this document: *vulnerabilities* occur when controls are missing.
 
 # 1. THREATS THROUGH USE
 
@@ -84,7 +85,7 @@ Controls for Model inversion:
 By presenting a model with input data that identifies something or somebody (e.g. a personal identity), and using any indication of confidence in the output, the presence of that something or somebody in the training set can be inferred.
 
 Controls for Membership inference:
-* Exclude indications of confidence in the output
+* HIDECONFIDENCE. Exclude indications of confidence in the output
 
 
 --------------------------------------
@@ -174,7 +175,7 @@ Impact:  Confidentiality breach of intellectual property
 ## 3.1. Runtime model poisoning (manipulating the model itself or its input/output logic)
 Impact: see Broad model poisoning
 This threat refers to manipulating behaviour of the model by manipulating the parameters in the model itself in the live system (i.e. the representation of the regularities that the training process has extracted for the model to use in its task. e.g. neural network weights.
-Alternatively, the model input our output logic can be compromnised to change model behaviour or deny its service.
+Alternatively, the model input or output logic can be compromnised to change model behaviour or deny its service.
 
 --------------------------------------
 ## 3.2. Runtime model theft (manipulating the model itself or its input/output logic)
@@ -183,7 +184,7 @@ Stealing model parameters from a live system.
 
 --------------------------------------
 ## 3.3. Insecure output handling
-Impact: Creates a weakness allowing attackers to use output for attacks such as XSS-Corss site scripting.
+Impact: Creates a weakness allowing attackers to use output for 'traiditional' attacks such as XSS-Cross site scripting.
 This is like the standard output encoding issue, but the particularity is that the output of AI may include attacks such as XSS.
 See [OpenCRE on Output encoding and injection prevention](https://www.opencre.org/cre/161-451)
 
@@ -203,8 +204,8 @@ Impact: Because the AI model’s output can trigger certain actions, the impact 
 AI systems may undertake actions leading to unintended consequences. The issue arises from excessive functionality, permissions, or autonomy granted to the AI systems. This can be coupled to two threats: a) AI can be wrong unexpectedly, and have emergent behavior, and b) AI can be manipulated by an attack. 
 
 **Controls for excessive agency:**
-* Minimize privileges.
-* Oversight (see general controls)
+* MINPRIVILEGE. Minimize privileges.
+* OVERSIGHT. Oversight (see general controls)
 
 --------------------------------------
 ## 3.7. Leak sensitive input data
