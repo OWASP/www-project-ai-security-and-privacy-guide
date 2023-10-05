@@ -39,6 +39,7 @@ Note: For any controls in this document: *vulnerabilities* occur when controls a
   This prevents attackers from experimenting for evasion attacks or trying many inputs (e.g. for model inversion).
   Particularity: limit access not to prevent system overload but to prevent experimentation.
   See [OpenCRE](https://www.opencre.org/cre/630-573)
+* DATAMINIMIZE. Remove or anonymize data fields or records that are not needed for the application, to prevent them from leaking. 
 
 --------------------------------------
 ## 1.1. Evasion - Model behaviour manipulation through use 
@@ -118,9 +119,10 @@ This is not an attack, but it is about the weakness of relying too much on the A
   * Centralized access control, see [OpenCRE](https://www.opencre.org/cre/117-371) (e.g. least privilege on sensitive train data), etc.
   * Particularity 1: don't just protect the data in the live system - also protect the data in the development environment as it is real data - since it is needed to train a model.
   * Particularity 2: source code, configuration, and parameters are typically critical intellectual property in AI
-   
+
+* DEVSECURITY. Make sure that the AI development infrastructure is part of the security management system, regarding people, process and technology perspective. E.g. screening of development personnel, protection of source code/configuration, virus scanning on engineering machines.
 * CONFCOMPUTE. 'Confidential compute': If available and possible, use features of the data science environment to hide training data from model engineers
-* DEVPROTECT. Protect source code/configuration/parameters
+* TODO: Mention Privacy technologies, e.g. federative learning.
 * TODO: integrity checks in development pipeline (build, deploy, supply chain)
 * TODO: Supply chain management, including data provenance
   See [OpenCRE](https://www.opencre.org/cre/613-285)
