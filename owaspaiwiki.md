@@ -1,6 +1,6 @@
 **OWASP AI Wiki**  
 Living document for worldwide AI security exchange.  
-Input to the EU AI act, ISO/IEC 27090, and more.
+Input to Global and European standardisation trajects, linked to the EU AI act, and including norms such as ISO/IEC 27090
 
 **This document**  
 This document discusses AI cyber security threats and controls.
