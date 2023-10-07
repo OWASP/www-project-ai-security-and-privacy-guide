@@ -1,4 +1,4 @@
-**OWASP AI Wiki**  
+**OWASP AI Exchange**  
 Living document for worldwide AI security exchange.  
 Collecting input to Global and European standardisation activities, linked to the EU AI act, and including norms such as ISO/IEC 27090.
 
@@ -19,12 +19,13 @@ The threats are organized by attack surface (how and where does the attack take 
 <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/owaspaimodelv1.png?raw=true"/>
 
 **General controls:**  
-* PROGRAM. Make data science activities part of the secure software development program
+* SECPROGRAM. Make data science activities part of the secure software development program
   e.g. 27001 control 5.1 Policies for information security and 27001 control 5.10 Acceptable use of information and other associated assets. See [OpenCRE](https://www.opencre.org/cre/261-010)
-* EDUCATE. Educate data scientists and development teams on model attacks  
+* SECEDUCATE. Educate data scientists and development teams on model attacks  
   e.g. 27001 Control 6.3 Awareness training (particularity: training material needs to cover AI security threats and controls)
 * DISCRETE. Minimize access to technical details to prevent attacker reconnaissance  
   E.g. be careful with publishing technical articles on your solution.
+* DATAMINIMIZE. Remove or anonymize data fields or records that are not needed for the application, to prevent them from leaking.
 
 Note: For any controls in this document: *vulnerabilities* occur when controls are missing.
 
@@ -38,8 +39,7 @@ Note: For any controls in this document: *vulnerabilities* occur when controls a
 * THROTTLE. Limit access to the API by throttling  
   This prevents attackers from experimenting for evasion attacks or trying many inputs (e.g. for model inversion).
   Particularity: limit access not to prevent system overload but to prevent experimentation.
-  See [OpenCRE](https://www.opencre.org/cre/630-573)
-* DATAMINIMIZE. Remove or anonymize data fields or records that are not needed for the application, to prevent them from leaking. 
+  See [OpenCRE](https://www.opencre.org/cre/630-573) 
 
 --------------------------------------
 ## 1.1. Evasion - Model behaviour manipulation through use 
