@@ -101,7 +101,10 @@ Impact:  Integrity of model behaviour is affected, leading to issues from unwant
 Fooling models with deceptive input data. In other words: an attacker provides input that has intentionally been designed to cause a machine learning model to behave in an unwanted way. In other words, the attacker fools the model with deceptive input data.
 
 A category of such an attack involves small perturbations leading to a large modification of its outputs. Such modified inputs are often called adversarial examples.
-Another categorization is to distinguish between physical input manipulation (e.g. changing the real world to influence for example a camera image) and digital input manipulation (e.g. changing the digital image). Another example is a prompt to a large language model that tries to evade any protections against unwanted answers.
+
+Example: let’s say a self-driving has been taught how to recognize traffic signs, so it can respond, for example by stopping for a stop sign. It has been trained on a set of labeled traffic sign images. Then an attacker manages to secretly change the train set and add examples with crafted visual cues. For example, the attacker inserts some stop-sign images with yellow stickers and the label “35 miles an hour”. The model will be trained to recognize those cues. The stealthy thing is that this problematic behavior will not be detected in tests. The model will recognize normal stop signs and speed limit signs. But when the car gets on the road, an attacker can put inconspicuous stickers on stop signs and create terrible dangerous situations.
+
+Another categorization is to distinguish between physical input manipulation (e.g. changing the real world to influence for example a camera image) and digital input manipulation (e.g. changing the digital image). 
 
 **Controls for evasion:**
 * OVERSIGHT. Oversight of model behaviour by humans or business logic    
@@ -123,6 +126,8 @@ Input is manipulated in a way not based on the internals of the model. This ofte
 Example 1: crafting an e-mail text by carefully choising words to avoid triggering a spam detection algorithm.
 
 Example 2: fooling a large language model by circumventing mechanisms to protect against unwanted answers, eg. "How would I theoretically construct a bomb?". This can be seen as social engineering of a language model.
+
+Example 3: performing a white box evasion (see below) on a reverse-engineered copy of the black box model. The white box evasion offers more possibilities. However, it requires access to the model parameters. This access can be achieved by first performing *Model theft through use* (see elsewhere in this document) to create a copy of the black box model with access to the parameters. [This article](https://arxiv.org/abs/1602.02697) describes that approach.
  
 ### 2.1.2. White or grey box evasion
 When attackers have access to technical information (e.g. model parameters) they can be enabled to build input manipulations (often referred to as *adversarial examples*). 
@@ -142,29 +147,36 @@ Impact:  Confidentiality breach of sensitive data.
 The model discloses sensitive training data or is abused to do so.
 
 ### 2.2.1. Sensitive data output from model
-The output of the model may contain sensitive data from the training set, for example a large language model generatinh output including personal data that was part of its training set. An unintentional fault causes the disclosure, either through normal use or through evocation by an attacker using the system.  
+The output of the model may contain sensitive data from the training set, for example a large language model generating output including personal data that was part of its training set. Furthermore, generative AI can ouput other types of sensitive data, such as copyrighted text or images. The disclosure is caused by an unintentional fault, either through normal use or through provocation by an attacker using the system.  
 
 **Controls for sensitive data output from model:**
 * Assess the risk of this happening and when necessary experiment to provoke this.
 
-### 2.2.2. Model inversion 
-Model inversion attacks occur when an attacker reconstructs a part of the training set by intensive experimentation during which the input is optimized to maximize indications of confidence level in the output of the model.
+### 2.2.2. Model inversion and Membership inference
+Model inversion occurs when an attacker reconstructs a part of the training set by intensive experimentation during which the input is optimized to maximize indications of confidence level in the output of the model.
 
-Controls for Model inversion:
-* Exclude indications of confidence in the output
+Membership inference is presenting a model with input data that identifies something or somebody (e.g. a personal identity or a portrait pictuyre), and using any indication of confidence in the output to infer the presence of that something or somebody in the training set.
 
-### 2.2.3. Membership inference
-By presenting a model with input data that identifies something or somebody (e.g. a personal identity), and using any indication of confidence in the output, the presence of that something or somebody in the training set can be inferred.
+References
+* [Article](https://medium.com/disaitek/demystifying-the-membership-inference-attack-e33e510a0c39)
 
-Controls for Membership inference:
+The more details a model is able to learn, the more it can store information on individual training set entries. If this happens more than necessary, this is called *overfitting*, which can be prevented by configuring smaller models.
+
+Controls for Model inversion and membership inference:
 * HIDECONFIDENCE. Exclude indications of confidence in the output
+* SMALLMODEL. Overfitting can be prevented by keeping the model small so it is not able to store detail at the level of individual training set samples.
+* TODO: Add noise to the training set.
 
 
 --------------------------------------
 ## 2.3. Model theft through use
 Impact:  Confidentiality breach of intellectual property.
 
-This attack is known as model stealing attack or model extraction attack. This attack occurs when an attacker collects inputs and outputs of an existing model and uses those combinations to train a new model, in order to replicate the original model. 
+This attack is known as model stealing attack or model extraction attack. It  occurs when an attacker collects inputs and outputs of an existing model and uses those combinations to train a new model, in order to replicate the original model. 
+
+References
+* [Article on model theft through use](https://www.mlsecurity.ai/post/what-is-model-stealing-and-why-it-matters)
+* ['Thieves on Sesame street' on model theft of large language models](https://arxiv.org/abs/1910.12366)
 
 --------------------------------------
 ## 2.4. Failure or malfunction of AI-specific elements through use
@@ -199,7 +211,8 @@ Background: Data science (data engineering and model engineering) uses an AI pip
 * CONFCOMPUTE. 'Confidential compute': If available and possible, use features of the data science environment to hide training data from model engineers
 * FEDERATIVELEARNING. Federative learning can be applied when a training set is distributed over different organizations, preventing that the data needs to be collected in a central place - increasing the risk of leaking.
 * TODO: integrity checks in development pipeline (build, deploy, supply chain)
-* SUPPLYCHAINMANAGE, including data provenance, to prevent that malicious AI components, source data or source models are obtained from unreliable sources
+* SUPPLYCHAINMANAGE, including data provenance, to prevent that malicious AI components, source data or source models are obtained from unreliable sources.
+The Software Bill Of Materials (SBOM) becomes the AIBOM (AI Bill Of Materials). AI systems often have a variation of supply chains, including the data supply chain, the labeling supply chain, and the model supply chain.  
 Particularity: apart from code and components, data and models can also be part of the supply chain in AI. Data may include annotations and lables that are supplied by another source.  
 Links to standards:
   * 27001 Controls 5.19, 5.20, 5.21, 5.22, 5.23, 8.30
