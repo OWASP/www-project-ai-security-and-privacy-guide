@@ -1,17 +1,19 @@
 **OWASP AI Exchange**  
 Living document for worldwide AI security exchange.  
-Collecting input to Global and European standardisation activities, linked to the EU AI act, and including norms such as ISO/IEC 27090.
+Purpose: Creating consensus and collecting input to Global and European standardisation and regulation activities, including the EU AI act and ISO/IEC 27090 (AI security).
 
 **This document**  
 This document discusses AI cyber security threats and controls.
 Security here means preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.
-This initiative was taken by OWASP, triggered by Rob van der Veer - bridge builder for security standards, senior director at Software Improvement Group, with 31 years of experience in AI & security, lead author of ISO/IEC 5338 on AI engineering, founding father of OpenCRE, and currently working on security requirements for the EU AI act.
-This is all draft and work in progress for others to review and amend, which is why it is called ‘wiki’.
-It serves as input to the EU AI act, ISO/IEC 27090, the OWASP ML top 10, OWASP LLM top 10, and hopefully many more standards, so we can benefit from consistent terminology and insights across the globe.
+This initiative was taken by OWASP, triggered by Rob van der Veer - bridge builder for security standards, senior director at Software Improvement Group, with 31 years of experience in AI & security, lead author of ISO/IEC 5338 on AI engineering, founding father of OpenCRE, and currently working on security requirements for the EU AI act in CEN/CENELEC.
+This is all draft and work in progress for others to review and amend.
+It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 27090, the [OWASP ML top 10](https://mltop10.info/), [OWASP LLM top 10](https://llmtop10.com/), and hopefully many more standards, so we can benefit from consistent terminology and insights across the globe.
 
 **Sources:**  
 * AI security experts who contributed to this as Open Source. 
 * The insights of these experts were inspired by research work as mentioned in the OWASP AI security & privacy guide (ENISA, Microsoft, BIML, MITRE, etc.) at https://owasp.org/www-project-ai-security-and-privacy-guide/
+
+Find more references at the bottom of this document.
 
 **Way of organizing**  
 The threats are organized by attack surface (how and where does the attack take place?), and not by impact. This means that for example model theft is mentioned in three  different parts of the overview: 1. model theft by stealing model parameters from a live system, 2. model theft by stealing the modeling process or parameters from the engineering environment, and 3. model theft by reverse engineering from using the AI system. These are three very different attacks, with similar impacts. This way of organizing is helpful because the goal is to link the threats to controls, and these controls vary per attack surface.
@@ -19,12 +21,12 @@ The threats are organized by attack surface (how and where does the attack take 
 <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/owaspaimodelv1.png?raw=true"/>
 
 **General controls:**  
-* SECPROGRAM. Make data science activities part of the secure software development program
-  e.g. 27001 control 5.1 Policies for information security and 27001 control 5.10 Acceptable use of information and other associated assets. See [OpenCRE](https://www.opencre.org/cre/261-010)
-* SECEDUCATE. Educate data scientists and development teams on model attacks  
-  e.g. 27001 Control 6.3 Awareness training (particularity: training material needs to cover AI security threats and controls)
-* DISCRETE. Minimize access to technical details to prevent attacker reconnaissance  
-  E.g. be careful with publishing technical articles on your solution.
+* AIPROGRAM. Take responsibility for AI as an organization. Create and keep an inventory of your AI initiatives and make someone responsible for analysing and managing the risks. For the high risk systems: attain responsible AI and transparency in the form of communication and documentation, auditability, bias countermeasures and oversight.
+* SECPROGRAM. Include data science activities in the organization security program e.g. 27001 control 5.1 Policies for information security and 27001 control 5.10 Acceptable use of information and other associated assets and 27001 control 5.8 Information security in project management. These are the relevant high-level controls, but security of course includes many more aspects such as risk analyis, training, and requirements. See [OpenCRE on security program management](https://www.opencre.org/cre/261-010) 
+* SECDEVPROGRAM. Make data science activities part of the secure software development program e.g. 27001 control 8.25 Secure development lifecycle. See [OpenCRE on secure software development processes](https://www.opencre.org/cre/616-305) with notable links to NIST SSDF and OWASP SAMM.
+* DEVPROGRAM. Apart from secure development, AI engineering can benefit from other software engineering best practices, that are sometimes overlooked in data science: e.g. automated testing, code quailty, documentation, and versioning. See the [ISO/IEC 5338](https://www.iso.org/standard/81118.html) standard for guidelines. This way, AI systems will become easier to maintain, transferable, more reliable, and future-proof. A best practice is to mix data scientist profiles with software engineering profiles in teams, as software engineers typically need to learn more about data science and data scientists typically need to learn more about creating future-proof code that is easy to maintain and test.
+* SECEDUCATE. Educate data scientists and development teams on AI threats including the model attacks. E.g. 27001 Control 6.3 Awareness training (particularity: training material needs to cover AI security threats and controls)
+* DISCRETE. Minimize access to technical details to prevent attacker reconnaissance.E.g. be careful with publishing technical articles on your solution.
 * DATAMINIMIZE. Remove or anonymize data fields or records that are not needed for the application, to prevent them from leaking.
 
 Note: For any controls in this document: *vulnerabilities* occur when controls are missing.
@@ -115,6 +117,8 @@ This is not an attack, but it is about the weakness of relying too much on the A
 
 
 # 2. THREATS BY ATTACKING DEVELOPMENT-TIME
+Background: Data science (data engineering and model engineering) uses an AI pipeline typically outside of the regular application development scope, introducing a new attack surface. Data engineering (collecting, storing, and preparing data) is typically a large and important part of machine learning engineering. Together with model engineering, it requires appropriate security to protect against data leaks, data poisoning, leaks of intellectual property, and supply chain attacks (see further below). In addition, data quality assurance can help to reduce risks of intended and unintended data issues. 
+
 **Controls to protect development-time:**
 * DATAPROTECT. Protect (train/test) data, source code, configuration & parameters
   * Encryption, see [OpenCE](https://www.opencre.org/cre/400-007)
@@ -144,6 +148,9 @@ References:
 
 ### 2.1.1. Data poisoning by changing data development-time or supply chain
 The attacker manipulates (training) data to affect the algorithm's behavior. Also called *causative attacks*. Example: massively indicating to an image recognition algorithm that images of dogs are indeed cats to lead it to interpret it this way. Another example is that poisoned data is obtained from a malicious supplier.
+
+Background: An important risk factor in the additional attack surface of AI engineering is the presence of production data in the engineering process. In order to train and test a working model, data scientists need access to real data, which may be sensitive. This is different from non-AI engineering in which typically the test data can be either synthesized or anonymized. An appropriate countermeasure is the limitation of access to this data to the engineers that really need it, and shield it from the rest of the team. In addition, some AI platforms provide mechanisms that allow the training and testing of a model without the data scientists having access to the data.
+
 
 **Controls for data poisoning:**
 * TODO: robustness measures through more train data
@@ -222,7 +229,7 @@ Impact: Because the AI model’s output can trigger certain actions, the impact 
 AI systems may undertake actions leading to unintended consequences. The issue arises from excessive functionality, permissions, or autonomy granted to the AI systems. This can be coupled to two threats: a) AI can be wrong unexpectedly, and have emergent behavior, and b) AI can be manipulated by an attack. 
 
 **Controls for excessive agency:**
-* MINPRIVILEGE. Minimize privileges.
+* MINPRIVILEGE. Minimize privileges, for example by not connecting a model to an e-mail facility, to prevent it from sending out wrong information to others.
 * OVERSIGHT. Oversight (see general controls)
 
 --------------------------------------
@@ -239,3 +246,31 @@ TODO: add to diagram
 * Oracle attack
 * Publishing research material (see Discrete)
 
+# References
+
+References on the OWASP AI guide (a project of which this document is part):
+* [Recording](https://www.youtube.com/watch?v=ABmWHnFrMqI) or [slides](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/20230215-Rob-AIsecurity-Appsec-ForSharing.pdf?raw=true) from [Rob van der Veer's talk](https://sched.co/1F9DT) at the OWASP Global appsec event in Dublin on February 15 2023, during which this OWASP AI guide was launched.
+* Appsec Podcast episode on the OWASP AI guide ([audio](https://www.buzzsprout.com/1730684/12313155-rob-van-der-veer-owasp-ai-security-privacy-guide),[video](https://www.youtube.com/watch?v=SLdn3AwlCAk&))
+* The [September 2023 MLSecops Podcast](https://mlsecops.com/podcast/a-holistic-approach-to-understanding-the-ai-lifecycle-and-securing-ml-systems-protecting-ai-through-people-processes-technology), and If you want the short story, check out [the 13 minute AI security quick-talk](https://www.brighttalk.com/webcast/19697/586526).
+
+Overviews of model attacks:
+* [BIML](https://berryvilleiml.com/taxonomy/)
+* [ENISA ML threats and countermeasures](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
+* [ETSI SAI Problem statement Section 6](https://www.etsi.org/committee/1640-sai#)
+* [Microsoft AI failure modes](https://docs.microsoft.com/en-us/security/failure-modes-in-machine-learning)
+* [NIST](https://csrc.nist.gov/publications/detail/white-paper/2023/03/08/adversarial-machine-learning-taxonomy-and-terminology/draft)
+* [MITRE ATLAS framework for AI threats](https://atlas.mitre.org/)
+* [OWASP ML top 10](https://mltop10.info/)
+* [OWASP LLM top 10](https://llmtop10.com/)
+
+Misc.:
+* [ENISA AI security standard discussion](https://www.enisa.europa.eu/publications/cybersecurity-of-ai-and-standardisation)
+* [ENISA's multilayer AI security framework](https://www.enisa.europa.eu/publications/multilayer-framework-for-good-cybersecurity-practices-for-ai)
+* [Microsoft/MITRE tooling for ML teams](https://www.mitre.org/news-insights/news-release/microsoft-and-mitre-create-tool-help-security-teams-prepare-attacks?sf175190906=1)
+* [Google's Secure AI Framework](https://blog.google/technology/safety-security/introducing-googles-secure-ai-framework/)
+* [NIST AI Risk Management Framework 1.0](https://doi.org/10.6028/NIST.AI.100-1)
+* [NIST threat taxonomy](https://csrc.nist.gov/publications/detail/white-paper/2023/03/08/adversarial-machine-learning-taxonomy-and-terminology/draft)
+* [PLOT4ai threat library ](https://plot4.ai/library)
+* [ETSI GR SAI 002 V 1.1.1 Securing Artificial Intelligence (SAI) – Data Supply Chain Security](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/002/01.01.01_60/gr_SAI002v010101p.pdf)
+* [ISO/IEC 20547-4 Big data security](https://www.iso.org/standard/71278.html)
+* [IEEE 2813 Big Data Business Security Risk Assessment](https://standards.ieee.org/ieee/2813/7535/)
