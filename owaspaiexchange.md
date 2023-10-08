@@ -46,19 +46,29 @@ Links to standards:
   * 27001 control 5.1 Policies for information security
   * 27001 control 5.10 Acceptable use of information and other associated assets
   * 27001 control 5.8 Information security in project management
-  * See [OpenCRE on security program management](https://www.opencre.org/cre/261-010)
-* SECDEVPROGRAM. Make data science activities part of the secure software development program.  
+  * [OpenCRE on security program management](https://www.opencre.org/cre/261-010)
+  * [OpenCRE on security risk analysis](https://www.opencre.org/cre/307-242)
+* SECDEVPROGRAM. Make data science activities part of the secure software development program. See elsewhere in this document for SUPPLYCHAINMANAGE which discusses AI-specific supply-chain risks.  
 Links to standards:
   * 27001 control 8.25 Secure development lifecycle
   * See [OpenCRE on secure software development processes](https://www.opencre.org/cre/616-305) with notable links to NIST SSDF and OWASP SAMM.
-* DEVPROGRAM. Apart from secure development, AI engineering can benefit from other software engineering best practices, that are sometimes overlooked in data science: e.g. automated testing, code quailty, documentation, and versioning. This way, AI systems will become easier to maintain, transferable, more reliable, and future-proof. A best practice is to mix data scientist profiles with software engineering profiles in teams, as software engineers typically need to learn more about data science and data scientists typically need to learn more about creating future-proof code that is easy to maintain and test.
+* DEVPROGRAM. Apart from secure development, AI engineering can benefit from other software engineering best practices, that are sometimes overlooked in data science: e.g. automated testing, code quailty, documentation, and versioning. This way, AI systems will become easier to maintain, transferable, more reliable, and future-proof. A best practice is to mix data scientist profiles with software engineering profiles in teams, as software engineers typically need to learn more about data science and data scientists typically need to learn more about creating future-proof code that is easy to maintain and test.  
 Links to standards:
-  * [ISO/IEC 5338](https://www.iso.org/standard/81118.html)  
+  * [ISO/IEC 5338](https://www.iso.org/standard/81118.html)
+  * 27001 controls 5.37 Documented operating procedures
+  * [OpenCRE on documentation of function](https://www.opencre.org/cre/162-655)
 * SECEDUCATE. Educate data scientists and development teams on AI threats including the model attacks.  
 Links to standards:
   * 27001 Control 6.3 Awareness training (particularity: training material needs to cover AI security threats and controls)
-* DISCRETE. Minimize access to technical details to prevent attacker reconnaissance. E.g. be careful with publishing technical articles on your solution.
+* DISCRETE. Minimize access to technical details to prevent attacker reconnaissance. For example:  
+  * Be careful with publishing technical articles on your solution
+  * Choose a model type or model implementation with which attackers are less familiar
+  * Minimize model output regarding technical details
 * DATAMINIMIZE. Remove or anonymize data fields or records that are not needed for the application, to prevent them from leaking.
+* CHECKCOMPLIANCE. Laws and regulations need to be checked in order to validate compliance which may include security aspects. See the [OWASP AI Guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) for privacy aspects of AI.  
+Links to standards:
+  * [OpenCRE on Compliance](https://www.opencre.org/cre/510-324)
+  * 27001 COntrol 5.36 Compliance with policies, rukles and standards
 
 Note: For all controls in this document: a *vulnerability* occurs when a control is missing.
 
@@ -67,15 +77,21 @@ Note: For all controls in this document: a *vulnerability* occurs when a control
 Threats through use take place through normal interaction with an AI model: providing input and receiving output. Many of these threats require experimentation with the model, which is referred to in itself as an *Oracle attack*.
 
 **Controls for threats through use:**
-* MONITOR. Add use of the model to logs and make it part of incident detection
+* MONITOR. Add use of the model to logs and make it part of incident detection, preferably including detecting inproper functioning of the model.  
 Links to standards:
   * 27001 Control 8.16 Monitoring activities (Particularity: look out for specific patterns of model attacks through use)
   * See [OpenCRE](https://www.opencre.org/cre/058-083)
-* THROTTLE. Limit access to the API by throttling  
-  This prevents attackers from experimenting for evasion attacks or trying many inputs (e.g. for model inversion).
+* THROTTLE. Limit frequency of access to the API by throttling.  
+  This prevents attackers from experimenting for evasion attacks or trying many inputs (e.g. for model inversion).  
   Particularity: limit access not to prevent system overload but to prevent experimentation.  
 Links to standards:
-  * See [OpenCRE](https://www.opencre.org/cre/630-573) 
+  * See [OpenCRE](https://www.opencre.org/cre/630-573)
+* MODELACCESSCONTROL. Securely limit access to the model to authorized users.  
+Links to standards:
+  * Technical access control: 27001 Controls 5.15, 5.16, 5.18, 5.3, 8.3
+  * [OpenCRE on technical access control](https://www.opencre.org/cre/724-770) 
+  * [OpenCRE on centralized access control](https://www.opencre.org/cre/117-371)
+
 
 --------------------------------------
 ## 2.1. Evasion - Model behaviour manipulation through use 
@@ -91,11 +107,13 @@ Another categorization is to distinguish between physical input manipulation (e.
   For example: the trunk of a car should not be opened, even if the driver seems to ask so, in case the car is moving.
 * DETECTODD. Implement tools to detect whether input is excentric or invalid (Datascience)
 * DETECTPERTUBATION. Implement tools to detect specific evasions e.g. patches in images (Datascience)
-* ROBUSTMODEL. Choose a model design and configurationless resilient to evasion (Datascience)  
+* EVASIONROBUSTMODEL. Choose a model design and configurationless resilient to evasion (Datascience).
+TODO See Annex C in ENISA 2021 document for Stability terms, adversarial regulaiser, input gradient regularisation, defenisvie distillation and Random feature nullification.  
 Links to standards:
   * ISO/IEC TR 24029 - Assessment of the robustness of neural networks
-* TRAINADVERSARIAL. Add adversarial examples to the training set to make the model more resilient (Datascience)
-* RANDOMIZEDSMOOTHING. TODO
+* TRAINADVERSARIAL. Add adversarial examples to the training set to make the model more resilient (Datascience).
+See Annex C of ENISA Secure machine learning algorithms 2021
+* INPUTMODIFICATION. TODO: See ENISA Annex C for data randomisation, input transformation and input denoising.
 
 ### 2.1.1. Black box evasion
 Input is manipulated in a way not based on the internals of the model. This often requires experimenting with how the model responds to input.
@@ -122,7 +140,10 @@ Impact:  Confidentiality breach of sensitive data.
 The model discloses sensitive training data or is abused to do so.
 
 ### 2.2.1. Sensitive data output from model
-The output of the model may contain sensitive data from the training set, for example a large language model generatinh output including personal data that was part of its training set. An unintentional fault causes the disclosure, either through normal use or through evocation by an attacker using the system.
+The output of the model may contain sensitive data from the training set, for example a large language model generatinh output including personal data that was part of its training set. An unintentional fault causes the disclosure, either through normal use or through evocation by an attacker using the system.  
+
+**Controls for sensitive data output from model:**
+* Assess the risk of this happening and when necessary experiment to provoke this.
 
 ### 2.2.2. Model inversion 
 Model inversion attacks occur when an attacker reconstructs a part of the training set by intensive experimentation during which the input is optimized to maximize indications of confidence level in the output of the model.
@@ -162,11 +183,11 @@ Background: Data science (data engineering and model engineering) uses an AI pip
 **Controls to protect development-time:**
 * DATAPROTECT. Protect (train/test) data, source code, configuration & parameters
   * Encryption, see [OpenCE](https://www.opencre.org/cre/400-007)
-  * Technical access control  
+  * Technical access control for the data  
   Links to standards:
     * 27001 Controls 5.15, 5.16, 5.18, 5.3, 8.3
     * [OpenCRE](https://www.opencre.org/cre/724-770) 
-  * Centralized access control  
+  * Centralized access control for the data  
   Links to standards:
     * [OpenCRE](https://www.opencre.org/cre/117-371) (e.g. least privilege on sensitive train data), etc.
   * Particularity 1: don't just protect the data in the live system - also protect the data in the development environment as it is real data - since it is needed to train a model.
@@ -174,13 +195,14 @@ Background: Data science (data engineering and model engineering) uses an AI pip
 
 * DEVSECURITY. Make sure that the AI development infrastructure is part of the security management system, regarding people, process and technology perspective. E.g. screening of development personnel, protection of source code/configuration, virus scanning on engineering machines.
 * CONFCOMPUTE. 'Confidential compute': If available and possible, use features of the data science environment to hide training data from model engineers
-* TODO: Mention Privacy technologies, e.g. federative learning.
+* FEDERATIVELEARNING. Federative learning can be applied when a training set is distributed over different organizations, preventing that the data needs to be collected in a central place - increasing the risk of leaking.
 * TODO: integrity checks in development pipeline (build, deploy, supply chain)
-* TODO: Supply chain management, including data provenance  
-  Links to standards:
+* SUPPLYCHAINMANAGE, including data provenance, to prevent that malicious AI components, source data or source models are obtained from unreliable sources
+Particularity: apart from code and components, data and models can also be part of the supply chain in AI. Data may include annotations and lables that are supplied by another source.  
+Links to standards:
   * 27001 Controls 5.19, 5.20, 5.21, 5.22, 5.23, 8.30
-  * OpenCRE](https://www.opencre.org/cre/613-285)
-  * Particularity: apart from code and components, data can also be part of the supply chain in AI
+  * [OpenCRE](https://www.opencre.org/cre/613-285)
+  
 
 --------------------------------------
 ## 3.1. Broad model poisoning: model behaviour manipulation by altering data, engineering, or model
@@ -192,16 +214,19 @@ References:
 * [Summary of 15 backdoor papers at CVPR '23](https://zahalka.net/ai_security_blog/2023/09/backdoor-attacks-defense-cvpr-23-how-to-build-and-burn-trojan-horses/)
 
 ### 3.1.1. Data poisoning by changing data development-time or supply chain
-The attacker manipulates (training) data to affect the algorithm's behavior. Also called *causative attacks*. Example: massively indicating to an image recognition algorithm that images of dogs are indeed cats to lead it to interpret it this way. Another example is that poisoned data is obtained from a malicious supplier.
+The attacker manipulates (training) data to affect the algorithm's behavior. Also called *causative attacks*. Example: massively indicating to an image recognition algorithm that images of dogs are indeed cats to lead it to interpret it this way. Another example is that data obtained from a malicious supplier has been poisoned.
 
 Background: An important risk factor in the additional attack surface of AI engineering is the presence of production data in the engineering process. In order to train and test a working model, data scientists need access to real data, which may be sensitive. This is different from non-AI engineering in which typically the test data can be either synthesized or anonymized. An appropriate countermeasure is the limitation of access to this data to the engineers that really need it, and shield it from the rest of the team. In addition, some AI platforms provide mechanisms that allow the training and testing of a model without the data scientists having access to the data.
 
 **Controls for data poisoning:**
-* TODO: robustness measures through more train data
-* TODO: data quality control, including detecting poisoned sample detection through statistical deviation
-  Particularity: quality control needs to take into account that data may have maliciously been changed
+* MORETRAINDATA: Increasing the amount of non-malicious data makes training more robust against poisoned examples - provided that these poisoned examples are small in number. One way to do this is through data augmentation - the creation of artificial training set samples that are small variations of existing samples.
+* DATAQUALITYCONTROL. Perform quality control on data including detecting poisoned samples through statistical deviation or pattern recognition. For important data and scenarios this may involve human verification.  
+  Particularity: standard quality control needs to take into account that data may have maliciously been changed.
+  TODO: elaborate on RONI and tRONI training sample selection
 * TODO: Feature squeezing
 * TODO: Transferability blocking
+* TODO: (weight)Bagging - see Annex C in ENISA 2021
+* TODO: TRIM algorithm - see Annex C in ENISA 2021
 
 ### 3.1.2. Development-time model poisoning
 This threat refers to manipulating behaviour of the model by manipulating the engineering elements that lead to the model  (including the parameters during development time), eg. through supplying, changing components, code, or configuration. In some cases, the model is trained externally and supplied as-is, which also introduces a model poisoning threat.
@@ -299,14 +324,15 @@ References on the OWASP AI guide (a project of which this document is part):
 * The [September 2023 MLSecops Podcast](https://mlsecops.com/podcast/a-holistic-approach-to-understanding-the-ai-lifecycle-and-securing-ml-systems-protecting-ai-through-people-processes-technology), and If you want the short story, check out [the 13 minute AI security quick-talk](https://www.brighttalk.com/webcast/19697/586526).
 
 Overviews of model attacks:
-* [BIML](https://berryvilleiml.com/taxonomy/)
 * [ENISA ML threats and countermeasures](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
+* [MITRE ATLAS framework for AI threats](https://atlas.mitre.org/)
 * [ETSI SAI Problem statement Section 6](https://www.etsi.org/committee/1640-sai#)
 * [Microsoft AI failure modes](https://docs.microsoft.com/en-us/security/failure-modes-in-machine-learning)
 * [NIST](https://csrc.nist.gov/publications/detail/white-paper/2023/03/08/adversarial-machine-learning-taxonomy-and-terminology/draft)
-* [MITRE ATLAS framework for AI threats](https://atlas.mitre.org/)
 * [OWASP ML top 10](https://mltop10.info/)
 * [OWASP LLM top 10](https://llmtop10.com/)
+* [BIML](https://berryvilleiml.com/taxonomy/)
+
 
 Misc.:
 * [ENISA AI security standard discussion](https://www.enisa.europa.eu/publications/cybersecurity-of-ai-and-standardisation)
