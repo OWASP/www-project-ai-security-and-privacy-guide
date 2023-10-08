@@ -1,6 +1,6 @@
 # OWASP AI Exchange
-Living document for worldwide AI security exchange.  
-Purpose: Creating consensus and collecting input to Global and European standardisation and regulation activities, including the EU AI act and ISO/IEC 27090 (AI security).
+Living document for worldwide exchange of AI security expertise.  
+Purpose: Creating consensus and collecting input that can be used by global and European standardisation and regulation activities, including the EU AI act and ISO/IEC 27090 (AI security).
 
 Table of contents:
 * Introduction
@@ -21,9 +21,7 @@ It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 270
 
 **Sources:**  
 * AI security experts who contributed to this as Open Source. 
-* The insights of these experts were inspired by research work as mentioned in the OWASP AI security & privacy guide (ENISA, Microsoft, BIML, MITRE, etc.) at https://owasp.org/www-project-ai-security-and-privacy-guide/
-
-Find more references at the bottom of this document.
+* The insights of these experts were inspired by research work as mentioned in the references at the bottom of this document(ENISA, Microsoft, BIML, MITRE, etc.)
 
 **Way of organizing**  
 The threats are organized by attack surface (how and where does the attack take place?), and not by impact. This means that for example model theft is mentioned in three  different parts of the overview: 1. model theft by stealing model parameters from a live system, 2. model theft by stealing the modeling process or parameters from the engineering environment, and 3. model theft by reverse engineering from using the AI system. These are three very different attacks, with similar impacts. This way of organizing is helpful because the goal is to link the threats to controls, and these controls vary per attack surface.
@@ -134,7 +132,7 @@ When attackers have access to technical information (e.g. model parameters) they
 
 References:
 * [Traffic signs](https://openaccess.thecvf.com/content_cvpr_2018/papers/Eykholt_Robust_Physical-World_Attacks_CVPR_2018_paper.pdf)
-* [Panda images](https://arxiv.org/pdf/1412.6572.pdf).
+* [Panda images](https://arxiv.org/pdf/1412.6572.pdf)
 
 ### 2.1.3. Evasion after data poisoning
 After training data has been poisoned (see corresponding section), specific input can lead to unwanted decisions - sometimes referred to as *back doors*.
@@ -149,7 +147,7 @@ The model discloses sensitive training data or is abused to do so.
 ### 2.2.1. Sensitive data output from model
 The output of the model may contain sensitive data from the training set, for example a large language model generating output including personal data that was part of its training set. Furthermore, generative AI can ouput other types of sensitive data, such as copyrighted text or images. The disclosure is caused by an unintentional fault, either through normal use or through provocation by an attacker using the system.  
 
-**Controls for sensitive data output from model:**
+**Controls specific for sensitive data output from model:**
 * Assess the risk of this happening and when necessary experiment to provoke this.
 
 ### 2.2.2. Model inversion and Membership inference
@@ -157,12 +155,12 @@ Model inversion occurs when an attacker reconstructs a part of the training set 
 
 Membership inference is presenting a model with input data that identifies something or somebody (e.g. a personal identity or a portrait pictuyre), and using any indication of confidence in the output to infer the presence of that something or somebody in the training set.
 
-References
-* [Article](https://medium.com/disaitek/demystifying-the-membership-inference-attack-e33e510a0c39)
+References:
+* [Article on membership inference](https://medium.com/disaitek/demystifying-the-membership-inference-attack-e33e510a0c39)
 
 The more details a model is able to learn, the more it can store information on individual training set entries. If this happens more than necessary, this is called *overfitting*, which can be prevented by configuring smaller models.
 
-Controls for Model inversion and membership inference:
+Controls specific for Model inversion and membership inference:
 * HIDECONFIDENCE. Exclude indications of confidence in the output
 * SMALLMODEL. Overfitting can be prevented by keeping the model small so it is not able to store detail at the level of individual training set samples.
 * TODO: Add noise to the training set.
@@ -194,9 +192,11 @@ This is not an attack, but it is about the weakness of relying too much on the A
 # 3. DEVELOPMENT-TIME THREATS
 Background: Data science (data engineering and model engineering) uses an AI pipeline typically outside of the regular application development scope, introducing a new attack surface. Data engineering (collecting, storing, and preparing data) is typically a large and important part of machine learning engineering. Together with model engineering, it requires appropriate security to protect against data leaks, data poisoning, leaks of intellectual property, and supply chain attacks (see further below). In addition, data quality assurance can help to reduce risks of intended and unintended data issues. 
 
-**Controls to protect development-time:**
+**Controls to protect AI development-time:**
 * DATAPROTECT. Protect (train/test) data, source code, configuration & parameters
-  * Encryption, see [OpenCE](https://www.opencre.org/cre/400-007)
+  * Encryption
+  Links to standards:
+    *  [OpenCE on encryption](https://www.opencre.org/cre/400-007)
   * Technical access control for the data  
   Links to standards:
     * 27001 Controls 5.15, 5.16, 5.18, 5.3, 8.3
@@ -251,7 +251,7 @@ Data manipulation is  referred to as data poisoning and is covered in separate t
 ### 3.1.3 Transfer learning attack
 Supplying a manipulated model that serves as a base to be further trained development time
 
-**Controls for transfer learning:**
+**Controls specific for transfer learning:**
 * TODO: Choose a model type resilient against a transfer learning attack
 
 
