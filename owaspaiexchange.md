@@ -65,6 +65,7 @@ Links to standards:
   * Choose a model type or model implementation with which attackers are less familiar
   * Minimize model output regarding technical details
 * DATAMINIMIZE. Remove or anonymize data fields or records that are not needed for the application, to prevent them from leaking.
+* DIFFPRIVACYTRAINING. Attain a degree of differential privacy where possible using PATE, randomisation or objective function perturbation. TODO: Elaborate using Annex C in ENISA 2021. (Datascience)
 * CHECKCOMPLIANCE. Laws and regulations need to be checked in order to validate compliance which may include security aspects. See the [OWASP AI Guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) for privacy aspects of AI.  
 Links to standards:
   * [OpenCRE on Compliance](https://www.opencre.org/cre/510-324)
@@ -106,7 +107,7 @@ Another categorization is to distinguish between physical input manipulation (e.
 * OVERSIGHT. Oversight of model behaviour by humans or business logic    
   For example: the trunk of a car should not be opened, even if the driver seems to ask so, in case the car is moving.
 * DETECTODD. Implement tools to detect whether input is excentric or invalid (Datascience)
-* DETECTPERTUBATION. Implement tools to detect specific evasions e.g. patches in images (Datascience)
+* DETECTPERTUBATION. Implement tools to detect specific evasions e.g. patches in images. TODO elaborate on detector subnetworks in Annex C of ENISA 2021. (Datascience)
 * EVASIONROBUSTMODEL. Choose a model design and configurationless resilient to evasion (Datascience).
 TODO See Annex C in ENISA 2021 document for Stability terms, adversarial regulaiser, input gradient regularisation, defenisvie distillation and Random feature nullification.  
 Links to standards:
@@ -114,6 +115,7 @@ Links to standards:
 * TRAINADVERSARIAL. Add adversarial examples to the training set to make the model more resilient (Datascience).
 See Annex C of ENISA Secure machine learning algorithms 2021
 * INPUTMODIFICATION. TODO: See ENISA Annex C for data randomisation, input transformation and input denoising.
+* TODO Gradient masking - Annex C ENISA 2021
 
 ### 2.1.1. Black box evasion
 Input is manipulated in a way not based on the internals of the model. This often requires experimenting with how the model responds to input.
@@ -227,6 +229,7 @@ Background: An important risk factor in the additional attack surface of AI engi
 * TODO: Transferability blocking
 * TODO: (weight)Bagging - see Annex C in ENISA 2021
 * TODO: TRIM algorithm - see Annex C in ENISA 2021
+* TODO: STRIP technique (after model evaluation)  - see Annex C in ENISA 2021
 
 ### 3.1.2. Development-time model poisoning
 This threat refers to manipulating behaviour of the model by manipulating the engineering elements that lead to the model  (including the parameters during development time), eg. through supplying, changing components, code, or configuration. In some cases, the model is trained externally and supplied as-is, which also introduces a model poisoning threat.
