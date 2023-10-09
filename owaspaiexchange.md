@@ -188,6 +188,9 @@ A *sponge attack* provides input that is designed to increase the computation ti
 ## 2.5. Overreliance in use
 This is not an attack, but it is about the weakness of relying too much on the AI system in  use - trusting it too much, causing unintended failures or attacks to have a bigger impact. This aspect is strongly related to oversight. 
 
+**Controls for overreliance:**
+* AITRANSPARENCY. By being transparent to users regarding the accuracy and reliability of the AI system's output, people can adjust their reliance accordingly.
+
 
 # 3. DEVELOPMENT-TIME THREATS
 Background: Data science (data engineering and model engineering) uses an AI pipeline typically outside of the regular application development scope, introducing a new attack surface. Data engineering (collecting, storing, and preparing data) is typically a large and important part of machine learning engineering. Together with model engineering, it requires appropriate security to protect against data leaks, data poisoning, leaks of intellectual property, and supply chain attacks (see further below). In addition, data quality assurance can help to reduce risks of intended and unintended data issues. 
