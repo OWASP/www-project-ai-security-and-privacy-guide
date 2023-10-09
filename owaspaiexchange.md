@@ -1,6 +1,6 @@
 # OWASP AI Exchange
 Living document for worldwide exchange of AI security expertise.  
-Purpose: Creating consensus and collecting input that can be used by global and European standardisation and regulation activities, including the EU AI act and ISO/IEC 27090 (AI security).
+Purpose: Creating consensus and collecting input that can be used by global and European standardisation and regulation activities, including the EU AI act,  ISO/IEC 27090 (AI security), the [OWASP ML top 10](https://mltop10.info/), and the [OWASP LLM top 10](https://llmtop10.com/).
 
 Table of contents:
 * Introduction
@@ -18,6 +18,14 @@ Security here means preventing unauthorized access, use, disclosure, disruption,
 This initiative was taken by OWASP, triggered by Rob van der Veer - bridge builder for security standards, senior director at Software Improvement Group, with 31 years of experience in AI & security, lead author of ISO/IEC 5338 on AI engineering, founding father of OpenCRE, and currently working on security requirements for the EU AI act in CEN/CENELEC.
 This is all draft and work in progress for others to review and amend.
 It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 27090, the [OWASP ML top 10](https://mltop10.info/), [OWASP LLM top 10](https://llmtop10.com/), and hopefully many more standards, so we can benefit from consistent terminology and insights across the globe.
+
+**If you're an AI security expert, we need your contribution:**
+* Create [Github issues](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues)
+* Start [Github dicussions](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions) or join the [slack channel](https://join.slack.com/share/enQtNjAwOTg4NDIwOTY4NS1lNzRkNmZkMjZiNzE0ZDZlYzRiYzQ0ZTE5YTg5OTRjZjY1MmQ1NWQ0MTgwYzBkYzIzMjYzYmRlMjE2ZWI2OWNk)
+* Fork the respository and suggest changes to this document using Pull requests (only do this if you are familiar with it)
+* Discuss with the project leader how to become part of the writing group, so you can edit the document directly.
+* Provide comments or suggestions to the last [Word version of this document](owaspAIexchangeWORD.docx) and send it to the project leader
+* Email the project leader your input: rob.vanderveer@owasp.org
 
 **Sources:**  
 * AI security experts who contributed to this as Open Source. 
