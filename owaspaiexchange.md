@@ -24,7 +24,7 @@ It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 270
 * Start [Github dicussions](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions) or join the [slack channel](https://join.slack.com/share/enQtNjAwOTg4NDIwOTY4NS1lNzRkNmZkMjZiNzE0ZDZlYzRiYzQ0ZTE5YTg5OTRjZjY1MmQ1NWQ0MTgwYzBkYzIzMjYzYmRlMjE2ZWI2OWNk)
 * Fork the respository and suggest changes to this document using Pull requests (only do this if you are familiar with it)
 * Discuss with the project leader how to become part of the writing group, so you can edit the document directly.
-* Provide comments or suggestions to the last [Word version of this document](owaspAIexchangeWORD.docx) and send it to the project leader
+* Provide comments or suggestions to the last [Word version of this document](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/owaspaiexchangeWORD.docx) and send it to the project leader
 * Email the project leader your input: rob.vanderveer@owasp.org
 
 **Sources:**  
