@@ -1,6 +1,6 @@
 # OWASP AI Exchange
 Living document for worldwide exchange of AI security expertise.  
-Purpose: Creating consensus and collecting input that can be used by global and European standardisation and regulation activities, including the EU AI act,  ISO/IEC 27090 (AI security), the [OWASP ML top 10](https://mltop10.info/), and the [OWASP LLM top 10](https://llmtop10.com/).
+Purpose: Creating consensus and collecting input that can be used by global and regional standardisation and regulation activities, including the EU AI act,  ISO/IEC 27090 (AI security), the [OWASP ML top 10](https://mltop10.info/), and the [OWASP LLM top 10](https://llmtop10.com/).
 
 Table of contents:
 * Introduction
