@@ -70,7 +70,7 @@ Links to standards:
   * Be careful with publishing technical articles on your solution
   * Choose a model type or model implementation with which attackers are less familiar
   * Minimize model output regarding technical details
-* DATAMINIMIZE. Remove or anonymize data fields or records that are not needed for the application, to prevent them from leaking.
+* DATAMINIMIZE. Remove or anonymize data fields or records that are not needed for the application, to prevent them from leaking. A special form of data minimization is to statistically analyse which records or fields in a trainset are superfluous to achieving sufficient performance, and then remove those (Datascience).
 * DIFFPRIVACYTRAINING. Attain a degree of differential privacy where possible using PATE, randomisation or objective function perturbation. TODO: Elaborate using Annex C in ENISA 2021. (Datascience)
 * CHECKCOMPLIANCE. Laws and regulations need to be checked in order to validate compliance which may include security aspects. See the [OWASP AI Guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) for privacy aspects of AI.  
 Links to standards:
@@ -115,7 +115,7 @@ Another categorization is to distinguish between physical input manipulation (e.
 **Controls for evasion:**
 * OVERSIGHT. Oversight of model behaviour by humans or business logic    
   For example: the trunk of a car should not be opened, even if the driver seems to ask so, in case the car is moving.
-* DETECTODD. Implement tools to detect whether input is excentric or invalid (Datascience)
+* DETECTODD. Implement tools to detect whether input is excentric or invalid - also called input validation (Datascience)
 * DETECTPERTUBATION. Implement tools to detect specific evasions e.g. patches in images. TODO elaborate on detector subnetworks in Annex C of ENISA 2021. (Datascience)
 * EVASIONROBUSTMODEL. Choose a model design and configurationless resilient to evasion (Datascience).
 TODO See Annex C in ENISA 2021 document for Stability terms, adversarial regulaiser, input gradient regularisation, defenisvie distillation and Random feature nullification.  
@@ -208,23 +208,33 @@ Background: Data science (data engineering and model engineering) uses an AI pip
   * Encryption
   Links to standards:
     *  [OpenCE on encryption](https://www.opencre.org/cre/400-007)
-  * Technical access control for the data  
+  * Technical access control for the data, to limit access following the least privilege principle  
   Links to standards:
     * 27001 Controls 5.15, 5.16, 5.18, 5.3, 8.3
     * [OpenCRE](https://www.opencre.org/cre/724-770) 
   * Centralized access control for the data  
   Links to standards:
-    * [OpenCRE](https://www.opencre.org/cre/117-371) (e.g. least privilege on sensitive train data), etc.
+    * [OpenCRE](https://www.opencre.org/cre/117-371) 
+  * Operational security to protect data storage
+  Links to standards:
+    * 27001 control 5.23 Information security for use of cloud services
+    * 27001 control 5.37 Documented operating procedures
+    * Many more 27001 controls (See OpenCRE link)
+    * [OpenCRE](https://www.opencre.org/cre/862-452)
   * Particularity 1: don't just protect the data in the live system - also protect the data in the development environment as it is real data - since it is needed to train a model.
   * Particularity 2: source code, configuration, and parameters are typically critical intellectual property in AI
 
 * DEVSECURITY. Make sure that the AI development infrastructure is part of the security management system, regarding people, process and technology perspective. E.g. screening of development personnel, protection of source code/configuration, virus scanning on engineering machines.
+* SEGREGATEDATA. Store data in a separated environment with restricted access.
+List of standards:
+  * 27001 control 8.31 Separation of development, test and production environments
 * CONFCOMPUTE. 'Confidential compute': If available and possible, use features of the data science environment to hide training data from model engineers
 * FEDERATIVELEARNING. Federative learning can be applied when a training set is distributed over different organizations, preventing that the data needs to be collected in a central place - increasing the risk of leaking.
 * TODO: integrity checks in development pipeline (build, deploy, supply chain)
 * SUPPLYCHAINMANAGE, including data provenance, to prevent that malicious AI components, source data or source models are obtained from unreliable sources.
 The Software Bill Of Materials (SBOM) becomes the AIBOM (AI Bill Of Materials). AI systems often have a variation of supply chains, including the data supply chain, the labeling supply chain, and the model supply chain.  
-Particularity: apart from code and components, data and models can also be part of the supply chain in AI. Data may include annotations and lables that are supplied by another source.  
+Particularity: apart from code and components, data and models can also be part of the supply chain in AI. Data may include annotations and lables that are supplied by another source.
+Standard supply chain management includes provenance & pedigree, verifying signatures, using package repositories, frequent patching, and using dependency verification tools.  
 Links to standards:
   * 27001 Controls 5.19, 5.20, 5.21, 5.22, 5.23, 8.30
   * [OpenCRE](https://www.opencre.org/cre/613-285)
@@ -235,6 +245,9 @@ Links to standards:
 Impact: see ‘Evasion’, with the note that two extra types of manipulation are  possible: 
 * Backdoors - which trigger unwanted responses to specific input variations (e.g. a money transaction is wrongfully marked as NOT fraud because it has a specific amount of money for which the model has been manipulated to ignore). Other name: *Trojan attack*
 * Unavailability by sabotage, leading to e.g. business continuity problems or safety issues
+
+**Controls specific for broad model poisoning:**
+* MODELENSEMBLE. Make the model part of en ensemble in which each model has been trained in a separately protected environemnt. If one model deviates from the others, its output can be ignored as it indicates possible manipulation.
 
 References:
 * [Summary of 15 backdoor papers at CVPR '23](https://zahalka.net/ai_security_blog/2023/09/backdoor-attacks-defense-cvpr-23-how-to-build-and-burn-trojan-horses/)
