@@ -15,8 +15,10 @@ Table of contents:
 **This document**  
 This document discusses AI cyber security threats and controls.
 Security here means preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.  
-This initiative was taken by OWASP, triggered by Rob van der Veer - bridge builder for security standards, senior director at Software Improvement Group, with 31 years of experience in AI & security, lead author of ISO/IEC 5338 on AI engineering, founding father of OpenCRE, and currently working on security requirements concerning the EU AI act in CEN/CENELEC.  
-This is all draft and work in progress for others to review and amend.
+
+The AI Exchange initiative was taken by OWASP, triggered by Rob van der Veer - bridge builder for security standards, senior director at Software Improvement Group, with 31 years of experience in AI & security, lead author of ISO/IEC 5338 on AI engineering, founding father of OpenCRE, and currently working on security requirements concerning the EU AI act in CEN/CENELEC.  
+
+This material is all draft and work in progress for others to review and amend.
 It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 27090, the [OWASP ML top 10](https://mltop10.info/), [OWASP LLM top 10](https://llmtop10.com/), and many more initiatives can benefit from consistent terminology and insights across the globe.
 
 **If you're an AI security expert, here's how to contribute:**
@@ -215,7 +217,7 @@ Background: Data science (data engineering and model engineering) uses an AI pip
 
 **Controls to protect AI development-time:**
 * DATAPROTECT. Protect (train/test) data, source code, configuration & parameters
-  * Encryption
+  * Encryption  
   Links to standards:
     *  [OpenCE on encryption](https://www.opencre.org/cre/400-007)
   * Technical access control for the data, to limit access following the least privilege principle  
@@ -225,7 +227,7 @@ Background: Data science (data engineering and model engineering) uses an AI pip
   * Centralized access control for the data  
   Links to standards:
     * [OpenCRE](https://www.opencre.org/cre/117-371) 
-  * Operational security to protect data storage
+  * Operational security to protect stored data  
   Links to standards:
     * 27001 control 5.23 Information security for use of cloud services
     * 27001 control 5.37 Documented operating procedures
