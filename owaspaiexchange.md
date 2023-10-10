@@ -1,6 +1,6 @@
 # OWASP AI Exchange
 Living document for worldwide exchange of AI security expertise.  
-Purpose: Creating consensus and collecting input that can be used by global and regional standardisation and regulation activities, including the EU AI act,  ISO/IEC 27090 (AI security), the [OWASP ML top 10](https://mltop10.info/), and the [OWASP LLM top 10](https://llmtop10.com/).
+Purpose: Creating consensus and collecting input for global and regional standardisation and regulation activities, including the EU AI act,  ISO/IEC 27090 (AI security), the [OWASP ML top 10](https://mltop10.info/), and the [OWASP LLM top 10](https://llmtop10.com/).
 
 Table of contents:
 * Introduction
@@ -14,18 +14,20 @@ Table of contents:
 
 **This document**  
 This document discusses AI cyber security threats and controls.
-Security here means preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.
-This initiative was taken by OWASP, triggered by Rob van der Veer - bridge builder for security standards, senior director at Software Improvement Group, with 31 years of experience in AI & security, lead author of ISO/IEC 5338 on AI engineering, founding father of OpenCRE, and currently working on security requirements for the EU AI act in CEN/CENELEC.
+Security here means preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.  
+This initiative was taken by OWASP, triggered by Rob van der Veer - bridge builder for security standards, senior director at Software Improvement Group, with 31 years of experience in AI & security, lead author of ISO/IEC 5338 on AI engineering, founding father of OpenCRE, and currently working on security requirements concerning the EU AI act in CEN/CENELEC.  
 This is all draft and work in progress for others to review and amend.
-It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 27090, the [OWASP ML top 10](https://mltop10.info/), [OWASP LLM top 10](https://llmtop10.com/), and hopefully many more standards, so we can benefit from consistent terminology and insights across the globe.
+It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 27090, the [OWASP ML top 10](https://mltop10.info/), [OWASP LLM top 10](https://llmtop10.com/), and many more initiatives can benefit from consistent terminology and insights across the globe.
 
-**If you're an AI security expert, we need your contribution:**
+**If you're an AI security expert, here's how to contribute:**
 * Create [Github issues](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues)
-* Start [Github dicussions](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions) or join the [slack channel](https://join.slack.com/share/enQtNjAwOTg4NDIwOTY4NS1lNzRkNmZkMjZiNzE0ZDZlYzRiYzQ0ZTE5YTg5OTRjZjY1MmQ1NWQ0MTgwYzBkYzIzMjYzYmRlMjE2ZWI2OWNk)
+* Start [Github dicussions](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions) or join **#project-ai** at the [OWASP Slack workspace](https://owasp.org/slack/invite)
 * Fork the respository and suggest changes to this document using Pull requests (only do this if you are familiar with it)
-* Discuss with the project leader how to become part of the writing group, so you can edit the document directly.
+* Discuss with the project leader how to become part of the writing group, so you can edit the document directly
 * Provide comments or suggestions to the last [Word version of this document](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/owaspaiexchangeWORD.docx) and send it to the project leader
 * Email the project leader your input: rob.vanderveer@owasp.org
+
+Anything is welcome: more controls, improved descriptions, examples, references, etc. We will make sure you get credit for your input.
 
 **Sources:**  
 * AI security experts who contributed to this as Open Source. 
@@ -58,7 +60,7 @@ Links to standards:
 Links to standards:
   * 27001 control 8.25 Secure development lifecycle
   * See [OpenCRE on secure software development processes](https://www.opencre.org/cre/616-305) with notable links to NIST SSDF and OWASP SAMM.
-* DEVPROGRAM. Apart from secure development, AI engineering can benefit from other software engineering best practices, that are sometimes overlooked in data science: e.g. automated testing, code quailty, documentation, and versioning. This way, AI systems will become easier to maintain, transferable, more reliable, and future-proof. A best practice is to mix data scientist profiles with software engineering profiles in teams, as software engineers typically need to learn more about data science and data scientists typically need to learn more about creating future-proof code that is easy to maintain and test.  
+* DEVPROGRAM. Apart from secure development, AI engineering can benefit from other software engineering best practices, that are sometimes overlooked in data science: e.g. automated testing, code quality, documentation, and versioning. This way, AI systems will become easier to maintain, transferable, more reliable, and future-proof. A best practice is to mix data scientist profiles with software engineering profiles in teams, as software engineers typically need to learn more about data science and data scientists typically need to learn more about creating future-proof code that is easy to maintain and test.  
 Links to standards:
   * [ISO/IEC 5338](https://www.iso.org/standard/81118.html)
   * 27001 controls 5.37 Documented operating procedures
@@ -75,7 +77,7 @@ Links to standards:
 * CHECKCOMPLIANCE. Laws and regulations need to be checked in order to validate compliance which may include security aspects. See the [OWASP AI Guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) for privacy aspects of AI.  
 Links to standards:
   * [OpenCRE on Compliance](https://www.opencre.org/cre/510-324)
-  * 27001 COntrol 5.36 Compliance with policies, rukles and standards
+  * 27001 Control 5.36 Compliance with policies, rukles and standards
 
 Note: For all controls in this document: a *vulnerability* occurs when a control is missing.
 
@@ -88,7 +90,7 @@ Threats through use take place through normal interaction with an AI model: prov
 Links to standards:
   * 27001 Control 8.16 Monitoring activities (Particularity: look out for specific patterns of model attacks through use)
   * See [OpenCRE](https://www.opencre.org/cre/058-083)
-* THROTTLE. Limit frequency of access to the API by throttling.  
+* THROTTLE. Limit frequency of access to the model (e.g. API) by throttling.  
   This prevents attackers from experimenting for evasion attacks or trying many inputs (e.g. for model inversion).  
   Particularity: limit access not to prevent system overload but to prevent experimentation.  
 Links to standards:
@@ -186,7 +188,9 @@ References
 
 --------------------------------------
 ## 2.4. Failure or malfunction of AI-specific elements through use
-This threat refers to  application failure (i.e. denial of service) induced by an attacker (e.g. due to bad input).
+Impact:  The AI systems is unavailable, leading to issues with processes, organizations or individuals that depend on the AI system (e.g. business continuity issues, safety issues in process control, unavailability of services)
+
+This threat refers to  application failure (i.e. denial of service) induced by an attacker through use (i.e. providing input). The failure occurs from either the volume or the content of the input.
 
 ### 2.4.1. Denial of model service due to inconsistent data or a sponge example
 A denial of service could be caused by input data with an inappropriate format, and causing malfunctioning of the model or its input logic.
@@ -194,10 +198,13 @@ A *sponge attack* provides input that is designed to increase the computation ti
 
 --------------------------------------
 ## 2.5. Overreliance in use
-This is not an attack, but it is about the weakness of relying too much on the AI system in  use - trusting it too much, causing unintended failures or attacks to have a bigger impact. This aspect is strongly related to oversight. 
+Impact: If the accuracy of the AI system is trusted too much (e.g. the answers of a large language model), unintended failures or attacks have a bigger impact. This aspect is strongly related to Excessive agency. 
+
+This is not an attack, but it is about the weakness of relying too much on the AI system in use. 
 
 **Controls for overreliance:**
 * AITRANSPARENCY. By being transparent to users regarding the accuracy and reliability of the AI system's output, people can adjust their reliance accordingly.
+* See the controls for excessive agency (e.g. oversight).
 
 
 # 3. DEVELOPMENT-TIME THREATS
@@ -273,7 +280,7 @@ This threat refers to manipulating behaviour of the model by manipulating the en
 Data manipulation is  referred to as data poisoning and is covered in separate threats.
 
 ### 3.1.3 Transfer learning attack
-Supplying a manipulated model that serves as a base to be further trained development time
+Supplying a manipulated pre-trained model that serves as a base to be further trained.
 
 **Controls specific for transfer learning:**
 * TODO: Choose a model type resilient against a transfer learning attack
@@ -310,11 +317,11 @@ Alternatively, the model input or output logic can be compromised to change mode
 ## 4.2. Runtime model theft (manipulating the model itself or its input/output logic)
 Impact:  Confidentiality breach of intellectual property.
 
-Stealing model parameters from a live system.
+Stealing model parameters from a live system by breaking into it (e.g. by gaining access to executables or configuration files in the production environment)
 
 --------------------------------------
 ## 4.3. Insecure output handling
-Impact: Creates a weakness allowing attackers to use output for 'traditional' attacks such as XSS-Cross site scripting.
+Impact: Untrusted model output creates a weakness allowing attackers to use output for 'traditional' attacks such as XSS-Cross site scripting.
 
 This is like the standard output encoding issue, but the particularity is that the output of AI may include attacks such as XSS.
 See [OpenCRE on Output encoding and injection prevention](https://www.opencre.org/cre/161-451)
@@ -352,7 +359,7 @@ AI systems may undertake actions leading to unintended consequences. The issue a
 ## 4.7. Leak sensitive input data
 Impact:  Confidentiality breach of sensitive data.
 
-Input data can be sensitive (e.g. generative AI prompts) and can either leak throug a failure or through an attack.
+Input data can be sensitive (e.g. generative AI prompts) and can either leak through a failure or through an attack, such as a man-in-the-middle attack).
 TODO: add to diagram
 
 
@@ -364,7 +371,7 @@ References on the OWASP AI guide (a project of which this document is part):
 * The [September 2023 MLSecops Podcast](https://mlsecops.com/podcast/a-holistic-approach-to-understanding-the-ai-lifecycle-and-securing-ml-systems-protecting-ai-through-people-processes-technology), and If you want the short story, check out [the 13 minute AI security quick-talk](https://www.brighttalk.com/webcast/19697/586526).
 
 Overviews of model attacks:
-* [ENISA ML threats and countermeasures](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
+* [ENISA ML threats and countermeasures 2021](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
 * [MITRE ATLAS framework for AI threats](https://atlas.mitre.org/)
 * [ETSI SAI Problem statement Section 6](https://www.etsi.org/committee/1640-sai#)
 * [Microsoft AI failure modes](https://docs.microsoft.com/en-us/security/failure-modes-in-machine-learning)
