@@ -1,6 +1,6 @@
 # OWASP AI Exchange
 Living document for worldwide exchange of AI security expertise.  
-Maintained at [owaspai.org](http://owaspai.org)
+Maintained at [owaspai.org](http://owaspai.org)  
 Purpose: Creating consensus and collecting input for global and regional standardisation and regulation activities, including the EU AI act,  ISO/IEC 27090 (AI security), the [OWASP ML top 10](https://mltop10.info/), and the [OWASP LLM top 10](https://llmtop10.com/).
 
 Table of contents:
