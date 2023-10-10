@@ -44,6 +44,9 @@ The threats are organized by attack surface (how and where does the attack take 
 *	**Limit the impact** of AI by minimizing privileges and adding oversight, e.g. guardrails, human oversight.
 *	**Countermeasures in data science** through understanding of model attacks, e.g. data quality assurance, larger training sets, detecting common perturbation attacks.
 
+**How about Generative AI?**
+Yes, GenAI is the big topic now and it's the fastest moving subfield of AI security. Nevertheless it is important to realize that other types of algorithms will remain to be applied to many important use cases such as credit scoring, fraud detection, medical diagnosis, product recommendation, image recognition, predictive maintenance, process control, etc.
+
 
 # 1. General controls - for all threats
 
