@@ -17,17 +17,19 @@ Table of contents:
 This document discusses AI cyber security threats and controls.
 Security here means preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.  
 
-The AI Exchange initiative was taken by OWASP, triggered by Rob van der Veer - bridge builder for security standards, senior director at Software Improvement Group, with 31 years of experience in AI & security, lead author of ISO/IEC 5338 on AI engineering, founding father of OpenCRE, and currently working on security requirements concerning the EU AI act in CEN/CENELEC.  
+The AI Exchange initiative was taken by OWASP, triggered by [Rob van der Veer](https://www.linkedin.com/in/robvanderveer/) - bridge builder for security standards, senior director at Software Improvement Group, with 31 years of experience in AI & security, lead author of ISO/IEC 5338 on AI engineering, founding father of OpenCRE, and currently working on security requirements concerning the EU AI act in CEN/CENELEC.  
 
 This material is all draft and work in progress for others to review and amend.
 It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 27090, the [OWASP ML top 10](https://mltop10.info/), [OWASP LLM top 10](https://llmtop10.com/), and many more initiatives can benefit from consistent terminology and insights across the globe.
 
-**If you're an AI security expert, here's how to contribute:**
-* Create [Github issues](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues)
-* Start [Github dicussions](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions) or join **#project-ai** at the [OWASP Slack workspace](https://owasp.org/slack/invite)
+-----------------------------
+**If you're an AI security expert, please contribute now as standard makers are using this document as input as we speak:**
+-----------------------------
+* Provide comments or suggestions to the last [Word version of this document](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/owaspaiexchangeWORD.docx) and send it to rob.vanderveer@owasp.org
+* Start a [Github dicussion](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions) or join **#project-ai** at the [OWASP Slack workspace](https://owasp.org/slack/invite)
+* Post remarks as [Github issues](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues)
 * Fork the respository and suggest changes to this document using Pull requests (only do this if you are familiar with it)
 * Discuss with the project leader how to become part of the writing group, so you can edit the document directly
-* Provide comments or suggestions to the last [Word version of this document](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/owaspaiexchangeWORD.docx) and send it to the project leader
 * Email the project leader your input: rob.vanderveer@owasp.org
 
 Anything is welcome: more controls, improved descriptions, examples, references, etc. We will make sure you get credit for your input.
