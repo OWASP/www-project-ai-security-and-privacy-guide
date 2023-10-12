@@ -392,6 +392,7 @@ Overviews of model attacks:
 Misc.:
 * [ENISA AI security standard discussion](https://www.enisa.europa.eu/publications/cybersecurity-of-ai-and-standardisation)
 * [ENISA's multilayer AI security framework](https://www.enisa.europa.eu/publications/multilayer-framework-for-good-cybersecurity-practices-for-ai)
+* [Alan Turing institute's AI standards hub](https://aistandardshub.org)
 * [Microsoft/MITRE tooling for ML teams](https://www.mitre.org/news-insights/news-release/microsoft-and-mitre-create-tool-help-security-teams-prepare-attacks?sf175190906=1)
 * [Google's Secure AI Framework](https://blog.google/technology/safety-security/introducing-googles-secure-ai-framework/)
 * [NIST AI Risk Management Framework 1.0](https://doi.org/10.6028/NIST.AI.100-1)
