@@ -14,7 +14,7 @@ Table of contents:
 # Introduction
 
 **This document**  
-This document discusses AI cyber security threats and controls.
+This document discusses threats to AI cyber security and controls for those threats (i.e. countermeasures, requirements, mitigations).
 Security here means preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.  
 
 The AI Exchange initiative was taken by OWASP, triggered by [Rob van der Veer](https://www.linkedin.com/in/robvanderveer/) - bridge builder for security standards, senior director at Software Improvement Group, with 31 years of experience in AI & security, lead author of ISO/IEC 5338 on AI engineering, founding father of OpenCRE, and currently working on security requirements concerning the EU AI act in CEN/CENELEC.  
@@ -228,9 +228,9 @@ Background: Data science (data engineering and model engineering) uses an AI pip
 
 **Controls to protect AI development-time:**
 * DATAPROTECT. Protect (train/test) data, source code, configuration & parameters
-  * Encryption  
+  * Encryption of data at rest  
   Links to standards:
-    *  [OpenCE on encryption](https://www.opencre.org/cre/400-007)
+    *  [OpenCE on encryption of data at rest](https://www.opencre.org/cre/400-007)
   * Technical access control for the data, to limit access following the least privilege principle  
   Links to standards:
     * 27001 Controls 5.15, 5.16, 5.18, 5.3, 8.3
