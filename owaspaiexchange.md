@@ -107,7 +107,7 @@ Links to standards:
   Particularity: limit access not to prevent system overload but to prevent experimentation.  
 Links to standards:
   * See [OpenCRE](https://www.opencre.org/cre/630-573)
-* MODELACCESSCONTROL. Securely limit access to the model to authorized users.  
+* MODELACCESSCONTROL. Securely limit access to use the model to authorized users.  
 Links to standards:
   * Technical access control: 27001 Controls 5.15, 5.16, 5.18, 5.3, 8.3
   * [OpenCRE on technical access control](https://www.opencre.org/cre/724-770) 
