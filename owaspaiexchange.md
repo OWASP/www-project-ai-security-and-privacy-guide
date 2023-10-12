@@ -66,6 +66,8 @@ Links to standards:
   * [OpenCRE on security program management](https://www.opencre.org/cre/261-010)
   * [OpenCRE on security risk analysis](https://www.opencre.org/cre/307-242)
 * SECDEVPROGRAM. Make data science activities part of the secure software development program. See elsewhere in this document for SUPPLYCHAINMANAGE which discusses AI-specific supply-chain risks.  
+Particularities:
+  * Data science development activities need to be taken into scope of development lifecycle that needs to create secure results.
 Links to standards:
   * 27001 control 8.25 Secure development lifecycle
   * See [OpenCRE on secure software development processes](https://www.opencre.org/cre/616-305) with notable links to NIST SSDF and OWASP SAMM.
