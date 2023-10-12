@@ -56,30 +56,36 @@ Yes, GenAI is the big topic now and it's the fastest moving subfield of AI secur
 # 1. General controls - for all threats
 
 **Controls applicable to all AI threats:**
-* AIPROGRAM. Take responsibility for AI as an organization. Create and keep an inventory of AI initiatives and make someone responsible for analysing and managing the risks. For the high risk systems: attain responsible AI and transparency in the form of communication and documentation, auditability, bias countermeasures and oversight.
-* SECPROGRAM. Include data science activities in the organization security program. The following standards discuss relevant high-level governance controls, but security of course includes many more aspects such as risk analyis, training, and requirements.  
+
+* AIPROGRAM. Take responsibility for AI as an organization. Create and keep an inventory of AI initiatives and make someone responsible for analysing and managing the risks. For the high risk systems: attain responsible AI and transparency in the form of communication and documentation, auditability, bias countermeasures, oversight adn cyber security. Technically one could argue that this control is out of scope for cyber security, but it helps identifying initiatives that require cyber security attention. This attention is covered by the other controls in this document.
 Links to standards:
-  * The entire 27000-27005 range is applicable to AI systems in the general sense as they are IT systems. The particularity is that there are three AI-specific attack surfaces that need to be taken into account in information security management: 1)AI development-time attacks, 2)attacks through model use and 3)AI Application security attacks. See the 'links to standards' under the corresponding sections to see more particularities. At the high abstractionlevel, the most relevant 27001 controls are: 
+  * ISO/IEC 42001 AI management system (under development)
+
+* SECPROGRAM. Include data science activities including AI security threats in the organization security program (information security management system).  
+Links to standards:
+  * The entire 27000-27005 range is applicable to AI systems in the general sense as they are IT systems. Gap: complete coverage with the high-level particularity that there are three AI-specific attack surfaces that need to be taken into account in information security management: 1)AI development-time attacks, 2)attacks through model use and 3)AI Application security attacks. See the controls under the corresponding sections to see more particularities. At the high abstraction level, the most relevant 27001 controls are: 
     * 27001 control 5.1 Policies for information security
     * 27001 control 5.10 Acceptable use of information and other associated assets
     * 27001 control 5.8 Information security in project management
   * [OpenCRE on security program management](https://www.opencre.org/cre/261-010)
   * [OpenCRE on security risk analysis](https://www.opencre.org/cre/307-242)
-* SECDEVPROGRAM. Make data science activities part of the secure software development program. See elsewhere in this document for SUPPLYCHAINMANAGE which discusses AI-specific supply-chain risks.  
-Particularities:
-  * Data science development activities need to be taken into scope of development lifecycle that needs to create secure results.
 
+* SECDEVPROGRAM. Make data science activities part of the secure software development program. See elsewhere in this document for SUPPLYCHAINMANAGE which discusses AI-specific supply-chain risks.  
+Particularity: Data science development activities need to be taken into scope of development lifecycle that needs to create secure results.  
 Links to standards:
-  * 27001 control 8.25 Secure development lifecycle
-  * See [OpenCRE on secure software development processes](https://www.opencre.org/cre/616-305) with notable links to NIST SSDF and OWASP SAMM.
+  * 27001 control 8.25 Secure development lifecycle. Gap: good coverage with said particularity, but lack of detail - the 8.25 Control description in 27002(2022) is one page, whereas secure software development is a large and complex topic - see below for further references
+  * See [OpenCRE on secure software development processes](https://www.opencre.org/cre/616-305) with notable links to NIST SSDF and OWASP SAMM. Gap: complete coverage with said particularity
+
 * DEVPROGRAM. Apart from secure development, AI engineering can benefit from other software engineering best practices, that are sometimes overlooked in data science: e.g. automated testing, code quality, documentation, and versioning. This way, AI systems will become easier to maintain, transferable, more reliable, and future-proof. A best practice is to mix data scientist profiles with software engineering profiles in teams, as software engineers typically need to learn more about data science and data scientists typically need to learn more about creating future-proof code that is easy to maintain and test.  
 Links to standards:
-  * [ISO/IEC 5338](https://www.iso.org/standard/81118.html)
-  * 27001 controls 5.37 Documented operating procedures
-  * [OpenCRE on documentation of function](https://www.opencre.org/cre/162-655)
+  * [ISO/IEC 5338](https://www.iso.org/standard/81118.html) Gap: complete coverage - the 5338 intends to cover the complete software development lifecycle for AI
+  * 27001 controls 5.37 Documented operating procedures. Gap: minimal coverage - this covers only a very small part of the control
+  * [OpenCRE on documentation of function](https://www.opencre.org/cre/162-655)  Ggap: minimal coverage - this covers only a very small part of the control
+
 * SECEDUCATE. Educate data scientists and development teams on AI threats including the model attacks.  
 Links to standards:
-  * 27001 Control 6.3 Awareness training (particularity: training material needs to cover AI security threats and controls)
+  * 27001 Control 6.3 Awareness training. Gap: good coverage, but lacks detail - especialy regarding the particularity: training material needs to cover AI security threats and controls (how to implement this coverage?)
+
 * DISCRETE. Minimize access to technical details to prevent attacker reconnaissance. For example:  
   * Be careful with publishing technical articles on your solution
   * Choose a model type or model implementation with which attackers are less familiar
@@ -87,13 +93,19 @@ Links to standards:
   
   Particularity: Technical data science details need to be incorporated in asset management, data classification and hence in risk analysis.  
   Links to standards:
-  * See [OpenCRE on data classification and handling](https://www.opencre.org/cre/074-873)
-* DATAMINIMIZE. Remove or anonymize data fields or records that are not needed for the application, to prevent them from leaking. A special form of data minimization is to statistically analyse which records or fields in a trainset are superfluous to achieving sufficient performance, and then remove those (Datascience).
+  *  27001 Control 5.9: Inventory of information and other associated assets. Gap: good coverage with the obvious particularity that technical data science details can be sensitive. As soon as this is identified, depending process such as security requirements, risk analysis and awarenss traing will take care of the threat. It starts with identifying this information as an asset.
+  * See [OpenCRE on data classification and handling](https://www.opencre.org/cre/074-873). Gap: idem
+
+* DATAMINIMIZE. Remove or anonymize data fields or records that are not needed for the application, to prevent them from leaking. A special form of data minimization is to statistically analyse which records or fields in a trainset are superfluous to achieving sufficient performance, and then remove those (Datascience).  
+Links to standards:
+  * Represented anywhere in data management standards?
+
 * DIFFPRIVACYTRAINING. Attain a degree of differential privacy where possible using PATE, randomisation or objective function perturbation. TODO: Elaborate using Annex C in ENISA 2021. (Datascience)
+
 * CHECKCOMPLIANCE. Laws and regulations need to be checked in order to validate compliance which may include security aspects. See the [OWASP AI Guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) for privacy aspects of AI.  
 Links to standards:
   * [OpenCRE on Compliance](https://www.opencre.org/cre/510-324)
-  * 27001 Control 5.36 Compliance with policies, rukles and standards
+  * 27001 Control 5.36 Compliance with policies, rules and standards. Gap: complete coverage with the particularity that AI regulation needs to be taken into account.
 
 Note: For all controls in this document: a *vulnerability* occurs when a control is missing.
 
@@ -104,16 +116,18 @@ Threats through use take place through normal interaction with an AI model: prov
 **Controls for threats through use:**
 * MONITOR. Add use of the model to logs and make it part of incident detection, preferably including detecting inproper functioning of the model.  
 Links to standards:
-  * 27001 Control 8.16 Monitoring activities (Particularity: look out for specific patterns of model attacks through use)
-  * See [OpenCRE](https://www.opencre.org/cre/058-083)
+  * 27001 Control 8.16 Monitoring activities. Gap: good coverage but complete lack of detail regarding the how-to of the particularity: monitoring needs to look for specific patterns of AI attacks (e.g. model attacks through use)
+  * See [OpenCRE](https://www.opencre.org/cre/058-083). Idem
+
 * THROTTLE. Limit frequency of access to the model (e.g. API) by throttling.  
   This prevents attackers from experimenting for evasion attacks or trying many inputs (e.g. for model inversion).  
   Particularity: limit access not to prevent system overload but to prevent experimentation.  
 Links to standards:
   * See [OpenCRE](https://www.opencre.org/cre/630-573)
+
 * MODELACCESSCONTROL. Securely limit access to use the model to authorized users.  
 Links to standards:
-  * Technical access control: 27001 Controls 5.15, 5.16, 5.18, 5.3, 8.3
+  * Technical access control: 27001 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: complete coverage
   * [OpenCRE on technical access control](https://www.opencre.org/cre/724-770) 
   * [OpenCRE on centralized access control](https://www.opencre.org/cre/117-371)
 
@@ -133,15 +147,21 @@ Another categorization is to distinguish between physical input manipulation (e.
 **Controls for evasion:**
 * OVERSIGHT. Oversight of model behaviour by humans or business logic    
   For example: the trunk of a car should not be opened, even if the driver seems to ask so, in case the car is moving.
+
 * DETECTODD. Implement tools to detect whether input is excentric or invalid - also called input validation (Datascience)
+
 * DETECTPERTUBATION. Implement tools to detect specific evasions e.g. patches in images. TODO elaborate on detector subnetworks in Annex C of ENISA 2021. (Datascience)
+
 * EVASIONROBUSTMODEL. Choose a model design and configurationless resilient to evasion (Datascience).
 TODO See Annex C in ENISA 2021 document for Stability terms, adversarial regulaiser, input gradient regularisation, defenisvie distillation and Random feature nullification.  
 Links to standards:
-  * ISO/IEC TR 24029 - Assessment of the robustness of neural networks
+  * ISO/IEC TR 24029 - Assessment of the robustness of neural networks. Gap: TODO.
+
 * TRAINADVERSARIAL. Add adversarial examples to the training set to make the model more resilient (Datascience).
 See Annex C of ENISA Secure machine learning algorithms 2021
+
 * INPUTMODIFICATION. TODO: See ENISA Annex C for data randomisation, input transformation and input denoising.
+
 * TODO Gradient masking - Annex C ENISA 2021
 
 ### 2.1.1. Black box evasion
@@ -233,7 +253,7 @@ Background: Data science (data engineering and model engineering) uses an AI pip
     *  [OpenCE on encryption of data at rest](https://www.opencre.org/cre/400-007)
   * Technical access control for the data, to limit access following the least privilege principle  
   Links to standards:
-    * 27001 Controls 5.15, 5.16, 5.18, 5.3, 8.3
+    * 27001 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: complete coverage
     * [OpenCRE](https://www.opencre.org/cre/724-770) 
   * Centralized access control for the data  
   Links to standards:
