@@ -219,7 +219,7 @@ Impact: If the accuracy of the AI system is trusted too much (e.g. the answers o
 This is not an attack, but it is about the weakness of relying too much on the AI system in use. 
 
 **Controls for overreliance:**
-* AITRANSPARENCY. By being transparent to users regarding the accuracy and reliability of the AI system's output, people can adjust their reliance accordingly.
+* AITRANSPARENCY. By being transparent to users regarding the accuracy and reliability of the AI system's output, people can adjust their reliance accordingly. The most simple form of this is to inform users that an AI model is involved.
 * See the controls for excessive agency (e.g. oversight).
 
 
