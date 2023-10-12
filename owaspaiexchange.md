@@ -59,9 +59,10 @@ Yes, GenAI is the big topic now and it's the fastest moving subfield of AI secur
 * AIPROGRAM. Take responsibility for AI as an organization. Create and keep an inventory of AI initiatives and make someone responsible for analysing and managing the risks. For the high risk systems: attain responsible AI and transparency in the form of communication and documentation, auditability, bias countermeasures and oversight.
 * SECPROGRAM. Include data science activities in the organization security program. The following standards discuss relevant high-level governance controls, but security of course includes many more aspects such as risk analyis, training, and requirements.  
 Links to standards:
-  * 27001 control 5.1 Policies for information security
-  * 27001 control 5.10 Acceptable use of information and other associated assets
-  * 27001 control 5.8 Information security in project management
+  * The entire 27000-27005 range is applicable to AI systems in the general sense as they are IT systems. The particularity is that there are three AI-specific attack surfaces that need to be taken into account in information security management: 1)AI development-time attacks, 2)attacks through model use and 3)AI Application security attacks. See the 'links to standards' under the corresponding sections to see more particularities. At the high abstractionlevel, the most relevant 27001 controls are: 
+    * 27001 control 5.1 Policies for information security
+    * 27001 control 5.10 Acceptable use of information and other associated assets
+    * 27001 control 5.8 Information security in project management
   * [OpenCRE on security program management](https://www.opencre.org/cre/261-010)
   * [OpenCRE on security risk analysis](https://www.opencre.org/cre/307-242)
 * SECDEVPROGRAM. Make data science activities part of the secure software development program. See elsewhere in this document for SUPPLYCHAINMANAGE which discusses AI-specific supply-chain risks.  
@@ -237,7 +238,8 @@ Background: Data science (data engineering and model engineering) uses an AI pip
     * Many more 27001 controls (See OpenCRE link)
     * [OpenCRE](https://www.opencre.org/cre/862-452)
   * Particularity 1: don't just protect the data in the live system - also protect the data in the development environment as it is real data - since it is needed to train a model.
-  * Particularity 2: source code, configuration, and parameters are typically critical intellectual property in AI
+  * Particularity 2: elements in the AI development environment (data, code, configuration & parameters) require extra protection as they are prone to attacks to manipulate model behaviour (called *poisoning*)
+  * Particularity 3: source code, configuration, and parameters are typically critical intellectual property in AI
 
 * DEVSECURITY. Make sure that the AI development infrastructure is part of the security management system, regarding people, process and technology perspective. E.g. screening of development personnel, protection of source code/configuration, virus scanning on engineering machines.
 * SEGREGATEDATA. Store data in a separated environment with restricted access.
