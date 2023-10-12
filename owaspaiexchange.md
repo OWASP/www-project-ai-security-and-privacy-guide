@@ -80,7 +80,10 @@ Links to standards:
 * DISCRETE. Minimize access to technical details to prevent attacker reconnaissance. For example:  
   * Be careful with publishing technical articles on your solution
   * Choose a model type or model implementation with which attackers are less familiar
-  * Minimize model output regarding technical details
+  * Minimize model output regarding technical details  
+  
+  Links to standards:
+  * Technical data science details need to be incorporated in asset management, data classification and hence in risk analysis. See [OpenCRE on data classification and handling](https://www.opencre.org/cre/074-873)
 * DATAMINIMIZE. Remove or anonymize data fields or records that are not needed for the application, to prevent them from leaking. A special form of data minimization is to statistically analyse which records or fields in a trainset are superfluous to achieving sufficient performance, and then remove those (Datascience).
 * DIFFPRIVACYTRAINING. Attain a degree of differential privacy where possible using PATE, randomisation or objective function perturbation. TODO: Elaborate using Annex C in ENISA 2021. (Datascience)
 * CHECKCOMPLIANCE. Laws and regulations need to be checked in order to validate compliance which may include security aspects. See the [OWASP AI Guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) for privacy aspects of AI.  
