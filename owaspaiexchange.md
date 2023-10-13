@@ -260,18 +260,19 @@ Background: Data science (data engineering and model engineering) uses an AI pip
     * [OpenCRE](https://www.opencre.org/cre/117-371) 
   * Operational security to protect stored data  
   Links to standards:
-    * 27001 control 5.23 Information security for use of cloud services
-    * 27001 control 5.37 Documented operating procedures
-    * Many more 27001 controls (See OpenCRE link)
+    * Many 27001 controls cover operational security. Gap: complete coverage.
+      * 27001 control 5.23 Information security for use of cloud services
+      * 27001 control 5.37 Documented operating procedures
+      * Many more 27001 controls (See OpenCRE link)
     * [OpenCRE](https://www.opencre.org/cre/862-452)
   * Particularity 1: don't just protect the data in the live system - also protect the data in the development environment as it is real data - since it is needed to train a model.
   * Particularity 2: elements in the AI development environment (data, code, configuration & parameters) require extra protection as they are prone to attacks to manipulate model behaviour (called *poisoning*)
   * Particularity 3: source code, configuration, and parameters are typically critical intellectual property in AI
 
 * DEVSECURITY. Make sure that the AI development infrastructure is part of the security management system, regarding people, process and technology perspective. E.g. screening of development personnel, protection of source code/configuration, virus scanning on engineering machines.
-* SEGREGATEDATA. Store data in a separated environment with restricted access.
+* SEGREGATEDATA. Store sensitive training or test data in a separated environment with restricted access.
 List of standards:
-  * 27001 control 8.31 Separation of development, test and production environments
+  * 27001 control 8.31 Separation of development, test and production environments. Gap: medium coverage - the particularity is that the development environment typically has the sensitive data instead of the production environment - which is typically the other way around in non-AI systems. Therefore it helps to restrict access to that data within the development environment. Even more: within the development environment further segregation can take place to limit access to only those who need the data for their work, as some developers will not be processing data.
 * CONFCOMPUTE. 'Confidential compute': If available and possible, use features of the data science environment to hide training data from model engineers
 * FEDERATIVELEARNING. Federative learning can be applied when a training set is distributed over different organizations, preventing that the data needs to be collected in a central place - increasing the risk of leaking.
 * TODO: integrity checks in development pipeline (build, deploy, supply chain)
@@ -280,7 +281,7 @@ The Software Bill Of Materials (SBOM) becomes the AIBOM (AI Bill Of Materials). 
 Particularity: apart from code and components, data and models can also be part of the supply chain in AI. Data may include annotations and lables that are supplied by another source.
 Standard supply chain management includes provenance & pedigree, verifying signatures, using package repositories, frequent patching, and using dependency verification tools.  
 Links to standards:
-  * 27001 Controls 5.19, 5.20, 5.21, 5.22, 5.23, 8.30
+  * 27001 Controls 5.19, 5.20, 5.21, 5.22, 5.23, 8.30. Gap: complete coverage, with the particularity.
   * [OpenCRE](https://www.opencre.org/cre/613-285)
   
 
