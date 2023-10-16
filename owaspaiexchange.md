@@ -61,12 +61,14 @@ Yes, GenAI is the big topic now and it's the fastest moving subfield of AI secur
 
 **Controls applicable to all AI threats:**
 
-* AIPROGRAM. Take responsibility for AI as an organization. Create and keep an inventory of AI initiatives and make someone responsible for analysing and managing the risks. For the high risk systems: attain responsible AI and transparency in the form of communication and documentation, auditability, bias countermeasures, oversight adn cyber security. Technically one could argue that this control is out of scope for cyber security, but it helps identifying initiatives that require cyber security attention. This attention is covered by the other controls in this document.
+* AIPROGRAM. Take responsibility for AI as an organization. Create and keep an inventory of AI initiatives and make someone responsible for analysing and managing the risks. For the high risk systems: attain responsible AI and transparency in the form of communication and documentation, auditability, bias countermeasures, oversight adn cyber security. Technically one could argue that this control is out of scope for cyber security, but its has an AI security purpose.
+Purpose: 1) reduces probability of AI initiatives being overlooked for proper governance (including security) - as covered by controls in this document, and 2) increases incentive for proper governance as the AI program takes responsibility for it.  Without proper governance, the controls in this document can only happen by accident.
 Links to standards:
   * ISO/IEC 42001 AI management system (under development)
 
-* SECPROGRAM. Include data science activities including AI security threats in the organization security program (information security management system).  
-Links to standards:
+* SECPROGRAM. Include data science activities including AI security threats in the organization security program (information security management system).
+Purpose: reduces probability of AI initiatives being overlooked for information security management, vastly increasing security risk.  
+Links to standards: 
   * The entire 27000-27005 range is applicable to AI systems in the general sense as they are IT systems. Gap: complete coverage with the high-level particularity that there are three AI-specific attack surfaces that need to be taken into account in information security management: 1)AI development-time attacks, 2)attacks through model use and 3)AI Application security attacks. See the controls under the corresponding sections to see more particularities. At the high abstraction level, the most relevant 27001 controls are: 
     * 27001 control 5.1 Policies for information security
     * 27001 control 5.10 Acceptable use of information and other associated assets
@@ -74,7 +76,8 @@ Links to standards:
   * [OpenCRE on security program management](https://www.opencre.org/cre/261-010)
   * [OpenCRE on security risk analysis](https://www.opencre.org/cre/307-242)
 
-* SECDEVPROGRAM. Make data science activities part of the secure software development program. See elsewhere in this document for SUPPLYCHAINMANAGE which discusses AI-specific supply-chain risks.  
+* SECDEVPROGRAM. Make data science activities part of the secure software development program. See elsewhere in this document for SUPPLYCHAINMANAGE which discusses AI-specific supply-chain risks.
+Purpose: Reduces security risks by proper attention to mitigating those risks during software development.   
 Particularity: Data science development activities need to be taken into scope of development lifecycle that needs to create secure results.  
 Links to standards:
   * 27001 control 8.25 Secure development lifecycle. Gap: good coverage with said particularity, but lack of detail - the 8.25 Control description in 27002(2022) is one page, whereas secure software development is a large and complex topic - see below for further references
@@ -90,7 +93,9 @@ Links to standards:
 Links to standards:
   * 27001 Control 6.3 Awareness training. Gap: good coverage, but lacks detail - especialy regarding the particularity: training material needs to cover AI security threats and controls (how to implement this coverage?)
 
-* DISCRETE. Minimize access to technical details to prevent attacker reconnaissance. For example:  
+* DISCRETE. Minimize access to technical details to prevent attacker reconnaissance.
+Purpose: reduce information available to attackers that can help them select and tailor their attack, thereby reducing the probabily of a succesful attack.  
+For example:  
   * Be careful with publishing technical articles on your solution
   * Choose a model type or model implementation with which attackers are less familiar
   * Minimize model output regarding technical details  
@@ -100,7 +105,8 @@ Links to standards:
   *  27001 Control 5.9: Inventory of information and other associated assets. Gap: good coverage with the obvious particularity that technical data science details can be sensitive. As soon as this is identified, depending process such as security requirements, risk analysis and awarenss traing will take care of the threat. It starts with identifying this information as an asset.
   * See [OpenCRE on data classification and handling](https://www.opencre.org/cre/074-873). Gap: idem
 
-* DATAMINIMIZE. Remove or anonymize data fields or records that are not needed for the application, to prevent them from leaking. A special form of data minimization is to statistically analyse which records or fields in a trainset are superfluous to achieving sufficient performance, and then remove those (Datascience).  
+* DATAMINIMIZE. Remove or anonymize data fields or records that are not needed for the application, to prevent them from leaking. A special form of data minimization is to statistically analyse which records or fields in a trainset are superfluous to achieving sufficient performance, and then remove those (Datascience).
+Purpose: reduce the impact in case of an attack by reducing the amount of data that can leak.  
 Links to standards:
   * Represented anywhere in data management standards?
 
@@ -124,12 +130,13 @@ Links to standards:
   * See [OpenCRE](https://www.opencre.org/cre/058-083). Idem
 
 * THROTTLE. Limit frequency of access to the model (e.g. API) by throttling.  
-  This prevents attackers from experimenting for evasion attacks or trying many inputs (e.g. for model inversion).  
-  Particularity: limit access not to prevent system overload but to prevent experimentation.  
+Purpose: severely delay attackers trying many inputs to perform attacks through use (e.g. try evasion attacks or for model inversion).  
+Particularity: limit access not to prevent system overload but to prevent experimentation.  
 Links to standards:
   * See [OpenCRE](https://www.opencre.org/cre/630-573)
 
 * MODELACCESSCONTROL. Securely limit access to use the model to authorized users.  
+Purpose:  prevent attackers that are not authorized to perform attacks throug use.  
 Links to standards:
   * Technical access control: 27001 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: complete coverage
   * [OpenCRE on technical access control](https://www.opencre.org/cre/724-770) 
@@ -149,10 +156,12 @@ Example: let’s say a self-driving has been taught how to recognize traffic sig
 Another categorization is to distinguish between physical input manipulation (e.g. changing the real world to influence for example a camera image) and digital input manipulation (e.g. changing the digital image). 
 
 **Controls for evasion:**
-* OVERSIGHT. Oversight of model behaviour by humans or business logic    
+* OVERSIGHT. Oversight of model behaviour by humans or business logic
+  Purpose:  detect unwanted model behaviour and correct or stop follow up of a model's decision. Note: unwanted model behaviour often cannot be completely specified.  
   For example: the trunk of a car should not be opened, even if the driver seems to ask so, in case the car is moving.
 
 * DETECTODD. Implement tools to detect whether input is excentric or invalid - also called input validation (Datascience)
+  Purpose: by detecting odd input, input can be discard to prevent unwanted model behaviour. Note: odd input often cannot be completely specified and for many attacks the input is technically not odd.
 
 * DETECTPERTUBATION. Implement tools to detect specific evasions e.g. patches in images. TODO elaborate on detector subnetworks in Annex C of ENISA 2021. (Datascience)
 
