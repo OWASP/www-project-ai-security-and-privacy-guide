@@ -317,7 +317,8 @@ The Software Bill Of Materials (SBOM) becomes the AIBOM (AI Bill Of Materials). 
 Particularity: apart from code and components, data and models can also be part of the supply chain in AI. Data may include annotations and lables that are supplied by another source.
 Standard supply chain management includes provenance & pedigree, verifying signatures, using package repositories, frequent patching, and using dependency verification tools.  
 Links to standards:
-  * 27001 Controls 5.19, 5.20, 5.21, 5.22, 5.23, 8.30. Gap: complete coverage, with the particularity.
+  * 27001 Controls 5.19, 5.20, 5.21, 5.22, 5.23, 8.30. Gap: good coverage, with the particularity, and lacking controls on data provenance.
+  * ISO/IEC AWI 5181 on Data provenance. Gap: covers the data provenance aspect to complete the coverage together with the 27001 controls - provided that the provenance concerns all sensitive data and is not limited to personal data.
   * [OpenCRE](https://www.opencre.org/cre/613-285)
   
 
