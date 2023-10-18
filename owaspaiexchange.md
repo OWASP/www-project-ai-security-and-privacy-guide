@@ -249,7 +249,8 @@ A *sponge attack* provides input that is designed to increase the computation ti
 ## 2.5. Overreliance in use
 Impact: If the accuracy of the AI system is trusted too much (e.g. the answers of a large language model - GenAI), unintended failures or attacks have a bigger impact. This aspect is strongly related to Excessive agency. 
 
-This is not an attack, but it is about the weakness of relying too much on the AI system in use. 
+This is not an attack, but it is about the weakness of relying too much on the AI system in use.  
+Example: Large Language Models(GenAI), just like most AI models, induce their results based on training data, meaning that they can make up things that are false. In addition, the training data can contain false or outdated information. At the same time, LLM's can come across very confident about their output. These aspects make overreliance of LLM a real risk. Note that all AI models in principle can suffer from overreliance.  
 
 **Controls for overreliance:**
 * AITRANSPARENCY. By being transparent to users regarding the accuracy and reliability of the AI system's output, people can adjust their reliance accordingly. The most simple form of this is to inform users that an AI model is involved.
@@ -311,7 +312,11 @@ References:
 * [Summary of 15 backdoor papers at CVPR '23](https://zahalka.net/ai_security_blog/2023/09/backdoor-attacks-defense-cvpr-23-how-to-build-and-burn-trojan-horses/)
 
 ### 3.1.1. Data poisoning by changing data development-time or supply chain
-The attacker manipulates (training) data to affect the algorithm's behavior. Also called *causative attacks*. Example: massively indicating to an image recognition algorithm that images of dogs are indeed cats to lead it to interpret it this way. Another example is that data obtained from a malicious supplier has been poisoned.
+The attacker manipulates (training) data to affect the algorithm's behavior. Also called *causative attacks*.
+
+Example 1: breaking into a training set database to add images of stop signs with yellow stickers, labeling them as 55 mile/hr signs, to dangerously fool a self-driving car by putting stickers on real stop signs.  
+Example 2: training data obtained from a malicious supplier has been poisoned.  
+Example 3: false information in documents on the internet causes a Large Language Model to output false results. That false information can be planted by an attacker, but of course also by accident. The latter case is a real GenAI risk, but technically comes down to the issue of having false data in a training set which falls outside of the security scope. 
 
 Background: An important risk factor in the additional attack surface of AI engineering is the presence of production data in the engineering process. In order to train and test a working model, data scientists need access to real data, which may be sensitive. This is different from non-AI engineering in which typically the test data can be either synthesized or anonymized. An appropriate countermeasure is the limitation of access to this data to the engineers that really need it, and shield it from the rest of the team. In addition, some AI platforms provide mechanisms that allow the training and testing of a model without the data scientists having access to the data.
 
@@ -343,9 +348,10 @@ Supplying a manipulated pre-trained model (e.g. a GenAI model) that serves as a 
 ### 3.2.1. Data leak
 Impact:  Confidentiality breach of sensitive data.
 
-Training data or test data can be confidential because it's intellectual property. An attack or an unintended failure can lead to this training data leaking. 
-Leaking typically would happen from the development environment, as engineers need to work with real data to train the model.
-Sometimes training data is collected at runtime, so a live system can become attack surface for this attack.
+Training data or test data can be confidential because it's sensitive data (e.g. personal data) opr intellectual property. An attack or an unintended failure can lead to this training data leaking.  
+Leaking can  happen from the development environment, as engineers need to work with real data to train the model.  
+Sometimes training data is collected at runtime, so a live system can become attack surface for this attack.  
+GenAI models are often hosted in the cloud, sometimes managed by an external party. Therefore, if you train or finetune these models, the training data (e.g. compamny documents) needs to travel to that cloud.
 
 ### 3.2.2. Model theft through development-time model parameter leak
 Impact:  Confidentiality breach of intellectual property.
@@ -408,9 +414,9 @@ AI systems may undertake actions leading to unintended consequences. The issue a
 
 --------------------------------------
 ## 4.7. Leak sensitive input data
-Impact:  Confidentiality breach of sensitive data.
-
-Input data can be sensitive (e.g. GenAI prompts) and can either leak through a failure or through an attack, such as a man-in-the-middle attack).
+Impact:  Confidentiality breach of sensitive data.  
+Input data can be sensitive (e.g. GenAI prompts) and can either leak through a failure or through an attack, such as a man-in-the-middle attack.  
+GenAI models are often hosted in the cloud - sometimes managed by an external party- increasing the risk of input data (prompts) leaking.  
 TODO: add to diagram
 
 
