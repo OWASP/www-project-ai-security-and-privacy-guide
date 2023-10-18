@@ -17,7 +17,7 @@ Table of contents:
 
 # Introduction
 
-**This document**  
+## This document and contributing
 This document discusses threats to AI cyber security and controls for those threats (i.e. countermeasures, requirements, mitigations).
 Security here means preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.  
 
@@ -42,7 +42,7 @@ Anything is welcome: more controls, improved descriptions, examples, references,
 * AI security experts who contributed to this as Open Source. 
 * The insights of these experts were inspired by research work as mentioned in the references at the bottom of this document(ENISA, Microsoft, BIML, MITRE, etc.)
 
-**Way of organizing**  
+## Organizing and applying threats and controls
 The threats are organized by attack surface (how and where does the attack take place?), and not by impact. This means that for example model theft is mentioned in three  different parts of the overview: 1. model theft by stealing model parameters from a live system, 2. model theft by stealing the modeling process or parameters from the engineering environment, and 3. model theft by reverse engineering from using the AI system. These are three very different attacks, with similar impacts. This way of organizing is helpful because the goal is to link the threats to controls, and these controls vary per attack surface.
 
 <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/owaspaimodelv1.png?raw=true"/>
@@ -57,8 +57,19 @@ The threats are organized by attack surface (how and where does the attack take 
 **How to apply the controls?**  
 First select the threats that apply to your case by going through the list of threats and use the *Impact* description. For example the impact of identifying individuals in your training data may not apply to your case. Then, for the selected threats consider the various controls listed with that threat (or the parent section of that threat) and the general controls (they always apply). When considering a control, look at its purpose and determine if you think it is important enough to implement it and to what extent. This depends on the cost of implementation compared to how the purpose mitigates the threat, and the level of risk of the threat. When implementing a control, consider the references and the links to standards. You may have implemented some of these standards, or the content of the standards may help you to implement the control.
 
-**How about Generative AI?**  
+## How about Generative AI?
 Yes, GenAI is the big topic now and it's the fastest moving subfield of AI security. Nevertheless it is important to realize that other types of algorithms will remain to be applied to many important use cases such as credit scoring, fraud detection, medical diagnosis, product recommendation, image recognition, predictive maintenance, process control, etc. Relevant content has been marked with 'GenAI' in this document.
+
+Important note: Security-wise, GenAI is not that different. GenAI threats and controls largely overlap and are very similar to AI in general. Some risks are higher. Some are lower. Only a few risks are GenAI-specific. 
+GenAI security particularities are: 
+* Evasion attacks for GenAI include specifically evasion of policies that intend to censor (e.g. violent) output
+* Sensitive data output is an AI-broad issue, but especially a high risk with systems that output rich content such as GenAI
+* Training data poisoning is an AI-broad problem, and with GenAI the risk is generally higher since training data can be supplied from different sources that may be challenging to control, such as the internet
+* Overreliance is an AI-broad issue, and in addition Large Language Models can make matters worse by coming across very confident and knowledgeable
+* GenAI models mostly live in the cloud - often managed by an external party, which increases the risk of leaking training data and leaking prompts. This issue is not limited to GenAI
+* Pre-trained models are applied also outside of GenAI, but the approach is quite common in GenAI, which increases the risk of transfer learning attacks
+* The typical application of plug-ins in Large Language Models creates specific risks regarding the protection and privileges of these plugins - as they allow large language model to act outside of their normal conversation with the user
+* Prompt injection is a GenAI specific threat, listed under Application security threats
 
 
 # 1. General controls - for all threats
@@ -411,6 +422,8 @@ References:
 Impact: Because the AI model’s output can trigger certain actions, the impact of unwanted model behaviour is limited insufficiently.
 
 AI systems may undertake actions leading to unintended consequences. The issue arises from excessive functionality, permissions, or autonomy granted to the AI systems. This can be coupled to two threats: a) AI can be wrong unexpectedly, and have emergent behavior, and b) AI can be manipulated by an attack. 
+
+The typical application of plug-ins in Large Language Models (GenAI) creates specific risks regarding the protection and privileges of these plugins - as they allow large language model to act outside of their normal conversation with the user.
 
 **Controls for excessive agency:**
 * MINPRIVILEGE. Minimize privileges, for example by not connecting a model to an e-mail facility, to prevent it from sending out wrong information to others.
