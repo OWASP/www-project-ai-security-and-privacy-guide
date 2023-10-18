@@ -54,11 +54,23 @@ The threats are organized by attack surface (how and where does the attack take 
 *	**Limit the impact** of AI by minimizing privileges and adding oversight, e.g. guardrails, human oversight.
 *	**Countermeasures in data science** through understanding of model attacks, e.g. data quality assurance, larger training sets, detecting common perturbation attacks.
 
-
 **How about privacy?**  
 AI Privacy can be divided into two parts:
 1. The AI security threats and controls in this document that are about confidentiality and integrity of (personal) data (e.g. model inversion, leaking training data)
 2. Threats and controls with respect to rights of the individual, as covered by privacy regulations such as the GDPR, including use limitation, consent, fairness, transparency, data accuracy, right of correction/objection/reasure/access. For an overview, see the privacy part of the [OWASP AI guide](https://owasp.org/www-project-ai-security-and-privacy-guide/)
+
+**How about AI outside of machine learning?**  
+A helpful way to look at AI is to see it as consisting of machine learning (the current dominant type of AI) plus *heuristic models*. A model can be a machine learning model which has learned how to compute based on data, or it can be
+a heuristic model engineered based on human knowledge, e.g. a rule-based system. Heuristic models still need data for testing, and sometimes to perform analysis for further building and validating the human knowledge.  
+This document focuses on machine learning. The following threats also apply to heuristic systems:
+* Model evasion -attackers can still be motivated to fool a model, even if it is knowledge-based
+* Model theft through use - it is possible to train a machine learning model based om imput/output combinations from a heuristic model
+* Overreliance in use - heuristic systems can also be relied on too much. The applied knowledge can be false
+* Data poisoning and model poisoning is possible by manipulating data that is used to improve knowledge and by manipulating the knowledge specification development-time or runtime
+* Data leaks can still be an issue
+* Knowledgebase, source code and configuration can be regarded as sensitive data when it is intellectual property, so it needs protection
+* Leak sensitive input data, for example when a heuristic system needs to diagnose a patient
+
 
 **How to apply the controls?**  
 1. First select the threats that apply to your case by going through the list of threats and use the *Impact* description. For example the impact of identifying individuals in your training data may not apply to your case. 
@@ -411,7 +423,7 @@ This threat refers to manipulating behaviour of the model by manipulating the pa
 Alternatively, the model input or output logic can be compromised to change model behaviour or deny its service.
 
 --------------------------------------
-## 4.3. Runtime model theft (manipulating the model itself or its input/output logic)
+## 4.3. Runtime model theft 
 Impact:  Confidentiality breach of intellectual property.
 
 Stealing model parameters from a live system by breaking into it (e.g. by gaining access to executables or configuration files in the production environment)
