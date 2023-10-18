@@ -55,6 +55,11 @@ The threats are organized by attack surface (how and where does the attack take 
 *	**Countermeasures in data science** through understanding of model attacks, e.g. data quality assurance, larger training sets, detecting common perturbation attacks.
 
 
+**How about privacy?**  
+AI Privacy can be divided into two parts:
+1. The AI security threats and controls in this document that are about confidentiality and integrity of (personal) data (e.g. model inversion, leaking training data)
+2. Threats and controls with respect to rights of the individual, as covered by privacy regulations such as the GDPR, including use limitation, consent, fairness, transparency, data accuracy, right of correction/objection/reasure/access. For an overview, see the privacy part of the [OWASP AI guide](https://owasp.org/www-project-ai-security-and-privacy-guide/)
+
 **How to apply the controls?**  
 1. First select the threats that apply to your case by going through the list of threats and use the *Impact* description. For example the impact of identifying individuals in your training data may not apply to your case. 
 2. Then, for the selected threats consider the various controls listed with that threat (or the parent section of that threat) and the general controls (they always apply). When considering a control, look at its purpose and determine if you think it is important enough to implement it and to what extent. This depends on the cost of implementation compared to how the purpose mitigates the threat, and the level of risk of the threat.
@@ -128,6 +133,10 @@ For example:
 Purpose: reduce the impact in case of an attack by reducing the amount of data that can leak.  
 Links to standards:
   * Represented anywhere in data management standards?
+
+*SHORTRETAIN. Remove or anonymize data after it is no longer needed, or when it is legally required (e.g. privacy laws) to minimize the risk of the data leaking.  
+Links to standards:
+  * TODO: see privacy standards
 
 * DIFFPRIVACYTRAINING. Attain a degree of differential privacy where possible using PATE, randomisation or objective function perturbation. TODO: Elaborate using Annex C in ENISA 2021. (Datascience)
 
