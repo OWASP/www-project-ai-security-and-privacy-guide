@@ -180,8 +180,11 @@ Another categorization is to distinguish between physical input manipulation (e.
 
 * DETECTPERTUBATION. Implement tools to detect specific evasions e.g. patches in images. TODO elaborate on detector subnetworks in Annex C of ENISA 2021. (Datascience)
 
-* EVASIONROBUSTMODEL. Choose a model design and configurationless resilient to evasion (Datascience).
-TODO See Annex C in ENISA 2021 document for Stability terms, adversarial regulaiser, input gradient regularisation, defenisvie distillation and Random feature nullification.  
+* EVASIONROBUSTMODEL. Choose a model design, configuration and/or training approach to maximize resilience against evasion (Datascience).
+
+  Example: measure model robustness by trying small input deviations to detect strong output changes. These strong output changes require investigation as they indicate local lack of *graceful degredation* resulting in sensitivity to evasion attacks. These issues can be addressed by for example increasing training samples for that part of the input domain.  
+
+  TODO See Annex C in ENISA 2021 document for Stability terms, adversarial regulaiser, input gradient regularisation, defenisvie distillation and Random feature nullification.  
 Links to standards:
   * ISO/IEC TR 24029 - Assessment of the robustness of neural networks. Gap: TODO.
 
