@@ -47,13 +47,17 @@ The threats are organized by attack surface (how and where does the attack take 
 
 <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/owaspaimodelv1.png?raw=true"/>
 
-**Summary of controls: how to deal with AI security**
+**Summary of controls: how to deal with AI security:**
 *	**Improve regular application security** through understanding of AI particularities e.g. model parameters need protection and access to the model needs to be monitored and throttled.
 *	**Extend security and development programs** to include data science activities especially to protect and streamline the engineering environment.
 *	**Limit the impact** of AI by minimizing privileges and adding oversight, e.g. guardrails, human oversight.
 *	**Countermeasures in data science** through understanding of model attacks, e.g. data quality assurance, larger training sets, detecting common perturbation attacks.
 
-**How about Generative AI?**
+
+**How to apply the controls?**  
+First select the threats that apply to your case by going through the list of threats and use the *Impact* description. For example the impact of identifying individuals in your training data may not apply to your case. Then, for the selected threats consider the various controls listed with that threat (or the parent section of that threat) and the general controls (they always apply). When considering a control, look at its purpose and determine if you think it is important enough to implement it and to what extent. This depends on the cost of implementation compared to how the purpose mitigates the threat, and the level of risk of the threat. When implementing a control, consider the references and the links to standards. You may have implemented some of these standards, or the content of the standards may help you to implement the control.
+
+**How about Generative AI?**  
 Yes, GenAI is the big topic now and it's the fastest moving subfield of AI security. Nevertheless it is important to realize that other types of algorithms will remain to be applied to many important use cases such as credit scoring, fraud detection, medical diagnosis, product recommendation, image recognition, predictive maintenance, process control, etc. Relevant content has been marked with 'GenAI' in this document.
 
 
