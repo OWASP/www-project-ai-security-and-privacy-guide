@@ -54,11 +54,6 @@ The threats are organized by attack surface (how and where does the attack take 
 *	**Limit the impact** of AI by minimizing privileges and adding oversight, e.g. guardrails, human oversight.
 *	**Countermeasures in data science** through understanding of model attacks, e.g. data quality assurance, larger training sets, detecting common perturbation attacks.
 
-**How about privacy?**  
-AI Privacy can be divided into two parts:
-1. The AI security threats and controls in this document that are about confidentiality and integrity of (personal) data (e.g. model inversion, leaking training data)
-2. Threats and controls with respect to rights of the individual, as covered by privacy regulations such as the GDPR, including use limitation, consent, fairness, transparency, data accuracy, right of correction/objection/reasure/access. For an overview, see the privacy part of the [OWASP AI guide](https://owasp.org/www-project-ai-security-and-privacy-guide/)
-
 **How about AI outside of machine learning?**  
 A helpful way to look at AI is to see it as consisting of machine learning (the current dominant type of AI) plus *heuristic models*. A model can be a machine learning model which has learned how to compute based on data, or it can be
 a heuristic model engineered based on human knowledge, e.g. a rule-based system. Heuristic models still need data for testing, and sometimes to perform analysis for further building and validating the human knowledge.  
@@ -77,6 +72,12 @@ This document focuses on machine learning. The following threats also apply to h
 2. Then, for the selected threats consider the various controls listed with that threat (or the parent section of that threat) and the general controls (they always apply). When considering a control, look at its purpose and determine if you think it is important enough to implement it and to what extent. This depends on the cost of implementation compared to how the purpose mitigates the threat, and the level of risk of the threat.
 3. When implementing a control, consider the references and the links to standards. You may have implemented some of these standards, or the content of the standards may help you to implement the control.
 4. In the end you need to be able to accept the risks that remain regarding each threat, given the controls that you implemented.
+
+## How about privacy?
+AI Privacy can be divided into two parts:
+1. The AI security threats and controls in this document that are about confidentiality and integrity of (personal) data (e.g. model inversion, leaking training data)
+2. Threats and controls with respect to rights of the individual, as covered by privacy regulations such as the GDPR, including use limitation, consent, fairness, transparency, data accuracy, right of correction/objection/reasure/access. For an overview, see the privacy part of the [OWASP AI guide](https://owasp.org/www-project-ai-security-and-privacy-guide/)
+
 
 ## How about Generative AI?
 Yes, GenAI is the big topic now and it's the fastest moving subfield of AI security. Nevertheless it is important to realize that other types of algorithms will remain to be applied to many important use cases such as credit scoring, fraud detection, medical diagnosis, product recommendation, image recognition, predictive maintenance, process control, etc. Relevant content has been marked with 'GenAI' in this document.
