@@ -1,7 +1,7 @@
 # OWASP AI Exchange
 Living document for worldwide exchange of AI security expertise. 
 
-Maintained at [owaspai.org](http://owaspai.org).
+Maintained here at [owaspai.org](http://owaspai.org).
 
 There is a [last stable Word version](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/owaspaiexchangeWORD.docx).
 
