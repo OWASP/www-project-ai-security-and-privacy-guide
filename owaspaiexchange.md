@@ -209,6 +209,8 @@ Another categorization is to distinguish between physical input manipulation (e.
 
 * EVASIONROBUSTMODEL. Choose a model design, configuration and/or training approach to maximize resilience against evasion (Datascience).
 
+  A robust model in the light of evasion is a model that does not display large changes in output for small changes in input.  
+
   Example: measure model robustness by trying small input deviations to detect strong output changes. These strong output changes require investigation as they indicate local lack of *graceful degredation* resulting in sensitivity to evasion attacks. These issues can be addressed by for example increasing training samples for that part of the input domain.  
 
   TODO See Annex C in ENISA 2021 document for Stability terms, adversarial regulaiser, input gradient regularisation, defenisvie distillation and Random feature nullification.  
