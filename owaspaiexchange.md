@@ -130,8 +130,9 @@ Links to standards:
 Links to standards:
   * 27002 Control 6.3 Awareness training. Gap: good coverage, but lacks detail - especialy regarding the particularity: training material needs to cover AI security threats and controls (how to implement this coverage?)
 
-* DISCRETE. Minimize access to technical details to prevent attacker reconnaissance.
-Purpose: reduce information available to attackers that can help them select and tailor their attack, thereby reducing the probabily of a succesful attack.  
+* DISCRETE. Minimize access to technical details that can help attackers.
+Purpose: reduce information available to attackers that can help them select and tailor their attack, thereby reducing the probabily of a succesful attack.
+Note: this control needs to be weighed against the AITRANSPARENCY control that requires to be more open about technical aspects of the model. The key is to minimize information that can help attackers while being transparent.   
 For example:  
   * Be careful with publishing technical articles on your solution
   * Choose a model type or model implementation with which attackers are less familiar
@@ -297,7 +298,8 @@ This is not an attack, but it is about the weakness of relying too much on the A
 Example: Large Language Models(GenAI), just like most AI models, induce their results based on training data, meaning that they can make up things that are false. In addition, the training data can contain false or outdated information. At the same time, LLM's can come across very confident about their output. These aspects make overreliance of LLM a real risk. Note that all AI models in principle can suffer from overreliance.  
 
 **Controls for overreliance:**
-* AITRANSPARENCY. By being transparent to users regarding the accuracy and reliability of the AI system's output, people can adjust their reliance accordingly. The most simple form of this is to inform users that an AI model is involved.
+* AITRANSPARENCY. By being transparent to users regarding how the model works, how it has been trained, and the general expected accuracy and reliability of the AI system's output, people can adjust their reliance accordingly. The most simple form of this is to inform users that an AI model is involved.  
+See the DISCRETE control for the balance between being transparent and being discrete about the model.
 * See the controls for excessive agency (e.g. oversight).
 
 
