@@ -106,10 +106,10 @@ Links to standards:
 * SECPROGRAM. Include data science activities including AI security threats in the organization security program (information security management system).
 Purpose: reduces probability of AI initiatives being overlooked for information security management, vastly increasing security risk.  
 Links to standards: 
-  * The entire 27000-27005 range is applicable to AI systems in the general sense as they are IT systems. Gap: complete coverage with the high-level particularity that there are three AI-specific attack surfaces that need to be taken into account in information security management: 1)AI development-time attacks, 2)attacks through model use and 3)AI Application security attacks. See the controls under the corresponding sections to see more particularities. At the high abstraction level, the most relevant 27001 controls are: 
-    * 27001 control 5.1 Policies for information security
-    * 27001 control 5.10 Acceptable use of information and other associated assets
-    * 27001 control 5.8 Information security in project management
+  * The entire 27000-27005 range is applicable to AI systems in the general sense as they are IT systems. Gap: complete coverage with the high-level particularity that there are three AI-specific attack surfaces that need to be taken into account in information security management: 1)AI development-time attacks, 2)attacks through model use and 3)AI Application security attacks. See the controls under the corresponding sections to see more particularities. At the high abstraction level, the most relevant 27002 controls are: 
+    * 27002 control 5.1 Policies for information security
+    * 27002 control 5.10 Acceptable use of information and other associated assets
+    * 27002 control 5.8 Information security in project management
   * [OpenCRE on security program management](https://www.opencre.org/cre/261-010)
   * [OpenCRE on security risk analysis](https://www.opencre.org/cre/307-242)
 
@@ -117,18 +117,18 @@ Links to standards:
 Purpose: Reduces security risks by proper attention to mitigating those risks during software development.   
 Particularity: Data science development activities need to be taken into scope of development lifecycle that needs to create secure results.  
 Links to standards:
-  * 27001 control 8.25 Secure development lifecycle. Gap: good coverage with said particularity, but lack of detail - the 8.25 Control description in 27002(2022) is one page, whereas secure software development is a large and complex topic - see below for further references
+  * 27002 control 8.25 Secure development lifecycle. Gap: good coverage with said particularity, but lack of detail - the 8.25 Control description in 27002(2022) is one page, whereas secure software development is a large and complex topic - see below for further references
   * See [OpenCRE on secure software development processes](https://www.opencre.org/cre/616-305) with notable links to NIST SSDF and OWASP SAMM. Gap: complete coverage with said particularity
 
 * DEVPROGRAM. Apart from secure development, AI engineering can benefit from other software engineering best practices, that are sometimes overlooked in data science: e.g. automated testing, code quality, documentation, and versioning. This way, AI systems will become easier to maintain, transferable, more reliable, and future-proof. A best practice is to mix data scientist profiles with software engineering profiles in teams, as software engineers typically need to learn more about data science and data scientists typically need to learn more about creating future-proof code that is easy to maintain and test.  
 Links to standards:
   * [ISO/IEC 5338](https://www.iso.org/standard/81118.html) Gap: complete coverage - the 5338 intends to cover the complete software development lifecycle for AI
-  * 27001 controls 5.37 Documented operating procedures. Gap: minimal coverage - this covers only a very small part of the control
+  * 27002 controls 5.37 Documented operating procedures. Gap: minimal coverage - this covers only a very small part of the control
   * [OpenCRE on documentation of function](https://www.opencre.org/cre/162-655)  Ggap: minimal coverage - this covers only a very small part of the control
 
 * SECEDUCATE. Educate data scientists and development teams on AI threats including the model attacks.  
 Links to standards:
-  * 27001 Control 6.3 Awareness training. Gap: good coverage, but lacks detail - especialy regarding the particularity: training material needs to cover AI security threats and controls (how to implement this coverage?)
+  * 27002 Control 6.3 Awareness training. Gap: good coverage, but lacks detail - especialy regarding the particularity: training material needs to cover AI security threats and controls (how to implement this coverage?)
 
 * DISCRETE. Minimize access to technical details to prevent attacker reconnaissance.
 Purpose: reduce information available to attackers that can help them select and tailor their attack, thereby reducing the probabily of a succesful attack.  
@@ -139,7 +139,7 @@ For example:
   
   Particularity: Technical data science details need to be incorporated in asset management, data classification and hence in risk analysis.  
   Links to standards:
-  *  27001 Control 5.9: Inventory of information and other associated assets. Gap: good coverage with the obvious particularity that technical data science details can be sensitive. As soon as this is identified, depending process such as security requirements, risk analysis and awarenss traing will take care of the threat. It starts with identifying this information as an asset.
+  *  27002 Control 5.9: Inventory of information and other associated assets. Gap: good coverage with the obvious particularity that technical data science details can be sensitive. As soon as this is identified, depending process such as security requirements, risk analysis and awarenss traing will take care of the threat. It starts with identifying this information as an asset.
   * See [OpenCRE on data classification and handling](https://www.opencre.org/cre/074-873). Gap: idem
 
 * DATAMINIMIZE. Remove or anonymize data fields or records that are not needed for the application, to prevent them from leaking. A special form of data minimization is to statistically analyse which records or fields in a trainset are superfluous to achieving sufficient performance, and then remove those (Datascience).
@@ -156,7 +156,7 @@ Links to standards:
 * CHECKCOMPLIANCE. Laws and regulations need to be checked in order to validate compliance which may include security aspects. See the [OWASP AI Guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) for privacy aspects of AI.  
 Links to standards:
   * [OpenCRE on Compliance](https://www.opencre.org/cre/510-324)
-  * 27001 Control 5.36 Compliance with policies, rules and standards. Gap: complete coverage with the particularity that AI regulation needs to be taken into account.
+  * 27002 Control 5.36 Compliance with policies, rules and standards. Gap: complete coverage with the particularity that AI regulation needs to be taken into account.
 
 Note: For all controls in this document: a *vulnerability* occurs when a control is missing.
 
@@ -167,7 +167,7 @@ Threats through use take place through normal interaction with an AI model: prov
 **Controls for threats through use:**
 * MONITOR. Add use of the model to logs and make it part of incident detection, preferably including detecting inproper functioning of the model.  
 Links to standards:
-  * 27001 Control 8.16 Monitoring activities. Gap: good coverage but complete lack of detail regarding the how-to of the particularity: monitoring needs to look for specific patterns of AI attacks (e.g. model attacks through use)
+  * 27002 Control 8.16 Monitoring activities. Gap: good coverage but complete lack of detail regarding the how-to of the particularity: monitoring needs to look for specific patterns of AI attacks (e.g. model attacks through use)
   * See [OpenCRE](https://www.opencre.org/cre/058-083). Idem
 
 * THROTTLE. Limit frequency of access to the model (e.g. API) by throttling.  
@@ -179,7 +179,7 @@ Links to standards:
 * MODELACCESSCONTROL. Securely limit access to use the model to authorized users.  
 Purpose:  prevent attackers that are not authorized to perform attacks throug use.  
 Links to standards:
-  * Technical access control: 27001 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: complete coverage
+  * Technical access control: 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: complete coverage
   * [OpenCRE on technical access control](https://www.opencre.org/cre/724-770) 
   * [OpenCRE on centralized access control](https://www.opencre.org/cre/117-371)
 
@@ -311,17 +311,17 @@ Background: Data science (data engineering and model engineering) uses an AI pip
     *  [OpenCE on encryption of data at rest](https://www.opencre.org/cre/400-007)
   * Technical access control for the data, to limit access following the least privilege principle  
   Links to standards:
-    * 27001 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: complete coverage
+    * 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: complete coverage
     * [OpenCRE](https://www.opencre.org/cre/724-770) 
   * Centralized access control for the data  
   Links to standards:
     * [OpenCRE](https://www.opencre.org/cre/117-371) 
   * Operational security to protect stored data  
   Links to standards:
-    * Many 27001 controls cover operational security. Gap: complete coverage.
-      * 27001 control 5.23 Information security for use of cloud services
-      * 27001 control 5.37 Documented operating procedures
-      * Many more 27001 controls (See OpenCRE link)
+    * Many 27002 controls cover operational security. Gap: complete coverage.
+      * 27002 control 5.23 Information security for use of cloud services
+      * 27002 control 5.37 Documented operating procedures
+      * Many more 27002 controls (See OpenCRE link)
     * [OpenCRE](https://www.opencre.org/cre/862-452)
   * Particularity 1: don't just protect the data in the live system - also protect the data in the development environment as it is real data - since it is needed to train a model.
   * Particularity 2: elements in the AI development environment (data, code, configuration & parameters) require extra protection as they are prone to attacks to manipulate model behaviour (called *poisoning*)
@@ -330,7 +330,7 @@ Background: Data science (data engineering and model engineering) uses an AI pip
 * DEVSECURITY. Make sure that the AI development infrastructure is part of the security management system, regarding people, process and technology perspective. E.g. screening of development personnel, protection of source code/configuration, virus scanning on engineering machines.
 * SEGREGATEDATA. Store sensitive training or test data in a separated environment with restricted access.
 List of standards:
-  * 27001 control 8.31 Separation of development, test and production environments. Gap: medium coverage - the particularity is that the development environment typically has the sensitive data instead of the production environment - which is typically the other way around in non-AI systems. Therefore it helps to restrict access to that data within the development environment. Even more: within the development environment further segregation can take place to limit access to only those who need the data for their work, as some developers will not be processing data.
+  * 27002 control 8.31 Separation of development, test and production environments. Gap: medium coverage - the particularity is that the development environment typically has the sensitive data instead of the production environment - which is typically the other way around in non-AI systems. Therefore it helps to restrict access to that data within the development environment. Even more: within the development environment further segregation can take place to limit access to only those who need the data for their work, as some developers will not be processing data.
 * CONFCOMPUTE. 'Confidential compute': If available and possible, use features of the data science environment to hide training data from model engineers
 * FEDERATIVELEARNING. Federative learning can be applied when a training set is distributed over different organizations, preventing that the data needs to be collected in a central place - increasing the risk of leaking.
 * TODO: integrity checks in development pipeline (build, deploy, supply chain)
@@ -339,8 +339,8 @@ The Software Bill Of Materials (SBOM) becomes the AIBOM (AI Bill Of Materials). 
 Particularity: apart from code and components, data and models can also be part of the supply chain in AI. Data may include annotations and lables that are supplied by another source.
 Standard supply chain management includes provenance & pedigree, verifying signatures, using package repositories, frequent patching, and using dependency verification tools.  
 Links to standards:
-  * 27001 Controls 5.19, 5.20, 5.21, 5.22, 5.23, 8.30. Gap: good coverage, with the particularity, and lacking controls on data provenance.
-  * ISO/IEC AWI 5181 on Data provenance. Gap: covers the data provenance aspect to complete the coverage together with the 27001 controls - provided that the provenance concerns all sensitive data and is not limited to personal data.
+  * 27002 Controls 5.19, 5.20, 5.21, 5.22, 5.23, 8.30. Gap: good coverage, with the particularity, and lacking controls on data provenance.
+  * ISO/IEC AWI 5181 on Data provenance. Gap: covers the data provenance aspect to complete the coverage together with the 27002 controls - provided that the provenance concerns all sensitive data and is not limited to personal data.
   * [OpenCRE](https://www.opencre.org/cre/613-285)
   
 
