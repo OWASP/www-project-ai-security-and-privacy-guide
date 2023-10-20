@@ -1,5 +1,6 @@
 # OWASP AI Exchange
-Living document for worldwide exchange of AI security expertise. 
+Open source living document for worldwide exchange of AI security expertise.
+Our mission is to be the authorative source for consensus, foster alignment, and drive collaboration among initiatives.
 
 Maintained here at [owaspai.org](http://owaspai.org).
 
