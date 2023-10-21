@@ -12,12 +12,12 @@ Purpose: Creating urgent consensus and collecting input for global and regional 
 Regularly, the content of this document will be published, with credits, to the [OWASP AI guide](https://owasp.org/www-project-ai-security-and-privacy-guide/).
 
 Table of contents:
-* Introduction
-* General controls for all threats
-* Threats through use
-* Development-time threats
-* Application security threats
-* References
+* [Introduction](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#introduction)
+* [General controls for all threats](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#1-general-controls---for-all-threats)
+* [Threats through use](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#2-threats-through-use)
+* [Development-time threats](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#3-development-time-threats)
+* [Application security threats](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#4-application-security-threats)
+* [References](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#references)
 
 # Introduction
 
@@ -101,14 +101,19 @@ GenAI security particularities are:
 
 **Controls applicable to all AI threats:**
 
-* AIPROGRAM. Take responsibility for AI as an organization. Create and keep an inventory of AI initiatives and make someone responsible for analysing and managing the risks. For the high risk systems: attain responsible AI and transparency in the form of communication and documentation, auditability, bias countermeasures, oversight adn cyber security. Technically one could argue that this control is out of scope for cyber security, but its has an AI security purpose.
-Purpose: 1) reduces probability of AI initiatives being overlooked for proper governance (including security) - as covered by controls in this document, and 2) increases incentive for proper governance as the AI program takes responsibility for it.  Without proper governance, the controls in this document can only happen by accident.
-Links to standards:
+* AIPROGRAM. Take responsibility for AI as an organization. Create and keep an inventory of AI initiatives and make someone responsible for analysing and managing the risks. For the high risk systems: attain responsible AI and transparency in the form of communication and documentation, auditability, bias countermeasures, oversight and cyber security.
+
+  Technically one could argue that this control is out of scope for cyber security, but its has an AI security purpose.
+  
+  Purpose: 1) reduces probability of AI initiatives being overlooked for proper governance (including security) - as covered by controls in this document, and 2) increases incentive for proper governance as the AI program takes responsibility for it.  Without proper governance, the controls in this document can only happen by accident.
+
+  Links to standards:
   * ISO/IEC 42001 AI management system (under development)
 
 * SECPROGRAM. Include data science activities including AI security threats in the organization security program (information security management system).
-Purpose: reduces probability of AI initiatives being overlooked for information security management, vastly increasing security risk.  
-Links to standards: 
+Purpose: reduces probability of AI initiatives being overlooked for information security management, vastly increasing security risk.
+
+  Links to standards: 
   * The entire 27000-27005 range is applicable to AI systems in the general sense as they are IT systems. Gap: complete coverage with the high-level particularity that there are three AI-specific attack surfaces that need to be taken into account in information security management: 1)AI development-time attacks, 2)attacks through model use and 3)AI Application security attacks. See the controls under the corresponding sections to see more particularities. At the high abstraction level, the most relevant 27002 controls are: 
     * 27002 control 5.1 Policies for information security
     * 27002 control 5.10 Acceptable use of information and other associated assets
@@ -117,42 +122,54 @@ Links to standards:
   * [OpenCRE on security risk analysis](https://www.opencre.org/cre/307-242)
 
 * SECDEVPROGRAM. Make data science activities part of the secure software development program. See elsewhere in this document for SUPPLYCHAINMANAGE which discusses AI-specific supply-chain risks.
-Purpose: Reduces security risks by proper attention to mitigating those risks during software development.   
+
+  Purpose: Reduces security risks by proper attention to mitigating those risks during software development.   
 Particularity: Data science development activities need to be taken into scope of development lifecycle that needs to create secure results.  
-Links to standards:
+
+  Links to standards:
   * 27002 control 8.25 Secure development lifecycle. Gap: good coverage with said particularity, but lack of detail - the 8.25 Control description in 27002(2022) is one page, whereas secure software development is a large and complex topic - see below for further references
   * See [OpenCRE on secure software development processes](https://www.opencre.org/cre/616-305) with notable links to NIST SSDF and OWASP SAMM. Gap: complete coverage with said particularity
 
-* DEVPROGRAM. Apart from secure development, AI engineering can benefit from other software engineering best practices, that are sometimes overlooked in data science: e.g. automated testing, code quality, documentation, and versioning. This way, AI systems will become easier to maintain, transferable, more reliable, and future-proof. A best practice is to mix data scientist profiles with software engineering profiles in teams, as software engineers typically need to learn more about data science and data scientists typically need to learn more about creating future-proof code that is easy to maintain and test.  
-Links to standards:
+* DEVPROGRAM. Apart from secure development, AI engineering can benefit from other software engineering best practices, that are sometimes overlooked in data science: e.g. automated testing, code quality, documentation, and versioning. This way, AI systems will become easier to maintain, transferable, more reliable, and future-proof.
+
+  A best practice is to mix data scientist profiles with software engineering profiles in teams, as software engineers typically need to learn more about data science and data scientists typically need to learn more about creating future-proof code that is easy to maintain and test.  
+
+  Links to standards:
   * [ISO/IEC 5338](https://www.iso.org/standard/81118.html) Gap: complete coverage - the 5338 intends to cover the complete software development lifecycle for AI
   * 27002 controls 5.37 Documented operating procedures. Gap: minimal coverage - this covers only a very small part of the control
   * [OpenCRE on documentation of function](https://www.opencre.org/cre/162-655)  Ggap: minimal coverage - this covers only a very small part of the control
 
 * SECEDUCATE. Educate data scientists and development teams on AI threats including the model attacks.  
-Links to standards:
+
+  Links to standards:
   * 27002 Control 6.3 Awareness training. Gap: good coverage, but lacks detail - especialy regarding the particularity: training material needs to cover AI security threats and controls (how to implement this coverage?)
 
 * DISCRETE. Minimize access to technical details that can help attackers.
-Purpose: reduce information available to attackers that can help them select and tailor their attack, thereby reducing the probabily of a succesful attack.
-Note: this control needs to be weighed against the AITRANSPARENCY control that requires to be more open about technical aspects of the model. The key is to minimize information that can help attackers while being transparent.   
-For example:  
+
+  Purpose: reduce information available to attackers that can help them select and tailor their attack, thereby reducing the probabily of a succesful attack.
+
+  Note: this control needs to be weighed against the AITRANSPARENCY control that requires to be more open about technical aspects of the model. The key is to minimize information that can help attackers while being transparent.   
+
+  For example:  
   * Be careful with publishing technical articles on your solution
   * Choose a model type or model implementation with which attackers are less familiar
   * Minimize model output regarding technical details  
   
   Particularity: Technical data science details need to be incorporated in asset management, data classification and hence in risk analysis.  
+
   Links to standards:
   *  27002 Control 5.9: Inventory of information and other associated assets. Gap: good coverage with the obvious particularity that technical data science details can be sensitive. As soon as this is identified, depending process such as security requirements, risk analysis and awarenss traing will take care of the threat. It starts with identifying this information as an asset.
   * See [OpenCRE on data classification and handling](https://www.opencre.org/cre/074-873). Gap: idem
 
 * DATAMINIMIZE. Remove or anonymize data fields or records that are not needed for the application, to prevent them from leaking. A special form of data minimization is to statistically analyse which records or fields in a trainset are superfluous to achieving sufficient performance, and then remove those (Datascience).
-Purpose: reduce the impact in case of an attack by reducing the amount of data that can leak.  
-Links to standards:
+
+  Purpose: reduce the impact in case of an attack by reducing the amount of data that can leak.  
+
+  Links to standards:
   * Represented anywhere in data management standards?
 
 *SHORTRETAIN. Remove or anonymize data after it is no longer needed, or when it is legally required (e.g. privacy laws) to minimize the risk of the data leaking.  
-Links to standards:
+  Links to standards:
   * TODO: see privacy standards
 
 * DIFFPRIVACYTRAINING. Attain a degree of differential privacy where possible using PATE, randomisation or objective function perturbation. TODO: Elaborate using Annex C in ENISA 2021. (Datascience)
@@ -343,9 +360,11 @@ List of standards:
 * TODO: integrity checks in development pipeline (build, deploy, supply chain)
 * SUPPLYCHAINMANAGE, including data provenance, to prevent that malicious AI components, source data or source models are obtained from unreliable sources.
 The Software Bill Of Materials (SBOM) becomes the AIBOM (AI Bill Of Materials). AI systems often have a variation of supply chains, including the data supply chain, the labeling supply chain, and the model supply chain.  
-Particularity: apart from code and components, data and models can also be part of the supply chain in AI. Data may include annotations and lables that are supplied by another source.
+
+  Particularity: apart from code and components, data and models can also be part of the supply chain in AI. Data may include annotations and lables that are supplied by another source.
 Standard supply chain management includes provenance & pedigree, verifying signatures, using package repositories, frequent patching, and using dependency verification tools.  
-Links to standards:
+
+  Links to standards:
   * 27002 Controls 5.19, 5.20, 5.21, 5.22, 5.23, 8.30. Gap: good coverage, with the particularity, and lacking controls on data provenance.
   * ISO/IEC AWI 5181 on Data provenance. Gap: covers the data provenance aspect to complete the coverage together with the 27002 controls - provided that the provenance concerns all sensitive data and is not limited to personal data.
   * [OpenCRE](https://www.opencre.org/cre/613-285)
@@ -397,7 +416,7 @@ Supplying a manipulated pre-trained model (e.g. a GenAI model) that serves as a 
 --------------------------------------
 ## 3.2. Sensitive data leak development-time
 
-### 3.2.1. Data leak
+### 3.2.1. Development-time data leak
 Impact:  Confidentiality breach of sensitive data.
 
 Training data or test data can be confidential because it's sensitive data (e.g. personal data) opr intellectual property. An attack or an unintended failure can lead to this training data leaking.  
