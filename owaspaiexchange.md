@@ -96,10 +96,12 @@ GenAI security particularities are:
 * The typical application of plug-ins in Large Language Models creates specific risks regarding the protection and privileges of these plugins - as they allow large language model to act outside of their normal conversation with the user
 * Prompt injection is a GenAI specific threat, listed under Application security threats
 
-
+--------------------------------------
+--------------------------------------
 # 1. General controls - for all threats
 Note: For all controls in this document: a *vulnerability* occurs when a control is missing.
 
+--------------------------------------
 ## 1.1 General governance controls
 
 * AIPROGRAM. Take responsibility for AI as an organization. Create and keep an inventory of AI initiatives and make someone responsible for analysing and managing the risks. For the high risk systems: attain responsible AI and transparency in the form of communication and documentation, auditability, bias countermeasures, oversight and cyber security.
@@ -145,7 +147,7 @@ Links to standards:
   * [OpenCRE on Compliance](https://www.opencre.org/cre/510-324)
   * 27002 Control 5.36 Compliance with policies, rules and standards. Gap: complete coverage with the particularity that AI regulation needs to be taken into account.
 
-
+--------------------------------------
 ## 1.2 General process controls
 
 * SECEDUCATE. Educate data scientists and development teams on AI threats including the model attacks.  
@@ -170,13 +172,8 @@ Links to standards:
   *  27002 Control 5.9: Inventory of information and other associated assets. Gap: good coverage with the obvious particularity that technical data science details can be sensitive. As soon as this is identified, depending process such as security requirements, risk analysis and awarenss traing will take care of the threat. It starts with identifying this information as an asset.
   * See [OpenCRE on data classification and handling](https://www.opencre.org/cre/074-873). Gap: idem
 
-## 1.3 General technical contols
-
-* OVERSIGHT. Oversight of model behaviour by humans or business logic
-  Purpose:  detect unwanted model behaviour and correct or stop follow up of a model's decision. Note: unwanted model behaviour often cannot be completely specified.  
-  Examples:
-  * Logic preventing the trunk of a car opening while the care is moving, even if the driver seems to ask so
-  * Asking the user for confirmation if a large number of emails is going to be sent by instruction of a model
+--------------------------------------
+## 1.3 General controls for sensitive data limitation
 
 * DATAMINIMIZE. Remove or anonymize data fields or records that are not needed for the application, to prevent them from leaking. A special form of data minimization is to statistically analyse which records or fields in a trainset are superfluous to achieving sufficient performance, and then remove those (Datascience).
 
@@ -185,14 +182,39 @@ Links to standards:
   Links to standards:
   * Represented anywhere in data management standards?
 
-*SHORTRETAIN. Remove or anonymize data after it is no longer needed, or when it is legally required (e.g. privacy laws) to minimize the risk of the data leaking.  
+* SHORTRETAIN. Remove or anonymize data after it is no longer needed, or when it is legally required (e.g. privacy laws) to minimize the risk of the data leaking.  
   Links to standards:
   * TODO: see privacy standards
 
-
 * DIFFPRIVACYTRAINING. Attain a degree of differential privacy where possible using PATE, randomisation or objective function perturbation. TODO: Elaborate using Annex C in ENISA 2021. (Datascience)
 
+--------------------------------------
+## 1.4. Controls to limit the effects of unwanted behaviour
+The cause of unwanted model behaviour can be the result of many things (model use, development-time, run-time), and the preventative controls are covered in the corresponding sections. Hower, the controls to limit the *effect* of this behaviour are general controls for each of those threats, and covered in this section.
 
+Main potential causes of unwanted model behaviour:
+* Insufficient or incorrect training data
+* Model staleness/ Model drift (i.e. the model becoming outdated)
+* Mistakes during model and data engineering
+* Security threats: attacks as laid out in this document e.g. model poisoning, evasion attacks
+
+Dealing with the effects of unwanted model behaviour knows the following threats:
+* Overreliance: the model is being trusted too much by users
+* Excessive agency: the model is being trusted too much by engineers and gets excessive functionality, permissions, or autonomy
+
+Example: The typical application of *plug-ins* in Large Language Models (GenAI) creates specific risks regarding the protection and privileges of these plugins - as they allow large language model to act outside of their normal conversation with the user.
+
+**Controls to limit the effects of unwanted model behaviour:**
+* OVERSIGHT. Oversight of model behaviour by humans or business logic
+  Purpose:  detect unwanted model behaviour and correct or stop follow up of a model's decision. Note: unwanted model behaviour often cannot be completely specified.  
+  Examples:
+  * Logic preventing the trunk of a car opening while the care is moving, even if the driver seems to ask so
+  * Asking the user for confirmation if a large number of emails is going to be sent by instruction of a model
+* MINPRIVILEGE. Minimize privileges, for example by not connecting a model to an e-mail facility, to prevent it from sending out wrong information to others.
+
+
+--------------------------------------
+--------------------------------------
 # 2. THREATS THROUGH USE
 
 Threats through use take place through normal interaction with an AI model: providing input and receiving output. Many of these threats require experimentation with the model, which is referred to in itself as an *Oracle attack*.
@@ -359,7 +381,8 @@ Example: Large Language Models(GenAI), just like most AI models, induce their re
 See the DISCRETE control for the balance between being transparent and being discrete about the model.
 * See the controls for excessive agency (e.g. oversight).
 
-
+--------------------------------------
+--------------------------------------
 # 3. DEVELOPMENT-TIME THREATS
 Background: Data science (data engineering and model engineering) uses an AI pipeline typically outside of the regular application development scope, introducing a new attack surface. Data engineering (collecting, storing, and preparing data) is typically a large and important part of machine learning engineering. Together with model engineering, it requires appropriate security to protect against data leaks, data poisoning, leaks of intellectual property, and supply chain attacks (see further below). In addition, data quality assurance can help to reduce risks of intended and unintended data issues. 
 
@@ -477,7 +500,8 @@ Impact:  Confidentiality breach of intellectual property.
 Impact:  Confidentiality breach of intellectual property.
 
 
-
+--------------------------------------
+--------------------------------------
 # 4. APPLICATION SECURITY THREATS
 
 --------------------------------------
@@ -544,7 +568,7 @@ Prompt injection manipulates a large language model (GenAI) through the injectio
 Example: let's say a chat application takes questions about car models. It turns a question into a prompt to a Large Language Model by adding the text from the website about that car. If that website has been compromised with instruction invisibile to the eye, those instructions are inserted into the prompt and may result in the user getting false or offensive information.
 
 Controls:
-* See General controls, in particular OVERSIGHT which remains the last defense against unwanted behaviour
+* See General controls, in particular section 1.4 *Controls to limit effects of unwanted model behaviour* as those are the last defense
 * Input validation by removing malicious instructions - although with limited effectiveness. The flexibility of natural language makes it harder to apply input validation than for strict syntax situations like SQL commands
 * Input segregation - there are developments that allow marking user input in prompts, reducing, but not removing the risk of prompt injection (e.g. ChatML for OpenAI API calls)
 
@@ -554,19 +578,7 @@ References:
 
 
 --------------------------------------
-## 4.7. Excessive Agency
-Impact: Because the AI model’s output can trigger certain actions, the impact of unwanted model behaviour is limited insufficiently.
-
-AI systems may undertake actions leading to unintended consequences. The issue arises from excessive functionality, permissions, or autonomy granted to the AI systems. This can be coupled to two threats: a) AI can be wrong unexpectedly, and have emergent behavior, and b) AI can be manipulated by an attack. 
-
-The typical application of plug-ins in Large Language Models (GenAI) creates specific risks regarding the protection and privileges of these plugins - as they allow large language model to act outside of their normal conversation with the user.
-
-**Controls for excessive agency:**
-* MINPRIVILEGE. Minimize privileges, for example by not connecting a model to an e-mail facility, to prevent it from sending out wrong information to others.
-* OVERSIGHT. Oversight (see general controls)
-
---------------------------------------
-## 4.8. Leak sensitive input data
+## 4.7. Leak sensitive input data
 Impact:  Confidentiality breach of sensitive data.  
 
 Input data can be sensitive (e.g. GenAI prompts) and can either leak through a failure or through an attack, such as a man-in-the-middle attack.  
