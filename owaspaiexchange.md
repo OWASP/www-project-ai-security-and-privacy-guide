@@ -111,10 +111,11 @@ Note: For all controls in this document: a *vulnerability* occurs when a control
   Purpose: 1) reduces probability of AI initiatives being overlooked for proper governance (including security) - as covered by controls in this document, and 2) increases incentive for proper governance as the AI program takes responsibility for it.  Without proper governance, the controls in this document can only happen by accident.
 
   Links to standards:
-  * ISO/IEC 42001 AI management system (under development)
+  * ISO/IEC 42001 AI management system (under development). Gap: full coverage.
 
-* SECPROGRAM. Include data science activities including AI security threats in the organization security program (information security management system).
-Purpose: reduces probability of AI initiatives being overlooked for information security management, vastly increasing security risk.
+* SECPROGRAM. Include data science activities and AI security threats in the organization's security program (information security management system).
+
+  Purpose: reduces probability of AI initiatives being overlooked for information security management, vastly decreasing security risk as the security program takes responsibility for the AI-specific threats and corresponding controls in this document.
 
   Links to standards: 
   * The entire 27000-27005 range is applicable to AI systems in the general sense as they are IT systems. Gap: complete coverage with the high-level particularity that there are three AI-specific attack surfaces that need to be taken into account in information security management: 1)AI development-time attacks, 2)attacks through model use and 3)AI Application security attacks. See the controls under the corresponding sections to see more particularities. At the high abstraction level, the most relevant 27002 controls are: 
@@ -126,8 +127,9 @@ Purpose: reduces probability of AI initiatives being overlooked for information 
 
 * SECDEVPROGRAM. Make data science activities part of the secure software development program. See elsewhere in this document for SUPPLYCHAINMANAGE which discusses AI-specific supply-chain risks.
 
-  Purpose: Reduces security risks by proper attention to mitigating those risks during software development.   
-Particularity: Data science development activities need to be taken into scope of development lifecycle that needs to create secure results.  
+  Purpose: Reduces security risks by proper attention to mitigating those risks during software development.
+  
+  Particularity: Data science development activities need to be taken into scope of secure development lifecycle.  
 
   Links to standards:
   * 27002 control 8.25 Secure development lifecycle. Gap: good coverage with said particularity, but lack of detail - the 8.25 Control description in 27002(2022) is one page, whereas secure software development is a large and complex topic - see below for further references
@@ -139,8 +141,8 @@ Particularity: Data science development activities need to be taken into scope o
 
   Links to standards:
   * [ISO/IEC 5338](https://www.iso.org/standard/81118.html) Gap: complete coverage - the 5338 intends to cover the complete software development lifecycle for AI
-  * 27002 controls 5.37 Documented operating procedures. Gap: minimal coverage - this covers only a very small part of the control
-  * [OpenCRE on documentation of function](https://www.opencre.org/cre/162-655)  Ggap: minimal coverage - this covers only a very small part of the control
+  * 27002 control 5.37 Documented operating procedures. Gap: minimal coverage - this covers only a very small part of the control
+  * [OpenCRE on documentation of function](https://www.opencre.org/cre/162-655)  Gap: minimal coverage - this covers only a very small part of the control
 
 * CHECKCOMPLIANCE. Laws and regulations need to be checked in order to validate compliance which may include security aspects. See the [OWASP AI Guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) for privacy aspects of AI.  
 Links to standards:
@@ -153,7 +155,7 @@ Links to standards:
 * SECEDUCATE. Educate data scientists and development teams on AI threats including the model attacks.  
 
   Links to standards:
-  * 27002 Control 6.3 Awareness training. Gap: good coverage, but lacks detail - especialy regarding the particularity: training material needs to cover AI security threats and controls (how to implement this coverage?)
+  * 27002 Control 6.3 Awareness training. Gap: good coverage, but lacks detail and needs to take into account the particularity: training material needs to cover AI security threats and controls
 
 * DISCRETE. Minimize access to technical details that can help attackers.
 
@@ -169,7 +171,7 @@ Links to standards:
   Particularity: Technical data science details need to be incorporated in asset management, data classification and hence in risk analysis.  
 
   Links to standards:
-  *  27002 Control 5.9: Inventory of information and other associated assets. Gap: good coverage with the obvious particularity that technical data science details can be sensitive. As soon as this is identified, depending process such as security requirements, risk analysis and awarenss traing will take care of the threat. It starts with identifying this information as an asset.
+  *  27002 Control 5.9: Inventory of information and other associated assets. Gap: good coverage with the obvious particularity that technical data science details can be sensitive. As soon as the inventory identifies this, depending processes such as security requirements, risk analysis and awareness traing will take care of the threat. In other words: it starts with identifying this information as an asset.
   * See [OpenCRE on data classification and handling](https://www.opencre.org/cre/074-873). Gap: idem
 
 --------------------------------------
@@ -180,13 +182,17 @@ Links to standards:
   Purpose: reduce the impact in case of an attack by reducing the amount of data that can leak.  
 
   Links to standards:
-  * Represented anywhere in data management standards?
+  * TODOWG1: Represented anywhere in data management standards?
 
 * SHORTRETAIN. Remove or anonymize data after it is no longer needed, or when it is legally required (e.g. privacy laws) to minimize the risk of the data leaking.  
   Links to standards:
-  * TODO: see privacy standards
+  * TODOWG1: Represented anywhere in data management standards?
 
 * DIFFPRIVACYTRAINING. Attain a degree of differential privacy where possible using PATE, randomisation or objective function perturbation. TODO: Elaborate using Annex C in ENISA 2021. (Datascience)
+
+  Links to standards:
+  * TODOWG1: Mentioned anywhere in our scope?
+
 
 --------------------------------------
 ## 1.4. Controls to limit the effects of unwanted behaviour
@@ -204,13 +210,31 @@ Dealing with the effects of unwanted model behaviour knows the following threats
 
 Example: The typical application of *plug-ins* in Large Language Models (GenAI) creates specific risks regarding the protection and privileges of these plugins - as they allow large language model to act outside of their normal conversation with the user.
 
+Example: Large Language Models(GenAI), just like most AI models, induce their results based on training data, meaning that they can make up things that are false. In addition, the training data can contain false or outdated information. At the same time, LLM's can come across very confident about their output. These aspects make overreliance of LLM a real risk. Note that all AI models in principle can suffer from overreliance.  
+
+
 **Controls to limit the effects of unwanted model behaviour:**
 * OVERSIGHT. Oversight of model behaviour by humans or business logic
   Purpose:  detect unwanted model behaviour and correct or stop follow up of a model's decision. Note: unwanted model behaviour often cannot be completely specified.  
   Examples:
   * Logic preventing the trunk of a car opening while the care is moving, even if the driver seems to ask so
   * Asking the user for confirmation if a large number of emails is going to be sent by instruction of a model
+
+ Links to standards:
+  * TODOWG1: Mentioned anywhere in our scope?
+
 * MINPRIVILEGE. Minimize privileges, for example by not connecting a model to an e-mail facility, to prevent it from sending out wrong information to others.
+
+  Links to standards:
+  * 27002 control 8.2 Privileged access rights. Gap: good coverage with the particularity that privileges assigned to autonomous model decisions need to be assigned with the risk of unwanted model behaviour in mind.
+  * [OpenCRE on least privilege](https://www.opencre.org/cre/368-633) Gap: idem
+
+* AITRANSPARENCY. By being transparent to users regarding how the model works, how it has been trained, and the general expected accuracy and reliability of the AI system's output, people can adjust their reliance accordingly. The most simple form of this is to inform users that an AI model is involved.  
+See the DISCRETE control for the balance between being transparent and being discrete about the model.
+
+ Links to standards:
+  * TODOWG1: Mentioned anywhere in our scope? (maybe in privacy standards?)
+
 
 
 --------------------------------------
@@ -223,18 +247,28 @@ Threats through use take place through normal interaction with an AI model: prov
 * See General controls
 * MONITOR. Add use of the model to logs and make it part of incident detection, preferably including detecting inproper functioning of the model.  
 Links to standards:
-  * 27002 Control 8.16 Monitoring activities. Gap: good coverage but complete lack of detail regarding the how-to of the particularity: monitoring needs to look for specific patterns of AI attacks (e.g. model attacks through use)
+  * 27002 Control 8.16 Monitoring activities. Gap: good coverage with the particularity: monitoring needs to look for specific patterns of AI attacks (e.g. model attacks through use). The 27002 control has no details on that.
   * See [OpenCRE](https://www.opencre.org/cre/058-083). Idem
 
 * RATELIMIT. Limit frequency of access to the model (e.g. API) - preferably per user.  
-Purpose: severely delay attackers trying many inputs to perform attacks through use (e.g. try evasion attacks or for model inversion).  
-Particularity: limit access not to prevent system overload but to prevent experimentation.  
-Links to standards:
+
+  Purpose: severely delay attackers trying many inputs to perform attacks through use (e.g. try evasion attacks or for model inversion).  
+
+  Particularity: limit access not to prevent system overload but to prevent experimentation.
+
+  Remaining risk: this control does not prevent attacks that use low frequency of interaction (e.g. don't rely on heavy experimentation)
+
+  Links to standards:
+  * 27002 has no control for this
   * See [OpenCRE](https://www.opencre.org/cre/630-573)
 
-* MODELACCESSCONTROL. Securely limit allowing access to use the model to authorized users.  
-Purpose:  prevent attackers that are not authorized to perform attacks throug use.  
-Links to standards:
+* MODELACCESSCONTROL. Securely limit allowing access to use the model to authorized users.
+* 
+  Purpose: prevent attackers that are not authorized to perform attacks through  use.
+
+  Remaining risk: attackers may succeed in authenticating as an authorized user, or qualify as an authorized user, or bypass the access control through a vulnerability, or it is easy to become an authorized user (e.g. when the model is publicly available)
+  
+  Links to standards:
   * Technical access control: 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: complete coverage
   * [OpenCRE on technical access control](https://www.opencre.org/cre/724-770) 
   * [OpenCRE on centralized access control](https://www.opencre.org/cre/117-371)
@@ -256,9 +290,17 @@ Another categorization is to distinguish between physical input manipulation (e.
 * See General controls
 * See controls for threats through use
 * DETECTODD. Implement tools to detect whether input is excentric or invalid - also called input validation (Datascience)
+
   Purpose: by detecting odd input, input can be discard to prevent unwanted model behaviour. Note: odd input often cannot be completely specified and for many attacks the input is technically not odd.
 
+  Links to standards:
+  * TODOWG1: Mentioned anywhere in our scope?
+
 * DETECTPERTUBATION. Implement tools to detect specific evasions e.g. patches in images. TODO elaborate on detector subnetworks in Annex C of ENISA 2021. (Datascience)
+
+  Links to standards:
+  * TODOWG1: Mentioned anywhere in our scope?
+
 
 * EVASIONROBUSTMODEL. Choose a model design, configuration and/or training approach to maximize resilience against evasion (Datascience).
 
@@ -267,15 +309,20 @@ Another categorization is to distinguish between physical input manipulation (e.
   Example: measure model robustness by trying small input deviations to detect strong output changes. These strong output changes require investigation as they indicate local lack of *graceful degredation* resulting in sensitivity to evasion attacks. These issues can be addressed by for example increasing training samples for that part of the input domain.  
 
   TODO See Annex C in ENISA 2021 document for Stability terms, adversarial regulaiser, input gradient regularisation, defenisvie distillation and Random feature nullification.  
-Links to standards:
-  * ISO/IEC TR 24029 - Assessment of the robustness of neural networks. Gap: TODO.
+
+  Links to standards:
+  * ISO/IEC TR 24029 - Assessment of the robustness of neural networks. Gap: TODOWG1.
 
 * TRAINADVERSARIAL. Add adversarial examples to the training set to make the model more resilient (Datascience).
 See Annex C of ENISA Secure machine learning algorithms 2021
+  Links to standards:
+  * TODOWG1: Mentioned anywhere in our scope?
 
 * INPUTMODIFICATION. TODO: See ENISA Annex C for data randomisation, input transformation and input denoising.
 
-* TODO Gradient masking - Annex C ENISA 2021
+  Links to standards:
+  * TODOWG1: Mentioned anywhere in our scope?
+  * TODO Gradient masking - Annex C ENISA 2021
 
 ### 2.1.1. Closed-box evasion
 Input is manipulated in a way not based on observations of the model implementation (code, training set, parameters, architecture). The model is a 'closed box'. This often requires experimenting with how the model responds to input.
@@ -314,12 +361,17 @@ Impact:  Confidentiality breach of sensitive data.
 The model discloses sensitive training data or is abused to do so.
 
 ### 2.2.1. Sensitive data output from model
-The output of the model may contain sensitive data from the training set, for example a large language model(GenAI) generating output including personal data that was part of its training set. Furthermore, GenAI can ouput other types of sensitive data, such as copyrighted text or images. The disclosure is caused by an unintentional fault, either through normal use or through provocation by an attacker using the system.  
+The output of the model may contain sensitive data from the training set, for example a large language model(GenAI) generating output including personal data that was part of its training set. Furthermore, GenAI can ouput other types of sensitive data, such as copyrighted text or images. The disclosure is caused by an unintentional fault of including this data, and exposed through normal use or through provocation by an attacker using the system.  
 
 **Controls specific for sensitive data output from model:**
-* See General controls
+* See General controls, in particular data minimization
 * See controls for threats through use
-* Assess the risk of this happening and when necessary experiment to provoke this.
+* FILTERSENSITIVETRAINDATA. Actively prevent sensitive data when constructing the trainset using manual verification and/or automated detection and/or careful selection of train data sources
+  Links to standards:
+  * TODOWG1: Mentioned anywhere in our scope?
+* FILTERSENSITIVEMODELOUTPUT. Actively censor sensitive data by detecting it when possible (e.g. phone number)
+  Links to standards:
+  * TODOWG1: Mentioned anywhere in our scope?
 
 ### 2.2.2. Model inversion and Membership inference
 Model inversion occurs when an attacker reconstructs a part of the training set by intensive experimentation during which the input is optimized to maximize indications of confidence level in the output of the model.
@@ -335,8 +387,14 @@ Controls for Model inversion and membership inference:
 * See General controls
 * See controls for threats through use
 * HIDECONFIDENCE. Exclude indications of confidence in the output
+  Links to standards:
+  * TODOWG1: Mentioned anywhere in our scope?
 * SMALLMODEL. Overfitting can be prevented by keeping the model small so it is not able to store detail at the level of individual training set samples.
-* TODO: Add noise to the training set.
+  Links to standards:
+  * TODOWG1: Mentioned anywhere in our scope?
+* ADDTRAINNOISE. TODO: Add noise to the training set.
+  Links to standards:
+  * TODOWG1: Mentioned anywhere in our scope?
 
 
 --------------------------------------
@@ -357,29 +415,24 @@ References
 ## 2.4. Failure or malfunction of AI-specific elements through use
 Impact:  The AI systems is unavailable, leading to issues with processes, organizations or individuals that depend on the AI system (e.g. business continuity issues, safety issues in process control, unavailability of services)
 
-This threat refers to  application failure (i.e. denial of service) induced by an attacker through use (i.e. providing input). The failure occurs from either the volume or the content of the input.
+This threat refers to  application failure (i.e. denial of service) typically caused by excessive resource usage, induced by an attacker through use (i.e. providing input). The failure occurs from frequency,volume, or the content of the input.
 
 **Controls:**
 * See General controls
-* See controls for threats through use
+* See Controls for threats through use
+* DOSINPUTVALIDATION. Input validation and sanitization to reject or correct malicious (e.g. very large) content
+  Links to standards:
+  * 27002 has no control for this
+  * TODOWG1: Mentioned anywhere in our scope?
+  * [OpenCRE on input validation](https://www.opencre.org/cre/010-308)
+* LIMITRESOURCES. Put a limit on resource usage for a single model input, to prevent resource overuse.
+  Links to standards:
+  * 27002 has no control for this, except for Monitoring (covered in Controls for threats through use)
+  * TODOWG1: Mentioned anywhere in our scope?
 
 ### 2.4.1. Denial of model service due to inconsistent data or a sponge example
 A denial of service could be caused by input data with an inappropriate format, and causing malfunctioning of the model or its input logic.
 A *sponge attack* provides input that is designed to increase the computation time of the model,  potentially causing a denial of service.
-
---------------------------------------
-## 2.5. Overreliance in use
-Impact: If the accuracy of the AI system is trusted too much (e.g. the answers of a large language model - GenAI), unintended failures or attacks have a bigger impact. This aspect is strongly related to Excessive agency. 
-
-This is not an attack, but it is about the weakness of relying too much on the AI system in use.  
-Example: Large Language Models(GenAI), just like most AI models, induce their results based on training data, meaning that they can make up things that are false. In addition, the training data can contain false or outdated information. At the same time, LLM's can come across very confident about their output. These aspects make overreliance of LLM a real risk. Note that all AI models in principle can suffer from overreliance.  
-
-**Controls for overreliance:**
-* See General controls
-* See controls for threats through use
-* AITRANSPARENCY. By being transparent to users regarding how the model works, how it has been trained, and the general expected accuracy and reliability of the AI system's output, people can adjust their reliance accordingly. The most simple form of this is to inform users that an AI model is involved.  
-See the DISCRETE control for the balance between being transparent and being discrete about the model.
-* See the controls for excessive agency (e.g. oversight).
 
 --------------------------------------
 --------------------------------------
@@ -569,8 +622,8 @@ Example: let's say a chat application takes questions about car models. It turns
 
 Controls:
 * See General controls, in particular section 1.4 *Controls to limit effects of unwanted model behaviour* as those are the last defense
-* Input validation by removing malicious instructions - although with limited effectiveness. The flexibility of natural language makes it harder to apply input validation than for strict syntax situations like SQL commands
-* Input segregation - there are developments that allow marking user input in prompts, reducing, but not removing the risk of prompt injection (e.g. ChatML for OpenAI API calls)
+* PROMPTINPUTVALIDATION. Input validation by removing malicious instructions - although with limited effectiveness. The flexibility of natural language makes it harder to apply input validation than for strict syntax situations like SQL commands
+* INPUTSEGREGATION. There are developments that allow marking user input in prompts, reducing, but not removing the risk of prompt injection (e.g. ChatML for OpenAI API calls)
 
 References:
 * [Simon Willison's article](https://simonwillison.net/2023/Apr/14/worst-that-can-happen/)
