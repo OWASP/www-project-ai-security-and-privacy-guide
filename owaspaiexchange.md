@@ -129,7 +129,9 @@ Note: For all controls in this document: a *vulnerability* occurs when a control
 
   Purpose: Reduces security risks by proper attention to mitigating those risks during software development.
   
-  Particularity: Data science development activities need to be taken into scope of secure development lifecycle.  
+  Particularity: Data science development activities need to be taken into scope of secure development lifecycle.
+
+  An important practice in secure software development is Threat modeling, which in the case of AI needs to take the threats in this document into account.
 
   Links to standards:
   * 27002 control 8.25 Secure development lifecycle. Gap: good coverage with said particularity, but lack of detail - the 8.25 Control description in 27002(2022) is one page, whereas secure software development is a large and complex topic - see below for further references
