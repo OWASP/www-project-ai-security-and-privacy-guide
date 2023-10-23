@@ -182,16 +182,16 @@ Links to standards:
   Purpose: reduce the impact in case of an attack by reducing the amount of data that can leak.  
 
   Links to standards:
-  * TODOWG1: Represented anywhere in data management standards?
+  * TODOGROUP: Represented anywhere in data management standards?
 
 * SHORTRETAIN. Remove or anonymize data after it is no longer needed, or when it is legally required (e.g. privacy laws) to minimize the risk of the data leaking.  
   Links to standards:
-  * TODOWG1: Represented anywhere in data management standards?
+  * TODOGROUP: Represented anywhere in data management standards?
 
 * DIFFPRIVACYTRAINING. Attain a degree of differential privacy where possible using PATE, randomisation or objective function perturbation. TODO: Elaborate using Annex C in ENISA 2021. (Datascience)
 
   Links to standards:
-  * TODOWG1: Mentioned anywhere in our scope?
+  * TODOGROUP: Mentioned anywhere in our scope?
 
 
 --------------------------------------
@@ -221,7 +221,7 @@ Example: Large Language Models(GenAI), just like most AI models, induce their re
   * Asking the user for confirmation if a large number of emails is going to be sent by instruction of a model
 
  Links to standards:
-  * TODOWG1: Mentioned anywhere in our scope?
+  * TODOGROUP: Mentioned anywhere in our scope?
 
 * MINPRIVILEGE. Minimize privileges, for example by not connecting a model to an e-mail facility, to prevent it from sending out wrong information to others.
 
@@ -233,9 +233,7 @@ Example: Large Language Models(GenAI), just like most AI models, induce their re
 See the DISCRETE control for the balance between being transparent and being discrete about the model.
 
  Links to standards:
-  * TODOWG1: Mentioned anywhere in our scope? (maybe in privacy standards?)
-
-
+  * TODOGROUP: Mentioned anywhere in our scope? (maybe in privacy standards?)
 
 --------------------------------------
 --------------------------------------
@@ -294,12 +292,12 @@ Another categorization is to distinguish between physical input manipulation (e.
   Purpose: by detecting odd input, input can be discard to prevent unwanted model behaviour. Note: odd input often cannot be completely specified and for many attacks the input is technically not odd.
 
   Links to standards:
-  * TODOWG1: Mentioned anywhere in our scope?
+  * TODOGROUP: Mentioned anywhere in our scope?
 
 * DETECTPERTUBATION. Implement tools to detect specific evasions e.g. patches in images. TODO elaborate on detector subnetworks in Annex C of ENISA 2021. (Datascience)
 
   Links to standards:
-  * TODOWG1: Mentioned anywhere in our scope?
+  * TODOGROUP: Mentioned anywhere in our scope?
 
 
 * EVASIONROBUSTMODEL. Choose a model design, configuration and/or training approach to maximize resilience against evasion (Datascience).
@@ -311,17 +309,17 @@ Another categorization is to distinguish between physical input manipulation (e.
   TODO See Annex C in ENISA 2021 document for Stability terms, adversarial regulaiser, input gradient regularisation, defenisvie distillation and Random feature nullification.  
 
   Links to standards:
-  * ISO/IEC TR 24029 - Assessment of the robustness of neural networks. Gap: TODOWG1.
+  * ISO/IEC TR 24029 - Assessment of the robustness of neural networks. Gap: TODOGROUP.
 
 * TRAINADVERSARIAL. Add adversarial examples to the training set to make the model more resilient (Datascience).
 See Annex C of ENISA Secure machine learning algorithms 2021
   Links to standards:
-  * TODOWG1: Mentioned anywhere in our scope?
+  * TODOGROUP: Mentioned anywhere in our scope?
 
 * INPUTMODIFICATION. TODO: See ENISA Annex C for data randomisation, input transformation and input denoising.
 
   Links to standards:
-  * TODOWG1: Mentioned anywhere in our scope?
+  * TODOGROUP: Mentioned anywhere in our scope?
   * TODO Gradient masking - Annex C ENISA 2021
 
 ### 2.1.1. Closed-box evasion
@@ -368,10 +366,10 @@ The output of the model may contain sensitive data from the training set, for ex
 * See controls for threats through use
 * FILTERSENSITIVETRAINDATA. Actively prevent sensitive data when constructing the trainset using manual verification and/or automated detection and/or careful selection of train data sources
   Links to standards:
-  * TODOWG1: Mentioned anywhere in our scope?
+  * TODOGROUP: Mentioned anywhere in our scope?
 * FILTERSENSITIVEMODELOUTPUT. Actively censor sensitive data by detecting it when possible (e.g. phone number)
   Links to standards:
-  * TODOWG1: Mentioned anywhere in our scope?
+  * TODOGROUP: Mentioned anywhere in our scope?
 
 ### 2.2.2. Model inversion and Membership inference
 Model inversion occurs when an attacker reconstructs a part of the training set by intensive experimentation during which the input is optimized to maximize indications of confidence level in the output of the model.
@@ -388,13 +386,13 @@ Controls for Model inversion and membership inference:
 * See controls for threats through use
 * HIDECONFIDENCE. Exclude indications of confidence in the output
   Links to standards:
-  * TODOWG1: Mentioned anywhere in our scope?
+  * TODOGROUP: Mentioned anywhere in our scope?
 * SMALLMODEL. Overfitting can be prevented by keeping the model small so it is not able to store detail at the level of individual training set samples.
   Links to standards:
-  * TODOWG1: Mentioned anywhere in our scope?
+  * TODOGROUP: Mentioned anywhere in our scope?
 * ADDTRAINNOISE. TODO: Add noise to the training set.
   Links to standards:
-  * TODOWG1: Mentioned anywhere in our scope?
+  * TODOGROUP: Mentioned anywhere in our scope?
 
 
 --------------------------------------
@@ -423,12 +421,12 @@ This threat refers to  application failure (i.e. denial of service) typically ca
 * DOSINPUTVALIDATION. Input validation and sanitization to reject or correct malicious (e.g. very large) content
   Links to standards:
   * 27002 has no control for this
-  * TODOWG1: Mentioned anywhere in our scope?
+  * TODOGROUP: Mentioned anywhere in our scope?
   * [OpenCRE on input validation](https://www.opencre.org/cre/010-308)
 * LIMITRESOURCES. Put a limit on resource usage for a single model input, to prevent resource overuse.
   Links to standards:
   * 27002 has no control for this, except for Monitoring (covered in Controls for threats through use)
-  * TODOWG1: Mentioned anywhere in our scope?
+  * TODOGROUP: Mentioned anywhere in our scope?
 
 ### 2.4.1. Denial of model service due to inconsistent data or a sponge example
 A denial of service could be caused by input data with an inappropriate format, and causing malfunctioning of the model or its input logic.
@@ -439,37 +437,54 @@ A *sponge attack* provides input that is designed to increase the computation ti
 # 3. DEVELOPMENT-TIME THREATS
 Background: Data science (data engineering and model engineering) uses an AI pipeline typically outside of the regular application development scope, introducing a new attack surface. Data engineering (collecting, storing, and preparing data) is typically a large and important part of machine learning engineering. Together with model engineering, it requires appropriate security to protect against data leaks, data poisoning, leaks of intellectual property, and supply chain attacks (see further below). In addition, data quality assurance can help to reduce risks of intended and unintended data issues. 
 
+**Particularities:**
+* Particularity 1: don't just protect the data in the live system - also protect the data in the development environment as it is real data - since it is needed to train a model.
+  * Particularity 2: elements in the AI development environment (data, code, configuration & parameters) require extra protection as they are prone to attacks to manipulate model behaviour (called *poisoning*)
+  * Particularity 3: source code, configuration, and parameters are typically critical intellectual property in AI
+
 **Controls for development-time protection:**
 * See General controls
 * DATAPROTECT. Protect (train/test) data, source code, configuration & parameters
   * Encryption of data at rest  
   Links to standards:
-    *  [OpenCE on encryption of data at rest](https://www.opencre.org/cre/400-007)
+    * 27002 control 5.33 Protection of records. Gap: complete coverage, with the particularities
+    * [OpenCE on encryption of data at rest](https://www.opencre.org/cre/400-007)
   * Technical access control for the data, to limit access following the least privilege principle  
   Links to standards:
-    * 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: complete coverage
+    * 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: complete coverage, with the particularities
     * [OpenCRE](https://www.opencre.org/cre/724-770) 
   * Centralized access control for the data  
   Links to standards:
+    * There is no 27002 control for this
     * [OpenCRE](https://www.opencre.org/cre/117-371) 
   * Operational security to protect stored data  
   Links to standards:
-    * Many 27002 controls cover operational security. Gap: complete coverage.
+    * Many 27002 controls cover operational security. Gap: complete coverage, with the particularities.
       * 27002 control 5.23 Information security for use of cloud services
       * 27002 control 5.37 Documented operating procedures
       * Many more 27002 controls (See OpenCRE link)
     * [OpenCRE](https://www.opencre.org/cre/862-452)
-  * Particularity 1: don't just protect the data in the live system - also protect the data in the development environment as it is real data - since it is needed to train a model.
-  * Particularity 2: elements in the AI development environment (data, code, configuration & parameters) require extra protection as they are prone to attacks to manipulate model behaviour (called *poisoning*)
-  * Particularity 3: source code, configuration, and parameters are typically critical intellectual property in AI
+  
+* DEVSECURITY. The security management system needs to take into account the AI particularity: the AI development infrastructure holds sensitive information - regarding people, process and technology perspective. E.g. screening of development personnel, protection of source code/configuration, virus scanning on engineering machines.
+  Link to standards:
+  * 27001 Information Security Management System, with the particularity
 
-* DEVSECURITY. Make sure that the AI development infrastructure is part of the security management system, regarding people, process and technology perspective. E.g. screening of development personnel, protection of source code/configuration, virus scanning on engineering machines.
 * SEGREGATEDATA. Store sensitive training or test data in a separated environment with restricted access.
 List of standards:
   * 27002 control 8.31 Separation of development, test and production environments. Gap: medium coverage - the particularity is that the development environment typically has the sensitive data instead of the production environment - which is typically the other way around in non-AI systems. Therefore it helps to restrict access to that data within the development environment. Even more: within the development environment further segregation can take place to limit access to only those who need the data for their work, as some developers will not be processing data.
+
 * CONFCOMPUTE. 'Confidential compute': If available and possible, use features of the data science environment to hide training data from model engineers
+  Links to standards:
+  * TODOGROUP: Mentioned anywhere in our scope?
+
 * FEDERATIVELEARNING. Federative learning can be applied when a training set is distributed over different organizations, preventing that the data needs to be collected in a central place - increasing the risk of leaking.
+  Links to standards:
+  * TODOGROUP: Mentioned anywhere in our scope?
+
 * TODO: integrity checks in development pipeline (build, deploy, supply chain)
+  Links to standards:
+  * TODOGROUP: Mentioned anywhere in our scope?
+
 * SUPPLYCHAINMANAGE, including data provenance, to prevent that malicious AI components, source data or source models are obtained from unreliable sources.
 The Software Bill Of Materials (SBOM) becomes the AIBOM (AI Bill Of Materials). AI systems often have a variation of supply chains, including the data supply chain, the labeling supply chain, and the model supply chain.  
 
@@ -492,6 +507,8 @@ Impact: see ‘Evasion’, with the note that two extra types of manipulation ar
 * See General controls
 * See controls for development-time protection
 * MODELENSEMBLE. Make the model part of en ensemble in which each model has been trained in a separately protected environemnt. If one model deviates from the others, its output can be ignored as it indicates possible manipulation.
+  Links to standards:
+  * TODOGROUP: Mentioned anywhere in our scope?
 
 References:
 * [Summary of 15 backdoor papers at CVPR '23](https://zahalka.net/ai_security_blog/2023/09/backdoor-attacks-defense-cvpr-23-how-to-build-and-burn-trojan-horses/)
@@ -509,14 +526,21 @@ Background: An important risk factor in the additional attack surface of AI engi
 * See General controls
 * See controls for development-time protection
 * MORETRAINDATA: Increasing the amount of non-malicious data makes training more robust against poisoned examples - provided that these poisoned examples are small in number. One way to do this is through data augmentation - the creation of artificial training set samples that are small variations of existing samples.
+  Links to standards:
+  * TODOGROUP: Mentioned anywhere in our scope?
+
 * DATAQUALITYCONTROL. Perform quality control on data including detecting poisoned samples through statistical deviation or pattern recognition. For important data and scenarios this may involve human verification.  
   Particularity: standard quality control needs to take into account that data may have maliciously been changed.
   TODO: elaborate on RONI and tRONI training sample selection
-* TODO: Feature squeezing
-* TODO: Transferability blocking
-* TODO: (weight)Bagging - see Annex C in ENISA 2021
-* TODO: TRIM algorithm - see Annex C in ENISA 2021
-* TODO: STRIP technique (after model evaluation)  - see Annex C in ENISA 2021
+
+  Links to standards:
+  * TODOGROUP: Mentioned anywhere in our scope?
+
+* TODOGROUP: Feature squeezing
+* TODOGROUP: Transferability blocking
+* TODOGROUP: (weight)Bagging - see Annex C in ENISA 2021
+* TODOGROUP: TRIM algorithm - see Annex C in ENISA 2021
+* TODOGROUP: STRIP technique (after model evaluation)  - see Annex C in ENISA 2021
 
 ### 3.1.2. Development-time model poisoning
 This threat refers to manipulating behaviour of the model by manipulating the engineering elements that lead to the model  (including the parameters during development time), eg. through supplying, changing components, code, or configuration. In some cases, the model is trained externally and supplied as-is, which also introduces a model poisoning threat.
@@ -532,7 +556,7 @@ Supplying a manipulated pre-trained model (e.g. a GenAI model) that serves as a 
 **Controls specific for transfer learning:**
 * See General controls
 * See controls for development-time protection
-* TODO: Choose a model type resilient against a transfer learning attack
+* TODOGROUP: Choose a model type resilient against a transfer learning attack
 
 
 --------------------------------------
@@ -544,7 +568,7 @@ Impact:  Confidentiality breach of sensitive data.
 Training data or test data can be confidential because it's sensitive data (e.g. personal data) opr intellectual property. An attack or an unintended failure can lead to this training data leaking.  
 Leaking can  happen from the development environment, as engineers need to work with real data to train the model.  
 Sometimes training data is collected at runtime, so a live system can become attack surface for this attack.  
-GenAI models are often hosted in the cloud, sometimes managed by an external party. Therefore, if you train or finetune these models, the training data (e.g. compamny documents) needs to travel to that cloud.
+GenAI models are often hosted in the cloud, sometimes managed by an external party. Therefore, if you train or finetune these models, the training data (e.g. company documents) needs to travel to that cloud.
 
 ### 3.2.2. Model theft through development-time model parameter leak
 Impact:  Confidentiality breach of intellectual property.
@@ -641,9 +665,6 @@ TODO: add to diagram
 **Controls:**
 * PROTECTMODELINPUTCONFIDENTIALY. See SECDEVPROGRAM to attain application security, with the focus on protecting the transport and storage of model parameters (e.g. access control, encryption, minimize retention)
  
-
-
-
 # References
 
 References on the OWASP AI guide (a project of which this document is part):
