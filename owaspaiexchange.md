@@ -212,7 +212,6 @@ Example: The typical application of *plug-ins* in Large Language Models (GenAI) 
 
 Example: Large Language Models(GenAI), just like most AI models, induce their results based on training data, meaning that they can make up things that are false. In addition, the training data can contain false or outdated information. At the same time, LLM's can come across very confident about their output. These aspects make overreliance of LLM a real risk. Note that all AI models in principle can suffer from overreliance.  
 
-
 **Controls to limit the effects of unwanted model behaviour:**
 * OVERSIGHT. Oversight of model behaviour by humans or business logic
   Purpose:  detect unwanted model behaviour and correct or stop follow up of a model's decision. Note: unwanted model behaviour often cannot be completely specified.  
@@ -220,7 +219,7 @@ Example: Large Language Models(GenAI), just like most AI models, induce their re
   * Logic preventing the trunk of a car opening while the care is moving, even if the driver seems to ask so
   * Asking the user for confirmation if a large number of emails is going to be sent by instruction of a model
 
- Links to standards:
+  Links to standards:
   * TODOGROUP: Mentioned anywhere in our scope?
 
 * MINPRIVILEGE. Minimize privileges, for example by not connecting a model to an e-mail facility, to prevent it from sending out wrong information to others.
@@ -232,7 +231,7 @@ Example: Large Language Models(GenAI), just like most AI models, induce their re
 * AITRANSPARENCY. By being transparent to users regarding how the model works, how it has been trained, and the general expected accuracy and reliability of the AI system's output, people can adjust their reliance accordingly. The most simple form of this is to inform users that an AI model is involved.  
 See the DISCRETE control for the balance between being transparent and being discrete about the model.
 
- Links to standards:
+   Links to standards:
   * TODOGROUP: Mentioned anywhere in our scope? (maybe in privacy standards?)
 
 --------------------------------------
@@ -244,7 +243,8 @@ Threats through use take place through normal interaction with an AI model: prov
 **Controls for threats through use:**
 * See General controls
 * MONITOR. Add use of the model to logs and make it part of incident detection, preferably including detecting inproper functioning of the model.  
-Links to standards:
+
+  Links to standards:
   * 27002 Control 8.16 Monitoring activities. Gap: good coverage with the particularity: monitoring needs to look for specific patterns of AI attacks (e.g. model attacks through use). The 27002 control has no details on that.
   * See [OpenCRE](https://www.opencre.org/cre/058-083). Idem
 
@@ -365,9 +365,11 @@ The output of the model may contain sensitive data from the training set, for ex
 * See General controls, in particular data minimization
 * See controls for threats through use
 * FILTERSENSITIVETRAINDATA. Actively prevent sensitive data when constructing the trainset using manual verification and/or automated detection and/or careful selection of train data sources
+  
   Links to standards:
   * TODOGROUP: Mentioned anywhere in our scope?
 * FILTERSENSITIVEMODELOUTPUT. Actively censor sensitive data by detecting it when possible (e.g. phone number)
+
   Links to standards:
   * TODOGROUP: Mentioned anywhere in our scope?
 
@@ -385,12 +387,15 @@ Controls for Model inversion and membership inference:
 * See General controls
 * See controls for threats through use
 * HIDECONFIDENCE. Exclude indications of confidence in the output
+
   Links to standards:
   * TODOGROUP: Mentioned anywhere in our scope?
 * SMALLMODEL. Overfitting can be prevented by keeping the model small so it is not able to store detail at the level of individual training set samples.
+
   Links to standards:
   * TODOGROUP: Mentioned anywhere in our scope?
 * ADDTRAINNOISE. TODO: Add noise to the training set.
+
   Links to standards:
   * TODOGROUP: Mentioned anywhere in our scope?
 
@@ -419,11 +424,13 @@ This threat refers to  application failure (i.e. denial of service) typically ca
 * See General controls
 * See Controls for threats through use
 * DOSINPUTVALIDATION. Input validation and sanitization to reject or correct malicious (e.g. very large) content
+
   Links to standards:
   * 27002 has no control for this
   * TODOGROUP: Mentioned anywhere in our scope?
   * [OpenCRE on input validation](https://www.opencre.org/cre/010-308)
 * LIMITRESOURCES. Put a limit on resource usage for a single model input, to prevent resource overuse.
+
   Links to standards:
   * 27002 has no control for this, except for Monitoring (covered in Controls for threats through use)
   * TODOGROUP: Mentioned anywhere in our scope?
@@ -466,22 +473,27 @@ Background: Data science (data engineering and model engineering) uses an AI pip
     * [OpenCRE](https://www.opencre.org/cre/862-452)
   
 * DEVSECURITY. The security management system needs to take into account the AI particularity: the AI development infrastructure holds sensitive information - regarding people, process and technology perspective. E.g. screening of development personnel, protection of source code/configuration, virus scanning on engineering machines.
-  Link to standards:
+
+  Links to standards:
   * 27001 Information Security Management System, with the particularity
 
 * SEGREGATEDATA. Store sensitive training or test data in a separated environment with restricted access.
-List of standards:
+
+  Links to standards:
   * 27002 control 8.31 Separation of development, test and production environments. Gap: medium coverage - the particularity is that the development environment typically has the sensitive data instead of the production environment - which is typically the other way around in non-AI systems. Therefore it helps to restrict access to that data within the development environment. Even more: within the development environment further segregation can take place to limit access to only those who need the data for their work, as some developers will not be processing data.
 
 * CONFCOMPUTE. 'Confidential compute': If available and possible, use features of the data science environment to hide training data from model engineers
+
   Links to standards:
   * TODOGROUP: Mentioned anywhere in our scope?
 
 * FEDERATIVELEARNING. Federative learning can be applied when a training set is distributed over different organizations, preventing that the data needs to be collected in a central place - increasing the risk of leaking.
+
   Links to standards:
   * TODOGROUP: Mentioned anywhere in our scope?
 
 * TODO: integrity checks in development pipeline (build, deploy, supply chain)
+
   Links to standards:
   * TODOGROUP: Mentioned anywhere in our scope?
 
@@ -526,6 +538,7 @@ Background: An important risk factor in the additional attack surface of AI engi
 * See General controls
 * See controls for development-time protection
 * MORETRAINDATA: Increasing the amount of non-malicious data makes training more robust against poisoned examples - provided that these poisoned examples are small in number. One way to do this is through data augmentation - the creation of artificial training set samples that are small variations of existing samples.
+
   Links to standards:
   * TODOGROUP: Mentioned anywhere in our scope?
 
