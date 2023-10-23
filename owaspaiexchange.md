@@ -451,7 +451,7 @@ A *sponge attack* provides input that is designed to increase the computation ti
 Background: Data science (data engineering and model engineering) uses an AI pipeline typically outside of the regular application development scope, introducing a new attack surface. Data engineering (collecting, storing, and preparing data) is typically a large and important part of machine learning engineering. Together with model engineering, it requires appropriate security to protect against data leaks, data poisoning, leaks of intellectual property, and supply chain attacks (see further below). In addition, data quality assurance can help to reduce risks of intended and unintended data issues. 
 
 **Particularities:**
-* Particularity 1: don't just protect the data in the live system - also protect the data in the development environment as it is real data - since it is needed to train a model.
+* Particularity 1: don't just protect the data in the live system - also protect the data in the development environment (including test) as it is real data - since it is needed to train a model.
   * Particularity 2: elements in the AI development environment (data, code, configuration & parameters) require extra protection as they are prone to attacks to manipulate model behaviour (called *poisoning*)
   * Particularity 3: source code, configuration, and parameters are typically critical intellectual property in AI
 
