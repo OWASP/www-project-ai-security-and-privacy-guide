@@ -234,6 +234,7 @@ See the DISCRETE control for the balance between being transparent and being dis
    Links to standards:
   * TODOGROUP: Mentioned anywhere in our scope? (maybe in privacy standards?)
 
+* UNWANTEDBIASTESTING. By doing test runs of the model to measure unwanted bias, unwanted behaviour can be detected. The details of bias detection fall outside the scope of this document.
 --------------------------------------
 --------------------------------------
 # 2. THREATS THROUGH USE
