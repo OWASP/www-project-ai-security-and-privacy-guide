@@ -234,6 +234,11 @@ See the DISCRETE control for the balance between being transparent and being dis
    Links to standards:
   * TODOGROUP: Mentioned anywhere in our scope? (maybe in privacy standards?)
 
+* CONTINUOUSVALIDATION. By frequently testing the behaviour of the model against an appropriate test set, sudden changes caused by a permanent attack (e.g. data poisoning, model poisoning) can be detected.
+
+  Links to standards:
+  * ISO 5338 Continuous validation. Gap: complete coverage
+
 * UNWANTEDBIASTESTING. By doing test runs of the model to measure unwanted bias, unwanted behaviour can be detected. The details of bias detection fall outside the scope of this document.
 --------------------------------------
 --------------------------------------
