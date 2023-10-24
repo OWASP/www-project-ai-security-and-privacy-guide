@@ -269,7 +269,7 @@ Threats through use take place through normal interaction with an AI model: prov
   * See [OpenCRE](https://www.opencre.org/cre/630-573)
 
 * MODELACCESSCONTROL. Securely limit allowing access to use the model to authorized users.
-* 
+
   Purpose: prevent attackers that are not authorized to perform attacks through  use.
 
   Remaining risk: attackers may succeed in authenticating as an authorized user, or qualify as an authorized user, or bypass the access control through a vulnerability, or it is easy to become an authorized user (e.g. when the model is publicly available)
