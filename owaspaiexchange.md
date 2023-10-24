@@ -297,7 +297,9 @@ Another categorization is to distinguish between physical input manipulation (e.
 * See controls for threats through use
 * DETECTODD. Implement tools to detect whether input is excentric or invalid - also called input validation (Datascience)
 
-  Purpose: by detecting odd input, input can be discard to prevent unwanted model behaviour. Note: odd input often cannot be completely specified and for many attacks the input is technically not odd.
+  Purpose: by detecting odd input, input can be discarded (or corrected) to prevent unwanted model behaviour. Note: odd input often cannot be completely specified and for many attacks the input is technically not odd.
+
+  TODOGROUP: Look into methods of filtering adversarial attaqcks through purifiers/denoisers
 
   Links to standards:
   * TODOGROUP: Mentioned anywhere in our scope?
@@ -320,11 +322,16 @@ Another categorization is to distinguish between physical input manipulation (e.
   * ISO/IEC TR 24029 - Assessment of the robustness of neural networks. Gap: TODOGROUP.
 
 * TRAINADVERSARIAL. Add adversarial examples to the training set to make the model more resilient (Datascience).
-See Annex C of ENISA Secure machine learning algorithms 2021
+TODOGROUP: Elaborate - See Annex C of ENISA Secure machine learning algorithms 2021
   Links to standards:
   * TODOGROUP: Mentioned anywhere in our scope?
 
-* INPUTMODIFICATION. TODO: See ENISA Annex C for data randomisation, input transformation and input denoising.
+* RANDOMIZEDSMOOTHING. Generate randomly changed copies of a model input and look at the model output for each of them
+
+* INPUTMODIFICATION. Lightly modify the input with the intention to distort the adversarial attack causing it to fail, while maintaining sufficient model correctness.
+  Modification can be done by adding noise (randomization), or by smoothing.  
+  Maintaining model correctness can be helped by performing multiple random modifications (e.g. randomized smoothing) of the input and then comparting model output (e.g. best of three).
+* TODO: See ENISA Annex C for data randomisation, input transformation and input denoising.
 
   Links to standards:
   * TODOGROUP: Mentioned anywhere in our scope?
@@ -522,6 +529,8 @@ Standard supply chain management includes provenance & pedigree, verifying signa
 Impact: see ‘Evasion’, with the note that two extra types of manipulation are  possible: 
 * Backdoors - which trigger unwanted responses to specific input variations (e.g. a money transaction is wrongfully marked as NOT fraud because it has a specific amount of money for which the model has been manipulated to ignore). Other name: *Trojan attack*
 * Unavailability by sabotage, leading to e.g. business continuity problems or safety issues
+
+This poisoning is **hard to detect** once it has happened: there is no code to review in a model to look for backdoors, the model parameters make no sense to the human eye, and testing is typically done using normal cases, with blind spots for backdoors. This is the intention of attackers - to bypass regular testing. The best approach is 1) to prevent poisoining by protecting development-time, and 2) to assume training data has been compromised.
 
 **Controls for broad model poisoning:**
 * See General controls
