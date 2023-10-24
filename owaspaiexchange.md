@@ -628,7 +628,7 @@ AI systems are IT systems and therefore can have security weaknesses and vulnera
 Note: some controls in this document are application security controls that are not AI-specific, but applied to AI-specific threats (e.g. monitoring to detect model attacks).
 
 **Controls:**
-* See General controls, in particular SECDEVPROGRAM to attain application security
+* See General controls, in particular SECDEVPROGRAM to attain application security, and SECPROGRAM to attain information security in the organization.
 
 
 --------------------------------------
