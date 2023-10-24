@@ -297,14 +297,14 @@ Another categorization is to distinguish between physical input manipulation (e.
 * See controls for threats through use
 * DETECTODD. Implement tools to detect whether input is excentric or invalid - also called input validation (Datascience)
 
-  Purpose: by detecting odd input, input can be discarded (or corrected) to prevent unwanted model behaviour. Note: odd input often cannot be completely specified and for many attacks the input is technically not odd.
+  Purpose: by detecting odd input, input that is likely malicious can be discarded (or corrected) to prevent unwanted model behaviour. Note: odd input often cannot be completely specified and for many attacks the input is technically not odd.
 
-  TODOGROUP: Look into methods of filtering adversarial attaqcks through purifiers/denoisers
+  TODOGROUP: Look into methods of filtering adversarial attacks through purifiers/denoisers in input.
 
   Links to standards:
   * TODOGROUP: Mentioned anywhere in our scope?
 
-* DETECTPERTUBATION. Implement tools to detect specific evasions e.g. patches in images. TODO elaborate on detector subnetworks in Annex C of ENISA 2021. (Datascience)
+* DETECTADVERSARIAL. Implement tools to detect specific evasions e.g. patches in images. TODO elaborate on detector subnetworks in Annex C of ENISA 2021. (Datascience)
 
   Links to standards:
   * TODOGROUP: Mentioned anywhere in our scope?
@@ -322,14 +322,15 @@ Another categorization is to distinguish between physical input manipulation (e.
   * ISO/IEC TR 24029 - Assessment of the robustness of neural networks. Gap: TODOGROUP.
 
 * TRAINADVERSARIAL. Add adversarial examples to the training set to make the model more resilient (Datascience).
-TODOGROUP: Elaborate - See Annex C of ENISA Secure machine learning algorithms 2021
+TODOGROUP: Elaborate - See Annex C of ENISA Secure machine learning algorithms 2021.  
+  TODO: Make clear this is not a silver bullet.
   Links to standards:
   * TODOGROUP: Mentioned anywhere in our scope?
 
-* INPUTMODIFICATION. Lightly modify the input with the intention to distort the adversarial attack causing it to fail, while maintaining sufficient model correctness.
+* INPUTDISTORTION. Lightly modify the input with the intention to distort the adversarial attack causing it to fail, while maintaining sufficient model correctness.
   Modification can be done by adding noise (randomization), or by smoothing.  
-  Maintaining model correctness can be helped by performing multiple random modifications (e.g. randomized smoothing) of the input and then comparting model output (e.g. best of three).
-* TODO: See ENISA Annex C for data randomisation, input transformation and input denoising.
+  Maintaining model correctness can be helped by performing multiple random modifications (e.g. randomized smoothing) of the input and then comparting model output (e.g. best of three).  
+  TODO: See ENISA Annex C for data randomisation, input transformation and input denoising.
 
   Links to standards:
   * TODOGROUP: Mentioned anywhere in our scope?
@@ -399,7 +400,7 @@ The more details a model is able to learn, the more it can store information on 
 Controls for Model inversion and membership inference:
 * See General controls
 * See controls for threats through use
-* HIDECONFIDENCE. Exclude indications of confidence in the output
+* OBSCURECONFIDENCE. Exclude indications of confidence in the output, or round confidence so it cannot be used for optimization.
 
   Links to standards:
   * TODOGROUP: Mentioned anywhere in our scope?
@@ -484,6 +485,10 @@ Background: Data science (data engineering and model engineering) uses an AI pip
       * 27002 control 5.37 Documented operating procedures
       * Many more 27002 controls (See OpenCRE link)
     * [OpenCRE](https://www.opencre.org/cre/862-452)
+  * Logging and monitoring to detect suspicious manipulation of data, (e.g. outside office hours)  
+  Links to standards:
+     * 27002 control 8.16 Monitoring activities. Gap: complete coverage
+     * [OpenCRE on Detect and respond](https://www.opencre.org/cre/887-750) 
   
 * DEVSECURITY. The security management system needs to take into account the AI particularity: the AI development infrastructure holds sensitive information - regarding people, process and technology perspective. E.g. screening of development personnel, protection of source code/configuration, virus scanning on engineering machines.
 
@@ -558,17 +563,23 @@ Background: An important risk factor in the additional attack surface of AI engi
   * TODOGROUP: Mentioned anywhere in our scope?
 
 * DATAQUALITYCONTROL. Perform quality control on data including detecting poisoned samples through statistical deviation or pattern recognition. For important data and scenarios this may involve human verification.  
-  Particularity: standard quality control needs to take into account that data may have maliciously been changed.
+  Particularity: standard quality control needs to take into account that data may have maliciously been changed.  
+  A method to detect statistical deviation is to train models on random selections of the trainset and then feed each training sample to those models and compare results. TODO: Elaborate.  
   TODO: elaborate on RONI and tRONI training sample selection
+
+  
 
   Links to standards:
   * TODOGROUP: Mentioned anywhere in our scope?
 
+* TRAINDATADISTORTION - TODOGROUP: Look into methods of making poisoned samples ineffective by smoothing or adding noise to training data (with the best practice of keeping the original training data, in order to expertiment with the filtering)
 * TODOGROUP: Feature squeezing
 * TODOGROUP: Transferability blocking
 * TODOGROUP: (weight)Bagging - see Annex C in ENISA 2021
 * TODOGROUP: TRIM algorithm - see Annex C in ENISA 2021
 * TODOGROUP: STRIP technique (after model evaluation)  - see Annex C in ENISA 2021
+
+* POISONROBUSTMODEL. Select model types that are less sensitive to poisoned training data. TODOGROUP: Elaborate
 
 ### 3.1.2. Development-time model poisoning
 This threat refers to manipulating behaviour of the model by manipulating the engineering elements that lead to the model  (including the parameters during development time), eg. through supplying, changing components, code, or configuration. In some cases, the model is trained externally and supplied as-is, which also introduces a model poisoning threat.
