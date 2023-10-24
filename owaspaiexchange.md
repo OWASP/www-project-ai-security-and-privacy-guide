@@ -336,6 +336,8 @@ TODOGROUP: Elaborate - See Annex C of ENISA Secure machine learning algorithms 2
   * TODOGROUP: Mentioned anywhere in our scope?
   * TODO Gradient masking - Annex C ENISA 2021
 
+* ADVERSARIALROBUSTDISTILLATION. When applying knowledge distilling to achieve smaller neural networks, care must be given to reduce their typical sentitivity to evasion attacks. TODOGROUP: elaborate
+
 ### 2.1.1. Closed-box evasion
 Input is manipulated in a way not based on observations of the model implementation (code, training set, parameters, architecture). The model is a 'closed box'. This often requires experimenting with how the model responds to input.
 
