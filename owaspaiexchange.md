@@ -326,8 +326,6 @@ TODOGROUP: Elaborate - See Annex C of ENISA Secure machine learning algorithms 2
   Links to standards:
   * TODOGROUP: Mentioned anywhere in our scope?
 
-* RANDOMIZEDSMOOTHING. Generate randomly changed copies of a model input and look at the model output for each of them
-
 * INPUTMODIFICATION. Lightly modify the input with the intention to distort the adversarial attack causing it to fail, while maintaining sufficient model correctness.
   Modification can be done by adding noise (randomization), or by smoothing.  
   Maintaining model correctness can be helped by performing multiple random modifications (e.g. randomized smoothing) of the input and then comparting model output (e.g. best of three).
