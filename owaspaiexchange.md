@@ -212,8 +212,7 @@ Links to standards:
 * DIFFPRIVACYTRAINING. Attain a degree of differential privacy where possible using PATE, randomisation or objective function perturbation. TODO: Elaborate using Annex C in ENISA 2021. (Datascience)
 
   Links to standards:
-  * TODOGROUP: Mentioned anywhere in our scope?
-
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODOGROUP: covered anywhere else?
 
 --------------------------------------
 ## 1.4. Controls to limit the effects of unwanted behaviour
@@ -321,12 +320,12 @@ Another categorization is to distinguish between physical input manipulation (e.
   TODOGROUP: Look into methods of filtering adversarial attacks through purifiers/denoisers in input.
 
   Links to standards:
-  * TODOGROUP: Mentioned anywhere in our scope?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. 
 
 * DETECTADVERSARIAL. Implement tools to detect specific evasions e.g. patches in images. TODO elaborate on detector subnetworks in Annex C of ENISA 2021. (Datascience)
 
   Links to standards:
-  * TODOGROUP: Mentioned anywhere in our scope?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
 
 
 * EVASIONROBUSTMODEL. Choose a model design, configuration and/or training approach to maximize resilience against evasion (Datascience).
@@ -344,7 +343,7 @@ Another categorization is to distinguish between physical input manipulation (e.
 TODOGROUP: Elaborate - See Annex C of ENISA Secure machine learning algorithms 2021.  
   TODO: Make clear this is not a silver bullet.
   Links to standards:
-  * TODOGROUP: Mentioned anywhere in our scope?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
 
 * INPUTDISTORTION. Lightly modify the input with the intention to distort the adversarial attack causing it to fail, while maintaining sufficient model correctness.
   Modification can be done by adding noise (randomization), or by smoothing.  
@@ -352,10 +351,13 @@ TODOGROUP: Elaborate - See Annex C of ENISA Secure machine learning algorithms 2
   TODO: See ENISA Annex C for data randomisation, input transformation and input denoising.
 
   Links to standards:
-  * TODOGROUP: Mentioned anywhere in our scope?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
   * TODO Gradient masking - Annex C ENISA 2021
 
 * ADVERSARIALROBUSTDISTILLATION. When applying knowledge distilling to achieve smaller neural networks, care must be given to reduce their typical sentitivity to evasion attacks. TODOGROUP: elaborate
+
+  Links to stndards:
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
 
 ### 2.1.1. Closed-box evasion
 Input is manipulated in a way not based on observations of the model implementation (code, training set, parameters, architecture). The model is a 'closed box'. This often requires experimenting with how the model responds to input.
@@ -402,11 +404,11 @@ The output of the model may contain sensitive data from the training set, for ex
 * FILTERSENSITIVETRAINDATA. Actively prevent sensitive data when constructing the trainset using manual verification and/or automated detection and/or careful selection of train data sources
   
   Links to standards:
-  * TODOGROUP: Mentioned anywhere in our scope?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
 * FILTERSENSITIVEMODELOUTPUT. Actively censor sensitive data by detecting it when possible (e.g. phone number)
 
   Links to standards:
-  * TODOGROUP: Mentioned anywhere in our scope?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODOGROUP: covered anywhere else?
 
 ### 2.2.2. Model inversion and Membership inference
 Model inversion occurs when an attacker reconstructs a part of the training set by intensive experimentation during which the input is optimized to maximize indications of confidence level in the output of the model.
@@ -424,15 +426,15 @@ Controls for Model inversion and membership inference:
 * OBSCURECONFIDENCE. Exclude indications of confidence in the output, or round confidence so it cannot be used for optimization.
 
   Links to standards:
-  * TODOGROUP: Mentioned anywhere in our scope?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
 * SMALLMODEL. Overfitting can be prevented by keeping the model small so it is not able to store detail at the level of individual training set samples.
 
   Links to standards:
-  * TODOGROUP: Mentioned anywhere in our scope?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
 * ADDTRAINNOISE. TODO: Add noise to the training set.
 
   Links to standards:
-  * TODOGROUP: Mentioned anywhere in our scope?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
 
 
 --------------------------------------
@@ -462,12 +464,13 @@ This threat refers to  application failure (i.e. denial of service) typically ca
 
   Links to standards:
   * 27002 has no control for this
-  * TODOGROUP: Mentioned anywhere in our scope?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
   * [OpenCRE on input validation](https://www.opencre.org/cre/010-308)
 * LIMITRESOURCES. Put a limit on resource usage for a single model input, to prevent resource overuse.
 
   Links to standards:
   * 27002 has no control for this, except for Monitoring (covered in Controls for threats through use)
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
   * TODOGROUP: Mentioned anywhere in our scope?
 
 ### 2.4.1. Denial of model service due to inconsistent data or a sponge example
@@ -521,20 +524,20 @@ Background: Data science (data engineering and model engineering) uses an AI pip
   Links to standards:
   * 27002 control 8.31 Separation of development, test and production environments. Gap: medium coverage - the particularity is that the development environment typically has the sensitive data instead of the production environment - which is typically the other way around in non-AI systems. Therefore it helps to restrict access to that data within the development environment. Even more: within the development environment further segregation can take place to limit access to only those who need the data for their work, as some developers will not be processing data.
 
-* CONFCOMPUTE. 'Confidential compute': If available and possible, use features of the data science environment to hide training data from model engineers
+* CONFCOMPUTE. 'Confidential compute': If available and possible, use features of the data science environment to hide training data and model parameters from model engineers
 
   Links to standards:
-  * TODOGROUP: Mentioned anywhere in our scope?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
 
 * FEDERATIVELEARNING. Federative learning can be applied when a training set is distributed over different organizations, preventing that the data needs to be collected in a central place - increasing the risk of leaking.
 
   Links to standards:
-  * TODOGROUP: Mentioned anywhere in our scope?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODOGROUP: covered anywhere else?
 
 * TODO: integrity checks in development pipeline (build, deploy, supply chain)
 
   Links to standards:
-  * TODOGROUP: Mentioned anywhere in our scope?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
 
 * SUPPLYCHAINMANAGE, including data provenance, to prevent that malicious AI components, source data or source models are obtained from unreliable sources.
 The Software Bill Of Materials (SBOM) becomes the AIBOM (AI Bill Of Materials). AI systems often have a variation of supply chains, including the data supply chain, the labeling supply chain, and the model supply chain.  
@@ -559,9 +562,9 @@ This poisoning is **hard to detect** once it has happened: there is no code to r
 **Controls for broad model poisoning:**
 * See General controls
 * See controls for development-time protection
-* MODELENSEMBLE. Make the model part of en ensemble in which each model has been trained in a separately protected environemnt. If one model deviates from the others, its output can be ignored as it indicates possible manipulation.
+* MODELENSEMBLE. Make the model part of en ensemble in which each model has been trained in a separately protected environment. If one model deviates from the others, its output can be ignored as it indicates possible manipulation.
   Links to standards:
-  * TODOGROUP: Mentioned anywhere in our scope?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
 
 References:
 * [Summary of 15 backdoor papers at CVPR '23](https://zahalka.net/ai_security_blog/2023/09/backdoor-attacks-defense-cvpr-23-how-to-build-and-burn-trojan-horses/)
@@ -581,7 +584,7 @@ Background: An important risk factor in the additional attack surface of AI engi
 * MORETRAINDATA: Increasing the amount of non-malicious data makes training more robust against poisoned examples - provided that these poisoned examples are small in number. One way to do this is through data augmentation - the creation of artificial training set samples that are small variations of existing samples.
 
   Links to standards:
-  * TODOGROUP: Mentioned anywhere in our scope?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
 
 * DATAQUALITYCONTROL. Perform quality control on data including detecting poisoned samples through statistical deviation or pattern recognition. For important data and scenarios this may involve human verification.
 
@@ -592,17 +595,24 @@ Background: An important risk factor in the additional attack surface of AI engi
 
   Links to standards:
   * ISO/IEC 5259 series on Data quality for analytics and ML. Gap: minimnl coverage in light of the particularity - the standard does not mention approaches to detect malicious changes (including detecting statistical deviations). Nevertheless, standard data quality control helps to detect malicious changes that violate data quality rules.
-  * TODOGROUP: Mentioned anywhere in our scope?
+  * Not further covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
 
 * TRAINDATADISTORTION - TODOGROUP: Look into methods of making poisoned samples ineffective by smoothing or adding noise to training data (with the best practice of keeping the original training data, in order to expertiment with the filtering)
-* TODOGROUP: Feature squeezing
-* TODOGROUP: Transferability blocking
-* TODOGROUP: (weight)Bagging - see Annex C in ENISA 2021
-* TODOGROUP: TRIM algorithm - see Annex C in ENISA 2021
-* TODOGROUP: STRIP technique (after model evaluation)  - see Annex C in ENISA 2021
+
+  Examples:
+  * TODOGROUP: Feature squeezing
+  * TODOGROUP: Transferability blocking
+  * TODOGROUP: (weight)Bagging - see Annex C in ENISA 2021
+  * TODOGROUP: TRIM algorithm - see Annex C in ENISA 2021
+  * TODOGROUP: STRIP technique (after model evaluation)  - see Annex C in ENISA 2021
+
+  Link to standards:
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. 
 
 * POISONROBUSTMODEL. Select model types that are less sensitive to poisoned training data. TODOGROUP: Elaborate
-
+  Links to standards:
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work.
+  
 ### 3.1.2. Development-time model poisoning
 This threat refers to manipulating behaviour of the model by manipulating the engineering elements that lead to the model  (including the parameters during development time), eg. through supplying, changing components, code, or configuration. In some cases, the model is trained externally and supplied as-is, which also introduces a model poisoning threat.
 Data manipulation is  referred to as data poisoning and is covered in separate threats.
