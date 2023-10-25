@@ -30,6 +30,11 @@ The AI Exchange initiative was taken by OWASP, triggered by [Rob van der Veer](h
 This material is all draft and work in progress for others to review and amend.
 It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 27090, the [OWASP ML top 10](https://mltop10.info/), [OWASP LLM top 10](https://llmtop10.com/), and many more initiatives can benefit from consistent terminology and insights across the globe.
 
+**Contributions:**
+* Yiannis Kanellopoulos and team (Code4thought) - evasion robustness
+* Annegrit Seyerlein-Klug (TH Brandenburg) - mapping with misc. standards
+* Wei Wei - mapping with ISO/IEC 42001
+
 -----------------------------
 **If you're an AI security expert, please contribute now as standard makers are using this document as input as we speak:**
 -----------------------------
@@ -332,7 +337,8 @@ Another categorization is to distinguish between physical input manipulation (e.
 
   A robust model in the light of evasion is a model that does not display large changes in output for small changes in input.  
 
-  Example: measure model robustness by trying small input deviations to detect strong output changes. These strong output changes require investigation as they indicate local lack of *graceful degredation* resulting in sensitivity to evasion attacks. These issues can be addressed by for example increasing training samples for that part of the input domain.  
+  Example approach: Measure model robustness by trying small input deviations to detect meaningful outcome variations that undermine the model's reliability. If these variations are undetectable to the human eye but may produce false/incorrect outcome descriptions they may also significantly undermine the model's reliability. Such cases indicate lack of model resilience to input variance resulting in sensitivity to evasion attacks and require detailed investigation.  
+  If we interpret the model with its inputs as a "system" and the sensitivity to evasion attacks as the "system fault" then this sensitivity may also be interpreted as (local) lack of graceful degradation. Such issues can be addressed by, for example, increasing training samples for that part of the input domain and tuning/optimising the model for variance.
 
   TODO See Annex C in ENISA 2021 document for Stability terms, adversarial regulaiser, input gradient regularisation, defenisvie distillation and Random feature nullification.  
 
