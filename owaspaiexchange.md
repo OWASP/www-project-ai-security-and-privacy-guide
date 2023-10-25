@@ -33,6 +33,7 @@ It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 270
 **Contributions:**
 * Yiannis Kanellopoulos and team (Code4thought) - evasion robustness
 * Annegrit Seyerlein-Klug (TH Brandenburg) - mapping with misc. standards
+* Wei Wei (IBM) - mapping with ISO/IEC 42001
 
 -----------------------------
 **If you're an AI security expert, please contribute now as standard makers are using this document as input as we speak:**
