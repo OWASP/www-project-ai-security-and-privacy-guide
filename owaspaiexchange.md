@@ -76,6 +76,8 @@ This document focuses on machine learning. The following threats also apply to h
 3. When implementing a control, consider the references and the links to standards. You may have implemented some of these standards, or the content of the standards may help you to implement the control.
 4. In the end you need to be able to accept the risks that remain regarding each threat, given the controls that you implemented.
 
+For more information on risk analysis, see the SECPROGRAM control.
+
 ## How about privacy?
 AI Privacy can be divided into two parts:
 1. The AI security threats and controls in this document that are about confidentiality and integrity of (personal) data (e.g. model inversion, leaking training data)
@@ -113,18 +115,34 @@ Note: For all controls in this document: a *vulnerability* occurs when a control
   Links to standards:
   * ISO/IEC 42001 AI management system (under development). Gap: full coverage.
 
-* SECPROGRAM. Include data science activities and AI security threats in the organization's security program (information security management system).
+* SECPROGRAM. Include the whole AI lifecycle (including data science activities and AI security threats in this document) in the organization's security program (also referred to as *information security management system*).
 
-  Purpose: reduces probability of AI initiatives being overlooked for information security management, vastly decreasing security risk as the security program takes responsibility for the AI-specific threats and corresponding controls in this document.
+  Purpose: reduces probability of AI initiatives being overlooked for information security management, vastly decreasing security risk as the security program takes responsibility for the AI-specific threats and corresponding controls in this document. For more details on using this document in risk analysis, see the Introduction section.
+
+  Particularity: the AI lifecycle and its security threats need to be part of the organization's information security governance.
 
   Links to standards: 
-  * The entire 27000-27005 range is applicable to AI systems in the general sense as they are IT systems. Gap: complete coverage with the high-level particularity that there are three AI-specific attack surfaces that need to be taken into account in information security management: 1)AI development-time attacks, 2)attacks through model use and 3)AI Application security attacks. See the controls under the corresponding sections to see more particularities. At the high abstraction level, the most relevant 27002 controls are: 
+  * The entire 27000-27005 range is applicable to AI systems in the general sense as they are IT systems. Gap: complete coverage with the high-level particularity that there are three AI-specific attack surfaces that need to be taken into account in information security management: 1)AI development-time attacks, 2)attacks through model use and 3)AI Application security attacks. See the controls under the corresponding sections to see more particularities.
+    These standards cover:
+    *	ISO/IEC 27000 – Information security management systems – Overview and vocabulary
+    *	ISO/IEC 27001 – Information security management systems – Requirements
+    *	ISO/IEC 27002 – Code of practice for information security management (See below)
+    *	ISO/IEC 27003 – Information security management systems: Implementation Guidelines)
+    *	ISO/IEC 27004 – Information security management measurements)
+    *	ISO/IEC 27005 – Information security risk management
+
+  * The '27002 controls' mentioned throughout this document are listed in the Annex of 27001, and further detailed with practices in 27002. At the high abstraction level, the most relevant 27002 controls are: 
     * 27002 control 5.1 Policies for information security
     * 27002 control 5.10 Acceptable use of information and other associated assets
     * 27002 control 5.8 Information security in project management
   * [OpenCRE on security program management](https://www.opencre.org/cre/261-010)
-  * [OpenCRE on security risk analysis](https://www.opencre.org/cre/307-242)
-
+  * Risk analysis standards:
+    * ISO/IEC 27005 - as mentioned above. Gap: complete coverage with said particularity (as 27005 doesn't mention AI-specific threats)
+    * ISO/IEC 27563 Discusses the impact of security and privacy in AI use cases and may serve as useful input to AI security risk analysis. TODOGROUP: elaborate and specify gap
+    * ISO/IEC 23894 on AI Risk management. TODOGROUP: Elaborate and specify gap. Gap: complete coverage - yet it refers to ISO/IEC 24028 for AI security threats, which is incomplete compared to for example the AI exchange (this document). The scope is broader than security which is not an issue.
+    * ISO/IEC 5338 covers the AI risk management process. Gap: this coverage is in essence a summary of 23894.
+    * [OpenCRE on security risk analysis](https://www.opencre.org/cre/307-242)
+  
 * SECDEVPROGRAM. Make data science activities part of the secure software development program. See elsewhere in this document for SUPPLYCHAINMANAGE which discusses AI-specific supply-chain risks.
 
   Purpose: Reduces security risks by proper attention to mitigating those risks during software development.
@@ -135,6 +153,7 @@ Note: For all controls in this document: a *vulnerability* occurs when a control
 
   Links to standards:
   * 27002 control 8.25 Secure development lifecycle. Gap: good coverage with said particularity, but lack of detail - the 8.25 Control description in 27002(2022) is one page, whereas secure software development is a large and complex topic - see below for further references
+  * ISO/IEC 27115 is about Cybersecurity evaluation of complex systems. TODOGROUP: Eloborate and specify Gap.
   * See [OpenCRE on secure software development processes](https://www.opencre.org/cre/616-305) with notable links to NIST SSDF and OWASP SAMM. Gap: complete coverage with said particularity
 
 * DEVPROGRAM. Apart from secure development, AI engineering can benefit from other software engineering best practices, that are sometimes overlooked in data science: e.g. automated testing, code quality, documentation, and versioning. This way, AI systems will become easier to maintain, transferable, more reliable, and future-proof.
@@ -564,14 +583,15 @@ Background: An important risk factor in the additional attack surface of AI engi
   Links to standards:
   * TODOGROUP: Mentioned anywhere in our scope?
 
-* DATAQUALITYCONTROL. Perform quality control on data including detecting poisoned samples through statistical deviation or pattern recognition. For important data and scenarios this may involve human verification.  
+* DATAQUALITYCONTROL. Perform quality control on data including detecting poisoned samples through statistical deviation or pattern recognition. For important data and scenarios this may involve human verification.
+
   Particularity: standard quality control needs to take into account that data may have maliciously been changed.  
+
   A method to detect statistical deviation is to train models on random selections of the trainset and then feed each training sample to those models and compare results. TODO: Elaborate.  
   TODO: elaborate on RONI and tRONI training sample selection
 
-  
-
   Links to standards:
+  * ISO/IEC 5259 series on Data quality for analytics and ML. Gap: minimnl coverage in light of the particularity - the standard does not mention approaches to detect malicious changes (including detecting statistical deviations). Nevertheless, standard data quality control helps to detect malicious changes that violate data quality rules.
   * TODOGROUP: Mentioned anywhere in our scope?
 
 * TRAINDATADISTORTION - TODOGROUP: Look into methods of making poisoned samples ineffective by smoothing or adding noise to training data (with the best practice of keeping the original training data, in order to expertiment with the filtering)
