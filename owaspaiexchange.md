@@ -496,8 +496,8 @@ Background: Data science (data engineering and model engineering) uses an AI pip
 
 **Particularities:**
 * Particularity 1: don't just protect the data in the live system - also protect the data in the development environment (including test) as it is real data - since it is needed to train a model.
-  * Particularity 2: elements in the AI development environment (data, code, configuration & parameters) require extra protection as they are prone to attacks to manipulate model behaviour (called *poisoning*)
-  * Particularity 3: source code, configuration, and parameters are typically critical intellectual property in AI
+* Particularity 2: elements in the AI development environment (data, code, configuration & parameters) require extra protection as they are prone to attacks to manipulate model behaviour (called *poisoning*)
+* Particularity 3: source code, configuration, and parameters are typically critical intellectual property in AI
  
 ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 
