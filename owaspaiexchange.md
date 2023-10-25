@@ -245,7 +245,8 @@ Example: Large Language Models(GenAI), just like most AI models, induce their re
   * Asking the user for confirmation if a large number of emails is going to be sent by instruction of a model
 
   Links to standards:
-  * TODOGROUP: Mentioned anywhere in our scope?
+  * ISO/IEC 42001 B.9.3 defines controls for human oversight and decisions regarding autonomy. Gap: partial coverage (human oversight only, not business logic)
+  * Not covered further in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
 
 * MINPRIVILEGE. Minimize privileges, for example by not connecting a model to an e-mail facility, to prevent it from sending out wrong information to others.
 
@@ -253,10 +254,11 @@ Example: Large Language Models(GenAI), just like most AI models, induce their re
   * 27002 control 8.2 Privileged access rights. Gap: good coverage with the particularity that privileges assigned to autonomous model decisions need to be assigned with the risk of unwanted model behaviour in mind.
   * [OpenCRE on least privilege](https://www.opencre.org/cre/368-633) Gap: idem
 
-* AITRANSPARENCY. By being transparent to users regarding how the model works, how it has been trained, and the general expected accuracy and reliability of the AI system's output, people can adjust their reliance accordingly. The most simple form of this is to inform users that an AI model is involved.  
-See the DISCRETE control for the balance between being transparent and being discrete about the model.
+* AITRANSPARENCY. By being transparent to users regarding how the model roughly works, how it has been trained, and the general expected accuracy and reliability of the AI system's output, people can adjust their reliance accordingly. The most simple form of this is to inform users that an AI model is involved.  
+See the DISCRETE control for the balance between being transparent and being discrete about the model. Transparency here is about providing abstract information regarding the model and is therefore something else than *explainability*.
 
    Links to standards:
+  * ISO/IEC 42001 B.7.2 describes data management to support transparency. Gap: minimal coverage as it only covers the data mnanagement part.
   * TODOGROUP: Mentioned anywhere in our scope? (maybe in privacy standards?)
 
 * CONTINUOUSVALIDATION. By frequently testing the behaviour of the model against an appropriate test set, sudden changes caused by a permanent attack (e.g. data poisoning, model poisoning) can be detected.
@@ -277,6 +279,7 @@ Threats through use take place through normal interaction with an AI model: prov
 
   Links to standards:
   * 27002 Control 8.16 Monitoring activities. Gap: good coverage with the particularity: monitoring needs to look for specific patterns of AI attacks (e.g. model attacks through use). The 27002 control has no details on that.
+  * ISO/IEC 42001 B.6.2.6 discusses AI system operation and monitoring. Gap: complete coverage, but on a high abstraction level.
   * See [OpenCRE](https://www.opencre.org/cre/058-083). Idem
 
 * RATELIMIT. Limit frequency of access to the model (e.g. API) - preferably per user.  
@@ -318,7 +321,7 @@ Another categorization is to distinguish between physical input manipulation (e.
 **Controls for evasion:**
 * See General controls
 * See controls for threats through use
-* DETECTODD. Implement tools to detect whether input is excentric or invalid - also called input validation (Datascience)
+* DETECTODDINPUT. Implement tools to detect whether input is excentric or invalid - also called input validation (Datascience)
 
   Purpose: by detecting odd input, input that is likely malicious can be discarded (or corrected) to prevent unwanted model behaviour. Note: odd input often cannot be completely specified and for many attacks the input is technically not odd.
 
@@ -492,6 +495,8 @@ Background: Data science (data engineering and model engineering) uses an AI pip
 * Particularity 1: don't just protect the data in the live system - also protect the data in the development environment (including test) as it is real data - since it is needed to train a model.
   * Particularity 2: elements in the AI development environment (data, code, configuration & parameters) require extra protection as they are prone to attacks to manipulate model behaviour (called *poisoning*)
   * Particularity 3: source code, configuration, and parameters are typically critical intellectual property in AI
+ 
+ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 
 **Controls for development-time protection:**
 * See General controls
@@ -554,6 +559,7 @@ Standard supply chain management includes provenance & pedigree, verifying signa
   Links to standards:
   * 27002 Controls 5.19, 5.20, 5.21, 5.22, 5.23, 8.30. Gap: good coverage, with the particularity, and lacking controls on data provenance.
   * ISO/IEC AWI 5181 on Data provenance. Gap: covers the data provenance aspect to complete the coverage together with the 27002 controls - provided that the provenance concerns all sensitive data and is not limited to personal data.
+  * ISO/IEC 42001 briefly mentions data provenance and refers to 5181 in section B.7.5
   * [OpenCRE](https://www.opencre.org/cre/613-285)
   
 
@@ -601,6 +607,7 @@ Background: An important risk factor in the additional attack surface of AI engi
 
   Links to standards:
   * ISO/IEC 5259 series on Data quality for analytics and ML. Gap: minimnl coverage in light of the particularity - the standard does not mention approaches to detect malicious changes (including detecting statistical deviations). Nevertheless, standard data quality control helps to detect malicious changes that violate data quality rules.
+  * ISO/iEC 42001 B.7.4 briefly covers data quality for AI. Gap: idem as 5259
   * Not further covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
 
 * TRAINDATADISTORTION - TODOGROUP: Look into methods of making poisoned samples ineffective by smoothing or adding noise to training data (with the best practice of keeping the original training data, in order to expertiment with the filtering)
