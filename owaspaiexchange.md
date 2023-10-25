@@ -33,7 +33,6 @@ It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 270
 **Contributions:**
 * Yiannis Kanellopoulos and team (Code4thought) - evasion robustness
 * Annegrit Seyerlein-Klug (TH Brandenburg) - mapping with misc. standards
-* Wei Wei (IBM) - mapping with ISO/IEC 42001
 
 -----------------------------
 **If you're an AI security expert, please contribute now as standard makers are using this document as input as we speak:**
@@ -208,11 +207,15 @@ Links to standards:
   Purpose: reduce the impact in case of an attack by reducing the amount of data that can leak.  
 
   Links to standards:
-  * TODOGROUP: Represented anywhere in data management standards?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODOGROUP: covered anywhere else?
+
+* ALLOWEDDATA. Verify if the data used (e.g. train set) is allowed for the purpose. This may for example not be the case if no consent was given and the data contains personal data collected fo a different purpose.  
+  Links to standards:
+  * ISO/IEC 23894 covers this in A.8 Privacy. Gap: good coverage with a brief section on the idea
 
 * SHORTRETAIN. Remove or anonymize data after it is no longer needed, or when it is legally required (e.g. privacy laws) to minimize the risk of the data leaking.  
   Links to standards:
-  * TODOGROUP: Represented anywhere in data management standards?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODOGROUP: covered anywhere else?
 
 * DIFFPRIVACYTRAINING. Attain a degree of differential privacy where possible using PATE, randomisation or objective function perturbation. TODO: Elaborate using Annex C in ENISA 2021. (Datascience)
 
@@ -259,7 +262,7 @@ See the DISCRETE control for the balance between being transparent and being dis
 
    Links to standards:
   * ISO/IEC 42001 B.7.2 describes data management to support transparency. Gap: minimal coverage as it only covers the data mnanagement part.
-  * TODOGROUP: Mentioned anywhere in our scope? (maybe in privacy standards?)
+  * Not covered further in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODOGROUP: covered anywhere else?
 
 * CONTINUOUSVALIDATION. By frequently testing the behaviour of the model against an appropriate test set, sudden changes caused by a permanent attack (e.g. data poisoning, model poisoning) can be detected.
 
@@ -480,7 +483,6 @@ This threat refers to  application failure (i.e. denial of service) typically ca
   Links to standards:
   * 27002 has no control for this, except for Monitoring (covered in Controls for threats through use)
   * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
-  * TODOGROUP: Mentioned anywhere in our scope?
 
 ### 2.4.1. Denial of model service due to inconsistent data or a sponge example
 A denial of service could be caused by input data with an inappropriate format, and causing malfunctioning of the model or its input logic.
