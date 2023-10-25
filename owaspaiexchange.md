@@ -660,13 +660,24 @@ Impact:  Confidentiality breach of intellectual property.
 
 --------------------------------------
 ## 4.1. Non AI-specific application security threats
-Impact: various
+Impact: General application security threats can impact confidentiality, integrity and availability of all assets.
 
 AI systems are IT systems and therefore can have security weaknesses and vulnerabilities that are not AI-specific such as SQL-Injection. Such topics are covered in depth by many sources and are out of scope for this publication.  
 Note: some controls in this document are application security controls that are not AI-specific, but applied to AI-specific threats (e.g. monitoring to detect model attacks).
 
 **Controls:**
-* See General controls, in particular SECDEVPROGRAM to attain application security, and SECPROGRAM to attain information security in the organization.
+* See The Governance controls in the general section, in particular SECDEVPROGRAM to attain application security, and SECPROGRAM to attain information security in the organization.
+* Technical application security controls  
+  Links to standards:
+  * See [OpenCRE on technical application security controls](https://www.opencre.org/cre/636-660)
+  * The 27002 controls only partly cover technical application security controls, and on a high abstraction level
+  * More detailed and comprehensive control overviews can be found in for example Common criteria protection profiles (ISO 15408),
+  * or in [OWASP ASVS](https://owasp.org/www-project-application-security-verification-standard/)
+* Operational security  
+  Links to standards:
+  * See [OpenCRE on operational security processes](https://www.opencre.org/cre/862-452)
+  * The 27002 controls only partly cover operational security controls, and on a high abstraction level
+
 
 
 --------------------------------------
