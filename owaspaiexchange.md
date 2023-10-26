@@ -763,7 +763,7 @@ GenAI models are often hosted in the cloud - sometimes managed by an external pa
 TODO: add to diagram
 
 **Controls:**
-* PROTECTMODELINPUTCONFIDENTIALY. See SECDEVPROGRAM to attain application security, with the focus on protecting the transport and storage of model parameters (e.g. access control, encryption, minimize retention)
+* MODELINPUTCONFIDENTIALY. See SECDEVPROGRAM to attain application security, with the focus on protecting the transport and storage of model parameters (e.g. access control, encryption, minimize retention)
  
 # References
 
