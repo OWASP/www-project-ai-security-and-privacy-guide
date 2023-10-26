@@ -146,6 +146,7 @@ Note: For all controls in this document: a *vulnerability* occurs when a control
     * ISO/IEC 27563 Discusses the impact of security and privacy in AI use cases and may serve as useful input to AI security risk analysis. TODOGROUP: elaborate and specify gap
     * ISO/IEC 23894 on AI Risk management. TODOGROUP: Elaborate and specify gap. Gap: complete coverage - yet it refers to ISO/IEC 24028 for AI security threats, which is incomplete compared to for example the AI exchange (this document). The scope is broader than security which is not an issue.
     * ISO/IEC 5338 covers the AI risk management process. Gap: this coverage is in essence a summary of 23894.
+    * [ETSI TVRA](https://www.etsi.org/deliver/etsi_ts/102100_102199/10216501/05.02.03_60/ts_10216501v050203p.pdf)
     * [OpenCRE on security risk analysis](https://www.opencre.org/cre/307-242)
   
 * SECDEVPROGRAM. Make data science activities part of the secure software development program. See elsewhere in this document for SUPPLYCHAINMANAGE which discusses AI-specific supply-chain risks.
@@ -681,7 +682,7 @@ Note: some controls in this document are application security controls that are 
   Links to standards:
   * See [OpenCRE on technical application security controls](https://www.opencre.org/cre/636-660)
   * The 27002 controls only partly cover technical application security controls, and on a high abstraction level
-  * More detailed and comprehensive control overviews can be found in for example Common criteria protection profiles (ISO 15408),
+  * More detailed and comprehensive control overviews can be found in for example Common criteria protection profiles (ISO/IEC 15408 with evaluation described in 18045),
   * or in [OWASP ASVS](https://owasp.org/www-project-application-security-verification-standard/)
 * Operational security  
   Links to standards:
