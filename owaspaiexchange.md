@@ -35,6 +35,7 @@ It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 270
 * Yiannis Kanellopoulos and team (Code4thought) - evasion robustness
 * Annegrit Seyerlein-Klug (TH Brandenburg) - mapping with misc. standards
 * Wei Wei (IBM) - mapping with ISO/IEC 42001
+* Roger Sanz (Universidad Isabel)
 
 -----------------------------
 **If you're an AI security expert, please contribute now as standard makers are using this document as input as we speak:**
@@ -162,16 +163,18 @@ Note: For all controls in this document: a *vulnerability* occurs when a control
 --------------------------------------
 ## 1.1 General governance controls
 
-* AIPROGRAM. Take responsibility for AI as an organization. Create and keep an inventory of AI initiatives and make someone responsible for analysing and managing the risks. For the high risk systems: attain responsible AI and transparency in the form of communication and documentation, auditability, bias countermeasures, oversight and cyber security.
+* AIPROGRAM. Take responsibility for AI as an organization. Create and keep an inventory of AI initiatives, perform risk analysis and manage those risks. This includes assiging responsibilities, including model accountability, data accountability, and risk governance. For the high risk systems: attain responsible AI and transparency in the form of communication and documentation, auditability, bias countermeasures, oversight and cyber security.
 
   Technically one could argue that this control is out of scope for cyber security, but its has an AI security purpose.
   
   Purpose: 1) reduces probability of AI initiatives being overlooked for proper governance (including security) - as covered by controls in this document, and 2) increases incentive for proper governance as the AI program takes responsibility for it.  Without proper governance, the controls in this document can only happen by accident.
 
+  See Risk management under SECPROGRAM for security-specific risk analysis.
+
   Links to standards:
   * ISO/IEC 42001 AI management system (under development). Gap: full coverage.
 
-* SECPROGRAM. Include the whole AI lifecycle (including data science activities and AI security threats in this document) in the organization's security program (also referred to as *information security management system*).
+* SECPROGRAM. Include the whole AI lifecycle (including data science activities and AI security threats in this document) in the organization's security program (also referred to as *information security management system*). Makes sure to include AI Ops / ML Ops tools and practices.
 
   Purpose: reduces probability of AI initiatives being overlooked for information security management, vastly decreasing security risk as the security program takes responsibility for the AI-specific threats and corresponding controls in this document. For more details on using this document in risk analysis, see the Introduction section.
 
@@ -193,11 +196,14 @@ Note: For all controls in this document: a *vulnerability* occurs when a control
     * 27002 control 5.8 Information security in project management
   * [OpenCRE on security program management](https://www.opencre.org/cre/261-010)
   * Risk analysis standards:
+    * This document contains AI security threats and controls to facilitate risk analysis
+    * See also [MITRE ATLAS framework for AI threats](https://atlas.mitre.org/)
     * ISO/IEC 27005 - as mentioned above. Gap: complete coverage with said particularity (as 27005 doesn't mention AI-specific threats)
     * ISO/IEC 27563 Discusses the impact of security and privacy in AI use cases and may serve as useful input to AI security risk analysis. TODOGROUP: elaborate and specify gap
     * ISO/IEC 23894 on AI Risk management. TODOGROUP: Elaborate and specify gap. Gap: complete coverage - yet it refers to ISO/IEC 24028 for AI security threats, which is incomplete compared to for example the AI exchange (this document). The scope is broader than security which is not an issue.
     * ISO/IEC 5338 covers the AI risk management process. Gap: this coverage is in essence a summary of 23894.
     * [ETSI TVRA](https://www.etsi.org/deliver/etsi_ts/102100_102199/10216501/05.02.03_60/ts_10216501v050203p.pdf)
+    * [NIST AI Risk Management Framework](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf)
     * [OpenCRE on security risk analysis](https://www.opencre.org/cre/307-242)
   
 * SECDEVPROGRAM. Make data science activities part of the secure software development program. See elsewhere in this document for SUPPLYCHAINMANAGE which discusses AI-specific supply-chain risks.
@@ -230,7 +236,7 @@ Links to standards:
 --------------------------------------
 ## 1.2 General process controls
 
-* SECEDUCATE. Educate data scientists and development teams on AI threats including the model attacks.  
+* SECEDUCATE. Educate data scientists and development teams on AI threats including the model attacks. Attaining a *security mindset* is essential for all engineers, including data scientists.
 
   Links to standards:
   * 27002 Control 6.3 Awareness training. Gap: good coverage, but lacks detail and needs to take into account the particularity: training material needs to cover AI security threats and controls
