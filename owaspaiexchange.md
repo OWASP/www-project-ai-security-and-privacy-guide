@@ -1,6 +1,7 @@
 <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aixlogosml.jpg?raw=true">
 
-The OWASP AI Exchange is an Open source living document for worldwide exchange of AI security expertise.  
+The OWASP AI Exchange is an **Open source living document** for worldwide exchange of AI security expertise.   
+It for example serves as input to security standardisation for the EU AI Act towards mid November - your help is urgently needed.
 
 Our mission is to be the authoritative source for consensus, foster alignment, and drive collaboration among initiatives - NOT to set a standard. By doing so, we provide a safe, open and independent place to find and share insights for everyone.
 
