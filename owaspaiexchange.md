@@ -57,9 +57,10 @@ The threats are organized by attack surface (how and where does the attack take 
 
 <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/owaspaimodelv1.png?raw=true"/>
 
-**Summary of controls: how to deal with AI security:**
-*	**Improve regular application security** through understanding of AI particularities e.g. model parameters need protection and access to the model needs to be monitored and rate-limited.
+**In a nutshell: how to deal with AI security:**
+* Implement **AI governance**
 *	**Extend security and development programs** to include data science activities especially to protect and streamline the engineering environment.
+*	**Improve regular application security** through understanding of AI particularities e.g. model parameters need protection and access to the model needs to be monitored and rate-limited.
 *	**Limit the impact** of AI by minimizing privileges and adding oversight, e.g. guardrails, human oversight.
 *	**Countermeasures in data science** through understanding of model attacks, e.g. data quality assurance, larger training sets, detecting common perturbation attacks.
 
@@ -102,6 +103,56 @@ GenAI security particularities are:
 * Pre-trained models are applied also outside of GenAI, but the approach is quite common in GenAI, which increases the risk of transfer learning attacks
 * The typical application of plug-ins in Large Language Models creates specific risks regarding the protection and privileges of these plugins - as they allow large language model to act outside of their normal conversation with the user
 * Prompt injection is a GenAI specific threat, listed under Application security threats
+
+# Summary
+ 
+The controls can be grouped along meta controls:
+1.	Apply AI governance using (AIPROGRAM), e.g. ISO/IEC 42001 with attention point:
+    *	to also consider automated oversight, next to human oversight (OVERSIGHT)
+2.	Apply **information security management** (SECPROGRAM), with AI attention points:
+    * New assets: training/test data, input data, output data, model parameters, technical information about the model, and also code and configuration. This depends on if they represent important intellectual property, or if the data is sensitive, of if the data can help attackers to design an attack (DISCRETE).
+    *	New threats: ISO 27563 describes security of some AI use cases to assist in risk analysis, and 23894 elaborates on risk management. The AI Exchange and the upcoming ISO 27090 are more comprehensive sources for threats and controls.
+    *	AI regulation needs to be taken into account (CHECKCOMPLIANCE)
+    *	Awareness training needs to include AI threats and controls (SECEDUCATE)
+    *	When assigning privileges to the actions of autonomous models , consider they may be manipulated (MINPRIVILEGE)
+    *	To monitor for suspicious AI attack patterns (MONITOR)
+    *	To limit access to use the model, to prevent unauthorized attackers (MODELACCESSCONTROL)
+    *	To separate storage and access to sensitive train data and test data (SEGREGATEDATA)
+    *	Supply chain risks also include supply of train/test data and pretrained models (SUPPLYCHAINMANAGE)
+3.	Apply **professional software engineering practices** to the AI lifecycle, in particular continuous validation and testing for unwanted bias (DEVPROGRAM, CONTINUOUSVALIDATION,  UNWANTEDBIASTESTING)
+4.	Apply **secure software development** to AI engineering, and when developing securely, use standards that cover technical application security controls and operational security, (e.g. 15408, ASVS, OpenCRE). (SECDEVPROGRAM) AI attention points:
+    *	Make sure to protect the runtime model and its IO (RUNTIMEMODELINTEGRITY, RUNTIMEMODELIOINTEGRITY, RUNTIMEMODELCONFIDENTIALITY, MODELINPUTCONFIDENTIALITY)
+    *	ENCODEMODELOUTPUT if its text based
+    *	RATELIMIT. Limit the rate of model use per user to prevent attacks that require intensive use
+    *	LIMITRESOURCES to protect against denial of service
+5.	**Development-time protection**:
+    *	Much is covered by SECDEVPROGRAM
+    *	CONFCOMPUTE
+    *	FEDERATIVELEARNING
+6.	Completely **new application security controls** have to do with indirect prompt injection of GenAI: PROMPTINPUTVALIDATION and INPUTSEGREGATION
+7.	**Limit the amount of data and the time it is stored**, if it is sensitive, with differential privacy as a special approach (DATAMINIMIZE, ALLOWEDDATA, SHORTRETAIN, DIFFPRIVACYTRAINING)
+8.	AITRANSPARENCY. Be **transparent** by providing information to users that AI is used and how, so people can adjust their expectations on accuracy.
+9.	**Datascience runtime** controls when using the model:
+    *	DETECTODDINPUT
+    *	DETECTADVERSARIAL
+    *	DOSINPUTVALIDATION
+    *	INPUTDISTORTION
+    *	FILTERSENSITIVEMODELOUTPUT
+    *	SMALLMODEL (to prevent reconstructing train data)
+    *	OBSCURECONFIDENCE (to prevent reconstructing train data)
+    *	ADDTRAINNOISE  (to prevent reconstructing train data)
+10.	**Datascience development-time** controls:
+    *	EVASIONROBUSTMODEL (partly covered in 24029)
+    *	POISIONROBUSTMODEL
+    *	TRAINADVERSARIAL
+    *	TRAINDATADISTORTION
+    *	ADVERSARIALROBUSTDISTILLATION (if you apply distillation)
+    *	FILTERSENSITIVETRAINDATA
+    *	MODELENSEMBLE
+    *	MORETRAINDATA
+    *	DATAQUALITYCONTROL (covered in 5259 but not aimed at data manipulation)
+
+
 
 --------------------------------------
 --------------------------------------
