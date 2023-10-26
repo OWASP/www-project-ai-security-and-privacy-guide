@@ -85,9 +85,8 @@ For more information on risk analysis, see the SECPROGRAM control.
 
 ## How about privacy?
 AI Privacy can be divided into two parts:
-1. The AI security threats and controls in this document that are about confidentiality and integrity of (personal) data (e.g. model inversion, leaking training data)
+1. The AI security threats and controls in this document that regarding privacy are about confidentiality and integrity of (personal) data (e.g. model inversion, leaking training data), plus the integrity of the model behaviour
 2. Threats and controls with respect to rights of the individual, as covered by privacy regulations such as the GDPR, including use limitation, consent, fairness, transparency, data accuracy, right of correction/objection/reasure/access. For an overview, see the privacy part of the [OWASP AI guide](https://owasp.org/www-project-ai-security-and-privacy-guide/)
-
 
 ## How about Generative AI?
 Yes, GenAI is the big topic now and it's the fastest moving subfield of AI security. Nevertheless it is important to realize that other types of algorithms will remain to be applied to many important use cases such as credit scoring, fraud detection, medical diagnosis, product recommendation, image recognition, predictive maintenance, process control, etc. Relevant content has been marked with 'GenAI' in this document.
