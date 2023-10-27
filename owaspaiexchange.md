@@ -392,7 +392,7 @@ Another categorization is to distinguish between physical input manipulation (e.
   Links to standards:
   * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. 
 
-* DETECTADVERSARIAL. Implement tools to detect specific evasions e.g. patches in images. TODO elaborate on detector subnetworks in Annex C of ENISA 2021. (Datascience)
+* DETECTADVERSARIAL. Implement tools to detect specific evasions e.g. patches in images. TODOGROUP elaborate on detector subnetworks in Annex C of ENISA 2021. And [MagNet](https://arxiv.org/abs/1705.09064). And [DefenseGAN](https://arxiv.org/abs/1805.06605). And [Local intrinsic dimensionality](https://www.ijcai.org/proceedings/2021/0437.pdf) (Datascience)
 
   Links to standards:
   * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
@@ -676,6 +676,8 @@ Background: An important risk factor in the additional attack surface of AI engi
   Examples:
   * TODOGROUP: Feature squeezing
   * TODOGROUP: Transferability blocking
+  * TODOGROUP: DEFENSE-GAN
+  * Local intrinsic dimensionality
   * TODOGROUP: (weight)Bagging - see Annex C in ENISA 2021
   * TODOGROUP: TRIM algorithm - see Annex C in ENISA 2021
   * TODOGROUP: STRIP technique (after model evaluation)  - see Annex C in ENISA 2021
