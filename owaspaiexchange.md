@@ -427,7 +427,7 @@ TODOGROUP: Elaborate - See Annex C of ENISA Secure machine learning algorithms 2
 
 * ADVERSARIALROBUSTDISTILLATION. When applying knowledge distilling to achieve smaller neural networks, care must be given to reduce their typical sentitivity to evasion attacks. TODOGROUP: elaborate
 
-  Links to stndards:
+  Links to standards:
   * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
 
 ### 2.1.1. Closed-box evasion
