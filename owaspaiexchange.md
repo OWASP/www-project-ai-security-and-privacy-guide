@@ -300,11 +300,12 @@ Example: The typical application of *plug-ins* in Large Language Models (GenAI) 
 Example: Large Language Models(GenAI), just like most AI models, induce their results based on training data, meaning that they can make up things that are false. In addition, the training data can contain false or outdated information. At the same time, LLM's can come across very confident about their output. These aspects make overreliance of LLM a real risk. Note that all AI models in principle can suffer from overreliance.  
 
 **Controls to limit the effects of unwanted model behaviour:**
-* OVERSIGHT. Oversight of model behaviour by humans or business logic
-  Purpose:  detect unwanted model behaviour and correct or stop follow up of a model's decision. Note: unwanted model behaviour often cannot be completely specified.  
+* OVERSIGHT. Oversight of model behaviour by humans or business logic (guard rails)
+  Purpose:  detect unwanted model behaviour and correct or stop follow up of a model's decision. Note: unwanted model behaviour often cannot be completely specified, limiting the effectiveness of guard rails
   Examples:
   * Logic preventing the trunk of a car opening while the care is moving, even if the driver seems to ask so
   * Asking the user for confirmation if a large number of emails is going to be sent by instruction of a model
+  * A special form of guard rails is censoring unwanted  output of GenAI models (e.g. violent, unethical)
 
   Links to standards:
   * ISO/IEC 42001 B.9.3 defines controls for human oversight and decisions regarding autonomy. Gap: partial coverage (human oversight only, not business logic)
