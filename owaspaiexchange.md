@@ -3,7 +3,7 @@
 The OWASP AI Exchange is an **Open source living document** for worldwide exchange of AI security expertise.   
 It for example serves as input to security standardisation for the EU AI Act towards mid November - your help is urgently needed.
 
-Our mission is to be the authoritative source for consensus, foster alignment, and drive collaboration among initiatives - NOT to set a standard. By doing so, we provide a safe, open and independent place to find and share insights for everyone.
+Our **mission** is to be the authoritative source for consensus, foster alignment, and drive collaboration among initiatives - NOT to set a standard. By doing so, we provide a safe, open and independent place to find and share insights for everyone.
 
 Maintained here at [owaspai.org](http://owaspai.org).
 
@@ -13,6 +13,7 @@ Purpose: Creating urgent consensus and collecting input for global and regional 
 Regularly, the content of this document will be published, with credits, to the [OWASP AI guide](https://owasp.org/www-project-ai-security-and-privacy-guide/).
 
 Table of contents:
+* [Please contribute](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/edit/main/owaspaiexchange.md#please-contribute)
 * [Introduction](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#introduction)
 * [1. General controls for all threats](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#1-general-controls---for-all-threats)
 * [2. Threats through use](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#2-threats-through-use)
@@ -20,26 +21,10 @@ Table of contents:
 * [4. Application security threats](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#4-application-security-threats)
 * [References](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#references)
 
-# Introduction
-
-## This document and contributing
-This document discusses threats to AI cyber security and controls for those threats (i.e. countermeasures, requirements, mitigations).
-Security here means preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.  
-
-The AI Exchange initiative was taken by OWASP, triggered by [Rob van der Veer](https://www.linkedin.com/in/robvanderveer/) - bridge builder for security standards, senior director at Software Improvement Group, with 31 years of experience in AI & security, lead author of ISO/IEC 5338 on AI engineering, founding father of OpenCRE, and currently working on security requirements concerning the EU AI act in CEN/CENELEC.  
-
-This material is all draft and work in progress for others to review and amend.
-It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 27090, the [OWASP ML top 10](https://mltop10.info/), [OWASP LLM top 10](https://llmtop10.com/), and many more initiatives can benefit from consistent terminology and insights across the globe.
-
-**Contributions:**
-* Yiannis Kanellopoulos and team (Code4thought) - evasion robustness
-* Annegrit Seyerlein-Klug (TH Brandenburg) - mapping with misc. standards
-* Wei Wei (IBM) - mapping with ISO/IEC 42001
-* Roger Sanz (Universidad Isabel)
-
+-----------------------------
+# Please contribute
 -----------------------------
 **If you're an AI security expert, please contribute now as standard makers are using this document as input as we speak:**
------------------------------
 * Provide comments or suggestions to the last [Word version of this document](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/owaspaiexchangeWORD.docx) and send it to rob.vanderveer@owasp.org
 * Start a [Github dicussion](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions) or join **#project-ai** at the [OWASP Slack workspace](https://owasp.org/slack/invite)
 * Post remarks as [Github issues](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues)
@@ -48,6 +33,28 @@ It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 270
 * Email the project leader your input: rob.vanderveer@owasp.org
 
 Anything is welcome: more controls, improved descriptions, examples, references, etc. We will make sure you get credit for your input.
+
+Search 'TODO' for where contributions are needed the most.
+
+**Contributions:**
+* Yiannis Kanellopoulos and team (Code4thought) - evasion robustness
+* Annegrit Seyerlein-Klug (TH Brandenburg) - mapping with misc. standards
+* Wei Wei (IBM) - mapping with ISO/IEC 42001
+* Roger Sanz (Universidad Isabel)
+
+
+# Introduction
+
+## This document
+This document discusses threats to AI cyber security and controls for those threats (i.e. countermeasures, requirements, mitigations).
+Security here means preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.  
+
+The AI Exchange initiative was taken by OWASP, triggered by [Rob van der Veer](https://www.linkedin.com/in/robvanderveer/) - bridge builder for security standards, senior director at Software Improvement Group, with 31 years of experience in AI & security, lead author of ISO/IEC 5338 on AI engineering, founding father of OpenCRE, and currently working on security requirements concerning the EU AI act in CEN/CENELEC.  
+
+This material is all draft and work in progress for others to review and amend.
+It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 27090, the [OWASP ML top 10](https://mltop10.info/), [OWASP LLM top 10](https://llmtop10.com/), and many more initiatives can benefit from consistent terminology and insights across the globe.
+
+
 
 **Sources:**  
 * AI security experts who contributed to this as Open Source. 
