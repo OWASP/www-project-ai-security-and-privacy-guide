@@ -1,19 +1,17 @@
-<img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aixlogosml.jpg?raw=true">
+<a href="https://owaspai.org"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aixlogosml.jpg?raw=true"></a>
+ &nbsp;[How to contribute](#how-to-contribute)&nbsp;&nbsp;&nbsp;[Register with the Exchange](https://forms.gle/XwEEK52y4iZQChuJ6)    
 
-The OWASP AI Exchange is an **Open source living document** for worldwide exchange of AI security expertise.   
-It for example serves as input to security standardisation for the EU AI Act towards mid November - your help is urgently needed.
+**Purpose**
 
-The **mission** of the Exchange is to be the authoritative source for consensus, foster alignment, and drive collaboration among initiatives - NOT to set a standard. By doing so, it provides a safe, open and independent place to find and share insights for everyone.
+The OWASP AI Exchange is as a collaborative resource to advance the development of global AI security standards and regulations. It provides a comprehensive overview of AI threats, vulnerabilities, and controls to foster alignment among different standardization initiatives. This includes the EU AI act,  ISO/IEC 27090 (AI security), the [OWASP ML top 10](https://mltop10.info/), the [OWASP LLM top 10](https://llmtop10.com/), and [OpenCRE](https://opencre.org) - which we want to use it to provide the AI Exchange content through the security chatbot [OpenCRE-Chat](https://opencre.org/chatbot).  
 
-Maintained here at [owaspai.org](http://owaspai.org).
+Our **mission** is to be the authoritative source for consensus, foster alignment, and drive collaboration among initiatives - NOT to set a standard. By doing so, it provides a safe, open, and independent place to find and share insights for everyone.
 
-There is a [last stable Word version](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/owaspaiexchangeWORD.docx).
+Maintained here at [owaspai.org](https://owaspai.org) it currently uses a Word Document. It is is an **open-source living document** for the worldwide exchange of AI security expertise.  It serves, for example,  as input to security standardization for the EU AI Act towards mid-November (your help is urgently needed!). The document is maintained by OWASP as part of the [OWASP AI guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) project. It will periodically publish content with credited contributions into the Guide.
 
-Purpose: Creating urgent consensus and collecting input for global and regional standardisation and regulation activities, including the EU AI act,  ISO/IEC 27090 (AI security), the [OWASP ML top 10](https://mltop10.info/), the [OWASP LLM top 10](https://llmtop10.com/), and [OpenCRE](https://opencre.org) - which will unlock the information through the security chatbot [OpenCRE-Chat](https://opencre.org/chatbot).  
-Regularly, the content of this document will be published, with credits, to the [OWASP AI guide](https://owasp.org/www-project-ai-security-and-privacy-guide/).
+This  is the [last stable Word version](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/owaspaiexchangeWORD.docx).
 
-Table of contents:
-* [Please contribute](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/edit/main/owaspaiexchange.md#please-contribute)
+* [How to contribute](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/edit/main/owaspaiexchange.md#how-to-contribute)
 * [Introduction](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#introduction)
 * [1. General controls for all threats](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#1-general-controls---for-all-threats)
 * [2. Threats through use](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#2-threats-through-use)
@@ -22,9 +20,10 @@ Table of contents:
 * [References](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#references)
 
 -----------------------------
-# Please contribute
+# How to contribute
 -----------------------------
 **If you're an AI security expert, please contribute now as standard makers are using this document as input as we speak:**
+
 * Provide comments or suggestions to the last [Word version of this document](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/owaspaiexchangeWORD.docx) and send it to rob.vanderveer@owasp.org
 * Start a [Github dicussion](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions) or join **#project-ai** at the [OWASP Slack workspace](https://owasp.org/slack/invite)
 * Post remarks as [Github issues](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues)
@@ -113,7 +112,7 @@ GenAI security particularities are:
 * Prompt injection is a GenAI specific threat, listed under Application security threats
 
 # Summary
- 
+
 The controls can be grouped along meta controls:
 1.	Apply AI governance (AIPROGRAM), e.g. ISO/IEC 42001 with attention point:
     *	to also consider automated oversight, next to human oversight (OVERSIGHT)
@@ -236,7 +235,7 @@ Note: For all controls in this document: a *vulnerability* occurs when a control
   * [OpenCRE on documentation of function](https://www.opencre.org/cre/162-655)  Gap: minimal coverage - this covers only a very small part of the control
 
 * CHECKCOMPLIANCE. Laws and regulations need to be checked in order to validate compliance which may include security aspects. See the [OWASP AI Guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) for privacy aspects of AI.  
-Links to standards:
+  Links to standards:
   * [OpenCRE on Compliance](https://www.opencre.org/cre/510-324)
   * 27002 Control 5.36 Compliance with policies, rules and standards. Gap: complete coverage with the particularity that AI regulation needs to be taken into account.
 
@@ -451,7 +450,7 @@ Example 3: performing an open-box box evasion (see below) on a reverse-engineere
 * See General controls
 * See controls for threats through use
 
- 
+
 ### 2.1.2. Open-box evasion
 When attackers have access to a models' implementation (code, training set, parameters, architecture), they can be enabled to craft input manipulations (often referred to as *adversarial examples*). 
 
@@ -564,33 +563,33 @@ Background: Data science (data engineering and model engineering) uses an AI pip
 * Particularity 1: don't just protect the data in the live system - also protect the data in the development environment (including test) as it is real data - since it is needed to train a model.
 * Particularity 2: elements in the AI development environment (data, code, configuration & parameters) require extra protection as they are prone to attacks to manipulate model behaviour (called *poisoning*)
 * Particularity 3: source code, configuration, and parameters are typically critical intellectual property in AI
- 
+
 ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 
 **Controls for development-time protection:**
 * See General controls
 * DATAPROTECT. Protect (train/test) data, source code, configuration & parameters
   * Encryption of data at rest  
-  Links to standards:
+    Links to standards:
     * 27002 control 5.33 Protection of records. Gap: complete coverage, with the particularities
     * [OpenCE on encryption of data at rest](https://www.opencre.org/cre/400-007)
   * Technical access control for the data, to limit access following the least privilege principle  
-  Links to standards:
+    Links to standards:
     * 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: complete coverage, with the particularities
     * [OpenCRE](https://www.opencre.org/cre/724-770) 
   * Centralized access control for the data  
-  Links to standards:
+    Links to standards:
     * There is no 27002 control for this
     * [OpenCRE](https://www.opencre.org/cre/117-371) 
   * Operational security to protect stored data  
-  Links to standards:
+    Links to standards:
     * Many 27002 controls cover operational security. Gap: complete coverage, with the particularities.
       * 27002 control 5.23 Information security for use of cloud services
       * 27002 control 5.37 Documented operating procedures
       * Many more 27002 controls (See OpenCRE link)
     * [OpenCRE](https://www.opencre.org/cre/862-452)
   * Logging and monitoring to detect suspicious manipulation of data, (e.g. outside office hours)  
-  Links to standards:
+    Links to standards:
      * 27002 control 8.16 Monitoring activities. Gap: complete coverage
      * [OpenCRE on Detect and respond](https://www.opencre.org/cre/887-750) 
   
@@ -620,10 +619,10 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
   * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
 
 * SUPPLYCHAINMANAGE, including data provenance, to prevent that malicious AI components, source data or source models are obtained from unreliable sources.
-The Software Bill Of Materials (SBOM) becomes the AIBOM (AI Bill Of Materials) or MBOM (Model Bill of Material). AI systems often have a variation of supply chains, including the data supply chain, the labeling supply chain, and the model supply chain.  
+  The Software Bill Of Materials (SBOM) becomes the AIBOM (AI Bill Of Materials) or MBOM (Model Bill of Material). AI systems often have a variation of supply chains, including the data supply chain, the labeling supply chain, and the model supply chain.  
 
   Particularity: apart from code and components, data and models can also be part of the supply chain in AI. Data may include annotations and lables that are supplied by another source.
-Standard supply chain management includes provenance & pedigree, verifying signatures, using package repositories, frequent patching, and using dependency verification tools.  
+  Standard supply chain management includes provenance & pedigree, verifying signatures, using package repositories, frequent patching, and using dependency verification tools.  
 
   Links to standards:
   * 27002 Controls 5.19, 5.20, 5.21, 5.22, 5.23, 8.30. Gap: good coverage, with the particularity, and lacking controls on data provenance.
@@ -832,7 +831,7 @@ TODO: add to diagram
 
 **Controls:**
 * MODELINPUTCONFIDENTIALY. See SECDEVPROGRAM to attain application security, with the focus on protecting the transport and storage of model parameters (e.g. access control, encryption, minimize retention)
- 
+
 # References
 
 References on the OWASP AI guide (a project of which this document is part):
