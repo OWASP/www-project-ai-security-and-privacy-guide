@@ -11,10 +11,12 @@ Our **mission** is to be the authoritative source for consensus, foster alignmen
 
 Maintained here at [owaspai.org](https://owaspai.org) it currently uses both a Github repository and a Word Document for contributions. It is is an **open-source living document** for the worldwide exchange of AI security expertise.  It serves, for example,  as input to security standardization for the EU AI Act towards mid-November (your help is urgently needed!). The document is maintained by OWASP as part of the [OWASP AI guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) project. It will periodically publish content with credited contributions into the Guide.
 
-This  is the [last stable Word version](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/owaspaiexchangeWORD.docx).
+The last stable Word version can be found [here](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/owaspaiexchangeWORD.docx).
 
+Table of content:  
 * [How to contribute](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/edit/main/owaspaiexchange.md#how-to-contribute)
 * [Introduction](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#introduction)
+* [Summary](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#summary)
 * [1. General controls for all threats](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#1-general-controls---for-all-threats)
 * [2. Threats through use](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#2-threats-through-use)
 * [3. Development-time threats](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#3-development-time-threats)
