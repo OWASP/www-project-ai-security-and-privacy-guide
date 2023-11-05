@@ -107,10 +107,10 @@ Yes, GenAI is the big topic and it's the fastest moving subfield of AI security.
 Important note: Security-wise, GenAI is not that different. GenAI threats and controls largely overlap and are very similar to AI in general. Some risks are (much) higher. Some are lower. Only a few risks are GenAI-specific.  
 GenAI security particularities are: 
 * Evasion attacks for GenAI include specifically evasion of policies that intend to censor (e.g. violent) output
-* Sensitive data output is an AI-broad issue, but especially a high risk with systems that output rich content such as GenAI
+* Unwanted output of sensitive training data is an AI-broad issue, but especially a high risk with systems that output rich content such as GenAI
 * Training data poisoning is an AI-broad problem, and with GenAI the risk is generally higher since training data can be supplied from different sources that may be challenging to control, such as the internet
 * Overreliance is an AI-broad issue, and in addition Large Language Models can make matters worse by coming across very confident and knowledgeable
-* GenAI models mostly live in the cloud - often managed by an external party, which increases the risk of leaking training data and leaking prompts. This issue is not limited to GenAI. GenAI typically involves user interaction through prompts, adding user data and corresponding privacy issues to the threat.
+* GenAI models mostly live in the cloud - often managed by an external party, which increases the risk of leaking training data and leaking prompts. This issue is not limited to GenAI. Additional risks that are typucal for GenAI are: 1) model use involves user interaction through prompts, adding user data and corresponding privacy issues, and 2) GenAI model input (prompts) can contain rich context information with sensitive data (e.g. company secrets).
 * Pre-trained models are applied also outside of GenAI, but the approach is quite common in GenAI, which increases the risk of transfer learning attacks
 * The typical application of plug-ins in Large Language Models creates specific risks regarding the protection and privileges of these plugins - as they allow large language model to act outside of their normal conversation with the user
 * Prompt injection is a GenAI specific threat, listed under Application security threats
@@ -830,7 +830,7 @@ References:
 Impact:  Confidentiality breach of sensitive data.  
 
 Input data can be sensitive (e.g. GenAI prompts) and can either leak through a failure or through an attack, such as a man-in-the-middle attack.  
-GenAI models are often hosted in the cloud - sometimes managed by an external party- increasing the risk of input data (prompts) leaking. GenAI typically involves user interaction through prompts, adding user data and corresponding privacy issues to the threat.  
+GenAI models are often hosted in the cloud - sometimes managed by an external party- increasing the risk of input data (prompts) leaking. GenAI typically involves user interaction through prompts, adding user data and corresponding privacy issues to the threat. In addition, GenAI prompts may contain rich context information with sensitive data (e.g. company secrets).
 TODO: add to diagram
 
 **Controls:**
