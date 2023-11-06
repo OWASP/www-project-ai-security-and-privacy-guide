@@ -410,8 +410,8 @@ TODOGROUP elaborate on detector subnetworks in Annex C of ENISA 2021 and on the 
 
   Examples:
   * [Feature squeezing](https://arxiv.org/pdf/1704.01155.pdf) compares the output of the model against the output based on a distortion of the input that reduces the level of detail. This is done by reducing the number of features or reducing the detail of certain features (eg. by smoothing). This approach is like INPUTDISTORTION, but instead of just changing the input to remove any adversarial data, the model is also applied to the original input and then used to compare it, as a detection mechanism.
-  * [MagNet](https://arxiv.org/abs/1705.09064)
-  * [DefenseGAN](https://arxiv.org/abs/1805.06605)
+  * [MagNet](https://arxiv.org/abs/1705.09064) and [here](https://www.mdpi.com/2079-9292/11/8/1283)
+  * [DefenseGAN](https://arxiv.org/abs/1805.06605) and Goodfellow, I.; Pouget-Abadie, J.; Mirza, M.; Xu, B.; Warde-Farley, D.; Ozair, S.; Courville, A.; Bengio, Y. Generative adversarial networks. Commun. ACM 2020, 63, 139–144.
   * [Local intrinsic dimensionality](https://www.ijcai.org/proceedings/2021/0437.pdf)
 
   Links to standards:
@@ -701,7 +701,7 @@ Background: An important risk factor in the additional attack surface of AI engi
 * TRAINDATADISTORTION - TODOGROUP: Look into methods of making poisoned samples ineffective by smoothing or adding noise to training data (with the best practice of keeping the original training data, in order to expertiment with the filtering)
 
   Examples:
-  * TODOGROUP: Transferability blocking
+  * [Transferability blocking](https://arxiv.org/pdf/1703.04318.pdf). The true defense mechanism against blackbox attacks is to obstruct the transferability of the adversarial samples. The transferability enables the usage of adversarial samples in different models trained on different datasets. Null labeling is a procedure that blocks transferability, by introducing null labels into the training dataset, and trains the model to discard the adversarial samples as null labeled data. TODOGROUP: Clarify
   * TODOGROUP: DEFENSE-GAN
   * Local intrinsic dimensionality
   * TODOGROUP: (weight)Bagging - see Annex C in ENISA 2021
