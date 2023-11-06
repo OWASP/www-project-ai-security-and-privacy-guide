@@ -44,6 +44,7 @@ Search 'TODO' for where contributions are needed the most.
 * Annegrit Seyerlein-Klug (TH Brandenburg) - mapping with misc. standards
 * Wei Wei (IBM) - mapping with ISO/IEC 42001
 * Roger Sanz (Universidad Isabel)
+* Angie Qarry (QDeepTech) - several elaborations and references on datascience defence mechanisms
 
 
 # Introduction
@@ -403,7 +404,15 @@ Another categorization is to distinguish between physical input manipulation (e.
   Links to standards:
   * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. 
 
-* DETECTADVERSARIAL. Implement tools to detect specific evasions e.g. patches in images. TODOGROUP elaborate on detector subnetworks in Annex C of ENISA 2021. And [MagNet](https://arxiv.org/abs/1705.09064). And [DefenseGAN](https://arxiv.org/abs/1805.06605). And [Local intrinsic dimensionality](https://www.ijcai.org/proceedings/2021/0437.pdf) (Datascience)
+* DETECTADVERSARIAL. Implement tools to detect specific evasions e.g. patches in images.
+
+TODOGROUP elaborate on detector subnetworks in Annex C of ENISA 2021 and on the references below.
+
+  Examples:
+  * [Feature squeezing](https://arxiv.org/pdf/1704.01155.pdf) compares the output of the model against the output based on a distortion of the input that reduces the level of detail. This is done by reducing the number of features or reducing the detail of certain features (eg. by smoothing). This approach is like INPUTDISTORTION, but instead of just changing the input to remove any adversarial data, the model is also applied to the original input and then used to compare it, as a detection mechanism.
+  * [MagNet](https://arxiv.org/abs/1705.09064)
+  * [DefenseGAN](https://arxiv.org/abs/1805.06605)
+  * [Local intrinsic dimensionality](https://www.ijcai.org/proceedings/2021/0437.pdf)
 
   Links to standards:
   * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
@@ -421,9 +430,15 @@ Another categorization is to distinguish between physical input manipulation (e.
   Links to standards:
   * ISO/IEC TR 24029 - Assessment of the robustness of neural networks. Gap: TODOGROUP.
 
-* TRAINADVERSARIAL. Add adversarial examples to the training set to make the model more resilient (Datascience).
-TODOGROUP: Elaborate - See Annex C of ENISA Secure machine learning algorithms 2021.  
+* TRAINADVERSARIAL. Add adversarial examples to the training set to make the model more resilient (Datascience).  
+  TODOGROUP: Elaborate - See Annex C of ENISA Secure machine learning algorithms 2021.  
   TODO: Make clear this is not a silver bullet.
+  
+  References:
+  * Goodfellow, I.J.; Shlens, J.; Szegedy, C. Explaining and harnessing adversarial examples. arXiv 2014, arXiv:1412.6572.
+  * Lyu, C.; Huang, K.; Liang, H.N. A unified gradient regularization family for adversarial examples. In Proceedings of the 2015 ICDM.
+  * Papernot, N.; Mcdaniel, P. Extending defensive distillation. arXiv 2017, arXiv:1705.05264.
+
   Links to standards:
   * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
 
@@ -431,6 +446,7 @@ TODOGROUP: Elaborate - See Annex C of ENISA Secure machine learning algorithms 2
   Modification can be done by adding noise (randomization), or by smoothing.  
   Maintaining model correctness can be helped by performing multiple random modifications (e.g. randomized smoothing) of the input and then comparting model output (e.g. best of three).  
   TODO: See ENISA Annex C for data randomisation, input transformation and input denoising.
+  See DETECTADVERSARIAL for an approach where the distorted input is used for detecting an adversarial attacak.
 
   Links to standards:
   * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
@@ -685,7 +701,6 @@ Background: An important risk factor in the additional attack surface of AI engi
 * TRAINDATADISTORTION - TODOGROUP: Look into methods of making poisoned samples ineffective by smoothing or adding noise to training data (with the best practice of keeping the original training data, in order to expertiment with the filtering)
 
   Examples:
-  * TODOGROUP: Feature squeezing
   * TODOGROUP: Transferability blocking
   * TODOGROUP: DEFENSE-GAN
   * Local intrinsic dimensionality
