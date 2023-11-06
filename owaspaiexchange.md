@@ -142,7 +142,7 @@ The controls can be grouped along meta controls:
     *	CONFCOMPUTE
     *	FEDERATIVELEARNING
 6.	Completely **new application security controls** have to do with indirect prompt injection of GenAI: PROMPTINPUTVALIDATION and INPUTSEGREGATION
-7.	**Limit the amount of data and the time it is stored**, if it is sensitive, with differential privacy as a special approach (DATAMINIMIZE, ALLOWEDDATA, SHORTRETAIN, DIFFPRIVACYTRAINING)
+7.	**Limit the amount of data and the time it is stored**, if it is sensitive, with data obfuscation as a special approach (DATAMINIMIZE, ALLOWEDDATA, SHORTRETAIN, OBFUSCATETRAININGDATA)
 8.	AITRANSPARENCY. Be **transparent** by providing information to users that AI is used and how, so people can adjust their expectations on accuracy.
 9.	**Datascience runtime** controls when using the model:
     *	DETECTODDINPUT
@@ -189,7 +189,17 @@ Note: For all controls in this document: a *vulnerability* occurs when a control
 
   Purpose: reduces probability of AI initiatives being overlooked for information security management, vastly decreasing security risk as the security program takes responsibility for the AI-specific threats and corresponding controls in this document. For more details on using this document in risk analysis, see the Introduction section.
 
-  Particularity: the AI lifecycle and its security threats need to be part of the organization's information security governance.
+  Particularity: the AI lifecycle and its specific assets and security threats need to be part of the organization's information security governance.
+
+  Because AI has specific assets (e.g. training data), **AI-speific honeypots** are a partiularly interesting control. These are fake parts of the data/model/datascience infrastucture that are exposed on purpose, in order to detect or capture attackers, before they succeed to access the real assets. Examples:
+  * Hardened data services buth with an unpatched vulnerability (e.g. Elasticsearch)
+  * Exposed data lakes (not giving away details of the real assets)
+  * Data access APIS vulnerable to brute force attacks
+  * "Mirror" data servers that appear development facilities, but exposed in production with SSH access and with names like "lab"
+  * 'By accident' exposed documentation that points to a honeypot
+  * Datascience Python lib exposed in server
+  * External access to a specific library
+  * Imported as-is models from github
 
   Links to standards: 
   * The entire 27000-27005 range is applicable to AI systems in the general sense as they are IT systems. Gap: complete coverage with the high-level particularity that there are three AI-specific attack surfaces that need to be taken into account in information security management: 1)AI development-time attacks, 2)attacks through model use and 3)AI Application security attacks. See the controls under the corresponding sections to see more particularities.
@@ -287,7 +297,18 @@ Note: For all controls in this document: a *vulnerability* occurs when a control
   Links to standards:
   * Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODOGROUP: covered anywhere else?
 
-* DIFFPRIVACYTRAINING. Attain a degree of differential privacy where possible using PATE, randomisation or objective function perturbation. TODO: Elaborate using Annex C in ENISA 2021. (Datascience)
+* OBFUSCATETRAININGDATA. Attain a degree of obfuscation of sensitive data where possible. When this is done for personal data, it is referred to as *differential privacy*.  
+
+  Examples of approaches are:
+  * PATE
+  * Randomisation
+  * Objective function perturbation
+  * Masking
+  * Encryption
+  * Tokenization
+  * Anonymization
+  
+  TODO: Elaborate using Annex C in ENISA 2021
 
   Links to standards:
   * Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODOGROUP: covered anywhere else?
