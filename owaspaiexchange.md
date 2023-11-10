@@ -1,6 +1,6 @@
 <a href="https://owaspai.org"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aixlogosml.jpg?raw=true"></a>
 
-[Contribute Now!](#how-to-contribute)&nbsp;&nbsp;&nbsp;[Register with the Exchange](https://forms.gle/XwEEK52y4iZQChuJ6)    
+[Contribute Now!](#how-to-contribute)&nbsp;&nbsp;&nbsp;[Register with the Exchange](https://forms.gle/XwEEK52y4iZQChuJ6)&nbsp;&nbsp;&nbsp;[Word document](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/owaspaiexchangeWORD.docx)    
 
 **Purpose**
 
@@ -11,8 +11,6 @@ Our **mission** is to be the authoritative source for consensus, foster alignmen
 
 Maintained here at [owaspai.org](https://owaspai.org) it currently uses both a Github repository and a Word Document for contributions. It is is an **open-source living document** for the worldwide exchange of AI security expertise.  It serves, for example,  as input to security standardization for the EU AI Act towards mid-November (your help is urgently needed!). The document is maintained by OWASP as part of the [OWASP AI guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) project. It will periodically publish content with credited contributions into the Guide.
 
-The last stable Word version can be found [here](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/owaspaiexchangeWORD.docx).
-
 Table of content:  
 * [How to contribute](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/edit/main/owaspaiexchange.md#how-to-contribute)
 * [Introduction](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#introduction)
@@ -20,7 +18,7 @@ Table of content:
 * [1. General controls for all threats](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#1-general-controls---for-all-threats)
 * [2. Threats through use](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#2-threats-through-use)
 * [3. Development-time threats](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#3-development-time-threats)
-* [4. Application security threats](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#4-application-security-threats)
+* [4. Runtime Application security threats](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#4-runtime-application-security-threats)
 * [References](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#references)
 
 -----------------------------
@@ -40,11 +38,12 @@ Anything is welcome: more controls, improved descriptions, examples, references,
 Search 'TODO' for where contributions are needed the most.
 
 **Contributions:**
-* Yiannis Kanellopoulos and team (Code4thought) - evasion robustness
-* Annegrit Seyerlein-Klug (TH Brandenburg) - mapping with misc. standards
-* Wei Wei (IBM) - mapping with ISO/IEC 42001
-* Roger Sanz (Universidad Isabel)
-* Angie Qarry (QDeepTech) - several elaborations and references on datascience defence mechanisms
+* Yiannis Kanellopoulos and team (Code4thought, Greece) - evasion robustness
+* Annegrit Seyerlein-Klug (TH Brandenburg, Germany) - mapping with misc. standards
+* Wei Wei (IBM, Germany) - mapping with ISO/IEC 42001
+* Roger Sanz (Universidad Isabel, Spain)
+* Angie Qarry (QDeepTech, Austria) - several elaborations and references on datascience defence mechanisms
+* Behnaz Karimi (Accenture, Germany)- misc. contributions including model obfuscation and explanation
 
 
 # Introduction
@@ -65,21 +64,24 @@ It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 270
 * The insights of these experts were inspired by research work as mentioned in the references at the bottom of this document(ENISA, Microsoft, BIML, MITRE, etc.)
 
 ## Organizing and applying threats and controls
-The threats are organized by attack surface (how and where does the attack take place?), and not by impact. This means that for example model theft is mentioned in three  different parts of the overview: 1. model theft by stealing model parameters from a live system, 2. model theft by stealing the modeling process or parameters from the engineering environment, and 3. model theft by reverse engineering from using the AI system. These are three very different attacks, with similar impacts. This way of organizing is helpful because the goal is to link the threats to controls, and these controls vary per attack surface.
+The threats are organized by attack surface (how and where does the attack take place?), and not by impact. This means that for example model theft is mentioned in three  different parts of the overview:
+1. model theft by stealing model parameters from a live system, eg. breaking into the network and reading the parameters from a file,
+2. model theft by stealing the modeling process or parameters from the engineering environment, e.g. stored in the version management system of a data scientist, and
+3. model theft by reverse engineering from using the AI system. These are three very different attacks, with similar impacts. This way of organizing is helpful because the goal is to link the threats to controls, and these controls vary per attack surface.
 
 <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/owaspaimodelv1.png?raw=true"/>
 
 **In a nutshell: how to deal with AI security:**
 * Implement **AI governance**
 *	**Extend security and development programs** to include data science activities especially to protect and streamline the engineering environment.
-*	**Improve regular application security** through understanding of AI particularities e.g. model parameters need protection and access to the model needs to be monitored and rate-limited.
+*	**Improve regular application and system security** through understanding of AI particularities e.g. model parameters need protection and access to the model needs to be monitored and rate-limited.
 *	**Limit the impact** of AI by minimizing privileges and adding oversight, e.g. guardrails, human oversight.
 *	**Countermeasures in data science** through understanding of model attacks, e.g. data quality assurance, larger training sets, detecting common perturbation attacks.
 
 **How about AI outside of machine learning?**  
 A helpful way to look at AI is to see it as consisting of machine learning (the current dominant type of AI) plus *heuristic models*. A model can be a machine learning model which has learned how to compute based on data, or it can be
 a heuristic model engineered based on human knowledge, e.g. a rule-based system. Heuristic models still need data for testing, and sometimes to perform analysis for further building and validating the human knowledge.  
-This document focuses on machine learning. The following threats also apply to heuristic systems:
+This document focuses on machine learning. The following threats (discussed further on in this document) also apply to heuristic systems:
 * Model evasion -attackers can still be motivated to fool a model, even if it is knowledge-based
 * Model theft through use - it is possible to train a machine learning model based om imput/output combinations from a heuristic model
 * Overreliance in use - heuristic systems can also be relied on too much. The applied knowledge can be false
@@ -90,10 +92,11 @@ This document focuses on machine learning. The following threats also apply to h
 
 
 **How to apply the controls?**  
-1. First select the threats that apply to your case by going through the list of threats and use the *Impact* description. For example the impact of identifying individuals in your training data may not apply to your case. 
-2. Then, for the selected threats consider the various controls listed with that threat (or the parent section of that threat) and the general controls (they always apply). When considering a control, look at its purpose and determine if you think it is important enough to implement it and to what extent. This depends on the cost of implementation compared to how the purpose mitigates the threat, and the level of risk of the threat.
-3. When implementing a control, consider the references and the links to standards. You may have implemented some of these standards, or the content of the standards may help you to implement the control.
-4. In the end you need to be able to accept the risks that remain regarding each threat, given the controls that you implemented.
+1. Threat identification: First select the threats that apply to your case by going through the list of threats and use the *Impact* description to see if it is applicable. For example the impact of identifying individuals in your training data may not apply to your case. Risk assessment is a helpful exercise to suppor this selection, and the consideration of controls and risks further on in this process.
+2. Control selection: Then, for the selected threats consider the various controls listed with that threat (or the parent section of that threat) and the general controls (they always apply). When considering a control, look at its purpose and determine if you think it is important enough to implement it and to what extent. This depends on the cost of implementation compared to how the purpose mitigates the threat, and the level of risk of the threat.
+3. Use references: When implementing a control, consider the references and the links to standards. You may have implemented some of these standards, or the content of the standards may help you to implement the control.
+4. Risk acceptance: In the end you need to be able to accept the risks that remain regarding each threat, given the controls that you implemented.
+5. Further management of these controls (see SECPROGRAM), which includes continuous monitoring, documentation, reporting, and incident response.
 
 For more information on risk analysis, see the SECPROGRAM control.
 
@@ -116,6 +119,10 @@ GenAI security particularities are:
 * The typical application of plug-ins in Large Language Models creates specific risks regarding the protection and privileges of these plugins - as they allow large language model to act outside of their normal conversation with the user
 * Prompt injection is a GenAI specific threat, listed under Application security threats
 
+GenAI References:
+* [OWASP LLM top 10](https://llmtop10.com/)
+* [Impacts and risks of GenAI](https://arxiv.org/pdf/2306.13033.pdf)
+
 # Summary
 
 The controls can be grouped along meta controls:
@@ -127,13 +134,13 @@ The controls can be grouped along meta controls:
     *	AI regulation needs to be taken into account (CHECKCOMPLIANCE)
     *	Awareness training needs to include AI threats and controls (SECEDUCATE)
     *	When assigning privileges to the actions of autonomous models , consider they may be manipulated (MINPRIVILEGE)
-    *	To monitor for suspicious AI attack patterns (MONITOR)
+    *	To monitor for suspicious AI attack patterns (MONITORUSE)
     *	To limit access to use the model, to prevent unauthorized attackers (MODELACCESSCONTROL)
     *	To separate storage and access to sensitive train data and test data (SEGREGATEDATA)
     *	Supply chain risks also include supply of train/test data and pretrained models (SUPPLYCHAINMANAGE)
 3.	Apply **professional software engineering practices** to the AI lifecycle, in particular continuous validation and testing for unwanted bias (DEVPROGRAM, CONTINUOUSVALIDATION,  UNWANTEDBIASTESTING)
 4.	Apply **secure software development** to AI engineering, and when developing securely, use standards that cover technical application security controls and operational security, (e.g. 15408, ASVS, OpenCRE). (SECDEVPROGRAM) AI attention points:
-    *	Make sure to protect the runtime model and its IO (RUNTIMEMODELINTEGRITY, RUNTIMEMODELIOINTEGRITY, RUNTIMEMODELCONFIDENTIALITY, MODELINPUTCONFIDENTIALITY)
+    *	Make sure to protect the runtime model and its IO (RUNTIMEMODELINTEGRITY, RUNTIMEMODELIOINTEGRITY, RUNTIMEMODELCONFIDENTIALITY, MODELINPUTCONFIDENTIALITY, MODELOBFUSCATION)
     *	ENCODEMODELOUTPUT if its text based
     *	RATELIMIT. Limit the rate of model use per user to prevent attacks that require intensive use
     *	LIMITRESOURCES to protect against denial of service
@@ -146,7 +153,7 @@ The controls can be grouped along meta controls:
 8.	AITRANSPARENCY. Be **transparent** by providing information to users that AI is used and how, so people can adjust their expectations on accuracy.
 9.	**Datascience runtime** controls when using the model:
     *	DETECTODDINPUT
-    *	DETECTADVERSARIAL
+    *	DETECTADVERSARIALINPUT
     *	DOSINPUTVALIDATION
     *	INPUTDISTORTION
     *	FILTERSENSITIVEMODELOUTPUT
@@ -220,12 +227,14 @@ Note: For all controls in this document: a *vulnerability* occurs when a control
     * This document contains AI security threats and controls to facilitate risk analysis
     * See also [MITRE ATLAS framework for AI threats](https://atlas.mitre.org/)
     * ISO/IEC 27005 - as mentioned above. Gap: complete coverage with said particularity (as 27005 doesn't mention AI-specific threats)
-    * ISO/IEC 27563 Discusses the impact of security and privacy in AI use cases and may serve as useful input to AI security risk analysis. TODOGROUP: elaborate and specify gap
-    * ISO/IEC 23894 on AI Risk management. TODOGROUP: Elaborate and specify gap. Gap: complete coverage - yet it refers to ISO/IEC 24028 for AI security threats, which is incomplete compared to for example the AI exchange (this document). The scope is broader than security which is not an issue.
+    * ISO/IEC 27563 Discusses the impact of security and privacy in AI use cases and may serve as useful input to AI security risk analysis. TODO: elaborate and specify gap
+    * ISO/IEC 23894 on AI Risk management. TODO: Elaborate and specify gap. Gap: complete coverage - yet it refers to ISO/IEC 24028 for AI security threats, which is incomplete compared to for example the AI exchange (this document). The scope is broader than security which is not an issue.
     * ISO/IEC 5338 covers the AI risk management process. Gap: this coverage is in essence a summary of 23894.
     * [ETSI TVRA](https://www.etsi.org/deliver/etsi_ts/102100_102199/10216501/05.02.03_60/ts_10216501v050203p.pdf)
     * [NIST AI Risk Management Framework](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf)
     * [OpenCRE on security risk analysis](https://www.opencre.org/cre/307-242)
+    * [NIST SP 800-53 on general security/privacy controls](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final)
+    * [NIST cyber security framework](https://www.nist.gov/cyberframework)
   
 * SECDEVPROGRAM. Make data science activities part of the secure software development program. See elsewhere in this document for SUPPLYCHAINMANAGE which discusses AI-specific supply-chain risks.
 
@@ -237,7 +246,7 @@ Note: For all controls in this document: a *vulnerability* occurs when a control
 
   Links to standards:
   * 27002 control 8.25 Secure development lifecycle. Gap: good coverage with said particularity, but lack of detail - the 8.25 Control description in 27002(2022) is one page, whereas secure software development is a large and complex topic - see below for further references
-  * ISO/IEC 27115 is about Cybersecurity evaluation of complex systems. TODOGROUP: Eloborate and specify Gap.
+  * ISO/IEC 27115 is about Cybersecurity evaluation of complex systems. TODO: Eloborate and specify Gap.
   * See [OpenCRE on secure software development processes](https://www.opencre.org/cre/616-305) with notable links to NIST SSDF and OWASP SAMM. Gap: complete coverage with said particularity
 
 * DEVPROGRAM. Apart from secure development, AI engineering can benefit from other software engineering best practices, that are sometimes overlooked in data science: e.g. automated testing, code quality, documentation, and versioning. This way, AI systems will become easier to maintain, transferable, more reliable, and future-proof.
@@ -257,7 +266,7 @@ Note: For all controls in this document: a *vulnerability* occurs when a control
 --------------------------------------
 ## 1.2 General process controls
 
-* SECEDUCATE. Educate data scientists and development teams on AI threats including the model attacks. Attaining a *security mindset* is essential for all engineers, including data scientists.
+* SECEDUCATE. Educate data scientists and development teams on AI threats awareness - including the model attacks. Attaining a *security mindset* is essential for all engineers, including data scientists.
 
   Links to standards:
   * 27002 Control 6.3 Awareness training. Gap: good coverage, but lacks detail and needs to take into account the particularity: training material needs to cover AI security threats and controls
@@ -287,7 +296,7 @@ Note: For all controls in this document: a *vulnerability* occurs when a control
   Purpose: reduce the impact in case of an attack by reducing the amount of data that can leak.  
 
   Links to standards:
-  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODOGROUP: covered anywhere else?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODO: covered anywhere else?
 
 * ALLOWEDDATA. Verify if the data used (e.g. train set) is allowed for the purpose. This may for example not be the case if no consent was given and the data contains personal data collected fo a different purpose.  
   Links to standards:
@@ -295,7 +304,7 @@ Note: For all controls in this document: a *vulnerability* occurs when a control
 
 * SHORTRETAIN. Remove or anonymize data after it is no longer needed, or when it is legally required (e.g. privacy laws) to minimize the risk of the data leaking.  
   Links to standards:
-  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODOGROUP: covered anywhere else?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODO: covered anywhere else?
 
 * OBFUSCATETRAININGDATA. Attain a degree of obfuscation of sensitive data where possible. When this is done for personal data, it is referred to as *differential privacy*.  
 
@@ -311,7 +320,7 @@ Note: For all controls in this document: a *vulnerability* occurs when a control
   TODO: Elaborate using Annex C in ENISA 2021
 
   Links to standards:
-  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODOGROUP: covered anywhere else?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODO: covered anywhere else?
 
 --------------------------------------
 ## 1.4. Controls to limit the effects of unwanted behaviour
@@ -341,7 +350,7 @@ Example: Large Language Models(GenAI), just like most AI models, induce their re
 
   Links to standards:
   * ISO/IEC 42001 B.9.3 defines controls for human oversight and decisions regarding autonomy. Gap: partial coverage (human oversight only, not business logic)
-  * Not covered further in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
+  * Not covered further in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
 
 * MINPRIVILEGE. Minimize privileges, for example by not connecting a model to an e-mail facility, to prevent it from sending out wrong information to others.
 
@@ -354,12 +363,14 @@ See the DISCRETE control for the balance between being transparent and being dis
 
    Links to standards:
   * ISO/IEC 42001 B.7.2 describes data management to support transparency. Gap: minimal coverage as it only covers the data mnanagement part.
-  * Not covered further in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODOGROUP: covered anywhere else?
+  * Not covered further in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODO: covered anywhere else?
 
 * CONTINUOUSVALIDATION. By frequently testing the behaviour of the model against an appropriate test set, sudden changes caused by a permanent attack (e.g. data poisoning, model poisoning) can be detected.
 
   Links to standards:
   * ISO 5338 Continuous validation. Gap: complete coverage
+
+* EXPLAINABILITY. Explaining how individual model decisions came to be (a field referred to as XAI) can aid in gaining user trust in the model. In some cases this can also prevent overreliance, for example when the user sees the simplicity of 'reasoning', or even errors in that process. See [this Stanford article on explainability and overreliance](https://hai.stanford.edu/news/ai-overreliance-problem-are-explanations-solution).
 
 * UNWANTEDBIASTESTING. By doing test runs of the model to measure unwanted bias, unwanted behaviour can be detected. The details of bias detection fall outside the scope of this document.
 --------------------------------------
@@ -370,7 +381,10 @@ Threats through use take place through normal interaction with an AI model: prov
 
 **Controls for threats through use:**
 * See General controls
-* MONITOR. Add use of the model to logs and make it part of incident detection, preferably including detecting inproper functioning of the model.  
+* MONITORUSE. Add use of the model to logs and make it part of incident detection, including:
+  *  detecting inproper functioning of the model (see CONTINUOUSVALIDATION and UNWANTEDBIASTESTING)
+  *  detecting suspicious patterns of model use (e.g. high frequency - see RATELIMIT)
+  *  detecting suspicious inputs (see DETECTODDINPUT and DETECTADVERSARIALINPUT) 
 
   Links to standards:
   * 27002 Control 8.16 Monitoring activities. Gap: good coverage with the particularity: monitoring needs to look for specific patterns of AI attacks (e.g. model attacks through use). The 27002 control has no details on that.
@@ -416,18 +430,18 @@ Another categorization is to distinguish between physical input manipulation (e.
 **Controls for evasion:**
 * See General controls
 * See controls for threats through use
-* DETECTODDINPUT. Implement tools to detect whether input is excentric or invalid - also called input validation (Datascience)
+* DETECTODDINPUT (runtime datascience). Implement tools to detect whether input is excentric or invalid - also called input validation - without knowledge on what malicious input looks like.
 
   Purpose: by detecting odd input, input that is likely malicious can be discarded (or corrected) to prevent unwanted model behaviour. Note: odd input often cannot be completely specified and for many attacks the input is technically not odd.
 
-  TODOGROUP: Look into methods of filtering adversarial attacks through purifiers/denoisers in input.
+  TODO: add methods and techniques to identify.
 
   Links to standards:
   * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. 
 
-* DETECTADVERSARIAL. Implement tools to detect specific evasions e.g. patches in images.
+* DETECTADVERSARIALINPUT. Implement tools to detect specific evasions e.g. patches in images.
 
-TODOGROUP elaborate on detector subnetworks in Annex C of ENISA 2021 and on the references below.
+TODO elaborate on detector subnetworks in Annex C of ENISA 2021 and on the references below.
 
   Examples:
   * [Feature squeezing](https://arxiv.org/pdf/1704.01155.pdf) compares the output of the model against the output based on a distortion of the input that reduces the level of detail. This is done by reducing the number of features or reducing the detail of certain features (eg. by smoothing). This approach is like INPUTDISTORTION, but instead of just changing the input to remove any adversarial data, the model is also applied to the original input and then used to compare it, as a detection mechanism.
@@ -436,7 +450,7 @@ TODOGROUP elaborate on detector subnetworks in Annex C of ENISA 2021 and on the 
   * [Local intrinsic dimensionality](https://www.ijcai.org/proceedings/2021/0437.pdf)
 
   Links to standards:
-  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
 
 
 * EVASIONROBUSTMODEL. Choose a model design, configuration and/or training approach to maximize resilience against evasion (Datascience).
@@ -449,10 +463,10 @@ TODOGROUP elaborate on detector subnetworks in Annex C of ENISA 2021 and on the 
   TODO See Annex C in ENISA 2021 document for Stability terms, adversarial regulaiser, input gradient regularisation, defenisvie distillation and Random feature nullification.  
 
   Links to standards:
-  * ISO/IEC TR 24029 - Assessment of the robustness of neural networks. Gap: TODOGROUP.
+  * ISO/IEC TR 24029 - Assessment of the robustness of neural networks. Gap: TODO.
 
 * TRAINADVERSARIAL. Add adversarial examples to the training set to make the model more resilient (Datascience).  
-  TODOGROUP: Elaborate - See Annex C of ENISA Secure machine learning algorithms 2021.  
+  TODO: Elaborate - See Annex C of ENISA Secure machine learning algorithms 2021.  
   TODO: Make clear this is not a silver bullet.
   
   References:
@@ -461,22 +475,22 @@ TODOGROUP elaborate on detector subnetworks in Annex C of ENISA 2021 and on the 
   * Papernot, N.; Mcdaniel, P. Extending defensive distillation. arXiv 2017, arXiv:1705.05264.
 
   Links to standards:
-  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
 
 * INPUTDISTORTION. Lightly modify the input with the intention to distort the adversarial attack causing it to fail, while maintaining sufficient model correctness.
   Modification can be done by adding noise (randomization), or by smoothing.  
   Maintaining model correctness can be helped by performing multiple random modifications (e.g. randomized smoothing) of the input and then comparting model output (e.g. best of three).  
   TODO: See ENISA Annex C for data randomisation, input transformation and input denoising.
-  See DETECTADVERSARIAL for an approach where the distorted input is used for detecting an adversarial attacak.
+  See DETECTADVERSARIALINPUT for an approach where the distorted input is used for detecting an adversarial attacak.
 
   Links to standards:
-  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
   * TODO Gradient masking - Annex C ENISA 2021
 
-* ADVERSARIALROBUSTDISTILLATION. When applying knowledge distilling to achieve smaller neural networks, care must be given to reduce their typical sentitivity to evasion attacks. TODOGROUP: elaborate
+* ADVERSARIALROBUSTDISTILLATION. When applying knowledge distilling to achieve smaller neural networks, care must be given to reduce their typical sentitivity to evasion attacks. TODO: elaborate
 
   Links to standards:
-  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
 
 ### 2.1.1. Closed-box evasion
 Input is manipulated in a way not based on observations of the model implementation (code, training set, parameters, architecture). The model is a 'closed box'. This often requires experimenting with how the model responds to input.
@@ -523,11 +537,11 @@ The output of the model may contain sensitive data from the training set, for ex
 * FILTERSENSITIVETRAINDATA. Actively prevent sensitive data when constructing the trainset using manual verification and/or automated detection and/or careful selection of train data sources
   
   Links to standards:
-  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
 * FILTERSENSITIVEMODELOUTPUT. Actively censor sensitive data by detecting it when possible (e.g. phone number)
 
   Links to standards:
-  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODOGROUP: covered anywhere else?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODO: covered anywhere else?
 
 ### 2.2.2. Model inversion and Membership inference
 Model inversion occurs when an attacker reconstructs a part of the training set by intensive experimentation during which the input is optimized to maximize indications of confidence level in the output of the model.
@@ -545,15 +559,15 @@ Controls for Model inversion and membership inference:
 * OBSCURECONFIDENCE. Exclude indications of confidence in the output, or round confidence so it cannot be used for optimization.
 
   Links to standards:
-  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
 * SMALLMODEL. Overfitting can be prevented by keeping the model small so it is not able to store detail at the level of individual training set samples.
 
   Links to standards:
-  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
 * ADDTRAINNOISE. TODO: Add noise to the training set.
 
   Links to standards:
-  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
 
 
 --------------------------------------
@@ -583,13 +597,13 @@ This threat refers to  application failure (i.e. denial of service) typically ca
 
   Links to standards:
   * 27002 has no control for this
-  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
   * [OpenCRE on input validation](https://www.opencre.org/cre/010-308)
 * LIMITRESOURCES. Put a limit on resource usage for a single model input, to prevent resource overuse.
 
   Links to standards:
   * 27002 has no control for this, except for Monitoring (covered in Controls for threats through use)
-  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
 
 ### 2.4.1. Denial of model service due to inconsistent data or a sponge example
 A denial of service could be caused by input data with an inappropriate format, and causing malfunctioning of the model or its input logic.
@@ -609,7 +623,7 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 
 **Controls for development-time protection:**
 * See General controls
-* DATAPROTECT. Protect (train/test) data, source code, configuration & parameters
+* DEVDATAPROTECT. Protect (train/test) data, source code, configuration & parameters
   * Encryption of data at rest  
     Links to standards:
     * 27002 control 5.33 Protection of records. Gap: complete coverage, with the particularities
@@ -647,17 +661,17 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 * CONFCOMPUTE. 'Confidential compute': If available and possible, use features of the data science environment to hide training data and model parameters from model engineers
 
   Links to standards:
-  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
 
 * FEDERATIVELEARNING. Federative learning can be applied when a training set is distributed over different organizations, preventing that the data needs to be collected in a central place - increasing the risk of leaking.
 
   Links to standards:
-  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODOGROUP: covered anywhere else?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODO: covered anywhere else?
 
 * TODO: integrity checks in development pipeline (build, deploy, supply chain)
 
   Links to standards:
-  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
 
 * SUPPLYCHAINMANAGE, including data provenance, to prevent that malicious AI components, source data or source models are obtained from unreliable sources.
   The Software Bill Of Materials (SBOM) becomes the AIBOM (AI Bill Of Materials) or MBOM (Model Bill of Material). AI systems often have a variation of supply chains, including the data supply chain, the labeling supply chain, and the model supply chain.  
@@ -685,10 +699,12 @@ This poisoning is **hard to detect** once it has happened: there is no code to r
 * See controls for development-time protection
 * MODELENSEMBLE. Make the model part of en ensemble in which each model has been trained in a separately protected environment. If one model deviates from the others, its output can be ignored as it indicates possible manipulation.
   Links to standards:
-  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
 
 References:
 * [Summary of 15 backdoor papers at CVPR '23](https://zahalka.net/ai_security_blog/2023/09/backdoor-attacks-defense-cvpr-23-how-to-build-and-burn-trojan-horses/)
+
+TODO: add more info on how to practically implement the controls. Integration. Monitorin. Best practides. Real world exampels. potential challenges
 
 ### 3.1.1. Data poisoning by changing data development-time or supply chain
 The attacker manipulates (training) data to affect the algorithm's behavior. Also called *causative attacks*.
@@ -705,7 +721,7 @@ Background: An important risk factor in the additional attack surface of AI engi
 * MORETRAINDATA: Increasing the amount of non-malicious data makes training more robust against poisoned examples - provided that these poisoned examples are small in number. One way to do this is through data augmentation - the creation of artificial training set samples that are small variations of existing samples.
 
   Links to standards:
-  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
+  * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
 
 * DATAQUALITYCONTROL. Perform quality control on data including detecting poisoned samples through statistical deviation or pattern recognition. For important data and scenarios this may involve human verification.
 
@@ -717,22 +733,22 @@ Background: An important risk factor in the additional attack surface of AI engi
   Links to standards:
   * ISO/IEC 5259 series on Data quality for analytics and ML. Gap: minimnl coverage in light of the particularity - the standard does not mention approaches to detect malicious changes (including detecting statistical deviations). Nevertheless, standard data quality control helps to detect malicious changes that violate data quality rules.
   * ISO/iEC 42001 B.7.4 briefly covers data quality for AI. Gap: idem as 5259
-  * Not further covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODOGROUP: covered anywhere else?
+  * Not further covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
 
-* TRAINDATADISTORTION - TODOGROUP: Look into methods of making poisoned samples ineffective by smoothing or adding noise to training data (with the best practice of keeping the original training data, in order to expertiment with the filtering)
+* TRAINDATADISTORTION - TODO: Look into methods of making poisoned samples ineffective by smoothing or adding noise to training data (with the best practice of keeping the original training data, in order to expertiment with the filtering)
 
   Examples:
-  * [Transferability blocking](https://arxiv.org/pdf/1703.04318.pdf). The true defense mechanism against blackbox attacks is to obstruct the transferability of the adversarial samples. The transferability enables the usage of adversarial samples in different models trained on different datasets. Null labeling is a procedure that blocks transferability, by introducing null labels into the training dataset, and trains the model to discard the adversarial samples as null labeled data. TODOGROUP: Clarify
-  * TODOGROUP: DEFENSE-GAN
+  * [Transferability blocking](https://arxiv.org/pdf/1703.04318.pdf). The true defense mechanism against blackbox attacks is to obstruct the transferability of the adversarial samples. The transferability enables the usage of adversarial samples in different models trained on different datasets. Null labeling is a procedure that blocks transferability, by introducing null labels into the training dataset, and trains the model to discard the adversarial samples as null labeled data. TODO: Clarify
+  * TODO: DEFENSE-GAN
   * Local intrinsic dimensionality
-  * TODOGROUP: (weight)Bagging - see Annex C in ENISA 2021
-  * TODOGROUP: TRIM algorithm - see Annex C in ENISA 2021
-  * TODOGROUP: STRIP technique (after model evaluation)  - see Annex C in ENISA 2021
+  * TODO: (weight)Bagging - see Annex C in ENISA 2021
+  * TODO: TRIM algorithm - see Annex C in ENISA 2021
+  * TODO: STRIP technique (after model evaluation)  - see Annex C in ENISA 2021
 
   Link to standards:
   * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. 
 
-* POISONROBUSTMODEL. Select model types that are less sensitive to poisoned training data. TODOGROUP: Elaborate
+* POISONROBUSTMODEL. Select model types that are less sensitive to poisoned training data. TODO: Elaborate
   Links to standards:
   * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work.
   
@@ -750,7 +766,7 @@ Supplying a manipulated pre-trained model (e.g. a GenAI model) that serves as a 
 **Controls specific for transfer learning:**
 * See General controls
 * See controls for development-time protection
-* TODOGROUP: Choose a model type resilient against a transfer learning attack
+* TODO: Choose a model type resilient against a transfer learning attack
 
 
 --------------------------------------
@@ -773,7 +789,7 @@ Impact:  Confidentiality breach of intellectual property.
 
 --------------------------------------
 --------------------------------------
-# 4. APPLICATION SECURITY THREATS
+# 4. RUNTIME APPLICATION SECURITY THREATS
 
 --------------------------------------
 ## 4.1. Non AI-specific application security threats
@@ -806,17 +822,18 @@ Alternatively, the model input or output logic can be compromised to change mode
 
 **Controls:**
 * See General controls
-* RUNTIMEMODELINTEGRITY. Apply traditional application security controls to protect the storage of model parameters (e.g. access control, checksums)
+* RUNTIMEMODELINTEGRITY. Apply traditional application security controls to protect the storage of model parameters (e.g. access control, checksums, encryption)
 * RUNTIMEMODELIOINTEGRITY. Apply traditional application security controls to protect the runtime manipulation of the model's input/output logic (e.g. protect against a man-in-the-middle attack)
 
 --------------------------------------
 ## 4.3. Runtime model theft 
 Impact:  Confidentiality breach of intellectual property.
 
-Stealing model parameters from a live system by breaking into it (e.g. by gaining access to executables or parameter data in the production environment)
+Stealing model parameters from a live system by breaking into it (e.g. by gaining access to executables, application memory or parameter data in the production environment)
 
 **Controls:**
 * RUNTIMEMODELCONFIDENTIALIY. See SECDEVPROGRAM to attain application security, with the focus on protecting the storage of model parameters (e.g. access control, encryption)
+* MODELOBFUSCATION. Techniques to store the model in a complex and confusing waym with minimal technical information, to make it more difficult for attackers to extract and understand a model from a deployed system. See this [article on ModelObfuscator](https://dl.acm.org/doi/abs/10.1145/3597926.3598113)
 
 
 --------------------------------------
