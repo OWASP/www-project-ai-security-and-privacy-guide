@@ -125,7 +125,7 @@ GenAI References:
 
 # Summary
 
-The AI security controls (in captials) can be grouped along meta controls:
+The AI security controls (in capitals) can be grouped along meta controls:
 1.	Apply **AI governance** (AIPROGRAM), e.g. ISO/IEC 42001
 2.	Apply **information security management** (SECPROGRAM), with AI attention points:
     * New assets: training/test data , input data, output data, model parameters, technical information about the model, and also code and configuration. This depends on if they represent important intellectual property, or if the data is sensitive, of if the data can help attackers to design an attack (DISCRETE).
