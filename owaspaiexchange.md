@@ -126,41 +126,41 @@ GenAI References:
 # Summary
 
 The controls can be grouped along meta controls:
-1.	Apply AI governance (AIPROGRAM), e.g. ISO/IEC 42001 with attention point:
-    *	to also consider automated oversight, next to human oversight (OVERSIGHT)
+1.	Apply **AI governance** (AIPROGRAM), e.g. ISO/IEC 42001
 2.	Apply **information security management** (SECPROGRAM), with AI attention points:
-    * New assets: training/test data, input data, output data, model parameters, technical information about the model, and also code and configuration. This depends on if they represent important intellectual property, or if the data is sensitive, of if the data can help attackers to design an attack (DISCRETE).
+    * New assets: training/test data , input data, output data, model parameters, technical information about the model, and also code and configuration. This depends on if they represent important intellectual property, or if the data is sensitive, of if the data can help attackers to design an attack (DISCRETE).
     *	New threats: ISO 27563 describes security of some AI use cases to assist in risk analysis, and 23894 elaborates on risk management. The AI Exchange and the upcoming ISO 27090 are more comprehensive sources for threats and controls.
     *	AI regulation needs to be taken into account (CHECKCOMPLIANCE)
     *	Awareness training needs to include AI threats and controls (SECEDUCATE)
-    *	When assigning privileges to the actions of autonomous models , consider they may be manipulated (MINPRIVILEGE)
-    *	To monitor for suspicious AI attack patterns (MONITORUSE)
-    *	To limit access to use the model, to prevent unauthorized attackers (MODELACCESSCONTROL)
-    *	To separate storage and access to sensitive train data and test data (SEGREGATEDATA)
-    *	Supply chain risks also include supply of train/test data and pretrained models (SUPPLYCHAINMANAGE)
-3.	Apply **professional software engineering practices** to the AI lifecycle, in particular continuous validation and testing for unwanted bias (DEVPROGRAM, CONTINUOUSVALIDATION,  UNWANTEDBIASTESTING)
-4.	Apply **secure software development** to AI engineering, and when developing securely, use standards that cover technical application security controls and operational security, (e.g. 15408, ASVS, OpenCRE). (SECDEVPROGRAM) AI attention points:
+    *	The information security controls in this document fall under the security management activity (e.g. model privileges, monitoring, access control, data protection, supply chain)
+3.	Apply **professional software engineering practices** to the AI lifecycle (DEVPROGAM).
+4.	Apply **secure software development** to AI engineering (SECDEVPROGRAM), and when developing securely, use standards that cover technical application security controls and operational security, (e.g. 15408, ASVS, OpenCRE). AI attention points:
     *	Make sure to protect the runtime model and its IO (RUNTIMEMODELINTEGRITY, RUNTIMEMODELIOINTEGRITY, RUNTIMEMODELCONFIDENTIALITY, MODELINPUTCONFIDENTIALITY, MODELOBFUSCATION)
-    *	ENCODEMODELOUTPUT if its text based
-    *	RATELIMIT. Limit the rate of model use per user to prevent attacks that require intensive use
+    * Control model use (MONITORUSE, MODELACCESSCONTROL, RATELIMIT)
+  	 *	ENCODEMODELOUTPUT if it is text based
     *	LIMITRESOURCES to protect against denial of service
-5.	**Development-time protection**:
-    *	Much is covered by SECDEVPROGRAM
+6.	**Development-time protection**:
+    * DEVDATAPROTECT (Protection of train/testdata, parameters, code and config)
+    * DEVSECURITY (further information security including screening of engineers)
+    * SEGREGATEDATA
     *	CONFCOMPUTE
     *	FEDERATIVELEARNING
-6.	Completely **new application security controls** have to do with indirect prompt injection of GenAI: PROMPTINPUTVALIDATION and INPUTSEGREGATION
-7.	**Limit the amount of data and the time it is stored**, if it is sensitive, with data obfuscation as a special approach (DATAMINIMIZE, ALLOWEDDATA, SHORTRETAIN, OBFUSCATETRAININGDATA)
-8.	AITRANSPARENCY. Be **transparent** by providing information to users that AI is used and how, so people can adjust their expectations on accuracy.
-9.	**Datascience runtime** controls when using the model:
-    *	DETECTODDINPUT
+    *	SUPPLYCHAINMANAGE
+7.	Completely **new application security controls** are MODELOBFUSCATION and protection against indirect prompt injection of GenAI: PROMPTINPUTVALIDATION plus INPUTSEGREGATION
+8.	**Limit the amount of data and the time it is stored**, if it is sensitive (DATAMINIMIZE, ALLOWEDDATA, SHORTRETAIN, OBFUSCATETRAININGDATA)
+9.	**Limit the effect** of unwanted model behaviour (OVERSIGHT, MINMODELPRIVILEGE, AITRAINSPARENCY, EXPLAINABILITY)
+10.	**Datascience runtime** controls when using the model:
+    * CONTINUOUSVALIDATION
+    * UNWANTEDBIASTESTING
+  	 *	DETECTODDINPUT
     *	DETECTADVERSARIALINPUT
     *	DOSINPUTVALIDATION
     *	INPUTDISTORTION
     *	FILTERSENSITIVEMODELOUTPUT
-    *	SMALLMODEL (to prevent reconstructing train data)
     *	OBSCURECONFIDENCE (to prevent reconstructing train data)
-    *	ADDTRAINNOISE  (to prevent reconstructing train data)
-10.	**Datascience development-time** controls:
+11.	**Datascience development-time** controls:
+    * CONTINUOUSVALIDATION
+    * UNWANTEDBIASTESTING
     *	EVASIONROBUSTMODEL (partly covered in 24029)
     *	POISIONROBUSTMODEL
     *	TRAINADVERSARIAL
@@ -169,6 +169,8 @@ The controls can be grouped along meta controls:
     *	FILTERSENSITIVETRAINDATA
     *	MODELENSEMBLE
     *	MORETRAINDATA
+    *	SMALLMODEL (to prevent reconstructing train data)
+    *	ADDTRAINNOISE  (to prevent reconstructing train data)
     *	DATAQUALITYCONTROL (covered in 5259 but not aimed at data manipulation)
 
 
@@ -364,7 +366,7 @@ Example: Large Language Models(GenAI), just like most AI models, induce their re
   * ISO/IEC 42001 B.9.3 defines controls for human oversight and decisions regarding autonomy. Gap: partial coverage (human oversight only, not business logic)
   * Not covered further in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
 
-* MINPRIVILEGE (runtime infosec). Minimize privileges, for example by not connecting a model to an e-mail facility, to prevent it from sending out wrong information to others.
+* MINMODELPRIVILEGE (runtime infosec). Minimize privileges, for example by not connecting a model to an e-mail facility, to prevent it from sending out wrong information to others.
 
   Links to standards:
   * 27002 control 8.2 Privileged access rights. Gap: good coverage with the particularity that privileges assigned to autonomous model decisions need to be assigned with the risk of unwanted model behaviour in mind.
@@ -453,7 +455,7 @@ Another categorization is to distinguish between physical input manipulation (e.
 
 * DETECTADVERSARIALINPUT (runtime datascienc). Implement tools to detect specific evasions e.g. patches in images.
 
-TODO elaborate on detector subnetworks in Annex C of ENISA 2021 and on the references below.
+  TODO elaborate on detector subnetworks in Annex C of ENISA 2021 and on the references below.
 
   Examples:
   * [Feature squeezing](https://arxiv.org/pdf/1704.01155.pdf) compares the output of the model against the output based on a distortion of the input that reduces the level of detail. This is done by reducing the number of features or reducing the detail of certain features (eg. by smoothing). This approach is like INPUTDISTORTION, but instead of just changing the input to remove any adversarial data, the model is also applied to the original input and then used to compare it, as a detection mechanism.
@@ -845,7 +847,7 @@ Stealing model parameters from a live system by breaking into it (e.g. by gainin
 
 **Controls:**
 * RUNTIMEMODELCONFIDENTIALIY (runtime appsec). See SECDEVPROGRAM to attain application security, with the focus on protecting the storage of model parameters (e.g. access control, encryption)
-* MODELOBFUSCATION (development-time appsec). Techniques to store the model in a complex and confusing waym with minimal technical information, to make it more difficult for attackers to extract and understand a model from a deployed system. See this [article on ModelObfuscator](https://dl.acm.org/doi/abs/10.1145/3597926.3598113)
+* MODELOBFUSCATION (runtime appsec). Techniques to store the model in a complex and confusing waym with minimal technical information, to make it more difficult for attackers to extract and understand a model from a deployed system. See this [article on ModelObfuscator](https://dl.acm.org/doi/abs/10.1145/3597926.3598113)
 
 
 --------------------------------------
