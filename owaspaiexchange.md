@@ -24,18 +24,16 @@ Table of contents:
   * SECDEVPROGRAM (management)
   * DEVPROGRAM (management)
   * CHECKCOMPLIANCE (management)
-  
-  1.2 Process controls:
   * SECEDUCATE (management)
-  * DISCRETE (management, development-time and runtime)
-  
-  1.3 Controls for sensitive data limitation:
+    
+  1.2 Controls for sensitive data limitation:
   * DATAMINIMIZE (development-time and runtime)
   * ALLOWEDDATA (development-time and runtime)
   * SHORTRETAIN (development-time and runtime)
   * OBFUSCATETRAININGDATA (development-time datascience).
+  * DISCRETE (management, development-time and runtime)
   
-  1.4. Controls to limit the effects of unwanted behaviour from threats:
+  1.3. Controls to limit the effects of unwanted behaviour from threats:
   * OVERSIGHT (runtime)
   * MINMODELPRIVILEGE (runtime infosec)
   * AITRANSPARENCY (runtime, management)
@@ -438,33 +436,13 @@ Note: For all controls in this document: a *vulnerability* occurs when a control
   * [OpenCRE on Compliance](https://www.opencre.org/cre/510-324)
   * 27002 Control 5.36 Compliance with policies, rules and standards. Gap: complete coverage with the particularity that AI regulation needs to be taken into account.
 
---------------------------------------
-## 1.2 General process controls
-
 * SECEDUCATE (management). Educate data scientists and development teams on AI threats awareness - including the model attacks. Attaining a *security mindset* is essential for all engineers, including data scientists.
 
   Links to standards:
   * 27002 Control 6.3 Awareness training. Gap: good coverage, but lacks detail and needs to take into account the particularity: training material needs to cover AI security threats and controls
 
-* DISCRETE (management, development-time and runtime). Minimize access to technical details that can help attackers.
-
-  Purpose: reduce information available to attackers that can help them select and tailor their attack, thereby reducing the probabily of a succesful attack.
-
-  Note: this control needs to be weighed against the AITRANSPARENCY control that requires to be more open about technical aspects of the model. The key is to minimize information that can help attackers while being transparent.   
-
-  For example:  
-  * Be careful with publishing technical articles on your solution
-  * Choose a model type or model implementation with which attackers are less familiar
-  * Minimize model output regarding technical details  
-  
-  Particularity: Technical data science details need to be incorporated in asset management, data classification and hence in risk analysis.  
-
-  Links to standards:
-  *  27002 Control 5.9: Inventory of information and other associated assets. Gap: good coverage with the obvious particularity that technical data science details can be sensitive. As soon as the inventory identifies this, depending processes such as security requirements, risk analysis and awareness traing will take care of the threat. In other words: it starts with identifying this information as an asset.
-  * See [OpenCRE on data classification and handling](https://www.opencre.org/cre/074-873). Gap: idem
-
 --------------------------------------
-## 1.3 General controls for sensitive data limitation
+## 1.2 General controls for sensitive data limitation
 
 * DATAMINIMIZE (development-time and runtime). Remove or anonymize data fields or records that are not needed for the application, to prevent them from leaking. A special form of data minimization is to statistically analyse which records or fields in a trainset are superfluous to achieving sufficient performance, and then remove those (Datascience).
 
@@ -496,9 +474,26 @@ Note: For all controls in this document: a *vulnerability* occurs when a control
 
   Links to standards:
   * Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODO: covered anywhere else?
+ 
+* DISCRETE (management, development-time and runtime). Minimize access to technical details that can help attackers.
+
+  Purpose: reduce information available to attackers that can help them select and tailor their attack, thereby reducing the probabily of a succesful attack.
+
+  Note: this control needs to be weighed against the AITRANSPARENCY control that requires to be more open about technical aspects of the model. The key is to minimize information that can help attackers while being transparent.   
+
+  For example:  
+  * Be careful with publishing technical articles on your solution
+  * Choose a model type or model implementation with which attackers are less familiar
+  * Minimize model output regarding technical details  
+  
+  Particularity: Technical data science details need to be incorporated in asset management, data classification and hence in risk analysis.  
+
+  Links to standards:
+  *  27002 Control 5.9: Inventory of information and other associated assets. Gap: good coverage with the obvious particularity that technical data science details can be sensitive. As soon as the inventory identifies this, depending processes such as security requirements, risk analysis and awareness traing will take care of the threat. In other words: it starts with identifying this information as an asset.
+  * See [OpenCRE on data classification and handling](https://www.opencre.org/cre/074-873). Gap: idem
 
 --------------------------------------
-## 1.4. Controls to limit the effects of unwanted behaviour
+## 1.3. Controls to limit the effects of unwanted behaviour
 The cause of unwanted model behaviour can be the result of many things (model use, development-time, run-time), and the preventative controls are covered in the corresponding sections. Hower, the controls to limit the *effect* of this behaviour are general controls for each of those threats, and covered in this section.
 
 Main potential causes of unwanted model behaviour:
