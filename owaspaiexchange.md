@@ -60,9 +60,6 @@ While AI offers powerful perfomance boosts, it also increases the attack surface
 *AI Security Threats and Controls - We need to to ensure data integrity, confidentiality, and privacy, prevent model theft or evasion, and ensure service availability.*
 ![](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/owaspaimodelv1.png?raw=true)
 
-*A Taxonomy of Attacks on AI as Envisioned by NIST AI 100-2e2023*
-![](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/attack_taxonomy.png?raw=true)
-
 ## This document
 This document discusses threats to AI cyber security and controls for those threats (i.e. countermeasures, requirements, mitigations).
 Security here means preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.  
