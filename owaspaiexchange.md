@@ -4,14 +4,13 @@
 
 **Purpose**
 
-The OWASP AI Exchange is as an open source collaborative document to advance the development of global AI security standards and regulations.  
-It provides a comprehensive overview of AI threats, vulnerabilities, and controls to foster alignment among different standardization initiatives. This includes the EU AI act,  ISO/IEC 27090 (AI security), the [OWASP ML top 10](https://mltop10.info/), the [OWASP LLM top 10](https://llmtop10.com/), and [OpenCRE](https://opencre.org) - which we want to use to provide the AI Exchange content through the security chatbot [OpenCRE-Chat](https://opencre.org/chatbot).  
+The OWASP AI Exchange is as an open source collaborative document to advance the development of global AI security standards and regulations.  It provides a comprehensive overview of AI threats, vulnerabilities, and controls to foster alignment among different standardization initiatives. This includes the EU AI act,  ISO/IEC 27090 (AI security), the [OWASP ML top 10](https://mltop10.info/), the [OWASP LLM top 10](https://llmtop10.com/), and [OpenCRE](https://opencre.org) - which we want to use to provide the AI Exchange content through the security chatbot [OpenCRE-Chat](https://opencre.org/chatbot).  
 
 Our **mission** is to be the authoritative source for consensus, foster alignment, and drive collaboration among initiatives - NOT to set a standard, bu to drive standards. By doing so, it provides a safe, open, and independent place to find and share insights for everyone. See [AI Exchange LinkedIn page](https://www.linkedin.com/company/owasp-ai-exchange/).
 
 Maintained here at [owaspai.org](https://owaspai.org) it currently uses both a Github repository and a Word Document for contributions. It is is an **open-source living document** for the worldwide exchange of AI security expertise.  It serves, for example,  as input to security standardization for the EU AI Act towards mid-November (your help is urgently needed!). The document is maintained by OWASP as part of the [OWASP AI guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) project. It will periodically publish content with credited contributions into the Guide.
 
-Table of content:  
+Table of contents:  
 * [How to contribute](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/edit/main/owaspaiexchange.md#how-to-contribute)
 * [Introduction](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#introduction)
 * [Summary](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#summary)
@@ -44,9 +43,25 @@ Search 'TODO' for where contributions are needed the most.
 * Roger Sanz (Universidad Isabel, Spain)
 * Angie Qarry (QDeepTech, Austria) - several elaborations and references on datascience defence mechanisms
 * Behnaz Karimi (Accenture, Germany)- misc. contributions including model obfuscation and explanation
-
+* Sean Oesch (Oak Ridge National Laboratory, US) - BLUF, OOD detection, NISTIR 8269
 
 # Introduction
+
+## BLUF: How to Deal with AI Security
+
+While AI offers powerful perfomance boosts, it also increases the attack surface available to bad actors. It is therefore imperative to approach AI applications with a clear understanding of potential threats and which of those threats to prioritize for each use case. Standards and governance help guide this process for individual entities leveraging AI capabilities. 
+
+* Implement **AI governance**
+*	**Extend security and development programs** to include data science activities especially to protect and streamline the engineering environment.
+*	**Improve regular application and system security** through understanding of AI particularities e.g. model parameters need protection and access to the model needs to be monitored and rate-limited.
+*	**Limit the impact** of AI by minimizing privileges and adding oversight, e.g. guardrails, human oversight.
+*	**Countermeasures in data science** through understanding of model attacks, e.g. data quality assurance, larger training sets, detecting common perturbation attacks, input filtering.
+
+*AI Security Threats and Controls - We need to to ensure data integrity, confidentiality, and privacy, prevent model theft or evasion, and ensure service availability.*
+![](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/owaspaimodelv1.png?raw=true)
+
+*A Taxonomy of Attacks on AI as Envisioned by NIST AI 100-2e2023*
+![](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/attack_taxonomy.png?raw=true)
 
 ## This document
 This document discusses threats to AI cyber security and controls for those threats (i.e. countermeasures, requirements, mitigations).
@@ -58,25 +73,15 @@ This material is all draft and work in progress for others to review and amend.
 It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 27090, the [OWASP ML top 10](https://mltop10.info/), [OWASP LLM top 10](https://llmtop10.com/), and many more initiatives can benefit from consistent terminology and insights across the globe.
 
 
-
 **Sources:**  
 * AI security experts who contributed to this as Open Source. 
-* The insights of these experts were inspired by research work as mentioned in the references at the bottom of this document(ENISA, Microsoft, BIML, MITRE, etc.)
+* The insights of these experts were inspired by research work as mentioned in the references at the bottom of this document(ENISA, NIST, Microsoft, BIML, MITRE, etc.)
 
 ## Organizing and applying threats and controls
 The threats are organized by attack surface (how and where does the attack take place?), and not by impact. This means that for example model theft is mentioned in three  different parts of the overview:
 1. model theft by stealing model parameters from a live system, eg. breaking into the network and reading the parameters from a file,
 2. model theft by stealing the modeling process or parameters from the engineering environment, e.g. stored in the version management system of a data scientist, and
 3. model theft by reverse engineering from using the AI system. These are three very different attacks, with similar impacts. This way of organizing is helpful because the goal is to link the threats to controls, and these controls vary per attack surface.
-
-<img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/owaspaimodelv1.png?raw=true"/>
-
-**In a nutshell: how to deal with AI security:**
-* Implement **AI governance**
-*	**Extend security and development programs** to include data science activities especially to protect and streamline the engineering environment.
-*	**Improve regular application and system security** through understanding of AI particularities e.g. model parameters need protection and access to the model needs to be monitored and rate-limited.
-*	**Limit the impact** of AI by minimizing privileges and adding oversight, e.g. guardrails, human oversight.
-*	**Countermeasures in data science** through understanding of model attacks, e.g. data quality assurance, larger training sets, detecting common perturbation attacks.
 
 **How about AI outside of machine learning?**  
 A helpful way to look at AI is to see it as consisting of machine learning (the current dominant type of AI) plus *heuristic models*. A model can be a machine learning model which has learned how to compute based on data, or it can be
@@ -444,11 +449,11 @@ Another categorization is to distinguish between physical input manipulation (e.
 **Controls for evasion:**
 * See General controls
 * See controls for threats through use
-* DETECTODDINPUT (runtime datascience). Implement tools to detect whether input is excentric or invalid - also called input validation - without knowledge on what malicious input looks like.
+* DETECTODDINPUT (runtime datascience). Implement tools to detect whether input is out of distribution (OOD) or invalid - also called input validation - without knowledge on what malicious input looks like. It is not safe to assume that the test data models will evaluate comes from the same distribution as the training data, or is in distribution (ID). When a sample is OOD, the model should not make a prediction because the sample may represent a novel class/label and therefore be misclassified. 
 
-  Purpose: by detecting odd input, input that is likely malicious can be discarded (or corrected) to prevent unwanted model behaviour. Note: odd input often cannot be completely specified and for many attacks the input is technically not odd.
+  Purpose: By detecting OOD / anomylous input, input that will result in unwanted model behaviour can be discarded or kept for analysis. It is important to note that not all OOD input is malicious and not all malicious input is OOD. However, detecting OOD input is critical to maintaining model integrity, addressing potential concept drift, and preventing adversarial attacks that may take advantage of model behaviors on out of distribution data. 
 
-  TODO: add methods and techniques to identify.
+  Methods to detect out of distribution inputs include outlier detection, anomaly detection, novelty detection, and open set recognition. Specific techniques include maesures of similarity between training and test data, introspecting models to determine which concepts / neurons are activated by in distribution data, and out of distribution sample generation and retraining, among others. For a recent survey on this topic, see the work of [Yang et al.](https://arxiv.org/pdf/2110.11334.pdf)
 
   Links to standards:
   * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. 
@@ -560,7 +565,7 @@ The output of the model may contain sensitive data from the training set, for ex
 ### 2.2.2. Model inversion and Membership inference
 Model inversion occurs when an attacker reconstructs a part of the training set by intensive experimentation during which the input is optimized to maximize indications of confidence level in the output of the model.
 
-Membership inference is presenting a model with input data that identifies something or somebody (e.g. a personal identity or a portrait pictuyre), and using any indication of confidence in the output to infer the presence of that something or somebody in the training set.
+Membership inference is presenting a model with input data that identifies something or somebody (e.g. a personal identity or a portrait picture), and using any indication of confidence in the output to infer the presence of that something or somebody in the training set.
 
 References:
 * [Article on membership inference](https://medium.com/disaitek/demystifying-the-membership-inference-attack-e33e510a0c39)
@@ -929,6 +934,7 @@ Misc.:
 * [Google's Secure AI Framework](https://blog.google/technology/safety-security/introducing-googles-secure-ai-framework/)
 * [NIST AI Risk Management Framework 1.0](https://doi.org/10.6028/NIST.AI.100-1)
 * [NIST threat taxonomy](https://csrc.nist.gov/publications/detail/white-paper/2023/03/08/adversarial-machine-learning-taxonomy-and-terminology/draft)
+* [NISTIR 8269 - A Taxonomy and Terminology of Adversarial Machine Learning](https://csrc.nist.rip/external/nvlpubs.nist.gov/nistpubs/ir/2019/NIST.IR.8269-draft.pdf)
 * [PLOT4ai threat library ](https://plot4.ai/library)
 * [ETSI GR SAI 002 V 1.1.1 Securing Artificial Intelligence (SAI) – Data Supply Chain Security](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/002/01.01.01_60/gr_SAI002v010101p.pdf)
 * [ISO/IEC 20547-4 Big data security](https://www.iso.org/standard/71278.html)
