@@ -14,10 +14,168 @@ Table of contents:
 * [How to contribute](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/edit/main/owaspaiexchange.md#how-to-contribute)
 * [Introduction](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#introduction)
 * [Summary](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#summary)
+
 * [1. General controls for all threats](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#1-general-controls---for-all-threats)
+
+  1.1 Governance controls:
+  * AIPROGRAM (management)
+  * SECPROGRAM (management) 
+  * SECDEVPROGRAM (management)
+  * SECDEVPROGRAM (management)
+  * DEVPROGRAM (management)
+  * CHECKCOMPLIANCE (management)
+  
+  1.2 Process controls:
+  * SECEDUCATE (management)
+  * DISCRETE (management, development-time and runtime)
+  
+  1.3 Controls for sensitive data limitation:
+  * DATAMINIMIZE (development-time and runtime)
+  * ALLOWEDDATA (development-time and runtime)
+  * SHORTRETAIN (development-time and runtime)
+  * OBFUSCATETRAININGDATA (development-time datascience).
+  
+  1.4. Controls to limit the effects of unwanted behaviour from threats:
+  * OVERSIGHT (runtime)
+  * MINMODELPRIVILEGE (runtime infosec)
+  * AITRANSPARENCY (runtime, management)
+  * CONTINUOUSVALIDATION (runtime datascience)
+  * EXPLAINABILITY (runtime datascience)
+  * UNWANTEDBIASTESTING (datascience)
+
+  Related threats that increase the effects of unwanted behaviour:
+  * Overreliance
+  * Excessive agency
+
 * [2. Threats through use](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#2-threats-through-use)
+  * See General controls
+  * MONITORUSE (runtime appsec)
+  * RATELIMIT (runtime appsec)
+  * MODELACCESSCONTROL (runtime appsec)
+
+  2.1. Evasion - Model behaviour manipulation through use  
+  Impact: Integrity of model behaviour is affected, leading to issues from unwanted model output See General controls
+   *	See controls for threats through use
+   *	DETECTODDINPUT (runtime datascience)
+   *	DETECTADVERSARIALINPUT (runtime datascience)
+   *	EVASIONROBUSTMODEL (development-time datascience)
+   *	TRAINADVERSARIAL (development-time datascience)
+   *	INPUTDISTORTION (runtime datascience)
+   *	ADVERSARIALROBUSTDISTILLATION (development-time datascience)
+  
+  2.2. Sensitive data disclosure through use  
+  Impact: Confidentiality breach of sensitive data.
+
+  ...2.2.1. Sensitive data output from model
+  * See General controls, in particular data minimization
+  * See controls for threats through use
+  * FILTERSENSITIVETRAINDATA (development-time appsec)
+  * FILTERSENSITIVEMODELOUTPUT (runtime appsec)
+
+  ...2.2.2. Model inversion and Membership inference
+  * See General controls
+  * See controls for threats through use
+  * OBSCURECONFIDENCE (runtime datascience)
+  * SMALLMODEL (development-time datascience)
+  * ADDTRAINNOISE (development-time datascience)
+    
+  2.3. Model theft through use  
+  Impact: Confidentiality breach of intellectual property.
+  * See General controls
+  * See controls for threats through use
+  
+  2.4. Failure or malfunction of AI-specific elements through use  
+  Impact: The AI systems is unavailable, leading to issues with processes, organizations or individuals that depend on the AI system
+  * See General controls
+  * See Controls for threats through use
+  * DOSINPUTVALIDATION (runtime appsec)
+  * LIMITRESOURCES (runtime)
+
 * [3. Development-time threats](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#3-development-time-threats)
+
+  * See General controls
+  * DEVDATAPROTECT (development-time infosec)
+  * DEVSECURITY (management)
+  * SEGREGATEDATA (development-time infosec)
+  * CONFCOMPUTE (development-time infosec)
+  * FEDERATIVELEARNING (development-time datascience)
+  * SUPPLYCHAINMANAGE (development-time infosec) 
+
+  3.1. Broad model poisoning: model behaviour manipulation by altering data, engineering, or model  
+  Impact: see ‘Evasion’, plus two extra manipulations: unavailability and backdoors
+  * See General controls
+  * See controls for development-time protection
+  * MODELENSEMBLE (development-time datascience)
+
+  ...3.1.1. Data poisoning by changing data development-time or supply chain
+  * See General controls
+  * See controls for development-time protection
+  * MORETRAINDATA (development-time datascience)
+  * DATAQUALITYCONTROL (development-time datascience)
+  * TRAINDATADISTORTION (development-time datascience)
+  * POISONROBUSTMODEL (development-time datascience)
+
+  ...3.1.2. Development-time model poisoning
+  * See General controls
+  * See controls for development-time protection
+
+  ...3.1.3 Transfer learning attack
+  * See General controls
+  * See controls for development-time protection
+  * Choose a model type resilient against a transfer learning attack
+
+  3.2. Sensitive data leak development-time
+
+  ...3.2.1. Development-time data leak  
+  Impact: Confidentiality breach of sensitive data.
+  
+  ...3.2.2. Model theft through development-time model parameter leak  
+  Impact: Confidentiality breach of intellectual property.
+
+  ...3.2.3. Source code/configuration leak  
+  Impact: Confidentiality breach of intellectual property.
+
 * [4. Runtime Application security threats](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#4-runtime-application-security-threats)
+
+  4.1. Non AI-specific application security threats  
+  Impact: General application security threats can impact confidentiality, integrity and availability of all assets.
+  * See general controls - in particular SECDEVPROGRAM
+  * Technical application security controls
+  * Operational security
+
+  4.2. Runtime model poisoning (manipulating the model itself or its input/output logic)  
+  Impact: see Broad model poisoning.
+  * See General controls
+  * RUNTIMEMODELINTEGRITY (runtime appsec)
+  * RUNTIMEMODELIOINTEGRITY (runtime appsec)
+
+  4.3. Runtime model theft  
+  Impact: Confidentiality breach of intellectual property.
+  * See general controls
+  * RUNTIMEMODELCONFIDENTIALIY (runtime appsec)
+  * MODELOBFUSCATION (runtime appsec) 
+
+  4.4. Insecure output handling  
+  Impact: Textual model output may contain 'traditional' injection attacks such as XSS-Cross site scripting, which can create a vulnerability when processed (e.g. shown on a website, execute a command).
+  * See general controls
+  * ENCODEMODELOUTPUT (runtime appsec) 
+ 
+  4.5. Direct prompt injection  
+  Impact: Getting unwanted answers or actions by manipulating through prompts how a large language model(GenAI) has been instructed.
+  * See General controls
+  * Mostly embedded in the large language model itself
+ 
+  4.6. Indirect prompt injection  
+  Impact: Getting unwanted answers or actions from hidden instructions in a prompt.
+  * See General controls, in particular Controls to limit effects of unwanted model behaviour
+  * PROMPTINPUTVALIDATION (runtime appsec)
+  * INPUTSEGREGATION (runtime appsec)
+ 
+  4.7. Leak sensitive input data  
+  Impact: Confidentiality breach of sensitive data.
+  * See General controls
+  * MODELINPUTCONFIDENTIALY (runtime appsec)
+
 * [References](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#references)
 
 -----------------------------
@@ -388,7 +546,7 @@ See the DISCRETE control for the balance between being transparent and being dis
 
 * EXPLAINABILITY (runtime datascience). Explaining how individual model decisions came to be (a field referred to as XAI) can aid in gaining user trust in the model. In some cases this can also prevent overreliance, for example when the user sees the simplicity of 'reasoning', or even errors in that process. See [this Stanford article on explainability and overreliance](https://hai.stanford.edu/news/ai-overreliance-problem-are-explanations-solution).
 
-* UNWANTEDBIASTESTING. By doing test runs of the model to measure unwanted bias, unwanted behaviour can be detected. The details of bias detection fall outside the scope of this document.
+* UNWANTEDBIASTESTING (datascience). By doing test runs of the model to measure unwanted bias, unwanted behaviour can be detected. The details of bias detection fall outside the scope of this document.
 --------------------------------------
 --------------------------------------
 # 2. THREATS THROUGH USE
@@ -848,6 +1006,7 @@ Impact:  Confidentiality breach of intellectual property.
 Stealing model parameters from a live system by breaking into it (e.g. by gaining access to executables, application memory or parameter data in the production environment)
 
 **Controls:**
+* See General controls 
 * RUNTIMEMODELCONFIDENTIALIY (runtime appsec). See SECDEVPROGRAM to attain application security, with the focus on protecting the storage of model parameters (e.g. access control, encryption)
 * MODELOBFUSCATION (runtime appsec). Techniques to store the model in a complex and confusing waym with minimal technical information, to make it more difficult for attackers to extract and understand a model from a deployed system. See this [article on ModelObfuscator](https://dl.acm.org/doi/abs/10.1145/3597926.3598113)
 
