@@ -55,13 +55,14 @@ Table of contents:
 
   2.1. Evasion - Model behaviour manipulation through use  
   Impact: Integrity of model behaviour is affected, leading to issues from unwanted model output See General controls
-   *	See controls for threats through use
-   *	DETECTODDINPUT (runtime datascience)
-   *	DETECTADVERSARIALINPUT (runtime datascience)
-   *	EVASIONROBUSTMODEL (development-time datascience)
-   *	TRAINADVERSARIAL (development-time datascience)
-   *	INPUTDISTORTION (runtime datascience)
-   *	ADVERSARIALROBUSTDISTILLATION (development-time datascience)
+   * See General controls
+   * See controls for threats through use
+   * DETECTODDINPUT (runtime datascience)
+   * DETECTADVERSARIALINPUT (runtime datascience)
+   * EVASIONROBUSTMODEL (development-time datascience)
+   * TRAINADVERSARIAL (development-time datascience)
+   * INPUTDISTORTION (runtime datascience)
+   * ADVERSARIALROBUSTDISTILLATION (development-time datascience)
   
   2.2. Sensitive data disclosure through use  
   Impact: Confidentiality breach of sensitive data.
