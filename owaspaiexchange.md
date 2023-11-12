@@ -61,7 +61,7 @@ While AI offers powerful perfomance boosts, it also increases the attack surface
 *	**Countermeasures in data science** through understanding of model attacks, e.g. data quality assurance, larger training sets, detecting common perturbation attacks, input filtering.
 
 *AI Security Threats and Controls - We need to to ensure data integrity, confidentiality, and privacy, prevent model theft or evasion, and ensure service availability.*
-![](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/owaspaimodelv1.png?raw=true)
+![](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaimodelv1.png)
 
 ## This document
 This document discusses threats to AI cyber security and controls for those threats (i.e. countermeasures, requirements, mitigations).
