@@ -21,7 +21,9 @@ Table of contents:
 * [References](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#references)
 * [Expanded Table of contents](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#expanded-table-of-contents)
 
-![](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewv1.png)
+The following overview shows all threats, controls and how they relate, including risks and the types of controls.  
+Click on the image to get a pdf with clickable links.
+[![](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewv1.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv2.pdf)
 
 -----------------------------
 # How to contribute
