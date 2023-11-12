@@ -798,12 +798,23 @@ Leaking can  happen from the development environment, as engineers need to work 
 Sometimes training data is collected at runtime, so a live system can become attack surface for this attack.  
 GenAI models are often hosted in the cloud, sometimes managed by an external party. Therefore, if you train or finetune these models, the training data (e.g. company documents) needs to travel to that cloud.
 
+**Controls:**
+* See General controls
+* See controls for development-time protection
+
 ### 3.2.2. Model theft through development-time model parameter leak
 Impact:  Confidentiality breach of intellectual property.
+
+**Controls:**
+* See General controls
+* See controls for development-time protection
 
 ### 3.2.3. Source code/configuration leak
 Impact:  Confidentiality breach of intellectual property.
 
+**Controls:**
+* See General controls
+* See controls for development-time protection
 
 --------------------------------------
 --------------------------------------
