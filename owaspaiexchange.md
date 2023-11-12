@@ -21,7 +21,7 @@ Table of contents:
 * [References](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#references)
 * [Expanded Table of contents](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#expanded-table-of-contents)
 
-![](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/owaspaioverviewv1.png?raw=true)
+![](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewv1.png)
 
 -----------------------------
 # How to contribute
