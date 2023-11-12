@@ -450,7 +450,7 @@ Another categorization is to distinguish between physical input manipulation (e.
 
   Purpose: By detecting OOD / anomylous input, input that will result in unwanted model behaviour can be discarded or kept for analysis. It is important to note that not all OOD input is malicious and not all malicious input is OOD. However, detecting OOD input is critical to maintaining model integrity, addressing potential concept drift, and preventing adversarial attacks that may take advantage of model behaviors on out of distribution data. 
 
-  Methods to detect out of distribution inputs include outlier detection, anomaly detection, novelty detection, and open set recognition. Specific techniques include maesures of similarity between training and test data, introspecting models to determine which concepts / neurons are activated by in distribution data, and out of distribution sample generation and retraining, among others. For a recent survey on this topic, see the work of [Yang et al.](https://arxiv.org/pdf/2110.11334.pdf)
+  Methods to detect out of distribution inputs include outlier detection, anomaly detection, novelty detection, and open set recognition. Specific techniques include maesures of similarity between training and test data, introspecting models to determine which concepts / neurons are activated by in distribution data, and out of distribution sample generation and retraining, among others. For a recent survey on this topic, see the work of [Yang et al.](https://arxiv.org/pdf/2110.11334.pdf), and for learnability of OOD: [here](https://arxiv.org/abs/2210.14707).
 
   Links to standards:
   * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. 
