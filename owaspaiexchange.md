@@ -151,7 +151,7 @@ Table of contents:
   4.3. Runtime model theft  
   Impact: Confidentiality breach of intellectual property.
   * See general controls
-  * RUNTIMEMODELCONFIDENTIALIY (runtime appsec)
+  * RUNTIMEMODELCONFIDENTIALITY (runtime appsec)
   * MODELOBFUSCATION (runtime appsec) 
 
   4.4. Insecure output handling  
@@ -1003,7 +1003,7 @@ Stealing model parameters from a live system by breaking into it (e.g. by gainin
 
 **Controls:**
 * See General controls 
-* RUNTIMEMODELCONFIDENTIALIY (runtime appsec). See SECDEVPROGRAM to attain application security, with the focus on protecting the storage of model parameters (e.g. access control, encryption)
+* RUNTIMEMODELCONFIDENTIALITY (runtime appsec). See SECDEVPROGRAM to attain application security, with the focus on protecting the storage of model parameters (e.g. access control, encryption)
 * MODELOBFUSCATION (runtime appsec). Techniques to store the model in a complex and confusing waym with minimal technical information, to make it more difficult for attackers to extract and understand a model from a deployed system. See this [article on ModelObfuscator](https://dl.acm.org/doi/abs/10.1145/3597926.3598113)
 
 
