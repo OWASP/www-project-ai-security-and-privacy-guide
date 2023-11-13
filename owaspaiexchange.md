@@ -48,7 +48,7 @@ Search 'TODO' for where contributions are needed the most.
 * Roger Sanz (Universidad Isabel, Spain)
 * Angie Qarry (QDeepTech, Austria) - several elaborations and references on datascience defence mechanisms
 * Behnaz Karimi (Accenture, Germany)- misc. contributions including model obfuscation and explanation
-* Sean Oesch (Oak Ridge National Laboratory, US) - BLUF, OOD detection, NISTIR 8269
+* Sean Oesch (Oak Ridge National Laboratory, US) - BLUF, Adversarial Training, OOD detection, NISTIR 8269, Guide Usability/Structure
 
 # Introduction
 
@@ -483,14 +483,15 @@ Another categorization is to distinguish between physical input manipulation (e.
   Links to standards:
   * ISO/IEC TR 24029 - Assessment of the robustness of neural networks. Gap: TODO.
 
-* TRAINADVERSARIAL (development-time datascience). Add adversarial examples to the training set to make the model more resilient (Datascience).  
+* TRAINADVERSARIAL (development-time datascience). Add adversarial examples to the training set to make the model more resilient (Datascience). While adversarial training does make a model more robust against specific attacks, it is important to note that it also adds significant training overhead, does not scale well with model complexity / input dimension, can lead to overfitting, and may not generalize well to new attack methods. For a general summary of adversarial training, see [Bai et al.](https://arxiv.org/pdf/2102.01356.pdf)
+
   TODO: Elaborate - See Annex C of ENISA Secure machine learning algorithms 2021.  
-  TODO: Make clear this is not a silver bullet.
   
   References:
   * Goodfellow, I.J.; Shlens, J.; Szegedy, C. Explaining and harnessing adversarial examples. arXiv 2014, arXiv:1412.6572.
   * Lyu, C.; Huang, K.; Liang, H.N. A unified gradient regularization family for adversarial examples. In Proceedings of the 2015 ICDM.
   * Papernot, N.; Mcdaniel, P. Extending defensive distillation. arXiv 2017, arXiv:1705.05264.
+  * Vaishnavi, Pratik, Kevin Eykholt, and Amir Rahmati. "Transferring adversarial robustness through robust representation matching." 31st USENIX Security Symposium (USENIX Security 22). 2022.
 
   Links to standards:
   * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
