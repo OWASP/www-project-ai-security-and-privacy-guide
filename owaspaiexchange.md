@@ -115,8 +115,7 @@ AI Privacy can be divided into two parts:
 ## How about Generative AI (e.g. LLM)?
 Yes, GenAI is the big topic and it's the fastest moving subfield of AI security. Nevertheless it is important to realize that other types of algorithms will remain to be applied to many important use cases such as credit scoring, fraud detection, medical diagnosis, product recommendation, image recognition, predictive maintenance, process control, etc. Relevant content has been marked with 'GenAI' in this document.
 
-Important note: Security-wise, GenAI is not that different. GenAI threats and controls largely overlap and are very similar to AI in general. Some risks are (much) higher. Some are lower. Only a few risks are GenAI-specific.  
-GenAI security particularities are: 
+Important note: Security-wise, GenAI is not that different. GenAI threats and controls largely overlap and are very similar to AI in general. Some risks are (much) higher. Some are lower. Only a few risks are GenAI-specific. GenAI security particularities are: 
 * Evasion attacks for GenAI include specifically evasion of policies that intend to censor (e.g. violent) output
 * Unwanted output of sensitive training data is an AI-broad issue, but especially a high risk with systems that output rich content such as GenAI
 * Training data poisoning is an AI-broad problem, and with GenAI the risk is generally higher since training data can be supplied from different sources that may be challenging to control, such as the internet
@@ -126,9 +125,12 @@ GenAI security particularities are:
 * The typical application of plug-ins in Large Language Models creates specific risks regarding the protection and privileges of these plugins - as they allow large language model to act outside of their normal conversation with the user
 * Prompt injection is a GenAI specific threat, listed under Application security threats
 
+One of the major threats posed by GenAI is a rapid increase in the quality and volume of disinformation. Even now black-box approaches to detecting images or texts produced by GenAI do not work well, which is why watermarks are proposed as a more effective means of detection. But as GenAI improves, black-box approaches will likely become intractable, and watermarks will be hard to enforce with the proliferation of open source GenAI models. New approaches to controlling and/or detecting the outputs of GenAI are needed. 
+
 GenAI References:
 * [OWASP LLM top 10](https://llmtop10.com/)
 * [Impacts and risks of GenAI](https://arxiv.org/pdf/2306.13033.pdf)
+* [The Science of Detecting LLM-Generated Texts](https://arxiv.org/pdf/2303.07205.pdf)
 
 # Summary
 
