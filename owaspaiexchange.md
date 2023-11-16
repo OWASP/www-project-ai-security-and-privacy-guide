@@ -48,7 +48,7 @@ Search 'TODO' for where contributions are needed the most.
 * Roger Sanz (Universidad Isabel, Spain)
 * Angie Qarry (QDeepTech, Austria) - several elaborations and references on datascience defence mechanisms
 * Behnaz Karimi (Accenture, Germany)- misc. contributions including model obfuscation and explanation
-* Sean Oesch (Oak Ridge National Laboratory, US) - BLUF, Adversarial Training, OOD detection, NISTIR 8269, Guide Usability/Structure
+* Sean Oesch (Oak Ridge National Laboratory, US) - BLUF, GenAI disinformation, Adversarial Training, OOD detection, NISTIR 8269, Guide Usability/Structure
 
 # Introduction
 
