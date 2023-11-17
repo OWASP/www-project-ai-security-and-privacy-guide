@@ -49,6 +49,7 @@ Search 'TODO' for where contributions are needed the most.
 * Angie Qarry (QDeepTech, Austria) - several elaborations and references on datascience defence mechanisms
 * Behnaz Karimi (Accenture, Germany)- misc. contributions including model obfuscation and explanation
 * Sean Oesch (Oak Ridge National Laboratory, US) - BLUF, Adversarial Training, OOD detection, NISTIR 8269, Guide Usability/Structure
+* Anthony Glynn (CapitalOne, Canada) - many textual improvements
 
 # Introduction
 
@@ -57,7 +58,7 @@ Search 'TODO' for where contributions are needed the most.
 While AI offers powerful perfomance boosts, it also increases the attack surface available to bad actors. It is therefore imperative to approach AI applications with a clear understanding of potential threats and which of those threats to prioritize for each use case. Standards and governance help guide this process for individual entities leveraging AI capabilities. 
 
 * Implement **AI governance**
-*	**Extend security and development programs** to include data science activities especially to protect and streamline the engineering environment.
+*	**Extend security and development practices** to include data science activities especially to protect and streamline the engineering environment.
 *	**Improve regular application and system security** through understanding of AI particularities e.g. model parameters need protection and access to the model needs to be monitored and rate-limited.
 *	**Limit the impact** of AI by minimizing privileges and adding oversight, e.g. guardrails, human oversight.
 *	**Countermeasures in data science** through understanding of model attacks, e.g. data quality assurance, larger training sets, detecting common perturbation attacks, input filtering.
@@ -69,10 +70,10 @@ While AI offers powerful perfomance boosts, it also increases the attack surface
 This document discusses threats to AI cyber security and controls for those threats (i.e. countermeasures, requirements, mitigations).
 Security here means preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.  
 
-The AI Exchange initiative was taken by OWASP, triggered by [Rob van der Veer](https://www.linkedin.com/in/robvanderveer/) - bridge builder for security standards, senior director at [Software Improvement Group](https://www.softwareimprovementgroup.com), with 31 years of experience in AI & security, lead author of ISO/IEC 5338 on AI engineering, founding father of OpenCRE, and currently working on security requirements concerning the EU AI act in CEN/CENELEC.  
+The AI Exchange initiative was taken by OWASP, triggered by [Rob van der Veer](https://www.linkedin.com/in/robvanderveer/) - bridge builder for security standards, senior director at [Software Improvement Group](https://www.softwareimprovementgroup.com), with 31 years of experience in AI & security, lead author of ISO/IEC 5338 on AI lifecycle, founding father of OpenCRE, and currently working on security requirements concerning the EU AI act in CEN/CENELEC.  
 
 This material is all draft and work in progress for others to review and amend.
-It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 27090, the [OWASP ML top 10](https://mltop10.info/), [OWASP LLM top 10](https://llmtop10.com/), and many more initiatives can benefit from consistent terminology and insights across the globe.
+It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 27090 on AI security, ISO/IEC 27091 on AI privacy, the [OWASP ML top 10](https://mltop10.info/), [OWASP LLM top 10](https://llmtop10.com/), and many more initiatives can benefit from consistent terminology and insights across the globe.
 
 
 **Sources:**  
@@ -86,14 +87,13 @@ The threats are organized by attack surface (how and where does the attack take 
 3. model theft by reverse engineering from using the AI system. These are three very different attacks, with similar impacts. This way of organizing is helpful because the goal is to link the threats to controls, and these controls vary per attack surface.
 
 **How about AI outside of machine learning?**  
-A helpful way to look at AI is to see it as consisting of machine learning (the current dominant type of AI) plus *heuristic models*. A model can be a machine learning model which has learned how to compute based on data, or it can be
-a heuristic model engineered based on human knowledge, e.g. a rule-based system. Heuristic models still need data for testing, and sometimes to perform analysis for further building and validating the human knowledge.  
-This document focuses on machine learning. The following threats (discussed further on in this document) also apply to heuristic systems:
-* Model evasion -attackers can still be motivated to fool a model, even if it is knowledge-based
-* Model theft through use - it is possible to train a machine learning model based om imput/output combinations from a heuristic model
+A helpful way to look at AI is to see it as consisting of machine learning (the current dominant type of AI) models and *heuristic models*. A model can be a machine learning model which has learned how to compute based on data, or it can be a heuristic model engineered based on human knowledge, e.g. a rule-based system. Heuristic models still need data for testing, and sometimes to perform analysis for further building and validating the human knowledge.  
+This document focuses on machine learning. Nevertheless, here is a quick summary of the machine learning threats from this document that also apply to heuristic systems:
+* Model evasion is also possible for heuristic models, -trying to find a loophole in the rules
+* Model theft through use - it is possible to train a machine learning model based om input/output combinations from a heuristic model
 * Overreliance in use - heuristic systems can also be relied on too much. The applied knowledge can be false
-* Data poisoning and model poisoning is possible by manipulating data that is used to improve knowledge and by manipulating the knowledge specification development-time or runtime
-* Data leaks can still be an issue
+* Data poisoning and model poisoning is possible by manipulating data that is used to improve knowledge and by manipulating the rules development-time or runtime
+* Leaks of data used for analysis or testing can still be an issue
 * Knowledgebase, source code and configuration can be regarded as sensitive data when it is intellectual property, so it needs protection
 * Leak sensitive input data, for example when a heuristic system needs to diagnose a patient
 
@@ -109,22 +109,22 @@ For more information on risk analysis, see the SECPROGRAM control.
 
 ## How about privacy?
 AI Privacy can be divided into two parts:
-1. The AI security threats and controls in this document that regarding privacy are about confidentiality and integrity of (personal) data (e.g. model inversion, leaking training data), plus the integrity of the model behaviour
+1. The AI security threats and controls in this document that are about confidentiality and integrity of (personal) data (e.g. model inversion, leaking training data), plus the integrity of the model behaviour
 2. Threats and controls with respect to rights of the individual, as covered by privacy regulations such as the GDPR, including use limitation, consent, fairness, transparency, data accuracy, right of correction/objection/reasure/access. For an overview, see the privacy part of the [OWASP AI guide](https://owasp.org/www-project-ai-security-and-privacy-guide/)
 
 ## How about Generative AI (e.g. LLM)?
 Yes, GenAI is the big topic and it's the fastest moving subfield of AI security. Nevertheless it is important to realize that other types of algorithms will remain to be applied to many important use cases such as credit scoring, fraud detection, medical diagnosis, product recommendation, image recognition, predictive maintenance, process control, etc. Relevant content has been marked with 'GenAI' in this document.
 
-Important note: Security-wise, GenAI is not that different. GenAI threats and controls largely overlap and are very similar to AI in general. Some risks are (much) higher. Some are lower. Only a few risks are GenAI-specific.  
+Important note: in terms of security, GenAI is not that different from other forms of AI. GenAI threats and controls largely overlap and are very similar to AI in general. Some risks are (much) higher. Some are lower. Only a few risks are GenAI-specific.  
 GenAI security particularities are: 
-* Evasion attacks for GenAI include specifically evasion of policies that intend to censor (e.g. violent) output
-* Unwanted output of sensitive training data is an AI-broad issue, but especially a high risk with systems that output rich content such as GenAI
-* Training data poisoning is an AI-broad problem, and with GenAI the risk is generally higher since training data can be supplied from different sources that may be challenging to control, such as the internet
-* Overreliance is an AI-broad issue, and in addition Large Language Models can make matters worse by coming across very confident and knowledgeable
-* GenAI models mostly live in the cloud - often managed by an external party, which increases the risk of leaking training data and leaking prompts. This issue is not limited to GenAI. Additional risks that are typucal for GenAI are: 1) model use involves user interaction through prompts, adding user data and corresponding privacy issues, and 2) GenAI model input (prompts) can contain rich context information with sensitive data (e.g. company secrets).
-* Pre-trained models are applied also outside of GenAI, but the approach is quite common in GenAI, which increases the risk of transfer learning attacks
-* The typical application of plug-ins in Large Language Models creates specific risks regarding the protection and privileges of these plugins - as they allow large language model to act outside of their normal conversation with the user
-* Prompt injection is a GenAI specific threat, listed under Application security threats
+1. Evasion attacks for GenAI include specifically evasion of policies that intend to censor (e.g. violent) output
+2. Unwanted output of sensitive training data is an AI-broad issue, but especially a high risk with systems that output rich content such as GenAI
+3. Training data poisoning is an AI-broad problem, and with GenAI the risk is generally higher since training data can be supplied from different sources that may be challenging to control, such as the internet
+4. Overreliance is an AI-broad issue, and in addition Large Language Models can make matters worse by coming across very confident and knowledgeable
+5. GenAI models mostly live in the cloud - often managed by an external party, which increases the risk of leaking training data and leaking prompts. This issue is not limited to GenAI. Additional risks that are typucal for GenAI are: 1) model use involves user interaction through prompts, adding user data and corresponding privacy issues, and 2) GenAI model input (prompts) can contain rich context information with sensitive data (e.g. company secrets).
+6. Pre-trained models are applied also outside of GenAI, but the approach is quite common in GenAI, which increases the risk of transfer learning attacks
+7. The typical application of plug-ins in Large Language Models creates specific risks regarding the protection and privileges of these plugins - as they allow large language model to act outside of their normal conversation with the user
+8.Prompt injection is a GenAI specific threat, listed under Application security threats
 
 GenAI References:
 * [OWASP LLM top 10](https://llmtop10.com/)
@@ -132,11 +132,11 @@ GenAI References:
 
 # Summary
 
-The AI security controls (in capitals) can be grouped along meta controls:
-1.	Apply **AI governance** (AIPROGRAM), e.g. ISO/IEC 42001
+The AI security controls (in capitals - and discussed further on in the document) can be grouped along meta controls:
+1.	Apply **AI governance** (AIPROGRAM)
 2.	Apply **information security management** (SECPROGRAM), with AI attention points:
-    * New assets: training/test data , input data, output data, model parameters, technical information about the model, and also code and configuration. This depends on if they represent important intellectual property, or if the data is sensitive, of if the data can help attackers to design an attack (DISCRETE).
-    *	New threats: ISO 27563 describes security of some AI use cases to assist in risk analysis, and 23894 elaborates on risk management. The AI Exchange and the upcoming ISO 27090 are more comprehensive sources for threats and controls.
+    * New assets: training/test data , input data, output data, model parameters, technical information about the model, and also code and configuration. This depends on if they represent important intellectual property, or if the data is sensitive, or if the data can help attackers to design an attack (DISCRETE).
+    *	New threats: ISO/IEC 27563 (on AI use cases security & privacy) describes security of some AI use cases to assist in risk analysis, and 23894 elaborates on risk management. The AI Exchange and the upcoming ISO 27090 (AI security) are more comprehensive sources for threats and controls.
     *	AI regulation needs to be taken into account (CHECKCOMPLIANCE)
     *	Awareness training needs to include AI threats and controls (SECEDUCATE)
     *	The information security controls in this document fall under the security management activity (e.g. model privileges, monitoring, access control, data protection, supply chain)
@@ -168,7 +168,7 @@ The AI security controls (in capitals) can be grouped along meta controls:
 11.	**Datascience development-time** controls:
     * CONTINUOUSVALIDATION
     * UNWANTEDBIASTESTING
-    *	EVASIONROBUSTMODEL (partly covered in 24029)
+    *	EVASIONROBUSTMODEL
     *	POISIONROBUSTMODEL
     *	TRAINADVERSARIAL
     *	TRAINDATADISTORTION
@@ -190,18 +190,18 @@ Note: For all controls in this document: a *vulnerability* occurs when a control
 --------------------------------------
 ## 1.1 General governance controls
 
-* AIPROGRAM (management). Take responsibility for AI as an organization, by keeping an inventory of AI initiatives, perform risk analysis and manage those risks.
+* AIPROGRAM (management). Take responsibility for AI as an organization, by keeping an inventory of AI initiatives, perform risk analysis on them, and manage those risks.
 
-  This includes assiging responsibilities, e.g. model accountability, data accountability, and risk governance. For the high risk systems: attain responsible AI and transparency in the form of communication and documentation, auditability, bias countermeasures, oversight and cyber security.
+  This includes assigning responsibilities, e.g. model accountability, data accountability, and risk governance. For the high risk systems: attain responsible AI and transparency in the form of communication and documentation, auditability, bias countermeasures, oversight and cyber security.
 
-  Technically one could argue that this control is out of scope for cyber security, but it initiaties action to get in control of AI security.
+  Technically one could argue that this control is out of scope for cyber security, but it initiates action to get in control of AI security.
   
   Purpose: 1) reduces probability of AI initiatives being overlooked for proper governance (including security) - as covered by controls in this document, and 2) increases incentive for proper governance as the AI program takes responsibility for it.  Without proper governance, the controls in this document can only happen by accident.
 
   See Risk management under SECPROGRAM for security-specific risk analysis.
 
   Links to standards:
-  * ISO/IEC 42001 AI management system (under development). Gap: full coverage.
+  * ISO/IEC 42001 AI management system (under development). Gap: covers this control fully.
 
 * SECPROGRAM (management). Include the whole AI lifecycle and AI particularities in the organization's security program (also referred to as *information security management system*).
 
@@ -222,7 +222,7 @@ Note: For all controls in this document: a *vulnerability* occurs when a control
   * Imported as-is models from github
 
   Links to standards: 
-  * The entire 27000-27005 range is applicable to AI systems in the general sense as they are IT systems. Gap: complete coverage with the high-level particularity that there are three AI-specific attack surfaces that need to be taken into account in information security management: 1)AI development-time attacks, 2)attacks through model use and 3)AI Application security attacks. See the controls under the corresponding sections to see more particularities.
+  * The entire 27000-27005 range is applicable to AI systems in the general sense as they are IT systems. Gap: covers this control fully, with the high-level particularity that there are three AI-specific attack surfaces that need to be taken into account in information security management: 1)AI development-time attacks, 2)attacks through model use and 3)AI Application security attacks. See the controls under the corresponding sections to see more particularities.
     These standards cover:
     *	ISO/IEC 27000 – Information security management systems – Overview and vocabulary
     *	ISO/IEC 27001 – Information security management systems – Requirements
@@ -239,11 +239,11 @@ Note: For all controls in this document: a *vulnerability* occurs when a control
   * Risk analysis standards:
     * This document contains AI security threats and controls to facilitate risk analysis
     * See also [MITRE ATLAS framework for AI threats](https://atlas.mitre.org/)
-    * ISO/IEC 27005 - as mentioned above. Gap: complete coverage with said particularity (as 27005 doesn't mention AI-specific threats)
-    * ISO/IEC 27563 Discusses the impact of security and privacy in AI use cases and may serve as useful input to AI security risk analysis. TODO: elaborate and specify gap
-    * ISO/IEC 23894 on AI Risk management. TODO: Elaborate and specify gap. Gap: complete coverage - yet it refers to ISO/IEC 24028 for AI security threats, which is incomplete compared to for example the AI exchange (this document). The scope is broader than security which is not an issue.
-    * ISO/IEC 5338 covers the AI risk management process. Gap: this coverage is in essence a summary of 23894.
-    * [ETSI TVRA](https://www.etsi.org/deliver/etsi_ts/102100_102199/10216501/05.02.03_60/ts_10216501v050203p.pdf)
+    * ISO/IEC 27005 - as mentioned above. Gap: covers this control fully, with said particularity (as 27005 doesn't mention AI-specific threats)
+    * ISO/IEC 27563 (AI use`` cases security & privacy) Discusses the impact of security and privacy in AI use cases and may serve as useful input to AI security risk analysis. TODO: elaborate and specify gap
+    * ISO/IEC 23894 (AI Risk management). TODO: Elaborate and specify gap. Gap: covers this control fully - yet it refers to ISO/IEC 24028 (AI trustworthiness) for AI security threats, which is incomplete compared to for example the AI exchange (this document). The scope is broader than security which is not an issue.
+    * ISO/IEC 5338 (AI lifecycle) covers the AI risk management process. Gap: same as 23894 above.
+    * [ETSI Method and pro forma for Threat, Vulnerability, Risk Analysis](https://www.etsi.org/deliver/etsi_ts/102100_102199/10216501/05.02.03_60/ts_10216501v050203p.pdf)
     * [NIST AI Risk Management Framework](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf)
     * [OpenCRE on security risk analysis](https://www.opencre.org/cre/307-242)
     * [NIST SP 800-53 on general security/privacy controls](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final)
@@ -260,9 +260,9 @@ Note: For all controls in this document: a *vulnerability* occurs when a control
   An important practice in secure software development is Threat modeling, which in the case of AI needs to take the threats in this document into account.
 
   Links to standards:
-  * 27002 control 8.25 Secure development lifecycle. Gap: good coverage with said particularity, but lack of detail - the 8.25 Control description in 27002(2022) is one page, whereas secure software development is a large and complex topic - see below for further references
-  * ISO/IEC 27115 is about Cybersecurity evaluation of complex systems. TODO: Eloborate and specify Gap.
-  * See [OpenCRE on secure software development processes](https://www.opencre.org/cre/616-305) with notable links to NIST SSDF and OWASP SAMM. Gap: complete coverage with said particularity
+  * 27002 control 8.25 Secure development lifecycle. Gap: covers this control fully, with said particularity, but lack of detail - the 8.25 Control description in 27002(2022) is one page, whereas secure software development is a large and complex topic - see below for further references
+  * ISO/IEC 27115 (Cybersecurity evaluation of complex systems). TODO: Eloborate and specify Gap.
+  * See [OpenCRE on secure software development processes](https://www.opencre.org/cre/616-305) with notable links to NIST SSDF and OWASP SAMM. Gap: covers this control fully, with said particularity
 
 * DEVPROGRAM (management). Apply general (not just security-oriented) software engineering best practices to AI development.
 
@@ -275,33 +275,33 @@ Note: For all controls in this document: a *vulnerability* occurs when a control
   Another best practice is to extend existing software engineering processes and practices to AI development, instead of treating AI as something that requires a separate approach.
 
   Links to standards:
-  * [ISO/IEC 5338](https://www.iso.org/standard/81118.html) Gap: complete coverage - the 5338 covers the complete software development lifecycle for AI, by extending the existing 12207 standard on software lifecycle: defining several new processes and discussing AI-specific particularities for existing processes.
-  * 27002 control 5.37 Documented operating procedures. Gap: minimal coverage - this covers only a very small part of the control
-  * [OpenCRE on documentation of function](https://www.opencre.org/cre/162-655)  Gap: minimal coverage - this covers only a very small part of the control
+  * [ISO/IEC 5338 - AI lifecycle](https://www.iso.org/standard/81118.html) Gap: covers this control fully - the 5338 covers the complete software development lifecycle for AI, by extending the existing 12207 standard on software lifecycle: defining several new processes and discussing AI-specific particularities for existing processes.
+  * 27002 control 5.37 Documented operating procedures. Gap: covers this control minimally - this covers only a very small part of the control
+  * [OpenCRE on documentation of function](https://www.opencre.org/cre/162-655)  Gap: covers this control minimally 
 
 * CHECKCOMPLIANCE (management). Laws and regulations need to be checked in order to validate compliance which may include security aspects. See the [OWASP AI Guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) for privacy aspects of AI.  
   Links to standards:
   * [OpenCRE on Compliance](https://www.opencre.org/cre/510-324)
-  * 27002 Control 5.36 Compliance with policies, rules and standards. Gap: complete coverage with the particularity that AI regulation needs to be taken into account.
+  * 27002 Control 5.36 Compliance with policies, rules and standards. Gap: covers this control fully, with the particularity that AI regulation needs to be taken into account.
 
 * SECEDUCATE (management). Educate data scientists and development teams on AI threats awareness - including the model attacks. Attaining a *security mindset* is essential for all engineers, including data scientists.
 
   Links to standards:
-  * 27002 Control 6.3 Awareness training. Gap: good coverage, but lacks detail and needs to take into account the particularity: training material needs to cover AI security threats and controls
+  * 27002 Control 6.3 Awareness training. Gap: covers this control fully, but lacks detail and needs to take into account the particularity: training material needs to cover AI security threats and controls
 
 --------------------------------------
 ## 1.2 General controls for sensitive data limitation
 
-* DATAMINIMIZE (development-time and runtime). Remove or anonymize data fields or records that are not needed for the application, to prevent them from leaking. A special form of data minimization is to statistically analyse which records or fields in a trainset are superfluous to achieving sufficient performance, and then remove those (Datascience).
+* DATAMINIMIZE (development-time and runtime). Remove or anonymize data fields or records that are not needed for the application, to prevent them from leaking. A special form of data minimization is to statistically analyze which records or fields in a training dataset are superfluous to achieving sufficient performance, and then remove those (Datascience).
 
   Purpose: reduce the impact in case of an attack by reducing the amount of data that can leak.  
 
   Links to standards:
   * Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODO: covered anywhere else?
 
-* ALLOWEDDATA  (development-time and runtime). Verify if the data used (e.g. train set) is allowed for the purpose. This may for example not be the case if no consent was given and the data contains personal data collected fo a different purpose.  
+* ALLOWEDDATA  (development-time and runtime). Verify if the data used (e.g. train set) is allowed for the purpose. This may for example not be the case if no consent was given and the data contains personal data collected for a different purpose.  
   Links to standards:
-  * ISO/IEC 23894 covers this in A.8 Privacy. Gap: good coverage with a brief section on the idea
+  * ISO/IEC 23894 (AI risk management) covers this in A.8 Privacy. Gap: covers this control fully, with a brief section on the idea
 
 * SHORTRETAIN  (development-time and runtime). Remove or anonymize data after it is no longer needed, or when it is legally required (e.g. privacy laws) to minimize the risk of the data leaking.  
   Links to standards:
@@ -325,19 +325,19 @@ Note: For all controls in this document: a *vulnerability* occurs when a control
  
 * DISCRETE (management, development-time and runtime). Minimize access to technical details that can help attackers.
 
-  Purpose: reduce information available to attackers that can help them select and tailor their attack, thereby reducing the probabily of a succesful attack.
+  Purpose: reduce information available to attackers that can help them select and tailor their attack, thereby reducing the probabily of a successful attack.
 
   Note: this control needs to be weighed against the AITRANSPARENCY control that requires to be more open about technical aspects of the model. The key is to minimize information that can help attackers while being transparent.   
 
   For example:  
   * Be careful with publishing technical articles on your solution
-  * Choose a model type or model implementation with which attackers are less familiar
+  * When choosing a model type or model implementation, take into account that there is an advantage of having technology with which attackers are less familiar
   * Minimize model output regarding technical details  
   
   Particularity: Technical data science details need to be incorporated in asset management, data classification and hence in risk analysis.  
 
   Links to standards:
-  *  27002 Control 5.9: Inventory of information and other associated assets. Gap: good coverage with the obvious particularity that technical data science details can be sensitive. As soon as the inventory identifies this, depending processes such as security requirements, risk analysis and awareness traing will take care of the threat. In other words: it starts with identifying this information as an asset.
+  *  27002 Control 5.9: Inventory of information and other associated assets. Gap: covers this control fully, with the obvious particularity that technical data science details can be sensitive. As soon as the inventory identifies this, depending processes such as security requirements, risk analysis and awareness traing will take care of the threat. In other words: it starts with identifying this information as an asset.
   * See [OpenCRE on data classification and handling](https://www.opencre.org/cre/074-873). Gap: idem
 
 --------------------------------------
@@ -367,30 +367,30 @@ Example: Large Language Models(GenAI), just like most AI models, induce their re
   * A special form of guard rails is censoring unwanted  output of GenAI models (e.g. violent, unethical)
 
   Links to standards:
-  * ISO/IEC 42001 B.9.3 defines controls for human oversight and decisions regarding autonomy. Gap: partial coverage (human oversight only, not business logic)
+  * ISO/IEC 42001 B.9.3 defines controls for human oversight and decisions regarding autonomy. Gap: covers this control partly (human oversight only, not business logic)
   * Not covered further in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
 
 * MINMODELPRIVILEGE (runtime infosec). Minimize privileges, for example by not connecting a model to an e-mail facility, to prevent it from sending out wrong information to others.
 
   Links to standards:
-  * 27002 control 8.2 Privileged access rights. Gap: good coverage with the particularity that privileges assigned to autonomous model decisions need to be assigned with the risk of unwanted model behaviour in mind.
+  * 27002 control 8.2 Privileged access rights. Gap: covers this control fully, with the particularity that privileges assigned to autonomous model decisions need to be assigned with the risk of unwanted model behaviour in mind.
   * [OpenCRE on least privilege](https://www.opencre.org/cre/368-633) Gap: idem
 
 * AITRANSPARENCY (runtime, management). By being transparent to users regarding how the model roughly works, how it has been trained, and the general expected accuracy and reliability of the AI system's output, people can adjust their reliance accordingly. The most simple form of this is to inform users that an AI model is involved.  
 See the DISCRETE control for the balance between being transparent and being discrete about the model. Transparency here is about providing abstract information regarding the model and is therefore something else than *explainability*.
 
    Links to standards:
-  * ISO/IEC 42001 B.7.2 describes data management to support transparency. Gap: minimal coverage as it only covers the data mnanagement part.
+  * ISO/IEC 42001 B.7.2 describes data management to support transparency. Gap: covers this control minimally, as it only covers the data mnanagement part.
   * Not covered further in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODO: covered anywhere else?
 
 * CONTINUOUSVALIDATION (runtime datascience). By frequently testing the behaviour of the model against an appropriate test set, sudden changes caused by a permanent attack (e.g. data poisoning, model poisoning) can be detected.
 
   Links to standards:
-  * ISO 5338 Continuous validation. Gap: complete coverage
+  * ISO 5338 (AI lifecycle) Continuous validation. Gap: covers this control fully
 
 * EXPLAINABILITY (runtime datascience). Explaining how individual model decisions came to be (a field referred to as XAI) can aid in gaining user trust in the model. In some cases this can also prevent overreliance, for example when the user sees the simplicity of 'reasoning', or even errors in that process. See [this Stanford article on explainability and overreliance](https://hai.stanford.edu/news/ai-overreliance-problem-are-explanations-solution).
 
-* UNWANTEDBIASTESTING (datascience). By doing test runs of the model to measure unwanted bias, unwanted behaviour can be detected. The details of bias detection fall outside the scope of this document.
+* UNWANTEDBIASTESTING (datascience). By doing test runs of the model to measure unwanted bias, unwanted behaviour caused by an attack can be detected. The details of bias detection fall outside the scope of this document as it is not a security concern - other than that an attack on model behaviour can cause bias.
 --------------------------------------
 --------------------------------------
 # 2. THREATS THROUGH USE
@@ -405,8 +405,8 @@ Threats through use take place through normal interaction with an AI model: prov
   *  detecting suspicious inputs (see DETECTODDINPUT and DETECTADVERSARIALINPUT) 
 
   Links to standards:
-  * 27002 Control 8.16 Monitoring activities. Gap: good coverage with the particularity: monitoring needs to look for specific patterns of AI attacks (e.g. model attacks through use). The 27002 control has no details on that.
-  * ISO/IEC 42001 B.6.2.6 discusses AI system operation and monitoring. Gap: complete coverage, but on a high abstraction level.
+  * 27002 Control 8.16 Monitoring activities. Gap: covers this control fully, with the particularity: monitoring needs to look for specific patterns of AI attacks (e.g. model attacks through use). The 27002 control has no details on that.
+  * ISO/IEC 42001 B.6.2.6 discusses AI system operation and monitoring. Gap: covers this control fully, but on a high abstraction level.
   * See [OpenCRE](https://www.opencre.org/cre/058-083). Idem
 
 * RATELIMIT (runtime appsec). Limit frequency of access to the model (e.g. API) - preferably per user.  
@@ -428,7 +428,7 @@ Threats through use take place through normal interaction with an AI model: prov
   Remaining risk: attackers may succeed in authenticating as an authorized user, or qualify as an authorized user, or bypass the access control through a vulnerability, or it is easy to become an authorized user (e.g. when the model is publicly available)
   
   Links to standards:
-  * Technical access control: 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: complete coverage
+  * Technical access control: 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: covers this control fully
   * [OpenCRE on technical access control](https://www.opencre.org/cre/724-770) 
   * [OpenCRE on centralized access control](https://www.opencre.org/cre/117-371)
 
@@ -481,7 +481,7 @@ Another categorization is to distinguish between physical input manipulation (e.
   TODO See Annex C in ENISA 2021 document for Stability terms, adversarial regulaiser, input gradient regularisation, defenisvie distillation and Random feature nullification.  
 
   Links to standards:
-  * ISO/IEC TR 24029 - Assessment of the robustness of neural networks. Gap: TODO.
+  * ISO/IEC TR 24029 (Assessment of the robustness of neural networks). Gap: TODO.
 
 * TRAINADVERSARIAL (development-time datascience). Add adversarial examples to the training set to make the model more resilient (Datascience). While adversarial training does make a model more robust against specific attacks, it is important to note that it also adds significant training overhead, does not scale well with model complexity / input dimension, can lead to overfitting, and may not generalize well to new attack methods. For a general summary of adversarial training, see [Bai et al.](https://arxiv.org/pdf/2102.01356.pdf)
 
@@ -553,7 +553,7 @@ The output of the model may contain sensitive data from the training set, for ex
 **Controls specific for sensitive data output from model:**
 * See General controls, in particular data minimization
 * See controls for threats through use
-* FILTERSENSITIVETRAINDATA (development-time appsec). Actively prevent sensitive data when constructing the trainset using manual verification and/or automated detection and/or careful selection of train data sources
+* FILTERSENSITIVETRAINDATA (development-time appsec). Actively prevent sensitive data when constructing the training dataset using manual verification and/or automated detection and/or careful selection of train data sources
   
   Links to standards:
   * Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
@@ -645,11 +645,11 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 * DEVDATAPROTECT ((development-time infosec). Protect (train/test) data, source code, configuration & parameters
   * Encryption of data at rest  
     Links to standards:
-    * 27002 control 5.33 Protection of records. Gap: complete coverage, with the particularities
+    * 27002 control 5.33 Protection of records. Gap: covers this control fully, with the particularities
     * [OpenCE on encryption of data at rest](https://www.opencre.org/cre/400-007)
   * Technical access control for the data, to limit access following the least privilege principle  
     Links to standards:
-    * 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: complete coverage, with the particularities
+    * 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: covers this control fully, with the particularities
     * [OpenCRE](https://www.opencre.org/cre/724-770) 
   * Centralized access control for the data  
     Links to standards:
@@ -657,14 +657,14 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
     * [OpenCRE](https://www.opencre.org/cre/117-371) 
   * Operational security to protect stored data  
     Links to standards:
-    * Many 27002 controls cover operational security. Gap: complete coverage, with the particularities.
+    * Many 27002 controls cover operational security. Gap: covers this control fully, with the particularities.
       * 27002 control 5.23 Information security for use of cloud services
       * 27002 control 5.37 Documented operating procedures
       * Many more 27002 controls (See OpenCRE link)
     * [OpenCRE](https://www.opencre.org/cre/862-452)
   * Logging and monitoring to detect suspicious manipulation of data, (e.g. outside office hours)  
     Links to standards:
-     * 27002 control 8.16 Monitoring activities. Gap: complete coverage
+     * 27002 control 8.16 Monitoring activities. Gap: covers this control fully
      * [OpenCRE on Detect and respond](https://www.opencre.org/cre/887-750) 
   
 * DEVSECURITY (management). The security management system needs to take into account the AI particularity: the AI development infrastructure holds sensitive information - regarding people, process and technology perspective. E.g. screening of development personnel, protection of source code/configuration, virus scanning on engineering machines.
@@ -675,7 +675,7 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 * SEGREGATEDATA (development-time infosec). Store sensitive training or test data in a separated environment with restricted access.
 
   Links to standards:
-  * 27002 control 8.31 Separation of development, test and production environments. Gap: medium coverage - the particularity is that the development environment typically has the sensitive data instead of the production environment - which is typically the other way around in non-AI systems. Therefore it helps to restrict access to that data within the development environment. Even more: within the development environment further segregation can take place to limit access to only those who need the data for their work, as some developers will not be processing data.
+  * 27002 control 8.31 Separation of development, test and production environments. Gap: covers this control partly - the particularity is that the development environment typically has the sensitive data instead of the production environment - which is typically the other way around in non-AI systems. Therefore it helps to restrict access to that data within the development environment. Even more: within the development environment further segregation can take place to limit access to only those who need the data for their work, as some developers will not be processing data.
 
 * CONFCOMPUTE (development-time infosec). 'Confidential compute': If available and possible, use features of the data science environment to hide training data and model parameters from model engineers
 
@@ -699,9 +699,9 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
   Standard supply chain management includes provenance & pedigree, verifying signatures, using package repositories, frequent patching, and using dependency verification tools.  
 
   Links to standards:
-  * 27002 Controls 5.19, 5.20, 5.21, 5.22, 5.23, 8.30. Gap: good coverage, with the particularity, and lacking controls on data provenance.
-  * ISO/IEC AWI 5181 on Data provenance. Gap: covers the data provenance aspect to complete the coverage together with the 27002 controls - provided that the provenance concerns all sensitive data and is not limited to personal data.
-  * ISO/IEC 42001 briefly mentions data provenance and refers to 5181 in section B.7.5
+  * 27002 Controls 5.19, 5.20, 5.21, 5.22, 5.23, 8.30. Gap: covers this control fully, with said particularity, and lacking controls on data provenance.
+  * ISO/IEC AWI 5181 (Data provenance). Gap: covers the data provenance aspect to complete the coverage together with the 27002 controls - provided that the provenance concerns all sensitive data and is not limited to personal data.
+  * ISO/IEC 42001 (AI management) briefly mentions data provenance and refers to 5181 in section B.7.5
   * [OpenCRE](https://www.opencre.org/cre/613-285)
   
 
@@ -746,11 +746,11 @@ Background: An important risk factor in the additional attack surface of AI engi
 
   Particularity: standard quality control needs to take into account that data may have maliciously been changed.  
 
-  A method to detect statistical deviation is to train models on random selections of the trainset and then feed each training sample to those models and compare results. TODO: Elaborate.  
+  A method to detect statistical deviation is to train models on random selections of the training dataset and then feed each training sample to those models and compare results. TODO: Elaborate.  
   TODO: elaborate on RONI and tRONI training sample selection
 
   Links to standards:
-  * ISO/IEC 5259 series on Data quality for analytics and ML. Gap: minimnl coverage in light of the particularity - the standard does not mention approaches to detect malicious changes (including detecting statistical deviations). Nevertheless, standard data quality control helps to detect malicious changes that violate data quality rules.
+  * ISO/IEC 5259 series on Data quality for analytics and ML. Gap: covers this control minimally. in light of the particularity - the standard does not mention approaches to detect malicious changes (including detecting statistical deviations). Nevertheless, standard data quality control helps to detect malicious changes that violate data quality rules.
   * ISO/iEC 42001 B.7.4 briefly covers data quality for AI. Gap: idem as 5259
   * Not further covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
 
