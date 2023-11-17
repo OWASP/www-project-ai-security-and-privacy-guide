@@ -10,9 +10,9 @@ pitch: Guidance on designing, creating, testing, and procuring secure and privac
 ---
 <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aisecprivlogosml.jpeg?raw=true" width="600" height ="127"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/humansonly.png?raw=true" align="right"/>
 
-Note: this page is the OWASP AI security & privacy guide. It consists of two parts:
-1. A stable version of the [OWASP AI exchange](owaspaiexchange.md) that contains AI security threats and controls
-2. A section on AI privacy.
+This page is the OWASP AI security & privacy guide. It has two parts:
+1. [How to deal with AI security](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/index.md#how-to-deal-with-ai-security): an older version of the [OWASP AI exchange](owaspaiexchange.md) on AI security threats and controls
+2. [How to deal with AI privacy](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/index.md#how-to-deal-with-ai-privacy)
 
 Artificial Intelligence (AI) is on the rise and so are the concerns regarding AI security and privacy. This guide is a working document to provide clear and actionable insights on designing, creating, testing, and procuring secure and privacy-preserving AI systems. 
 
