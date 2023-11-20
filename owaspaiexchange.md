@@ -58,6 +58,12 @@ Search 'TODO' for where contributions are needed the most.
 - Zoe Braiterman (Mutual Knowledge Systems, US) - Many markdown improvements
 - Niklas Bunzel (Fraunhofer institute, Germany) - datascience discussion and references around evasion attacks
 
+**General TODO's:**
+
+-Add a conclusion next to the summary
+-Create a layout that is less list-like and more of a read
+-Create a way to link to Controls and to Threats with permanent links (we probably need to generate html from the md)
+
 # Introduction
 
 ## BLUF: How to Deal with AI Security
