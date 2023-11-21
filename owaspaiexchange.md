@@ -145,7 +145,7 @@ GenAI security particularities are:
 5. GenAI models mostly live in the cloud - often managed by an external party, which increases the risk of leaking training data and leaking prompts. This issue is not limited to GenAI. Additional risks that are typucal for GenAI are: 1) model use involves user interaction through prompts, adding user data and corresponding privacy issues, and 2) GenAI model input (prompts) can contain rich context information with sensitive data (e.g. company secrets).
 6. Pre-trained models are applied also outside of GenAI, but the approach is quite common in GenAI, which increases the risk of transfer learning attacks
 7. The typical application of plug-ins in Large Language Models creates specific risks regarding the protection and privileges of these plugins - as they allow large language model to act outside of their normal conversation with the user
-8.Prompt injection is a GenAI specific threat, listed under Application security threats
+8. Prompt injection is a GenAI specific threat, listed under Application security threats
 
 GenAI References:
 
