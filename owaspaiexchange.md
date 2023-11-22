@@ -180,7 +180,7 @@ The AI security controls (in capitals - and discussed further on in the document
    - SUPPLYCHAINMANAGE
 6. Completely **new application security controls** are MODELOBFUSCATION and protection against indirect prompt injection of GenAI: PROMPTINPUTVALIDATION plus INPUTSEGREGATION
 7. **Limit the amount of data and the time it is stored**, if it is sensitive (DATAMINIMIZE, ALLOWEDDATA, SHORTRETAIN, OBFUSCATETRAININGDATA)
-8. **Limit the effect** of unwanted model behaviour (OVERSIGHT, MINMODELPRIVILEGE, AITRAINSPARENCY, EXPLAINABILITY)
+8. **Limit the effect** of unwanted model behaviour (OVERSIGHT, LEASTMODELPRIVILEGE, AITRAINSPARENCY, EXPLAINABILITY)
 9. **Datascience runtime** controls when using the model:
    - CONTINUOUSVALIDATION
    - UNWANTEDBIASTESTING
@@ -421,7 +421,7 @@ Example: Large Language Models(GenAI), just like most AI models, induce their re
   - ISO/IEC 42001 B.9.3 defines controls for human oversight and decisions regarding autonomy. Gap: covers this control partly (human oversight only, not business logic)
   - Not covered further in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
 
-- **MINMODELPRIVILEGE** (runtime infosec). Minimize privileges, for example by not connecting a model to an e-mail facility, to prevent it from sending out wrong information to others.
+- **LEASTMODELPRIVILEGE** (runtime infosec). Minimize privileges, for example by not connecting a model to an e-mail facility, to prevent it from sending out wrong information to others.
 
   Links to standards:
 
@@ -1260,7 +1260,7 @@ Misc.:
     1.3. Controls to limit the effects of unwanted behaviour from threats:
 
   - OVERSIGHT (runtime)
-  - MINMODELPRIVILEGE (runtime infosec)
+  - LEASTMODELPRIVILEGE (runtime infosec)
   - AITRANSPARENCY (runtime, management)
   - CONTINUOUSVALIDATION (runtime datascience)
   - EXPLAINABILITY (runtime datascience)
