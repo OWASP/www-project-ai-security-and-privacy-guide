@@ -1029,12 +1029,12 @@ Data manipulation is referred to as data poisoning and is covered in separate th
 
 ### 3.1.3 Transfer learning attack
 
-Supplying a manipulated pre-trained model (e.g. a GenAI model) that serves as a base to be further trained.
+An attacker supplies a manipulated pre-trained model (e.g. a GenAI model) which is then unknowingly further trained/fine tuned with still having the unwanted behaviour.
 
 **Controls specific for transfer learning:**
 
 - See General controls
-- See controls for development-time protection
+- SUPPLYCHAINMANAGE
 - TODO: Choose a model type resilient against a transfer learning attack
 
 ---
