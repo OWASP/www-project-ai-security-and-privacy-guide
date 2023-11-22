@@ -436,7 +436,7 @@ Example: Large Language Models(GenAI), just like most AI models, induce their re
   - ISO/IEC 42001 B.7.2 describes data management to support transparency. Gap: covers this control minimally, as it only covers the data mnanagement part.
   - Not covered further in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODO: covered anywhere else?
 
-- **CONTINUOUSVALIDATION** (runtime datascience). By frequently testing the behaviour of the model against an appropriate test set, sudden changes caused by a permanent attack (e.g. data poisoning, model poisoning) can be detected.
+- **CONTINUOUSVALIDATION** (datascience). By frequently testing the behaviour of the model against an appropriate test set, sudden changes caused by a permanent attack (e.g. data poisoning, model poisoning) can be detected.
 
   Links to standards:
 
