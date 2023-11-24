@@ -248,18 +248,24 @@ The [US Federal Trade Committe](https://www.ftc.gov/business-guidance/blog/2023/
 
 The [EU AI act](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:52021PC0206&from=EN) does pose explicit application limitations, such as mass surveillance, predictive policing, and restrictions on high-risk purposes such as selecting people for jobs. In addition, there are regulations for specific domains that restrict the use of data, putting limits to some AI approaches (e.g. the medical domain). 
 
-**The AI act in a nutshell:**
-* It will be wise for every AI initiative to perform risk analysis
-* AI is broadly defined here and includes wider statistical approaches and optimization algorithms
-* Human rights are at the core of the AI act, so risks are analyzed from a perspective of harmfulness to people
-* Based on the risk level, an expected 10% of AI applications will require special governance
-* The special governance includes public transparency/documentation, auditability, bias countermeasures, and oversight
-* Some initiatives will be forbidden, such as mass face recognition in public spaces and predictive policing
-* For generative AI, the transparency needs to include being open about what copyrighted sources were used
-* To illustrate: if OpenAI for example would violate this rule, Microsoft could face a 10 billion dollar fine
+**The EU AI Act in a nutshell:**
+
+Human rights are at the core of the AI Act, so risks are analyzed from a perspective of harmfulness to people.
+
+The Act identifies four risk levels for AI systems:
+  * **Unacceptable risk**: will be banned. Includes: Manipulation of people, social scoring, and real-time remote biometric identification (e.g. face recognition with cameras in public space).
+  * **High risk**: products already under safety legislation, plus eight areas (including critical infrastructure and law enforcement). These systems need to comply with a number of rules including the a security risk assessment and conformity with harmonized (adapted) AI security standards OR the essential requirements of the Cyber Resilience Act (when applicable). 
+  * **Limited risk**: has limited potential for manipulation. Should comply with minimal transparency requirements to users that would allow users to make informed decisions. After interacting with the applications, the user can then decide whether they want to continue using it.
+  * **Minimal/non risk**: the remaining systems.
+
+So organizations will have to know their AI initiatives and perform high-level risk analysis to determine the risk level.
+
+AI is broadly defined here and includes wider statistical approaches and optimization algorithms.
+
+Generative AI needs to disclose what copyrighted sources were used, and prevent illegal content. To illustrate: if OpenAI for example would violate this rule, they could face a 10 billion dollar fine.
 
 Links:
-* [Original draft AI act](https://www.europarl.europa.eu/RegData/docs_autres_institutions/commission_europeenne/com/2021/0206/COM_COM(2021)0206_EN.pdf)
+* [Original draft AI Act](https://www.europarl.europa.eu/RegData/docs_autres_institutions/commission_europeenne/com/2021/0206/COM_COM(2021)0206_EN.pdf)
 * [Amendments](https://www.europarl.europa.eu/doceo/document/CJ40-PR-731563_EN.pdf)
 * [More information](https://www.europarl.europa.eu/legislative-train/theme-a-europe-fit-for-the-digital-age/file-regulation-on-artificial-intelligence)
 
