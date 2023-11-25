@@ -861,7 +861,7 @@ Background: Data science (data engineering and model engineering - for machine l
 
 **Particularities:**
 
-- Particularity 1: don't just protect the data in the live system - also protect the data in the development environment (including test) as it is real data - since it is needed to train a model.
+- Particularity 1: the data in the AI development environment is real data that is typically sensitive, because it is needed to train the model and that obviously needs to happen on real data, instead of fake data that you typically see in standard development environent situations (e.g. fpr testing). Therefore, data protection activities need to be extended from the live system to the development environment.
 - Particularity 2: elements in the AI development environment (data, code, configuration & parameters) require extra protection as they are prone to attacks to manipulate model behaviour (called _poisoning_)
 - Particularity 3: source code, configuration, and parameters are typically critical intellectual property in AI
 
@@ -970,11 +970,9 @@ TODO: add more info on how to practically implement the controls. Integration. M
 
 The attacker manipulates (training) data to affect the algorithm's behavior. Also called _causative attacks_.
 
-Example 1: breaking into a training set database to add images of stop signs with yellow stickers, labeling them as 55 mile/hr signs, to dangerously fool a self-driving car by putting stickers on real stop signs. See [MITRE ATLAS - Poison traing data](https://atlas.mitre.org/techniques/AML.T0020)
-Example 2: training data obtained from a malicious supplier has been poisoned. See [MITRE ATLAS - Publish poisoned datasets](https://atlas.mitre.org/techniques/AML.T0019) 
+Example 1: an attacker breaks into a training set database to add images of houses and labels them as 'fighter plane', to mislead the camera system of an autonomous missile. The missile is then manipulated to attack houses. With a good test set this unwanted behaviour may be detected. However, the attacker can make the poisoned data represent input that normally doesn't occur and therefore would not be in a testset. Tje attacker can then create that abnormal input in practice. In the previous exmaple this could be houses with white crosses on the door.  See [MITRE ATLAS - Poison traing data](https://atlas.mitre.org/techniques/AML.T0020)
+Example 2: a malicious supplier poisons data that is later obtained by another party to train a model. See [MITRE ATLAS - Publish poisoned datasets](https://atlas.mitre.org/techniques/AML.T0019) 
 Example 3: false information in documents on the internet causes a Large Language Model to output false results. That false information can be planted by an attacker, but of course also by accident. The latter case is a real GenAI risk, but technically comes down to the issue of having false data in a training set which falls outside of the security scope.
-
-Background: An important risk factor in the additional attack surface of AI engineering is the presence of production data in the engineering process. In order to train and test a working model, data scientists need access to real data, which may be sensitive. This is different from non-AI engineering in which typically the test data can be either synthesized or anonymized. An appropriate countermeasure is the limitation of access to this data to the engineers that really need it, and shield it from the rest of the team. In addition, some AI platforms provide mechanisms that allow the training and testing of a model without the data scientists having access to the data.
 
 **Controls for data poisoning:**
 
