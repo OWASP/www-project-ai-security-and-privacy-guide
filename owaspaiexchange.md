@@ -133,7 +133,7 @@ For more information on risk analysis, see the SECPROGRAM control.
 AI Privacy can be divided into two parts:
 
 1. The AI security threats and controls in this document that are about confidentiality and integrity of (personal) data (e.g. model inversion, leaking training data), plus the integrity of the model behaviour
-2. Threats and controls with respect to rights of the individual, as covered by privacy regulations such as the GDPR, including use limitation, consent, fairness, transparency, data accuracy, right of correction/objection/reasure/access. For an overview, see the [Privacy part of the OWASP AI guide]([https://owasp.org/www-project-ai-security-and-privacy-guide/](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/index.md#how-to-deal-with-ai-privacy))
+2. Threats and controls with respect to rights of the individual, as covered by privacy regulations such as the GDPR, including use limitation, consent, fairness, transparency, data accuracy, right of correction/objection/reasure/access. For an overview, see the [Privacy part of the OWASP AI guide](https://owasp.org/www-project-ai-security-and-privacy-guide/](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/index.md#how-to-deal-with-ai-privacy)
 
 # How about Generative AI (e.g. LLM)?
 
