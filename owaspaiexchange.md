@@ -14,17 +14,17 @@ Maintained here at [owaspai.org](https://owaspai.org) it currently uses both a G
 
 Table of contents:
 
-- [How to contribute](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/edit/main/owaspaiexchange.md#how-to-contribute)
-- [Introduction](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#introduction)
-- [Privacy](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#how-about-privacy)
-- [Generative AI](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#how-about-generative-ai-eg-llm)
-- [Summary](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#summary)
-- [1. General controls for all threats](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#1-general-controls---for-all-threats)
-- [2. Threats through use](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#2-threats-through-use)
-- [3. Development-time threats](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#3-development-time-threats)
-- [4. Runtime Application security threats](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#4-runtime-application-security-threats)
-- [References](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#references)
-- [Expanded Table of contents](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#expanded-table-of-contents)
+- [How to contribute](#how-to-contribute)
+- [Introduction](#introduction)
+- [Privacy](#how-about-privacy)
+- [Generative AI](#how-about-generative-ai-eg-llm)
+- [Summary](#summary)
+- [1. General controls for all threats](#1-general-controls---for-all-threats)
+- [2. Threats through use](#2-threats-through-use)
+- [3. Development-time threats](#3-development-time-threats)
+- [4. Runtime Application security threats](#4-runtime-application-security-threats)
+- [References](#references)
+- [Expanded Table of contents](#expanded-table-of-contents)
 
 The navigator diagram below shows all threats, controls and how they relate, including risks and the types of controls.  
 Click on the image to get a pdf with clickable links.
