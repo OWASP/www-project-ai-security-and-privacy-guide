@@ -963,7 +963,9 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 
 ## 3.1. Broad model poisoning: model behaviour manipulation by altering data, engineering, or model
 
-Impact: see ‘Evasion’, with the note that two extra types of manipulation are possible:
+Impact: Integrity of model behaviour is affected, leading to issues from unwanted model output (e.g. failing fraud detection, decisions leading to safety issues, reputation damage, liability).
+
+The type of impact on behaviour using broad model poisoning is typically more profound than whit an evasion attack, for example:
 
 - Backdoors - which trigger unwanted responses to specific input variations (e.g. a money transaction is wrongfully marked as NOT fraud because it has a specific amount of money for which the model has been manipulated to ignore). Other name: _Trojan attack_
 - Unavailability by sabotage, leading to e.g. business continuity problems or safety issues
