@@ -940,13 +940,15 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 
   - Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
 
-- **SUPPLYCHAINMANAGE** (development-time infosec), including data provenance, to prevent that malicious AI components, source data or source models are obtained from unreliable sources.
-  The Software Bill Of Materials (SBOM) becomes the AIBOM (AI Bill Of Materials) or MBOM (Model Bill of Material). AI systems often have a variation of supply chains, including the data supply chain, the labeling supply chain, and the model supply chain.
+- **SUPPLYCHAINMANAGE** (development-time infosec) Managing the supply chain to to minimize the security risk from externally obtained elements. In regular software engineering these elements are source code or software components (e.g. open source). The particularity for AI is that this also includes obtained data and obtained models.
 
-  Particularity: apart from code and components, data and models can also be part of the supply chain in AI. Data may include annotations and lables that are supplied by another source.
+  Security risks in obtained elements can arise from accidental mistakes or from manipulations - just like with obtained source code or software components.
+
+  Data provenance is a helpful activity to support supply chain management for obtained data.  The Software Bill Of Materials (SBOM) becomes the AIBOM (AI Bill Of Materials) or MBOM (Model Bill of Material). AI systems often have a variation of supply chains, including the data supply chain, the labeling supply chain, and the model supply chain.
+
   Standard supply chain management includes provenance & pedigree, verifying signatures, using package repositories, frequent patching, and using dependency verification tools.
 
-  See [MITRE ATLAS - ML Supply chain compromise[(https://atlas.mitre.org/techniques/AML.T0010).
+  See [MITRE ATLAS - ML Supply chain compromise](https://atlas.mitre.org/techniques/AML.T0010).
 
   Links to standards:
 
