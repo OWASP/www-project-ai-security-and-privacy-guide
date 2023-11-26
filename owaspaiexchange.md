@@ -946,6 +946,8 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 
   Security risks in obtained elements can arise from accidental mistakes or from manipulations - just like with obtained source code or software components.
 
+  Just like with obtained sourc code or software components, data or models may involve multip suppliers. For example: a model is trained by one vendor and then fine-tuned by another vendor. Or: an AI system contains multiple models, one is a model that has been fine-tuned with data from source X, using a base model from vendor A that claims data is used from sources Y and Z, where the data from source Z was labeled by vendor B.
+
   Data provenance is a helpful activity to support supply chain management for obtained data.  The Software Bill Of Materials (SBOM) becomes the AIBOM (AI Bill Of Materials) or MBOM (Model Bill of Material). AI systems often have a variation of supply chains, including the data supply chain, the labeling supply chain, and the model supply chain.
 
   Standard supply chain management includes provenance & pedigree, verifying signatures, using package repositories, frequent patching, and using dependency verification tools.
