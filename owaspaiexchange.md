@@ -212,8 +212,9 @@ The AI security controls (in capitals - and discussed further on in the document
 
 # Mapping guidelines to controls
 
-The UK [Guidelines for secure AI
-system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development) map to the [controls](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf) in the AI Exchange as follows:
+Mapping of the UK/US [Guidelines for secure AI
+system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development) to the controls here at the AI Exchange:  
+(Search for them in this document or use the [Navigator](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf))
 
 1. Secure design
 - Raise staff awareness of threats and risks:  
