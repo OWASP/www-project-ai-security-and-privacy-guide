@@ -19,6 +19,7 @@ Table of contents:
 - [Privacy](#how-about-privacy)
 - [Generative AI](#how-about-generative-ai-eg-llm)
 - [Summary](#summary)
+- [Mapping guidelines to controls](#mapping-guidelines-to-controls)
 - [1. General controls for all threats](#1-general-controls---for-all-threats)
 - [2. Threats through use](#2-threats-through-use)
 - [3. Development-time threats](#3-development-time-threats)
@@ -208,6 +209,54 @@ The AI security controls (in capitals - and discussed further on in the document
     - DATAQUALITYCONTROL (covered in 5259 but not aimed at data manipulation)
 
 ---
+
+# Mapping guidelines to controls
+
+The UK [Guidelines for secure AI
+system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development) map to the controls in the AI Exchange as follows:
+
+1. Secure design
+- Raise staff awareness of threats and risks:  
+  #SECEDUCATE
+- Model the threats to your system:  
+  See Risk analysis under #SECPROGRAM
+- Design your system for security as well as functionality and performance:  
+  #AIPROGRAM, #SECPROGRAM, #DEVPROGRAM, #SECDEVPROGRAM, #CHECKCOMPLIANCE, #LEASTMODELPRIVILEGE, #DISCRETE, #OBSCURECONFIDENCE, #OVERSIGHT, #RATELIMIT,  #DOSINPUTVALIDATION, #LIMITRESOURCES, #MODELACCESSCONTROL, #AITRANSPRENCY
+- Consider security benefits and trade-offs when selecting your AI model  
+  All development-time datascience controls (currently 13), #EXPLAINABILITY
+
+2. Secure Development
+- Secure your supply chain:  
+  #SUPPLYCHAINMANAGE
+- Identify, track and protect your assets:  
+  #DEVDATAPROTECT, #DEVSECURITY, #SEGREGATEDATA, #CONFCOMPUTE, #MODELINPUTCONFIDENTIALITY, #RUNTIMEMODELCONFIDENTIALITY, #DATAMINIMIZE, #ALLOWEDDATA, #SHORTRETAIN, #OBFUSCATETRAININGDATA and part of #SECPROGRAM
+- Document your data, models and prompts:  
+  Part of #DEVPROGRAM
+- Manage your technical debt:  
+  Part of #DEVPROGRAM
+
+3. Secure deployment
+- Secure your infrastructure:  
+  Part of #SECPROGRAM and see ‘Identify, track and protect your assets’
+- Protect your model continuously:  
+  #INPUTDISTORTION, #FILTERSENSITIVEMODELOUTPUT, #RUNTIMEMODELIOINTEGRITY, #MODELINPUTCONFIDENTIALITY, #PROMPTINPUTVALIDATION, #INPUTSEGREGATION
+- Develop incident management procedures:  
+  Part of #SECPROGRAM
+- Release AI responsibly:  
+  Part of #DEVPROGRAM
+- Make it easy for users to do the right things:  
+  Part of #SECPROGRAM
+
+4. Secure operation and maintenance
+- Monitor your system’s behaviour:  
+  #CONTINUOUSVALIDATION, #UNWANTEDBIASTESTING
+- Monitor your system’s inputs:  
+  #MONITORUSE, #DETECTODDINPUT, #DETECTADVERSARIALINPUT
+- Follow a secure by design approach to updates:  
+  Part of #SECDEVPROGRAM
+- Collect and share lessons learned:  
+  Part of #SECPROGAM and #SECDEVPROGRAM
+
 
 ---
 
