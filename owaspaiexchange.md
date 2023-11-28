@@ -1,6 +1,6 @@
 <a href="https://owaspai.org"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aixlogosml.jpg?raw=true"></a>
 
-[Contribute Now!](#how-to-contribute)&nbsp;&nbsp;&nbsp;[Register with the Exchange](https://forms.gle/XwEEK52y4iZQChuJ6)&nbsp;&nbsp;&nbsp;[HTML version](https://owasp.org/www-project-ai-security-and-privacy-guide/owaspaiexchange.html)&nbsp;&nbsp;&nbsp;[Word document](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/owaspaiexchangeWORD.docx)&nbsp;&nbsp;&nbsp;[Navigator](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf)
+[Contribute Now!](#how-to-contribute)&nbsp;&nbsp;&nbsp;[Register with the Exchange](https://forms.gle/XwEEK52y4iZQChuJ6)&nbsp;&nbsp;&nbsp;[HTML version](https://owasp.org/www-project-ai-security-and-privacy-guide/owaspaiexchange.html)&nbsp;&nbsp;&nbsp;[Github version](https://owaspai.org)&nbsp;&nbsp;&nbsp;[Word version](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/owaspaiexchangeWORD.docx)&nbsp;&nbsp;&nbsp;[Navigator](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf)
 
 **Purpose**
 
