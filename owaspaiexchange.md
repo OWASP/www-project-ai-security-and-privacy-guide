@@ -1,6 +1,7 @@
 <a href="https://owaspai.org"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aixlogosml.jpg?raw=true"></a>
 
-[Contribute Now!](#how-to-contribute)&nbsp;&nbsp;&nbsp;[Register with the Exchange](https://forms.gle/XwEEK52y4iZQChuJ6)&nbsp;&nbsp;&nbsp;[HTML version](https://owasp.org/www-project-ai-security-and-privacy-guide/owaspaiexchange.html)&nbsp;&nbsp;&nbsp;[Github version](https://owaspai.org)&nbsp;&nbsp;&nbsp;[Word version](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/owaspaiexchangeWORD.docx)&nbsp;&nbsp;&nbsp;[Navigator](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf)
+[Contribute Now!](#how-to-contribute)&nbsp;&nbsp;&nbsp;[Register with the Exchange](https://forms.gle/XwEEK52y4iZQChuJ6)&nbsp;&nbsp;&nbsp;[Navigator](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf)  
+[HTML version](https://owasp.org/www-project-ai-security-and-privacy-guide/owaspaiexchange.html)&nbsp;&nbsp;&nbsp;[Github version](https://owaspai.org)&nbsp;&nbsp;&nbsp;[Word version](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/owaspaiexchangeWORD.docx)
 
 **Purpose**
 
@@ -138,19 +139,21 @@ AI Privacy can be divided into two parts:
 
 # How about Generative AI (e.g. LLM)?
 
-Yes, GenAI is the big topic and it's the fastest moving subfield of AI security. Nevertheless it is important to realize that other types of algorithms will remain to be applied to many important use cases such as credit scoring, fraud detection, medical diagnosis, product recommendation, image recognition, predictive maintenance, process control, etc. Relevant content has been marked with 'GenAI' in this document.
+Yes, GenAI is leading the current AI revolution and it's the fastest moving subfield of AI security. Nevertheless it is important to realize that other types of algorithms will remain to be applied to many important use cases such as credit scoring, fraud detection, medical diagnosis, product recommendation, image recognition, predictive maintenance, process control, etc. Relevant content has been marked with 'GenAI' in this document.
 
-Important note: in terms of security, GenAI is not that different from other forms of AI. GenAI threats and controls largely overlap and are very similar to AI in general. Some risks are (much) higher. Some are lower. Only a few risks are GenAI-specific.  
+Important note: from a security framework perspective, GenAI is not that different from other forms of AI. GenAI threats and controls largely overlap and are very similar to AI in general. Nevertheless, some risks are (much) higher. Some are lower. Only a few risks are GenAI-specific.  
+
 GenAI security particularities are:
 
 1. Evasion attacks for GenAI include specifically evasion of policies that intend to censor (e.g. violent) output
-2. Unwanted output of sensitive training data is an AI-broad issue, but especially a high risk with systems that output rich content such as GenAI
-3. Training data poisoning is an AI-broad problem, and with GenAI the risk is generally higher since training data can be supplied from different sources that may be challenging to control, such as the internet
+2. Unwanted output of sensitive training data is an AI-broad issue, but especially a high risk with systems that output rich content such as GenAI. A GenAI model will not respect any variations in access privileges of training data. All data will be accessible to the model users
+3. Training data poisoning is an AI-broad problem, and with GenAI the risk is generally higher since training data can be supplied from different sources that may be challenging to control, such as the internet. Attackers could for example hijack domains and place manipulated information.
 4. Overreliance is an AI-broad issue, and in addition Large Language Models can make matters worse by coming across very confident and knowledgeable
 5. GenAI models mostly live in the cloud - often managed by an external party, which increases the risk of leaking training data and leaking prompts. This issue is not limited to GenAI. Additional risks that are typucal for GenAI are: 1) model use involves user interaction through prompts, adding user data and corresponding privacy issues, and 2) GenAI model input (prompts) can contain rich context information with sensitive data (e.g. company secrets).
 6. Pre-trained models are applied also outside of GenAI, but the approach is quite common in GenAI, which increases the risk of transfer learning attacks
 7. The typical application of plug-ins in Large Language Models creates specific risks regarding the protection and privileges of these plugins - as they allow large language model to act outside of their normal conversation with the user
 8. Prompt injection is a GenAI specific threat, listed under Application security threats
+9. In-context learning (adding background information to a prompt) creates new security issues when the background information is sensitive: for example data from all reports ever written at a consultancy firm. First of all, this information will travel with the prompt to the cloud, and second: the system may not respect the original access rights to the information.
 
 GenAI References:
 
@@ -806,7 +809,9 @@ The model discloses sensitive training data or is abused to do so.
 
 ### 2.2.1. Sensitive data output from model
 
-The output of the model may contain sensitive data from the training set, for example a large language model(GenAI) generating output including personal data that was part of its training set. Furthermore, GenAI can ouput other types of sensitive data, such as copyrighted text or images. The disclosure is caused by an unintentional fault of including this data, and exposed through normal use or through provocation by an attacker using the system. See [MITRE ATLAS - LLM Data Leakage](https://atlas.mitre.org/techniques/AML.T0057)
+The output of the model may contain sensitive data from the training set, for example a large language model(GenAI) generating output including personal data that was part of its training set. Furthermore, GenAI can output other types of sensitive data, such as copyrighted text or images. Once training data is in a GenAI model, original variations in access rights do not apply anymore.
+
+The disclosure is caused by an unintentional fault of including this data, and exposed through normal use or through provocation by an attacker using the system. See [MITRE ATLAS - LLM Data Leakage](https://atlas.mitre.org/techniques/AML.T0057)
 
 **Controls specific for sensitive data output from model:**
 
@@ -1264,6 +1269,7 @@ References:
 Impact: Confidentiality breach of sensitive data.
 
 Input data can be sensitive (e.g. GenAI prompts) and can either leak through a failure or through an attack, such as a man-in-the-middle attack.  
+
 GenAI models are often hosted in the cloud - sometimes managed by an external party- increasing the risk of input data (prompts) leaking. GenAI typically involves user interaction through prompts, adding user data and corresponding privacy issues to the threat. In addition, GenAI prompts may contain rich context information with sensitive data (e.g. company secrets).
 TODO: add to diagram
 
