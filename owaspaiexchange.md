@@ -100,7 +100,7 @@ It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 270
 - AI security experts who contributed to this as Open Source.
 - The insights of these experts were inspired by research work as mentioned in the references at the bottom of this document(ENISA, NIST, Microsoft, BIML, MITRE, etc.)
 
-## Organizing and applying threats and controls
+## Organizing threats and controls
 
 The threats are organized by attack surface (how and where does the attack take place?), and not by impact. This means that for example model theft is mentioned in three different parts of the overview:
 
@@ -120,7 +120,7 @@ This document focuses on machine learning. Nevertheless, here is a quick summary
 - Knowledgebase, source code and configuration can be regarded as sensitive data when it is intellectual property, so it needs protection
 - Leak sensitive input data, for example when a heuristic system needs to diagnose a patient
 
-**How to apply the controls?**
+## Applying threats and controls - risk analysis
 
 1. Threat identification: First select the threats that apply to your case by going through the list of threats and use the _Impact_ description to see if it is applicable. For example the impact of identifying individuals in your training data may not apply to your case. Risk assessment is a helpful exercise to suppor this selection, and the consideration of controls and risks further on in this process.
 2. Control selection: Then, for the selected threats consider the various controls listed with that threat (or the parent section of that threat) and the general controls (they always apply). When considering a control, look at its purpose and determine if you think it is important enough to implement it and to what extent. This depends on the cost of implementation compared to how the purpose mitigates the threat, and the level of risk of the threat.
