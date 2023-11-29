@@ -803,7 +803,7 @@ After training data has been poisoned (see corresponding section), specific inpu
 
 ## 2.2. Sensitive data disclosure through use
 
-Impact: Confidentiality breach of sensitive data.
+Impact: Confidentiality breach of sensitive training data.
 
 The model discloses sensitive training data or is abused to do so.
 
@@ -873,7 +873,7 @@ Controls for Model inversion and membership inference:
 
 ## 2.3. Model theft through use
 
-Impact: Confidentiality breach of intellectual property.
+Impact: Confidentiality breach of model intellectual property.
 
 This attack is known as model stealing attack or model extraction attack. It occurs when an attacker collects inputs and outputs of an existing model and uses those combinations to train a new model, in order to replicate the original model.
 
@@ -1120,7 +1120,7 @@ An attacker supplies a manipulated pre-trained model (e.g. a GenAI model) which 
 
 ### 3.2.1. Development-time data leak
 
-Impact: Confidentiality breach of sensitive data.
+Impact: Confidentiality breach of sensitive train/test data.
 
 Training data or test data can be confidential because it's sensitive data (e.g. personal data) opr intellectual property. An attack or an unintended failure can lead to this training data leaking.  
 Leaking can happen from the development environment, as engineers need to work with real data to train the model.  
@@ -1134,7 +1134,7 @@ GenAI models are often hosted in the cloud, sometimes managed by an external par
 
 ### 3.2.2. Model theft through development-time model parameter leak
 
-Impact: Confidentiality breach of intellectual property.
+Impact: Confidentiality breach of model intellectual property.
 
 **Controls:**
 
@@ -1143,7 +1143,7 @@ Impact: Confidentiality breach of intellectual property.
 
 ### 3.2.3. Source code/configuration leak
 
-Impact: Confidentiality breach of intellectual property.
+Impact: Confidentiality breach of model intellectual property.
 
 **Controls:**
 
@@ -1198,7 +1198,7 @@ Alternatively, the model input or output logic can be compromised to change mode
 
 ## 4.3. Runtime model theft
 
-Impact: Confidentiality breach of intellectual property.
+Impact: Confidentiality breach of model intellectual property.
 
 Stealing model parameters from a live system by breaking into it (e.g. by gaining access to executables, application memory or parameter data in the production environment)
 
@@ -1266,7 +1266,7 @@ References:
 
 ## 4.7. Leak sensitive input data
 
-Impact: Confidentiality breach of sensitive data.
+Impact: Confidentiality breach of sensitive input data.
 
 Input data can be sensitive (e.g. GenAI prompts) and can either leak through a failure or through an attack, such as a man-in-the-middle attack.  
 
@@ -1357,7 +1357,7 @@ Misc.:
   - MODELACCESSCONTROL (runtime appsec)
 
     2.1. Evasion - Model behaviour manipulation through use  
-    Impact: Integrity of model behaviour is affected, leading to issues from unwanted model output See General controls
+    Impact: Integrity of model behaviour is affected, leading to issues from unwanted model output (e.g. failing fraud detection, decisions leading to safety issues, reputation damage, liability).
 
   - See General controls
   - See controls for threats through use
@@ -1369,7 +1369,7 @@ Misc.:
   - ADVERSARIALROBUSTDISTILLATION (development-time datascience)
 
   2.2. Sensitive data disclosure through use  
-  Impact: Confidentiality breach of sensitive data.
+  Impact: Confidentiality breach of sensitive train data.
 
   ...2.2.1. Sensitive data output from model
 
@@ -1463,7 +1463,7 @@ Misc.:
   - RUNTIMEMODELIOINTEGRITY (runtime appsec)
 
     4.3. Runtime model theft  
-    Impact: Confidentiality breach of intellectual property.
+    Impact: Confidentiality breach of model intellectual property.
 
   - See general controls
   - RUNTIMEMODELCONFIDENTIALITY (runtime appsec)
@@ -1489,7 +1489,7 @@ Misc.:
   - INPUTSEGREGATION (runtime appsec)
 
     4.7. Leak sensitive input data  
-    Impact: Confidentiality breach of sensitive data.
+    Impact: Confidentiality breach of sensitive input data.
 
   - See General controls
   - MODELINPUTCONFIDENTIALY (runtime appsec)
