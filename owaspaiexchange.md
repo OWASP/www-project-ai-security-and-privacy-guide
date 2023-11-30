@@ -1191,7 +1191,8 @@ Alternatively, the model input or output logic can be compromised to change mode
 **Controls:**
 
 - See General controls
-- **#RUNTIMEMODELINTEGRITY** (runtime appsec). Apply traditional application security controls to protect the storage of model parameters (e.g. access control, checksums, encryption)
+- **#RUNTIMEMODELINTEGRITY** (runtime appsec). Apply traditional application security controls to protect the storage of model parameters (e.g. access control, checksums, encryption)  
+  A Trusted Execution Environment can help to protect model integrity.
 - **#RUNTIMEMODELIOINTEGRITY** (runtime appsec). Apply traditional application security controls to protect the runtime manipulation of the model's input/output logic (e.g. protect against a man-in-the-middle attack)
 
 ---
@@ -1205,8 +1206,10 @@ Stealing model parameters from a live system by breaking into it (e.g. by gainin
 **Controls:**
 
 - See General controls
-- **#RUNTIMEMODELCONFIDENTIALITY** (runtime appsec). See SECDEVPROGRAM to attain application security, with the focus on protecting the storage of model parameters (e.g. access control, encryption)
-- **#MODELOBFUSCATION** (runtime appsec). Techniques to store the model in a complex and confusing waym with minimal technical information, to make it more difficult for attackers to extract and understand a model from a deployed system. See this [article on ModelObfuscator](https://dl.acm.org/doi/abs/10.1145/3597926.3598113)
+- **#RUNTIMEMODELCONFIDENTIALITY** (runtime appsec). See SECDEVPROGRAM to attain application security, with the focus on protecting the storage of model parameters (e.g. access control, encryption).  
+  A Trusted Execution Environment can help to protect against attacks, including side-channel hardware attacks like [DeepSniffer](https://sites.cs.ucsb.edu/~sherwood/pubs/ASPLOS-20-deepsniff.pdf).
+
+- **#MODELOBFUSCATION** (runtime appsec). Techniques to store the model in a complex and confusing way with minimal technical information, to make it more difficult for attackers to extract and understand a model from a deployed system. See this [article on ModelObfuscator](https://dl.acm.org/doi/abs/10.1145/3597926.3598113)
 
 ---
 
