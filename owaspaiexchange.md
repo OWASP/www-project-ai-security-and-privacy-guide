@@ -1201,7 +1201,7 @@ Alternatively, the model input or output logic can be compromised to change mode
 
 Impact: Confidentiality breach of model intellectual property.
 
-Stealing model parameters from a live system by breaking into it (e.g. by gaining access to executables, application memory or parameter data in the production environment)
+Stealing model parameters from a live system by breaking into it (e.g. by gaining access to executables, application/hardware memory or parameter data in the production environment)
 
 **Controls:**
 
