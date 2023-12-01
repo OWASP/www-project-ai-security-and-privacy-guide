@@ -146,14 +146,15 @@ Important note: from a security framework perspective, GenAI is not that differe
 GenAI security particularities are:
 
 1. Evasion attacks for GenAI include specifically evasion of policies that intend to censor (e.g. violent) output
-2. Unwanted output of sensitive training data is an AI-broad issue, but especially a high risk with systems that output rich content such as GenAI. A GenAI model will not respect any variations in access privileges of training data. All data will be accessible to the model users
-3. Training data poisoning is an AI-broad problem, and with GenAI the risk is generally higher since training data can be supplied from different sources that may be challenging to control, such as the internet. Attackers could for example hijack domains and place manipulated information.
-4. Overreliance is an AI-broad issue, and in addition Large Language Models can make matters worse by coming across very confident and knowledgeable
-5. GenAI models mostly live in the cloud - often managed by an external party, which increases the risk of leaking training data and leaking prompts. This issue is not limited to GenAI. Additional risks that are typucal for GenAI are: 1) model use involves user interaction through prompts, adding user data and corresponding privacy issues, and 2) GenAI model input (prompts) can contain rich context information with sensitive data (e.g. company secrets).
-6. Pre-trained models are applied also outside of GenAI, but the approach is quite common in GenAI, which increases the risk of transfer learning attacks
-7. The typical application of plug-ins in Large Language Models creates specific risks regarding the protection and privileges of these plugins - as they allow large language model to act outside of their normal conversation with the user
-8. Prompt injection is a GenAI specific threat, listed under Application security threats
-9. In-context learning (adding background information to a prompt) creates new security issues when the background information is sensitive: for example data from all reports ever written at a consultancy firm. First of all, this information will travel with the prompt to the cloud, and second: the system may not respect the original access rights to the information.
+2. Unwanted output of sensitive training data is an AI-broad issue, but more likely to be a high risk with systems that output rich content such as GenAI.
+3. A GenAI model will not respect any variations in access privileges of training data. All data will be accessible to the model users.
+4. Training data poisoning is an AI-broad problem, and with GenAI the risk is generally higher since training data can be supplied from different sources that may be challenging to control, such as the internet. Attackers could for example hijack domains and place manipulated information.
+5. Overreliance is an AI-broad issue, and in addition Large Language Models can make matters worse by coming across very confident and knowledgeable
+6. GenAI models mostly live in the cloud - often managed by an external party, which may increase the risk of leaking training data and leaking prompts. This issue is not limited to GenAI. Additional risks that are typucal for GenAI are: 1) model use involves user interaction through prompts, adding user data and corresponding privacy issues, and 2) GenAI model input (prompts) can contain rich context information with sensitive data (e.g. company secrets).
+7. Pre-trained models are applied also outside of GenAI, but the approach is quite common in GenAI, which increases the risk of transfer learning attacks
+8. The typical application of plug-ins in Large Language Models creates specific risks regarding the protection and privileges of these plugins - as they allow large language model to act outside of their normal conversation with the user
+9. Prompt injection is a GenAI specific threat, listed under Application security threats
+10. In-context learning (adding background information to a prompt) creates new security issues when the background information is sensitive: for example data from all reports ever written at a consultancy firm. First of all, this information will travel with the prompt to the cloud, and second: the system may not respect the original access rights to the information.
 
 GenAI References:
 
