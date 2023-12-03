@@ -66,9 +66,10 @@ Search 'TODO' for where contributions are needed the most.
 
 **General TODO's:**
 
--Add a conclusion next to the summary
--Create a layout that is less list-like and more of a read
--Create a way to link to Controls and to Threats with permanent links (we probably need to generate html from the md)
+- Add a conclusion next to the summary
+- Create a layout that is less list-like and more of a read
+- Create a way to link to Controls and to Threats with permanent links (we probably need to generate html from the md)
+- Add attribute inference attacks and consider making that part of 'data reconstruction', together with model inversion, although it is a different approach
 
 # Introduction
 
