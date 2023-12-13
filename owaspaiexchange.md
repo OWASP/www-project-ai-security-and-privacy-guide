@@ -375,7 +375,7 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
   - [OpenCRE on Compliance](https://www.opencre.org/cre/510-324)
   - 27002 Control 5.36 Compliance with policies, rules and standards. Gap: covers this control fully, with the particularity that AI regulation needs to be taken into account.
 
-- **#SECEDUCATE** (management). Educate data scientists and development teams on AI threats awareness - including the model attacks. Attaining a _security mindset_ is essential for all engineers, including data scientists.
+- **#SECEDUCATE** (management). Educate data scientists and development teams on AI threat awareness, including attacks on models. It is essential for all engineers, including data scientists, to attain a security mindset.
 
   Links to standards:
 
@@ -385,7 +385,7 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
 ## 1.2 General controls for sensitive data limitation
 
-- **#DATAMINIMIZE** (development-time and runtime). Remove or anonymize data fields or records that are not needed for the application, to prevent them from leaking. A special form of data minimization is to statistically analyze which records or fields in a training dataset are superfluous to achieving sufficient performance, and then remove those (Datascience).
+- **#DATAMINIMIZE** (development-time and runtime). Remove or anonymize data fields or records that are unnecessary for the application to prevent potential leaks. Data minimization can also involve statistically analyzing a training dataset to identify and eliminate superfluous records or fields that are not essential for achieving sufficient performance (Data Science).
 
   Purpose: reduce the impact in case of an attack by reducing the amount of data that can leak.
 
@@ -393,12 +393,12 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
   - Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODO: covered anywhere else?
 
-- **#ALLOWEDDATA** (development-time and runtime). Verify if the data used (e.g. train set) is allowed for the purpose. This may for example not be the case if no consent was given and the data contains personal data collected for a different purpose.  
+- **#ALLOWEDDATA** (development-time and runtime). Ensure that the data used (e.g., training set) is permitted for the intended purpose. This is particularly important if consent was not given and the data contains personal information collected for a different purpose.
   Links to standards:
 
   - ISO/IEC 23894 (AI risk management) covers this in A.8 Privacy. Gap: covers this control fully, with a brief section on the idea
 
-- **#SHORTRETAIN** (development-time and runtime). Remove or anonymize data after it is no longer needed, or when it is legally required (e.g. privacy laws) to minimize the risk of the data leaking.  
+- **#SHORTRETAIN** (development-time and runtime). Remove or anonymize data once it is no longer needed, or when legally required (e.g., due to privacy laws), to minimize the risk of data leakage.
   Links to standards:
 
   - Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODO: covered anywhere else?
@@ -421,9 +421,9 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
   - Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODO: covered anywhere else?
 
-- **#DISCRETE** (management, development-time and runtime). Minimize access to technical details that can help attackers.
+- **#DISCRETE** (management, development-time and runtime). Minimize access to technical details that could help attackers.
 
-  Purpose: reduce information available to attackers that can help them select and tailor their attack, thereby reducing the probabily of a successful attack.
+  Purpose: reduce the information available to attackers, which can assist them in selecting and tailoring their attacks, thereby lowering the probability of a successful attack.
 
   Note: this control needs to be weighed against the AITRANSPARENCY control that requires to be more open about technical aspects of the model. The key is to minimize information that can help attackers while being transparent.
 
@@ -445,47 +445,49 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
 ## 1.3. Controls to limit the effects of unwanted behaviour
 
-The cause of unwanted model behaviour can be the result of many things (model use, development-time, run-time), and the preventative controls are covered in the corresponding sections. Hower, the controls to limit the _effect_ of this behaviour are general controls for each of those threats, and covered in this section.
+The cause of unwanted model behaviour can be the result of various factors, including model use, development time, and run-time. Preventative controls for these are discussed in their corresponding sections. However, the controls to mitigate the impact of such behavior are general for each of these threats and are covered in this section.
 
 Main potential causes of unwanted model behaviour:
 
 - Insufficient or incorrect training data
 - Model staleness/ Model drift (i.e. the model becoming outdated)
 - Mistakes during model and data engineering
-- Security threats: attacks as laid out in this document e.g. model poisoning, evasion attacks
+- Security threats: attacks as laid out in this document, e.g. model poisoning, evasion attacks
 
 Dealing with the effects of unwanted model behaviour knows the following threats:
 
 - Overreliance: the model is being trusted too much by users
 - Excessive agency: the model is being trusted too much by engineers and gets excessive functionality, permissions, or autonomy
 
-Example: The typical application of _plug-ins_ in Large Language Models (GenAI) creates specific risks regarding the protection and privileges of these plugins - as they allow large language model to act outside of their normal conversation with the user.
+Example: The typical use of plug-ins in Large Language Models (GenAI) presents specific risks concerning the protection and privileges of these plug-ins. This is because they enable LLMs to perform actions beyond their normal interactions with users.
 
-Example: Large Language Models(GenAI), just like most AI models, induce their results based on training data, meaning that they can make up things that are false. In addition, the training data can contain false or outdated information. At the same time, LLM's can come across very confident about their output. These aspects make overreliance of LLM a real risk. Note that all AI models in principle can suffer from overreliance.
+Example: Large Language Models (GenAI), just like most AI models, induce their results based on training data, meaning that they can make up things that are false. In addition, the training data can contain false or outdated information. At the same time, LLMs can come across very confident about their output. These aspects make overreliance of LLM a real risk. Note that all AI models in principle can suffer from overreliance.
 
 **Controls to limit the effects of unwanted model behaviour:**
 
-- **#OVERSIGHT** (runtime). Oversight of model behaviour by humans or business logic (guard rails)
-  Purpose: detect unwanted model behaviour and correct or stop follow up of a model's decision. Note: unwanted model behaviour often cannot be completely specified, limiting the effectiveness of guard rails
+- **#OVERSIGHT** (runtime). Oversight of model behaviour by humans or business logic (guardrails).
+  
+  Purpose: Detect unwanted model behavior and correct or halt the execution of a model's decision. Note: Unwanted model behavior often cannot be entirely specified, limiting the effectiveness of guardrails.
+  
   Examples:
 
-  - Logic preventing the trunk of a car opening while the care is moving, even if the driver seems to ask so
-  - Asking the user for confirmation if a large number of emails is going to be sent by instruction of a model
-  - A special form of guard rails is censoring unwanted output of GenAI models (e.g. violent, unethical)
+  - Logic preventing the trunk of a car from opening while the car is moving, even if the driver seems to request it
+  - Requesting user confirmation before sending a large number of emails as instructed by a model
+  - A special form of guardrails is censoring unwanted output of GenAI models (e.g. violent, unethical)
 
   Links to standards:
 
   - ISO/IEC 42001 B.9.3 defines controls for human oversight and decisions regarding autonomy. Gap: covers this control partly (human oversight only, not business logic)
   - Not covered further in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
 
-- **#LEASTMODELPRIVILEGE** (runtime infosec). Minimize privileges, for example by not connecting a model to an e-mail facility, to prevent it from sending out wrong information to others.
+- **#LEASTMODELPRIVILEGE** (runtime infosec). Minimize privileges; avoid connecting a model to an email facility to prevent it from sending incorrect information to others.
 
   Links to standards:
 
   - 27002 control 8.2 Privileged access rights. Gap: covers this control fully, with the particularity that privileges assigned to autonomous model decisions need to be assigned with the risk of unwanted model behaviour in mind.
   - [OpenCRE on least privilege](https://www.opencre.org/cre/368-633) Gap: idem
 
-- **#AITRANSPARENCY** (runtime, management). By being transparent to users regarding how the model roughly works, how it has been trained, and the general expected accuracy and reliability of the AI system's output, people can adjust their reliance accordingly. The most simple form of this is to inform users that an AI model is involved.  
+- **#AITRANSPARENCY** (runtime, management). By being transparent with users about the rough workings of the model, its training process, and the general expected accuracy and reliability of the AI system's output, people can adjust their reliance on it accordingly. The simplest form of this is to inform users that an AI model is being involved.
   See the DISCRETE control for the balance between being transparent and being discrete about the model. Transparency here is about providing abstract information regarding the model and is therefore something else than _explainability_.
 
   Links to standards:
