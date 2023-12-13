@@ -7,7 +7,7 @@
 
 The OWASP AI Exchange is as an open source collaborative document to advance the development of global AI security standards and regulations. It provides a comprehensive overview of AI threats, vulnerabilities, and controls to foster alignment among different standardization initiatives. This includes the EU AI act, ISO/IEC 27090 (AI security), the [OWASP ML top 10](https://mltop10.info/), the [OWASP LLM top 10](https://llmtop10.com/), and [OpenCRE](https://opencre.org) - which we want to use to provide the AI Exchange content through the security chatbot [OpenCRE-Chat](https://opencre.org/chatbot).
 
-Our **mission** is to be the authoritative source for consensus, foster alignment, and drive collaboration among initiatives - NOT to set a standard, bu to drive standards. By doing so, it provides a safe, open, and independent place to find and share insights for everyone. See [AI Exchange LinkedIn page](https://www.linkedin.com/company/owasp-ai-exchange/).
+Our **mission** is to be the authoritative source for consensus, foster alignment, and drive collaboration among initiatives - NOT to set a standard, but to drive standards. By doing so, it provides a safe, open, and independent place to find and share insights for everyone. See [AI Exchange LinkedIn page](https://www.linkedin.com/company/owasp-ai-exchange/).
 
 Maintained here at [owaspai.org](https://owaspai.org) it currently uses both a GitHub repository and a Word Document for contributions. It is is an **open-source living document** for the worldwide exchange of AI security expertise. It serves, for example, as input to security standardization for the EU AI Act towards mid-December (your help is urgently needed!). The document is maintained by OWASP as part of the [OWASP AI guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) project. It will periodically publish content with credited contributions into the Guide.
 
@@ -114,7 +114,7 @@ A helpful way to look at AI is to see it as consisting of machine learning (the 
 This document focuses on machine learning. Nevertheless, here is a quick summary of the machine learning threats from this document that also apply to heuristic systems:
 
 - Model evasion is also possible for heuristic models, -trying to find a loophole in the rules
-- Model theft through use - it is possible to train a machine learning model based om input/output combinations from a heuristic model
+- Model theft through use - it is possible to train a machine learning model based on input/output combinations from a heuristic model
 - Overreliance in use - heuristic systems can also be relied on too much. The applied knowledge can be false
 - Data poisoning and model poisoning is possible by manipulating data that is used to improve knowledge and by manipulating the rules development-time or runtime
 - Leaks of data used for analysis or testing can still be an issue
@@ -123,7 +123,7 @@ This document focuses on machine learning. Nevertheless, here is a quick summary
 
 ## Applying threats and controls - risk analysis
 
-1. Threat identification: First select the threats that apply to your case by going through the list of threats and use the _Impact_ description to see if it is applicable. For example the impact of identifying individuals in your training data may not apply to your case. Risk assessment is a helpful exercise to suppor this selection, and the consideration of controls and risks further on in this process.
+1. Threat identification: First select the threats that apply to your case by going through the list of threats and use the _Impact_ description to see if it is applicable. For example the impact of identifying individuals in your training data may not apply to your case. Risk assessment is a helpful exercise to support this selection, and the consideration of controls and risks further on in this process.
 2. Control selection: Then, for the selected threats consider the various controls listed with that threat (or the parent section of that threat) and the general controls (they always apply). When considering a control, look at its purpose and determine if you think it is important enough to implement it and to what extent. This depends on the cost of implementation compared to how the purpose mitigates the threat, and the level of risk of the threat.
 3. Use references: When implementing a control, consider the references and the links to standards. You may have implemented some of these standards, or the content of the standards may help you to implement the control.
 4. Risk acceptance: In the end you need to be able to accept the risks that remain regarding each threat, given the controls that you implemented.
@@ -151,7 +151,7 @@ GenAI security particularities are:
 3. A GenAI model will not respect any variations in access privileges of training data. All data will be accessible to the model users.
 4. Training data poisoning is an AI-broad problem, and with GenAI the risk is generally higher since training data can be supplied from different sources that may be challenging to control, such as the internet. Attackers could for example hijack domains and place manipulated information.
 5. Overreliance is an AI-broad risk factor, and in addition Large Language Models can make matters worse by coming across very confident and knowledgeable.
-6. Leaiking input data: GenAI models mostly live in the cloud - often managed by an external party, which may increase the risk of leaking training data and leaking prompts. This issue is not limited to GenAI. Additional risks that are typical for GenAI are: 1) model use involves user interaction through prompts, adding user data and corresponding privacy issues, and 2) GenAI model input (prompts) can contain rich context information with sensitive data (e.g. company secrets). The latter issue occurs with *in context learning* (adding background information to a prompt): for example data from all reports ever written at a consultancy firm. First of all, this information will travel with the prompt to the cloud, and second: the system will likely not respect the original access rights to the information.
+6. Leaking input data: GenAI models mostly live in the cloud - often managed by an external party, which may increase the risk of leaking training data and leaking prompts. This issue is not limited to GenAI. Additional risks that are typical for GenAI are: 1) model use involves user interaction through prompts, adding user data and corresponding privacy issues, and 2) GenAI model input (prompts) can contain rich context information with sensitive data (e.g. company secrets). The latter issue occurs with *in context learning* (adding background information to a prompt): for example data from all reports ever written at a consultancy firm. First of all, this information will travel with the prompt to the cloud, and second: the system will likely not respect the original access rights to the information.
 7. Pre-trained models are applied also outside of GenAI, but the approach is quite common in GenAI, which increases the risk of transfer learning attacks
 8. The typical application of plug-ins in Large Language Models creates specific risks regarding the protection and privileges of these plugins - as they allow large language model to act outside of their normal conversation with the user
 9. Prompt injection is a GenAI specific threat, listed under Application security threats
@@ -169,7 +169,7 @@ The AI security controls (in capitals - and discussed further on in the document
 1. Apply **AI governance** (AIPROGRAM)
 2. Apply **information security management** (SECPROGRAM), with AI attention points:
    - New assets: training/test data , input data, output data, model parameters, technical information about the model, and also code and configuration. This depends on if they represent important intellectual property, or if the data is sensitive, or if the data can help attackers to design an attack (DISCRETE).
-   - New threats: ISO/IEC 27563 (on AI use cases security & privacy) describes security of some AI use cases to assist in risk analysis, and 23894 elaborates on risk management. The AI Exchange and the upcoming ISO 27090 (AI security) are more comprehensive sources for threats and controls.
+   - New threats: ISO/IEC 27563 (on AI use cases security & privacy) describes security of some AI use cases to assist in risk analysis, and ISO/IEC 23894 elaborates on risk management. The AI Exchange and the upcoming ISO 27090 (AI security) are more comprehensive sources for threats and controls.
    - AI regulation needs to be taken into account (CHECKCOMPLIANCE)
    - Awareness training needs to include AI threats and controls (SECEDUCATE)
    - The information security controls in this document fall under the security management activity (e.g. model privileges, monitoring, access control, data protection, supply chain)
@@ -298,14 +298,14 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
   Because AI has specific assets (e.g. training data), **AI-speific honeypots** are a partiularly interesting control. These are fake parts of the data/model/datascience infrastucture that are exposed on purpose, in order to detect or capture attackers, before they succeed to access the real assets. Examples:
 
-  - Hardened data services buth with an unpatched vulnerability (e.g. Elasticsearch)
-  - Exposed data lakes (not giving away details of the real assets)
-  - Data access APIS vulnerable to brute force attacks
-  - "Mirror" data servers that appear development facilities, but exposed in production with SSH access and with names like "lab"
-  - 'By accident' exposed documentation that points to a honeypot
-  - Datascience Python lib exposed in server
-  - External access to a specific library
-  - Imported as-is models from GitHub
+  - Hardened data services, but with an unpatched vulnerability (e.g. Elasticsearch)
+  - Exposed data lakes, not revealing details of the actual assets
+  - Data access APIs vulnerable to brute-force attacks
+  - "Mirror" data servers that resemble development facilities, but are exposed in production with SSH access and labeled with names like "lab"
+  - Documentation 'accidentally' exposed, directing to a honeypot
+  - Data science Python library exposed on the server
+  - External access granted to a specific library
+  - Models imported as-is from GitHub
 
   Links to standards:
 
@@ -359,7 +359,7 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
   Purpose: This way, AI systems will become easier to maintain, transferable, more reliable, and future-proof.
 
-  A best practice is to mix data scientist profiles with software engineering profiles in teams, as software engineers typically need to learn more about data science and data scientists typically need to learn more about creating future-proof code that is easy to maintain and test.
+ A best practice is to mix data scientist profiles with software engineering profiles in teams, as software engineers typically need to learn more about data science, and data scientists generally need to learn more about creating future-proof, maintainable, and easily testable code.
 
   Another best practice is to extend existing software engineering processes and practices to AI development, instead of treating AI as something that requires a separate approach.
 
