@@ -1189,8 +1189,7 @@ Note: some controls in this document are application security controls that are 
 
 Impact: see Broad model poisoning.
 
-This threat refers to manipulating behaviour of the model by manipulating the parameters in the model itself in the live system (i.e. the representation of the regularities that the training process has extracted for the model to use in its task. e.g. neural network weights.
-Alternatively, the model input or output logic can be compromised to change model behaviour or deny its service.
+This threat involves manipulating the behavior of the model by altering the parameters within the live system itself. These parameters represent the regularities extracted during the training process for the model to use in its task, such as neural network weights. Alternatively, compromising the model's input or output logic can also change its behavior or deny its service.
 
 **Controls:**
 
@@ -1282,7 +1281,7 @@ TODO: add to diagram
 
 **Controls:**
 
-- **#MODELINPUTCONFIDENTIALY** (runtime appsec). See SECDEVPROGRAM to attain application security, with the focus on protecting the transport and storage of model parameters (e.g. access control, encryption, minimize retention)
+- **#MODELINPUTCONFIDENTIALITY** (runtime appsec). See SECDEVPROGRAM to attain application security, with the focus on protecting the transport and storage of model parameters (e.g. access control, encryption, minimize retention)
 
 # References
 
@@ -1499,7 +1498,7 @@ Misc.:
     Impact: Confidentiality breach of sensitive input data.
 
   - See General controls
-  - MODELINPUTCONFIDENTIALY (runtime appsec)
+  - MODELINPUTCONFIDENTIALITY (runtime appsec)
 
 - [References](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#references)
 - [Expanded Table of contents](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#expanded-table-of-contents)
