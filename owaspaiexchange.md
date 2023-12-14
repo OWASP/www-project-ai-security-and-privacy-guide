@@ -105,7 +105,7 @@ It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 270
 
 The threats are organized by attack surface (how and where does the attack take place?), and not by impact. This means that for example model theft is mentioned in three different parts of the overview:
 
-1. model theft by stealing model parameters from a live system, eg. breaking into the network and reading the parameters from a file,
+1. model theft by stealing model parameters from a live system, e.g. breaking into the network and reading the parameters from a file,
 2. model theft by stealing the modeling process or parameters from the engineering environment, e.g. stored in the version management system of a data scientist, and
 3. model theft by reverse engineering from using the AI system. These are three very different attacks, with similar impacts. This way of organizing is helpful because the goal is to link the threats to controls, and these controls vary per attack surface.
 
@@ -931,11 +931,11 @@ A _sponge attack_ provides input that is designed to increase the computation ti
 
 # 3. DEVELOPMENT-TIME THREATS
 
-Background: Data science (data engineering and model engineering - for machine learning often referred to as _training phase_) uses a development environment typically outside of the regular application development scope, introducing a new attack surface. Data engineering (collecting, storing, and preparing data) is typically a large and important part of machine learning engineering. Together with model engineering, it requires appropriate security to protect against data leaks, data poisoning, leaks of intellectual property, and supply chain attacks (see further below). In addition, data quality assurance can help to reduce risks of intended and unintended data issues.
+Background: Data science (data engineering and model engineering - for machine learning often referred to as _training phase_) uses a development environment typically outside of the regular application development scope, introducing a new attack surface. Data engineering (collecting, storing, and preparing data) is typically a large and important part of machine learning engineering. Together with model engineering, it requires appropriate security to protect against data leaks, data poisoning, leaks of intellectual property, and supply chain attacks (see further below). In addition, data quality assurance can help reduce risks of intended and unintended data issues.
 
 **Particularities:**
 
-- Particularity 1: the data in the AI development environment is real data that is typically sensitive, because it is needed to train the model and that obviously needs to happen on real data, instead of fake data that you typically see in standard development environent situations (e.g. fpr testing). Therefore, data protection activities need to be extended from the live system to the development environment.
+- Particularity 1: the data in the AI development environment is real data that is typically sensitive, because it is needed to train the model and that obviously needs to happen on real data, instead of fake data that you typically see in standard development environment situations (e.g. fpr testing). Therefore, data protection activities need to be extended from the live system to the development environment.
 - Particularity 2: elements in the AI development environment (data, code, configuration & parameters) require extra protection as they are prone to attacks to manipulate model behaviour (called _poisoning_)
 - Particularity 3: source code, configuration, and parameters are typically critical intellectual property in AI
 
@@ -1004,7 +1004,7 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 
   Security risks in obtained elements can arise from accidental mistakes or from manipulations - just like with obtained source code or software components.
 
-  Just like with obtained sourc code or software components, data or models may involve multip suppliers. For example: a model is trained by one vendor and then fine-tuned by another vendor. Or: an AI system contains multiple models, one is a model that has been fine-tuned with data from source X, using a base model from vendor A that claims data is used from sources Y and Z, where the data from source Z was labeled by vendor B.
+  Just like with obtained source code or software components, data or models may involve multiple suppliers. For example: a model is trained by one vendor and then fine-tuned by another vendor. Or: an AI system contains multiple models, one is a model that has been fine-tuned with data from source X, using a base model from vendor A that claims data is used from sources Y and Z, where the data from source Z was labeled by vendor B.
 
   Data provenance is a helpful activity to support supply chain management for obtained data.  The Software Bill Of Materials (SBOM) becomes the AIBOM (AI Bill Of Materials) or MBOM (Model Bill of Material). AI systems often have a variation of supply chains, including the data supply chain, the labeling supply chain, and the model supply chain.
 
@@ -1025,7 +1025,7 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 
 Impact: Integrity of model behaviour is affected, leading to issues from unwanted model output (e.g. failing fraud detection, decisions leading to safety issues, reputation damage, liability).
 
-The type of impact on behaviour using broad model poisoning is typically more profound than whit an evasion attack, for example:
+The type of impact on behaviour using broad model poisoning is typically more profound than with an evasion attack, for example:
 
 - Backdoors - which trigger unwanted responses to specific input variations (e.g. a money transaction is wrongfully marked as NOT fraud because it has a specific amount of money for which the model has been manipulated to ignore). Other name: _Trojan attack_
 - Unavailability by sabotage, leading to e.g. business continuity problems or safety issues
@@ -1036,7 +1036,8 @@ This poisoning is **hard to detect** once it has happened: there is no code to r
 
 - See General controls
 - See controls for development-time protection
-- **#MODELENSEMBLE** (development-time datascience). Make the model part of en ensemble in which each model has been trained in a separately protected environment. If one model deviates from the others, its output can be ignored as it indicates possible manipulation.
+- **#MODELENSEMBLE** (development-time datascience). Include the model as part of an ensemble, where each model is trained in a separately protected environment. If one model's output deviates from the others, it can be ignored, as this indicates possible manipulation.
+
   Links to standards:
   - Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
 
@@ -1050,7 +1051,7 @@ TODO: add more info on how to practically implement the controls. Integration. M
 
 The attacker manipulates (training) data to affect the algorithm's behavior. Also called _causative attacks_.
 
-Example 1: an attacker breaks into a training set database to add images of houses and labels them as 'fighter plane', to mislead the camera system of an autonomous missile. The missile is then manipulated to attack houses. With a good test set this unwanted behaviour may be detected. However, the attacker can make the poisoned data represent input that normally doesn't occur and therefore would not be in a testset. Tje attacker can then create that abnormal input in practice. In the previous exmaple this could be houses with white crosses on the door.  See [MITRE ATLAS - Poison traing data](https://atlas.mitre.org/techniques/AML.T0020)
+Example 1: an attacker breaks into a training set database to add images of houses and labels them as 'fighter plane', to mislead the camera system of an autonomous missile. The missile is then manipulated to attack houses. With a good test set this unwanted behaviour may be detected. However, the attacker can make the poisoned data represent input that normally doesn't occur and therefore would not be in a testset. The attacker can then create that abnormal input in practice. In the previous exmaple this could be houses with white crosses on the door.  See [MITRE ATLAS - Poison traing data](https://atlas.mitre.org/techniques/AML.T0020)
 Example 2: a malicious supplier poisons data that is later obtained by another party to train a model. See [MITRE ATLAS - Publish poisoned datasets](https://atlas.mitre.org/techniques/AML.T0019) 
 Example 3: false information in documents on the internet causes a Large Language Model to output false results. That false information can be planted by an attacker, but of course also by accident. The latter case is a real GenAI risk, but technically comes down to the issue of having false data in a training set which falls outside of the security scope.
 
@@ -1099,7 +1100,7 @@ Example 3: false information in documents on the internet causes a Large Languag
 
 ### 3.1.2. Development-time model poisoning
 
-This threat refers to manipulating behaviour of the model by manipulating the engineering elements that lead to the model (including the parameters during development time), eg. through supplying, changing components, code, or configuration. In some cases, the model is trained externally and supplied as-is, which also introduces a model poisoning threat.
+This threat refers to manipulating behaviour of the model by manipulating the engineering elements that lead to the model (including the parameters during development time), e.g. through supplying, changing components, code, or configuration. In some cases, the model is trained externally and supplied as-is, which also introduces a model poisoning threat.
 Data manipulation is referred to as data poisoning and is covered in separate threats.
 
 **Controls:**
@@ -1125,7 +1126,7 @@ An attacker supplies a manipulated pre-trained model (e.g. a GenAI model) which 
 
 Impact: Confidentiality breach of sensitive train/test data.
 
-Training data or test data can be confidential because it's sensitive data (e.g. personal data) opr intellectual property. An attack or an unintended failure can lead to this training data leaking.  
+Training data or test data can be confidential because it's sensitive data (e.g. personal data) or intellectual property. An attack or an unintended failure can lead to this training data leaking.  
 Leaking can happen from the development environment, as engineers need to work with real data to train the model.  
 Sometimes training data is collected at runtime, so a live system can become attack surface for this attack.  
 GenAI models are often hosted in the cloud, sometimes managed by an external party. Therefore, if you train or finetune these models, the training data (e.g. company documents) needs to travel to that cloud.
