@@ -63,6 +63,7 @@ Search 'TODO' for where contributions are needed the most.
 - Anthony Glynn (CapitalOne, Canada) - many textual improvements
 - Zoe Braiterman (Mutual Knowledge Systems, US) - Many markdown improvements
 - Niklas Bunzel (Fraunhofer institute, Germany) - datascience discussion and references around evasion attacks
+- Marko Lihter (Endava Adriatic, Croatia) - various textual improvements
 
 **General TODO's:**
 
