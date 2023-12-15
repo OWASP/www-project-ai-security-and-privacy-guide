@@ -7,7 +7,7 @@
 
 The OWASP AI Exchange is as an open source collaborative document to advance the development of global AI security standards and regulations. It provides a comprehensive overview of AI threats, vulnerabilities, and controls to foster alignment among different standardization initiatives. This includes the EU AI act, ISO/IEC 27090 (AI security), the [OWASP ML top 10](https://mltop10.info/), the [OWASP LLM top 10](https://llmtop10.com/), and [OpenCRE](https://opencre.org) - which we want to use to provide the AI Exchange content through the security chatbot [OpenCRE-Chat](https://opencre.org/chatbot).
 
-Our **mission** is to be the authoritative source for consensus, foster alignment, and drive collaboration among initiatives - NOT to set a standard, bu to drive standards. By doing so, it provides a safe, open, and independent place to find and share insights for everyone. See [AI Exchange LinkedIn page](https://www.linkedin.com/company/owasp-ai-exchange/).
+Our **mission** is to be the authoritative source for consensus, foster alignment, and drive collaboration among initiatives - NOT to set a standard, but to drive standards. By doing so, it provides a safe, open, and independent place to find and share insights for everyone. See [AI Exchange LinkedIn page](https://www.linkedin.com/company/owasp-ai-exchange/).
 
 Maintained here at [owaspai.org](https://owaspai.org) it currently uses both a GitHub repository and a Word Document for contributions. It is is an **open-source living document** for the worldwide exchange of AI security expertise. It serves, for example, as input to security standardization for the EU AI Act towards mid-December (your help is urgently needed!). The document is maintained by OWASP as part of the [OWASP AI guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) project. It will periodically publish content with credited contributions into the Guide.
 
@@ -105,7 +105,7 @@ It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 270
 
 The threats are organized by attack surface (how and where does the attack take place?), and not by impact. This means that for example model theft is mentioned in three different parts of the overview:
 
-1. model theft by stealing model parameters from a live system, eg. breaking into the network and reading the parameters from a file,
+1. model theft by stealing model parameters from a live system, e.g. breaking into the network and reading the parameters from a file,
 2. model theft by stealing the modeling process or parameters from the engineering environment, e.g. stored in the version management system of a data scientist, and
 3. model theft by reverse engineering from using the AI system. These are three very different attacks, with similar impacts. This way of organizing is helpful because the goal is to link the threats to controls, and these controls vary per attack surface.
 
@@ -114,7 +114,7 @@ A helpful way to look at AI is to see it as consisting of machine learning (the 
 This document focuses on machine learning. Nevertheless, here is a quick summary of the machine learning threats from this document that also apply to heuristic systems:
 
 - Model evasion is also possible for heuristic models, -trying to find a loophole in the rules
-- Model theft through use - it is possible to train a machine learning model based om input/output combinations from a heuristic model
+- Model theft through use - it is possible to train a machine learning model based on input/output combinations from a heuristic model
 - Overreliance in use - heuristic systems can also be relied on too much. The applied knowledge can be false
 - Data poisoning and model poisoning is possible by manipulating data that is used to improve knowledge and by manipulating the rules development-time or runtime
 - Leaks of data used for analysis or testing can still be an issue
@@ -123,7 +123,7 @@ This document focuses on machine learning. Nevertheless, here is a quick summary
 
 ## Applying threats and controls - risk analysis
 
-1. Threat identification: First select the threats that apply to your case by going through the list of threats and use the _Impact_ description to see if it is applicable. For example the impact of identifying individuals in your training data may not apply to your case. Risk assessment is a helpful exercise to suppor this selection, and the consideration of controls and risks further on in this process.
+1. Threat identification: First select the threats that apply to your case by going through the list of threats and use the _Impact_ description to see if it is applicable. For example the impact of identifying individuals in your training data may not apply to your case. Risk assessment is a helpful exercise to support this selection, and the consideration of controls and risks further on in this process.
 2. Control selection: Then, for the selected threats consider the various controls listed with that threat (or the parent section of that threat) and the general controls (they always apply). When considering a control, look at its purpose and determine if you think it is important enough to implement it and to what extent. This depends on the cost of implementation compared to how the purpose mitigates the threat, and the level of risk of the threat.
 3. Use references: When implementing a control, consider the references and the links to standards. You may have implemented some of these standards, or the content of the standards may help you to implement the control.
 4. Risk acceptance: In the end you need to be able to accept the risks that remain regarding each threat, given the controls that you implemented.
@@ -151,7 +151,7 @@ GenAI security particularities are:
 3. A GenAI model will not respect any variations in access privileges of training data. All data will be accessible to the model users.
 4. Training data poisoning is an AI-broad problem, and with GenAI the risk is generally higher since training data can be supplied from different sources that may be challenging to control, such as the internet. Attackers could for example hijack domains and place manipulated information.
 5. Overreliance is an AI-broad risk factor, and in addition Large Language Models can make matters worse by coming across very confident and knowledgeable.
-6. Leaiking input data: GenAI models mostly live in the cloud - often managed by an external party, which may increase the risk of leaking training data and leaking prompts. This issue is not limited to GenAI. Additional risks that are typical for GenAI are: 1) model use involves user interaction through prompts, adding user data and corresponding privacy issues, and 2) GenAI model input (prompts) can contain rich context information with sensitive data (e.g. company secrets). The latter issue occurs with *in context learning* (adding background information to a prompt): for example data from all reports ever written at a consultancy firm. First of all, this information will travel with the prompt to the cloud, and second: the system will likely not respect the original access rights to the information.
+6. Leaking input data: GenAI models mostly live in the cloud - often managed by an external party, which may increase the risk of leaking training data and leaking prompts. This issue is not limited to GenAI. Additional risks that are typical for GenAI are: 1) model use involves user interaction through prompts, adding user data and corresponding privacy issues, and 2) GenAI model input (prompts) can contain rich context information with sensitive data (e.g. company secrets). The latter issue occurs with *in context learning* (adding background information to a prompt): for example data from all reports ever written at a consultancy firm. First of all, this information will travel with the prompt to the cloud, and second: the system will likely not respect the original access rights to the information.
 7. Pre-trained models are applied also outside of GenAI, but the approach is quite common in GenAI, which increases the risk of transfer learning attacks
 8. The typical application of plug-ins in Large Language Models creates specific risks regarding the protection and privileges of these plugins - as they allow large language model to act outside of their normal conversation with the user
 9. Prompt injection is a GenAI specific threat, listed under Application security threats
@@ -169,7 +169,7 @@ The AI security controls (in capitals - and discussed further on in the document
 1. Apply **AI governance** (AIPROGRAM)
 2. Apply **information security management** (SECPROGRAM), with AI attention points:
    - New assets: training/test data , input data, output data, model parameters, technical information about the model, and also code and configuration. This depends on if they represent important intellectual property, or if the data is sensitive, or if the data can help attackers to design an attack (DISCRETE).
-   - New threats: ISO/IEC 27563 (on AI use cases security & privacy) describes security of some AI use cases to assist in risk analysis, and 23894 elaborates on risk management. The AI Exchange and the upcoming ISO 27090 (AI security) are more comprehensive sources for threats and controls.
+   - New threats: ISO/IEC 27563 (on AI use cases security & privacy) describes security of some AI use cases to assist in risk analysis, and ISO/IEC 23894 elaborates on risk management. The AI Exchange and the upcoming ISO 27090 (AI security) are more comprehensive sources for threats and controls.
    - AI regulation needs to be taken into account (CHECKCOMPLIANCE)
    - Awareness training needs to include AI threats and controls (SECEDUCATE)
    - The information security controls in this document fall under the security management activity (e.g. model privileges, monitoring, access control, data protection, supply chain)
@@ -298,14 +298,14 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
   Because AI has specific assets (e.g. training data), **AI-speific honeypots** are a partiularly interesting control. These are fake parts of the data/model/datascience infrastucture that are exposed on purpose, in order to detect or capture attackers, before they succeed to access the real assets. Examples:
 
-  - Hardened data services buth with an unpatched vulnerability (e.g. Elasticsearch)
-  - Exposed data lakes (not giving away details of the real assets)
-  - Data access APIS vulnerable to brute force attacks
-  - "Mirror" data servers that appear development facilities, but exposed in production with SSH access and with names like "lab"
-  - 'By accident' exposed documentation that points to a honeypot
-  - Datascience Python lib exposed in server
-  - External access to a specific library
-  - Imported as-is models from GitHub
+  - Hardened data services, but with an unpatched vulnerability (e.g. Elasticsearch)
+  - Exposed data lakes, not revealing details of the actual assets
+  - Data access APIs vulnerable to brute-force attacks
+  - "Mirror" data servers that resemble development facilities, but are exposed in production with SSH access and labeled with names like "lab"
+  - Documentation 'accidentally' exposed, directing to a honeypot
+  - Data science Python library exposed on the server
+  - External access granted to a specific library
+  - Models imported as-is from GitHub
 
   Links to standards:
 
@@ -359,7 +359,7 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
   Purpose: This way, AI systems will become easier to maintain, transferable, more reliable, and future-proof.
 
-  A best practice is to mix data scientist profiles with software engineering profiles in teams, as software engineers typically need to learn more about data science and data scientists typically need to learn more about creating future-proof code that is easy to maintain and test.
+ A best practice is to mix data scientist profiles with software engineering profiles in teams, as software engineers typically need to learn more about data science, and data scientists generally need to learn more about creating future-proof, maintainable, and easily testable code.
 
   Another best practice is to extend existing software engineering processes and practices to AI development, instead of treating AI as something that requires a separate approach.
 
@@ -375,7 +375,7 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
   - [OpenCRE on Compliance](https://www.opencre.org/cre/510-324)
   - 27002 Control 5.36 Compliance with policies, rules and standards. Gap: covers this control fully, with the particularity that AI regulation needs to be taken into account.
 
-- **#SECEDUCATE** (management). Educate data scientists and development teams on AI threats awareness - including the model attacks. Attaining a _security mindset_ is essential for all engineers, including data scientists.
+- **#SECEDUCATE** (management). Educate data scientists and development teams on AI threat awareness, including attacks on models. It is essential for all engineers, including data scientists, to attain a security mindset.
 
   Links to standards:
 
@@ -385,7 +385,7 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
 ## 1.2 General controls for sensitive data limitation
 
-- **#DATAMINIMIZE** (development-time and runtime). Remove or anonymize data fields or records that are not needed for the application, to prevent them from leaking. A special form of data minimization is to statistically analyze which records or fields in a training dataset are superfluous to achieving sufficient performance, and then remove those (Datascience).
+- **#DATAMINIMIZE** (development-time and runtime). Remove or anonymize data fields or records that are unnecessary for the application to prevent potential leaks. Data minimization can also involve statistically analyzing a training dataset to identify and eliminate superfluous records or fields that are not essential for achieving sufficient performance (Data Science).
 
   Purpose: reduce the impact in case of an attack by reducing the amount of data that can leak.
 
@@ -393,12 +393,12 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
   - Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODO: covered anywhere else?
 
-- **#ALLOWEDDATA** (development-time and runtime). Verify if the data used (e.g. train set) is allowed for the purpose. This may for example not be the case if no consent was given and the data contains personal data collected for a different purpose.  
+- **#ALLOWEDDATA** (development-time and runtime). Ensure that the data used (e.g., training set) is permitted for the intended purpose. This is particularly important if consent was not given and the data contains personal information collected for a different purpose.
   Links to standards:
 
   - ISO/IEC 23894 (AI risk management) covers this in A.8 Privacy. Gap: covers this control fully, with a brief section on the idea
 
-- **#SHORTRETAIN** (development-time and runtime). Remove or anonymize data after it is no longer needed, or when it is legally required (e.g. privacy laws) to minimize the risk of the data leaking.  
+- **#SHORTRETAIN** (development-time and runtime). Remove or anonymize data once it is no longer needed, or when legally required (e.g., due to privacy laws), to minimize the risk of data leakage.
   Links to standards:
 
   - Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODO: covered anywhere else?
@@ -421,9 +421,9 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
   - Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODO: covered anywhere else?
 
-- **#DISCRETE** (management, development-time and runtime). Minimize access to technical details that can help attackers.
+- **#DISCRETE** (management, development-time and runtime). Minimize access to technical details that could help attackers.
 
-  Purpose: reduce information available to attackers that can help them select and tailor their attack, thereby reducing the probabily of a successful attack.
+  Purpose: reduce the information available to attackers, which can assist them in selecting and tailoring their attacks, thereby lowering the probability of a successful attack.
 
   Note: this control needs to be weighed against the AITRANSPARENCY control that requires to be more open about technical aspects of the model. The key is to minimize information that can help attackers while being transparent.
 
@@ -445,47 +445,49 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
 ## 1.3. Controls to limit the effects of unwanted behaviour
 
-The cause of unwanted model behaviour can be the result of many things (model use, development-time, run-time), and the preventative controls are covered in the corresponding sections. Hower, the controls to limit the _effect_ of this behaviour are general controls for each of those threats, and covered in this section.
+The cause of unwanted model behaviour can be the result of various factors, including model use, development time, and run-time. Preventative controls for these are discussed in their corresponding sections. However, the controls to mitigate the impact of such behavior are general for each of these threats and are covered in this section.
 
 Main potential causes of unwanted model behaviour:
 
 - Insufficient or incorrect training data
 - Model staleness/ Model drift (i.e. the model becoming outdated)
 - Mistakes during model and data engineering
-- Security threats: attacks as laid out in this document e.g. model poisoning, evasion attacks
+- Security threats: attacks as laid out in this document, e.g. model poisoning, evasion attacks
 
 Dealing with the effects of unwanted model behaviour knows the following threats:
 
 - Overreliance: the model is being trusted too much by users
 - Excessive agency: the model is being trusted too much by engineers and gets excessive functionality, permissions, or autonomy
 
-Example: The typical application of _plug-ins_ in Large Language Models (GenAI) creates specific risks regarding the protection and privileges of these plugins - as they allow large language model to act outside of their normal conversation with the user.
+Example: The typical use of plug-ins in Large Language Models (GenAI) presents specific risks concerning the protection and privileges of these plug-ins. This is because they enable LLMs to perform actions beyond their normal interactions with users.
 
-Example: Large Language Models(GenAI), just like most AI models, induce their results based on training data, meaning that they can make up things that are false. In addition, the training data can contain false or outdated information. At the same time, LLM's can come across very confident about their output. These aspects make overreliance of LLM a real risk. Note that all AI models in principle can suffer from overreliance.
+Example: Large Language Models (GenAI), just like most AI models, induce their results based on training data, meaning that they can make up things that are false. In addition, the training data can contain false or outdated information. At the same time, LLMs can come across very confident about their output. These aspects make overreliance of LLM a real risk. Note that all AI models in principle can suffer from overreliance.
 
 **Controls to limit the effects of unwanted model behaviour:**
 
-- **#OVERSIGHT** (runtime). Oversight of model behaviour by humans or business logic (guard rails)
-  Purpose: detect unwanted model behaviour and correct or stop follow up of a model's decision. Note: unwanted model behaviour often cannot be completely specified, limiting the effectiveness of guard rails
+- **#OVERSIGHT** (runtime). Oversight of model behaviour by humans or business logic (guardrails).
+  
+  Purpose: Detect unwanted model behavior and correct or halt the execution of a model's decision. Note: Unwanted model behavior often cannot be entirely specified, limiting the effectiveness of guardrails.
+  
   Examples:
 
-  - Logic preventing the trunk of a car opening while the care is moving, even if the driver seems to ask so
-  - Asking the user for confirmation if a large number of emails is going to be sent by instruction of a model
-  - A special form of guard rails is censoring unwanted output of GenAI models (e.g. violent, unethical)
+  - Logic preventing the trunk of a car from opening while the car is moving, even if the driver seems to request it
+  - Requesting user confirmation before sending a large number of emails as instructed by a model
+  - A special form of guardrails is censoring unwanted output of GenAI models (e.g. violent, unethical)
 
   Links to standards:
 
   - ISO/IEC 42001 B.9.3 defines controls for human oversight and decisions regarding autonomy. Gap: covers this control partly (human oversight only, not business logic)
   - Not covered further in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
 
-- **#LEASTMODELPRIVILEGE** (runtime infosec). Minimize privileges, for example by not connecting a model to an e-mail facility, to prevent it from sending out wrong information to others.
+- **#LEASTMODELPRIVILEGE** (runtime infosec). Minimize privileges; avoid connecting a model to an email facility to prevent it from sending incorrect information to others.
 
   Links to standards:
 
   - 27002 control 8.2 Privileged access rights. Gap: covers this control fully, with the particularity that privileges assigned to autonomous model decisions need to be assigned with the risk of unwanted model behaviour in mind.
   - [OpenCRE on least privilege](https://www.opencre.org/cre/368-633) Gap: idem
 
-- **#AITRANSPARENCY** (runtime, management). By being transparent to users regarding how the model roughly works, how it has been trained, and the general expected accuracy and reliability of the AI system's output, people can adjust their reliance accordingly. The most simple form of this is to inform users that an AI model is involved.  
+- **#AITRANSPARENCY** (runtime, management). By being transparent with users about the rough workings of the model, its training process, and the general expected accuracy and reliability of the AI system's output, people can adjust their reliance on it accordingly. The simplest form of this is to inform users that an AI model is being involved.
   See the DISCRETE control for the balance between being transparent and being discrete about the model. Transparency here is about providing abstract information regarding the model and is therefore something else than _explainability_.
 
   Links to standards:
@@ -499,7 +501,7 @@ Example: Large Language Models(GenAI), just like most AI models, induce their re
 
   - ISO 5338 (AI lifecycle) Continuous validation. Gap: covers this control fully
 
-- **#EXPLAINABILITY** (runtime datascience). Explaining how individual model decisions came to be (a field referred to as XAI) can aid in gaining user trust in the model. In some cases this can also prevent overreliance, for example when the user sees the simplicity of 'reasoning', or even errors in that process. See [this Stanford article on explainability and overreliance](https://hai.stanford.edu/news/ai-overreliance-problem-are-explanations-solution).
+- **#EXPLAINABILITY** (runtime datascience). Explaining how individual model decisions are made, a field referred to as Explainable AI (XAI), can aid in gaining user trust in the model. In some cases, this can also prevent overreliance, for example, when the user observes the simplicity of the 'reasoning' or even errors in that process. See [this Stanford article on explainability and overreliance](https://hai.stanford.edu/news/ai-overreliance-problem-are-explanations-solution).
 
 - **#UNWANTEDBIASTESTING** (datascience). By doing test runs of the model to measure unwanted bias, unwanted behaviour caused by an attack can be detected. The details of bias detection fall outside the scope of this document as it is not a security concern - other than that an attack on model behaviour can cause bias.
 
@@ -516,9 +518,9 @@ Threats through use take place through normal interaction with an AI model: prov
 - See General controls
 - **#MONITORUSE** (runtime appsec). Add use of the model to logs and make it part of incident detection, including:
 
-  - detecting inproper functioning of the model (see CONTINUOUSVALIDATION and UNWANTEDBIASTESTING)
-  - detecting suspicious patterns of model use (e.g. high frequency - see RATELIMIT)
-  - detecting suspicious inputs (see DETECTODDINPUT and DETECTADVERSARIALINPUT)
+  - inproper functioning of the model (see CONTINUOUSVALIDATION and UNWANTEDBIASTESTING)
+  - suspicious patterns of model use (e.g. high frequency - see RATELIMIT)
+  - suspicious inputs (see DETECTODDINPUT and DETECTADVERSARIALINPUT)
 
   Links to standards:
 
@@ -573,15 +575,15 @@ Another categorization is to distinguish between physical input manipulation (e.
 - See controls for threats through use
 - **#DETECTODDINPUT** (runtime datascience). Implement tools to detect whether input is out of distribution (OOD) or invalid - also called input validation - without knowledge on what malicious input looks like. It is not safe to assume that the test data models will evaluate comes from the same distribution as the training data, or is in distribution (ID). When a sample is OOD, the model should not make a prediction because the sample may represent a novel class/label and therefore be misclassified.
 
-  Purpose: By detecting OOD / anomylous input, input that will result in unwanted model behaviour can be discarded or kept for analysis. It is important to note that not all OOD input is malicious and not all malicious input is OOD. However, detecting OOD input is critical to maintaining model integrity, addressing potential concept drift, and preventing adversarial attacks that may take advantage of model behaviors on out of distribution data.
+  Purpose: By detecting OOD or anomalous input, input that would result in unwanted model behavior can be discarded or retained for analysis. It is important to note that not all OOD input is malicious and not all malicious input is OOD. However, detecting OOD input is critical to maintaining model integrity, addressing potential concept drift, and preventing adversarial attacks that may take advantage of model behaviors on out of distribution data.
 
-  Methods to detect out of distribution inputs include outlier detection, anomaly detection, novelty detection, and open set recognition. Specific techniques include maesures of similarity between training and test data, introspecting models to determine which concepts / neurons are activated by in distribution data, and out of distribution sample generation and retraining, among others. For a recent survey on this topic, see the work of [Yang et al.](https://arxiv.org/pdf/2110.11334.pdf), and for learnability of OOD: [here](https://arxiv.org/abs/2210.14707).
+  Methods to detect out of distribution inputs include outlier detection, anomaly detection, novelty detection, and open set recognition. Specific techniques include measures of similarity between training and test data, introspecting models to determine which concepts / neurons are activated by in distribution data, and out of distribution sample generation and retraining, among others. For a recent survey on this topic, see the work of [Yang et al.](https://arxiv.org/pdf/2110.11334.pdf), and for learnability of OOD: [here](https://arxiv.org/abs/2210.14707).
 
   Links to standards:
 
   - Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work.
 
-- **#DETECTADVERSARIALINPUT** (runtime datascience). Implement tools to detect specific evasions in input (e.g. patches in images)_.
+- **#DETECTADVERSARIALINPUT** (runtime datascience). Implement tools to detect specific evasions in input (e.g. patches in images).
 
   The main concepts of adversarial attack detectors include:
   - Activation Analysis: Examining the activations of different layers in
@@ -606,7 +608,7 @@ results are compared to detect possible attacks.
 
   References:
 
-  - [Feature squeezing](https://arxiv.org/pdf/1704.01155.pdf) (IDBT) compares the output of the model against the output based on a distortion of the input that reduces the level of detail. This is done by reducing the number of features or reducing the detail of certain features (eg. by smoothing). This approach is like INPUTDISTORTION, but instead of just changing the input to remove any adversarial data, the model is also applied to the original input and then used to compare it, as a detection mechanism.
+  - [Feature squeezing](https://arxiv.org/pdf/1704.01155.pdf) (IDBT) compares the output of the model against the output based on a distortion of the input that reduces the level of detail. This is done by reducing the number of features or reducing the detail of certain features (e.g. by smoothing). This approach is like INPUTDISTORTION, but instead of just changing the input to remove any adversarial data, the model is also applied to the original input and then used to compare it, as a detection mechanism.
 
   - [MagNet](https://arxiv.org/abs/1705.09064) and [here](https://www.mdpi.com/2079-9292/11/8/1283)
 
@@ -655,9 +657,9 @@ Recognition. 2022.
 
 * **#EVASIONROBUSTMODEL** (development-time datascience). Choose a model design, configuration and/or training approach to maximize resilience against evasion (Datascience).
 
-  A robust model in the light of evasion is a model that does not display large changes in output for small changes in input.
+  A robust model in the light of evasion is a model that does not display significant changes in output for minor changes in input.
 
-  Example approach: Measure model robustness by trying small input deviations to detect meaningful outcome variations that undermine the model's reliability. If these variations are undetectable to the human eye but may produce false/incorrect outcome descriptions they may also significantly undermine the model's reliability. Such cases indicate lack of model resilience to input variance resulting in sensitivity to evasion attacks and require detailed investigation.  
+  Example approach: Measure model robustness by trying minor input deviations to detect meaningful outcome variations that undermine the model's reliability. If these variations are undetectable to the human eye but can produce false or incorrect outcome descriptions, they may also significantly undermine the model's reliability. Such cases indicate lack of model resilience to input variance resulting in sensitivity to evasion attacks and require detailed investigation.  
   If we interpret the model with its inputs as a "system" and the sensitivity to evasion attacks as the "system fault" then this sensitivity may also be interpreted as (local) lack of graceful degradation. Such issues can be addressed by, for example, increasing training samples for that part of the input domain and tuning/optimising the model for variance.
 
   Care must be taken when considering robust model designs, as
@@ -688,7 +690,7 @@ gradients give a false sense of security: Circumventing defenses to
 adversarial examples." International conference on machine learning.
 PMLR, 2018.
 
-* **TRAINADVERSARIAL** (development-time datascience). Add adversarial examples to the training set to make the model more resilient (Datascience). While adversarial training does make a model more robust against specific attacks, it is important to note that it also adds significant training overhead, does not scale well with model complexity / input dimension, can lead to overfitting, and may not generalize well to new attack methods. For a general summary of adversarial training, see [Bai et al.](https://arxiv.org/pdf/2102.01356.pdf)
+* **#TRAINADVERSARIAL** (development-time datascience). Add adversarial examples to the training set to make the model more resilient (Datascience). While adversarial training does make a model more robust against specific attacks, it is important to note that it also adds significant training overhead, does not scale well with model complexity / input dimension, can lead to overfitting, and may not generalize well to new attack methods. For a general summary of adversarial training, see [Bai et al.](https://arxiv.org/pdf/2102.01356.pdf)
 
   TODO: Elaborate - See Annex C of ENISA Secure machine learning algorithms 2021.
 
@@ -705,7 +707,7 @@ PMLR, 2018.
 
 * **#INPUTDISTORTION** (runtime datascience). Lightly modify the input with the intention to distort the adversarial attack causing it to fail, while maintaining sufficient model correctness.
   Modification can be done by adding noise (randomization), or by smoothing.  
-  Maintaining model correctness can be helped by performing multiple random modifications (e.g. randomized smoothing) of the input and then comparting model output (e.g. best of three).  
+  Maintaining model correctness can be improved by performing multiple random modifications (e.g. randomized smoothing) to the input and then comparing the model output (e.g. best of three).  
   TODO: See ENISA Annex C for data randomisation, input transformation and input denoising.
   See DETECTADVERSARIALINPUT for an approach where the distorted input is used for detecting an adversarial attacak.
 
@@ -743,12 +745,11 @@ Input is manipulated in a way not based on observations of the model implementat
 
 Example 1: slightly changing traffic signs so that self-driving cars may be fooled.
 
-Example 2: crafting an e-mail text by carefully choising words to avoid triggering a spam detection algorithm.
+Example 2: crafting an e-mail text by carefully choosing words to avoid triggering a spam detection algorithm.
 
-Example 3: fooling a large language model(GenAI) by circumventing mechanisms to protect against unwanted answers, eg. "How would I theoretically construct a bomb?". This can be seen as social engineering of a language model. It is referred to as a *jailbreak attack*.
+Example 3: fooling a large language model (GenAI) by circumventing mechanisms to protect against unwanted answers, e.g. "How would I theoretically construct a bomb?". This can be seen as social engineering of a language model. It is referred to as a *jailbreak attack*.
 
-Example 4: an open-box box evasion attack (see below) can be done on a copy (a surrogate) of the closed-box model. This way, the attacker can use the normally hidden internals of the model to construct a succesful attack that 'hopefully' transfers to the original model - as the surrogate model is typically internally different from the original model. An open-box evasion attack offers more possibilities. A copy of the model can be acchieved through _Model theft through use_ (see elsewhere in this document) [This article](https://arxiv.org/abs/1602.02697) describes that approach. The likelihood of a successful transfer is generally believed to be higher when the surrogate model closely resembles the target model in complexity and structure, but even attacks on simple surrogate models tend to transfer very well. To achieve the greatest similarity, one approach is to reverse-engineer a version of the target model, which is otherwise a closed-box system. This process aims to create a surrogate
-that mirrors the target as closely as possible, enhancing the effectiveness of the evasion attack
+Example 4: an open-box box evasion attack (see below) can be done on a copy (a surrogate) of the closed-box model. This way, the attacker can use the normally hidden internals of the model to construct a succesful attack that 'hopefully' transfers to the original model - as the surrogate model is typically internally different from the original model. An open-box evasion attack offers more possibilities. A copy of the model can be achieved through _Model theft through use_ (see elsewhere in this document) [This article](https://arxiv.org/abs/1602.02697) describes that approach. The likelihood of a successful transfer is generally believed to be higher when the surrogate model closely resembles the target model in complexity and structure, but even attacks on simple surrogate models tend to transfer very well. To achieve the greatest similarity, one approach is to reverse-engineer a version of the target model, which is otherwise a closed-box system. This process aims to create a surrogate that mirrors the target as closely as possible, enhancing the effectiveness of the evasion attack
 
   References:
 
@@ -799,7 +800,7 @@ adversarial attacks." arXiv preprint arXiv:1706.06083 (2017).
 
 ### 2.1.3. Evasion after data poisoning
 
-After training data has been poisoned (see corresponding section), specific input can lead to unwanted decisions - sometimes referred to as _back doors_.
+After training data has been poisoned (see corresponding section), specific input can lead to unwanted decisions, sometimes referred to as _backdoors_.
 
 ---
 
@@ -811,7 +812,7 @@ The model discloses sensitive training data or is abused to do so.
 
 ### 2.2.1. Sensitive data output from model
 
-The output of the model may contain sensitive data from the training set, for example a large language model(GenAI) generating output including personal data that was part of its training set. Furthermore, GenAI can output other types of sensitive data, such as copyrighted text or images. Once training data is in a GenAI model, original variations in access rights do not apply anymore.
+The output of the model may contain sensitive data from the training set, for example a large language model (GenAI) generating output including personal data that was part of its training set. Furthermore, GenAI can output other types of sensitive data, such as copyrighted text or images. Once training data is in a GenAI model, original variations in access rights do not apply anymore.
 
 The disclosure is caused by an unintentional fault of including this data, and exposed through normal use or through provocation by an attacker using the system. See [MITRE ATLAS - LLM Data Leakage](https://atlas.mitre.org/techniques/AML.T0057)
 
@@ -898,7 +899,7 @@ References
 
 Impact: The AI systems is unavailable, leading to issues with processes, organizations or individuals that depend on the AI system (e.g. business continuity issues, safety issues in process control, unavailability of services)
 
-This threat refers to application failure (i.e. denial of service) typically caused by excessive resource usage, induced by an attacker through use (i.e. providing input). The failure occurs from frequency,volume, or the content of the input. See [MITRE ATLAS - Denial of ML service](https://atlas.mitre.org/techniques/AML.T0029).
+This threat refers to application failure (i.e. denial of service) typically caused by excessive resource usage, induced by an attacker through use (i.e. providing input). The failure occurs from frequency, volume, or the content of the input. See [MITRE ATLAS - Denial of ML service](https://atlas.mitre.org/techniques/AML.T0029).
 
 **Controls:**
 
@@ -930,11 +931,11 @@ A _sponge attack_ provides input that is designed to increase the computation ti
 
 # 3. DEVELOPMENT-TIME THREATS
 
-Background: Data science (data engineering and model engineering - for machine learning often referred to as _training phase_) uses a development environment typically outside of the regular application development scope, introducing a new attack surface. Data engineering (collecting, storing, and preparing data) is typically a large and important part of machine learning engineering. Together with model engineering, it requires appropriate security to protect against data leaks, data poisoning, leaks of intellectual property, and supply chain attacks (see further below). In addition, data quality assurance can help to reduce risks of intended and unintended data issues.
+Background: Data science (data engineering and model engineering - for machine learning often referred to as _training phase_) uses a development environment typically outside of the regular application development scope, introducing a new attack surface. Data engineering (collecting, storing, and preparing data) is typically a large and important part of machine learning engineering. Together with model engineering, it requires appropriate security to protect against data leaks, data poisoning, leaks of intellectual property, and supply chain attacks (see further below). In addition, data quality assurance can help reduce risks of intended and unintended data issues.
 
 **Particularities:**
 
-- Particularity 1: the data in the AI development environment is real data that is typically sensitive, because it is needed to train the model and that obviously needs to happen on real data, instead of fake data that you typically see in standard development environent situations (e.g. fpr testing). Therefore, data protection activities need to be extended from the live system to the development environment.
+- Particularity 1: the data in the AI development environment is real data that is typically sensitive, because it is needed to train the model and that obviously needs to happen on real data, instead of fake data that you typically see in standard development environment situations (e.g. fpr testing). Therefore, data protection activities need to be extended from the live system to the development environment.
 - Particularity 2: elements in the AI development environment (data, code, configuration & parameters) require extra protection as they are prone to attacks to manipulate model behaviour (called _poisoning_)
 - Particularity 3: source code, configuration, and parameters are typically critical intellectual property in AI
 
@@ -1003,7 +1004,7 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 
   Security risks in obtained elements can arise from accidental mistakes or from manipulations - just like with obtained source code or software components.
 
-  Just like with obtained sourc code or software components, data or models may involve multip suppliers. For example: a model is trained by one vendor and then fine-tuned by another vendor. Or: an AI system contains multiple models, one is a model that has been fine-tuned with data from source X, using a base model from vendor A that claims data is used from sources Y and Z, where the data from source Z was labeled by vendor B.
+  Just like with obtained source code or software components, data or models may involve multiple suppliers. For example: a model is trained by one vendor and then fine-tuned by another vendor. Or: an AI system contains multiple models, one is a model that has been fine-tuned with data from source X, using a base model from vendor A that claims data is used from sources Y and Z, where the data from source Z was labeled by vendor B.
 
   Data provenance is a helpful activity to support supply chain management for obtained data.  The Software Bill Of Materials (SBOM) becomes the AIBOM (AI Bill Of Materials) or MBOM (Model Bill of Material). AI systems often have a variation of supply chains, including the data supply chain, the labeling supply chain, and the model supply chain.
 
@@ -1035,7 +1036,8 @@ This poisoning is **hard to detect** once it has happened: there is no code to r
 
 - See General controls
 - See controls for development-time protection
-- **#MODELENSEMBLE** (development-time datascience). Make the model part of en ensemble in which each model has been trained in a separately protected environment. If one model deviates from the others, its output can be ignored as it indicates possible manipulation.
+- **#MODELENSEMBLE** (development-time datascience). Include the model as part of an ensemble, where each model is trained in a separately protected environment. If one model's output deviates from the others, it can be ignored, as this indicates possible manipulation.
+
   Links to standards:
   - Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
 
@@ -1049,7 +1051,7 @@ TODO: add more info on how to practically implement the controls. Integration. M
 
 The attacker manipulates (training) data to affect the algorithm's behavior. Also called _causative attacks_.
 
-Example 1: an attacker breaks into a training set database to add images of houses and labels them as 'fighter plane', to mislead the camera system of an autonomous missile. The missile is then manipulated to attack houses. With a good test set this unwanted behaviour may be detected. However, the attacker can make the poisoned data represent input that normally doesn't occur and therefore would not be in a testset. Tje attacker can then create that abnormal input in practice. In the previous exmaple this could be houses with white crosses on the door.  See [MITRE ATLAS - Poison traing data](https://atlas.mitre.org/techniques/AML.T0020)
+Example 1: an attacker breaks into a training set database to add images of houses and labels them as 'fighter plane', to mislead the camera system of an autonomous missile. The missile is then manipulated to attack houses. With a good test set this unwanted behaviour may be detected. However, the attacker can make the poisoned data represent input that normally doesn't occur and therefore would not be in a testset. The attacker can then create that abnormal input in practice. In the previous exmaple this could be houses with white crosses on the door.  See [MITRE ATLAS - Poison traing data](https://atlas.mitre.org/techniques/AML.T0020)
 Example 2: a malicious supplier poisons data that is later obtained by another party to train a model. See [MITRE ATLAS - Publish poisoned datasets](https://atlas.mitre.org/techniques/AML.T0019) 
 Example 3: false information in documents on the internet causes a Large Language Model to output false results. That false information can be planted by an attacker, but of course also by accident. The latter case is a real GenAI risk, but technically comes down to the issue of having false data in a training set which falls outside of the security scope.
 
@@ -1098,7 +1100,7 @@ Example 3: false information in documents on the internet causes a Large Languag
 
 ### 3.1.2. Development-time model poisoning
 
-This threat refers to manipulating behaviour of the model by manipulating the engineering elements that lead to the model (including the parameters during development time), eg. through supplying, changing components, code, or configuration. In some cases, the model is trained externally and supplied as-is, which also introduces a model poisoning threat.
+This threat refers to manipulating behaviour of the model by manipulating the engineering elements that lead to the model (including the parameters during development time), e.g. through supplying, changing components, code, or configuration. In some cases, the model is trained externally and supplied as-is, which also introduces a model poisoning threat.
 Data manipulation is referred to as data poisoning and is covered in separate threats.
 
 **Controls:**
@@ -1124,7 +1126,7 @@ An attacker supplies a manipulated pre-trained model (e.g. a GenAI model) which 
 
 Impact: Confidentiality breach of sensitive train/test data.
 
-Training data or test data can be confidential because it's sensitive data (e.g. personal data) opr intellectual property. An attack or an unintended failure can lead to this training data leaking.  
+Training data or test data can be confidential because it's sensitive data (e.g. personal data) or intellectual property. An attack or an unintended failure can lead to this training data leaking.  
 Leaking can happen from the development environment, as engineers need to work with real data to train the model.  
 Sometimes training data is collected at runtime, so a live system can become attack surface for this attack.  
 GenAI models are often hosted in the cloud, sometimes managed by an external party. Therefore, if you train or finetune these models, the training data (e.g. company documents) needs to travel to that cloud.
@@ -1187,8 +1189,7 @@ Note: some controls in this document are application security controls that are 
 
 Impact: see Broad model poisoning.
 
-This threat refers to manipulating behaviour of the model by manipulating the parameters in the model itself in the live system (i.e. the representation of the regularities that the training process has extracted for the model to use in its task. e.g. neural network weights.
-Alternatively, the model input or output logic can be compromised to change model behaviour or deny its service.
+This threat involves manipulating the behavior of the model by altering the parameters within the live system itself. These parameters represent the regularities extracted during the training process for the model to use in its task, such as neural network weights. Alternatively, compromising the model's input or output logic can also change its behavior or deny its service.
 
 **Controls:**
 
@@ -1280,7 +1281,7 @@ TODO: add to diagram
 
 **Controls:**
 
-- **#MODELINPUTCONFIDENTIALY** (runtime appsec). See SECDEVPROGRAM to attain application security, with the focus on protecting the transport and storage of model parameters (e.g. access control, encryption, minimize retention)
+- **#MODELINPUTCONFIDENTIALITY** (runtime appsec). See SECDEVPROGRAM to attain application security, with the focus on protecting the transport and storage of model parameters (e.g. access control, encryption, minimize retention)
 
 # References
 
@@ -1497,7 +1498,7 @@ Misc.:
     Impact: Confidentiality breach of sensitive input data.
 
   - See General controls
-  - MODELINPUTCONFIDENTIALY (runtime appsec)
+  - MODELINPUTCONFIDENTIALITY (runtime appsec)
 
 - [References](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#references)
 - [Expanded Table of contents](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#expanded-table-of-contents)
