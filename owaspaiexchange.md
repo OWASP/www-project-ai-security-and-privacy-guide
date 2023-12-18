@@ -562,7 +562,7 @@ Impact: Integrity of model behaviour is affected, leading to issues from unwante
 
 Fooling models with deceptive input data. In other words: an attacker provides input that has intentionally been designed to cause a machine learning model to behave in an unwanted way. In other words, the attacker fools the model with deceptive input data.
 
-A category of such an attack involves small perturbations leading to a large modification of its outputs. Such modified inputs are often called adversarial examples.
+A category of such an attack involves small perturbations leading to a large modification of its outputs. Such modified inputs are often called *adversarial examples*.
 
 Example: let’s say a self-driving has been taught how to recognize traffic signs, so it can respond, for example by stopping for a stop sign. It has been trained on a set of labeled traffic sign images. Then an attacker manages to secretly change the train set and add examples with crafted visual cues. For example, the attacker inserts some stop-sign images with yellow stickers and the label “35 miles an hour”. The model will be trained to recognize those cues. The stealthy thing is that this problematic behavior will not be detected in tests. The model will recognize normal stop signs and speed limit signs. But when the car gets on the road, an attacker can put inconspicuous stickers on stop signs and create terrible dangerous situations.
 
@@ -662,6 +662,8 @@ Recognition. 2022.
 
   Example approach: Measure model robustness by trying minor input deviations to detect meaningful outcome variations that undermine the model's reliability. If these variations are undetectable to the human eye but can produce false or incorrect outcome descriptions, they may also significantly undermine the model's reliability. Such cases indicate lack of model resilience to input variance resulting in sensitivity to evasion attacks and require detailed investigation.  
   If we interpret the model with its inputs as a "system" and the sensitivity to evasion attacks as the "system fault" then this sensitivity may also be interpreted as (local) lack of graceful degradation. Such issues can be addressed by, for example, increasing training samples for that part of the input domain and tuning/optimising the model for variance.
+
+  Adversarial robustness (the senstitivity to adversarial examples) can be assessed with tools like [IBM Adversarial Robustness Toolbox](https://research.ibm.com/projects/adversarial-robustness-toolbox), [CleverHans](https://github.com/cleverhans-lab/cleverhans), or [Foolbox](https://github.com/bethgelab/foolbox).
 
   Care must be taken when considering robust model designs, as
 security concerns have arisen about their effectiveness.
