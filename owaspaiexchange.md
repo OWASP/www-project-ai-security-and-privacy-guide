@@ -71,6 +71,7 @@ Search 'TODO' for where contributions are needed the most.
 - Create a layout that is less list-like and more of a read
 - Create a way to link to Controls and to Threats with permanent links (we probably need to generate html from the md)
 - Add attribute inference attacks and consider making that part of 'data reconstruction', together with model inversion, although it is a different approach
+- Add links to LLM top 10 entries where applicable and make sure that the LLM top 10 entries link back to the ML
 
 # Introduction
 
