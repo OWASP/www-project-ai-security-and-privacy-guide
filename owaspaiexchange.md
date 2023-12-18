@@ -1,7 +1,7 @@
 <a href="https://owaspai.org"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aixlogosml.jpg?raw=true"></a>
 
 [Contribute Now!](#how-to-contribute)&nbsp;&nbsp;&nbsp;[Register with the Exchange](https://forms.gle/XwEEK52y4iZQChuJ6)&nbsp;&nbsp;&nbsp;[Navigator](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf)  
-[HTML version](https://owasp.org/www-project-ai-security-and-privacy-guide/owaspaiexchange.html)&nbsp;&nbsp;&nbsp;[Github version](https://owaspai.org)&nbsp;&nbsp;&nbsp;[Word version](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/owaspaiexchangeWORD.docx)
+[HTML version](https://owasp.org/www-project-ai-security-and-privacy-guide/owaspaiexchange.html)&nbsp;&nbsp;&nbsp;[Github version](https://owaspai.org)&nbsp;&nbsp;&nbsp;[Older Word version](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/owaspaiexchangeWORD.docx)
 
 **Purpose**
 
@@ -40,7 +40,7 @@ Click on the image to get a pdf with clickable links.
 
 **If you're an AI security expert, please contribute now as standard makers are using this document as input as we speak:**
 
-- Provide comments or suggestions to the last [Word version of this document](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/owaspaiexchangeWORD.docx) and send it to rob.vanderveer@owasp.org
+- Provide comments or suggestions to the mot recent and typically outdated [Word version of this document](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/owaspaiexchangeWORD.docx) and send it to rob.vanderveer@owasp.org
 - Start a [GitHub dicussion](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions) or join **#project-ai** at the [OWASP Slack workspace](https://owasp.org/slack/invite)
 - Post remarks as [GitHub issues](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues)
 - Fork the respository and suggest changes to this document using Pull requests (only do this if you are familiar with it)
