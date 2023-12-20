@@ -60,7 +60,7 @@ Search 'TODO' for where contributions are needed the most.
 - Angie Qarry (QDeepTech, Austria) - several elaborations and references on datascience defence mechanisms
 - Behnaz Karimi (Accenture, Germany)- misc. contributions including model obfuscation and explanation
 - Sean Oesch (Oak Ridge National Laboratory, US) - BLUF, Adversarial Training, OOD detection, NISTIR 8269, Guide Usability/Structure
-- Anthony Glynn (CapitalOne, Canada) - many textual improvements
+- Anthony Glynn (CapitalOne, US) - many textual improvements
 - Zoe Braiterman (Mutual Knowledge Systems, US) - Many markdown improvements
 - Niklas Bunzel (Fraunhofer institute, Germany) - datascience discussion and references around evasion attacks
 - Marko Lihter (Endava Adriatic, Croatia) - various textual improvements
@@ -71,7 +71,7 @@ Search 'TODO' for where contributions are needed the most.
 - Create a layout that is less list-like and more of a read
 - Create a way to link to Controls and to Threats with permanent links (we probably need to generate html from the md)
 - Add attribute inference attacks and consider making that part of 'data reconstruction', together with model inversion, although it is a different approach
-- Add links to LLM top 10 entries where applicable and make sure that the LLM top 10 entries link back to the ML
+- Add links to LLM top 10 entries where applicable and make sure that the LLM top 10 entries link back to the AI Exchange
 
 # Introduction
 
@@ -330,7 +330,7 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
     - This document contains AI security threats and controls to facilitate risk analysis
     - See also [MITRE ATLAS framework for AI threats](https://atlas.mitre.org/)
     - ISO/IEC 27005 - as mentioned above. Gap: covers this control fully, with said particularity (as 27005 doesn't mention AI-specific threats)
-    - ISO/IEC 27563 (AI use`` cases security & privacy) Discusses the impact of security and privacy in AI use cases and may serve as useful input to AI security risk analysis. TODO: elaborate and specify gap
+    - ISO/IEC 27563 (AI use cases security & privacy) Discusses the impact of security and privacy in AI use cases and may serve as useful input to AI security risk analysis. TODO: elaborate and specify gap (Requires access to ISO document)
     - ISO/IEC 23894 (AI Risk management). Gap: covers this control fully - yet it refers to ISO/IEC 24028 (AI trustworthiness) for AI security threats, which is incomplete compared to for example the AI exchange (this document). The scope is broader than security which is not an issue. TODO: Double check coverage and specify gap if there (Requires access to ISO document).
     - ISO/IEC 5338 (AI lifecycle) covers the AI risk management process. Gap: same as 23894 above.
     - [ETSI Method and pro forma for Threat, Vulnerability, Risk Analysis](https://www.etsi.org/deliver/etsi_ts/102100_102199/10216501/05.02.03_60/ts_10216501v050203p.pdf)
@@ -352,7 +352,7 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
   Links to standards:
 
   - 27002 control 8.25 Secure development lifecycle. Gap: covers this control fully, with said particularity, but lack of detail - the 8.25 Control description in 27002(2022) is one page, whereas secure software development is a large and complex topic - see below for further references
-  - ISO/IEC 27115 (Cybersecurity evaluation of complex systems). TODO: Eloborate and specify Gap.
+  - ISO/IEC 27115 (Cybersecurity evaluation of complex systems). TODO: Eloborate and specify Gap (Requires access to ISO document).
   - See [OpenCRE on secure software development processes](https://www.opencre.org/cre/616-305) with notable links to NIST SSDF and OWASP SAMM. Gap: covers this control fully, with said particularity
 
 - **#DEVPROGRAM** (management). Apply general (not just security-oriented) software engineering best practices to AI development.
@@ -606,7 +606,7 @@ results are compared to detect possible attacks.
 
   Links to standards:
 
-  - Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
+  - Not covered yet in ISO/IEC standards. TODO: covered anywhere else?
 
   References:
 
@@ -673,7 +673,7 @@ security concerns have arisen about their effectiveness.
 
   Links to standards:
 
-  - ISO/IEC TR 24029 (Assessment of the robustness of neural networks). Gap: TODO.
+  - ISO/IEC TR 24029 (Assessment of the robustness of neural networks). Gap: TODO (Requires access to ISO document).
 
   References:
 
@@ -707,7 +707,7 @@ PMLR, 2018.
 
   Links to standards:
 
-  - Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
+  - Not covered yet in ISO/IEC standards. TODO: covered anywhere else?
 
 * **#INPUTDISTORTION** (runtime datascience). Lightly modify the input with the intention to distort the adversarial attack causing it to fail, while maintaining sufficient model correctness.
   Modification can be done by adding noise (randomization), or by smoothing.  
@@ -717,7 +717,7 @@ PMLR, 2018.
 
   Links to standards:
 
-  - Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
+  - Not covered yet in ISO/IEC standards. TODO: covered anywhere else?
   - TODO Gradient masking - Annex C ENISA 2021
 
 * **#ADVERSARIALROBUSTDISTILLATION** (development-time datascience). Defensive distillation involves training a student model to
@@ -730,7 +730,7 @@ about their effectiveness.
 
   Links to standards:
 
-  - Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
+  - Not covered yet in ISO/IEC standards. TODO: covered anywhere else?
  
   References
 
@@ -828,13 +828,13 @@ The disclosure is caused by an unintentional fault of including this data, and e
 
   Links to standards:
 
-  - Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
+  - Not covered yet in ISO/IEC standards. TODO: covered anywhere else?
 
 - **#FILTERSENSITIVEMODELOUTPUT** (runtime appsec). Actively censor sensitive data by detecting it when possible (e.g. phone number)
 
   Links to standards:
 
-  - Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODO: covered anywhere else?
+  - Not covered yet in ISO/IEC standards. TODO: covered anywhere else?
 
 ### 2.2.2. Model inversion and Membership inference
 
@@ -862,19 +862,19 @@ Controls for Model inversion and membership inference:
 
   Links to standards:
 
-  - Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
+  - Not covered yet in ISO/IEC standards. TODO: covered anywhere else?
 
 - **#SMALLMODEL** (development-time datascience). Overfitting can be prevented by keeping the model small so it is not able to store detail at the level of individual training set samples.
 
   Links to standards:
 
-  - Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
+  - Not covered yet in ISO/IEC standards. TODO: covered anywhere else?
 
 - **#ADDTRAINNOISE** (development-time datascience). TODO: Add noise to the training set.
 
   Links to standards:
 
-  - Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
+  - Not covered yet in ISO/IEC standards. TODO: covered anywhere else?
 
 ---
 
@@ -914,7 +914,7 @@ This threat refers to application failure (i.e. denial of service) typically cau
   Links to standards:
 
   - 27002 has no control for this
-  - Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
+  - Not covered yet in ISO/IEC standards. TODO: covered anywhere else?
   - [OpenCRE on input validation](https://www.opencre.org/cre/010-308)
 
 - **#LIMITRESOURCES** (runtime). Put a limit on resource usage for a single model input, to prevent resource overuse.
@@ -922,7 +922,7 @@ This threat refers to application failure (i.e. denial of service) typically cau
   Links to standards:
 
   - 27002 has no control for this, except for Monitoring (covered in Controls for threats through use)
-  - Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
+  - Not covered yet in ISO/IEC standards. TODO: covered anywhere else?
 
 ### 2.4.1. Denial of model service due to inconsistent data or a sponge example
 
@@ -990,19 +990,19 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 
   Links to standards:
 
-  - Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
+  - Not covered yet in ISO/IEC standards. TODO: covered anywhere else?
 
 - **#FEDERATIVELEARNING** (development-time datascience). Federative learning can be applied when a training set is distributed over different organizations, preventing that the data needs to be collected in a central place - increasing the risk of leaking.
 
   Links to standards:
 
-  - Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODO: covered anywhere else?
+  - Not covered yet in ISO/IEC standards. TODO: covered anywhere else?
 
 - TODO: integrity checks in development pipeline (build, deploy, supply chain)
 
   Links to standards:
 
-  - Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
+  - Not covered yet in ISO/IEC standards. TODO: covered anywhere else?
 
 - **#SUPPLYCHAINMANAGE** (development-time infosec) Managing the supply chain to to minimize the security risk from externally obtained elements. In regular software engineering these elements are source code or software components (e.g. open source). The particularity for AI is that this also includes obtained data and obtained models.
 
@@ -1043,7 +1043,7 @@ This poisoning is **hard to detect** once it has happened: there is no code to r
 - **#MODELENSEMBLE** (development-time datascience). Include the model as part of an ensemble, where each model is trained in a separately protected environment. If one model's output deviates from the others, it can be ignored, as this indicates possible manipulation.
 
   Links to standards:
-  - Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
+  - Not covered yet in ISO/IEC standards. TODO: covered anywhere else?
 
 References:
 
@@ -1067,7 +1067,7 @@ Example 3: false information in documents on the internet causes a Large Languag
 
   Links to standards:
 
-  - Not covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
+  - Not covered yet in ISO/IEC standards. TODO: covered anywhere else?
 
 - **#DATAQUALITYCONTROL** (development-time datascience). Perform quality control on data including detecting poisoned samples through statistical deviation or pattern recognition. For important data and scenarios this may involve human verification.
 
@@ -1080,7 +1080,7 @@ Example 3: false information in documents on the internet causes a Large Languag
 
   - ISO/IEC 5259 series on Data quality for analytics and ML. Gap: covers this control minimally. in light of the particularity - the standard does not mention approaches to detect malicious changes (including detecting statistical deviations). Nevertheless, standard data quality control helps to detect malicious changes that violate data quality rules.
   - ISO/iEC 42001 B.7.4 briefly covers data quality for AI. Gap: idem as 5259
-  - Not further covered yet in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
+  - Not further covered yet in ISO/IEC standards. TODO: covered anywhere else?
 
 - **#TRAINDATADISTORTION** (development-time datascience) - TODO: Look into methods of making poisoned samples ineffective by smoothing or adding noise to training data (with the best practice of keeping the original training data, in order to expertiment with the filtering)
 
