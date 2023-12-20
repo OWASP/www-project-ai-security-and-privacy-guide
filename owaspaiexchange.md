@@ -331,7 +331,7 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
     - See also [MITRE ATLAS framework for AI threats](https://atlas.mitre.org/)
     - ISO/IEC 27005 - as mentioned above. Gap: covers this control fully, with said particularity (as 27005 doesn't mention AI-specific threats)
     - ISO/IEC 27563 (AI use`` cases security & privacy) Discusses the impact of security and privacy in AI use cases and may serve as useful input to AI security risk analysis. TODO: elaborate and specify gap
-    - ISO/IEC 23894 (AI Risk management). TODO: Elaborate and specify gap. Gap: covers this control fully - yet it refers to ISO/IEC 24028 (AI trustworthiness) for AI security threats, which is incomplete compared to for example the AI exchange (this document). The scope is broader than security which is not an issue.
+    - ISO/IEC 23894 (AI Risk management). Gap: covers this control fully - yet it refers to ISO/IEC 24028 (AI trustworthiness) for AI security threats, which is incomplete compared to for example the AI exchange (this document). The scope is broader than security which is not an issue. TODO: Double check coverage and specify gap if there (Requires access to ISO document).
     - ISO/IEC 5338 (AI lifecycle) covers the AI risk management process. Gap: same as 23894 above.
     - [ETSI Method and pro forma for Threat, Vulnerability, Risk Analysis](https://www.etsi.org/deliver/etsi_ts/102100_102199/10216501/05.02.03_60/ts_10216501v050203p.pdf)
     - [NIST AI Risk Management Framework](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf)
@@ -393,7 +393,7 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
   Links to standards:
 
-  - Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODO: covered anywhere else?
+  - Not covered yet in ISO/IEC standards. TODO: covered anywhere else?
 
 - **#ALLOWEDDATA** (development-time and runtime). Ensure that the data used (e.g., training set) is permitted for the intended purpose. This is particularly important if consent was not given and the data contains personal information collected for a different purpose.
   Links to standards:
@@ -403,7 +403,7 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 - **#SHORTRETAIN** (development-time and runtime). Remove or anonymize data once it is no longer needed, or when legally required (e.g., due to privacy laws), to minimize the risk of data leakage.
   Links to standards:
 
-  - Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODO: covered anywhere else?
+  - Not covered yet in ISO/IEC standards. TODO: covered anywhere else?
 
 - **#OBFUSCATETRAININGDATA** (development-time datascience). Attain a degree of obfuscation of sensitive data where possible. When this is done for personal data, it is referred to as _differential privacy_.
 
@@ -421,7 +421,7 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
   Links to standards:
 
-  - Not covered yet in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODO: covered anywhere else?
+  - Not covered yet in ISO/IEC standards. TODO: covered anywhere else?
 
 - **#DISCRETE** (management, development-time and runtime). Minimize access to technical details that could help attackers.
 
@@ -480,7 +480,7 @@ Example: Large Language Models (GenAI), just like most AI models, induce their r
   Links to standards:
 
   - ISO/IEC 42001 B.9.3 defines controls for human oversight and decisions regarding autonomy. Gap: covers this control partly (human oversight only, not business logic)
-  - Not covered further in ISO/IEC standards - probably part of ongoing 27090 work. TODO: covered anywhere else?
+  - Not covered further in ISO/IEC standards. TODO: covered anywhere else?
 
 - **#LEASTMODELPRIVILEGE** (runtime infosec). Minimize privileges; avoid connecting a model to an email facility to prevent it from sending incorrect information to others.
 
@@ -495,7 +495,7 @@ Example: Large Language Models (GenAI), just like most AI models, induce their r
   Links to standards:
 
   - ISO/IEC 42001 B.7.2 describes data management to support transparency. Gap: covers this control minimally, as it only covers the data mnanagement part.
-  - Not covered further in ISO/IEC standards - probably part of ongoing 27090/27091 work. TODO: covered anywhere else?
+  - Not covered further in ISO/IEC standards. TODO: covered anywhere else?
 
 - **#CONTINUOUSVALIDATION** (datascience). By frequently testing the behaviour of the model against an appropriate test set, sudden changes caused by a permanent attack (e.g. data poisoning, model poisoning) can be detected.
 
