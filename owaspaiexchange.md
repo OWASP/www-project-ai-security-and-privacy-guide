@@ -80,10 +80,10 @@ Search 'TODO' for where contributions are needed the most.
 While AI offers powerful perfomance boosts, it also increases the attack surface available to bad actors. It is therefore imperative to approach AI applications with a clear understanding of potential threats and which of those threats to prioritize for each use case. Standards and governance help guide this process for individual entities leveraging AI capabilities.
 
 - Implement **AI governance**
-- **Extend security and development practices** to include data science activities especially to protect and streamline the engineering environment.
-- **Improve regular application and system security** through understanding of AI particularities e.g. model parameters need protection and access to the model needs to be monitored and rate-limited.
-- **Limit the impact** of AI by minimizing privileges and adding oversight, e.g. guardrails, human oversight.
-- **Countermeasures in data science** through understanding of model attacks, e.g. data quality assurance, larger training sets, detecting common perturbation attacks, input filtering.
+- **Extend security and development practices** to include data science activities especially to protect and streamline the engineering environment. ([OWASP for LLM 03: Training Data Poisoning](https://llmtop10.com/llm03/), [OWASP for LLM 05: Supply Chain Vulnerabilities](https://llmtop10.com/llm05/), [OWASP for LLM 07: Insecure Plugin Design](https://llmtop10.com/llm07/), [OWASP for LLM 10: Model Theft](https://llmtop10.com/llm10/))
+- **Improve regular application and system security** through understanding of AI particularities e.g. model parameters need protection and access to the model needs to be monitored and rate-limited ([OWASP for LLM 04](https://llmtop10.com/llm04/)).
+- **Limit the impact** of AI by minimizing privileges and adding oversight, e.g. guardrails, human oversight ([OWASP for LLM 08: Excessive Agency](https://llmtop10.com/llm08/), [OWASP for LLM 09: Overreliance](https://llmtop10.com/llm09/)).
+- **Countermeasures in data science** through understanding of model attacks, e.g. data quality assurance, larger training sets, detecting common perturbation attacks, input filtering ([OWASP for LLM 03: Training Data Poisoning](https://llmtop10.com/llm03/)).
 
 _AI Security Threats and Controls - We need to to ensure data integrity, confidentiality, and privacy, prevent model theft or evasion, and ensure service availability._
 ![](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaimodelv1.png)
@@ -105,7 +105,7 @@ It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 270
 
 ## Organizing threats and controls
 
-The threats are organized by attack surface (how and where does the attack take place?), and not by impact. This means that for example model theft is mentioned in three different parts of the overview:
+The threats are organized by attack surface (how and where does the attack take place?), and not by impact. This means that for example model theft ([OWASP for LLM 10](https://llmtop10.com/llm10/)) is mentioned in three different parts of the overview:
 
 1. model theft by stealing model parameters from a live system, e.g. breaking into the network and reading the parameters from a file,
 2. model theft by stealing the modeling process or parameters from the engineering environment, e.g. stored in the version management system of a data scientist, and
@@ -148,16 +148,16 @@ Important note: from a security framework perspective, GenAI is not that differe
 
 GenAI security particularities are:
 
-1. Evasion attacks for GenAI include specifically evasion of policies that intend to censor (e.g. violent) output.
-2. Unwanted output of sensitive training data is an AI-broad issue, but more likely to be a high risk with systems that output rich content such as GenAI.
-3. A GenAI model will not respect any variations in access privileges of training data. All data will be accessible to the model users.
-4. Training data poisoning is an AI-broad problem, and with GenAI the risk is generally higher since training data can be supplied from different sources that may be challenging to control, such as the internet. Attackers could for example hijack domains and place manipulated information.
-5. Overreliance is an AI-broad risk factor, and in addition Large Language Models (GenAI) can make matters worse by coming across very confident and knowledgeable.
-6. Leaking input data: GenAI models mostly live in the cloud - often managed by an external party, which may increase the risk of leaking training data and leaking prompts. This issue is not limited to GenAI. Additional risks that are typical for GenAI are: 1) model use involves user interaction through prompts, adding user data and corresponding privacy issues, and 2) GenAI model input (prompts) can contain rich context information with sensitive data (e.g. company secrets). The latter issue occurs with *in context learning* (adding background information to a prompt): for example data from all reports ever written at a consultancy firm. First of all, this information will travel with the prompt to the cloud, and second: the system will likely not respect the original access rights to the information.
+1. Evasion attacks for GenAI include specifically evasion of policies that intend to censor (e.g. violent) output. ([OWASP for LLM 01](https://llmtop10.com/llm01/))
+2. Unwanted output of sensitive training data is an AI-broad issue, but more likely to be a high risk with systems that output rich content such as GenAI. ([OWASP for LLM 06](https://llmtop10.com/llm06/))
+3. A GenAI model will not respect any variations in access privileges of training data. All data will be accessible to the model users. ([OWASP for LLM 06: Sensitive Information Disclosure](https://llmtop10.com/llm06/), ([OWASP for LLM 07: Insecure Plugin Design](https://llmtop10.com/llm07/), ([OWASP for LLM 10: Model Theft](https://llmtop10.com/llm10/))
+4. Training data poisoning is an AI-broad problem, and with GenAI the risk is generally higher since training data can be supplied from different sources that may be challenging to control, such as the internet. Attackers could for example hijack domains and place manipulated information. ([OWASP for LLM 03: Training Data Poisoning](https://llmtop10.com/llm03/))
+5. Overreliance is an AI-broad risk factor, and in addition Large Language Models (GenAI) can make matters worse by coming across very confident and knowledgeable. ([OWASP for LLM 09: Overreliance](https://llmtop10.com/llm09/))
+6. Leaking input data: GenAI models mostly live in the cloud - often managed by an external party, which may increase the risk of leaking training data and leaking prompts. This issue is not limited to GenAI. Additional risks that are typical for GenAI are: 1) model use involves user interaction through prompts, adding user data and corresponding privacy issues, and 2) GenAI model input (prompts) can contain rich context information with sensitive data (e.g. company secrets). The latter issue occurs with *in context learning* (adding background information to a prompt): for example data from all reports ever written at a consultancy firm. First of all, this information will travel with the prompt to the cloud, and second: the system will likely not respect the original access rights to the information. ([OWASP for LLM 06: Sensitive Information Disclosure](https://llmtop10.com/llm06/))
 7. Pre-trained models are applied also outside of GenAI, but the approach is quite common in GenAI, which increases the risk of transfer learning attacks
 8. The typical application of plug-ins in Large Language Models (GenAI) creates specific risks regarding the protection and privileges of these plugins - as they allow large language models (GenAI) to act outside of their normal conversation with the user
 9. Prompt injection ([OWASP for LLM 01](https://llmtop10.com/llm01/)) is a GenAI specific threat, listed under Application security threats
-10. Model inversion and membership inference are low to zero risks for GenAI
+10. Model inversion and membership inference are low to zero risks for GenAI ([OWASP for LLM 06](https://llmtop10.com/llm06/))
 
 GenAI References:
 
