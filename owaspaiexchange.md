@@ -50,9 +50,11 @@ Click on the image to get a pdf with clickable links.
 **TODOs - the most urgent on top:**
 
 - Elaborate on POISONROBUSTMODEL
+- Change navigator: 1) "deal with conidentiality issues" -> "minimize data to help confidentiality", 2) remove ADDTRAINNOISE
 - Elaborate on "Choose a model type resilient against a transfer learning attack"
 - Under DATAQUALITCONTROL: Elaborate on that method to detect statistical deviation by training models on random selections of the training dataset and then feeding each training sample to those models and compare results.
 - Add 'Leak sensitive input data' to threat diagram and check further for any gaps with this document
+- Check if OBFUSCATETRAININGDATA has strategies (anonymization, tokenization) that are covered in ISO/IEC standards and add references to those standards
 - Under DATAQUALITCONTROL: elaborate on RONI and tRONI training sample selection
 - Elaborate on the various methods and the general approach of TRAINDATADISTORTION to prevent data poisoning
 - Create a way to link to Controls and to Threats with permanent links (we probably need to generate html from the md)
@@ -237,7 +239,6 @@ The AI security controls (in capitals - and discussed further on in the document
     - MODELENSEMBLE
     - MORETRAINDATA
     - SMALLMODEL (to prevent reconstructing train data)
-    - ADDTRAINNOISE (to prevent reconstructing train data)
     - DATAQUALITYCONTROL (covered in 5259 but not aimed at data manipulation)
 
 ---
@@ -443,26 +444,17 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
     
   - Randomisation
     
-    Injecting noise into the network at different stages, including both training and inference, constitutes randomization. The primary objective of this technique is to enhance the network's resilience to adversarial
-    attacks, especially those triggered by subtle, carefully crafted perturbations to input data that may result in misclassification or inaccurate predictions. Techniques incorporating the injection of noise into
-    neural networks have demonstrated potential in fortifying the network's robustness against adversarial attacks.
+    Adding sufficient noise to training data can make it effectively uncrecognizable, which of course needs to be weighed against the inaccuracy that this typically creates. See also TRAINDATADISTORTION against data poisoning and EVASIONROBUSTMODEL for randomisation against evasion attacks.
     
   - Objective function perturbation
     
-    It involves small, intentional modifications or disturbances to input data to test the neural network's robustness. These perturbations, designed to be subtle and inconspicuous, can significantly alter the 
-    network's predictions. Adversarial attacks often use crafted perturbations to manipulate the network's behavior.
-    In privacy-preserving machine learning, objective function perturbation is a technique to enhance training data privacy. It introduces noise or modifications to the objective function, adding controlled randomness 
-    to make it difficult for adversaries to extract specific details about individual data points. This method contributes to achieving differential privacy, preventing the undue influence of a single data point on the 
-    model's behavior.
+    In privacy-preserving machine learning, objective function perturbation is a technique to enhance training data privacy. It introduces noise or modifications to the objective function, adding controlled randomness to make it difficult for adversaries to extract specific details about individual data points. This method contributes to achieving differential privacy, preventing the undue influence of a single data point on the model's behavior.
 
   - Masking
     
     Masking encompasses the intentional concealment or modification of sensitive information within training datasets to enhance privacy during the development of machine learning models. This is achieved by introducing 
     a level of obfuscation through techniques like data masking or feature masking, where certain elements are replaced, encrypted, or obscured, preventing unauthorized access to specific details. This approach strikes 
-    a balance between extracting valuable data insights and safeguarding individual privacy, contributing to a more secure and privacy-preserving data science process. The gradient masking is a protective 
-    technique employed to defend machine learning models against adversarial attacks. This involves altering the gradients of a model during training to increase the difficulty of generating adversarial examples for 
-    attackers. Methods like adversarial training and ensemble approaches are utilized for gradient masking, but it comes with limitations, including computational expenses and potential in effectiveness against all 
-    types of attacks.
+    a balance between extracting valuable data insights and safeguarding individual privacy, contributing to a more secure and privacy-preserving data science process. 
     
   - Encryption
     
@@ -648,7 +640,7 @@ Impact: Integrity of model behaviour is affected, leading to issues from unwante
 
 Fooling models with deceptive input data). In other words: an attacker provides input that has intentionally been designed to cause a machine learning model to behave in an unwanted way. In other words, the attacker fools the model with deceptive input data.
 
-A category of such an attack involves small perturbations leading to a large modification of its outputs. Such modified inputs are often called *adversarial examples*.
+A category of such an attack involves small perturbations leading to a large (and false) modification of its outputs. Such modified inputs are often called *adversarial examples*.
 
 Example: let’s say a self-driving car has been taught how to recognize traffic signs, so it can respond, for example by stopping for a stop sign. It has been trained on a set of labeled traffic sign images. Then an attacker manages to secretly change the train set and add examples with crafted visual cues. For example, the attacker inserts some stop-sign images with yellow stickers and the label “35 miles an hour”. The model will be trained to recognize those cues. The stealthy thing is that this problematic behavior will not be detected in tests. The model will recognize normal stop signs and speed limit signs. But when the car gets on the road, an attacker can put inconspicuous stickers on stop signs and create terrible dangerous situations.
 
@@ -747,6 +739,11 @@ Recognition. 2022.
 
   Example approach: Measure model robustness by trying minor input deviations to detect meaningful outcome variations that undermine the model's reliability. If these variations are undetectable to the human eye but can produce false or incorrect outcome descriptions, they may also significantly undermine the model's reliability. Such cases indicate lack of model resilience to input variance resulting in sensitivity to evasion attacks and require detailed investigation.  
   If we interpret the model with its inputs as a "system" and the sensitivity to evasion attacks as the "system fault" then this sensitivity may also be interpreted as (local) lack of graceful degradation. Such issues can be addressed by, for example, increasing training samples for that part of the input domain and tuning/optimising the model for variance.
+
+  Another example approach: _Randomisation_ by injecting noise during training. The primary objective of this technique is to enhance the network's resilience to evasion attacks, especially those triggered by subtle, carefully crafted perturbations to input data that may result in misclassification or inaccurate predictions. See also TRAINDATADISTORTION against data poisoning and OBFUSCATETRAININGDATA to minimize sensitive data through randomisation.
+
+  Yet another approach is _gradient masking_: a technique employed to defend machine learning models against adversarial attacks. This involves altering the gradients of a model during training to increase the difficulty of generating adversarial examples for 
+    attackers. Methods like adversarial training and ensemble approaches are utilized for gradient masking, but it comes with limitations, including computational expenses and potential in effectiveness against all types of attacks.
 
   Adversarial robustness (the senstitivity to adversarial examples) can be assessed with tools like [IBM Adversarial Robustness Toolbox](https://research.ibm.com/projects/adversarial-robustness-toolbox), [CleverHans](https://github.com/cleverhans-lab/cleverhans), or [Foolbox](https://github.com/bethgelab/foolbox).
 
@@ -935,7 +932,7 @@ The more details a model is able to learn, the more it can store information on 
 
 Controls for Model inversion and membership inference:
 
-- See General controls
+- See General controls, in particular data minimization
 - See controls for threats through use
 - **#OBSCURECONFIDENCE** (runtime datascience). Obscure confidence: exclude indications of confidence in the output, or round confidence so it cannot be used for optimization.
 
@@ -948,12 +945,6 @@ Controls for Model inversion and membership inference:
   Links to standards:
 
   - Not covered yet in ISO/IEC standards
-
-- **#ADDTRAINNOISE** (development-time datascience). Add train noise. TODO: Add noise to the training set.
-
-  Links to standards:
-
-  - Not covered yet in ISO/IEC standards.
 
 ---
 
@@ -1157,6 +1148,9 @@ Example 3: false information in documents on the internet causes a Large Languag
   - Not further covered yet in ISO/IEC standards
 
 - **#TRAINDATADISTORTION** (development-time datascience) - Train data distortion:.making poisoned samples ineffective by smoothing or adding noise to training data (with the best practice of keeping the original training data, in order to expertiment with the filtering)
+
+
+  See also EVASTIONROBUSTMODEL on adding noise against evasion attacks and OBFUSCATETRAININGDATA to minimize sensitive data through randomisation.
 
   Examples:
 
@@ -1468,7 +1462,7 @@ Misc.:
   - See controls for threats through use
   - OBSCURECONFIDENCE (runtime datascience)
   - SMALLMODEL (development-time datascience)
-  - ADDTRAINNOISE (development-time datascience)
+  
     2.3. Model theft through use  
     Impact: Confidentiality breach of intellectual property.
   - See General controls
