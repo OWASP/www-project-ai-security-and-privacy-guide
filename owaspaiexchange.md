@@ -312,6 +312,8 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
   See Risk management under SECPROGRAM for security-specific risk analysis.
 
+  Note that an AI program is not just about risk TO AI, such as security risks - it is also about risks BY AI, such as threats to fairness, safety, etc.
+
   Links to standards:
 
   - ISO/IEC 42001 AI management system (under development). Gap: covers this control fully.
