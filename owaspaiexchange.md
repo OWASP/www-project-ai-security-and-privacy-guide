@@ -411,15 +411,74 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
   Examples of approaches are:
 
-  - PATE
+  - Private Aggregation of Teacher Ensembles (PATE)
+    
+    Private Aggregation of Teacher Ensembles (PATE) is a privacy-preserving machine learning technique. This method tackles the challenge of training models on sensitive data while maintaining privacy. It achieves this 
+    by employing an ensemble of "teacher" models along with a "student" model. Each teacher model is independently trained on distinct subsets of sensitive data, ensuring that there is no overlap in the training data
+    between any pair of teachers. The collective consensus of predictions from the teacher models is then utilized to supervise the training of the student model. To enhance privacy assurances, carefully calibrated 
+    noise can be incorporated into the aggregated answers.
+    
   - Randomisation
+    
+    Injecting noise into the network at different stages, including both training and inference, constitutes randomization. The primary objective of this technique is to enhance the network's resilience to adversarial
+    attacks, especially those triggered by subtle, carefully crafted perturbations to input data that may result in misclassification or inaccurate predictions. Techniques incorporating the injection of noise into
+    neural networks have demonstrated potential in fortifying the network's robustness against adversarial attacks.
+    
   - Objective function perturbation
-  - Masking
-  - Encryption
-  - Tokenization
-  - Anonymization
+    
+    It involves small, intentional modifications or disturbances to input data to test the neural network's robustness. These perturbations, designed to be subtle and inconspicuous, can significantly alter the 
+    network's predictions. Adversarial attacks often use crafted perturbations to manipulate the network's behavior.
+    In privacy-preserving machine learning, objective function perturbation is a technique to enhance training data privacy. It introduces noise or modifications to the objective function, adding controlled randomness 
+    to make it difficult for adversaries to extract specific details about individual data points. This method contributes to achieving differential privacy, preventing the undue influence of a single data point on the 
+    model's behavior.
 
-  TODO: Elaborate using Annex C in ENISA 2021
+  - Masking
+    
+    Masking encompasses the intentional concealment or modification of sensitive information within training datasets to enhance privacy during the development of machine learning models. This is achieved by introducing 
+    a level of obfuscation through techniques like data masking or feature masking, where certain elements are replaced, encrypted, or obscured, preventing unauthorized access to specific details. This approach strikes 
+    a balance between extracting valuable data insights and safeguarding individual privacy, contributing to a more secure and privacy-preserving data science process. The gradient masking is a protective 
+    technique employed to defend machine learning models against adversarial attacks. This involves altering the gradients of a model during training to increase the difficulty of generating adversarial examples for 
+    attackers. Methods like adversarial training and ensemble approaches are utilized for gradient masking, but it comes with limitations, including computational expenses and potential in effectiveness against all 
+    types of attacks.
+    
+  - Encryption
+    
+    Encryption is a fundamental technique for pseudonymization and data protection. It underscores the need for careful implementation of encryption techniques, particularly asymmetric encryption, to achieve robust 
+    pseudonymization. Emphasis is placed on the importance of employing randomized encryption schemes, such as Paillier and Elgamal, to ensure unpredictable pseudonyms. Furthermore, homomorphic encryption, which allows 
+    computations on ciphertexts without the decryption key, presents potential advantages for cryptographic operations but poses challenges in pseudonymization. The use of asymmetric encryption for outsourcing 
+    pseudonymization and the introduction of cryptographic primitives like ring signatures and group pseudonyms in advanced pseudonymization schemes are important.
+
+  - Tokenization
+    
+    Tokenization is a technique for obfuscating data with the aim of enhancing privacy and security in the training of machine learning models. The objective is to introduce a level of obfuscation to sensitive data, 
+    thereby reducing the risk of exposing individual details while maintaining the data's utility for model training. In the process of tokenization, sensitive information, such as words or numerical values, is replaced 
+    with unique tokens or identifiers. This substitution makes it difficult for unauthorized users to derive meaningful information from the tokenized data.
+    
+    Within the realm of personal data protection, tokenization aligns with the principles of differential privacy. When applied to personal information, this technique ensures that individual records remain 
+    indiscernible within the training data, thus safeguarding privacy. Differential privacy involves introducing controlled noise or perturbations to the data to prevent the extraction of specific details about any 
+    individual.
+    
+    Tokenization aligns with this concept by replacing personal details with tokens, increasing the difficulty of linking specific records back to individuals.
+    Tokenization proves particularly advantageous in development-time data science when handling sensitive datasets. It enhances security by enabling data scientists to work with valuable information without 
+    compromising individual privacy. The implementation of tokenization techniques supports the broader objective of obfuscating training data, striking a balance between leveraging valuable data insights and 
+    safeguarding the privacy of individuals.
+ 
+  - Anonymization
+    
+    Anonymization is the process of concealing or transforming sensitive information in a dataset to protect individuals' privacy and identity. This involves replacing or modifying identifiable elements with generic 
+    labels or pseudonyms, aiming to obfuscate data and prevent specific individual identification while maintaining data utility for effective model training. In the broader context of advanced pseudonymization methods, 
+    anonymization is crucial for preserving privacy and confidentiality in data analysis and processing.
+
+    Challenges in anonymization include the need for robust techniques to prevent re-identification, limitations of traditional methods, and potential vulnerabilities in achieving true anonymization. There is an 
+    intersection with advanced techniques such as encryption, secure multiparty computation, and pseudonyms with proof of ownership.
+    In the healthcare sector with personally identifiable information (PII), there are potential pseudonymization options, emphasizing advanced techniques like asymmetric encryption, ring signatures, group pseudonyms 
+    and pseudonyms based on multiple identifiers. In the cybersecurity sector, pseudonymization is applied in common use cases, such as telemetry and reputation systems.
+    
+    These use cases demonstrate the practical relevance and applicability of pseudonymization techniques in real-world scenarios, offering valuable insights for stakeholders involved in data pseudonymization and data
+    protection.
+
+
+  
 
   Links to standards:
 
