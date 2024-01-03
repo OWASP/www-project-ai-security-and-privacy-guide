@@ -315,6 +315,9 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
   Links to standards:
 
   - ISO/IEC 42001 AI management system (under development). Gap: covers this control fully.
+ 
+    42001 is about extending your risk management system - it focuses on governance. 5338 is about extending your software lifecycle practices - it focuses on engineering and everything around it. The 42001 can be seen as a management system for the governance of responsible AI in an organization, similar to how 27001 is a management system for information security. The 42001 doesn’t go deep into the lifecycle processes. It for example does not discuss versioning of AI models, project planning issues, and how and when exactly sensitive data is used.
+
 
 - **#SECPROGRAM** (management). Having a security program. Include the whole AI lifecycle and AI particularities in the organization's security program (also referred to as _information security management system_).
 
@@ -387,7 +390,7 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
   Purpose: This way, AI systems will become easier to maintain, transferable, more reliable, and future-proof.
 
- A best practice is to mix data scientist profiles with software engineering profiles in teams, as software engineers typically need to learn more about data science, and data scientists generally need to learn more about creating future-proof, maintainable, and easily testable code.
+  A best practice is to mix data scientist profiles with software engineering profiles in teams, as software engineers typically need to learn more about data science, and data scientists generally need to learn more about creating future-proof, maintainable, and easily testable code.
 
   Another best practice is to extend existing software engineering processes and practices to AI development, instead of treating AI as something that requires a separate approach.
 
