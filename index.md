@@ -11,8 +11,8 @@ pitch: Guidance on designing, creating, testing, and procuring secure and privac
 <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aisecprivlogosml.jpeg?raw=true" width="600" height ="127"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/humansonly.png?raw=true" align="right"/>
 
 This page is the OWASP AI security & privacy guide. It has two parts:
-1. [How to deal with AI security](#how-to-deal-with-ai-security)
-2. [How to deal with AI privacy](#how-to-deal-with-ai-privacy)
+1. [How to address AI security](#how-to-address-ai-security)
+2. [How to address AI privacy](#how-to-address-ai-privacy)
 
 Artificial Intelligence (AI) is on the rise and so are the concerns regarding AI security and privacy. This guide is a working document to provide clear and actionable insights on designing, creating, testing, and procuring secure and privacy-preserving AI systems. 
 
@@ -22,13 +22,13 @@ See also [this useful recording](https://www.youtube.com/watch?v=ABmWHnFrMqI) or
 
 Please provide your input through pull requests / submitting issues (see [repo](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/)) or emailing the project lead, and let's make this guide better and better. Many thanks to Engin Bozdag, lead privacy architect at Uber, for his great contributions.
 
-# How to deal with AI security
+# How to address AI security
 This content is now found at the [OWASP AI exchange](owaspaiexchange.md)
 <br />
 <br />
 <br />
 
-# How to deal with AI privacy
+# How to address AI privacy
 Privacy principles and requirements come from different legislations (e.g. GDPR, LGPD, PIPEDA, etc.) and privacy standards (e.g. ISO 31700, ISO 29100, ISO 27701, FIPS, NIST Privacy Framework, etc.). This guideline does not guarantee compliance with privacy legislation and it is also not a guide on privacy engineering of systems in general. For that purpose, please consider work from [ENISA](https://www.enisa.europa.eu/publications/data-protection-engineering), [NIST](https://nvlpubs.nist.gov/nistpubs/ir/2017/NIST.IR.8062.pdf), [mplsplunk](https://github.com/mplspunk/awesome-privacy-engineering), [OWASP](https://owasp.org/www-project-top-10-privacy-risks/) and [OpenCRE](https://www.opencre.org/cre/362-550). The general principle for engineers is to regard personal data as 'radioactive gold'. It's valuable, but it's also something to minimize, carefully store, carefully handle, limit its usage, limit sharing, keep track of where it is, etc.
 
 In this section, we will discuss how privacy principles apply to AI systems:
@@ -121,7 +121,7 @@ Please note that consent will not be possible in specific circumstances (e.g. yo
 
 
 ## 8. Model attacks
-See the security section for security threats that deal with data confidentiality, as they of course represent a privacy risk if that data is personal data. Notable: membership inference, model inversion, and training data leaking from the engineering process. In addition, models can disclose sensitive data that was unintendedly stored during training.
+See the security section for security threats to data confidentiality, as they of course represent a privacy risk if that data is personal data. Notable: membership inference, model inversion, and training data leaking from the engineering process. In addition, models can disclose sensitive data that was unintendedly stored during training.
 
 
 ## Scope boundaries of AI privacy
