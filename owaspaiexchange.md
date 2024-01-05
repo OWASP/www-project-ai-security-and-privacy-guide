@@ -1376,7 +1376,7 @@ Overviews of model attacks:
 - [MITRE ATLAS framework for AI threats](https://atlas.mitre.org/)
 - [ETSI SAI Problem statement Section 6](https://www.etsi.org/committee/1640-sai#)
 - [Microsoft AI failure modes](https://docs.microsoft.com/en-us/security/failure-modes-in-machine-learning)
-- [NIST](https://csrc.nist.gov/publications/detail/white-paper/2023/03/08/adversarial-machine-learning-taxonomy-and-terminology/draft)
+- [NIST](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
 - [OWASP ML top 10](https://mltop10.info/)
 - [OWASP LLM top 10](https://llmtop10.com/)
 - [BIML](https://berryvilleiml.com/taxonomy/)
