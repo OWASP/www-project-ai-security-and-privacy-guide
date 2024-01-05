@@ -143,7 +143,7 @@ This document focuses on machine learning. Nevertheless, here is a quick summary
 - Knowledgebase, source code and configuration can be regarded as sensitive data when it is intellectual property, so it needs protection
 - Leak sensitive input data, for example when a heuristic system needs to diagnose a patient
 
-## Applying threats and controls - risk analysis
+# Applying threats and controls - risk analysis
 
 1. Threat identification: First select the threats that apply to your case by going through the list of threats and use the _Impact_ description to see if it is applicable. For example the impact of identifying individuals in your training data may not apply to your case. Risk assessment is a helpful exercise to support this selection, and the consideration of controls and risks further on in this process.
 2. Control selection: Then, for the selected threats consider the various controls listed with that threat (or the parent section of that threat) and the general controls (they always apply). When considering a control, look at its purpose and determine if you think it is important enough to implement it and to what extent. This depends on the cost of implementation compared to how the purpose mitigates the threat, and the level of risk of the threat.
