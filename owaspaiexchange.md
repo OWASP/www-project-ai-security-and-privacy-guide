@@ -18,6 +18,7 @@ Table of contents:
 - [How to contribute](#how-to-contribute)
 - [Introduction](#introduction)
 - [Privacy](#how-about-privacy)
+- [Identifying relevant threats and controls](#how-to-identify-relevant-threats-and-controls---risk-analysis)
 - [Generative AI](#how-about-generative-ai-eg-llm)
 - [Summary](#summary)
 - [Mapping guidelines to controls](#mapping-guidelines-to-controls)
