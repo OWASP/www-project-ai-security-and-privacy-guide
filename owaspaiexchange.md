@@ -96,7 +96,7 @@ Anything is welcome: more controls, improved descriptions, examples, references,
 
 # Introduction
 
-## BLUF: How to Deal with AI Security
+## BLUF: How to address AI Security
 
 While AI offers powerful perfomance boosts, it also increases the attack surface available to bad actors. It is therefore imperative to approach AI applications with a clear understanding of potential threats and which of those threats to prioritize for each use case. Standards and governance help guide this process for individual entities leveraging AI capabilities.
 
@@ -158,7 +158,7 @@ For more information on risk analysis, see the SECPROGRAM control.
 AI Privacy can be divided into two parts:
 
 1. The AI security threats and controls in this document that are about confidentiality and integrity of (personal) data (e.g. model inversion, leaking training data), plus the integrity of the model behaviour
-2. Threats and controls with respect to rights of the individual, as covered by privacy regulations such as the GDPR, including use limitation, consent, fairness, transparency, data accuracy, right of correction/objection/reasure/access. For an overview, see the [Privacy part of the OWASP AI guide](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/index.md#how-to-deal-with-ai-privacy)
+2. Threats and controls with respect to rights of the individual, as covered by privacy regulations such as the GDPR, including use limitation, consent, fairness, transparency, data accuracy, right of correction/objection/reasure/access. For an overview, see the [Privacy part of the OWASP AI guide](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/index.md#how-to-address-ai-privacy)
 
 # How about Generative AI (e.g. LLM)?
 
@@ -535,7 +535,7 @@ Main potential causes of unwanted model behaviour:
 - Mistakes during model and data engineering
 - Security threats: attacks as laid out in this document, e.g. model poisoning, evasion attacks
 
-Dealing with the effects of unwanted model behaviour knows the following threats:
+Successfully mitigating unwanted model behaviour knows the following threats:
 
 - Overreliance: the model is being trusted too much by users
 - Excessive agency: the model is being trusted too much by engineers and gets excessive functionality, permissions, or autonomy
