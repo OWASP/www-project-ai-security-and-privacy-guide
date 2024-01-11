@@ -56,6 +56,7 @@ Click on the image to get a pdf with clickable links.
 - Under DATAQUALITCONTROL: Elaborate on that method to detect statistical deviation by training models on random selections of the training dataset and then feeding each training sample to those models and compare results.
 - Do gap analysis with CSA sheet of attacks and references: https://docs.google.com/spreadsheets/d/1uUqAQkDTBrwWp9AxiBHUOB9mRrEF27mxrsOC1ZUsoYY/edit#gid=0
 - Add 'Leak sensitive input data' to threat diagram and check further for any gaps with this document
+-USe 'Securing AIML systems in the age of information warfare' by Susanna Cox as sanity check and add it to references.
 - Check if OBFUSCATETRAININGDATA has strategies (anonymization, tokenization) that are covered in ISO/IEC standards and add references to those standards
 - Under DATAQUALITCONTROL: elaborate on RONI and tRONI training sample selection
 - Elaborate on the various methods and the general approach of TRAINDATADISTORTION to prevent data poisoning
