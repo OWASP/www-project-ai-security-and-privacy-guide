@@ -18,7 +18,7 @@ Table of contents:
 - [How to contribute](#how-to-contribute)
 - [Introduction](#introduction)
 - [Privacy](#how-about-privacy)
-- [Identifying relevant threats and controls](#how-to-identify-relevant-threats-and-controls---risk-analysis)
+- [Identifying relevant threats and controls](#how-to-select-relevant-threats-and-controls---risk-analysis)
 - [Generative AI](#how-about-generative-ai-eg-llm)
 - [Summary](#summary)
 - [Mapping guidelines to controls](#mapping-guidelines-to-controls)
@@ -99,7 +99,7 @@ Anything is welcome: more controls, improved descriptions, examples, references,
 
 # Introduction
 
-## BLUF: How to address AI Security
+## Short summary: how to address AI Security
 
 While AI offers powerful perfomance boosts, it also increases the attack surface available to bad actors. It is therefore imperative to approach AI applications with a clear understanding of potential threats and which of those threats to prioritize for each use case. Standards and governance help guide this process for individual entities leveraging AI capabilities.
 
@@ -126,7 +126,7 @@ It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 270
 - AI security experts who contributed to this as Open Source.
 - The insights of these experts were inspired by research work as mentioned in the references at the bottom of this document(ENISA, NIST, Microsoft, BIML, MITRE, etc.)
 
-## Organizing threats and controls
+## How we organize threats and controls
 
 The threats are organized by attack surface (how and where does the attack take place?), and not by impact. This means that for example model theft is mentioned in three different parts of the overview:
 
@@ -146,7 +146,7 @@ This document focuses on machine learning. Nevertheless, here is a quick summary
 - Knowledgebase, source code and configuration can be regarded as sensitive data when it is intellectual property, so it needs protection
 - Leak sensitive input data, for example when a heuristic system needs to diagnose a patient
 
-# How to identify relevant threats and controls - risk analysis
+# How to select relevant threats and controls - risk analysis
 There are many threats and controls described in this document. Your situation determines which threats are relevant to you, and what controls are your responsibility. This selection process can be performed through risk analysis of the use case and architecture at hand:
 
 1. **Threat identification**: First select the threats that apply to your case by going through the list of threats and use the _Impact_ description to see if it is applicable. For example the impact of identifying individuals in your training data would not apply to your case if your training data has no individuals. The [Navigator](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf) shows impact in purple.
