@@ -392,19 +392,23 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
 - **#DEVPROGRAM** (management). Having a development program for AI. Apply general (not just security-oriented) software engineering best practices to AI development.
 
-  Make sure this includes the elements that are sometimes overlooked in data science: e.g.automated testing, code quality, documentation, and versioning.
+  Data scientists are focused on creating working models, not on creating future-proof software per se. Often, organizations already have software practices and processes in place. It is important to extend these to AI development, instead of treating AI as something that requires a separate approach. Do not isolate AI engineering. This includes automated testing, code quality, documentation, and versioning.
 
-  Purpose: This way, AI systems will become easier to maintain, transferable, more reliable, and future-proof.
+  Purpose: This way, AI systems will become easier to maintain, transferable, secure, more reliable, and future-proof.
 
   A best practice is to mix data scientist profiles with software engineering profiles in teams, as software engineers typically need to learn more about data science, and data scientists generally need to learn more about creating future-proof, maintainable, and easily testable code.
 
-  Another best practice is to extend existing software engineering processes and practices to AI development, instead of treating AI as something that requires a separate approach.
+  Another best practrice is to continuously measure quality aspects of data science code (maintainability, test code coverage), and provide coaching to data scientists in how to manage those quality levels. ISO/IEC 5338 will help.
 
   Links to standards:
 
   - [ISO/IEC 5338 - AI lifecycle](https://www.iso.org/standard/81118.html) Gap: covers this control fully - the 5338 covers the complete software development lifecycle for AI, by extending the existing 12207 standard on software lifecycle: defining several new processes and discussing AI-specific particularities for existing processes.
   - 27002 control 5.37 Documented operating procedures. Gap: covers this control minimally - this covers only a very small part of the control
   - [OpenCRE on documentation of function](https://www.opencre.org/cre/162-655) Gap: covers this control minimally
+ 
+  References:
+
+  - [Research on code quality gaps in AI systems](https://www.softwareimprovementgroup.com/averting-a-major-ai-crisis-we-need-to-fix-the-big-quality-gap-in-ai-systems/)
 
 - **#CHECKCOMPLIANCE** (management). Check compliance with laws and regulations, to validate compliance which may include security aspects. See the [OWASP AI Guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) for privacy aspects of AI.  
   Links to standards:
