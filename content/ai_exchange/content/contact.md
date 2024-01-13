@@ -21,7 +21,7 @@ Engage with the OWASP AI team through various platforms.
 
 If contributing interests you, check out our [Contribution Guidelines](/contribute) or get in touch with our project leaders.
 
-## OWASP AI Slack channels
+## OWASP AI Slack Channels
 
 <!--- TODO: Add all relevant and public Slack channels -->
 

@@ -14,11 +14,11 @@ While AI offers powerful perfomance boosts, it also increases the attack surface
 - **Limit the impact** of AI by minimizing privileges and adding oversight, e.g. guardrails, human oversight.
 - **Countermeasures in data science** through understanding of model attacks, e.g. data quality assurance, larger training sets, detecting common perturbation attacks, input filtering.
 
-![AI Specific Security Threats](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaimodelv1.png)
+![AI Specific Security Threats](/images/owaspaimodelv1.png)
 
-### This document
+### About this Document
 
-This document discusses threats to AI cyber security and controls for those threats (i.e. countermeasures, requirements, mitigations).
+This document discusses threats to AI cybersecurity and controls for those threats (i.e. countermeasures, requirements, mitigations).
 Security here means preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.
 
 The AI Exchange initiative was taken by OWASP, triggered by [Rob van der Veer](https://www.linkedin.com/in/robvanderveer/) - bridge builder for security standards, senior director at [Software Improvement Group](https://www.softwareimprovementgroup.com), with 31 years of experience in AI & security, lead author of ISO/IEC 5338 on AI lifecycle, founding father of OpenCRE, and currently working on security requirements concerning the EU AI act in CEN/CENELEC.
@@ -66,7 +66,7 @@ For more information on risk analysis, see the SECPROGRAM control.
 AI Privacy can be divided into two parts:
 
 1. The AI security threats and controls in this document that are about confidentiality and integrity of (personal) data (e.g. model inversion, leaking training data), plus the integrity of the model behaviour
-2. Threats and controls with respect to rights of the individual, as covered by privacy regulations such as the GDPR, including use limitation, consent, fairness, transparency, data accuracy, right of correction/objection/reasure/access. For an overview, see the [Privacy part of the OWASP AI guide](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/index.md#how-to-deal-with-ai-privacy)
+2. Threats and controls with respect to rights of the individual, as covered by privacy regulations such as the GDPR, including use limitation, consent, fairness, transparency, data accuracy, right of correction/objection/reasure/access. For an overview, see the [Privacy part of the OWASP AI guide](/docs/privacy/#how-to-deal-with-ai-privacy)
 
 ## How about Generative AI (e.g. LLM)?
 
@@ -236,11 +236,11 @@ Misc.:
 
 ## Expanded table of contents
 
-- [How to contribute](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/edit/main/owaspaiexchange.md#how-to-contribute)
-- [Introduction](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#introduction)
-- [Summary](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#summary)
+- [How to contribute](/contribute)
+- [Introduction](/docs/security/#introduction)
+- [Summary](/docs/security/#summary)
 
-- [1. General controls for all threats](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#1-general-controls---for-all-threats)
+- [1. General controls for all threats](/docs/security/general_controls)
 
   1.1 Governance controls:
 
@@ -272,7 +272,7 @@ Misc.:
   - Overreliance
   - Excessive agency
 
-- [2. Threats through use](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#2-threats-through-use)
+- [2. Threats through use](/docs/security/threats_through_use)
 
   - See General controls
   - MONITORUSE (runtime appsec)
@@ -321,7 +321,7 @@ Misc.:
   - DOSINPUTVALIDATION (runtime appsec)
   - LIMITRESOURCES (runtime)
 
-- [3. Development-time threats](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#3-development-time-threats)
+- [3. Development-time threats](/docs/security/development_time_threats)
 
   - See General controls
   - DEVDATAPROTECT (development-time infosec)
@@ -369,7 +369,7 @@ Misc.:
   ...3.2.3. Source code/configuration leak  
   Impact: Confidentiality breach of intellectual property.
 
-- [4. Runtime Application security threats](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#4-runtime-application-security-threats)
+- [4. Runtime Application security threats](/docs/security/runtime_application_security_threats)
 
   4.1. Non AI-specific application security threats  
   Impact: General application security threats can impact confidentiality, integrity and availability of all assets.
@@ -417,5 +417,5 @@ Misc.:
   - See General controls
   - MODELINPUTCONFIDENTIALITY (runtime appsec)
 
-- [References](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#references)
-- [Expanded Table of contents](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#expanded-table-of-contents)
+- [References](/docs/security/#references)
+- [Expanded Table of contents](/docs/security/#expanded-table-of-contents)
