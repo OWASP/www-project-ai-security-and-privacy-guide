@@ -3,7 +3,7 @@
 /favicon.ico
 _site/
 
-# Git ignore for Hugo website
+# MARK: - Hugo website
 go.work
 */public/
 */resources/_gen/
