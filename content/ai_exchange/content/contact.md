@@ -13,7 +13,7 @@ Engage with the OWASP AI team through various platforms.
 
 If contributing interests you, check out our [Contribution Guidelines](/contribute) or get in touch with our project leaders.
 
-## AI Slack channels
+## OWASP AI Slack channels
 
 <!--- TODO: Add all relevant and public Slack channels -->
 
@@ -23,15 +23,12 @@ If contributing interests you, check out our [Contribution Guidelines](/contribu
 
 ## OWASP AI Project Leader
 
-<!--- TODO: Do some design tweaks -->
+{{< image-left src="/images/rob_van_der_veer.jpeg" alt="Image description" width="auto" height="150px" >}}
 
 ### Rob van der Veer
 
-<!-- TODO: Add image to the static image folder -->
-![Rob Van Der Veer](https://ca.slack-edge.com/T04T40NHX-UF0TXT8VD-e526ce5bc7f0-72)
-
 Project leader of **OWASP AI Exchange**, as well as **AI Privacy and Security Guide**.
-OpenCRE, SAMM-agile, AI security &privacy, ISO/IEC, CEN/CENELEC
+OpenCRE, SAMM-agile, ISO/IEC, CEN/CENELEC
 
 - {{< icon "x-twitter" >}} [Twitter](https://twitter.com/robvanderveer "Twitter")
 - {{< icon "slack" >}} [Slack](https://owasp.slack.com/team/UF0TXT8VD "Slack")
