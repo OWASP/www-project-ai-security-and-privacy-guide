@@ -11,7 +11,7 @@ Project | Description
 
 **Feel free to give us a ⭐ on any project you find useful.**
 
-[![Starred project image](/images/project_starred_image.jpg)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/)
+{{< github-stars user="OWASP" repo="www-project-ai-security-and-privacy-guide" repo_url="https://github.com/OWASP/www-project-ai-security-and-privacy-guide" >}}
 
 The OWASP projects are an open source effort, and we enthusiastically welcome all forms of contributions and feedback.
 

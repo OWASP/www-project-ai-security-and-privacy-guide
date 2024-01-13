@@ -1,15 +1,57 @@
 <!-- github-stars.html -->
-<button id="github-star-button" onclick="window.open('{{ .Get "repo_url" }}', '_blank')">
-    Stars: <span id="star-count">Loading...</span>
-</button>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+<div class="github-star-widget">
+  <button onclick="window.open('{{ .Get "repo_url" }}', '_blank')">
+    <i class="fa fa-star"></i> <b>Star</b>
+  </button>
+  <span id="star-count">...</span>
+</div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     fetch('https://api.github.com/repos/{{ .Get "user" }}/{{ .Get "repo" }}')
         .then(response => response.json())
         .then(data => {
-            document.getElementById('star-count').textContent = data.stargazers_count;
+            document.getElementById('star-count').textContent = data.stargazers_count.toLocaleString();
         })
         .catch(error => console.error('Error fetching star count:', error));
 });
 </script>
+
+<style>
+.github-star-widget {
+  font-family: Arial, sans-serif;
+  display: inline-flex;
+  align-items: center;
+  background: #333;
+  color: white;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.github-star-widget button {
+  background: none;
+  border: none;
+  color: #deaa45;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.github-star-widget button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.github-star-widget button i {
+  margin-right: 5px;
+}
+
+.github-star-widget #star-count {
+  padding: 5px 10px;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 14px;
+}
+</style>
