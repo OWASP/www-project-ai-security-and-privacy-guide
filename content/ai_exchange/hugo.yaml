@@ -5,3 +5,60 @@ title: AI Exchange
 module:
   imports:
     - path: github.com/imfing/hextra
+
+params:
+  navbar:
+    displayTitle: true
+    displayLogo: true
+    logo:
+      path: images/owasp-logo.svg
+      dark: images/owasp-logo-dark.svg
+      link: /
+      width: 30
+      height: 30
+  editURL:
+    enable: true
+    base: "https://github.com/OWASP/www-project-ai-security-and-privacy-guide/content/ai_exchange/content"
+  theme:
+    # light | dark | system
+    default: system
+    displayToggle: true
+  page:
+    # full (100%), wide (90rem), normal (1280px)
+    width: wide
+
+menu:
+  main:
+    - name: AI Exchange
+      pageRef: /docs
+      weight: 1
+    - name: 🎙 Media
+      pageRef: /media
+      weight: 2
+    - name: ⭐ Contribute
+      pageRef: /contribute
+      weight: 3
+    - name: 💬 Connect with us
+      pageRef: /contact
+      weight: 4
+    - name: Search
+      weight: 5
+      params:
+        type: search
+    - name: GitHub
+      weight: 6
+      url: "https://github.com/OWASP/www-project-ai-security-and-privacy-guide"
+      params:
+        icon: github
+
+  sidebar:
+    - name: More
+      params:
+        type: separator
+      weight: 1
+    - name: Contribute
+      pageRef: /contribute
+      weight: 2
+    - name: Connect with us
+      pageRef: /contact
+      weight: 3
