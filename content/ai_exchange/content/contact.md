@@ -5,6 +5,14 @@ excludeSearch: true
 
 ## Platforms
 
+{{< cards >}}
+    {{< card link="https://owasp.slack.com/join/shared_invite/zt-g398htpy-AZ40HOM1WUOZguJKbblqkw#" title="Slack" icon="slack-big" >}}
+    {{< card link="https://www.linkedin.com/company/owasp-ai-exchange/" title="LinkedIn" icon="linkedin" >}}
+    {{< card link="mailto:rob.vanderveer@owasp.org" title="E-mail" icon="mail">}}
+    {{< card link="https://twitter.com/owasp" title="Twitter" icon="x-twitter" >}}
+    {{< card link="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions" title="GitHub" icon="github" >}}
+{{< /cards >}}
+
 Engage with the OWASP AI team through various platforms.
 
 - Connect with us on our [Slack](https://owasp.slack.com/join/shared_invite/zt-g398htpy-AZ40HOM1WUOZguJKbblqkw#) workspace.

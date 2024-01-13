@@ -15,14 +15,14 @@ excludeSearch: true
 
 The OWASP projects are an open source effort, and we enthusiastically welcome all forms of contributions and feedback.
 
-## Participate in content development
+## Participate in Content Development
 
 - 💡Propose your [concepts](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions/categories/ideas).
 - 📄 Fork our repo and submit a [Pull Request](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/wiki/Contributing-to-Top-10-for-LLM-Applications) for concrete fixes (e.g. grammar/typos) or content already approved by the core team.
 - 🙌 Showcase your [contributions](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions/categories/show-and-tell).
 - 🗣️ Discuss with the [project leader](/contact/#owasp-ai-project-leader) how to become part of the writing group.
 
-## Enhance our project
+## Enhance our Project
 
 - 🐞 Identify an [issue](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues) or fix it on a [Pull Request](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/pulls).
 - 💬 Provide your insights in [GitHub Discussions](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions/categories/general).
