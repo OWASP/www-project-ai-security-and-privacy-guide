@@ -1,5 +1,5 @@
 ---
-title: 1. General controls - for all threats
+title: 1. General controls
 ---
 
 ## 1.1 General governance controls

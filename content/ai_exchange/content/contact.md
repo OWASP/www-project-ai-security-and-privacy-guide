@@ -7,21 +7,13 @@ excludeSearch: true
 
 Engage with the OWASP AI team through various platforms.
 
-- For inquiries and suggestions, participate in our GitHub Discussions.
-- Keep up with the latest updates by following our Twitter handle.
-- Connect with us on our Slack channel.
+- Connect with us on our [Slack](https://owasp.slack.com/join/shared_invite/zt-g398htpy-AZ40HOM1WUOZguJKbblqkw#).
+- Keep up with the latest updates by following us on [Twitter](https://twitter.com/owasp) and [LinkedIn](https://www.linkedin.com/company/owasp-ai-exchange/ "OWASP AI Exchange LinkedIn").
+- For technical inquiries and suggestions, participate in our [GitHub Discussions](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions).
 
 If contributing interests you, check out our [Contribution Guidelines](/contribute) or get in touch with our project leaders.
 
-### [GitHub](https://github.com/OWASP/)
-
-- [AI Security and Privacy Guide](https://github.com/OWASP/www-project-ai-security-and-privacy-guide)
-- [Top 10 for Large Language Model Applications](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications)
-- [Machine Learning Security Top 10](https://github.com/OWASP/www-project-machine-learning-security-top-10)
-
-### [LinkedIn](https://www.linkedin.com/company/owasp-ai-exchange/ "OWASP AI Exchange LinkedIn")
-
-### [Slack](https://owasp.slack.com/join/shared_invite/zt-g398htpy-AZ40HOM1WUOZguJKbblqkw#)
+## AI Slack channels
 
 <!--- TODO: Add all relevant and public Slack channels -->
 

@@ -8,4 +8,8 @@ excludeSearch: true
 | Date | Event | Title | Video |
 | - | - | - | - |
 | 5 Jan 2024 | Resilient Cyber | Navigating the AI Security Landscape w/ Rob van der Veer | [YouTube](https://youtu.be/G1-stVMuU-s?si=AjikB8EW7QN1zA8s) |
-| 22 Sep 2023 | OWASP Cincinnati | Introducing the OWASP Top 10 for LLM Applications with Steve Wilson | [YouTube](https://youtu.be/J1auLaU9SAA?si=dhxmFj2IN_NB_ALa) |
+| 22 Sep 2023 | OWASP Cincinnati | Introducing the OWASP Top 10 for LLM Applications w/ Steve Wilson | [YouTube](https://youtu.be/J1auLaU9SAA?si=dhxmFj2IN_NB_ALa) |
+| 6 Sep 2023 | The MLSecOps Podcast | A Holistic Approach to Understanding the AI Lifecycle and Securing ML Systems: Protecting AI Through People, Processes & Technology | [Podcast](https://mlsecops.com/podcast/a-holistic-approach-to-understanding-the-ai-lifecycle-and-securing-ml-systems-protecting-ai-through-people-processes-technology) |
+| 4 Jul 2023 | Software Improvement Group Podcast | A.I. Security: A guide to implementing security and risk controls in AI | [Podcast](https://www.brighttalk.com/webcast/19697/586526) |
+| 23 Feb 2023 | The Application Security Podcast w/ Chris Romeo and Robert Hurlbut | OWASP AI Security & Privacy Guide w/ Rob van der Veer | [YouTube](https://www.youtube.com/watch?v=SLdn3AwlCAk&) [Podcast](https://www.buzzsprout.com/1730684/12313155-rob-van-der-veer-owasp-ai-security-privacy-guide) |
+| 15 Feb 2023 | OWASP Conference Dublin | Attacking And Protecting Artificial Intelligence w/ Rob Van Der Veer | [YouTube](https://www.youtube.com/watch?v=ABmWHnFrMqI) |

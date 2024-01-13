@@ -1,5 +1,5 @@
 ---
-title: OWASP AI Security Controls
+title: AI Security
 ---
 
 ## Introduction
