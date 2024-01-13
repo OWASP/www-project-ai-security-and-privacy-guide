@@ -4,9 +4,6 @@ title: AI Exchange
 
 <!-- TODO: Fix external and internal URLs -->
 
-[Contribute Now!](#how-to-contribute)&nbsp;&nbsp;&nbsp;[Register with the Exchange](https://forms.gle/XwEEK52y4iZQChuJ6)&nbsp;&nbsp;&nbsp;[Navigator](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf)  
-[HTML version](https://owasp.org/www-project-ai-security-and-privacy-guide/owaspaiexchange.html)&nbsp;&nbsp;&nbsp;[Github version](https://owaspai.org)&nbsp;&nbsp;&nbsp;[Older Word version](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/owaspaiexchangeWORD.docx)
-
 ## Purpose
 
 The OWASP AI Exchange is as an open source collaborative document to advance the development of global AI security standards and regulations. It provides a comprehensive overview of AI threats, vulnerabilities, and controls to foster alignment among different standardization initiatives. This includes the EU AI Act, ISO/IEC 27090 (AI security), the [OWASP ML top 10](https://mltop10.info/), the [OWASP LLM top 10](https://llmtop10.com/), and [OpenCRE](https://opencre.org) - which we want to use to provide the AI Exchange content through the security chatbot [OpenCRE-Chat](https://opencre.org/chatbot).
@@ -35,50 +32,3 @@ Table of contents:
 The navigator diagram below shows all threats, controls and how they relate, including risks and the types of controls.  
 Click on the image to get a pdf with clickable links.
 [![AI Exchange Navigator](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewv2.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf)
-
----
-
-## How to contribute
-
----
-
-**If you're an AI security expert, please contribute now as standard makers are using this document as input as we speak:**
-
-- Provide comments or suggestions to the mot recent and typically outdated [Word version of this document](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/owaspaiexchangeWORD.docx) and send it to [rob.vanderveer@owasp.org](mailto:rob.vanderveer@owasp.org)
-- Start a [GitHub dicussion](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions) or join **#project-ai** at the [OWASP Slack workspace](https://owasp.org/slack/invite)
-- Post remarks as [GitHub issues](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues)
-- Fork the respository and suggest changes to this document using Pull requests (only do this if you are familiar with it)
-- Discuss with the project leader how to become part of the writing group, so you can edit the document directly
-- Email the project leader your input: [rob.vanderveer@owasp.org](mailto:rob.vanderveer@owasp.org)
-
-**TODOs - the most urgent on top:**
-
-- Elaborate on POISONROBUSTMODEL
-- Change navigator: 1) "deal with conidentiality issues" -> "minimize data to help confidentiality", 2) remove ADDTRAINNOISE
-- Elaborate on "Choose a model type resilient against a transfer learning attack"
-- Under DATAQUALITCONTROL: Elaborate on that method to detect statistical deviation by training models on random selections of the training dataset and then feeding each training sample to those models and compare results.
-- Add 'Leak sensitive input data' to threat diagram and check further for any gaps with this document
-- Check if OBFUSCATETRAININGDATA has strategies (anonymization, tokenization) that are covered in ISO/IEC standards and add references to those standards
-- Under DATAQUALITCONTROL: elaborate on RONI and tRONI training sample selection
-- Elaborate on the various methods and the general approach of TRAINDATADISTORTION to prevent data poisoning
-- Create a way to link to Controls and to Threats with permanent links (we probably need to generate html from the md)
-- Create a layout that is less list-like and more of a read
-- Add attribute inference attacks and consider making that part of 'data reconstruction', together with model inversion, although it is a different approach
-- Work with the LLM top 10 team to make sure that the LLM top 10 entries link back to the AI Exchange
-- Under TRAINADVERSARIAL: Elaborate - See Annex C of ENISA Secure machine learning algorithms 2021.
-- Add references to reputable resources for the controls, especially where there are no or hardly any references. Either use a 'References' section or the 'Links to standards'.
-- Under DETECTADVERSARIALINPUT: elaborate on detector subnetworks in Annex C of ENISA 2021 and on the references in that section
-- Under EVASIONROBUSTMODEL: See Annex C in ENISA 2021 document to cover Stability terms, adversarial regulaiser, input gradient regularisation, defenisvie distillation and Random feature nullification.
-- Under INPUTDISTORTION: See ENISA Annex C to add data randomisation, input transformation and input denoising.
-- Under INPUTDISTORTION: add Gradient masking - Annex C ENISA 2021
-- Cover integrity checks in development pipeline (build, deploy, supply chain) - under supplychainmanage and/or secdevprogram
-- In general: add more info on how to practically implement the controls. Integration. Monitorin. Best practides. Real world exampels. potential challenges
-
-Todos requiring access to ISO/IEC documents:
-
-- Do gap analysis and elaborate on ISO/IEC 27563 on AI use case security & privacy (search for it in this document)
-- Do gap analysis and elaborate on ISO/IEC 23894 on Risk analysis (search for it in this document)
-- Do gap analysis and elaborate on ISO/IEC 27115 on Cybersecurity evaluation of complex systems (search for it in this document)
-- Do gap analysis and elaborate on ISO/IEC TR 24029 on Assessment of the robustness of neural networks (search for it in this document)
-
-Anything is welcome: more controls, improved descriptions, examples, references, etc. We will make sure you get credit for your input.

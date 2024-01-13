@@ -7,7 +7,7 @@ excludeSearch: true
 
 Engage with the OWASP AI team through various platforms.
 
-- Connect with us on our [Slack](https://owasp.slack.com/join/shared_invite/zt-g398htpy-AZ40HOM1WUOZguJKbblqkw#).
+- Connect with us on our [Slack](https://owasp.slack.com/join/shared_invite/zt-g398htpy-AZ40HOM1WUOZguJKbblqkw#) workspace.
 - Keep up with the latest updates by following us on [Twitter](https://twitter.com/owasp) and [LinkedIn](https://www.linkedin.com/company/owasp-ai-exchange/ "OWASP AI Exchange LinkedIn").
 - For technical inquiries and suggestions, participate in our [GitHub Discussions](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions).
 

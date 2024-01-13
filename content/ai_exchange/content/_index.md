@@ -5,7 +5,9 @@ title: 'Welcome to OWASP AI Exchange'
 {{< cards >}}
     {{< card link="/contact" title="Connect with us!" icon="chat" >}}
     {{< card link="/contribute" title="Contribute" icon="star" >}}
+    {{< card link="https://forms.gle/XwEEK52y4iZQChuJ6" title="Register" icon="login" >}}
     {{< card link="/talks" title="Check out Talks!" icon="speakerphone" >}}
+    {{< card link="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/owaspaiexchangeWORD.docx" title="Download Word version" icon="document-text">}}
 {{< /cards >}}
 
 Artificial Intelligence (AI) is on the rise and so are the concerns regarding AI security and privacy. This project is to provide clear and actionable insights on designing, creating, testing, and procuring secure and privacy-preserving AI systems.
