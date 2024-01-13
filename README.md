@@ -30,6 +30,6 @@ The OWASP projects are an open source effort, and we enthusiastically welcome al
 ### Quick Start: Run the website locally
 
 0. (Optional) Watch the [Hugo in 100 Seconds](https://youtu.be/0RKpf3rK57I?feature=shared) video.
-1. Install Hugo following [official instructions](https://gohugo.io/installation/)
+1. Install Hugo by following [official instructions](https://gohugo.io/installation/)
 2. Position yourself in the `/content/ai_exchange` folder using terminal
 3. Run `$ hugo server --buildDrafts --disableFastRender`
