@@ -1,0 +1,15 @@
+<!-- github-stars.html -->
+<button id="github-star-button" onclick="window.open('{{ .Get "repo_url" }}', '_blank')">
+    Stars: <span id="star-count">Loading...</span>
+</button>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('https://api.github.com/repos/{{ .Get "user" }}/{{ .Get "repo" }}')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('star-count').textContent = data.stargazers_count;
+        })
+        .catch(error => console.error('Error fetching star count:', error));
+});
+</script>
