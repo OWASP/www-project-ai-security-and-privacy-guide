@@ -3,13 +3,15 @@ title: 'Contribute to OWASP AI Projects'
 excludeSearch: true
 ---
 
-{{< github-stars user="OWASP" repo="www-project-ai-security-and-privacy-guide" repo_url="https://github.com/OWASP/www-project-ai-security-and-privacy-guide" >}}
+{{< cards >}}
+  {{< card link="https://github.com/OWASP/www-project-ai-security-and-privacy-guide" title="GitHub Repo" icon="github" >}}
+{{< /cards >}}
 
-{{< tabs items="Contribute,Core Team,Contributors,Organizations" >}}
+&nbsp;{{< github-stars user="OWASP" repo="www-project-ai-security-and-privacy-guide" repo_url="https://github.com/OWASP/www-project-ai-security-and-privacy-guide" >}}
+
+{{< tabs items="Guidelines,Core Team,Contributors,Organizations" >}}
 
 {{< tab >}}
-
-## [Our GitHub Repo](https://github.com/OWASP/www-project-ai-security-and-privacy-guide)
 
 The OWASP projects are an open source effort, and we enthusiastically welcome all forms of contributions and feedback.
 
@@ -37,7 +39,6 @@ If you're unsure about anything, feel free to [reach out to us](/contact) with y
 
 {{< tab >}}
 
-## Core Team
 <!-- TODO: Transform to table -->
 - Adelin Travers - Trail of Bits
 - Alon Tron
@@ -56,11 +57,6 @@ If you're unsure about anything, feel free to [reach out to us](/contact) with y
 {{< /tab >}}
 {{< tab >}}
 
-## Our Contributors
-
-All of our contributors are listed in GitHub repos.
-
-### Project Featured Contributions
 <!-- TODO: Transform to table -->
 - Yiannis Kanellopoulos - Code4thought
 - Annegrit Seyerlein - Klug|TH Brandenburg
@@ -80,5 +76,4 @@ All of our contributors are listed in GitHub repos.
 <!-- Add a grid of copmany logos-->
 
 {{< /tab >}}
-
 {{< /tabs >}}
