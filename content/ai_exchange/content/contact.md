@@ -35,7 +35,7 @@ If contributing interests you, check out our [Contribution Guidelines](/contribu
 
 ### Rob van der Veer
 
-<!-- Add image to the static image folder -->
+<!-- TODO: Add image to the static image folder -->
 ![Rob Van Der Veer](https://ca.slack-edge.com/T04T40NHX-UF0TXT8VD-e526ce5bc7f0-72)
 
 Project leader of **OWASP AI Exchange**, as well as **AI Privacy and Security Guide**.
