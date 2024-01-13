@@ -1,5 +1,5 @@
 ---
-title: '💬 Connect with us'
+title: 'Connect with us'
 excludeSearch: true
 ---
 

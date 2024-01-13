@@ -1,5 +1,5 @@
 ---
-title: '⭐ Contribute to OWASP AI Projects'
+title: 'Contribute to OWASP AI Projects'
 excludeSearch: true
 ---
 

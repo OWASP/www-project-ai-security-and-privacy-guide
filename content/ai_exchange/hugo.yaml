@@ -32,13 +32,13 @@ menu:
     - name: AI Exchange
       pageRef: /docs
       weight: 1
-    - name: 🎙 Media
+    - name: Media
       pageRef: /media
       weight: 2
-    - name: ⭐ Contribute
+    - name: Contribute
       pageRef: /contribute
       weight: 3
-    - name: 💬 Connect with us
+    - name: Contact
       pageRef: /contact
       weight: 4
     - name: Search

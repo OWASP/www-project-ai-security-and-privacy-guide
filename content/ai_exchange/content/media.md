@@ -1,5 +1,5 @@
 ---
-title: 🎙 Media
+title: Media
 excludeSearch: true
 ---
 
