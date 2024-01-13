@@ -3,15 +3,13 @@ title: 'Contribute to OWASP AI Projects'
 excludeSearch: true
 ---
 
-Project | Description
--|-
-[AI Privacy and Security Guide](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/) | AIPASG Description
-[Top 10 for Large Language Model Applications](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications) | Top 10 for LLMs description
-[Machine Learning Security Top 10](https://github.com/OWASP/www-project-machine-learning-security-top-10) | ML Project description
-
-**Feel free to give us a ⭐ on any project you find useful.**
-
 {{< github-stars user="OWASP" repo="www-project-ai-security-and-privacy-guide" repo_url="https://github.com/OWASP/www-project-ai-security-and-privacy-guide" >}}
+
+{{< tabs items="Contribute,Core Team,Contributors,Organizations" >}}
+
+{{< tab >}}
+
+## [Our GitHub Repo](https://github.com/OWASP/www-project-ai-security-and-privacy-guide)
 
 The OWASP projects are an open source effort, and we enthusiastically welcome all forms of contributions and feedback.
 
@@ -35,13 +33,52 @@ We value every contribution to our project, but it's important to be aware of ce
 - **Refrain from Unnecessary Self-Promotion**: If you're referencing tools or articles you're affiliated with, please disclose this relationship in your pull request. This transparency helps us ensure that the content aligns with the overall objectives of the guide.
 
 If you're unsure about anything, feel free to [reach out to us](/contact) with your questions.
+{{< /tab >}}
+
+{{< tab >}}
+
+## Core Team
+<!-- TODO: Transform to table -->
+- Adelin Travers - Trail of Bits
+- Alon Tron
+- Anthony Glynn - Capital One
+- Behnaz Karimi - Accenture
+- Feiyang Tang - Software Improvement Group (SIG)
+- John Sotiropoulos - Kainos
+- Marko Lihter - SplxAI
+- Niklas Bunzel - Fraunhofer SIT
+- Rob van - der Veer|Software Improvement Group (SIG)
+- Roger Sanz - SIA Group
+- Sandy Dunn - Boise State University, AI Cyber Advisors
+- Srajan Gupta - Dave
+- Steve Francolla - Workforce Tech LLC
+
+{{< /tab >}}
+{{< tab >}}
 
 ## Our Contributors
 
 All of our contributors are listed in GitHub repos.
 
 ### Project Featured Contributions
+<!-- TODO: Transform to table -->
+- Yiannis Kanellopoulos - Code4thought
+- Annegrit Seyerlein - Klug|TH Brandenburg
+- Wei Wei - IBM
+- Roger Sanz - Universidad Isabel
+- Angie Qarry - QDeepTech
+- Behnaz Karimi - Accenture
+- Sean Oesch - Oak Ridge National Laboratory
+- Anthony Glynn - CapitalOne
+- Zoe Braiterman - Mutual Knowledge Systems
+- Niklas Bunzel - Fraunhofer Institute
+- Marko Lihter - SplxAI
 
-<!-- Add Top 10 contributors from the AI Exchange -->
-- John Doe (Automation in GitHub Actions)
-- Jane Doe (Design)
+{{< /tab >}}
+{{< tab >}}
+
+<!-- Add a grid of copmany logos-->
+
+{{< /tab >}}
+
+{{< /tabs >}}

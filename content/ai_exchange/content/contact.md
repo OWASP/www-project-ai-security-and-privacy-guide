@@ -29,7 +29,7 @@ If contributing interests you, check out our [Contribution Guidelines](/contribu
 - `#project-top10-for-llm`
 - `#team-llm_ai-secgov`
 
-## OWASP AI Project Leaders
+## OWASP AI Project Leader
 
 <!--- TODO: Do some design tweaks -->
 

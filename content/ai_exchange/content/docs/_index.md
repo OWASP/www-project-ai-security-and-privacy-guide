@@ -82,17 +82,3 @@ Todos requiring access to ISO/IEC documents:
 - Do gap analysis and elaborate on ISO/IEC TR 24029 on Assessment of the robustness of neural networks (search for it in this document)
 
 Anything is welcome: more controls, improved descriptions, examples, references, etc. We will make sure you get credit for your input.
-
-**Contributions:**
-
-- Yiannis Kanellopoulos and team (Code4thought, Greece) - evasion robustness
-- Annegrit Seyerlein-Klug (TH Brandenburg, Germany) - mapping with misc. standards
-- Wei Wei (IBM, Germany) - mapping with ISO/IEC 42001
-- Roger Sanz (Universidad Isabel, Spain)
-- Angie Qarry (QDeepTech, Austria) - several elaborations and references on datascience defence mechanisms
-- Behnaz Karimi (Accenture, Germany)- misc. contributions including model obfuscation and explanation
-- Sean Oesch (Oak Ridge National Laboratory, US) - BLUF, Adversarial Training, OOD detection, NISTIR 8269, Guide Usability/Structure
-- Anthony Glynn (CapitalOne, US) - many textual improvements & link to LLM top 10
-- Zoe Braiterman (Mutual Knowledge Systems, US) - Many markdown improvements
-- Niklas Bunzel (Fraunhofer institute, Germany) - datascience discussion and references around evasion attacks
-- Marko Lihter (Endava Adriatic, Croatia) - various textual improvements
