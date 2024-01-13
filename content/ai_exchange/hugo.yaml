@@ -1,6 +1,6 @@
-baseURL: https://example.org/
+baseURL: https://owaspai.org/
 languageCode: en-us
-title: My New Hugo Site
+title: AI Exchange
 
 module:
   imports:
