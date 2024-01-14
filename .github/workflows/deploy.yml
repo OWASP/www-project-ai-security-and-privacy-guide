@@ -12,4 +12,4 @@ jobs:
         cp -r content/ai_exchange/* .
     - uses: wajahatkarim3/Hugo-On-Fire@master
       env:
-        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        FIREBASE_TOKEN: ${{ secrets.firebase_token }}
