@@ -1,1 +1,17 @@
-
+on:
+  push:
+    branches:
+      - main
+name: Deploy HUGO to the Firebase
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        submodules: true
+    - uses: vudoodv/deploy-hugo-to-the-firebase@master
+      working-directory: ./content/ai_exchange
+      with:
+        firebase-token: ${{ secrets.firebase_token }}
+        alias: ${{ alias }}
