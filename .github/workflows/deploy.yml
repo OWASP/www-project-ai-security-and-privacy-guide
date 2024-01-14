@@ -13,8 +13,6 @@ jobs:
     - name: Change to AI Exchange Directory
       run: |
         cp -r content/ai_exchange/* .
-        hugo mod init
-        hugo mod get -u ./...
     - uses: vudodov/deploy-hugo-to-the-firebase@master
       with:
         firebase-token: ${{ secrets.firebase_token }}
