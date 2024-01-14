@@ -12,7 +12,7 @@ jobs:
         submodules: true
     - name: Change to AI Exchange Directory
       run: |
-        cd /content/ai_exchange
+        cd content/ai_exchange
     - uses: vudodov/deploy-hugo-to-the-firebase@master
       with:
         firebase-token: ${{ secrets.firebase_token }}
