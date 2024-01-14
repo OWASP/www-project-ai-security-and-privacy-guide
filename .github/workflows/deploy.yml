@@ -1,18 +1,15 @@
+name: Deploy HUGO to Firebase
 on:
   push:
-    branches:
-      - main
-name: Deploy HUGO to the Firebase
+    branches: [ main ]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-      with:
-        submodules: true
+    - uses: actions/checkout@v2
     - name: Change to AI Exchange Directory
       run: |
         cp -r content/ai_exchange/* .
-    - uses: vudodov/deploy-hugo-to-the-firebase@master
-      with:
-        firebase-token: ${{ secrets.firebase_token }}
+    - uses: wajahatkarim3/Hugo-On-Fire@master
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
