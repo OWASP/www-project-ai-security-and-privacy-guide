@@ -13,6 +13,6 @@ jobs:
     - name: Change to AI Exchange Directory
       run: |
         cd /content/ai_exchange
-    - uses: vudoodv/deploy-hugo-to-the-firebase@master
+    - uses: vudodov/deploy-hugo-to-the-firebase@master
       with:
         firebase-token: ${{ secrets.firebase_token }}
