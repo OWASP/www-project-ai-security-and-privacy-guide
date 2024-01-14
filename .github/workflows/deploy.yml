@@ -2,7 +2,7 @@
 name: "Deploy to owasp-ai-exchange"
 on:
   workflow_dispatch: # allow manual triggering
-  workflow_run:
+  push:
     branches:
       - main
 jobs:
