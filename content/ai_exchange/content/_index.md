@@ -22,16 +22,21 @@ Maintained here at [owaspai.org](https://owaspai.org) it currently uses both a G
 
 ## About Project
 
-The OWASP AI security & privacy guide has two parts:
+The OWASP AI Security & Privacy Guide has two parts:
 
 1. [How to deal with AI security](/docs/security)
 2. [How to deal with AI privacy](/docs/privacy)
 
-## Resources
+## AI Exchange Content
 
 {{< cards >}}
     {{< card link="/docs/security" title="OWASP AI Security" icon="shield" >}}
     {{< card link="/docs/privacy" title="OWASP AI Privacy" icon="lock-closed" >}}
+{{< /cards >}}
+
+## Other OWASP AI Initiatives
+
+{{< cards >}}
     {{< card link="https://llmtop10.com/" title="OWASP LLM Top 10" icon="brain" >}}
     {{< card link="https://mltop10.info/" title="OWASP ML Top 10" icon="machinelearning" >}}
 {{< /cards >}}

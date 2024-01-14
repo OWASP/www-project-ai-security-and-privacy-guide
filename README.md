@@ -5,6 +5,8 @@ Welcome to the GitHub repository for two initiatives:
 1. The OWASP AI Exchange, to be found at [owaspai.org](http://owaspai.org/): the living set of documents that collect AI threats and controls from collaboration between experts worldwide.
 2. The OWASP AI Security and Privacy Guide project, also to be found at [owaspai.org](http://owaspai.org/), which is published automatically at [owasp.org/www-project-ai-security-and-privacy-guide/#](https://owasp.org/www-project-ai-security-and-privacy-guide/#). It holds a stable version of the AI Exchange, adds some illustrations and explanations for a wider audience, plus it has an additional section on the topic of AI privacy.
 
+The goal of these initiatives is to collect and present the state of the art on these topics through community collaboration.
+
 ## Project Lead
 
 - [Rob van der Veer (Software Improvement Group)](https://www.linkedin.com/in/robvanderveer/) - [rob.vanderveer@owasp.org](mailto:rob.vanderveer@owasp.org)
@@ -12,6 +14,11 @@ Welcome to the GitHub repository for two initiatives:
 ## Contributions
 
 The OWASP projects are an open source effort, and we enthusiastically welcome all forms of contributions and feedback.
+
+To edit content on the website, you have two options
+
+- click the "Edit on GitHub" button located in the right-hand navigation bar
+- manually locate and edit the files in the directory.
 
 ### Participate in Content Development
 
@@ -26,10 +33,3 @@ The OWASP projects are an open source effort, and we enthusiastically welcome al
 - 💬 Provide your insights in [GitHub Discussions](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions/categories/general).
 - 🙏 Pose your [questions](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions/categories/q-a).
 - 👋 Join `#project-ai` on our [Slack](https://owasp.slack.com/join/shared_invite/zt-g398htpy-AZ40HOM1WUOZguJKbblqkw#) workspace.
-
-### Quick Start: Run the website locally
-
-0. (Optional) Watch the [Hugo in 100 Seconds](https://youtu.be/0RKpf3rK57I?feature=shared) video.
-1. Install Hugo by following [official instructions](https://gohugo.io/installation/)
-2. Position yourself in the `/content/ai_exchange` folder using terminal
-3. Run `$ hugo server --buildDrafts --disableFastRender`

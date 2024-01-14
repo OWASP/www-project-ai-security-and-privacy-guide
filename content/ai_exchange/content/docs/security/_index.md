@@ -240,7 +240,7 @@ Misc.:
 - [Introduction](/docs/security/#introduction)
 - [Summary](/docs/security/#summary)
 
-- [1. General controls for all threats](/docs/security/general_controls)
+- [1. General controls for all threats](/docs/security/1_general_controls)
 
   1.1 Governance controls:
 
@@ -272,7 +272,7 @@ Misc.:
   - Overreliance
   - Excessive agency
 
-- [2. Threats through use](/docs/security/threats_through_use)
+- [2. Threats through use](/docs/security/2_threats_through_use)
 
   - See General controls
   - MONITORUSE (runtime appsec)
@@ -321,7 +321,7 @@ Misc.:
   - DOSINPUTVALIDATION (runtime appsec)
   - LIMITRESOURCES (runtime)
 
-- [3. Development-time threats](/docs/security/development_time_threats)
+- [3. Development-time threats](/docs/security/3_development_time_threats)
 
   - See General controls
   - DEVDATAPROTECT (development-time infosec)
@@ -369,7 +369,7 @@ Misc.:
   ...3.2.3. Source code/configuration leak  
   Impact: Confidentiality breach of intellectual property.
 
-- [4. Runtime Application security threats](/docs/security/runtime_application_security_threats)
+- [4. Runtime Application security threats](/docs/security/4_runtime_application_security_threats)
 
   4.1. Non AI-specific application security threats  
   Impact: General application security threats can impact confidentiality, integrity and availability of all assets.
