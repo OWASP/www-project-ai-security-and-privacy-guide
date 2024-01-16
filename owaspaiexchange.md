@@ -777,7 +777,7 @@ security concerns have arisen about their effectiveness.
 
   Links to standards:
 
-  - ISO/IEC TR 24029 (Assessment of the robustness of neural networks)
+  - ISO/IEC TR 24029 (Assessment of the robustness of neural networks) Gap: this standard discusses general robustness and does not discuss robustness against adversarial inputs explicitly.
 
   References:
 
