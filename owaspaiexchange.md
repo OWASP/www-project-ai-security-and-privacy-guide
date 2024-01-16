@@ -34,7 +34,7 @@ Click on the image to get a pdf with clickable links.
 [![](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewv2.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf)
 
 The AI security matrix below shows all threats and risks, ordered by attack surface and lifecycle.
-[![](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/OwaspAIsecuritymatrix,png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/OwaspAIsecuritymatrix,png)
+[![](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/OwaspAIsecuritymatrix.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/OwaspAIsecuritymatrix.png)
 
 ---
 
