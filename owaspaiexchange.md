@@ -3,6 +3,8 @@
 [Contribute Now!](#how-to-contribute)&nbsp;&nbsp;&nbsp;[Register with the Exchange](https://forms.gle/XwEEK52y4iZQChuJ6)&nbsp;&nbsp;&nbsp;[Navigator](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf)  
 [HTML version](https://owasp.org/www-project-ai-security-and-privacy-guide/owaspaiexchange.html)&nbsp;&nbsp;&nbsp;[Github version](https://owaspai.org)
 
+"All security risks for all of AI, by all professionals, for all professionals"
+
 **Purpose**
 
 The OWASP AI Exchange is as an open source collaborative document to advance the development of global AI security standards and regulations. It provides a comprehensive overview of AI threats, vulnerabilities, and controls to foster alignment among different standardization initiatives. This includes the EU AI Act, ISO/IEC 27090 (AI security), the [OWASP ML top 10](https://mltop10.info/), the [OWASP LLM top 10](https://llmtop10.com/), and [OpenCRE](https://opencre.org) - which we want to use to provide the AI Exchange content through the security chatbot [OpenCRE-Chat](https://opencre.org/chatbot).
