@@ -47,10 +47,10 @@ The AI security matrix below shows all threats and risks, ordered by attack surf
 
 **If you're an AI security expert, please contribute now as standard makers are using this document as input as we speak:**
 
-- Provide comments or suggestions and send it to rob.vanderveer@owasp.org
-- Start a [GitHub dicussion](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions) or join **#project-ai** at the [OWASP Slack workspace](https://owasp.org/slack/invite)
-- Post remarks as [GitHub issues](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues)
-- Fork the respository and suggest changes to this document using Pull requests (only do this if you are familiar with it)
+- Provide comments or suggestions and send it to rob.vanderveer@owasp.org or
+- Start a [GitHub dicussion](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions) or join **#project-ai** at the [OWASP Slack workspace](https://owasp.org/slack/invite) or
+- Post remarks as [GitHub issues](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues) or
+- Fork the respository and suggest changes to this document using Pull requests (only do this if you are familiar with it) or
 - Discuss with the project leader how to become part of the writing group, so you can edit the document directly
 
 **TODOs - the most urgent on top:**
