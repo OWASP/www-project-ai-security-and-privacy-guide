@@ -64,6 +64,10 @@ The AI security matrix below shows all threats and risks, ordered by attack surf
 -USe 'Securing AIML systems in the age of information warfare' by Susanna Cox as sanity check and add it to references.
 - Check if OBFUSCATETRAININGDATA has strategies (anonymization, tokenization) that are covered in ISO/IEC standards and add references to those standards
 - Under DATAQUALITCONTROL: elaborate on RONI and tRONI training sample selection
+- Process the following resources on privacy of GenAI (part is data security)
+  - https://www.protecto.ai/blog/customer-case-study-preserving-privacy-in-a-generative-ai-application-rag-for-contract-review
+  - https://blog.premai.io/privacy-concerns-in-rag-apps/
+  - https://www.netapp.com/blog/private-rag-unlocking-generative-ai-for-enterprise/    
 - Elaborate on the various methods and the general approach of TRAINDATADISTORTION to prevent data poisoning
 - Create a way to link to Controls and to Threats with permanent links (we probably need to generate html from the md)
 - Create a layout that is less list-like and more of a read
