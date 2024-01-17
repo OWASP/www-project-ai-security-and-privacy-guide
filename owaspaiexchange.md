@@ -1038,7 +1038,7 @@ Background: Data science (data engineering and model engineering - for machine l
 
 **Particularities:**
 
-- Particularity 1: the data in the AI development environment is real data that is typically sensitive, because it is needed to train the model and that obviously needs to happen on real data, instead of fake data that you typically see in standard development environment situations (e.g. fpr testing). Therefore, data protection activities need to be extended from the live system to the development environment.
+- Particularity 1: the data in the AI development environment is real data that is typically sensitive, because it is needed to train the model and that obviously needs to happen on real data, instead of fake data that you typically see in standard development environment situations (e.g. for testing). Therefore, data protection activities need to be extended from the live system to the development environment.
 - Particularity 2: elements in the AI development environment (data, code, configuration & parameters) require extra protection as they are prone to attacks to manipulate model behaviour (called _poisoning_)
 - Particularity 3: source code, configuration, and parameters are typically critical intellectual property in AI
 
@@ -1048,6 +1048,12 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 
 - See General controls
 - **#DEVDATAPROTECT** ((development-time infosec). Development data protect: protect (train/test) data, source code, configuration & parameters
+
+  This data protection is important because when it leaks it hurts confidentiality of intellectual property and/or the confidentiality of train/test data which also may contain company secrets, or personal data for example. Also the integrity of this data is important to protect, to prevent data or model poisoning.
+
+  Training data is in most cases only present during development-time, but there are exceptions:
+    - A machine learning model may be continuously trained with data collected runtime, which puts (part of the) train data in the runtime environment, where it also needs protection
+    - For GenAI, information can be retrieved from a repository to be added to a prompt, for example to inform a large language model about the context to take into account for an instruction or question. This principle is called _in-context learning_. For example [OpenCRE-chat](https://opencre.org/chatbot) uses a repository of requirements from security standards to add to a user question so that the large language model is more informed with background information. In the case of OpenCRE-chat this information is public, but in many cases the application of this so-called Retrieval Augmented Generation (RAG) will have a repository with company secrets or otherwise sensitive data. Organizations can benefit from unlocking their unique data, to be used by themselves, or to be provided as service or product. This is an attractive architecture because the alternative would be to train an LLM or to finetune it, which is expensive and difficult. An RAG approach may suffice. Effectively this puts the repository data to the same use as training data is used: control the behaviour of the model. Therefore, the security controls that apply to train data, also apply to this run-time repository data.
 
   - Encryption of data at rest  
     Links to standards:
