@@ -1398,6 +1398,7 @@ Overviews of model attacks:
 - [OWASP ML top 10](https://mltop10.info/)
 - [OWASP LLM top 10](https://llmtop10.com/)
 - [BIML](https://berryvilleiml.com/taxonomy/)
+- [AVID AI Vulnerability database](https://avidml.org/)
 
 Misc.:
 
