@@ -1,10 +1,114 @@
----
-title: AI Security
+<a href="https://owaspai.org"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aixlogosml.jpg?raw=true"></a>
+
+[Contribute Now!](#how-to-contribute)&nbsp;&nbsp;&nbsp;[Register with the Exchange](https://forms.gle/XwEEK52y4iZQChuJ6)&nbsp;&nbsp;&nbsp;[Navigator](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf)  
+[HTML version](https://owasp.org/www-project-ai-security-and-privacy-guide/owaspaiexchange.html)&nbsp;&nbsp;&nbsp;[Github version](https://owaspai.org)
+
+"All security risks for all of AI, by all professionals, for all professionals. Alignment and guidance for all."
+
+**Purpose**
+
+The OWASP AI Exchange is as an open source collaborative document to advance the development of global AI security standards and regulations. It provides a comprehensive overview of AI threats, vulnerabilities, and controls to foster alignment among different standardization initiatives. This includes the EU AI Act, ISO/IEC 27090 (AI security), the [OWASP ML top 10](https://mltop10.info/), the [OWASP LLM top 10](https://llmtop10.com/), and [OpenCRE](https://opencre.org) - which we want to use to provide the AI Exchange content through the security chatbot [OpenCRE-Chat](https://opencre.org/chatbot).
+
+Our **mission** is to be the authoritative source for consensus, foster alignment, and drive collaboration among initiatives - NOT to set a standard, but to drive standards. By doing so, it provides a safe, open, and independent place to find and share insights for everyone. See [AI Exchange LinkedIn page](https://www.linkedin.com/company/owasp-ai-exchange/).
+
+Maintained here at [owaspai.org](https://owaspai.org) it currently uses both a GitHub repository and a Word Document for contributions. It is is an **open-source living document** for the worldwide exchange of AI security expertise. It serves, for example, as input to security standardization for the EU AI Act towards mid-December (your help is urgently needed!). The document is maintained by OWASP as part of the [OWASP AI guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) project. It will periodically publish content with credited contributions into the Guide.
+
+<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://owaspai.org">OWASP AI Exchange</a> by <span property="cc:attributionName">The AI security community</span> is marked with <a href="http://creativecommons.org/publicdomain/zero/1.0?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC0 1.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/zero.svg?ref=chooser-v1"></a> meaning you can use any part freely, without attribution. If possible, it would be nice if the OWASP AI Exchange is credited and/or linked to, for readers to find more information.</p>
+
+Table of contents:
+
+- [How to contribute](#how-to-contribute)
+- [Introduction](#introduction)
+- [Privacy](#how-about-privacy)
+- [Identifying relevant threats and controls](#how-to-select-relevant-threats-and-controls---risk-analysis)
+- [Generative AI](#how-about-generative-ai-eg-llm)
+- [Summary](#summary)
+- [Mapping guidelines to controls](#mapping-guidelines-to-controls)
+- [1. General controls for all threats](#1-general-controls---for-all-threats)
+- [2. Threats through use](#2-threats-through-use)
+- [3. Development-time threats](#3-development-time-threats)
+- [4. Runtime Application security threats](#4-runtime-application-security-threats)
+- [References](#references)
+- [Expanded Table of contents](#expanded-table-of-contents)
+
+The navigator diagram below shows all threats, controls and how they relate, including risks and the types of controls.  
+Click on the image to get a pdf with clickable links.
+[![](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewv2.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf)
+
+The AI security matrix below shows all threats and risks, ordered by attack surface and lifecycle.
+[![](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/OwaspAIsecuritymatix.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/OwaspAIsecuritymatix.png)
+
+
 ---
 
-## Introduction
+# How to contribute
 
-### BLUF: How to Deal with AI Security
+---
+
+**If you're an AI security expert, please contribute now as standard makers are using this document as input as we speak:**
+
+- Provide comments or suggestions and send it to rob.vanderveer@owasp.org or
+- Start a [GitHub dicussion](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions) or join **#project-ai** at the [OWASP Slack workspace](https://owasp.org/slack/invite) or
+- Post remarks as [GitHub issues](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues) or
+- Fork the respository and suggest changes to this document using Pull requests (only do this if you are familiar with it) or
+- Discuss with the project leader how to become part of the writing group, so you can edit the document directly
+
+**TODOs - the most urgent on top:**
+
+- Elaborate on POISONROBUSTMODEL
+- Change navigator: 1) "deal with conidentiality issues" -> "minimize data to help confidentiality", 2) remove ADDTRAINNOISE
+- Elaborate on "Choose a model type resilient against a transfer learning attack"
+- Under DATAQUALITCONTROL: Elaborate on that method to detect statistical deviation by training models on random selections of the training dataset and then feeding each training sample to those models and compare results.
+- Do gap analysis with CSA sheet of attacks and references: https://docs.google.com/spreadsheets/d/1uUqAQkDTBrwWp9AxiBHUOB9mRrEF27mxrsOC1ZUsoYY/edit#gid=0
+- Add 'Leak sensitive input data' to threat diagram and check further for any gaps with this document
+-USe 'Securing AIML systems in the age of information warfare' by Susanna Cox as sanity check and add it to references.
+- Check if OBFUSCATETRAININGDATA has strategies (anonymization, tokenization) that are covered in ISO/IEC standards and add references to those standards
+- Under DATAQUALITCONTROL: elaborate on RONI and tRONI training sample selection
+- Process the following resources on privacy of GenAI (part is data security)
+  - https://www.protecto.ai/blog/customer-case-study-preserving-privacy-in-a-generative-ai-application-rag-for-contract-review
+  - https://blog.premai.io/privacy-concerns-in-rag-apps/
+  - https://www.netapp.com/blog/private-rag-unlocking-generative-ai-for-enterprise/    
+- Elaborate on the various methods and the general approach of TRAINDATADISTORTION to prevent data poisoning
+- Create a way to link to Controls and to Threats with permanent links (we probably need to generate html from the md)
+- Create a layout that is less list-like and more of a read
+- Add attribute inference attacks and consider making that part of 'data reconstruction', together with model inversion, although it is a different approach
+- Work with the LLM top 10 team to make sure that the LLM top 10 entries link back to the AI Exchange
+- Under TRAINADVERSARIAL: Elaborate - See Annex C of ENISA Secure machine learning algorithms 2021.
+- Add references to reputable resources for the controls, especially where there are no or hardly any references. Either use a 'References' section or the 'Links to standards'.
+- Under DETECTADVERSARIALINPUT: elaborate on detector subnetworks in Annex C of ENISA 2021 and on the references in that section
+- Under EVASIONROBUSTMODEL: See Annex C in ENISA 2021 document to cover Stability terms, adversarial regulaiser, input gradient regularisation, defenisvie distillation and Random feature nullification.
+- Under INPUTDISTORTION: See ENISA Annex C to add data randomisation, input transformation and input denoising.
+- Under INPUTDISTORTION: add Gradient masking - Annex C ENISA 2021
+- Cover integrity checks in development pipeline (build, deploy, supply chain) - under supplychainmanage and/or secdevprogram
+- In general: add more info on how to practically implement the controls. Integration. Monitorin. Best practides. Real world exampels. potential challenges
+
+
+Todos requiring access to ISO/IEC documents:
+- Do gap analysis and elaborate on ISO/IEC 27563 on AI use case security & privacy (search for it in this document)
+- Do gap analysis and elaborate on ISO/IEC 23894 on Risk analysis (search for it in this document)
+- Do gap analysis and elaborate on ISO/IEC 27115 on Cybersecurity evaluation of complex systems (search for it in this document)
+- Do gap analysis and elaborate on ISO/IEC TR 24029 on Assessment of the robustness of neural networks (search for it in this document)
+
+
+Anything is welcome: more controls, improved descriptions, examples, references, etc. We will make sure you get credit for your input.
+
+**Contributions:**
+
+- Yiannis Kanellopoulos and team (Code4thought, Greece) - evasion robustness
+- Annegrit Seyerlein-Klug (TH Brandenburg, Germany) - mapping with misc. standards
+- Wei Wei (IBM, Germany) - mapping with ISO/IEC 42001
+- Roger Sanz (Universidad Isabel, Spain)
+- Angie Qarry (QDeepTech, Austria) - several elaborations and references on datascience defence mechanisms
+- Behnaz Karimi (Accenture, Germany)- misc. contributions including model obfuscation and explanation
+- Sean Oesch (Oak Ridge National Laboratory, US) - BLUF, Adversarial Training, OOD detection, NISTIR 8269, Guide Usability/Structure
+- Anthony Glynn (CapitalOne, US) - many textual improvements & link to LLM top 10
+- Zoe Braiterman (Mutual Knowledge Systems, US) - Many markdown improvements
+- Niklas Bunzel (Fraunhofer institute, Germany) - datascience discussion and references around evasion attacks
+- Marko Lihter (Endava Adriatic, Croatia) - various textual improvements
+
+# Introduction
+
+## Short summary: how to address AI Security
 
 While AI offers powerful perfomance boosts, it also increases the attack surface available to bad actors. It is therefore imperative to approach AI applications with a clear understanding of potential threats and which of those threats to prioritize for each use case. Standards and governance help guide this process for individual entities leveraging AI capabilities.
 
@@ -14,11 +118,11 @@ While AI offers powerful perfomance boosts, it also increases the attack surface
 - **Limit the impact** of AI by minimizing privileges and adding oversight, e.g. guardrails, human oversight.
 - **Countermeasures in data science** through understanding of model attacks, e.g. data quality assurance, larger training sets, detecting common perturbation attacks, input filtering.
 
-![AI Specific Security Threats](/images/owaspaimodelv1.png)
+![](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaimodelv1.png)
 
-### About this Document
+## This document
 
-This document discusses threats to AI cybersecurity and controls for those threats (i.e. countermeasures, requirements, mitigations).
+This document discusses threats to AI cyber security and controls for those threats (i.e. countermeasures, requirements, mitigations).
 Security here means preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.
 
 The AI Exchange initiative was taken by OWASP, triggered by [Rob van der Veer](https://www.linkedin.com/in/robvanderveer/) - bridge builder for security standards, senior director at [Software Improvement Group](https://www.softwareimprovementgroup.com), with 31 years of experience in AI & security, lead author of ISO/IEC 5338 on AI lifecycle, founding father of OpenCRE, and currently working on security requirements concerning the EU AI act in CEN/CENELEC.
@@ -31,7 +135,7 @@ It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 270
 - AI security experts who contributed to this as Open Source.
 - The insights of these experts were inspired by research work as mentioned in the references at the bottom of this document(ENISA, NIST, Microsoft, BIML, MITRE, etc.)
 
-### Organizing threats and controls
+## How we organize threats and controls
 
 The threats are organized by attack surface (how and where does the attack take place?), and not by impact. This means that for example model theft is mentioned in three different parts of the overview:
 
@@ -51,24 +155,51 @@ This document focuses on machine learning. Nevertheless, here is a quick summary
 - Knowledgebase, source code and configuration can be regarded as sensitive data when it is intellectual property, so it needs protection
 - Leak sensitive input data, for example when a heuristic system needs to diagnose a patient
 
-### Applying threats and controls - risk analysis
+# How to select relevant threats and controls - risk analysis
+There are many threats and controls described in this document. Your situation determines which threats are relevant to you, and what controls are your responsibility. This selection process can be performed through risk analysis of the use case and architecture at hand:
 
-1. Threat identification: First select the threats that apply to your case by going through the list of threats and use the _Impact_ description to see if it is applicable. For example the impact of identifying individuals in your training data may not apply to your case. Risk assessment is a helpful exercise to support this selection, and the consideration of controls and risks further on in this process.
-2. Control selection: Then, for the selected threats consider the various controls listed with that threat (or the parent section of that threat) and the general controls (they always apply). When considering a control, look at its purpose and determine if you think it is important enough to implement it and to what extent. This depends on the cost of implementation compared to how the purpose mitigates the threat, and the level of risk of the threat.
-3. Use references: When implementing a control, consider the references and the links to standards. You may have implemented some of these standards, or the content of the standards may help you to implement the control.
-4. Risk acceptance: In the end you need to be able to accept the risks that remain regarding each threat, given the controls that you implemented.
-5. Further management of these controls (see SECPROGRAM), which includes continuous monitoring, documentation, reporting, and incident response.
+1. **Threat identification**: First select the threats that apply to your case by going through the list of threats and use the _Impact_ description to see if it is applicable. For example the impact of identifying individuals in your training data would not apply to your case if your training data has no individuals. The [Navigator](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf) shows impact in purple.
+
+    If you use RAG (Retrieval Augmented Generation), then treat the retrieval repository (including embeddings) just like training data. Meaning:
+      - Include the threats regarding data poisoning 
+      - Include the threats regarding train/test data leak if the data is sensitive 
+
+    Else, if you don’t train or finetune the model:
+      - ignore the development-time threats, with the exception of supply chain management: make sure the model you obtain is not manipulated, and genuine.
+      - ignore the confidentiality of train data threats
+      - ignore the confidentiality of model IP threats
+      - ignore the data poisoning threat
+      - ignore development-time controls (e.g. filtering sensitive training data)
+
+    These are the responsbilities of the model maker, but be aware you may be effected by the unwanted results. The maker may take the blame for any issue, which would take care of confidentiality issues, but you would suffer effectively from any manipulated model behaviour.
+
+    If your train data is not sensitive: ignore the confidentiality of train data threats
+
+    If your model is a GenAI model, ignore the following threats: evasion, model inversion. Also ignore prompt injection and insecure output handling if your GenAI model is NOT an LLM
+    If your model is not a GenAI model, ignore (direct) prompt injection, and insecure output handling
+
+    If your input data is not sensitive, ignore ‘leaking input data’. If you use RAG, consider data you retrieve also as input data.
+
+2. **Arranging responsibility**: For each selected threat, determine who is responsible to address it. By default, the organization that builds and deploys the AI system is responsible, but building and deploying may be done by different organizations, and some parts of the building and deployment may be deferred to other organizations, e.g. hosting the model, or providing a cloud environment for the application to run. Some aspects are shared responsibilities.
+
+    If components of your AI system are hosted, then you share responsibility regarding all controls for the relevant threats with the hosting provider. This needs to be arranged with the provider, using for example a responsibility matrix. Components can be the model, model extensions, your application, or your infrastructure.
+
+3. **Verify external responsibilities:** For the threats that are the responsibility of other organisations: attain assurance whether these organisations take care of it. This would involve the controls that are linked to these threats.
+4. **Control selection**: Then, for the threats that are relevant to you and for which you are responsible: consider the various controls listed with that threat (or the parent section of that threat) and the general controls (they always apply). When considering a control, look at its purpose and determine if you think it is important enough to implement it and to what extent. This depends on the cost of implementation compared to how the purpose mitigates the threat, and the level of risk of the threat.
+5. **Use references**: When implementing a control, consider the references and the links to standards. You may have implemented some of these standards, or the content of the standards may help you to implement the control.
+6. **Risk acceptance**: In the end you need to be able to accept the risks that remain regarding each threat, given the controls that you implemented.
+7. **Further management of these controls** (see SECPROGRAM), which includes continuous monitoring, documentation, reporting, and incident response.
 
 For more information on risk analysis, see the SECPROGRAM control.
 
-## How about privacy?
+# How about privacy?
 
 AI Privacy can be divided into two parts:
 
 1. The AI security threats and controls in this document that are about confidentiality and integrity of (personal) data (e.g. model inversion, leaking training data), plus the integrity of the model behaviour
-2. Threats and controls with respect to rights of the individual, as covered by privacy regulations such as the GDPR, including use limitation, consent, fairness, transparency, data accuracy, right of correction/objection/reasure/access. For an overview, see the [Privacy part of the OWASP AI guide](/docs/privacy/#how-to-deal-with-ai-privacy)
+2. Threats and controls with respect to rights of the individual, as covered by privacy regulations such as the GDPR, including use limitation, consent, fairness, transparency, data accuracy, right of correction/objection/reasure/access. For an overview, see the [Privacy part of the OWASP AI guide](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/index.md#how-to-address-ai-privacy)
 
-## How about Generative AI (e.g. LLM)?
+# How about Generative AI (e.g. LLM)?
 
 Yes, GenAI is leading the current AI revolution and it's the fastest moving subfield of AI security. Nevertheless it is important to realize that other types of algorithms will remain to be applied to many important use cases such as credit scoring, fraud detection, medical diagnosis, product recommendation, image recognition, predictive maintenance, process control, etc. Relevant content has been marked with 'GenAI' in this document.
 
@@ -83,7 +214,7 @@ GenAI security particularities are:
 |3|A GenAI model will not respect any variations in access privileges of training data. All data will be accessible to the model users.|([OWASP for LLM 06: Sensitive Information Disclosure](https://llmtop10.com/llm06/)) |
 |4|Training data poisoning is an AI-broad problem, and with GenAI the risk is generally higher since training data can be supplied from different sources that may be challenging to control, such as the internet. Attackers could for example hijack domains and place manipulated information. | ([OWASP for LLM 03: Training Data Poisoning](https://llmtop10.com/llm03/))|
 |5|Overreliance is an AI-broad risk factor, and in addition Large Language Models (GenAI) can make matters worse by coming across very confident and knowledgeable. |([OWASP for LLM 09: Overreliance](https://llmtop10.com/llm09/)) and ([OWASP for LLM 08: Excessive agency](https://llmtop10.com/llm08/))|
-|6| Leaking input data: GenAI models mostly live in the cloud - often managed by an external party, which may increase the risk of leaking training data and leaking prompts. This issue is not limited to GenAI. Additional risks that are typical for GenAI are: 1) model use involves user interaction through prompts, adding user data and corresponding privacy issues, and 2) GenAI model input (prompts) can contain rich context information with sensitive data (e.g. company secrets). The latter issue occurs with _in context learning_ (adding background information to a prompt): for example data from all reports ever written at a consultancy firm. First of all, this information will travel with the prompt to the cloud, and second: the system will likely not respect the original access rights to the information.|           |
+|6| Leaking input data: GenAI models mostly live in the cloud - often managed by an external party, which may increase the risk of leaking training data and leaking prompts. This issue is not limited to GenAI, but GenAI has 2 particular risks here: 1) model use involves user interaction through prompts, adding user data and corresponding privacy/sensitivity issues, and 2) GenAI model input (prompts) can contain rich context information with sensitive data (e.g. company secrets). The latter issue occurs with *in context learning* or *Retrieval Augmented Generation(RAG)* (adding background information to a prompt): for example data from all reports ever written at a consultancy firm. First of all, this information will travel with the prompt to the cloud, and second: the system will likely not respect the original access rights to the information. See the threat [Leak sensitive input data)[https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#47-leak-sensitive-input-data].|           |
 |7|Pre-trained models may have been manipulated. The concept of pretraining is not limited to GenAI, but the approach is quite common in GenAI, which increases the risk of transfer learning attacks.| ([OWASP for LLM 05 - Supply chain vulnerabilities](https://llmtop10.com/llm05/))|
 |8|The typical application of plug-ins in Large Language Models (GenAI) creates specific risks regarding the protection and privileges of these plugins - as they allow large language models (GenAI) to act outside of their normal conversation with the user.|([OWASP for LLM 07](https://llmtop10.com/llm07/))|
 |9| Prompt injection  is a GenAI specific threat, listed under Application security threats|([OWASP for LLM 01](https://llmtop10.com/llm01/))|
@@ -91,12 +222,13 @@ GenAI security particularities are:
 |11|GenAI output may contain elements that perform an injection attack such as cross-site-scripting.| ([OWASP for LLM 02](https://llmtop10.com/llm02/))|
 |12|Denial of service can be an issue for any AI model, but GenAI models are extra sensitive because of the relatively high resource usage. | ([OWASP for LLM 04](https://llmtop10.com/llm04/)) |
 
+
 GenAI References:
 
 - [OWASP LLM top 10](https://llmtop10.com/)
 - [Impacts and risks of GenAI](https://arxiv.org/pdf/2306.13033.pdf)
 
-## Summary
+# Summary
 
 The AI security controls (in capitals - and discussed further on in the document) can be grouped along meta controls:
 
@@ -148,14 +280,13 @@ The AI security controls (in capitals - and discussed further on in the document
 
 ---
 
-## Mapping guidelines to controls
+# Mapping guidelines to controls
 
 Mapping of the UK/US [Guidelines for secure AI
 system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development) to the controls here at the AI Exchange:  
 (Search for them in this document or use the [Navigator](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf))
 
 1. Secure design
-
 - Raise staff awareness of threats and risks:  
   #SECEDUCATE
 - Model the threats to your system:  
@@ -166,7 +297,6 @@ system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-syst
   All development-time datascience controls (currently 13), #EXPLAINABILITY
 
 2. Secure Development
-
 - Secure your supply chain:  
   #SUPPLYCHAINMANAGE
 - Identify, track and protect your assets:  
@@ -177,7 +307,6 @@ system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-syst
   Part of #DEVPROGRAM
 
 3. Secure deployment
-
 - Secure your infrastructure:  
   Part of #SECPROGRAM and see ‘Identify, track and protect your assets’
 - Protect your model continuously:  
@@ -190,7 +319,6 @@ system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-syst
   Part of #SECPROGRAM
 
 4. Secure operation and maintenance
-
 - Monitor your system’s behaviour:  
   #CONTINUOUSVALIDATION, #UNWANTEDBIASTESTING
 - Monitor your system’s inputs:  
@@ -214,10 +342,11 @@ Overviews of model attacks:
 - [MITRE ATLAS framework for AI threats](https://atlas.mitre.org/)
 - [ETSI SAI Problem statement Section 6](https://www.etsi.org/committee/1640-sai#)
 - [Microsoft AI failure modes](https://docs.microsoft.com/en-us/security/failure-modes-in-machine-learning)
-- [NIST](https://csrc.nist.gov/publications/detail/white-paper/2023/03/08/adversarial-machine-learning-taxonomy-and-terminology/draft)
+- [NIST](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
 - [OWASP ML top 10](https://mltop10.info/)
 - [OWASP LLM top 10](https://llmtop10.com/)
 - [BIML](https://berryvilleiml.com/taxonomy/)
+- [AVID AI Vulnerability database](https://avidml.org/)
 
 Misc.:
 
@@ -229,18 +358,18 @@ Misc.:
 - [NIST AI Risk Management Framework 1.0](https://doi.org/10.6028/NIST.AI.100-1)
 - [NIST threat taxonomy](https://csrc.nist.gov/publications/detail/white-paper/2023/03/08/adversarial-machine-learning-taxonomy-and-terminology/draft)
 - [NISTIR 8269 - A Taxonomy and Terminology of Adversarial Machine Learning](https://csrc.nist.rip/external/nvlpubs.nist.gov/nistpubs/ir/2019/NIST.IR.8269-draft.pdf)
-- [PLOT4ai threat library](https://plot4.ai/library)
+- [PLOT4ai threat library ](https://plot4.ai/library)
 - [ETSI GR SAI 002 V 1.1.1 Securing Artificial Intelligence (SAI) – Data Supply Chain Security](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/002/01.01.01_60/gr_SAI002v010101p.pdf)
 - [ISO/IEC 20547-4 Big data security](https://www.iso.org/standard/71278.html)
 - [IEEE 2813 Big Data Business Security Risk Assessment](https://standards.ieee.org/ieee/2813/7535/)
 
-## Expanded table of contents
+# Expanded table of contents
 
-- [How to contribute](/contribute)
-- [Introduction](/docs/security/#introduction)
-- [Summary](/docs/security/#summary)
+- [How to contribute](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/edit/main/owaspaiexchange.md#how-to-contribute)
+- [Introduction](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#introduction)
+- [Summary](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#summary)
 
-- [1. General controls for all threats](/docs/security/1_general_controls)
+- [1. General controls for all threats](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#1-general-controls---for-all-threats)
 
   1.1 Governance controls:
 
@@ -272,7 +401,7 @@ Misc.:
   - Overreliance
   - Excessive agency
 
-- [2. Threats through use](/docs/security/2_threats_through_use)
+- [2. Threats through use](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#2-threats-through-use)
 
   - See General controls
   - MONITORUSE (runtime appsec)
@@ -321,7 +450,7 @@ Misc.:
   - DOSINPUTVALIDATION (runtime appsec)
   - LIMITRESOURCES (runtime)
 
-- [3. Development-time threats](/docs/security/3_development_time_threats)
+- [3. Development-time threats](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#3-development-time-threats)
 
   - See General controls
   - DEVDATAPROTECT (development-time infosec)
@@ -369,7 +498,7 @@ Misc.:
   ...3.2.3. Source code/configuration leak  
   Impact: Confidentiality breach of intellectual property.
 
-- [4. Runtime Application security threats](/docs/security/4_runtime_application_security_threats)
+- [4. Runtime Application security threats](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#4-runtime-application-security-threats)
 
   4.1. Non AI-specific application security threats  
   Impact: General application security threats can impact confidentiality, integrity and availability of all assets.
@@ -417,5 +546,5 @@ Misc.:
   - See General controls
   - MODELINPUTCONFIDENTIALITY (runtime appsec)
 
-- [References](/docs/security/#references)
-- [Expanded Table of contents](/docs/security/#expanded-table-of-contents)
+- [References](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#references)
+- [Expanded Table of contents](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#expanded-table-of-contents)
