@@ -80,10 +80,10 @@ The AI security matrix below shows all threats and risks, ordered by attack surf
 - Under INPUTDISTORTION: See ENISA Annex C to add data randomisation, input transformation and input denoising.
 - Under INPUTDISTORTION: add Gradient masking - Annex C ENISA 2021
 - Cover integrity checks in development pipeline (build, deploy, supply chain) - under supplychainmanage and/or secdevprogram
-- In general: add more info on how to practically implement the controls. Integration. Monitorin. Best practides. Real world exampels. potential challenges
+- In general: add more info on how to practically implement the controls. Integration. Monitoring. Best practices. Real world examples. potential challenges.
 
 
-Todos requiring access to ISO/IEC documents:
+TODOs requiring access to ISO/IEC documents:
 - Do gap analysis and elaborate on ISO/IEC 27563 on AI use case security & privacy (search for it in this document)
 - Do gap analysis and elaborate on ISO/IEC 23894 on Risk analysis (search for it in this document)
 - Do gap analysis and elaborate on ISO/IEC 27115 on Cybersecurity evaluation of complex systems (search for it in this document)
@@ -147,7 +147,7 @@ The threats are organized by attack surface (how and where does the attack take 
 A helpful way to look at AI is to see it as consisting of machine learning (the current dominant type of AI) models and _heuristic models_. A model can be a machine learning model which has learned how to compute based on data, or it can be a heuristic model engineered based on human knowledge, e.g. a rule-based system. Heuristic models still need data for testing, and sometimes to perform analysis for further building and validating the human knowledge.  
 This document focuses on machine learning. Nevertheless, here is a quick summary of the machine learning threats from this document that also apply to heuristic systems:
 
-- Model evasion is also possible for heuristic models, -trying to find a loophole in the rules
+- Model evasion is also possible for heuristic models - trying to find a loophole in the rules
 - Model theft through use - it is possible to train a machine learning model based on input/output combinations from a heuristic model
 - Overreliance in use - heuristic systems can also be relied on too much. The applied knowledge can be false
 - Data poisoning and model poisoning is possible by manipulating data that is used to improve knowledge and by manipulating the rules development-time or runtime
@@ -210,13 +210,13 @@ GenAI security particularities are:
 |Nr.| GenAI security particularities |OWASP for LLM TOP 10|
 |-| ----------|-------------------|
 |1| Evasion attacks in general are about fooling a model using crafted input to make an unwanted decision, whereas for GenAI it is about fooling a model using a crafted prompt to circumvent behavioral policies (e.g. preventing offensive output). |  ([OWASP for LLM 01](https://llmtop10.com/llm01/))  |
-|2| Unwanted output of sensitive training data is an AI-broad issue, but more likely to be a high risk with GenAI systems that typically output rich content, and have been trained on a large varietey of data sets such.  |  ([OWASP for LLM 06](https://llmtop10.com/llm06/))  |
+|2| Unwanted output of sensitive training data is an AI-broad issue, but more likely to be a high risk with GenAI systems that typically output rich content, and have been trained on a large varietey of data sets.  |  ([OWASP for LLM 06](https://llmtop10.com/llm06/))  |
 |3|A GenAI model will not respect any variations in access privileges of training data. All data will be accessible to the model users.|([OWASP for LLM 06: Sensitive Information Disclosure](https://llmtop10.com/llm06/)) |
 |4|Training data poisoning is an AI-broad problem, and with GenAI the risk is generally higher since training data can be supplied from different sources that may be challenging to control, such as the internet. Attackers could for example hijack domains and place manipulated information. | ([OWASP for LLM 03: Training Data Poisoning](https://llmtop10.com/llm03/))|
 |5|Overreliance is an AI-broad risk factor, and in addition Large Language Models (GenAI) can make matters worse by coming across very confident and knowledgeable. |([OWASP for LLM 09: Overreliance](https://llmtop10.com/llm09/)) and ([OWASP for LLM 08: Excessive agency](https://llmtop10.com/llm08/))|
 |6| Leaking input data: GenAI models mostly live in the cloud - often managed by an external party, which may increase the risk of leaking training data and leaking prompts. This issue is not limited to GenAI, but GenAI has 2 particular risks here: 1) model use involves user interaction through prompts, adding user data and corresponding privacy/sensitivity issues, and 2) GenAI model input (prompts) can contain rich context information with sensitive data (e.g. company secrets). The latter issue occurs with *in context learning* or *Retrieval Augmented Generation(RAG)* (adding background information to a prompt): for example data from all reports ever written at a consultancy firm. First of all, this information will travel with the prompt to the cloud, and second: the system will likely not respect the original access rights to the information. See the threat [Leak sensitive input data)[https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#47-leak-sensitive-input-data].|           |
 |7|Pre-trained models may have been manipulated. The concept of pretraining is not limited to GenAI, but the approach is quite common in GenAI, which increases the risk of transfer learning attacks.| ([OWASP for LLM 05 - Supply chain vulnerabilities](https://llmtop10.com/llm05/))|
-|8|The typical application of plug-ins in Large Language Models (GenAI) creates specific risks regarding the protection and privileges of these plugins - as they allow large language models (GenAI) to act outside of their normal conversation with the user.|([OWASP for LLM 07](https://llmtop10.com/llm07/))|
+|8|The typical application of plug-ins in Large Language Models (GenAI) creates specific risks regarding the protection and privileges of these plugins - as they allow Large Language Models (GenAI) to act outside of their normal conversation with the user.|([OWASP for LLM 07](https://llmtop10.com/llm07/))|
 |9| Prompt injection  is a GenAI specific threat, listed under Application security threats|([OWASP for LLM 01](https://llmtop10.com/llm01/))|
 |10|Model inversion and membership inference are low to zero risks for GenAI |([OWASP for LLM 06](https://llmtop10.com/llm06/))|
 |11|GenAI output may contain elements that perform an injection attack such as cross-site-scripting.| ([OWASP for LLM 02](https://llmtop10.com/llm02/))|
