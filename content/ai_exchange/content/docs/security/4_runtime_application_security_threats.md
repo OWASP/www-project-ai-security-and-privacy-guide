@@ -116,7 +116,7 @@ Impact: Confidentiality breach of sensitive input data.
 
 Input data can be sensitive (e.g. GenAI prompts) and can either leak through a failure or through an attack, such as a man-in-the-middle attack.  
 
-GenAI models are often hosted in the cloud - sometimes managed by an external party- increasing the risk of input data (prompts) leaking. GenAI typically involves user interaction through prompts, adding user data and corresponding privacy issues to the threat. In addition, GenAI prompts may contain rich context information with sensitive data (e.g. company secrets).
+GenAI models mostly live in the cloud - often managed by an external party, which may increase the risk of leaking training data and leaking prompts. This issue is not limited to GenAI, but GenAI has 2 particular risks here: 1) model use involves user interaction through prompts, adding user data and corresponding privacy/sensitivity issues, and 2) GenAI model input (prompts) can contain rich context information with sensitive data (e.g. company secrets). The latter issue occurs with *in context learning* or *Retrieval Augmented Generation(RAG)* (adding background information to a prompt): for example data from all reports ever written at a consultancy firm. First of all, this information will travel with the prompt to the cloud, and second: the system will likely not respect the original access rights to the information.
 
 **Controls:**
 

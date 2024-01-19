@@ -54,7 +54,7 @@ Impact: Integrity of model behaviour is affected, leading to issues from unwante
 
 Fooling models with deceptive input data). In other words: an attacker provides input that has intentionally been designed to cause a machine learning model to behave in an unwanted way. In other words, the attacker fools the model with deceptive input data.
 
-A category of such an attack involves small perturbations leading to a large (and false) modification of its outputs. Such modified inputs are often called _adversarial examples_.
+A category of such an attack involves small perturbations leading to a large (and false) modification of its outputs. Such modified inputs are often called *adversarial examples*.
 
 Example: let’s say a self-driving car has been taught how to recognize traffic signs, so it can respond, for example by stopping for a stop sign. It has been trained on a set of labeled traffic sign images. Then an attacker manages to secretly change the train set and add examples with crafted visual cues. For example, the attacker inserts some stop-sign images with yellow stickers and the label “35 miles an hour”. The model will be trained to recognize those cues. The stealthy thing is that this problematic behavior will not be detected in tests. The model will recognize normal stop signs and speed limit signs. But when the car gets on the road, an attacker can put inconspicuous stickers on stop signs and create terrible dangerous situations.
 
@@ -93,6 +93,7 @@ versions of the image, the original input and the modified version. The
 results are compared to detect possible attacks.
   - Detection of adversarial patches: these patches are localized, often visible modifications that can even be placed in the real world.
   
+  
   Links to standards:
 
   - Not covered yet in ISO/IEC standards
@@ -107,7 +108,7 @@ results are compared to detect possible attacks.
 
   - [Local intrinsic dimensionality](https://www.ijcai.org/proceedings/2021/0437.pdf)
 
-  - Hendrycks, Dan, and Kevin Gimpel. "Early methods for detecting
+  -  Hendrycks, Dan, and Kevin Gimpel. "Early methods for detecting
 adversarial images." arXiv preprint arXiv:1608.00530 (2016).
 
   - Kherchouche, Anouar, Sid Ahmed Fezza, and Wassim Hamidouche. "Detect
@@ -165,11 +166,11 @@ security concerns have arisen about their effectiveness.
 
   Links to standards:
 
-  - ISO/IEC TR 24029 (Assessment of the robustness of neural networks)
+  - ISO/IEC TR 24029 (Assessment of the robustness of neural networks) Gap: this standard discusses general robustness and does not discuss robustness against adversarial inputs explicitly.
 
   References:
 
-  - Xiao, Chang, Peilin Zhong, and Changxi Zheng. "Enhancing Adversarial
+  -  Xiao, Chang, Peilin Zhong, and Changxi Zheng. "Enhancing Adversarial
 Defense by k-Winners-Take-All." 8th International Conference on Learning
 Representations. 2020.
 
@@ -210,8 +211,8 @@ PMLR, 2018.
   - Not covered yet in ISO/IEC standards
   
 * **#ADVERSARIALROBUSTDISTILLATION** (development-time datascience). Adversarial-robust distillation: defensive distillation involves training a student model to
-replicate the softened outputs of the _teacher_ model, increasing the
-resilience of the _student_ model to adversarial examples by smoothing the
+replicate the softened outputs of the *teacher* model, increasing the
+resilience of the *student* model to adversarial examples by smoothing the
 decision boundaries and making the model less sensitive to small
 perturbations in the input. Care must be taken when considering
 defensive distillation techniques, as security concerns have arisen
@@ -220,7 +221,7 @@ about their effectiveness.
   Links to standards:
 
   - Not covered yet in ISO/IEC standards
-
+ 
   References
 
   - Papernot, Nicolas, et al. "Distillation as a defense to adversarial
@@ -234,7 +235,7 @@ robust to adversarial examples." arXiv preprint arXiv:1607.04311 (2016).
 
 Input is manipulated in a way not based on observations of the model implementation (code, training set, parameters, architecture). The model is a 'closed box'. This often requires experimenting with how the model responds to input.
 
-[![Closed Box Evasion](/images/inputblack3.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/content/ai_exchange/static/images/inputblack3.png)
+<p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inputblack3.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inputblack3.png?raw=true"/></a></p>
 
 Example 1: slightly changing traffic signs so that self-driving cars may be fooled.
 
@@ -246,25 +247,26 @@ Example 4: an open-box box evasion attack (see below) can be done on a copy (a s
 
   References:
 
-- Papernot, Nicolas, Patrick McDaniel, and Ian Goodfellow.
+  - Papernot, Nicolas, Patrick McDaniel, and Ian Goodfellow.
 "Transferability in machine learning: from phenomena to black-box
 attacks using adversarial samples." arXiv preprint arXiv:1605.07277 (2016).
 
-- Demontis, Ambra, et al. "Why do adversarial attacks transfer?
+  - Demontis, Ambra, et al. "Why do adversarial attacks transfer?
 explaining transferability of evasion and poisoning attacks." 28th
 USENIX security symposium (USENIX security 19). 2019.
 
-- Andriushchenko, Maksym, et al. "Square attack: a query-efficient
+  - Andriushchenko, Maksym, et al. "Square attack: a query-efficient
 black-box adversarial attack via random search." European conference on
 computer vision. Cham: Springer International Publishing, 2020.
 
-- Guo, Chuan, et al. "Simple black-box adversarial attacks."
+  - Guo, Chuan, et al. "Simple black-box adversarial attacks."
 International Conference on Machine Learning. PMLR, 2019.
 
-- Bunzel, Niklas, and Lukas Graner. "A Concise Analysis of Pasting
+  - Bunzel, Niklas, and Lukas Graner. "A Concise Analysis of Pasting
 Attacks and their Impact on Image Classification." 2023 53rd Annual
 IEEE/IFIP International Conference on Dependable Systems and Networks
 Workshops (DSN-W). IEEE, 2023.
+
 
 **Controls:**
 
@@ -275,7 +277,8 @@ Workshops (DSN-W). IEEE, 2023.
 
 When attackers have access to a models' implementation (code, training set, parameters, architecture), they can be enabled to craft input manipulations (often referred to as _adversarial examples_).
 
-[![Open Box Evasion](/images/inputwhite3.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/content/ai_exchange/static/images/inputwhite3.png)
+<p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inputwhite3.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inputwhite3.png?raw=true"/></a></p>
+    <br/>
 
 **Controls:**
 
@@ -327,11 +330,13 @@ The disclosure is caused by an unintentional fault of including this data, and e
 
 Model inversion (or _data reconstruction_) occurs when an attacker reconstructs a part of the training set by intensive experimentation during which the input is optimized to maximize indications of confidence level in the output of the model.
 
-[![Model inversion](/images/inversion3.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/content/ai_exchange/static/images/inversion3.png)
+  <p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inversion3.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inversion3.png?raw=true"/></a></p>
+  <br />
 
 Membership inference is presenting a model with input data that identifies something or somebody (e.g. a personal identity or a portrait picture), and using any indication of confidence in the output to infer the presence of that something or somebody in the training set.
 
-[![Membership inference](/images/membership3.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/content/ai_exchange/static/images/membership3.png)
+  <p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/membership3.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/membership3.png?raw=true"/></a></p>
+  <br />
 
 References:
 
@@ -363,7 +368,8 @@ Impact: Confidentiality breach of model intellectual property.
 
 This attack is known as model stealing attack or model extraction attack. It occurs when an attacker collects inputs and outputs of an existing model and uses those combinations to train a new model, in order to replicate the original model.
 
-[![Theft diagram](/images/theft3.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/content/ai_exchange/static/images/theft3.png)
+<p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/theft3.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/theft3.png?raw=true"/></a></p>
+<br />
 
 **Controls:**
 
