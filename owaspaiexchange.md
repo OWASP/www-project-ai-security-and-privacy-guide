@@ -1075,7 +1075,7 @@ Example 3: false information in documents on the internet causes a Large Languag
   Particularity: standard quality control needs to take into account that data may have maliciously been changed.
 
   A method to detect statistical deviation is to train models on random selections of the training dataset and then feed each training sample to those models and compare results. TODO: Elaborate.  
-  TODO: elaborate on RONI and tRONI training sample selection
+  TODO: Elaborate on RONI and tRONI training sample selection
 
   Links to standards:
 
