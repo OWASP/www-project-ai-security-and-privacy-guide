@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "owasp-ai-exchange",
     "public": "public",
     "ignore": [
       "firebase.json",
