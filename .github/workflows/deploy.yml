@@ -22,7 +22,9 @@ jobs:
           # extended: true
 
       - name: Build
-        run: hugo --minify --config ./content/ai_exchange/hugo.yaml --destination ./content/ai_exchange/public/ --cleanDestinationDir --contentDir ./content/ai_exchange --layoutDir content/ai_exchange/layouts 
+        run: |
+         cd content/ai_exchange
+         hugo --minify --config ./hugo.yaml --destination ./public --cleanDestinationDir --contentDir ./content --layoutDir /layouts
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
