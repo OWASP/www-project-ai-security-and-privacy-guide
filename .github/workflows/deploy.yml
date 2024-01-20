@@ -30,6 +30,7 @@ jobs:
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
-          projectId: owasp-ai-exchange
+          projectId: project-integration-standards
+          target: owasp-ai-exchange
           channelId: live
           entryPoint: content/ai_exchange
