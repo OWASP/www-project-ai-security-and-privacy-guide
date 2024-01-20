@@ -25,7 +25,7 @@ jobs:
         run: |
          cd content/ai_exchange
          hugo mod get github.com/imfing/hextra
-         hugo --minify --config hugo.yaml --destination public/ --cleanDestinationDir --contentDir ai_exchange --layoutDir layouts
+         hugo --gc --minify
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
