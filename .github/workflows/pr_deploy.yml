@@ -1,0 +1,29 @@
+name: Deploy to Preview Channel
+
+on:
+  pull_request:
+    paths:
+    - "content/**"
+
+jobs:
+  build_and_preview:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.119.0'
+          # extended: true
+      - name: Build
+        run: |
+         cd content/ai_exchange
+         hugo mod get github.com/imfing/hextra
+         hugo --minify --config hugo.yaml --destination public/ --cleanDestinationDir --contentDir ai_exchange --layoutDir layouts
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
+          expires: 3d
+          projectId: project-integration-standards
