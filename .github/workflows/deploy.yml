@@ -10,6 +10,7 @@ on:
 
 jobs:
   deploy_live_website:
+    environment: production
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -20,7 +21,6 @@ jobs:
         with:
           hugo-version: '0.119.0'
           # extended: true
-
       - name: Build
         run: |
          cd content/ai_exchange
