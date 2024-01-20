@@ -1,18 +1,32 @@
-name: Deploy HUGO to Firebase
+name: Deploy to Live Channel
+
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+    # Optionally configure to run only for specific files. For example:
+    # paths:
+    # - "website/**"
+
 jobs:
-  build:
-    environment: production
+  deploy_live_website:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Change to AI Exchange Directory
-      run: |
-        cp -r content/ai_exchange/* .
-    - uses: wajahatkarim3/Hugo-On-Fire@master
-      with:
-        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-      env:
-        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      - uses: actions/checkout@v2
+      # Add any build steps here. For example:
+      # - run: npm ci && npm run build
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.119.0'
+          # extended: true
+
+      - name: Build
+        run: hugo --minify --config ./content/ai_exchange/hugo.yaml --destination ./content/ai_exchange/public/ --cleanDestinationDir --contentDir ./content/ai_exchange --layoutDir content/ai_exchange/layouts 
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
+          projectId: project-integration-standards
+          channelId: live
+          entryPoint: content/ai_exchange
