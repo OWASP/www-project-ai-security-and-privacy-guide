@@ -19,9 +19,8 @@ title: 1. General controls
   Links to standards:
 
   - ISO/IEC 42001 AI management system (under development). Gap: covers this control fully.
- 
-    42001 is about extending your risk management system - it focuses on governance. 5338 is about extending your software lifecycle practices - it focuses on engineering and everything around it. The 42001 can be seen as a management system for the governance of responsible AI in an organization, similar to how 27001 is a management system for information security. The 42001 doesn’t go deep into the lifecycle processes. It for example does not discuss versioning of AI models, project planning issues, and how and when exactly sensitive data is used.
 
+    42001 is about extending your risk management system - it focuses on governance. 5338 is about extending your software lifecycle practices - it focuses on engineering and everything around it. The 42001 can be seen as a management system for the governance of responsible AI in an organization, similar to how 27001 is a management system for information security. The 42001 doesn’t go deep into the lifecycle processes. It for example does not discuss versioning of AI models, project planning issues, and how and when exactly sensitive data is used.
 
 - **#SECPROGRAM** (management). Having a security program. Include the whole AI lifecycle and AI particularities in the organization's security program (also referred to as _information security management system_).
 
@@ -63,8 +62,8 @@ title: 1. General controls
     - This document contains AI security threats and controls to facilitate risk analysis
     - See also [MITRE ATLAS framework for AI threats](https://atlas.mitre.org/)
     - ISO/IEC 27005 - as mentioned above. Gap: covers this control fully, with said particularity (as 27005 doesn't mention AI-specific threats)
-    - ISO/IEC 27563 (AI use cases security & privacy) Discusses the impact of security and privacy in AI use cases and may serve as useful input to AI security risk analysis. 
-    - ISO/IEC 23894 (AI Risk management). Gap: covers this control fully - yet it refers to ISO/IEC 24028 (AI trustworthiness) for AI security threats, which is incomplete compared to for example the AI exchange (this document). The scope is broader than security which is not an issue. 
+    - ISO/IEC 27563 (AI use cases security & privacy) Discusses the impact of security and privacy in AI use cases and may serve as useful input to AI security risk analysis.
+    - ISO/IEC 23894 (AI Risk management). Gap: covers this control fully - yet it refers to ISO/IEC 24028 (AI trustworthiness) for AI security threats, which is incomplete compared to for example the AI exchange (this document). The scope is broader than security which is not an issue.
     - ISO/IEC 5338 (AI lifecycle) covers the AI risk management process. Gap: same as 23894 above.
     - [ETSI Method and pro forma for Threat, Vulnerability, Risk Analysis](https://www.etsi.org/deliver/etsi_ts/102100_102199/10216501/05.02.03_60/ts_10216501v050203p.pdf)
     - [NIST AI Risk Management Framework](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf)
@@ -85,7 +84,7 @@ title: 1. General controls
   Links to standards:
 
   - 27002 control 8.25 Secure development lifecycle. Gap: covers this control fully, with said particularity, but lack of detail - the 8.25 Control description in 27002(2022) is one page, whereas secure software development is a large and complex topic - see below for further references
-  - ISO/IEC 27115 (Cybersecurity evaluation of complex systems) 
+  - ISO/IEC 27115 (Cybersecurity evaluation of complex systems)
   - See [OpenCRE on secure software development processes](https://www.opencre.org/cre/616-305) with notable links to NIST SSDF and OWASP SAMM. Gap: covers this control fully, with said particularity
 
 - **#DEVPROGRAM** (management). Having a development program for AI. Apply general (not just security-oriented) software engineering best practices to AI development.
@@ -130,7 +129,7 @@ title: 1. General controls
 
   Links to standards:
 
-  - Not covered yet in ISO/IEC standards. 
+  - Not covered yet in ISO/IEC standards.
 
 - **#ALLOWEDDATA** (development-time and runtime). Ensure allowed data, meaning the data used (e.g., training set) is permitted for the intended purpose. This is particularly important if consent was not given and the data contains personal information collected for a different purpose.
   Links to standards:
@@ -143,7 +142,7 @@ title: 1. General controls
   
   Links to standards:
 
-  - Not covered yet in ISO/IEC standards. 
+  - Not covered yet in ISO/IEC standards.
 
 - **#OBFUSCATETRAININGDATA** (development-time datascience). Obfuscate training data: attain a degree of obfuscation of sensitive data where possible. When this is done for personal data, it is referred to as _differential privacy_.
 
@@ -168,7 +167,7 @@ title: 1. General controls
     
     Masking encompasses the intentional concealment or modification of sensitive information within training datasets to enhance privacy during the development of machine learning models. This is achieved by introducing 
     a level of obfuscation through techniques like data masking or feature masking, where certain elements are replaced, encrypted, or obscured, preventing unauthorized access to specific details. This approach strikes 
-    a balance between extracting valuable data insights and safeguarding individual privacy, contributing to a more secure and privacy-preserving data science process. 
+    a balance between extracting valuable data insights and safeguarding individual privacy, contributing to a more secure and privacy-preserving data science process.
     
   - Encryption
     
@@ -215,7 +214,7 @@ title: 1. General controls
 
   Links to standards:
 
-  - Not covered yet in ISO/IEC standards. 
+  - Not covered yet in ISO/IEC standards.
 
 - **#DISCRETE** (management, development-time and runtime). Minimize access to technical details that could help attackers.
 
@@ -273,7 +272,7 @@ Example: LLMs (GenAI), just like most AI models, induce their results based on t
   Links to standards:
 
   - ISO/IEC 42001 B.9.3 defines controls for human oversight and decisions regarding autonomy. Gap: covers this control partly (human oversight only, not business logic)
-  - Not covered further in ISO/IEC standards. 
+  - Not covered further in ISO/IEC standards.
 
 - **#LEASTMODELPRIVILEGE** (runtime infosec). Least model privilege: Minimize privileges; avoid connecting a model to an email facility to prevent it from sending incorrect information to others.
 
@@ -288,7 +287,7 @@ Example: LLMs (GenAI), just like most AI models, induce their results based on t
   Links to standards:
 
   - ISO/IEC 42001 B.7.2 describes data management to support transparency. Gap: covers this control minimally, as it only covers the data mnanagement part.
-  - Not covered further in ISO/IEC standards. 
+  - Not covered further in ISO/IEC standards.
 
 - **#CONTINUOUSVALIDATION** (datascience). Continuous validation: by frequently testing the behaviour of the model against an appropriate test set, sudden changes caused by a permanent attack (e.g. data poisoning, model poisoning) can be detected.
 

@@ -129,7 +129,7 @@ References:
 The attacker manipulates (training) data to affect the algorithm's behavior. Also called _causative attacks_.
 
 Example 1: an attacker breaks into a training set database to add images of houses and labels them as 'fighter plane', to mislead the camera system of an autonomous missile. The missile is then manipulated to attack houses. With a good test set this unwanted behaviour may be detected. However, the attacker can make the poisoned data represent input that normally doesn't occur and therefore would not be in a testset. The attacker can then create that abnormal input in practice. In the previous exmaple this could be houses with white crosses on the door.  See [MITRE ATLAS - Poison traing data](https://atlas.mitre.org/techniques/AML.T0020)
-Example 2: a malicious supplier poisons data that is later obtained by another party to train a model. See [MITRE ATLAS - Publish poisoned datasets](https://atlas.mitre.org/techniques/AML.T0019) 
+Example 2: a malicious supplier poisons data that is later obtained by another party to train a model. See [MITRE ATLAS - Publish poisoned datasets](https://atlas.mitre.org/techniques/AML.T0019)
 Example 3: false information in documents on the internet causes a Large Language Model (GenAI) to output false results. That false information can be planted by an attacker, but of course also by accident. The latter case is a real GenAI risk, but technically comes down to the issue of having false data in a training set which falls outside of the security scope. ([OWASP for LLM 03](https://llmtop10.com/llm03/))
 
 **Controls for data poisoning:**
@@ -146,7 +146,7 @@ Example 3: false information in documents on the internet causes a Large Languag
 
   Particularity: standard quality control needs to take into account that data may have maliciously been changed.
 
-  A method to detect statistical deviation is to train models on random selections of the training dataset and then feed each training sample to those models and compare results. 
+  A method to detect statistical deviation is to train models on random selections of the training dataset and then feed each training sample to those models and compare results.
 
   Links to standards:
 
