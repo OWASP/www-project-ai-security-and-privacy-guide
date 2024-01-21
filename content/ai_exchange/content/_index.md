@@ -3,7 +3,7 @@
 
 {{< image-centered src="/images/aixlogosml.jpg" alt="OWASP AI Exchange Logo" >}}
 
->All security risks for the whole of AI - by professionals, for every professional - providing alignment and guidance.
+>How to protect against AI security threats - by professionals, for professionals - providing alignment and accessible guidance.
 
 {{< spacer height="40" >}}
 
