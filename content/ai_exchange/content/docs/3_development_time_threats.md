@@ -144,7 +144,8 @@ Example 3: false information in documents on the internet causes a Large Languag
 
 - See General controls
 - See controls for development-time protection
-- **#MORETRAINDATA** (development-time datascience): More train data: increasing the amount of non-malicious data makes training more robust against poisoned examples - provided that these poisoned examples are small in number. One way to do this is through data augmentation - the creation of artificial training set samples that are small variations of existing samples.
+#### #MORETRAINDATA
+(development-time datascience): More train data: increasing the amount of non-malicious data makes training more robust against poisoned examples - provided that these poisoned examples are small in number. One way to do this is through data augmentation - the creation of artificial training set samples that are small variations of existing samples.
 
   Links to standards:
 
