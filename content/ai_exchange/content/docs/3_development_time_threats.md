@@ -127,7 +127,7 @@ This poisoning is **hard to detect** once it has happened: there is no code to r
 Links to standards:
   - Not covered yet in ISO/IEC standards
 
-## References
+### References
 
 - [Summary of 15 backdoor papers at CVPR '23](https://zahalka.net/ai_security_blog/2023/09/backdoor-attacks-defense-cvpr-23-how-to-build-and-burn-trojan-horses/)
 
