@@ -8,17 +8,17 @@
 {{< spacer height="40" >}}
 
 {{< cards >}}
-    {{< card link="/contact" title="Connect with us!" icon="chat" >}}
+    {{< card link="/connect" title="Connect with us!" icon="chat" >}}
     {{< card link="/contribute" title="Contribute" icon="star" >}}
     {{< card link="https://forms.gle/XwEEK52y4iZQChuJ6" title="Register" icon="login" >}}
-    {{< card link="/media" title="Check out Talks!" icon="speakerphone" >}}
+    {{< card link="/media" title="Media" icon="speakerphone" >}}
     {{< card link="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf" title="Navigator" icon="document-download">}}
 {{< /cards >}}
 
 ## Our Content
 
 {{< cards >}}
-    {{< card link="/docs/overview/" title="AI Security Overview">}}
+    {{< card link="/docs/ai_security_overview/" title="AI Security Overview">}}
     {{< card link="/docs/1_general_controls/" title="1. General controls">}}
     {{< card link="/docs/2_threats_through_use/" title="2. Threats through use">}}
     {{< card link="/docs/3_development_time_threats/" title="3. Development-time threats">}}
@@ -31,12 +31,12 @@ The OWASP AI Exchange is as an open source collaborative project to advance the 
 
 Our **mission** is to be the authoritative source for consensus, foster alignment, and drive collaboration among initiatives - NOT to set a standard, but to drive standards. By doing so, it provides a safe, open, and independent place to find and share insights for everyone. See [AI Exchange LinkedIn page](https://www.linkedin.com/company/owasp-ai-exchange/).
 
-Maintained here at [owaspai.org](https://owaspai.org) it currently uses both a GitHub repository and a Word Document for contributions. It is is an **open-source living document** for the worldwide exchange of AI security expertise. It serves, for example, as input to security standardization for the EU AI Act. The site is maintained by OWASP as part of the [OWASP AI guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) project. It will periodically publish content with credited contributions into the Guide.
+Maintained here at [owaspai.org](https://owaspai.org) it uses the GitHub repository for contributions. It is is an **open-source living document** for the worldwide exchange of AI security expertise. It serves, for example, as input to security standardization for the EU AI Act. The site is maintained by OWASP as part of the [OWASP AI security & privacy guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) project. It will periodically publish content with credited contributions into the Guide.
 
 ## Other OWASP AI Initiatives
 
 {{< cards >}}
-    {{< card link="https://owasp.org/www-project-ai-security-and-privacy-guide/" title="OWASP AI Privacy" icon="lock-closed" >}}
+    {{< card link="https://owasp.org/www-project-ai-security-and-privacy-guide/" title="OWASP AI security & privacy guide" icon="lock-closed" >}}
     {{< card link="https://llmtop10.com/" title="OWASP LLM Top 10" icon="brain" >}}
     {{< card link="https://mltop10.info/" title="OWASP ML Top 10" icon="machinelearning" >}}
 {{< /cards >}}
