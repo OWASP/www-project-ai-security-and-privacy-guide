@@ -19,7 +19,7 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 
 - See General controls
 
-# **#DEVDATAPROTECT** ((development-time infosec). Development data protect: protect (train/test) data, source code, configuration & parameters
+## **#DEVDATAPROTECT** ((development-time infosec). Development data protect: protect (train/test) data, source code, configuration & parameters
 
 This data protection is important because when it leaks it hurts confidentiality of intellectual property and/or the confidentiality of train/test data which also may contain company secrets, or personal data for example. Also the integrity of this data is important to protect, to prevent data or model poisoning.
 
