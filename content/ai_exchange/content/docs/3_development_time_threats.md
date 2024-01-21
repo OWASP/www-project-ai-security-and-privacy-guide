@@ -18,51 +18,52 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 **Controls for development-time protection:**
 
 - See General controls
-- **#DEVDATAPROTECT** ((development-time infosec). Development data protect: protect (train/test) data, source code, configuration & parameters
 
-  This data protection is important because when it leaks it hurts confidentiality of intellectual property and/or the confidentiality of train/test data which also may contain company secrets, or personal data for example. Also the integrity of this data is important to protect, to prevent data or model poisoning.
+# **#DEVDATAPROTECT** ((development-time infosec). Development data protect: protect (train/test) data, source code, configuration & parameters
 
-  Training data is in most cases only present during development-time, but there are exceptions:
-    - A machine learning model may be continuously trained with data collected runtime, which puts (part of the) train data in the runtime environment, where it also needs protection
-    - For GenAI, information can be retrieved from a repository to be added to a prompt, for example to inform a large language model about the context to take into account for an instruction or question. This principle is called _in-context learning_. For example [OpenCRE-chat](https://opencre.org/chatbot) uses a repository of requirements from security standards to add to a user question so that the large language model is more informed with background information. In the case of OpenCRE-chat this information is public, but in many cases the application of this so-called Retrieval Augmented Generation (RAG) will have a repository with company secrets or otherwise sensitive data. Organizations can benefit from unlocking their unique data, to be used by themselves, or to be provided as service or product. This is an attractive architecture because the alternative would be to train an LLM or to finetune it, which is expensive and difficult. An RAG approach may suffice. Effectively this puts the repository data to the same use as training data is used: control the behaviour of the model. Therefore, the security controls that apply to train data, also apply to this run-time repository data.
+This data protection is important because when it leaks it hurts confidentiality of intellectual property and/or the confidentiality of train/test data which also may contain company secrets, or personal data for example. Also the integrity of this data is important to protect, to prevent data or model poisoning.
 
-  Protection strategies:
+Training data is in most cases only present during development-time, but there are exceptions:
+  - A machine learning model may be continuously trained with data collected runtime, which puts (part of the) train data in the runtime environment, where it also needs protection
+  - For GenAI, information can be retrieved from a repository to be added to a prompt, for example to inform a large language model about the context to take into account for an instruction or question. This principle is called _in-context learning_. For example [OpenCRE-chat](https://opencre.org/chatbot) uses a repository of requirements from security standards to add to a user question so that the large language model is more informed with background information. In the case of OpenCRE-chat this information is public, but in many cases the application of this so-called Retrieval Augmented Generation (RAG) will have a repository with company secrets or otherwise sensitive data. Organizations can benefit from unlocking their unique data, to be used by themselves, or to be provided as service or product. This is an attractive architecture because the alternative would be to train an LLM or to finetune it, which is expensive and difficult. An RAG approach may suffice. Effectively this puts the repository data to the same use as training data is used: control the behaviour of the model. Therefore, the security controls that apply to train data, also apply to this run-time repository data.
 
-  - Encryption of data at rest  
-    Links to standards:
-    - 27002 control 5.33 Protection of records. Gap: covers this control fully, with the particularities
-    - [OpenCE on encryption of data at rest](https://www.opencre.org/cre/400-007)
-  - Technical access control for the data, to limit access following the least privilege principle  
-    Links to standards:
-    - 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: covers this control fully, with the particularities
-    - [OpenCRE](https://www.opencre.org/cre/724-770)
+Protection strategies:
+
+- Encryption of data at rest  
+  Links to standards:
+  - 27002 control 5.33 Protection of records. Gap: covers this control fully, with the particularities
+  - [OpenCE on encryption of data at rest](https://www.opencre.org/cre/400-007)
+- Technical access control for the data, to limit access following the least privilege principle  
+  Links to standards:
+  - 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: covers this control fully, with the particularities
+  - [OpenCRE](https://www.opencre.org/cre/724-770)
   - Centralized access control for the data  
-    Links to standards:
-    - There is no 27002 control for this
-    - [OpenCRE](https://www.opencre.org/cre/117-371)
-  - Operational security to protect stored data  
-    Links to standards:
-    - Many 27002 controls cover operational security. Gap: covers this control fully, with the particularities.
-      - 27002 control 5.23 Information security for use of cloud services
-      - 27002 control 5.37 Documented operating procedures
-      - Many more 27002 controls (See OpenCRE link)
-    - [OpenCRE](https://www.opencre.org/cre/862-452)
-  - Logging and monitoring to detect suspicious manipulation of data, (e.g. outside office hours)  
-    Links to standards:
-    - 27002 control 8.16 Monitoring activities. Gap: covers this control fully
-    - [OpenCRE on Detect and respond](https://www.opencre.org/cre/887-750)
-
-- **#DEVSECURITY** (management). Development security: the security management system needs to take into account the AI particularity: the AI development infrastructure holds sensitive information - regarding people, process and technology perspective. E.g. screening of development personnel, protection of source code/configuration, virus scanning on engineering machines.
-
   Links to standards:
-
-  - 27001 Information Security Management System, with the particularity
-
-- **#SEGREGATEDATA** (development-time infosec). Segregate data: store sensitive training or test data in a separated environment with restricted access.
-
+  - There is no 27002 control for this
+  - [OpenCRE](https://www.opencre.org/cre/117-371)
+- Operational security to protect stored data  
   Links to standards:
+  - Many 27002 controls cover operational security. Gap: covers this control fully, with the particularities.
+    - 27002 control 5.23 Information security for use of cloud services
+    - 27002 control 5.37 Documented operating procedures
+    - Many more 27002 controls (See OpenCRE link)
+  - [OpenCRE](https://www.opencre.org/cre/862-452)
+- Logging and monitoring to detect suspicious manipulation of data, (e.g. outside office hours)  
+  Links to standards:
+  - 27002 control 8.16 Monitoring activities. Gap: covers this control fully
+  - [OpenCRE on Detect and respond](https://www.opencre.org/cre/887-750)
 
-  - 27002 control 8.31 Separation of development, test and production environments. Gap: covers this control partly - the particularity is that the development environment typically has the sensitive data instead of the production environment - which is typically the other way around in non-AI systems. Therefore it helps to restrict access to that data within the development environment. Even more: within the development environment further segregation can take place to limit access to only those who need the data for their work, as some developers will not be processing data.
+## **#DEVSECURITY** (management). Development security: the security management system needs to take into account the AI particularity: the AI development infrastructure holds sensitive information - regarding people, process and technology perspective. E.g. screening of development personnel, protection of source code/configuration, virus scanning on engineering machines.
+
+Links to standards:
+
+- 27001 Information Security Management System, with the particularity
+
+## **#SEGREGATEDATA** (development-time infosec). Segregate data: store sensitive training or test data in a separated environment with restricted access.
+
+Links to standards:
+
+- 27002 control 8.31 Separation of development, test and production environments. Gap: covers this control partly - the particularity is that the development environment typically has the sensitive data instead of the production environment - which is typically the other way around in non-AI systems. Therefore it helps to restrict access to that data within the development environment. Even more: within the development environment further segregation can take place to limit access to only those who need the data for their work, as some developers will not be processing data.
 
 - **#CONFCOMPUTE** (development-time infosec). 'Confidential compute': If available and possible, use features of the data science environment to hide training data and model parameters from model engineers
 
