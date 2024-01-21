@@ -9,7 +9,7 @@
     {{< card link="/contact" title="Connect with us!" icon="chat" >}}
     {{< card link="/contribute" title="Contribute" icon="star" >}}
     {{< card link="https://forms.gle/XwEEK52y4iZQChuJ6" title="Register" icon="login" >}}
-    {{< card link="/talks" title="Check out Talks!" icon="speakerphone" >}}
+    {{< card link="/media" title="Check out Talks!" icon="speakerphone" >}}
     {{< card link="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf" title="Navigator" icon="document-download">}}
 {{< /cards >}}
 

@@ -56,9 +56,18 @@ menu:
       params:
         type: separator
       weight: 1
-    - name: Contribute
-      pageRef: /contribute
-      weight: 2
     - name: Connect with us
       pageRef: /contact
+      weight: 2
+    - name: Contribute
+      pageRef: /contribute
       weight: 3
+    - name: Media
+      pageRef: /media
+      weight: 4
+    - name: Register
+      url: https://forms.gle/XwEEK52y4iZQChuJ6
+      weight: 5
+    - name: Navigator
+      url: https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf
+      weight: 6
