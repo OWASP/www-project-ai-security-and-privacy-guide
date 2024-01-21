@@ -36,7 +36,7 @@ Maintained here at [owaspai.org](https://owaspai.org) it uses the GitHub reposit
 ## Other OWASP AI Initiatives
 
 {{< cards >}}
-    {{< card link="https://owasp.org/www-project-ai-security-and-privacy-guide/" title="OWASP AI security & privacy guide" icon="lock-closed" >}}
-    {{< card link="https://llmtop10.com/" title="OWASP LLM Top 10" icon="brain" >}}
-    {{< card link="https://mltop10.info/" title="OWASP ML Top 10" icon="machinelearning" >}}
+    {{< card link="https://owasp.org/www-project-ai-security-and-privacy-guide/" title="AI security & privacy guide" icon="lock-closed" >}}
+    {{< card link="https://llmtop10.com/" title="LLM Top 10" icon="brain" >}}
+    {{< card link="https://mltop10.info/" title="ML Top 10" icon="machinelearning" >}}
 {{< /cards >}}
