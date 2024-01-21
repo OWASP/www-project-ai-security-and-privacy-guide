@@ -2,7 +2,7 @@
 title: 3. Development-time threats
 weight: 4
 ---
-# 3.0 Development-time threats - Introduction
+## 3.0 Development-time threats - Introduction
 **Background:**
 
 Data science (data engineering and model engineering - for machine learning often referred to as _training phase_) uses a development environment typically outside of the regular application development scope, introducing a new attack surface. Data engineering (collecting, storing, and preparing data) is typically a large and important part of machine learning engineering. Together with model engineering, it requires appropriate security to protect against data leaks, data poisoning, leaks of intellectual property, and supply chain attacks (see further below). In addition, data quality assurance can help reduce risks of intended and unintended data issues.
@@ -19,7 +19,7 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 
 - See General controls
 
-## **#DEVDATAPROTECT**
+### **#DEVDATAPROTECT**
 (development-time infosec). Development data protect: protect (train/test) data, source code, configuration & parameters
 
 This data protection is important because when it leaks it hurts confidentiality of intellectual property and/or the confidentiality of train/test data which also may contain company secrets, or personal data for example. Also the integrity of this data is important to protect, to prevent data or model poisoning.
@@ -54,14 +54,14 @@ Protection strategies:
   - 27002 control 8.16 Monitoring activities. Gap: covers this control fully
   - [OpenCRE on Detect and respond](https://www.opencre.org/cre/887-750)
 
-## **#DEVSECURITY**
+### **#DEVSECURITY**
 (management). Development security: the security management system needs to take into account the AI particularity: the AI development infrastructure holds sensitive information - regarding people, process and technology perspective. E.g. screening of development personnel, protection of source code/configuration, virus scanning on engineering machines.
 
 Links to standards:
 
 - 27001 Information Security Management System, with the particularity
 
-## **#SEGREGATEDATA**
+### **#SEGREGATEDATA**
 (development-time infosec). Segregate data: store sensitive training or test data in a separated environment with restricted access.
 
 Links to standards:
