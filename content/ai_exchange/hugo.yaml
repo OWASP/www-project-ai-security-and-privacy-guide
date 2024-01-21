@@ -18,7 +18,7 @@ params:
       height: 30
   editURL:
     enable: true
-    base: "https://github.com/OWASP/www-project-ai-security-and-privacy-guide/content/ai_exchange/content"
+    base: "https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/content/ai_exchange/content"
   theme:
     # light | dark | system
     default: system

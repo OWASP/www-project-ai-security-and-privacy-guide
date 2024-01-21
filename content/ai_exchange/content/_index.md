@@ -1,16 +1,19 @@
 ---
-title: 'Welcome to OWASP AI Exchange'
 ---
+
+{{< image-centered src="/images/aixlogosml.jpg" alt="OWASP AI Exchange Logo" >}}
+
+{{< spacer height="40" >}}
 
 {{< cards >}}
     {{< card link="/contact" title="Connect with us!" icon="chat" >}}
     {{< card link="/contribute" title="Contribute" icon="star" >}}
     {{< card link="https://forms.gle/XwEEK52y4iZQChuJ6" title="Register" icon="login" >}}
     {{< card link="/talks" title="Check out Talks!" icon="speakerphone" >}}
-    {{< card link="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/owaspaiexchangeWORD.docx" title="Download Word version" icon="document-text">}}
+    {{< card link="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf" title="Navigator" icon="document-download">}}
 {{< /cards >}}
 
-Artificial Intelligence (AI) is on the rise and so are the concerns regarding AI security and privacy. This project is to provide clear and actionable insights on designing, creating, testing, and procuring secure and privacy-preserving AI systems.
+"All security risks for all of AI, by all professionals, for all professionals. Alignment and guidance for all."
 
 ## Purpose
 
@@ -26,17 +29,3 @@ The OWASP AI Security & Privacy Guide has two parts:
 
 1. [How to deal with AI security](/docs/security)
 2. [How to deal with AI privacy](/docs/privacy)
-
-## AI Exchange Content
-
-{{< cards >}}
-    {{< card link="/docs/security" title="OWASP AI Security" icon="shield" >}}
-    {{< card link="/docs/privacy" title="OWASP AI Privacy" icon="lock-closed" >}}
-{{< /cards >}}
-
-## Other OWASP AI Initiatives
-
-{{< cards >}}
-    {{< card link="https://llmtop10.com/" title="OWASP LLM Top 10" icon="brain" >}}
-    {{< card link="https://mltop10.info/" title="OWASP ML Top 10" icon="machinelearning" >}}
-{{< /cards >}}
