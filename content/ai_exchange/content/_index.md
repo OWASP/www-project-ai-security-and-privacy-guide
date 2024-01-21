@@ -3,6 +3,8 @@
 
 {{< image-centered src="/images/aixlogosml.jpg" alt="OWASP AI Exchange Logo" >}}
 
+>All security risks for all of AI, by all professionals, for all professionals. Alignment and guidance for all.
+
 {{< spacer height="40" >}}
 
 {{< cards >}}
@@ -13,7 +15,15 @@
     {{< card link="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf" title="Navigator" icon="document-download">}}
 {{< /cards >}}
 
-"All security risks for all of AI, by all professionals, for all professionals. Alignment and guidance for all."
+## Our Content
+
+{{< cards >}}
+    {{< card link="/docs/overview/" title="AI Security Overview">}}
+    {{< card link="/docs/1_general_controls/" title="1. General controls">}}
+    {{< card link="/docs/2_threats_through_use/" title="2. Threats through use">}}
+    {{< card link="/docs/3_development_time_threats/" title="3. Development-time threats">}}
+    {{< card link="/docs/4_runtime_application_security_threats/" title="4. Runtime application security threats">}}
+{{< /cards >}}
 
 ## Purpose
 
@@ -23,9 +33,10 @@ Our **mission** is to be the authoritative source for consensus, foster alignmen
 
 Maintained here at [owaspai.org](https://owaspai.org) it currently uses both a GitHub repository and a Word Document for contributions. It is is an **open-source living document** for the worldwide exchange of AI security expertise. It serves, for example, as input to security standardization for the EU AI Act. The site is maintained by OWASP as part of the [OWASP AI guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) project. It will periodically publish content with credited contributions into the Guide.
 
-## About Project
+## Other OWASP AI Initiatives
 
-The OWASP AI Security & Privacy Guide has two parts:
-
-1. [How to deal with AI security](/docs/security)
-2. [How to deal with AI privacy](/docs/privacy)
+{{< cards >}}
+    {{< card link="https://owasp.org/www-project-ai-security-and-privacy-guide/" title="OWASP AI Privacy" icon="lock-closed" >}}
+    {{< card link="https://llmtop10.com/" title="OWASP LLM Top 10" icon="brain" >}}
+    {{< card link="https://mltop10.info/" title="OWASP ML Top 10" icon="machinelearning" >}}
+{{< /cards >}}

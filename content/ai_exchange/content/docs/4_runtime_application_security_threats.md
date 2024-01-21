@@ -1,5 +1,6 @@
 ---
 title: 4. Runtime application security threats
+weight: 5
 ---
 
 ## 4.1. Non AI-specific application security threats

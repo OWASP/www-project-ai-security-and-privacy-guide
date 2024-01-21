@@ -29,8 +29,8 @@ params:
 
 menu:
   main:
-    - name: AI Exchange
-      pageRef: /docs
+    - name: AI Security
+      pageRef: /docs/overview
       weight: 1
     - name: Media
       pageRef: /media
