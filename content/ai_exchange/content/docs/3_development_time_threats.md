@@ -121,7 +121,7 @@ This poisoning is **hard to detect** once it has happened: there is no code to r
 - See General controls
 - See controls for development-time protection
   
-## **#MODELENSEMBLE**
+### **#MODELENSEMBLE**
 (development-time datascience). Model ensemble: include the model as part of an ensemble, where each model is trained in a separately protected environment. If one model's output deviates from the others, it can be ignored, as this indicates possible manipulation.
 
 Links to standards:
