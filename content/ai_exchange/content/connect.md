@@ -20,7 +20,7 @@ Engage with the OWASP AI team through various platforms.
 - Keep up with the latest updates by following us on [Twitter](https://twitter.com/owasp) and [LinkedIn](https://www.linkedin.com/company/owasp-ai-exchange/ "OWASP AI Exchange LinkedIn").
 - For technical inquiries and suggestions, participate in our [GitHub Discussions](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions), or report and track issues on [GitHub Issues](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues).
 
-If contributing interests you, check out our [Contribution Guidelines](/contribute) or get in touch with our project leaders.
+If contributing interests you, check out our [Contribution Guidelines](/contribute) or get in touch with our project leaders. The Exchange is built on expertise from contributors around the world and across all disciplines.
 
 ## OWASP AI Project Leader
 
