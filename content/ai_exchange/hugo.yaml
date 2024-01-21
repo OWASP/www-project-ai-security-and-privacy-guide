@@ -18,7 +18,7 @@ params:
       height: 30
   editURL:
     enable: true
-    base: "https://github.com/OWASP/www-project-ai-security-and-privacy-guide/content/ai_exchange/content"
+    base: "https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/content/ai_exchange/content"
   theme:
     # light | dark | system
     default: system
@@ -29,8 +29,8 @@ params:
 
 menu:
   main:
-    - name: AI Exchange
-      pageRef: /docs
+    - name: Overview
+      pageRef: /docs/ai_security_overview
       weight: 1
     - name: Media
       pageRef: /media
@@ -38,8 +38,8 @@ menu:
     - name: Contribute
       pageRef: /contribute
       weight: 3
-    - name: Contact
-      pageRef: /contact
+    - name: Connect
+      pageRef: /connect
       weight: 4
     - name: Search
       weight: 5
@@ -56,9 +56,21 @@ menu:
       params:
         type: separator
       weight: 1
-    - name: Contribute
-      pageRef: /contribute
+    - name: Home
+      pageRef: /
       weight: 2
     - name: Connect with us
-      pageRef: /contact
+      pageRef: /connect
       weight: 3
+    - name: Contribute
+      pageRef: /contribute
+      weight: 4
+    - name: Media
+      pageRef: /media
+      weight: 5
+    - name: Register
+      url: https://forms.gle/XwEEK52y4iZQChuJ6
+      weight: 6
+    - name: Navigator
+      url: https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf
+      weight: 7
