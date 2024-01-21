@@ -19,7 +19,7 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 
 - See General controls
 
-### **#DEVDATAPROTECT**
+#### **#DEVDATAPROTECT**
 (development-time infosec). Development data protect: protect (train/test) data, source code, configuration & parameters
 
 This data protection is important because when it leaks it hurts confidentiality of intellectual property and/or the confidentiality of train/test data which also may contain company secrets, or personal data for example. Also the integrity of this data is important to protect, to prevent data or model poisoning.
@@ -54,35 +54,35 @@ Protection strategies:
   - 27002 control 8.16 Monitoring activities. Gap: covers this control fully
   - [OpenCRE on Detect and respond](https://www.opencre.org/cre/887-750)
 
-### #DEVSECURITY
+#### #DEVSECURITY
 (management). Development security: the security management system needs to take into account the AI particularity: the AI development infrastructure holds sensitive information - regarding people, process and technology perspective. E.g. screening of development personnel, protection of source code/configuration, virus scanning on engineering machines.
 
 Links to standards:
 
 - 27001 Information Security Management System, with the particularity
 
-### #SEGREGATEDATA
+#### #SEGREGATEDATA
 (development-time infosec). Segregate data: store sensitive training or test data in a separated environment with restricted access.
 
 Links to standards:
 
 - 27002 control 8.31 Separation of development, test and production environments. Gap: covers this control partly - the particularity is that the development environment typically has the sensitive data instead of the production environment - which is typically the other way around in non-AI systems. Therefore it helps to restrict access to that data within the development environment. Even more: within the development environment further segregation can take place to limit access to only those who need the data for their work, as some developers will not be processing data.
 
-### #CONFCOMPUTE
+#### #CONFCOMPUTE
 (development-time infosec). 'Confidential compute': If available and possible, use features of the data science environment to hide training data and model parameters from model engineers
 
 Links to standards:
 
 - Not covered yet in ISO/IEC standards
 
-### #FEDERATIVELEARNING
+#### #FEDERATIVELEARNING
 (development-time datascience). Federative learning can be applied when a training set is distributed over different organizations, preventing that the data needs to be collected in a central place - increasing the risk of leaking.
 
 Links to standards:
 
 - Not covered yet in ISO/IEC standards
 
-### #SUPPLYCHAINMANAGE
+#### #SUPPLYCHAINMANAGE
 (development-time infosec) Supply chain management: Managing the supply chain to to minimize the security risk from externally obtained elements. In regular software engineering these elements are source code or software components (e.g. open source). The particularity for AI is that this also includes obtained data and obtained models.
 
 Security risks in obtained elements can arise from accidental mistakes or from manipulations - just like with obtained source code or software components.
@@ -125,7 +125,7 @@ References
 - See General controls
 - See controls for development-time protection
   
-### #MODELENSEMBLE
+#### #MODELENSEMBLE
 (development-time datascience). Model ensemble: include the model as part of an ensemble, where each model is trained in a separately protected environment. If one model's output deviates from the others, it can be ignored, as this indicates possible manipulation.
 
 Links to standards:
