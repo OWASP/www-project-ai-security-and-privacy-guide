@@ -1,6 +1,8 @@
 ---
 title: Media
 excludeSearch: true
+sidebar:
+  exclude: true
 ---
 
 ## Talks

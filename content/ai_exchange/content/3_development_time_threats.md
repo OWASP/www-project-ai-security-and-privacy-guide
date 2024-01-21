@@ -1,5 +1,7 @@
 ---
 title: 3. Development-time threats
+sidebar:
+  weight: 4
 ---
 
 **Background:**

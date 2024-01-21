@@ -1,6 +1,8 @@
 ---
 title: 'Contribute to OWASP AI Projects'
 excludeSearch: true
+sidebar:
+  exclude: true
 ---
 
 {{< cards >}}

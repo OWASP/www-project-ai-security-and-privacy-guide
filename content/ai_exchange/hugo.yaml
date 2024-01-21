@@ -30,7 +30,7 @@ params:
 menu:
   main:
     - name: AI Exchange
-      pageRef: /docs
+      pageRef: /
       weight: 1
     - name: Media
       pageRef: /media

@@ -1,6 +1,8 @@
 ---
 title: 'Connect with us'
 excludeSearch: true
+sidebar:
+  exclude: true
 ---
 
 ## Platforms

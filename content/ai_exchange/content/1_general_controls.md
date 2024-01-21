@@ -1,5 +1,7 @@
 ---
 title: 1. General controls
+sidebar:
+  weight: 2
 ---
 
 ## 1.1 General governance controls
