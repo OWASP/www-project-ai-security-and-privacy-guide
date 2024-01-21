@@ -83,7 +83,8 @@ Links to standards:
   Links to standards:
 
   - Not covered yet in ISO/IEC standards
-m- **#SUPPLYCHAINMANAGE** (development-time infosec) Supply chain management: Managing the supply chain to to minimize the security risk from externally obtained elements. In regular software engineering these elements are source code or software components (e.g. open source). The particularity for AI is that this also includes obtained data and obtained models.
+
+- **#SUPPLYCHAINMANAGE** (development-time infosec) Supply chain management: Managing the supply chain to to minimize the security risk from externally obtained elements. In regular software engineering these elements are source code or software components (e.g. open source). The particularity for AI is that this also includes obtained data and obtained models.
 
   Security risks in obtained elements can arise from accidental mistakes or from manipulations - just like with obtained source code or software components.
 
@@ -119,12 +120,14 @@ This poisoning is **hard to detect** once it has happened: there is no code to r
 
 - See General controls
 - See controls for development-time protection
-- **#MODELENSEMBLE** (development-time datascience). Model ensemble: include the model as part of an ensemble, where each model is trained in a separately protected environment. If one model's output deviates from the others, it can be ignored, as this indicates possible manipulation.
+  
+## **#MODELENSEMBLE**
+(development-time datascience). Model ensemble: include the model as part of an ensemble, where each model is trained in a separately protected environment. If one model's output deviates from the others, it can be ignored, as this indicates possible manipulation.
 
-  Links to standards:
+Links to standards:
   - Not covered yet in ISO/IEC standards
 
-References:
+## References
 
 - [Summary of 15 backdoor papers at CVPR '23](https://zahalka.net/ai_security_blog/2023/09/backdoor-attacks-defense-cvpr-23-how-to-build-and-burn-trojan-horses/)
 
