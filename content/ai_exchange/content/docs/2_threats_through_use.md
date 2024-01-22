@@ -9,40 +9,43 @@ Threats through use take place through normal interaction with an AI model: prov
 **Controls for threats through use:**
 
 - See General controls
-- **#MONITORUSE** (runtime appsec). Monitor the use of the model (input, date, time, user) by registering it in logs and make it part of incident detection, including:
+#### #MONITORUSE 
+
+(runtime appsec). Monitor the use of the model (input, date, time, user) by registering it in logs and make it part of incident detection, including:
 
   - inproper functioning of the model (see CONTINUOUSVALIDATION and UNWANTEDBIASTESTING)
   - suspicious patterns of model use (e.g. high frequency - see RATELIMIT and DETECTADVERSARIALINPUT)
   - suspicious inputs (see DETECTODDINPUT and DETECTADVERSARIALINPUT)
 
-  By adding details to logs on the version of the model used and the output, troubleshooting becomes easier.
+By adding details to logs on the version of the model used and the output, troubleshooting becomes easier.
   
-  Links to standards:
+Links to standards:
 
   - 27002 Control 8.16 Monitoring activities. Gap: covers this control fully, with the particularity: monitoring needs to look for specific patterns of AI attacks (e.g. model attacks through use). The 27002 control has no details on that.
   - ISO/IEC 42001 B.6.2.6 discusses AI system operation and monitoring. Gap: covers this control fully, but on a high abstraction level.
   - See [OpenCRE](https://www.opencre.org/cre/058-083). Idem
 
-- **#RATELIMIT** (runtime appsec). Limit the rate (frequency) of access to the model (e.g. API) - preferably per user.
+#### #RATELIMIT
+(runtime appsec). Limit the rate (frequency) of access to the model (e.g. API) - preferably per user.
 
-  Purpose: severely delay attackers trying many inputs to perform attacks through use (e.g. try evasion attacks or for model inversion).
+Purpose: severely delay attackers trying many inputs to perform attacks through use (e.g. try evasion attacks or for model inversion).
 
-  Particularity: limit access not to prevent system overload but to prevent experimentation.
+Particularity: limit access not to prevent system overload but to prevent experimentation.
 
-  Remaining risk: this control does not prevent attacks that use low frequency of interaction (e.g. don't rely on heavy experimentation)
+Remaining risk: this control does not prevent attacks that use low frequency of interaction (e.g. don't rely on heavy experimentation)
 
-  Links to standards:
+Links to standards:
 
   - 27002 has no control for this
   - See [OpenCRE](https://www.opencre.org/cre/630-573)
 
 - **#MODELACCESSCONTROL** (runtime appsec). Model access control: Securely limit allowing access to use the model to authorized users.
 
-  Purpose: prevent attackers that are not authorized to perform attacks through use.
+Purpose: prevent attackers that are not authorized to perform attacks through use.
 
-  Remaining risk: attackers may succeed in authenticating as an authorized user, or qualify as an authorized user, or bypass the access control through a vulnerability, or it is easy to become an authorized user (e.g. when the model is publicly available)
+Remaining risk: attackers may succeed in authenticating as an authorized user, or qualify as an authorized user, or bypass the access control through a vulnerability, or it is easy to become an authorized user (e.g. when the model is publicly available)
 
-  Links to standards:
+Links to standards:
 
   - Technical access control: 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: covers this control fully
   - [OpenCRE on technical access control](https://www.opencre.org/cre/724-770)
