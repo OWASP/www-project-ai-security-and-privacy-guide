@@ -37,8 +37,8 @@ This threat involves manipulating the behavior of the model by altering the para
 - See General controls
 
 #### #RUNTIMEMODELINTEGRITY
-(runtime appsec). Run-time model integrity: apply traditional application security controls to protect the storage of model parameters (e.g. access control, checksums, encryption)  
-  A Trusted Execution Environment can help to protect model integrity.
+
+(runtime appsec). Run-time model integrity: apply traditional application security controls to protect the storage of model parameters (e.g. access control, checksums, encryption) A Trusted Execution Environment can help to protect model integrity.
 
 #### #RUNTIMEMODELIOINTEGRITY
 (runtime appsec). Run-time model Input/Output integrity: apply traditional application security controls to protect the runtime manipulation of the model's input/output logic (e.g. protect against a man-in-the-middle attack)
