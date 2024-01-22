@@ -322,7 +322,7 @@ The disclosure is caused by an unintentional fault of including this data, and e
 
   - Not covered yet in ISO/IEC standards
 
-#### #FILTERSENSITIVEMODELOUTPUT** 
+#### #FILTERSENSITIVEMODELOUTPUT 
 
 (runtime appsec). Filter sensitive model output: actively censor sensitive data by detecting it when possible (e.g. phone number)
 
@@ -405,7 +405,6 @@ This threat refers to application failure (i.e. denial of service) typically cau
 
   
 #### #DOSINPUTVALIDATION
-
 (runtime appsec). Denial-of-service input validation: input validation and sanitization to reject or correct malicious (e.g. very large) content
 
 Links to standards:
@@ -416,7 +415,6 @@ Links to standards:
 
 
 #### #LIMITRESOURCES
-
 (runtime). Limit resource usage for a single model input, to prevent resource overuse.
 
   Links to standards:
