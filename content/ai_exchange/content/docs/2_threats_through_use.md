@@ -323,7 +323,6 @@ The disclosure is caused by an unintentional fault of including this data, and e
   - Not covered yet in ISO/IEC standards
 
 #### #FILTERSENSITIVEMODELOUTPUT 
-
 (runtime appsec). Filter sensitive model output: actively censor sensitive data by detecting it when possible (e.g. phone number)
 
 Links to standards:
@@ -354,7 +353,6 @@ Controls for Model inversion and membership inference:
 - See controls for threats through use
 
 #### #OBSCURECONFIDENCE** 
-
 (runtime datascience). Obscure confidence: exclude indications of confidence in the output, or round confidence so it cannot be used for optimization.
 
 Links to standards:
@@ -362,7 +360,6 @@ Links to standards:
   - Not covered yet in ISO/IEC standards
 
 #### #SMALLMODEL 
-
 (development-time datascience). Small model: overfitting can be prevented by keeping the model small so it is not able to store detail at the level of individual training set samples.
 
 Links to standards:
