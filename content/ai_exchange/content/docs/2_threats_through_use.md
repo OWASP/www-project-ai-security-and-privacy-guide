@@ -151,10 +151,7 @@ against adversarial patch attacks with robust patch detection."
 Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern
 Recognition. 2022.
 
-
-
 #### #EVASIONROBUSTMODEL
-
 (development-time datascience). Choose an evasion-robust model design, configuration and/or training approach to maximize resilience against evasion (Datascience).
 
 A robust model in the light of evasion is a model that does not display significant changes in output for minor changes in input.
