@@ -36,18 +36,17 @@ Threats through use take place through normal interaction with an AI model: prov
   - 27002 has no control for this
   - See [OpenCRE](https://www.opencre.org/cre/630-573)
 
-### #MODELACCESSCONTROL
-(runtime appsec). Model access control: Securely limit allowing access to use the model to authorized users.
+- **#MODELACCESSCONTROL** (runtime appsec). Model access control: Securely limit allowing access to use the model to authorized users.
 
-Purpose: prevent attackers that are not authorized to perform attacks through use.
+  Purpose: prevent attackers that are not authorized to perform attacks through use.
 
-Remaining risk: attackers may succeed in authenticating as an authorized user, or qualify as an authorized user, or bypass the access control through a vulnerability, or it is easy to become an authorized user (e.g. when the model is publicly available)
+  Remaining risk: attackers may succeed in authenticating as an authorized user, or qualify as an authorized user, or bypass the access control through a vulnerability, or it is easy to become an authorized user (e.g. when the model is publicly available)
 
-Links to standards:
+  Links to standards:
 
-- Technical access control: 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: covers this control fully
-- [OpenCRE on technical access control](https://www.opencre.org/cre/724-770)
-- [OpenCRE on centralized access control](https://www.opencre.org/cre/117-371)
+  - Technical access control: 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: covers this control fully
+  - [OpenCRE on technical access control](https://www.opencre.org/cre/724-770)
+  - [OpenCRE on centralized access control](https://www.opencre.org/cre/117-371)
 
 ---
 
@@ -224,7 +223,7 @@ about their effectiveness.
   Links to standards:
 
   - Not covered yet in ISO/IEC standards
-
+ 
   References
 
   - Papernot, Nicolas, et al. "Distillation as a defense to adversarial
@@ -238,7 +237,7 @@ robust to adversarial examples." arXiv preprint arXiv:1607.04311 (2016).
 
 Input is manipulated in a way not based on observations of the model implementation (code, training set, parameters, architecture). The model is a 'closed box'. This often requires experimenting with how the model responds to input.
 
-[![Closed Box Evasion](/images/inputblack3.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/content/ai_exchange/static/images/inputblack3.png)
+<p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inputblack3.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inputblack3.png?raw=true"/></a></p>
 
 Example 1: slightly changing traffic signs so that self-driving cars may be fooled.
 
@@ -248,24 +247,24 @@ Example 3: fooling a large language model (GenAI) by circumventing mechanisms to
 
 Example 4: an open-box box evasion attack (see below) can be done on a copy (a surrogate) of the closed-box model. This way, the attacker can use the normally hidden internals of the model to construct a succesful attack that 'hopefully' transfers to the original model - as the surrogate model is typically internally different from the original model. An open-box evasion attack offers more possibilities. A copy of the model can be achieved through _Model theft through use_ (see elsewhere in this document) [This article](https://arxiv.org/abs/1602.02697) describes that approach. The likelihood of a successful transfer is generally believed to be higher when the surrogate model closely resembles the target model in complexity and structure, but even attacks on simple surrogate models tend to transfer very well. To achieve the greatest similarity, one approach is to reverse-engineer a version of the target model, which is otherwise a closed-box system. This process aims to create a surrogate that mirrors the target as closely as possible, enhancing the effectiveness of the evasion attack
 
-References:
+  References:
 
-- Papernot, Nicolas, Patrick McDaniel, and Ian Goodfellow.
+  - Papernot, Nicolas, Patrick McDaniel, and Ian Goodfellow.
 "Transferability in machine learning: from phenomena to black-box
 attacks using adversarial samples." arXiv preprint arXiv:1605.07277 (2016).
 
-- Demontis, Ambra, et al. "Why do adversarial attacks transfer?
+  - Demontis, Ambra, et al. "Why do adversarial attacks transfer?
 explaining transferability of evasion and poisoning attacks." 28th
 USENIX security symposium (USENIX security 19). 2019.
 
-- Andriushchenko, Maksym, et al. "Square attack: a query-efficient
+  - Andriushchenko, Maksym, et al. "Square attack: a query-efficient
 black-box adversarial attack via random search." European conference on
 computer vision. Cham: Springer International Publishing, 2020.
 
-- Guo, Chuan, et al. "Simple black-box adversarial attacks."
+  - Guo, Chuan, et al. "Simple black-box adversarial attacks."
 International Conference on Machine Learning. PMLR, 2019.
 
-- Bunzel, Niklas, and Lukas Graner. "A Concise Analysis of Pasting
+  - Bunzel, Niklas, and Lukas Graner. "A Concise Analysis of Pasting
 Attacks and their Impact on Image Classification." 2023 53rd Annual
 IEEE/IFIP International Conference on Dependable Systems and Networks
 Workshops (DSN-W). IEEE, 2023.
@@ -280,7 +279,8 @@ Workshops (DSN-W). IEEE, 2023.
 
 When attackers have access to a models' implementation (code, training set, parameters, architecture), they can be enabled to craft input manipulations (often referred to as _adversarial examples_).
 
-[![Open Box Evasion](/images/inputwhite3.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/content/ai_exchange/static/images/inputwhite3.png)
+<p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inputwhite3.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inputwhite3.png?raw=true"/></a></p>
+    <br/>
 
 **Controls:**
 
@@ -332,11 +332,13 @@ The disclosure is caused by an unintentional fault of including this data, and e
 
 Model inversion (or _data reconstruction_) occurs when an attacker reconstructs a part of the training set by intensive experimentation during which the input is optimized to maximize indications of confidence level in the output of the model.
 
-[![Model inversion](/images/inversion3.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/content/ai_exchange/static/images/inversion3.png)
+  <p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inversion3.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inversion3.png?raw=true"/></a></p>
+  <br />
 
 Membership inference is presenting a model with input data that identifies something or somebody (e.g. a personal identity or a portrait picture), and using any indication of confidence in the output to infer the presence of that something or somebody in the training set.
 
-[![Membership inference](/images/membership3.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/content/ai_exchange/static/images/membership3.png)
+  <p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/membership3.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/membership3.png?raw=true"/></a></p>
+  <br />
 
 References:
 
@@ -368,7 +370,8 @@ Impact: Confidentiality breach of model intellectual property.
 
 This attack is known as model stealing attack or model extraction attack. It occurs when an attacker collects inputs and outputs of an existing model and uses those combinations to train a new model, in order to replicate the original model.
 
-[![Theft diagram](/images/theft3.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/content/ai_exchange/static/images/theft3.png)
+<p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/theft3.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/theft3.png?raw=true"/></a></p>
+<br />
 
 **Controls:**
 
