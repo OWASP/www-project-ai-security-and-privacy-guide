@@ -9,6 +9,7 @@ Threats through use take place through normal interaction with an AI model: prov
 **Controls for threats through use:**
 
 - See General controls
+
 #### #MONITORUSE 
 
 (runtime appsec). Monitor the use of the model (input, date, time, user) by registering it in logs and make it part of incident detection, including:
@@ -39,7 +40,8 @@ Links to standards:
   - 27002 has no control for this
   - See [OpenCRE](https://www.opencre.org/cre/630-573)
 
-- **#MODELACCESSCONTROL** (runtime appsec). Model access control: Securely limit allowing access to use the model to authorized users.
+#### #MODELACCESSCONTROL
+(runtime appsec). Model access control: Securely limit allowing access to use the model to authorized users.
 
 Purpose: prevent attackers that are not authorized to perform attacks through use.
 
@@ -71,39 +73,35 @@ Another categorization is to distinguish between physical input manipulation (e.
 
 - See General controls
 - See controls for threats through use
-- **#DETECTODDINPUT** (runtime datascience). Detect odd input: implement tools to detect whether input is out of distribution (OOD) or invalid - also called input validation - without knowledge on what malicious input looks like. It is not safe to assume that the test data models will evaluate comes from the same distribution as the training data, or is in distribution (ID). When a sample is OOD, the model should not make a prediction because the sample may represent a novel class/label and therefore be misclassified.
+#### #DETECTODDINPUT (runtime datascience). Detect odd input: implement tools to detect whether input is out of distribution (OOD) or invalid - also called input validation - without knowledge on what malicious input looks like. It is not safe to assume that the test data models will evaluate comes from the same distribution as the training data, or is in distribution (ID). When a sample is OOD, the model should not make a prediction because the sample may represent a novel class/label and therefore be misclassified.
 
-  Purpose: By detecting OOD or anomalous input, input that would result in unwanted model behavior can be discarded or retained for analysis. It is important to note that not all OOD input is malicious and not all malicious input is OOD. However, detecting OOD input is critical to maintaining model integrity, addressing potential concept drift, and preventing adversarial attacks that may take advantage of model behaviors on out of distribution data.
+Purpose: By detecting OOD or anomalous input, input that would result in unwanted model behavior can be discarded or retained for analysis. It is important to note that not all OOD input is malicious and not all malicious input is OOD. However, detecting OOD input is critical to maintaining model integrity, addressing potential concept drift, and preventing adversarial attacks that may take advantage of model behaviors on out of distribution data.
 
-  Methods to detect out of distribution inputs include outlier detection, anomaly detection, novelty detection, and open set recognition. Specific techniques include measures of similarity between training and test data, introspecting models to determine which concepts / neurons are activated by in distribution data, and out of distribution sample generation and retraining, among others. For a recent survey on this topic, see the work of [Yang et al.](https://arxiv.org/pdf/2110.11334.pdf), and for learnability of OOD: [here](https://arxiv.org/abs/2210.14707).
+Methods to detect out of distribution inputs include outlier detection, anomaly detection, novelty detection, and open set recognition. Specific techniques include measures of similarity between training and test data, introspecting models to determine which concepts / neurons are activated by in distribution data, and out of distribution sample generation and retraining, among others. For a recent survey on this topic, see the work of [Yang et al.](https://arxiv.org/pdf/2110.11334.pdf), and for learnability of OOD: [here](https://arxiv.org/abs/2210.14707).
 
-  Links to standards:
+Links to standards:
 
   - Not covered yet in ISO/IEC standards
 
-- **#DETECTADVERSARIALINPUT** (runtime datascience). Detect adversarial input: implement tools to detect specific evasions in input (e.g. patches in images).
+#### #DETECTADVERSARIALINPUT
 
-  The main concepts of adversarial attack detectors include:
+(runtime datascience). Detect adversarial input: implement tools to detect specific evasions in input (e.g. patches in images).
+
+The main concepts of adversarial attack detectors include:
   - Activation Analysis: Examining the activations of different layers in
-a neural network can reveal unusual patterns or anomalies when
-processing an adversarial input. These anomalies can be used as a signal
-to detect potential attacks.
-  - Statistical Analysis: This involves examining the statistical
-properties of the input data. Adversarial attacks often leave
-statistical anomalies in the data, which can be detected through various
+a neural network can reveal unusual patterns or anomalies when processing an adversarial input. These anomalies can be used as a signal to detect potential attacks.
+  - Statistical Analysis: This involves examining the statistical properties of the input data. Adversarial attacks often leave statistical anomalies in the data, which can be detected through various
 statistical tests or anomaly detection techniques. Sometimes this involves statistical properties of input from a specific user, for example to detect series of small deviations in the input space, indicating a possible attack.
-  - Input Distortion Based Techniques (IDBT): A function is used to modify the
-input to remove any adversarial data. The model is applied to both
-versions of the image, the original input and the modified version. The
-results are compared to detect possible attacks.
+  - Input Distortion Based Techniques (IDBT): A function is used to modify the input to remove any adversarial data. The model is applied to both
+versions of the image, the original input and the modified version. The results are compared to detect possible attacks.
   - Detection of adversarial patches: these patches are localized, often visible modifications that can even be placed in the real world.
   
   
-  Links to standards:
+Links to standards:
 
   - Not covered yet in ISO/IEC standards
 
-  References:
+References:
 
   - [Feature squeezing](https://arxiv.org/pdf/1704.01155.pdf) (IDBT) compares the output of the model against the output based on a distortion of the input that reduces the level of detail. This is done by reducing the number of features or reducing the detail of certain features (e.g. by smoothing). This approach is like INPUTDISTORTION, but instead of just changing the input to remove any adversarial data, the model is also applied to the original input and then used to compare it, as a detection mechanism.
 
