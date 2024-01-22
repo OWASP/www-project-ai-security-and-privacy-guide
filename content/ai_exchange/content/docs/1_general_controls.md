@@ -2,10 +2,10 @@
 title: 1. General controls
 weight: 2
 ---
-
 ## 1.1 General governance controls
 
 #### #AIPROGRAM
+
 (management). Having an AI program. Take responsibility for AI as an organization, by keeping an inventory of AI initiatives, perform risk analysis on them, and manage those risks.
 
 This includes assigning responsibilities, e.g. model accountability, data accountability, and risk governance. For the high risk systems: attain responsible AI and transparency in the form of communication and documentation, auditability, bias countermeasures, oversight and cyber security.
@@ -19,8 +19,7 @@ See Risk management under SECPROGRAM for security-specific risk analysis.
 Note that an AI program is not just about risk TO AI, such as security risks - it is also about risks BY AI, such as threats to fairness, safety, etc.
 
 Links to standards:
-
-- ISO/IEC 42001 AI management system (under development). Gap: covers this control fully.
+ - ISO/IEC 42001 AI management system (under development). Gap: covers this control fully.
  
 42001 is about extending your risk management system - it focuses on governance. 5338 is about extending your software lifecycle practices - it focuses on engineering and everything around it. The 42001 can be seen as a management system for the governance of responsible AI in an organization, similar to how 27001 is a management system for information security. The 42001 doesn’t go deep into the lifecycle processes. It for example does not discuss versioning of AI models, project planning issues, and how and when exactly sensitive data is used.
 
