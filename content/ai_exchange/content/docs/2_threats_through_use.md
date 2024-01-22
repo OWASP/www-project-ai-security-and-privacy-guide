@@ -352,7 +352,7 @@ Controls for Model inversion and membership inference:
 - See General controls, in particular data minimization
 - See controls for threats through use
 
-#### #OBSCURECONFIDENCE** 
+#### #OBSCURECONFIDENCE 
 (runtime datascience). Obscure confidence: exclude indications of confidence in the output, or round confidence so it cannot be used for optimization.
 
 Links to standards:
