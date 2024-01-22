@@ -71,11 +71,11 @@ Another categorization is to distinguish between physical input manipulation (e.
 
 **Controls for evasion:**
 
-- See General controls
-- See controls for threats through use
+  - See General controls
+  - See controls for threats through use
+
   
 #### #DETECTODDINPUT 
-
 (runtime datascience). Detect odd input: implement tools to detect whether input is out of distribution (OOD) or invalid - also called input validation - without knowledge on what malicious input looks like. It is not safe to assume that the test data models will evaluate comes from the same distribution as the training data, or is in distribution (ID). When a sample is OOD, the model should not make a prediction because the sample may represent a novel class/label and therefore be misclassified.
 
 Purpose: By detecting OOD or anomalous input, input that would result in unwanted model behavior can be discarded or retained for analysis. It is important to note that not all OOD input is malicious and not all malicious input is OOD. However, detecting OOD input is critical to maintaining model integrity, addressing potential concept drift, and preventing adversarial attacks that may take advantage of model behaviors on out of distribution data.
@@ -86,17 +86,15 @@ Links to standards:
 
   - Not covered yet in ISO/IEC standards
 
+
 #### #DETECTADVERSARIALINPUT
 
 (runtime datascience). Detect adversarial input: implement tools to detect specific evasions in input (e.g. patches in images).
 
 The main concepts of adversarial attack detectors include:
-  - Activation Analysis: Examining the activations of different layers in
-a neural network can reveal unusual patterns or anomalies when processing an adversarial input. These anomalies can be used as a signal to detect potential attacks.
-  - Statistical Analysis: This involves examining the statistical properties of the input data. Adversarial attacks often leave statistical anomalies in the data, which can be detected through various
-statistical tests or anomaly detection techniques. Sometimes this involves statistical properties of input from a specific user, for example to detect series of small deviations in the input space, indicating a possible attack.
-  - Input Distortion Based Techniques (IDBT): A function is used to modify the input to remove any adversarial data. The model is applied to both
-versions of the image, the original input and the modified version. The results are compared to detect possible attacks.
+  - Activation Analysis: Examining the activations of different layers in a neural network can reveal unusual patterns or anomalies when processing an adversarial input. These anomalies can be used as a signal to detect potential attacks.
+  - Statistical Analysis: This involves examining the statistical properties of the input data. Adversarial attacks often leave statistical anomalies in the data, which can be detected through various statistical tests or anomaly detection techniques. Sometimes this involves statistical properties of input from a specific user, for example to detect series of small deviations in the input space, indicating a possible attack.
+  - Input Distortion Based Techniques (IDBT): A function is used to modify the input to remove any adversarial data. The model is applied to both versions of the image, the original input and the modified version. The results are compared to detect possible attacks.
   - Detection of adversarial patches: these patches are localized, often visible modifications that can even be placed in the real world.
   
   
@@ -153,22 +151,25 @@ against adversarial patch attacks with robust patch detection."
 Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern
 Recognition. 2022.
 
-* **#EVASIONROBUSTMODEL** (development-time datascience). Choose an evasion-robust model design, configuration and/or training approach to maximize resilience against evasion (Datascience).
 
-  A robust model in the light of evasion is a model that does not display significant changes in output for minor changes in input.
 
-  Example approach: Measure model robustness by trying minor input deviations to detect meaningful outcome variations that undermine the model's reliability. If these variations are undetectable to the human eye but can produce false or incorrect outcome descriptions, they may also significantly undermine the model's reliability. Such cases indicate lack of model resilience to input variance resulting in sensitivity to evasion attacks and require detailed investigation.  
-  If we interpret the model with its inputs as a "system" and the sensitivity to evasion attacks as the "system fault" then this sensitivity may also be interpreted as (local) lack of graceful degradation. Such issues can be addressed by, for example, increasing training samples for that part of the input domain and tuning/optimising the model for variance.
+#### #EVASIONROBUSTMODEL
 
-  Another example approach: _Randomisation_ by injecting noise during training. The primary objective of this technique is to enhance the network's resilience to evasion attacks, especially those triggered by subtle, carefully crafted perturbations to input data that may result in misclassification or inaccurate predictions. See also TRAINDATADISTORTION against data poisoning and OBFUSCATETRAININGDATA to minimize sensitive data through randomisation.
+(development-time datascience). Choose an evasion-robust model design, configuration and/or training approach to maximize resilience against evasion (Datascience).
 
-  Yet another approach is _gradient masking_: a technique employed to defend machine learning models against adversarial attacks. This involves altering the gradients of a model during training to increase the difficulty of generating adversarial examples for 
-    attackers. Methods like adversarial training and ensemble approaches are utilized for gradient masking, but it comes with limitations, including computational expenses and potential in effectiveness against all types of attacks.
+A robust model in the light of evasion is a model that does not display significant changes in output for minor changes in input.
 
-  Adversarial robustness (the senstitivity to adversarial examples) can be assessed with tools like [IBM Adversarial Robustness Toolbox](https://research.ibm.com/projects/adversarial-robustness-toolbox), [CleverHans](https://github.com/cleverhans-lab/cleverhans), or [Foolbox](https://github.com/bethgelab/foolbox).
+Example approach: Measure model robustness by trying minor input deviations to detect meaningful outcome variations that undermine the model's reliability. If these variations are undetectable to the human eye but can produce false or incorrect outcome descriptions, they may also significantly undermine the model's reliability. Such cases indicate lack of model resilience to input variance resulting in sensitivity to evasion attacks and require detailed investigation.  
 
-  Care must be taken when considering robust model designs, as
-security concerns have arisen about their effectiveness.
+If we interpret the model with its inputs as a "system" and the sensitivity to evasion attacks as the "system fault" then this sensitivity may also be interpreted as (local) lack of graceful degradation. Such issues can be addressed by, for example, increasing training samples for that part of the input domain and tuning/optimising the model for variance.
+
+Another example approach: _Randomisation_ by injecting noise during training. The primary objective of this technique is to enhance the network's resilience to evasion attacks, especially those triggered by subtle, carefully crafted perturbations to input data that may result in misclassification or inaccurate predictions. See also TRAINDATADISTORTION against data poisoning and OBFUSCATETRAININGDATA to minimize sensitive data through randomisation.
+
+Yet another approach is _gradient masking_: a technique employed to defend machine learning models against adversarial attacks. This involves altering the gradients of a model during training to increase the difficulty of generating adversarial examples for  attackers. Methods like adversarial training and ensemble approaches are utilized for gradient masking, but it comes with limitations, including computational expenses and potential in effectiveness against all types of attacks.
+
+Adversarial robustness (the senstitivity to adversarial examples) can be assessed with tools like [IBM Adversarial Robustness Toolbox](https://research.ibm.com/projects/adversarial-robustness-toolbox), [CleverHans](https://github.com/cleverhans-lab/cleverhans), or [Foolbox](https://github.com/bethgelab/foolbox).
+
+Care must be taken when considering robust model designs, as security concerns have arisen about their effectiveness.
 
   Links to standards:
 
@@ -206,29 +207,29 @@ PMLR, 2018.
 
   - Not covered yet in ISO/IEC standards
 
-* **#INPUTDISTORTION** (runtime datascience). Input distortion: lightly modify the input with the intention to distort the adversarial attack causing it to fail, while maintaining sufficient model correctness.
-  Modification can be done by adding noise (randomization), or by smoothing.  
-  Maintaining model correctness can be improved by performing multiple random modifications (e.g. randomized smoothing) to the input and then comparing the model output (e.g. best of three).  
-  
-  See DETECTADVERSARIALINPUT for an approach where the distorted input is used for detecting an adversarial attacak.
 
-  Links to standards:
+#### #INPUTDISTORTION
+
+(runtime datascience). Input distortion: lightly modify the input with the intention to distort the adversarial attack causing it to fail, while maintaining sufficient model correctness. Modification can be done by adding noise (randomization), or by smoothing.  
+
+Maintaining model correctness can be improved by performing multiple random modifications (e.g. randomized smoothing) to the input and then comparing the model output (e.g. best of three).  
+  
+See DETECTADVERSARIALINPUT for an approach where the distorted input is used for detecting an adversarial attacak.
+
+Links to standards:
 
   - Not covered yet in ISO/IEC standards
-  
-* **#ADVERSARIALROBUSTDISTILLATION** (development-time datascience). Adversarial-robust distillation: defensive distillation involves training a student model to
-replicate the softened outputs of the *teacher* model, increasing the
-resilience of the *student* model to adversarial examples by smoothing the
-decision boundaries and making the model less sensitive to small
-perturbations in the input. Care must be taken when considering
-defensive distillation techniques, as security concerns have arisen
-about their effectiveness.
 
-  Links to standards:
+  
+#### #ADVERSARIALROBUSTDISTILLATION
+
+(development-time datascience). Adversarial-robust distillation: defensive distillation involves training a student model to replicate the softened outputs of the *teacher* model, increasing the resilience of the *student* model to adversarial examples by smoothing the decision boundaries and making the model less sensitive to small perturbations in the input. Care must be taken when considering defensive distillation techniques, as security concerns have arisen about their effectiveness.
+
+Links to standards:
 
   - Not covered yet in ISO/IEC standards
  
-  References
+ References
 
   - Papernot, Nicolas, et al. "Distillation as a defense to adversarial
 perturbations against deep neural networks." 2016 IEEE symposium on
@@ -326,9 +327,11 @@ The disclosure is caused by an unintentional fault of including this data, and e
 
   - Not covered yet in ISO/IEC standards
 
-- **#FILTERSENSITIVEMODELOUTPUT** (runtime appsec). Filter sensitive model output: actively censor sensitive data by detecting it when possible (e.g. phone number)
+#### #FILTERSENSITIVEMODELOUTPUT** 
 
-  Links to standards:
+(runtime appsec). Filter sensitive model output: actively censor sensitive data by detecting it when possible (e.g. phone number)
+
+Links to standards:
 
   - Not covered yet in ISO/IEC standards
 
@@ -354,15 +357,20 @@ Controls for Model inversion and membership inference:
 
 - See General controls, in particular data minimization
 - See controls for threats through use
-- **#OBSCURECONFIDENCE** (runtime datascience). Obscure confidence: exclude indications of confidence in the output, or round confidence so it cannot be used for optimization.
 
-  Links to standards:
+#### #OBSCURECONFIDENCE** 
+
+(runtime datascience). Obscure confidence: exclude indications of confidence in the output, or round confidence so it cannot be used for optimization.
+
+Links to standards:
 
   - Not covered yet in ISO/IEC standards
 
-- **#SMALLMODEL** (development-time datascience). Small model: overfitting can be prevented by keeping the model small so it is not able to store detail at the level of individual training set samples.
+#### #SMALLMODEL 
 
-  Links to standards:
+(development-time datascience). Small model: overfitting can be prevented by keeping the model small so it is not able to store detail at the level of individual training set samples.
+
+Links to standards:
 
   - Not covered yet in ISO/IEC standards
 
@@ -399,15 +407,22 @@ This threat refers to application failure (i.e. denial of service) typically cau
 
 - See General controls
 - See Controls for threats through use
-- **#DOSINPUTVALIDATION** (runtime appsec). Denial-of-service input validation: input validation and sanitization to reject or correct malicious (e.g. very large) content
 
-  Links to standards:
+  
+#### #DOSINPUTVALIDATION
+
+(runtime appsec). Denial-of-service input validation: input validation and sanitization to reject or correct malicious (e.g. very large) content
+
+Links to standards:
 
   - 27002 has no control for this
   - Not covered yet in ISO/IEC standards
   - [OpenCRE on input validation](https://www.opencre.org/cre/010-308)
 
-- **#LIMITRESOURCES** (runtime). Limit resource usage for a single model input, to prevent resource overuse.
+
+#### #LIMITRESOURCES
+
+(runtime). Limit resource usage for a single model input, to prevent resource overuse.
 
   Links to standards:
 
