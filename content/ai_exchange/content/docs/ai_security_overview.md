@@ -139,51 +139,27 @@ GenAI References:
 
 The AI security controls (in capitals - and discussed further on in the document) can be grouped along meta controls:
 
-1. Apply **AI governance** (AIPROGRAM)
-2. Apply **information security management** (SECPROGRAM), with AI attention points:
-   - New assets: training/test data , input data, output data, model parameters, technical information about the model, and also code and configuration. This depends on if they represent important intellectual property, or if the data is sensitive, or if the data can help attackers to design an attack (DISCRETE).
-   - New threats: ISO/IEC 27563 (on AI use cases security & privacy) describes security of some AI use cases to assist in risk analysis, and ISO/IEC 23894 elaborates on risk management. The AI Exchange and the upcoming ISO 27090 (AI security) are more comprehensive sources for threats and controls.
-   - AI regulation needs to be taken into account (CHECKCOMPLIANCE)
-   - Awareness training needs to include AI threats and controls (SECEDUCATE)
-   - The information security controls in this document fall under the security management activity (e.g. model privileges, monitoring, access control, data protection, supply chain)
-3. Apply **professional software engineering practices** to the AI lifecycle (DEVPROGAM).
-4. Apply **secure software development** to AI engineering (SECDEVPROGRAM), and when developing securely, use standards that cover technical application security controls and operational security, (e.g. 15408, ASVS, OpenCRE). AI attention points:
-   - Make sure to protect the runtime model and its IO (RUNTIMEMODELINTEGRITY, RUNTIMEMODELIOINTEGRITY, RUNTIMEMODELCONFIDENTIALITY, MODELINPUTCONFIDENTIALITY, MODELOBFUSCATION)
-   - Control model use (MONITORUSE, MODELACCESSCONTROL, RATELIMIT)
-   - ENCODEMODELOUTPUT if it is text based
-   - LIMITRESOURCES to protect against denial of service
-5. **Development-time protection**:
-   - DEVDATAPROTECT (Protection of train/testdata, parameters, code and config)
-   - DEVSECURITY (further information security including screening of engineers)
-   - SEGREGATEDATA
-   - CONFCOMPUTE
-   - FEDERATIVELEARNING
-   - SUPPLYCHAINMANAGE
-6. Completely **new application security controls** are MODELOBFUSCATION and protection against indirect prompt injection of GenAI: PROMPTINPUTVALIDATION plus INPUTSEGREGATION
-7. **Limit the amount of data and the time it is stored**, if it is sensitive (DATAMINIMIZE, ALLOWEDDATA, SHORTRETAIN, OBFUSCATETRAININGDATA)
-8. **Limit the effect** of unwanted model behaviour (OVERSIGHT, LEASTMODELPRIVILEGE, AITRAINSPARENCY, EXPLAINABILITY)
-9. **Datascience runtime** controls when using the model:
-   - CONTINUOUSVALIDATION
-   - UNWANTEDBIASTESTING
-   - DETECTODDINPUT
-   - DETECTADVERSARIALINPUT
-   - DOSINPUTVALIDATION
-   - INPUTDISTORTION
-   - FILTERSENSITIVEMODELOUTPUT
-   - OBSCURECONFIDENCE (to prevent reconstructing train data)
-10. **Datascience development-time** controls:
-    - CONTINUOUSVALIDATION
-    - UNWANTEDBIASTESTING
-    - EVASIONROBUSTMODEL
-    - POISIONROBUSTMODEL
-    - TRAINADVERSARIAL
-    - TRAINDATADISTORTION
-    - ADVERSARIALROBUSTDISTILLATION (if you apply distillation)
-    - FILTERSENSITIVETRAINDATA
-    - MODELENSEMBLE
-    - MORETRAINDATA
-    - SMALLMODEL (to prevent reconstructing train data)
-    - DATAQUALITYCONTROL (covered in 5259 but not aimed at data manipulation)
+1. Governance processes for AI risk, information security, software lifecycle:  
+   >(AIPROGRAM, SECPROGRAM, DEVPROGRAM, SECDEVPROGRAM, CHECKCOMPLIANCE, SECEDUCATE)
+3. Technical IT security controls:
+  - Apply **standard** conventional IT security controls (e.g. 15408, ASVS, OpenCRE) for AI-specific parts :
+    - Development-time: model & data storage, model & data supply chain, data science documentation:  
+      >(DISCRETE, DEVDATAPROTECT, DEVSECURITY, SEGREGATEDATA, SUPPLYCHAINMANAGE)
+    - Runtime: model storage, model use and model IO:  
+      >(RUNTIMEMODELINTEGRITY, RUNTIMEMODELIOINTEGRITY, RUNTIMEMODELCONFIDENTIALITY, MODELINPUTCONFIDENTIALITY, ENCODEMODELOUTPUT, LIMITRESOURCES)
+  - **Adapt** conventional IT security controls:  
+    >(MONITORUSE, MODELACCESSCONTROL, RATELIMIT)
+  - Adopt **new** IT security controls:  
+    >(CONFCOMPUTE, MODELOBFUSCATION, PROMPTINPUTVALIDATION, INPUTSEGREGATION)
+3. Datascience security controls:
+  - Development-time controls when developing the model:  
+    >(FEDERATIVELEARNING, CONTINUOUSVALIDATION, UNWANTEDBIASTESTING, EVASIONROBUSTMODEL, POISIOTNROBUSTMODEL, TRAINADVERSARIAL, TRAINDATADISTORTION, ADVERSARIALROBUSTDISTILLATION, FILERSENSITIVETRAINDATA, MODELENSEMBLE, MORETRAINDATA, SMALLMODEL, DATAQUALITYCONTROL)
+  - Runtime controls when running the model:  
+    >(CONTINUOUSVALIDATION, UNWANTEDBIASTESTING, DETECTODDINPUT, DETECTADVERSARIALINPUT, DOSINPUTVALIDATION, INPUTDISTORTION, FILTERSENSITIVEMODELOUTPUT, OBSCURECONFIDENCE)
+4. Limit the amount of data and the time it is stored:  
+  >(DATAMINIMIZE, ALLOWEDDATA, SHORTRETAIN, OBFUSCATETRAININGDATA)
+5. Limit the effect of unwanted model behaviour:  
+  >(OVERSIGHT, LEASTMODELPRIVILEGE, AITRAINSPARENCY, EXPLAINABILITY, CONTINUOUSVALIDATION)
 
 ---
 
