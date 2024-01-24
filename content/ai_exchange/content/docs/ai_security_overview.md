@@ -2,8 +2,9 @@
 title: AI Security Overview
 weight: 1
 ---
+For more information about this initiative, how to contribute or how to contact, see the [home page](https://owaspai.org/)
 
-## Introduction
+## Summaries and diagrams
 
 ### Short summary: How to address AI Security?
 
@@ -17,7 +18,45 @@ While AI offers powerful perfomance boosts, it also increases the attack surface
 
 ![AI Specific Security Threats](/images/owaspaimodelv1.png)
 
-### This Document
+### Navigator diagram
+The navigator diagram below shows all threats, controls and how they relate, including risks and the types of controls.  
+{{< callout type="info" >}}
+  Click on the image to get a PDF with clickable links.
+{{< /callout >}}
+[![](/images/owaspaioverviewv2.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf)
+
+### AI Security Matrix
+The AI security matrix below shows all threats and risks, ordered by attack surface and lifecycle.
+[![](/images/OwaspAIsecuritymatix.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/OwaspAIsecuritymatix.png)
+
+### Summary with controls
+
+The AI security controls (in capitals - and discussed further on in the document) can be grouped along meta controls:
+
+1. Governance processes for AI risk, information security, software lifecycle:  
+   >(AIPROGRAM, SECPROGRAM, DEVPROGRAM, SECDEVPROGRAM, CHECKCOMPLIANCE, SECEDUCATE)
+3. Technical IT security controls:
+  - Apply **standard** conventional IT security controls (e.g. 15408, ASVS, OpenCRE) for AI-specific parts :
+    - Development-time: model & data storage, model & data supply chain, data science documentation:  
+      >(DISCRETE, DEVDATAPROTECT, DEVSECURITY, SEGREGATEDATA, SUPPLYCHAINMANAGE)
+    - Runtime: model storage, model use and model IO:  
+      >(RUNTIMEMODELINTEGRITY, RUNTIMEMODELIOINTEGRITY, RUNTIMEMODELCONFIDENTIALITY, MODELINPUTCONFIDENTIALITY, ENCODEMODELOUTPUT, LIMITRESOURCES)
+  - **Adapt** conventional IT security controls:  
+    >(MONITORUSE, MODELACCESSCONTROL, RATELIMIT)
+  - Adopt **new** IT security controls:  
+    >(CONFCOMPUTE, MODELOBFUSCATION, PROMPTINPUTVALIDATION, INPUTSEGREGATION)
+3. Datascience security controls:
+  - Development-time controls when developing the model:  
+    >(FEDERATIVELEARNING, CONTINUOUSVALIDATION, UNWANTEDBIASTESTING, EVASIONROBUSTMODEL, POISIOTNROBUSTMODEL, TRAINADVERSARIAL, TRAINDATADISTORTION, ADVERSARIALROBUSTDISTILLATION, FILERSENSITIVETRAINDATA, MODELENSEMBLE, MORETRAINDATA, SMALLMODEL, DATAQUALITYCONTROL)
+  - Runtime controls when running the model:  
+    >(CONTINUOUSVALIDATION, UNWANTEDBIASTESTING, DETECTODDINPUT, DETECTADVERSARIALINPUT, DOSINPUTVALIDATION, INPUTDISTORTION, FILTERSENSITIVEMODELOUTPUT, OBSCURECONFIDENCE)
+4. Limit the amount of data and the time it is stored:  
+  >(DATAMINIMIZE, ALLOWEDDATA, SHORTRETAIN, OBFUSCATETRAININGDATA)
+5. Limit the effect of unwanted model behaviour:  
+  >(OVERSIGHT, LEASTMODELPRIVILEGE, AITRAINSPARENCY, EXPLAINABILITY, CONTINUOUSVALIDATION)
+
+
+## About this Document
 
 This document discusses threats to AI cyber security and controls for those threats (i.e. countermeasures, requirements, mitigations).
 Security here means preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.
@@ -27,41 +66,18 @@ The AI Exchange initiative was taken by OWASP, triggered by [Rob van der Veer](h
 This material is all draft and work in progress for others to review and amend.
 It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 27090 on AI security, ISO/IEC 27091 on AI privacy, the [OWASP ML top 10](https://mltop10.info/), [OWASP LLM top 10](https://llmtop10.com/), and many more initiatives can benefit from consistent terminology and insights across the globe.
 
-**Sources:**
+### Sources:**
 
 - AI security experts who contributed to this as Open Source.
 - The insights of these experts were inspired by research work as mentioned in the references at the bottom of this document(ENISA, NIST, Microsoft, BIML, MITRE, etc.)
 
-#### Navigator
-The navigator diagram below shows all threats, controls and how they relate, including risks and the types of controls.  
-{{< callout type="info" >}}
-  Click on the image to get a PDF with clickable links.
-{{< /callout >}}
-[![](/images/owaspaioverviewv2.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf)
-
-#### AI Security Matrix
-The AI security matrix below shows all threats and risks, ordered by attack surface and lifecycle.
-[![](/images/OwaspAIsecuritymatix.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/OwaspAIsecuritymatix.png)
-
-### How we organize threats and controls?
+### How we organized threats and controls
 
 The threats are organized by attack surface (how and where does the attack take place?), and not by impact. This means that for example model theft is mentioned in three different parts of the overview:
 
 1. model theft by stealing model parameters from a live system, e.g. breaking into the network and reading the parameters from a file,
 2. model theft by stealing the modeling process or parameters from the engineering environment, e.g. stored in the version management system of a data scientist, and
 3. model theft by reverse engineering from using the AI system. These are three very different attacks, with similar impacts. This way of organizing is helpful because the goal is to link the threats to controls, and these controls vary per attack surface.
-
-**How about AI outside of machine learning?**  
-A helpful way to look at AI is to see it as consisting of machine learning (the current dominant type of AI) models and _heuristic models_. A model can be a machine learning model which has learned how to compute based on data, or it can be a heuristic model engineered based on human knowledge, e.g. a rule-based system. Heuristic models still need data for testing, and sometimes to perform analysis for further building and validating the human knowledge.  
-This document focuses on machine learning. Nevertheless, here is a quick summary of the machine learning threats from this document that also apply to heuristic systems:
-
-- Model evasion is also possible for heuristic models, -trying to find a loophole in the rules
-- Model theft through use - it is possible to train a machine learning model based on input/output combinations from a heuristic model
-- Overreliance in use - heuristic systems can also be relied on too much. The applied knowledge can be false
-- Data poisoning and model poisoning is possible by manipulating data that is used to improve knowledge and by manipulating the rules development-time or runtime
-- Leaks of data used for analysis or testing can still be an issue
-- Knowledgebase, source code and configuration can be regarded as sensitive data when it is intellectual property, so it needs protection
-- Leak sensitive input data, for example when a heuristic system needs to diagnose a patient
 
 ## How to select relevant threats and controls? risk analysis
 There are many threats and controls described in this document. Your situation determines which threats are relevant to you, and what controls are your responsibility. This selection process can be performed through risk analysis of the use case and architecture at hand:
@@ -100,14 +116,27 @@ There are many threats and controls described in this document. Your situation d
 
 For more information on risk analysis, see the SECPROGRAM control.
 
-## How about privacy?
+##How about ...
+### How about AI outside of machine learning?
+A helpful way to look at AI is to see it as consisting of machine learning (the current dominant type of AI) models and _heuristic models_. A model can be a machine learning model which has learned how to compute based on data, or it can be a heuristic model engineered based on human knowledge, e.g. a rule-based system. Heuristic models still need data for testing, and sometimes to perform analysis for further building and validating the human knowledge.  
+This document focuses on machine learning. Nevertheless, here is a quick summary of the machine learning threats from this document that also apply to heuristic systems:
+
+- Model evasion is also possible for heuristic models, -trying to find a loophole in the rules
+- Model theft through use - it is possible to train a machine learning model based on input/output combinations from a heuristic model
+- Overreliance in use - heuristic systems can also be relied on too much. The applied knowledge can be false
+- Data poisoning and model poisoning is possible by manipulating data that is used to improve knowledge and by manipulating the rules development-time or runtime
+- Leaks of data used for analysis or testing can still be an issue
+- Knowledgebase, source code and configuration can be regarded as sensitive data when it is intellectual property, so it needs protection
+- Leak sensitive input data, for example when a heuristic system needs to diagnose a patient
+
+### How about privacy?
 
 AI Privacy can be divided into two parts:
 
 1. The AI security threats and controls in this document that are about confidentiality and integrity of (personal) data (e.g. model inversion, leaking training data), plus the integrity of the model behaviour
 2. Threats and controls with respect to rights of the individual, as covered by privacy regulations such as the GDPR, including use limitation, consent, fairness, transparency, data accuracy, right of correction/objection/reasure/access. For an overview, see the [Privacy part of the OWASP AI guide](/docs/privacy/#how-to-deal-with-ai-privacy)
 
-## How about Generative AI (e.g. LLM)?
+### How about Generative AI (e.g. LLM)?
 
 Yes, GenAI is leading the current AI revolution and it's the fastest moving subfield of AI security. Nevertheless it is important to realize that other types of algorithms will remain to be applied to many important use cases such as credit scoring, fraud detection, medical diagnosis, product recommendation, image recognition, predictive maintenance, process control, etc. Relevant content has been marked with 'GenAI' in this document.
 
@@ -135,35 +164,7 @@ GenAI References:
 - [OWASP LLM top 10](https://llmtop10.com/)
 - [Impacts and risks of GenAI](https://arxiv.org/pdf/2306.13033.pdf)
 
-## Summary
-
-The AI security controls (in capitals - and discussed further on in the document) can be grouped along meta controls:
-
-1. Governance processes for AI risk, information security, software lifecycle:  
-   >(AIPROGRAM, SECPROGRAM, DEVPROGRAM, SECDEVPROGRAM, CHECKCOMPLIANCE, SECEDUCATE)
-3. Technical IT security controls:
-  - Apply **standard** conventional IT security controls (e.g. 15408, ASVS, OpenCRE) for AI-specific parts :
-    - Development-time: model & data storage, model & data supply chain, data science documentation:  
-      >(DISCRETE, DEVDATAPROTECT, DEVSECURITY, SEGREGATEDATA, SUPPLYCHAINMANAGE)
-    - Runtime: model storage, model use and model IO:  
-      >(RUNTIMEMODELINTEGRITY, RUNTIMEMODELIOINTEGRITY, RUNTIMEMODELCONFIDENTIALITY, MODELINPUTCONFIDENTIALITY, ENCODEMODELOUTPUT, LIMITRESOURCES)
-  - **Adapt** conventional IT security controls:  
-    >(MONITORUSE, MODELACCESSCONTROL, RATELIMIT)
-  - Adopt **new** IT security controls:  
-    >(CONFCOMPUTE, MODELOBFUSCATION, PROMPTINPUTVALIDATION, INPUTSEGREGATION)
-3. Datascience security controls:
-  - Development-time controls when developing the model:  
-    >(FEDERATIVELEARNING, CONTINUOUSVALIDATION, UNWANTEDBIASTESTING, EVASIONROBUSTMODEL, POISIOTNROBUSTMODEL, TRAINADVERSARIAL, TRAINDATADISTORTION, ADVERSARIALROBUSTDISTILLATION, FILERSENSITIVETRAINDATA, MODELENSEMBLE, MORETRAINDATA, SMALLMODEL, DATAQUALITYCONTROL)
-  - Runtime controls when running the model:  
-    >(CONTINUOUSVALIDATION, UNWANTEDBIASTESTING, DETECTODDINPUT, DETECTADVERSARIALINPUT, DOSINPUTVALIDATION, INPUTDISTORTION, FILTERSENSITIVEMODELOUTPUT, OBSCURECONFIDENCE)
-4. Limit the amount of data and the time it is stored:  
-  >(DATAMINIMIZE, ALLOWEDDATA, SHORTRETAIN, OBFUSCATETRAININGDATA)
-5. Limit the effect of unwanted model behaviour:  
-  >(OVERSIGHT, LEASTMODELPRIVILEGE, AITRAINSPARENCY, EXPLAINABILITY, CONTINUOUSVALIDATION)
-
----
-
-## Mapping guidelines to controls
+### How about the NCSC/CISA guidelines?
 
 Mapping of the UK/US [Guidelines for secure AI
 system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development) to the controls here at the AI Exchange:  
