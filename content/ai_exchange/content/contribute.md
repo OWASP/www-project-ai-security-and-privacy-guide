@@ -70,6 +70,7 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
 - Zoe Braiterman (Mutual Knowledge Systems, US) - Many markdown improvements
 - Niklas Bunzel (Fraunhofer institute, Germany) - datascience discussion and references around evasion attacks
 - Marko Lihter (SplxAI, Croatia) - various textual improvements & the Exchange website
+- Milad Masoodi (SIG, Netherlands) - restructured document to put controls in sections, visible in the TOC
 
 
 {{< /tab >}}
@@ -87,12 +88,14 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
 - Change navigator: 1) "deal with conidentiality issues" -> "minimize data to help confidentiality", 2) remove ADDTRAINNOISE
 - Elaborate on "Choose a model type resilient against a transfer learning attack"
 - Under DATAQUALITCONTROL: Elaborate on that method to detect statistical deviation by training models on random selections of the training dataset and then feeding each training sample to those models and compare results.
+- Each section: review on clarity, grammar & spelling, completeness and sufficient references
+- Further design the risk analysis process and especially make responsiblity assignment more clear. Include for example: when is evasion really a problem in practice
+- Write more of a step-by-step guide for organizations to start with AI (security)
 - Add 'Leak sensitive input data' to threat diagram and check further for any gaps with this document
 - Check if OBFUSCATETRAININGDATA has strategies (anonymization, tokenization) that are covered in ISO/IEC standards and add references to those standards
 - Under DATAQUALITCONTROL: elaborate on RONI and tRONI training sample selection
 - Elaborate on the various methods and the general approach of TRAINDATADISTORTION to prevent data poisoning
 - Create a way to link to Controls and to Threats with permanent links (we probably need to generate html from the md)
-- Create a layout that is less list-like and more of a read
 - Add attribute inference attacks and consider making that part of 'data reconstruction', together with model inversion, although it is a different approach
 - Work with the LLM top 10 team to make sure that the LLM top 10 entries link back to the AI Exchange
 - Under TRAINADVERSARIAL: Elaborate - See Annex C of ENISA Secure machine learning algorithms 2021.
