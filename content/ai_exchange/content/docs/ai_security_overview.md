@@ -2,9 +2,9 @@
 title: AI Security Overview
 weight: 1
 ---
-For more information about this initiative, how to contribute or how to contact, see the [home page](https://owaspai.org/)
+See [home](https://owaspai.org/) for more information about this initiative, how to contribute or connect.
 
-## Summaries and diagrams
+## Summary and visualisations
 
 ### Short summary: How to address AI Security?
 
@@ -66,7 +66,7 @@ The AI Exchange initiative was taken by OWASP, triggered by [Rob van der Veer](h
 This material is all draft and work in progress for others to review and amend.
 It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 27090 on AI security, ISO/IEC 27091 on AI privacy, the [OWASP ML top 10](https://mltop10.info/), [OWASP LLM top 10](https://llmtop10.com/), and many more initiatives can benefit from consistent terminology and insights across the globe.
 
-### Sources:**
+### Sources
 
 - AI security experts who contributed to this as Open Source.
 - The insights of these experts were inspired by research work as mentioned in the references at the bottom of this document(ENISA, NIST, Microsoft, BIML, MITRE, etc.)
@@ -116,7 +116,7 @@ There are many threats and controls described in this document. Your situation d
 
 For more information on risk analysis, see the SECPROGRAM control.
 
-##How about ...
+## How about ...
 ### How about AI outside of machine learning?
 A helpful way to look at AI is to see it as consisting of machine learning (the current dominant type of AI) models and _heuristic models_. A model can be a machine learning model which has learned how to compute based on data, or it can be a heuristic model engineered based on human knowledge, e.g. a rule-based system. Heuristic models still need data for testing, and sometimes to perform analysis for further building and validating the human knowledge.  
 This document focuses on machine learning. Nevertheless, here is a quick summary of the machine learning threats from this document that also apply to heuristic systems:
