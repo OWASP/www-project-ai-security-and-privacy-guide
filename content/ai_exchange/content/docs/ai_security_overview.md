@@ -2,7 +2,8 @@
 title: AI Security Overview
 weight: 1
 ---
-See [home](https://owaspai.org/) for more information about this initiative, how to contribute or connect.
+See [home](https://owaspai.org/) for more information about this initiative, how to contribute or connect.  
+This page contains an overview of AI security and the next pages provide the main content: details on security threats to AI and controls against them. You can navigate through  pages at the bottom of every page, or in the left sidebar. The right sidebar shows the different sections on a page. On small screens you can navigate through the menu.
 
 ## Summary and visualisations
 
