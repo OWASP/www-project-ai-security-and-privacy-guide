@@ -58,17 +58,19 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
 {{< tab >}}
 
 <!-- TODO: Transform to table -->
-- Yiannis Kanellopoulos - Code4thought
-- Annegrit Seyerlein - Klug|TH Brandenburg
-- Wei Wei - IBM
-- Roger Sanz - Universidad Isabel
-- Angie Qarry - QDeepTech
-- Behnaz Karimi - Accenture
-- Sean Oesch - Oak Ridge National Laboratory
-- Anthony Glynn - CapitalOne
-- Zoe Braiterman - Mutual Knowledge Systems
-- Niklas Bunzel - Fraunhofer Institute
-- Marko Lihter - SplxAI
+- Rob van der Veer (SIG, Netherlands) - results from AI security research at SIG: threat model, risks, navigator, matrix, risk approach, controls, gap analysis with ISO
+- Yiannis Kanellopoulos and team (Code4thought, Greece) - evasion robustness
+- Annegrit Seyerlein-Klug (TH Brandenburg, Germany) - mapping with misc. standards
+- Wei Wei (IBM, Germany) - mapping with ISO/IEC 42001
+- Roger Sanz (Universidad Isabel, Spain)
+- Angie Qarry (QDeepTech, Austria) - some elaborations and references on datascience defence mechanisms
+- Behnaz Karimi (Accenture, Germany)- misc. contributions including model obfuscation and explanation
+- Sean Oesch (Oak Ridge National Laboratory, US) - BLUF, Adversarial Training, OOD detection, NISTIR 8269, Guide Usability/Structure
+- Anthony Glynn (CapitalOne, US) - many textual improvements & link to LLM top 10
+- Zoe Braiterman (Mutual Knowledge Systems, US) - Many markdown improvements
+- Niklas Bunzel (Fraunhofer institute, Germany) - datascience discussion and references around evasion attacks
+- Marko Lihter (SplxAI, Croatia) - various textual improvements & the Exchange website
+
 
 {{< /tab >}}
 {{< tab >}}
