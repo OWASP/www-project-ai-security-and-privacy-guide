@@ -84,28 +84,38 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
 
 > Tasks are sorted by urgency, with the top item being the most urgent.
 
-- Elaborate on POISONROBUSTMODEL
-- Change navigator: 1) "deal with conidentiality issues" -> "minimize data to help confidentiality", 2) remove ADDTRAINNOISE
+- POISONROBUSTMODEL: elaborate
+- Tweak navigator: 1) "deal with conidentiality issues" -> "minimize data to help confidentiality", 2) remove ADDTRAINNOISE
+- Futureproof hyperlinks: Create a way to link to Controls and to Threats with permanent links (we probably need to generate html from the md)
+- Update hyperlinks in navigator, taking into account the 'futureproof hyperlinks'
 - Elaborate on "Choose a model type resilient against a transfer learning attack"
 - Under DATAQUALITCONTROL: Elaborate on that method to detect statistical deviation by training models on random selections of the training dataset and then feeding each training sample to those models and compare results.
-- Each section: review on clarity, grammar & spelling, completeness and sufficient references
-- Further design the risk analysis process and especially make responsiblity assignment more clear. Include for example: when is evasion really a problem in practice
-- Write more of a step-by-step guide for organizations to start with AI (security)
+- BIG ONE- DISTRIBUTE: Each section (threat, control):
+  - review on clarity,
+  - grammar & spelling
+  - completeness. Goal: offer a clear summary to non AI security experts, mention important attention points/potential challenges, and refer them to other work for more details.
+  - examples needed?
+  - visualisation needed?
+  - sufficiently practical: make clear what needs to be done. Best practices.
+  - sufficient references.  Use a 'References' section and/or a 'Links to standards' section.
+ 
+- Create a visualisation of the new Summary with controls, perhaps combine it with the new threat model diagram ideas and replace the current one
+- BIG ONE: Risk analysis: Further design the risk analysis process and especially make responsiblity assignment more clear. Include for example: when is evasion really a problem in practice
+- BIG ONE: Write more of a step-by-step guide for organizations to start with AI (security)
+- BIG ONE: high level sanity check with NIST adversarial machine learning document
+- BIG ONE: high level sanity check with MITRE ATLAS
 - Add 'Leak sensitive input data' to threat diagram and check further for any gaps with this document
 - Check if OBFUSCATETRAININGDATA has strategies (anonymization, tokenization) that are covered in ISO/IEC standards and add references to those standards
 - Under DATAQUALITCONTROL: elaborate on RONI and tRONI training sample selection
 - Elaborate on the various methods and the general approach of TRAINDATADISTORTION to prevent data poisoning
-- Create a way to link to Controls and to Threats with permanent links (we probably need to generate html from the md)
 - Add attribute inference attacks and consider making that part of 'data reconstruction', together with model inversion, although it is a different approach
 - Work with the LLM top 10 team to make sure that the LLM top 10 entries link back to the AI Exchange
 - Under TRAINADVERSARIAL: Elaborate - See Annex C of ENISA Secure machine learning algorithms 2021.
-- Add references to reputable resources for the controls, especially where there are no or hardly any references. Either use a 'References' section or the 'Links to standards'.
 - Under DETECTADVERSARIALINPUT: elaborate on detector subnetworks in Annex C of ENISA 2021 and on the references in that section
 - Under EVASIONROBUSTMODEL: See Annex C in ENISA 2021 document to cover Stability terms, adversarial regulaiser, input gradient regularisation, defenisvie distillation and Random feature nullification.
 - Under INPUTDISTORTION: See ENISA Annex C to add data randomisation, input transformation and input denoising.
 - Under INPUTDISTORTION: add Gradient masking - Annex C ENISA 2021
 - Cover integrity checks in development pipeline (build, deploy, supply chain) - under supplychainmanage and/or secdevprogram
-- In general: add more info on how to practically implement the controls. Integration. Monitorin. Best practides. Real world exampels. potential challenges
 
 ## TODOs requiring access to ISO/IEC documents
 
