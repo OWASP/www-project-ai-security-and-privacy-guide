@@ -36,21 +36,21 @@ The AI security controls (in capitals - and discussed further on in the document
 
 1. Governance processes for AI risk, information security, software lifecycle:  
    >(AIPROGRAM, SECPROGRAM, DEVPROGRAM, SECDEVPROGRAM, CHECKCOMPLIANCE, SECEDUCATE)
-3. Technical IT security controls:
-  - Apply **standard** conventional IT security controls (e.g. 15408, ASVS, OpenCRE) for AI-specific parts :
-    - Development-time: model & data storage, model & data supply chain, data science documentation:  
-      >(DISCRETE, DEVDATAPROTECT, DEVSECURITY, SEGREGATEDATA, SUPPLYCHAINMANAGE)
-    - Runtime: model storage, model use and model IO:  
-      >(RUNTIMEMODELINTEGRITY, RUNTIMEMODELIOINTEGRITY, RUNTIMEMODELCONFIDENTIALITY, MODELINPUTCONFIDENTIALITY, ENCODEMODELOUTPUT, LIMITRESOURCES)
-  - **Adapt** conventional IT security controls:  
-    >(MONITORUSE, MODELACCESSCONTROL, RATELIMIT)
-  - Adopt **new** IT security controls:  
-    >(CONFCOMPUTE, MODELOBFUSCATION, PROMPTINPUTVALIDATION, INPUTSEGREGATION)
+2. Technical IT security controls:
+    - 2a Apply **standard** conventional IT security controls (e.g. 15408, ASVS, OpenCRE) for AI-specific parts :
+      - Development-time: model & data storage, model & data supply chain, data science documentation:  
+        >(DISCRETE, DEVDATAPROTECT, DEVSECURITY, SEGREGATEDATA, SUPPLYCHAINMANAGE)
+      - Runtime: model storage, model use and model IO:  
+        >(RUNTIMEMODELINTEGRITY, RUNTIMEMODELIOINTEGRITY, RUNTIMEMODELCONFIDENTIALITY, MODELINPUTCONFIDENTIALITY, ENCODEMODELOUTPUT, LIMITRESOURCES)
+    - 2b **Adapt** conventional IT security controls:  
+      >(MONITORUSE, MODELACCESSCONTROL, RATELIMIT)
+    - 2c Adopt **new** IT security controls:  
+      >(CONFCOMPUTE, MODELOBFUSCATION, PROMPTINPUTVALIDATION, INPUTSEGREGATION)
 3. Datascience security controls:
-  - Development-time controls when developing the model:  
-    >(FEDERATIVELEARNING, CONTINUOUSVALIDATION, UNWANTEDBIASTESTING, EVASIONROBUSTMODEL, POISIOTNROBUSTMODEL, TRAINADVERSARIAL, TRAINDATADISTORTION, ADVERSARIALROBUSTDISTILLATION, FILERSENSITIVETRAINDATA, MODELENSEMBLE, MORETRAINDATA, SMALLMODEL, DATAQUALITYCONTROL)
-  - Runtime controls when running the model:  
-    >(CONTINUOUSVALIDATION, UNWANTEDBIASTESTING, DETECTODDINPUT, DETECTADVERSARIALINPUT, DOSINPUTVALIDATION, INPUTDISTORTION, FILTERSENSITIVEMODELOUTPUT, OBSCURECONFIDENCE)
+    - 3a Development-time controls when developing the model:  
+      >(FEDERATIVELEARNING, CONTINUOUSVALIDATION, UNWANTEDBIASTESTING, EVASIONROBUSTMODEL, POISONROBUSTMODEL, TRAINADVERSARIAL, TRAINDATADISTORTION, ADVERSARIALROBUSTDISTILLATION, FILERSENSITIVETRAINDATA, MODELENSEMBLE, MORETRAINDATA, SMALLMODEL, DATAQUALITYCONTROL)
+    - 3b Runtime controls when running the model:  
+      >(CONTINUOUSVALIDATION, UNWANTEDBIASTESTING, DETECTODDINPUT, DETECTADVERSARIALINPUT, DOSINPUTVALIDATION, INPUTDISTORTION, FILTERSENSITIVEMODELOUTPUT, OBSCURECONFIDENCE)
 4. Limit the amount of data and the time it is stored:  
   >(DATAMINIMIZE, ALLOWEDDATA, SHORTRETAIN, OBFUSCATETRAININGDATA)
 5. Limit the effect of unwanted model behaviour:  
