@@ -90,11 +90,11 @@ There are many threats and controls described in this document. Your situation d
       - Include the threats regarding train/test data leak if the data is sensitive 
 
     Else, if you don’t train or finetune the model:
-      - ignore the development-time threats, with the exception of supply chain management: make sure the model you obtain is not manipulated, and genuine.
-      - ignore the confidentiality of train data threats
-      - ignore the confidentiality of model IP threats
-      - ignore the data poisoning threat
-      - ignore development-time controls (e.g. filtering sensitive training data)
+      - Ignore the development-time threats, with the exception of supply chain management: make sure the model you obtain is not manipulated, and genuine
+      - Ignore the confidentiality of train data threats
+      - Ignore the confidentiality of model IP threats
+      - Ignore the data poisoning threat
+      - Ignore development-time controls (e.g. filtering sensitive training data)
 
     These are the responsbilities of the model maker, but be aware you may be effected by the unwanted results. The maker may take the blame for any issue, which would take care of confidentiality issues, but you would suffer effectively from any manipulated model behaviour.
 
@@ -109,11 +109,13 @@ There are many threats and controls described in this document. Your situation d
 
     If components of your AI system are hosted, then you share responsibility regarding all controls for the relevant threats with the hosting provider. This needs to be arranged with the provider, using for example a responsibility matrix. Components can be the model, model extensions, your application, or your infrastructure.
 
-3. **Verify external responsibilities:** For the threats that are the responsibility of other organisations: attain assurance whether these organisations take care of it. This would involve the controls that are linked to these threats.
-4. **Control selection**: Then, for the threats that are relevant to you and for which you are responsible: consider the various controls listed with that threat (or the parent section of that threat) and the general controls (they always apply). When considering a control, look at its purpose and determine if you think it is important enough to implement it and to what extent. This depends on the cost of implementation compared to how the purpose mitigates the threat, and the level of risk of the threat.
-5. **Use references**: When implementing a control, consider the references and the links to standards. You may have implemented some of these standards, or the content of the standards may help you to implement the control.
-6. **Risk acceptance**: In the end you need to be able to accept the risks that remain regarding each threat, given the controls that you implemented.
-7. **Further management of these controls** (see SECPROGRAM), which includes continuous monitoring, documentation, reporting, and incident response.
+   If an external party is not open about how certain risks are mitigated, consider requesting this information and when this remains unclear you are faced with either 1) accept the risk, 2) or provide your own mitigations, or 3)avoid the risk, by not engaging with the third party.
+
+4. **Verify external responsibilities:** For the threats that are the responsibility of other organisations: attain assurance whether these organisations take care of it. This would involve the controls that are linked to these threats.
+5. **Control selection**: Then, for the threats that are relevant to you and for which you are responsible: consider the various controls listed with that threat (or the parent section of that threat) and the general controls (they always apply). When considering a control, look at its purpose and determine if you think it is important enough to implement it and to what extent. This depends on the cost of implementation compared to how the purpose mitigates the threat, and the level of risk of the threat. These elements also play a role of course in the order you select controls: highest risks first, then starting with the lower cost controls (low hanging fruit).
+6. **Use references**: When implementing a control, consider the references and the links to standards. You may have implemented some of these standards, or the content of the standards may help you to implement the control.
+7. **Risk acceptance**: In the end you need to be able to accept the risks that remain regarding each threat, given the controls that you implemented.
+8. **Further management of these controls** (see SECPROGRAM), which includes continuous monitoring, documentation, reporting, and incident response.
 
 For more information on risk analysis, see the SECPROGRAM control.
 
