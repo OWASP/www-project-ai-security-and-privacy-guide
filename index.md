@@ -23,7 +23,7 @@ See also [this useful recording](https://www.youtube.com/watch?v=ABmWHnFrMqI) or
 Please provide your input through pull requests / submitting issues (see [repo](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/)) or emailing the project lead, and let's make this guide better and better. Many thanks to Engin Bozdag, lead privacy architect at Uber, for his great contributions.
 
 # How to address AI security
-This content is now found at the [OWASP AI exchange](owaspaiexchange.md)
+This content is now found at the [OWASP AI exchange](https://owaspai.org)
 <br />
 <br />
 <br />
