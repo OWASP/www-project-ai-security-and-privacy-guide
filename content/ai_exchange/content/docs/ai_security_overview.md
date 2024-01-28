@@ -32,21 +32,21 @@ The AI security matrix below shows all threats and risks, ordered by attack surf
 
 ### Summary with controls
 
-The AI security controls (in capitals - and discussed further on in the document) can be grouped along meta controls:
+How to address AI security, including all controls (in capitals - and discussed further on in the document):
 
-1. Governance processes for AI risk, information security, software lifecycle:  
+1. Implement governance processes for AI risk, and if not already there: governance of information security and software lifecycle:  
    >(AIPROGRAM, SECPROGRAM, DEVPROGRAM, SECDEVPROGRAM, CHECKCOMPLIANCE, SECEDUCATE)
-2. Technical IT security controls:
-    - 2a Apply **standard** conventional IT security controls (e.g. 15408, ASVS, OpenCRE) for AI-specific parts :
+2. Apply technical IT security controls risk-based:
+    - 2a Apply **standard** conventional IT security controls (e.g. 15408, ASVS, OpenCRE, ISO 27001 Annex A, NIST SP800-53) to the complete AI system and don't forget the new AI-specific parts :
       - Development-time: model & data storage, model & data supply chain, data science documentation:  
-        >(DISCRETE, DEVDATAPROTECT, DEVSECURITY, SEGREGATEDATA, SUPPLYCHAINMANAGE)
-      - Runtime: model storage, model use and model IO:  
+        >(DEVDATAPROTECT, DEVSECURITY, SEGREGATEDATA, SUPPLYCHAINMANAGE, DISCRETE)
+      - Runtime: model storage, model use and model input/output:  
         >(RUNTIMEMODELINTEGRITY, RUNTIMEMODELIOINTEGRITY, RUNTIMEMODELCONFIDENTIALITY, MODELINPUTCONFIDENTIALITY, ENCODEMODELOUTPUT, LIMITRESOURCES)
-    - 2b **Adapt** conventional IT security controls:  
+    - 2b **Adapt** conventional IT security controls to make them more suitable for AI:  
       >(MONITORUSE, MODELACCESSCONTROL, RATELIMIT)
     - 2c Adopt **new** IT security controls:  
       >(CONFCOMPUTE, MODELOBFUSCATION, PROMPTINPUTVALIDATION, INPUTSEGREGATION)
-3. Datascience security controls:
+3. Apply datascience security controls risk-based:
     - 3a Development-time controls when developing the model:  
       >(FEDERATIVELEARNING, CONTINUOUSVALIDATION, UNWANTEDBIASTESTING, EVASIONROBUSTMODEL, POISONROBUSTMODEL, TRAINADVERSARIAL, TRAINDATADISTORTION, ADVERSARIALROBUSTDISTILLATION, FILERSENSITIVETRAINDATA, MODELENSEMBLE, MORETRAINDATA, SMALLMODEL, DATAQUALITYCONTROL)
     - 3b Runtime controls when running the model:  
