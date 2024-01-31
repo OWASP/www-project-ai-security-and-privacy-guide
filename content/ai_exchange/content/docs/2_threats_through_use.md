@@ -78,27 +78,32 @@ Another categorization is to distinguish between physical input manipulation (e.
 #### #DETECTODDINPUT 
 (runtime datascience). Detect odd input: Out-of-Distribution Detection (OOD), Novelty Detection (ND), Outlier Detection (OD), Anomaly Detection (AD), and Open Set Recognition (OSR) are all related and sometimes overlapping tasks that deal with unexpected or unseen data. However, each of these tasks has its own specific focus and methodology. In practical applications, the techniques used to solve the problems may be similar or the same. Which task or problem should be addressed and which solution is most appropriate also depends on the definition of in-distribution and out-of-distribution. We use an example of a machine learning system designed for a self-driving car to illustrate all these concepts.
 
-#Out-of-Distribution Detection (OOD): Identifying data points that do not belong to the distribution of the training data. It is not safe to assume that the test data models will evaluate comes from the same distribution as the training data, or is in distribution (ID). When a sample is OOD, the model should not make a prediction because the sample may represent a novel class/label and therefore be misclassified. OOD is a broader concept that can include aspects of novelty, anomaly, and outlier detection, depending on the context.
+##### Out-of-Distribution Detection (OOD):
+Identifying data points that do not belong to the distribution of the training data. It is not safe to assume that the test data models will evaluate comes from the same distribution as the training data, or is in distribution (ID). When a sample is OOD, the model should not make a prediction because the sample may represent a novel class/label and therefore be misclassified. OOD is a broader concept that can include aspects of novelty, anomaly, and outlier detection, depending on the context.
 
 Example: The system is trained on vehicles, pedestrians, and common animals like dogs and cats. One day, however, it encounters a horse on the street. The system needs to recognize that the horse is an out-of-distribution object.
 
-Purpose: By detecting OOD or anomalous input, input that would result in unwanted model behavior can be discarded or retained for analysis. It is important to note that not all OOD input is malicious and not all malicious input is OOD. However, detecting OOD input is critical to maintaining model integrity, addressing potential concept drift, and preventing adversarial attacks that may take advantage of model behaviors on out of distribution data.
+Purpose: By detecting OOD or anomalous input, input that would result in unwanted model behavior can be discarded or retained for analysis. It is important to note that not all OOD input is malicious and not all malicious input is OOD. However, detecting OOD input is critical to maintaining model integrity, addressing potential concept drift, and preventing adversarial attacks that may take advantage of model behaviors on out of distribution data. It's important to note, however, that in-distribution adversarial examples might not be detected by OOD detectors, and there also exist OOD adversarial examples specifically crafted to bypass OOD detection mechanisms.
 
-Methods to detect out of distribution inputs include outlier detection, anomaly detection, novelty detection, and open set recognition. Specific techniques include measures of similarity between training and test data, introspecting models to determine which concepts / neurons are activated by in distribution data, and out of distribution sample generation and retraining, among others. For a recent survey on this topic, see the work of [Yang et al.](https://arxiv.org/pdf/2110.11334.pdf), and for learnability of OOD: [here](https://arxiv.org/abs/2210.14707).
+Methods for detecting out-of-distribution (OOD) inputs incorporate approaches from outlier detection, anomaly detection, novelty detection, and open set recognition, using techniques like similarity measures between training and test data, model introspection for activated neurons, and OOD sample generation and retraining. Approaches such as thresholding the output confidence vector help classify inputs as in or out-of-distribution, assuming higher confidence for in-distribution examples. Techniques like supervised contrastive learning, where a deep neural network learns to group similar classes together while separating different ones, and various clustering methods, also enhance the ability to distinguish between in-distribution and OOD inputs. For more details, one can refer to the survey by [Yang et al.](https://arxiv.org/pdf/2110.11334.pdf) and other resources on the learnability of OOD: [here](https://arxiv.org/abs/2210.14707).
 
-#Novelty Detection (ND): Recognizing new or unseen data that differs from the training data but might still be relevant or of interest. Novelty detection is often related to OOD but focuses more on identifying new, relevant instances rather than just any data that is different.
+##### Novelty Detection (ND):
+Recognizing new or unseen data that differs from the training data but might still be relevant or of interest. Novelty detection is often related to OOD but focuses more on identifying new, relevant instances rather than just any data that is different.
 
 Example: The system has been trained on various car models. However, it has never seen a newly released model. When it encounters a new model on the road, novelty detection recognizes it as a new car type it hasn't seen, but understands it's still a car, a novel instance within a known category.
 
-#Outlier Detection (OD): Identifying data points that are significantly different from the majority of the data. Outliers can be a form of anomalies or novel instances, but not all outliers are necessarily out-of-distribution.
+##### Outlier Detection (OD):
+Identifying data points that are significantly different from the majority of the data. Outliers can be a form of anomalies or novel instances, but not all outliers are necessarily out-of-distribution.
 
 Example: Suppose the system is trained on cars and trucks moving at typical city speeds. One day, it detects a car moving significantly faster than all the others. This car is an outlier in the context of normal traffic behavior.
 
-#Anomaly Detection (AD): Identifying abnormal or irregular instances that raise suspicions by differing significantly from the majority of the data. Anomalies can be outliers, and they might also be out-of-distribution, but the key aspect is their significance in terms of indicating a problem or rare event.
+##### Anomaly Detection (AD):
+Identifying abnormal or irregular instances that raise suspicions by differing significantly from the majority of the data. Anomalies can be outliers, and they might also be out-of-distribution, but the key aspect is their significance in terms of indicating a problem or rare event.
 
 Example: The system might flag a vehicle going the wrong way on a one-way street as an anomaly. It's not just an outlier; it's an anomaly that indicates a potentially dangerous situation.
 
-#Open Set Recognition (OSR): Classifying known classes while identifying and rejecting unknown classes during testing. OSR is closely related to OOD, as it involves recognizing when an instance does not belong to any of the learned categories.
+##### Open Set Recognition (OSR):
+Classifying known classes while identifying and rejecting unknown classes during testing. OSR is closely related to OOD, as it involves recognizing when an instance does not belong to any of the learned categories.
 
 Example: During operation, the system identifies various known objects such as cars, trucks, pedestrians, and bicycles. However, when it encounters an unrecognized object, such as a fallen tree, it must classify it as "unknown. Open set recognition is critical because the system must be able to recognize that this object doesn't fit into any of its known categories.
 
@@ -106,11 +111,17 @@ Links to standards:
 
   - Not covered yet in ISO/IEC standards
 
+  - ENISA Securing Machine Learning Algorithms Annex C: "Ensure that the model is sufficiently resilient to the environment in which it will operate."
+
 References:
 
   - Hendrycks, Dan, and Kevin Gimpel. "A baseline for detecting misclassified and out-of-distribution examples in neural networks." arXiv preprint arXiv:1610.02136 (2016). ICLR 2017.
-
+    
   - Yang, Jingkang, et al. "Generalized out-of-distribution detection: A survey." arXiv preprint arXiv:2110.11334 (2021).
+    
+  - Khosla, Prannay, et al. "Supervised contrastive learning." Advances in neural information processing systems 33 (2020): 18661-18673.
+
+  - Sehwag, Vikash, et al. "Analyzing the robustness of open-world machine learning." Proceedings of the 12th ACM Workshop on Artificial Intelligence and Security. 2019.
 
 
 #### #DETECTADVERSARIALINPUT
