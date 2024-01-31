@@ -253,3 +253,4 @@ Misc.:
 - [ETSI GR SAI 002 V 1.1.1 Securing Artificial Intelligence (SAI) – Data Supply Chain Security](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/002/01.01.01_60/gr_SAI002v010101p.pdf)
 - [ISO/IEC 20547-4 Big data security](https://www.iso.org/standard/71278.html)
 - [IEEE 2813 Big Data Business Security Risk Assessment](https://standards.ieee.org/ieee/2813/7535/)
+- [OECD AI Incidents Monitor (AIM)](https://oecd.ai/en/incidents) AIM documents AI incidents to help policymakers, AI practitioners, and all stakeholders to gain valuable insights into the incidents and hazards that concretise AI risks
