@@ -101,8 +101,8 @@ Identifying abnormal or irregular instances that raise suspicions by differing s
 
 Example: The system might flag a vehicle going the wrong way on a one-way street as an anomaly. It's not just an outlier; it's an anomaly that indicates a potentially dangerous situation.
 
-##### Open Set Recognition (OSR - a form of OOD):
-Classifying known classes while identifying and rejecting unknown classes during testing. OSR is closely related to OOD, as it involves recognizing when an instance does not belong to any of the learned categories. This recognition makes use of the decision boundaries of the model.
+##### Open Set Recognition (OSR - a way to perform Anomaly Detection):
+Classifying known classes while identifying and rejecting unknown classes during testing. OSR is a way to perform anomaly detection, as it involves recognizing when an instance does not belong to any of the learned categories. This recognition makes use of the decision boundaries of the model.
 
 Example: During operation, the system identifies various known objects such as cars, trucks, pedestrians, and bicycles. However, when it encounters an unrecognized object, such as a fallen tree, it must classify it as "unknown. Open set recognition is critical because the system must be able to recognize that this object doesn't fit into any of its known categories.
 
