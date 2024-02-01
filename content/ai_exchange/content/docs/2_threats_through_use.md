@@ -143,6 +143,8 @@ Links to standards:
 
   - Not covered yet in ISO/IEC standards
 
+  - ENISA Securing Machine Learning Algorithms Annex C: "Implement tools to detect if a data point is an adversarial example or not"
+
 References:
 
   - [Feature squeezing](https://arxiv.org/pdf/1704.01155.pdf) (IDBT) compares the output of the model against the output based on a distortion of the input that reduces the level of detail. This is done by reducing the number of features or reducing the detail of certain features (e.g. by smoothing). This approach is like INPUTDISTORTION, but instead of just changing the input to remove any adversarial data, the model is also applied to the original input and then used to compare it, as a detection mechanism.
@@ -213,6 +215,10 @@ Care must be taken when considering robust model designs, as security concerns h
 
   - ISO/IEC TR 24029 (Assessment of the robustness of neural networks) Gap: this standard discusses general robustness and does not discuss robustness against adversarial inputs explicitly.
 
+  - ENISA Securing Machine Learning Algorithms Annex C: "Choose and define a more resilient model design"
+
+  - ENISA Securing Machine Learning Algorithms Annex C: "Reduce the information given by the model"
+
   References:
 
   -  Xiao, Chang, Peilin Zhong, and Changxi Zheng. "Enhancing Adversarial
@@ -246,6 +252,8 @@ PMLR, 2018.
 
   - Not covered yet in ISO/IEC standards
 
+  - ENISA Securing Machine Learning Algorithms Annex C: "Add some adversarial examples to the training dataset"
+
 
 #### #INPUTDISTORTION
 (runtime datascience). Input distortion: lightly modify the input with the intention to distort the adversarial attack causing it to fail, while maintaining sufficient model correctness. Modification can be done by adding noise (randomization), or by smoothing.  
@@ -258,6 +266,8 @@ Links to standards:
 
   - Not covered yet in ISO/IEC standards
 
+  - ENISA Securing Machine Learning Algorithms Annex C: "Apply modifications on inputs"
+
   
 #### #ADVERSARIALROBUSTDISTILLATION
 (development-time datascience). Adversarial-robust distillation: defensive distillation involves training a student model to replicate the softened outputs of the *teacher* model, increasing the resilience of the *student* model to adversarial examples by smoothing the decision boundaries and making the model less sensitive to small perturbations in the input. Care must be taken when considering defensive distillation techniques, as security concerns have arisen about their effectiveness.
@@ -265,6 +275,8 @@ Links to standards:
 Links to standards:
 
   - Not covered yet in ISO/IEC standards
+
+  - ENISA Securing Machine Learning Algorithms Annex C: "Choose and define a more resilient model design"
  
  References
 
