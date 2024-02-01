@@ -130,13 +130,13 @@ References:
 
 
 #### #DETECTADVERSARIALINPUT
-(runtime datascience). Detect adversarial input: implement tools to detect specific evasions in input (e.g. patches in images).
+(runtime datascience). Detect adversarial input: Implement tools to detect specific evasions in input (e.g. patches in images).
 
 The main concepts of adversarial attack detectors include:
   - Activation Analysis: Examining the activations of different layers in a neural network can reveal unusual patterns or anomalies when processing an adversarial input. These anomalies can be used as a signal to detect potential attacks.
   - Statistical Analysis: This involves examining the statistical properties of the input data. Adversarial attacks often leave statistical anomalies in the data, which can be detected through various statistical tests or anomaly detection techniques. Sometimes this involves statistical properties of input from a specific user, for example to detect series of small deviations in the input space, indicating a possible attack.
   - Input Distortion Based Techniques (IDBT): A function is used to modify the input to remove any adversarial data. The model is applied to both versions of the image, the original input and the modified version. The results are compared to detect possible attacks.
-  - Detection of adversarial patches: these patches are localized, often visible modifications that can even be placed in the real world.
+  - Detection of adversarial patches: These patches are localized, often visible modifications that can even be placed in the real world. The techniques mentioned above can detect adversarial patches, yet they often require modification due to the unique noise pattern of these patches, particularly when they are used in real-world settings and processed through a camera. In these scenarios, the entire image includes benign camera noise (camera fingerprint), complicating the detection of the specially crafted adversarial patches.
   
   
 Links to standards:
