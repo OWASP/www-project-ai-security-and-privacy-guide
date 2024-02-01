@@ -239,8 +239,14 @@ adversarial examples." International conference on machine learning.
 PMLR, 2018.
 
 #### #TRAINADVERSARIAL
-(development-time datascience). Train adversarial: add adversarial examples to the training set to make the model more resilient (Datascience). While adversarial training does make a model more robust against specific attacks, it is important to note that it also adds significant training overhead, does not scale well with model complexity / input dimension, can lead to overfitting, and may not generalize well to new attack methods. For a general summary of adversarial training, see [Bai et al.](https://arxiv.org/pdf/2102.01356.pdf)
+(development-time datascience). Train adversarial: Add adversarial examples to the training set to make the model more resilient (Datascience). While adversarial training does make a model more robust against specific attacks, it is important to note that it also adds significant training overhead, does not scale well with model complexity / input dimension, can lead to overfitting, and may not generalize well to new attack methods. For a general summary of adversarial training, see [Bai et al.](https://arxiv.org/pdf/2102.01356.pdf)
 
+  Links to standards:
+
+  - Not covered yet in ISO/IEC standards
+
+  - ENISA Securing Machine Learning Algorithms Annex C: "Add some adversarial examples to the training dataset"
+  
   References:
 
   - Goodfellow, I.J.; Shlens, J.; Szegedy, C. Explaining and harnessing adversarial examples. arXiv 2014, arXiv:1412.6572.
@@ -248,25 +254,32 @@ PMLR, 2018.
   - Papernot, N.; Mcdaniel, P. Extending defensive distillation. arXiv 2017, arXiv:1705.05264.
   - Vaishnavi, Pratik, Kevin Eykholt, and Amir Rahmati. "Transferring adversarial robustness through robust representation matching." 31st USENIX Security Symposium (USENIX Security 22). 2022.
 
-  Links to standards:
-
-  - Not covered yet in ISO/IEC standards
-
-  - ENISA Securing Machine Learning Algorithms Annex C: "Add some adversarial examples to the training dataset"
-
-
 #### #INPUTDISTORTION
-(runtime datascience). Input distortion: lightly modify the input with the intention to distort the adversarial attack causing it to fail, while maintaining sufficient model correctness. Modification can be done by adding noise (randomization), or by smoothing.  
+(runtime datascience). Input distortion: Lightly modify the input with the intention to distort the adversarial attack causing it to fail, while maintaining sufficient model correctness. Modification can be done by e.g. adding noise (randomization), smoothing or JPEG compression.
 
 Maintaining model correctness can be improved by performing multiple random modifications (e.g. randomized smoothing) to the input and then comparing the model output (e.g. best of three).  
+
+The security of these defenses often relies on gradient masking (sometimes called gradient obfuscation) when the functions are non-differentiable ( shattered gradients). These defenses can be attacked by approximating the gradients, e.g., using BPDA. Systems that use defenses based on randomness to mask the gradients (stochastic gradients) can be attacked by combining the attack with EOT.
+A set of defense techniques called Random Transfomations (RT) defends neural networks by implementing enough randmoness that computing adversarial examples using EOT is computationally inefficient. This randomness is typically achieved by using a random subset of input transformations with random parameters. Since multiple transformations are applied to each input sample, the benign accuracy drops significantly, thus the network must be trained with the RT in place.
+Note that black-box or closed-box attacks do not rely on the gradients and are therefore not affected by shattered gradients. 
   
-See DETECTADVERSARIALINPUT for an approach where the distorted input is used for detecting an adversarial attacak.
+See DETECTADVERSARIALINPUT for an approach where the distorted input is used for detecting an adversarial attack.
 
 Links to standards:
 
   - Not covered yet in ISO/IEC standards
 
   - ENISA Securing Machine Learning Algorithms Annex C: "Apply modifications on inputs"
+
+References:
+  - Weilin Xu, David Evans, Yanjun Qi. Feature Squeezing: Detecting Adversarial Examples in Deep Neural Networks. 2018 Network and Distributed System Security Symposium. 18-21 February, San Diego, California.
+  - Das, Nilaksh, et al. "Keeping the bad guys out: Protecting and vaccinating deep learning with jpeg compression." arXiv preprint arXiv:1705.02900 (2017).
+  - He, Warren, et al. "Adversarial example defense: Ensembles of weak defenses are not strong." 11th USENIX workshop on offensive technologies (WOOT 17). 2017.
+  - Xie, Cihang, et al. "Mitigating adversarial effects through randomization." arXiv preprint arXiv:1711.01991 (2017).
+  - Raff, Edward, et al. "Barrage of random transforms for adversarially robust defense." Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2019.
+  - Mahmood, Kaleel, et al. "Beware the black-box: On the robustness of recent defenses to adversarial examples." Entropy 23.10 (2021): 1359.
+  - Athalye, Anish, et al. "Synthesizing robust adversarial examples." International conference on machine learning. PMLR, 2018.
+  - Athalye, Anish, Nicholas Carlini, and David Wagner. "Obfuscated gradients give a false sense of security: Circumventing defenses to adversarial examples." International conference on machine learning. PMLR, 2018.
 
   
 #### #ADVERSARIALROBUSTDISTILLATION
