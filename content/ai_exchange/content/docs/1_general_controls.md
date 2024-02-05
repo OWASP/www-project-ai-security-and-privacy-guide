@@ -33,7 +33,7 @@ Purpose: reduces probability of AI initiatives being overlooked for information 
 
 Particularity: the AI lifecycle and its specific assets and security threats need to be part of the organization's information security governance.
 
-Because AI has specific assets (e.g. training data), **AI-speific honeypots** are a partiularly interesting control. These are fake parts of the data/model/datascience infrastucture that are exposed on purpose, in order to detect or capture attackers, before they succeed to access the real assets. Examples:
+Because AI has specific assets (e.g. training data), **AI-specific honeypots** are a partiularly interesting control. These are fake parts of the data/model/datascience infrastucture that are exposed on purpose, in order to detect or capture attackers, before they succeed to access the real assets. Examples:
 
 - Hardened data services, but with an unpatched vulnerability (e.g. Elasticsearch)
 - Exposed data lakes, not revealing details of the actual assets
