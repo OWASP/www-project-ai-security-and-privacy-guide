@@ -8,21 +8,21 @@
 {{< spacer height="40" >}}
 
 {{< cards >}}
-    {{< card link="/connect" title="Connect with us!" icon="chat" >}}
-    {{< card link="/contribute" title="Contribute" icon="star" >}}
-    {{< card link="https://forms.gle/XwEEK52y4iZQChuJ6" title="Register" icon="login" >}}
-    {{< card link="/media" title="Media" icon="speakerphone" >}}
-    {{< card link="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf" title="Navigator" icon="document-download">}}
+    {{< small-card link="/connect" title="Connect with us!" icon="chat" >}}
+    {{< small-card link="/contribute" title="Contribute" icon="star" >}}
+    {{< small-card link="https://forms.gle/XwEEK52y4iZQChuJ6" title="Register" icon="login" >}}
+    {{< small-card link="/media" title="Media" icon="speakerphone" >}}
+    {{< small-card link="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf" title="Navigator" icon="document-download">}}
 {{< /cards >}}
 
 ## Our Content
 
 {{< cards >}}
-    {{< card link="/docs/ai_security_overview/" title="AI Security Overview">}}
-    {{< card link="/docs/1_general_controls/" title="1. General controls">}}
-    {{< card link="/docs/2_threats_through_use/" title="2. Threats through use">}}
-    {{< card link="/docs/3_development_time_threats/" title="3. Development-time threats">}}
-    {{< card link="/docs/4_runtime_application_security_threats/" title="4. Runtime application security threats">}}
+    {{< small-card link="/docs/ai_security_overview/" title="AI Security Overview">}}
+    {{< small-card link="/docs/1_general_controls/" title="1. General controls">}}
+    {{< small-card link="/docs/2_threats_through_use/" title="2. Threats through use">}}
+    {{< small-card link="/docs/3_development_time_threats/" title="3. Development-time threats">}}
+    {{< small-card link="/docs/4_runtime_application_security_threats/" title="4. Runtime application security threats">}}
 {{< /cards >}}
 
 ## Purpose
@@ -36,7 +36,7 @@ The AI Exchange is displayed here at [owaspai.org](https://owaspai.org) and edit
 ## Other OWASP AI Initiatives
 
 {{< cards >}}
-    {{< card link="https://owasp.org/www-project-ai-security-and-privacy-guide/" title="AI security & privacy guide" icon="lock-closed" >}}
-    {{< card link="https://llmtop10.com/" title="LLM Top 10" icon="brain" >}}
-    {{< card link="https://mltop10.info/" title="ML Top 10" icon="machinelearning" >}}
+    {{< small-card link="https://owasp.org/www-project-ai-security-and-privacy-guide/" title="AI security & privacy guide" icon="lock-closed" >}}
+    {{< small-card link="https://llmtop10.com/" title="LLM Top 10" icon="brain" >}}
+    {{< small-card link="https://mltop10.info/" title="ML Top 10" icon="machinelearning" >}}
 {{< /cards >}}
