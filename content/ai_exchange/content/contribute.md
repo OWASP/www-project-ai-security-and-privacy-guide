@@ -36,48 +36,51 @@ We value every contribution to our project, but it's important to be aware of ce
 
 If you're unsure about anything, feel free to [reach out to us](/connect) with your questions.
 {{< /tab >}}
+{{< html-tab >}}
+
+<table border='1'>
+    <tr><th>Name</th><th>Company</th><th>Country</th><th>Contribution</th></tr>
+    <tr><td>Adelin Travers</td><td>Trail of Bits</td><td></td><td></td></tr>
+    <tr><td>Alon Tron</td><td></td><td></td><td></td></tr>
+    <tr><td>Angie Qarry</td><td>QDeepTech</td><td>Austria</td><td>several elaborations and references on datascience defence mechanisms</td></tr>
+    <tr><td>Annegrit Seyerlein-Klug</td><td>TH Brandenburg</td><td>Germany</td><td>mapping with misc. standards</td></tr>
+    <tr><td>Anthony Glynn</td><td>CapitalOne</td><td>US</td><td>many textual improvements & link to LLM top 10</td></tr>
+    <tr><td>Behnaz Karimi</td><td>Accenture</td><td>Germany</td><td>misc. contributions including model obfuscation and explanation</td></tr>
+    <tr><td>Feiyang Tang</td><td>Software Improvement Group (SIG)</td><td></td><td></td></tr>
+    <tr><td>Marko Lihter</td><td>SplxAI</td><td>Croatia</td><td>step-by-step guide for organizations, ai exchange website creation, various textual improvements</td></tr>
+    <tr><td>Niklas Bunzel</td><td>Fraunhofer institute</td><td>Germany</td><td>datascience discussion and references around evasion attacks</td></tr>
+    <tr><td>Roger Sanz</td><td>Universidad Isabel</td><td>Spain</td><td></td></tr>
+    <tr><td>Sean Oesch</td><td>Oak Ridge National Laboratory</td><td>US</td><td>BLUF, Adversarial Training, OOD detection, NISTIR 8269, Guide Usability/Structure</td></tr>
+    <tr><td>Srajan Gupta</td><td>Dave</td><td></td><td></td></tr>
+    <tr><td>Steve Francolla</td><td>Workforce Tech LLC</td><td></td><td></td></tr>
+    <tr><td>Wei Wei</td><td>IBM</td><td>Germany</td><td>mapping with ISO/IEC 42001</td></tr>
+    <tr><td>Yiannis Kanellopoulos and team</td><td>Code4thought</td><td>Greece</td><td>evasion robustness</td></tr>
+    <tr><td>Zoe Braiterman</td><td>Mutual Knowledge Systems</td><td>US</td><td>Many markdown improvements</td></tr>
+</table>
+
+{{< /html-tab >}}
+{{< html-tab >}}
+
+<table border='1'>
+    <tr><th>Name</th><th>Company</th></tr>
+    <tr><td>Adelin Travers</td><td>Trail of Bits</td></tr>
+    <tr><td>Alon Tron</td><td></td></tr>
+    <tr><td>Anthony Glynn</td><td>Capital One</td></tr>
+    <tr><td>Behnaz Karimi</td><td>Accenture</td></tr>
+    <tr><td>Feiyang Tang</td><td>Software Improvement Group (SIG)</td></tr>
+    <tr><td>John Sotiropoulos</td><td>Kainos</td></tr>
+    <tr><td>Marko Lihter</td><td>SplxAI</td></tr>
+    <tr><td>Niklas Bunzel</td><td>Fraunhofer SIT</td></tr>
+    <tr><td>Rob van der Veer</td><td>Software Improvement Group (SIG)</td></tr>
+    <tr><td>Roger Sanz</td><td>SIA Group</td></tr>
+    <tr><td>Sandy Dunn</td><td>Boise State University, AI Cyber Advisors</td></tr>
+    <tr><td>Srajan Gupta</td><td>Dave</td></tr>
+    <tr><td>Steve Francolla</td><td>Workforce Tech LLC</td></tr>
+</table>
+
+{{< /html-tab >}}
 
 {{< tab >}}
-
-<!-- TODO: Transform to table -->
-- Adelin Travers - Trail of Bits
-- Alon Tron
-- Anthony Glynn - Capital One
-- Behnaz Karimi - Accenture
-- Feiyang Tang - Software Improvement Group (SIG)
-- John Sotiropoulos - Kainos
-- Marko Lihter - SplxAI
-- Niklas Bunzel - Fraunhofer SIT
-- Rob van - der Veer|Software Improvement Group (SIG)
-- Roger Sanz - SIA Group
-- Sandy Dunn - Boise State University, AI Cyber Advisors
-- Srajan Gupta - Dave
-- Steve Francolla - Workforce Tech LLC
-
-{{< /tab >}}
-{{< tab >}}
-
-<!-- TODO: Transform to table -->
-- Rob van der Veer (SIG, Netherlands) - results from AI security research at SIG: threat model, risks, navigator, matrix, risk approach, controls, gap analysis with ISO
-- Yiannis Kanellopoulos and team (Code4thought, Greece) - evasion robustness
-- Annegrit Seyerlein-Klug (TH Brandenburg, Germany) - mapping with misc. standards
-- Wei Wei (IBM, Germany) - mapping with ISO/IEC 42001
-- Roger Sanz (Universidad Isabel, Spain)
-- Angie Qarry (QDeepTech, Austria) - some elaborations and references on datascience defence mechanisms
-- Behnaz Karimi (Accenture, Germany)- misc. contributions including model obfuscation and explanation
-- Sean Oesch (Oak Ridge National Laboratory, US) - BLUF, Adversarial Training, OOD detection, NISTIR 8269, Guide Usability/Structure
-- Anthony Glynn (CapitalOne, US) - many textual improvements & link to LLM top 10
-- Zoe Braiterman (Mutual Knowledge Systems, US) - Many markdown improvements
-- Niklas Bunzel (Fraunhofer institute, Germany) - datascience discussion and references around evasion attacks
-- Marko Lihter (SplxAI, Croatia) - various textual improvements & the Exchange website
-- Milad Masoodi (SIG, Netherlands) - restructured document to put controls in sections, visible in the TOC
-
-
-{{< /tab >}}
-{{< tab >}}
-
-<!-- Add a grid of copmany logos-->
-
 {{< /tab >}}
 
 {{< tab >}}
