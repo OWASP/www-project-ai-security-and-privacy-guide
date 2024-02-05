@@ -38,10 +38,6 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
 {{< /tab >}}
 {{< html-tab >}}
 
-
-{{< /html-tab >}}
-{{< html-tab >}}
-
 <table border='1'>
     <tr><th>Name</th><th>Company</th><th>Country</th><th>Contribution</th></tr>
     <tr><td>Adelin Travers</td><td>Trail of Bits</td><td></td><td></td></tr>
@@ -83,6 +79,9 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
 </table>
 
 {{< /html-tab >}}
+
+{{< tab >}}
+{{< /tab >}}
 
 {{< tab >}}
 
