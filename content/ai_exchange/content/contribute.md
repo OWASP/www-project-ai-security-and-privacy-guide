@@ -51,12 +51,9 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
     <tr><td>Anthony Glynn</td><td>CapitalOne</td><td>US</td><td>many textual improvements & link to LLM top 10</td></tr>
     <tr><td>Behnaz Karimi</td><td>Accenture</td><td>Germany</td><td>misc. contributions including model obfuscation and explanation</td></tr>
     <tr><td>Feiyang Tang</td><td>Software Improvement Group (SIG)</td><td></td><td></td></tr>
-    <tr><td>John Sotiropoulos</td><td>Kainos</td><td></td><td></td></tr>
     <tr><td>Marko Lihter</td><td>SplxAI</td><td>Croatia</td><td>step-by-step guide for organizations, ai exchange website creation, various textual improvements</td></tr>
     <tr><td>Niklas Bunzel</td><td>Fraunhofer institute</td><td>Germany</td><td>datascience discussion and references around evasion attacks</td></tr>
-    <tr><td>Rob van der Veer</td><td>Software Improvement Group (SIG)</td><td></td><td></td></tr>
     <tr><td>Roger Sanz</td><td>Universidad Isabel</td><td>Spain</td><td></td></tr>
-    <tr><td>Sandy Dunn</td><td>Boise State University</td><td>AI Cyber Advisors</td><td></td></tr>
     <tr><td>Sean Oesch</td><td>Oak Ridge National Laboratory</td><td>US</td><td>BLUF, Adversarial Training, OOD detection, NISTIR 8269, Guide Usability/Structure</td></tr>
     <tr><td>Srajan Gupta</td><td>Dave</td><td></td><td></td></tr>
     <tr><td>Steve Francolla</td><td>Workforce Tech LLC</td><td></td><td></td></tr>
