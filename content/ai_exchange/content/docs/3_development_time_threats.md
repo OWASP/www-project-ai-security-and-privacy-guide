@@ -210,7 +210,7 @@ Model types resilient against a transfer learning attack, have been trained with
 
 - See General controls
 - See #SUPPLYCHAINMANAGE
-- Choose a model type resilient against a transfer learning attack
+- Choose a model type that incorporates defensive mechanisms such as adversarial training, regularization, or ensemble techniques, which can enhance the model's resilience to transfer learning attacks.
 
 ---
 
