@@ -27,7 +27,7 @@ Links to standards:
 #### #SECPROGRAM 
 (management). Having a security program. Include the whole AI lifecycle and AI particularities in the organization's security program (also referred to as _information security management system_).
 
-Make sure to include AI-specific threats and assets (e.g. assets the development environment includign AI Ops / ML Ops).
+Make sure to include AI-specific threats and assets (e.g. assets the development environment including AI Ops / ML Ops).
 
 Purpose: reduces probability of AI initiatives being overlooked for information security management, vastly decreasing security risk as the security program takes responsibility for the AI-specific threats and corresponding controls in this document. For more details on using this document in risk analysis, see the Introduction section.
 
