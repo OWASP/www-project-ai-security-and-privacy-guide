@@ -202,6 +202,8 @@ Data manipulation is referred to as data poisoning and is covered in separate th
 
 An attacker supplies a manipulated pre-trained model which is then unknowingly further trained/fine tuned with still having the unwanted behaviour.
 
+Model types resilient against a transfer learning attack, have been trained with adversarial robustness techniques and the ability to abstain from making predictions when uncertain.
+
   Example: GenAI models are sometimes obtained elsewhere (e.g. open source) and then fine-tuned. These models may have been manipulated at the source, or in transit. See [OWASP for LLM 05: Supply Chain Vulnerabilities.](https://llmtop10.com/llm05/).
 
 **Controls specific for transfer learning:**
