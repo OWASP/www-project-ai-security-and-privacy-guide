@@ -6,12 +6,12 @@ excludeSearch: true
 ## Platforms
 
 {{< cards >}}
-    {{< card link="https://forms.gle/XwEEK52y4iZQChuJ6" title="Register" icon="login" >}}
-    {{< card link="https://owasp.slack.com/join/shared_invite/zt-g398htpy-AZ40HOM1WUOZguJKbblqkw#" title="Slack" icon="slack-big" >}}
-    {{< card link="https://www.linkedin.com/company/owasp-ai-exchange/" title="LinkedIn" icon="linkedin" >}}
-    {{< card link="mailto:rob.vanderveer@owasp.org" title="E-mail" icon="mail">}}
-    {{< card link="https://twitter.com/owasp" title="Twitter" icon="x-twitter" >}}
-    {{< card link="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions" title="GitHub" icon="github" >}}
+    {{< small-card link="https://forms.gle/XwEEK52y4iZQChuJ6" title="Register" icon="login" >}}
+    {{< small-card link="https://owasp.slack.com/join/shared_invite/zt-g398htpy-AZ40HOM1WUOZguJKbblqkw#" title="Slack" icon="slack-big" >}}
+    {{< small-card link="https://www.linkedin.com/company/owasp-ai-exchange/" title="LinkedIn" icon="linkedin" >}}
+    {{< small-card link="mailto:rob.vanderveer@owasp.org" title="E-mail" icon="mail">}}
+    {{< small-card link="https://twitter.com/owasp" title="Twitter" icon="x-twitter" >}}
+    {{< small-card link="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions" title="GitHub" icon="github" >}}
 {{< /cards >}}
 
 Engage with the OWASP AI team through various platforms.
