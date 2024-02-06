@@ -1,12 +1,16 @@
 baseURL: https://owaspai.org/
 languageCode: en-us
 title: AI Exchange
+linktitle: AI Exchange
+description: Comprehensive guidance and alignment on how to protect AI against security threats - by professionals, for professionals.
 
 module:
   imports:
     - path: github.com/imfing/hextra
 
 params:
+  image:
+    - images/owaspx7.png
   navbar:
     displayTitle: true
     displayLogo: true
