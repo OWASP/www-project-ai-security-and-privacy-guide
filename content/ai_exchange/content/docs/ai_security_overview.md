@@ -17,7 +17,10 @@ While AI offers powerful perfomance boosts, it also increases the attack surface
 - **Limit the impact** of AI by minimizing privileges and adding oversight, e.g. guardrails, human oversight.
 - **Countermeasures in data science** through understanding of model attacks, e.g. data quality assurance, larger training sets, detecting common perturbation attacks, input filtering.
 
-![AI Specific Security Threats](/images/owaspaimodelv1.png)
+### Threat model
+![AI Security Threats](/images/aisecthreat.png)
+
+![AI Security Threats and controls](/images/aisecthreatcontrols.png)
 
 ### Navigator diagram
 The navigator diagram below shows all threats, controls and how they relate, including risks and the types of controls.  
