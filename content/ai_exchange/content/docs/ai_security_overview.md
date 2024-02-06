@@ -18,9 +18,9 @@ While AI offers powerful perfomance boosts, it also increases the attack surface
 - **Countermeasures in data science** through understanding of model attacks, e.g. data quality assurance, larger training sets, detecting common perturbation attacks, input filtering.
 
 ### Threat model
-![AI Security Threats](/images/aisecthreat.png)
+![AI Security Threats](/images/aisecthreats2.png)
 
-![AI Security Threats and controls](/images/aisecthreatcontrols.png)
+![AI Security Threats and controls](/images/aisecthreatscontrols2.png)
 
 ### Navigator diagram
 The navigator diagram below shows all threats, controls and how they relate, including risks and the types of controls.  
