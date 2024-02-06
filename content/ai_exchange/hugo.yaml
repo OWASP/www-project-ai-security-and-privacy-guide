@@ -42,18 +42,21 @@ menu:
     - name: Media
       pageRef: /media
       weight: 3
+    - name: Meetings
+      pageRef: /meetings
+      weight: 4
     - name: Contribute
       pageRef: /contribute
-      weight: 4
+      weight: 5
     - name: Connect
       pageRef: /connect
-      weight: 5
-    - name: Search
       weight: 6
+    - name: Search
+      weight: 7
       params:
         type: search
     - name: GitHub
-      weight: 7
+      weight: 8
       url: "https://github.com/OWASP/www-project-ai-security-and-privacy-guide"
       params:
         icon: github
@@ -75,12 +78,15 @@ menu:
     - name: Media
       pageRef: /media
       weight: 5
+    - name: Meetings
+      pageRef: /meetings
+      weight: 6
     - name: Register
       url: https://forms.gle/XwEEK52y4iZQChuJ6
-      weight: 6
+      weight: 7
     - name: Navigator
       url: https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf
-      weight: 7
+      weight: 8
 
 services:
   googleAnalytics:
