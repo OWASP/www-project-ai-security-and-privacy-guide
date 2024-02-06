@@ -1,16 +1,16 @@
 baseURL: https://owaspai.org/
 languageCode: en-us
 title: AI Exchange
-linktitle: AI Exchange
-description: Comprehensive guidance and alignment on how to protect AI against security threats - by professionals, for professionals.
 
 module:
   imports:
     - path: github.com/imfing/hextra
 
+
+
 params:
-  image:
-    - images/owaspx7.png
+  og_image: https://owaspai.org/images/owaspx7.png
+  og_description: Comprehensive guidance and alignment on how to protect AI against security threats - by professionals, for professionals.
   navbar:
     displayTitle: true
     displayLogo: true
@@ -81,3 +81,8 @@ menu:
     - name: Navigator
       url: https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf
       weight: 7
+
+services:
+  googleAnalytics:
+    # This might not be correct format?
+    ID: G-QPGVTTDD3R
