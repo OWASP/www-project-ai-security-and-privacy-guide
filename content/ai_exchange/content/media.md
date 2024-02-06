@@ -12,3 +12,14 @@ excludeSearch: true
 | 4 Jul 2023 | Software Improvement Group Podcast | A.I. Security: A guide to implementing security and risk controls in AI | [Podcast](https://www.brighttalk.com/webcast/19697/586526) |
 | 23 Feb 2023 | The Application Security Podcast w/ Chris Romeo and Robert Hurlbut | OWASP AI Security & Privacy Guide w/ Rob van der Veer | [YouTube](https://www.youtube.com/watch?v=SLdn3AwlCAk&) [Podcast](https://www.buzzsprout.com/1730684/12313155-rob-van-der-veer-owasp-ai-security-privacy-guide) |
 | 15 Feb 2023 | OWASP Conference Dublin | Attacking And Protecting Artificial Intelligence w/ Rob Van Der Veer | [YouTube](https://www.youtube.com/watch?v=ABmWHnFrMqI) |
+
+## AI Exchange Team Meetings
+- Bi-weekly Sync on **Thursdays at 5 PM (GMT), 8 AM (PST)**
+- **Upcoming Meeting February 8, 2024** (link will be posted)
+- Previous Meetings can be viewed on the **[YouTube channel](https://youtube.com/@RobvanderVeer-ex3gj?si=s2-gDFrRCazNge_c)**
+
+### Previous Meetings
+
+| Date | Title | Video |
+| - | - | - |
+| 25 Feb 2024 | 2024 Kick Off | [YouTube](https://youtu.be/rwqv2m4-0vA?si=ZSB5-DfntaUjxF8I) |
