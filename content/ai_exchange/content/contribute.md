@@ -4,7 +4,7 @@ excludeSearch: true
 ---
 
 {{< cards >}}
-  {{< card link="https://github.com/OWASP/www-project-ai-security-and-privacy-guide" title="GitHub Repo" icon="github" >}}
+  {{< small-card link="https://github.com/OWASP/www-project-ai-security-and-privacy-guide" title="GitHub Repo" icon="github" >}}
 {{< /cards >}}
 
 &nbsp;{{< github-stars user="OWASP" repo="www-project-ai-security-and-privacy-guide" repo_url="https://github.com/OWASP/www-project-ai-security-and-privacy-guide" >}}
