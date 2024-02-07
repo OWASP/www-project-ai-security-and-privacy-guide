@@ -92,7 +92,7 @@ Links to standards:
   - See [OpenCRE on secure software development processes](https://www.opencre.org/cre/616-305) with notable links to NIST SSDF and OWASP SAMM. Gap: covers this control fully, with said particularity
 
 #### #DEVPROGRAM 
-(management). Having a development program for AI. Apply general (not just security-oriented) software engineering best practices to AI development.
+(management). Having a development lifecycle program for AI. Apply general (not just security-oriented) software engineering best practices to AI development.
 
 Data scientists are focused on creating working models, not on creating future-proof software per se. Often, organizations already have software practices and processes in place. It is important to extend these to AI development, instead of treating AI as something that requires a separate approach. Do not isolate AI engineering. This includes automated testing, code quality, documentation, and versioning. ISO/IEC 5338 explains how to make these practices work for AI.
 
@@ -103,6 +103,9 @@ A best practice is to mix data scientist profiles with software engineering prof
 Another best practice is to continuously measure quality aspects of data science code (maintainability, test code coverage), and provide coaching to data scientists in how to manage those quality levels.
 
 Apart from conventional software best practices, there are important AI-specific engineering practices, including for example data provenance & lineage, model traceability and AI-specific testing such as continuous validation, testing for model staleness and concept drift. ISO/IEC 5338 discussess these AI engineering practices.
+
+The below interpretation diagram of ISO/IEC 5338 provides a good overview to get an idea of the topics involved.
+![5338](/images/5338.png)
 
 Links to standards:
 
