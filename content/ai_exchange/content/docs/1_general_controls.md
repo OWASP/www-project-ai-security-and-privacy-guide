@@ -175,7 +175,11 @@ Adding sufficient noise to training data can make it effectively uncrecognizable
     
 - Objective function perturbation
     
-In privacy-preserving machine learning, objective function perturbation is a technique to enhance training data privacy. It introduces noise or modifications to the objective function, adding controlled randomness to make it difficult for adversaries to extract specific details about individual data points. This method contributes to achieving differential privacy, preventing the undue influence of a single data point on the model's behavior.
+Objective function perturbation is a differential privacy technique used to train machine learning models while maintaining data privacy. It involves the intentional introduction of a controlled amount of noise into the learning algorithm’s objective function, which is a measure of the discrepancy between a model’s predictions and the actual results. The perturbation, or slight modification, involves adding noise to the objective function, resulting in a final model that doesn’t exactly fit the original data, thereby preserving privacy. The added noise is typically calibrated to the objective function’s sensitivity to individual data points and the desired privacy level, as quantified by parameters like epsilon in differential privacy. This ensures that the trained model doesn’t reveal sensitive information about any individual data point in the training dataset. The main challenge in objective function perturbation is balancing data privacy with the accuracy of the resulting model. Increasing the noise enhances privacy but can degrade the model’s accuracy. The goal is to strike an optimal balance where the model remains useful while individual data points stay private.
+
+References:
+
+- [Differentially Private Objective Perturbation: Beyond Smoothness and Convexity](https://arxiv.org/abs/1909.01783v1)
 
 - Masking
     
