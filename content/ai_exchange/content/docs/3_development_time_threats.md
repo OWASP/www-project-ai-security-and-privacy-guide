@@ -91,7 +91,8 @@ Just like with obtained source code or software components, data or models may i
 
 Data provenance is a helpful activity to support supply chain management for obtained data.  The Software Bill Of Materials (SBOM) becomes the AIBOM (AI Bill Of Materials) or MBOM (Model Bill of Material). AI systems often have a variation of supply chains, including the data supply chain, the labeling supply chain, and the model supply chain.
 
-Standard supply chain management includes provenance & pedigree, verifying signatures, using package repositories, frequent patching, and using dependency verification tools.
+Standard supply chain management includes provenance & pedigree, verifying signatures, using package repositories, frequent patching, and using dependency verification tools. In standard software development life cycle the right guardrails are set to make sure the problematic dependencies aren't reaching the sensitive data which is mostly in production. On the other hand, the data development life cycle is composed of different steps. Data practitioners usually need the data in order to train models so the development lifecycle usually starts by experimenting with tools such as notebooks and other MLOps applications, and the sensitive data is stored in them. The data practitioners also install dependencies on the notebooks which makes the data development’s experimenting environment a dangerous attack vector and the classic supply chain guardrails currently don’t scan it.
+
 
 See [MITRE ATLAS - ML Supply chain compromise](https://atlas.mitre.org/techniques/AML.T0010).
 
