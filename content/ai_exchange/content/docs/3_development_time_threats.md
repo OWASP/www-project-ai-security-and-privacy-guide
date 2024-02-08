@@ -83,16 +83,16 @@ Links to standards:
 - Not covered yet in ISO/IEC standards
 
 #### #SUPPLYCHAINMANAGE
-(development-time infosec) Supply chain management: Managing the supply chain to to minimize the security risk from externally obtained elements. In regular software engineering these elements are source code or software components (e.g. open source). The particularity for AI is that this also includes obtained data and obtained models.
+(development-time infosec) Supply chain management: Managing the supply chain to minimize the security risk from externally obtained elements. In regular software engineering these elements are source code or software components (e.g. open source). The particularities for AI are: 1) these elements also include obtained data and obtained models, and 2) many of the software components are executed development-time instead of just in production (the runtime of the application).
 
-Security risks in obtained elements can arise from accidental mistakes or from manipulations - just like with obtained source code or software components.
+Security risks in obtained data or models can arise from accidental mistakes or from manipulations - just like with obtained source code or software components.
 
-Just like with obtained source code or software components, data or models may involve multiple suppliers. For example: a model is trained by one vendor and then fine-tuned by another vendor. Or: an AI system contains multiple models, one is a model that has been fine-tuned with data from source X, using a base model from vendor A that claims data is used from sources Y and Z, where the data from source Z was labeled by vendor B.
+The AI supply chain can be complex. Just like with obtained source code or software components, data or models may involve multiple suppliers. For example: a model is trained by one vendor and then fine-tuned by another vendor. Or: an AI system contains multiple models, one is a model that has been fine-tuned with data from source X, using a base model from vendor A that claims data is used from sources Y and Z, where the data from source Z was labeled by vendor B. 
+Because of hise supply chain complexity, data and model provenance is a helpful activity.  The Software Bill Of Materials (SBOM) becomes the AIBOM (AI Bill Of Materials) or MBOM (Model Bill of Material). 
 
-Data provenance is a helpful activity to support supply chain management for obtained data.  The Software Bill Of Materials (SBOM) becomes the AIBOM (AI Bill Of Materials) or MBOM (Model Bill of Material). AI systems often have a variation of supply chains, including the data supply chain, the labeling supply chain, and the model supply chain.
+Standard supply chain management includes provenance & pedigree, verifying signatures, using package repositories, frequent patching, and using dependency verification tools. 
 
-Standard supply chain management includes provenance & pedigree, verifying signatures, using package repositories, frequent patching, and using dependency verification tools. In standard software development life cycle the right guardrails are set to make sure the problematic dependencies aren't reaching the sensitive data which is mostly in production. On the other hand, the data development life cycle is composed of different steps. Data practitioners usually need the data in order to train models so the development lifecycle usually starts by experimenting with tools such as notebooks and other MLOps applications, and the sensitive data is stored in them. The data practitioners also install dependencies on the notebooks which makes the data development’s experimenting environment a dangerous attack vector and the classic supply chain guardrails currently don’t scan it.
-
+As said, in AI many of the software components are executed development-time, instead of just in production. Data engineering and model enmgineering involve operations on data and models for which often external components are used (e.g. tools such as Notebooks, or other MLOps applications). Because AI development has new assets such as the data and model parameters, these components pose a new threat. To make matters worse, data scientists also install dependencies on the Notebooks which makes the data and model engineering environment a dangerous attack vector and the classic supply chain guardrails typically don’t scan it.
 
 See [MITRE ATLAS - ML Supply chain compromise](https://atlas.mitre.org/techniques/AML.T0010).
 
