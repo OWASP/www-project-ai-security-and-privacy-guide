@@ -2,12 +2,9 @@
 title: AI Security Overview
 weight: 1
 ---
-See [home](https://owaspai.org/) for more information about this initiative, how to contribute or connect.  
+## Summary - How to address AI Security?
+>See [home](https://owaspai.org/) for more information about this initiative, how to contribute or connect.  
 This page contains an overview of AI security and the next pages provide the main content: details on security threats to AI and controls against them. You can navigate through  pages at the bottom of every page, or in the left sidebar. The right sidebar shows the different sections on a page. On small screens you can navigate through the menu.
-
-## Summary and visualisations
-
-### Short summary: How to address AI Security?
 
 While AI offers powerful perfomance boosts, it also increases the attack surface available to bad actors. It is therefore imperative to approach AI applications with a clear understanding of potential threats and which of those threats to prioritize for each use case. Standards and governance help guide this process for individual entities leveraging AI capabilities.
 
@@ -17,9 +14,20 @@ While AI offers powerful perfomance boosts, it also increases the attack surface
 - **Limit the impact** of AI by minimizing privileges and adding oversight, e.g. guardrails, human oversight.
 - **Countermeasures in data science** through understanding of model attacks, e.g. data quality assurance, larger training sets, detecting common perturbation attacks, input filtering.
 
+## Overview of threats
+
 ### Threat model
+We distinguish three types of threats: during development-time (when data is obtained and prepared, and the model is trained/obtained), through using the model (providing input and reading the output), and by attacking the system during runtime (in production).
+The diagram shows the threats in these three groups as arrows. Each threat has a specific impact, incidcated by the letters, referring to the Impact legend. The control overview section contains this diagram with groups of controls added.
 ![AI Security Threats](/images/aisecthreats2.png)
 
+### AI Security Matrix
+The AI security matrix below shows all threats and risks, ordered by type and impact.
+[![](/images/OwaspAIsecuritymatix.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/OwaspAIsecuritymatix.png)
+
+## Overview of controls
+
+## Threat model with controls
 ![AI Security Threats and controls](/images/aisecthreatscontrols2.png)
 
 ### Navigator diagram
@@ -29,11 +37,7 @@ The navigator diagram below shows all threats, controls and how they relate, inc
 {{< /callout >}}
 [![](/images/owaspaioverviewv2.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf)
 
-### AI Security Matrix
-The AI security matrix below shows all threats and risks, ordered by attack surface and lifecycle.
-[![](/images/OwaspAIsecuritymatix.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/OwaspAIsecuritymatix.png)
-
-### Summary with controls
+### Controls added to the summary
 
 How to address AI security, including all controls (in capitals - and discussed further on in the document):
 
