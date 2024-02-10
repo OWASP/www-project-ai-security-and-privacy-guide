@@ -28,7 +28,9 @@ The AI security matrix below shows all threats and risks, ordered by type and im
 ## Controls overview
 
 ### Threat model with controls
-The below diagram puts the controls in the AI Exchange into groups and places these groups in the right lifecycle with the corresponding threats:
+The below diagram puts the controls in the AI Exchange into groups and places these groups in the right lifecycle with the corresponding threats.
+![AI Security Threats and controls](/images/threatscontrols.png)
+The groups of controls are:
 - **Datascience development controls**:many things data scientists can do such as adding noise to training data, federative learning, data quality control, etc.
 - **Conventional security of the development environment** plus new attention to the **supply chain of data and models** obtained from third parties
 - **Governance** of AI projects and risks, information security and software lifecycle
@@ -39,9 +41,7 @@ The below diagram puts the controls in the AI Exchange into groups and places th
 - **Behaviour limiting controls** are very important in AI, as the model can behave in unwanted ways wheb it hasn't been trained perfectly, or it has been manipulated. Examples: oversight, guard rails, model privilige control, and continuous validation.
 - **Conventional rumtime security**: last but not least: an AI system is an IT system with an application and an infrastructure, so it requires 'regular' security controls, taking into account the AI-specific assets and threats eg. sensitive model I/O, senstive model paramaters, plugin security, and output that may contain injection attacks.
 
-All these threats and controls are discussed in the further content of the AI Exchange.
-
-![AI Security Threats and controls](/images/threatscontrols.png)
+All threats and controls are discussed in the further content of the AI Exchange.
 
 Below diagram restricts the threats and controls to Generative AI only, for situations in which **training or finetuning** is done by the organization (note: this is not very common given the high cost and required expertise).
 
