@@ -19,7 +19,7 @@ While AI offers powerful perfomance boosts, it also increases the attack surface
 ### Threat model
 We distinguish three types of threats: during development-time (when data is obtained and prepared, and the model is trained/obtained), through using the model (providing input and reading the output), and by attacking the system during runtime (in production).
 The diagram shows the threats in these three groups as arrows. Each threat has a specific impact, incidcated by the letters, referring to the Impact legend. The control overview section contains this diagram with groups of controls added.
-![AI Security Threats](/images/aisecthreats2.png)
+![AI Security Threats](/images/threats.png)
 
 ### AI Security Matrix
 The AI security matrix below shows all threats and risks, ordered by type and impact.
@@ -28,7 +28,29 @@ The AI security matrix below shows all threats and risks, ordered by type and im
 ## Controls overview
 
 ### Threat model with controls
-![AI Security Threats and controls](/images/aisecthreatscontrols2.png)
+The below diagram puts the controls in the AI Exchange into groups and places these groups in the right lifecycle with the corresponding threats:
+- **Datascience development controls**:many things data scientists can do such as adding noise to training data, federative learning, data quality control, etc.
+- **Conventional security of the development environment** plus new attention to the **supply chain of data and models** obtained from third parties
+- **Governance** of AI projects and risks, information security and software lifecycle
+- **Minimizing data** in development (e.g. anonymizing training data) and in runtime (e.g. not storing user details with prompts)
+- Applying controls on the input of the model (**monitoring, rate limiting and access control**): conventional controls but with AI attention points, for example: which use patterns are suspect?
+- **Datascience input controls** require data scientists to develop mechanisms to detect and filter malicious use
+- **Filter sensitive output** can help reduce data leaking through model output
+- **Behaviour limiting controls** are very important in AI, as the model can behave in unwanted ways wheb it hasn't been trained perfectly, or it has been manipulated. Examples: oversight, guard rails, model privilige control, and continuous validation.
+- **Conventional rumtime security**: last but not least: an AI system is an IT system with an application and an infrastructure, so it requires 'regular' security controls, taking into account the AI-specific assets and threats eg. sensitive model I/O, senstive model paramaters, plugin security, and output that may contain injection attacks.
+
+All these threats and controls are discussed in the further content of the AI Exchange.
+
+![AI Security Threats and controls](/images/threatscontrols.png)
+
+Below diagram restricts the threats and controls to Generative AI only, for situations in which **training or finetuning** is done by the organization (note: this is not very common given the high cost and required expertise).
+
+![AI Security Threats and controls - GenAI trained or finetuned](/images/threatscontrols-genainotready.png)
+
+Below diagram restricts the threats and controls to Generative AI only, for situations in which the model is used **as-is** by the organization. Several threats still exist but they are the responsibility of the model provider. Nevertheless, the organization using the model should take the risks into account and gain assurance about them from the provider.
+
+![AI Security Threats and controls - GenAI as-is](/images/threatscontrols-readymodel.png)
+
 
 ### Navigator diagram
 The navigator diagram below shows all threats, controls and how they relate, including risks and the types of controls.  
