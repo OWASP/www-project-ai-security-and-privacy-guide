@@ -27,7 +27,7 @@ The AI security matrix below shows all threats and risks, ordered by type and im
 
 ## Controls overview
 
-### Threat model with controls
+### Threat model with controls - general
 The below diagram puts the controls in the AI Exchange into groups and places these groups in the right lifecycle with the corresponding threats.
 ![AI Security Threats and controls](/images/threatscontrols.png)
 The groups of controls are:
@@ -43,10 +43,12 @@ The groups of controls are:
 
 All threats and controls are discussed in the further content of the AI Exchange.
 
+### Threat model with controls - GenAI trained/finetuned
 Below diagram restricts the threats and controls to Generative AI only, for situations in which **training or finetuning** is done by the organization (note: this is not very common given the high cost and required expertise).
 
 ![AI Security Threats and controls - GenAI trained or finetuned](/images/threatscontrols-genainotready.png)
 
+### Threat model with controls - GenAI as-is
 Below diagram restricts the threats and controls to Generative AI only, for situations in which the model is used **as-is** by the organization. Several threats still exist but they are the responsibility of the model provider. Nevertheless, the organization using the model should take the risks into account and gain assurance about them from the provider.
 
 ![AI Security Threats and controls - GenAI as-is](/images/threatscontrols-readymodel.png)
