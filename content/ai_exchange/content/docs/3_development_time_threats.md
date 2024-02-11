@@ -78,6 +78,25 @@ Links to standards:
 #### #FEDERATIVELEARNING
 (development-time datascience). Federative learning can be applied when a training set is distributed over different organizations, preventing that the data needs to be collected in a central place - increasing the risk of leaking.
 
+Federated Learning is a decentralized Machine Learning architecture wherein a number of edge clients (e.g., sensor or mobile devices) participate in collaborative, decentralized, asynchronous training, which is orchestrated and aggregated by a controlling central server. Advantages of Federated Learning include reduced central compute, and the potential for preservation of privacy, since training data may remain local to the edge/client device. 
+
+Broadly, Federated Learning generally consists of four high-level steps: First, there is a server-to-client broadcast; next, local models are updated on the client; once trained, local models are then returned to the central server; and finally, the central server updates via model aggregation.
+
+Challenges in Federated Learning include managing device and model heterogeneity, latency in broadcast phases, and preservation of privacy. Security concerns also include backdoor attacks via data/model poisoning; with federated systems additionally introducing a vast network of edge clients, some of which may be malicious. 
+
+Device Heterogeneity. User- or other edge devices may vary widely in their computational, storage, transmission, or other capabilities, presenting challenges for federated deployments. These may additionally introduce device-specific security concerns, which practitioners should take into consideration in design phases. While designing for constraints including connectivity, battery life, and compute, it is also critical to consider edge device security. 
+
+Broadcast Latency & Security. Efficient communication across a federated network introduces additional challenges. While strategies exist to minimize broadcast phase latency, they must also take into consideration potential data security risks. Because models are vulnerable during transmission phases, any communication optimizations must account for data security in transit. 
+
+Preservation of Privacy. Because data remain local to the client device, Federated Learning architectures are sometimes assumed to be fully privacy-preserving. However this is not the case, as sensitive data may still be extracted from the transmitted models themselves. Data may be revealed from models intercepted in transmission, or during the process of model aggregation by the central server. For this reason, additional privacy-enhancing measures may be applied to Federated Learning settings. 
+
+Privacy-preserving mitigations for Federated Learning include cryptographic and information-theoretic strategies, such as Secure Function Evaluation (SFE), also known as Secure Multi-Party Computation (SMC/SMPC); and Differential Privacy. However, all approaches entail tradeoffs between privacy and utility.
+
+Backdoor Attacks. Federated Learning systems have shown particular vulnerability to data- and model-poisoning attacks. Two key aspects of federated systems may exacerbate this vulnerability in production. First, Federated Learning introduces a potentially vast number of edge clients, with few guarantees against malicious actors at the device level. Second, data localization–intended to be privacy-preserving–circumvents typical centralized data curation strategies. 
+
+Recent advances in Federated (on-device) Analytics may provide tools to address some of these issues. Practitioners should implement the fullest suite of MLSecOps tools possible to detect and mitigate backdoor attacks against Federated Learning systems.
+
+
 Links to standards:
 
 - Not covered yet in ISO/IEC standards
