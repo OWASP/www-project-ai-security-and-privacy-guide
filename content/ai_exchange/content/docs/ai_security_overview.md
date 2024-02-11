@@ -18,7 +18,7 @@ While AI offers powerful perfomance boosts, it also increases the attack surface
 
 ### Threat model
 We distinguish three types of threats: during development-time (when data is obtained and prepared, and the model is trained/obtained), through using the model (providing input and reading the output), and by attacking the system during runtime (in production).
-The diagram shows the threats in these three groups as arrows. Each threat has a specific impact, incidcated by the letters, referring to the Impact legend. The control overview section contains this diagram with groups of controls added.
+The diagram shows the threats in these three groups as arrows. Each threat has a specific impact, indicated by letters referring to the Impact legend. The control overview section contains this diagram with groups of controls added.
 ![AI Security Threats](/images/threats.png)
 
 ### AI Security Matrix
