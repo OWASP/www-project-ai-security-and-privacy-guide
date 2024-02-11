@@ -274,7 +274,7 @@ Example: LLMs (GenAI), just like most AI models, induce their results based on t
 #### #OVERSIGHT
 (runtime). Oversight of model behaviour by humans or business logic (guardrails).
   
-Purpose: Detect unwanted model behavior and correct or halt the execution of a model's decision. Note: Unwanted model behavior often cannot be entirely specified, limiting the effectiveness of guardrails.
+Purpose: Detect unwanted model behavior and correct or halt the execution of a model's decision. Note: The properties of wanted or unwanted model behavior often cannot be entirely specified, limiting the effectiveness of guardrails. The alternative to apply human oversight is more costly and slower, but allows for more intelligent validation because of common sense plus human domain knowledge - provided that the person performing the oversight actually understands the situations.
   
 Examples:
 
