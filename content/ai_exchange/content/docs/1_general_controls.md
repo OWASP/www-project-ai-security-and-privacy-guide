@@ -272,9 +272,19 @@ Example: LLMs (GenAI), just like most AI models, induce their results based on t
 **Controls to limit the effects of unwanted model behaviour:**
 
 #### #OVERSIGHT
-(runtime). Oversight of model behaviour by humans or business logic (guardrails).
+(runtime). Oversight of model behaviour by humans or business logic in the form of rules (guardrails).
   
-Purpose: Detect unwanted model behavior and correct or halt the execution of a model's decision. Note: The properties of wanted or unwanted model behavior often cannot be entirely specified, limiting the effectiveness of guardrails. The alternative to apply human oversight is more costly and slower, but allows for more intelligent validation because of common sense plus human domain knowledge - provided that the person performing the oversight actually understands the situations.
+Purpose: Detect unwanted model behavior and correct or halt the execution of a model's decision. 
+
+**Limitattions of guardrails**
+The properties of wanted or unwanted model behavior often cannot be entirely specified, limiting the effectiveness of guardrails. 
+
+**limitations of human oversight**
+The alternative to guardrails is to apply human oversight. This is of course more costly and slower, but allows for more intelligent validation given the involved common sense and human domain knowledge - provided that the person performing the oversight actually has that knowledge.
+For human operators or drivers of automated systems like self-driving cars, staying actively involved or having a role in the control loop helps maintain situational awareness. This involvement can prevent complacency and ensure that the human operator is ready to take over control if the automated system fails or encounters a scenario it cannot handle. However, maintaining situational awareness can be challenging with high levels of automation due to the "out-of-the-loop" phenomenon, where the human operator may become disengaged from the task at hand, leading to slower response times or decreased effectiveness in managing unexpected situations.
+In other words: If you as a user are not involved actively in performing a task, then you lose understanding of whether it is correct or what the impact can be. If you then only need to confirm something by saying 'go ahead' or 'cancel', a badly informed 'go ahead' is easy to make.
+
+Designing automated systems that require some level of human engagement or regularly update the human operator on the system's status can help maintain situational awareness and ensure safer operations.
   
 Examples:
 
