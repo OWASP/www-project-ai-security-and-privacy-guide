@@ -48,6 +48,7 @@ Table of contents:
 - [2. Threats through use](#2-threats-through-use)
 - [3. Development-time threats](#3-development-time-threats)
 - [4. Runtime Application security threats](#4-runtime-application-security-threats)
+- [5. Risk Management](#5-risk-management)
 - [References](#references)
 - [Expanded Table of contents](#expanded-table-of-contents)
 
