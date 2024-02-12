@@ -30,16 +30,29 @@ The AI security matrix below shows all threats and risks, ordered by type and im
 ### Threat model with controls - general
 The below diagram puts the controls in the AI Exchange into groups and places these groups in the right lifecycle with the corresponding threats.
 ![AI Security Threats and controls](/images/threatscontrols.png)
-The groups of controls are:
-- **Datascience development controls**:many things data scientists can do such as adding noise to training data, federative learning, data quality control, etc.
-- **Conventional security of the development environment** plus new attention to the **supply chain of data and models** obtained from third parties
-- **Governance** of AI projects and risks, information security and software lifecycle
-- **Minimizing data** in development (e.g. anonymizing training data) and in runtime (e.g. not storing user details with prompts)
-- Applying controls on the input of the model (**monitoring, rate limiting and access control**): conventional controls but with AI attention points, for example: which use patterns are suspect?
-- **Datascience input controls** require data scientists to develop mechanisms to detect and filter malicious use
-- **Filter sensitive output** can help reduce data leaking through model output
-- **Behaviour limiting controls** are very important in AI, as the model can behave in unwanted ways wheb it hasn't been trained perfectly, or it has been manipulated. Examples: oversight, guard rails, model privilige control, and continuous validation.
-- **Conventional rumtime security**: last but not least: an AI system is an IT system with an application and an infrastructure, so it requires 'regular' security controls, taking into account the AI-specific assets and threats eg. sensitive model I/O, senstive model paramaters, plugin security, and output that may contain injection attacks.
+The groups of controls form a summary of how to address AI security (controls are in capitals:
+1. **AI Governance**: implement governance processes for AI risk, and include AI into your processes for information security and software lifecycle:  
+   >(AIPROGRAM, SECPROGRAM, DEVPROGRAM, SECDEVPROGRAM, CHECKCOMPLIANCE, SECEDUCATE)
+2. Apply conventional **technical IT security controls** risk-based, since an AI system is an IT system:
+    - 2a Apply **standard** conventional IT security controls (e.g. 15408, ASVS, OpenCRE, ISO 27001 Annex A, NIST SP800-53) to the complete AI system and don't forget the new AI-specific assets :
+      - Development-time: model & data storage, model & data supply chain, data science documentation:  
+        >(DEVDATAPROTECT, DEVSECURITY, SEGREGATEDATA, SUPPLYCHAINMANAGE, DISCRETE)
+      - Runtime: model storage, model use, plug-ins, and model input/output:  
+        >(RUNTIMEMODELINTEGRITY, RUNTIMEMODELIOINTEGRITY, RUNTIMEMODELCONFIDENTIALITY, MODELINPUTCONFIDENTIALITY, ENCODEMODELOUTPUT, LIMITRESOURCES)
+    - 2b **Adapt** conventional IT security controls to make them more suitable for AI (e.g. which usage patterns to monitor for):  
+      >(MONITORUSE, MODELACCESSCONTROL, RATELIMIT)
+    - 2c Adopt **new** IT security controls:  
+      >(CONFCOMPUTE, MODELOBFUSCATION, PROMPTINPUTVALIDATION, INPUTSEGREGATION)
+3. Data scientistists apply **datascience security controls** risk-based :
+    - 3a Development-time controls when developing the model:  
+      >(FEDERATIVELEARNING, CONTINUOUSVALIDATION, UNWANTEDBIASTESTING, EVASIONROBUSTMODEL, POISONROBUSTMODEL, TRAINADVERSARIAL, TRAINDATADISTORTION, ADVERSARIALROBUSTDISTILLATION, FILERSENSITIVETRAINDATA, MODELENSEMBLE, MORETRAINDATA, SMALLMODEL, DATAQUALITYCONTROL)
+    - 3b Runtime controls to filter and detect attacks:  
+      >(DETECTODDINPUT, DETECTADVERSARIALINPUT, DOSINPUTVALIDATION, INPUTDISTORTION, FILTERSENSITIVEMODELOUTPUT, OBSCURECONFIDENCE)
+4. **Minimize data:** Limit the amount of data in rest and in transit, and the time it is stored, development-time and runtime:  
+   >(DATAMINIMIZE, ALLOWEDDATA, SHORTRETAIN, OBFUSCATETRAININGDATA)
+5. **Control behaviour impact** as the model can behave in unwanted ways - by mistake or by manipulation:  
+   >(OVERSIGHT, LEASTMODELPRIVILEGE, AITRAINSPARENCY, EXPLAINABILITY, CONTINUOUSVALIDATION, UNWANTEDBIASTESTING)
+
 
 All threats and controls are discussed in the further content of the AI Exchange.
 
@@ -60,32 +73,6 @@ The navigator diagram below shows all threats, controls and how they relate, inc
   Click on the image to get a PDF with clickable links.
 {{< /callout >}}
 [![](/images/owaspaioverviewv2.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf)
-
-### Controls added to the summary
-
-How to address AI security, including all controls (in capitals - and discussed further on in the document):
-
-1. Implement governance processes for AI risk, and if not already there: governance of information security and software lifecycle:  
-   >(AIPROGRAM, SECPROGRAM, DEVPROGRAM, SECDEVPROGRAM, CHECKCOMPLIANCE, SECEDUCATE)
-2. Apply technical IT security controls risk-based:
-    - 2a Apply **standard** conventional IT security controls (e.g. 15408, ASVS, OpenCRE, ISO 27001 Annex A, NIST SP800-53) to the complete AI system and don't forget the new AI-specific parts :
-      - Development-time: model & data storage, model & data supply chain, data science documentation:  
-        >(DEVDATAPROTECT, DEVSECURITY, SEGREGATEDATA, SUPPLYCHAINMANAGE, DISCRETE)
-      - Runtime: model storage, model use and model input/output:  
-        >(RUNTIMEMODELINTEGRITY, RUNTIMEMODELIOINTEGRITY, RUNTIMEMODELCONFIDENTIALITY, MODELINPUTCONFIDENTIALITY, ENCODEMODELOUTPUT, LIMITRESOURCES)
-    - 2b **Adapt** conventional IT security controls to make them more suitable for AI:  
-      >(MONITORUSE, MODELACCESSCONTROL, RATELIMIT)
-    - 2c Adopt **new** IT security controls:  
-      >(CONFCOMPUTE, MODELOBFUSCATION, PROMPTINPUTVALIDATION, INPUTSEGREGATION)
-3. Apply datascience security controls risk-based:
-    - 3a Development-time controls when developing the model:  
-      >(FEDERATIVELEARNING, CONTINUOUSVALIDATION, UNWANTEDBIASTESTING, EVASIONROBUSTMODEL, POISONROBUSTMODEL, TRAINADVERSARIAL, TRAINDATADISTORTION, ADVERSARIALROBUSTDISTILLATION, FILERSENSITIVETRAINDATA, MODELENSEMBLE, MORETRAINDATA, SMALLMODEL, DATAQUALITYCONTROL)
-    - 3b Runtime controls when running the model:  
-      >(CONTINUOUSVALIDATION, UNWANTEDBIASTESTING, DETECTODDINPUT, DETECTADVERSARIALINPUT, DOSINPUTVALIDATION, INPUTDISTORTION, FILTERSENSITIVEMODELOUTPUT, OBSCURECONFIDENCE)
-4. Limit the amount of data and the time it is stored:  
-   >(DATAMINIMIZE, ALLOWEDDATA, SHORTRETAIN, OBFUSCATETRAININGDATA)
-5. Limit the effect of unwanted model behaviour:  
-   >(OVERSIGHT, LEASTMODELPRIVILEGE, AITRAINSPARENCY, EXPLAINABILITY, CONTINUOUSVALIDATION)
 
 
 ## About this Document
