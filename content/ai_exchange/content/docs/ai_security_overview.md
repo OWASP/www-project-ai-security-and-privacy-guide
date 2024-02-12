@@ -30,7 +30,7 @@ The AI security matrix below shows all threats and risks, ordered by type and im
 ### Threat model with controls - general
 The below diagram puts the controls in the AI Exchange into groups and places these groups in the right lifecycle with the corresponding threats.
 ![AI Security Threats and controls](/images/threatscontrols.png)
-The groups of controls form a summary of how to address AI security (controls are in capitals:
+The groups of controls form a summary of how to address AI security (controls are in capitals):
 1. **AI Governance**: implement governance processes for AI risk, and include AI into your processes for information security and software lifecycle:  
    >(AIPROGRAM, SECPROGRAM, DEVPROGRAM, SECDEVPROGRAM, CHECKCOMPLIANCE, SECEDUCATE)
 2. Apply conventional **technical IT security controls** risk-based, since an AI system is an IT system:
@@ -62,7 +62,7 @@ Below diagram restricts the threats and controls to Generative AI only, for situ
 ![AI Security Threats and controls - GenAI trained or finetuned](/images/threatscontrols-genainotready.png)
 
 ### Threat model with controls - GenAI as-is
-Below diagram restricts the threats and controls to Generative AI only, for situations in which the model is used **as-is** by the organization. Several threats still exist but they are the responsibility of the model provider. Nevertheless, the organization using the model should take the risks into account and gain assurance about them from the provider.
+Below diagram restricts the threats and controls to Generative AI only where the model is used **as-is** by the organization. The provider (e.g. OpenAI) has done the training/finetuning. Therefore, some threats are the responsibility of the model provider (sensitive/copyrighted data, manipulation at the provider). Nevertheless, the organization that uses the model should take these risks into account and gain assurance about them from the provider.
 
 ![AI Security Threats and controls - GenAI as-is](/images/threatscontrols-readymodel.png)
 
