@@ -1439,6 +1439,13 @@ GenAI models mostly live in the cloud - often managed by an external party, whic
 
 - **#MODELINPUTCONFIDENTIALITY** (runtime appsec). Model input confidentiality: see SECDEVPROGRAM to attain application security, with the focus on protecting the transport and storage of model parameters (e.g. access control, encryption, minimize retention)
 
+# 5. Risk Management
+
+---
+
+## 5.1. Introduction
+
+
 # References
 
 References on the OWASP AI guide (a project of which this document is part):
