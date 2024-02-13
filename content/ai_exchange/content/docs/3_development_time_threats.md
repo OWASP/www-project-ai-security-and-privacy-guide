@@ -102,7 +102,10 @@ Links to standards:
 - Not covered yet in ISO/IEC standards
 
 #### #SUPPLYCHAINMANAGE
-(development-time infosec) Supply chain management: Managing the supply chain to minimize the security risk from externally obtained elements. In regular software engineering these elements are source code or software components (e.g. open source). The particularities for AI are: 1) these elements also include obtained data and obtained models, and 2) many of the software components are executed development-time instead of just in production (the runtime of the application).
+(development-time infosec) Supply chain management: Managing the supply chain to minimize the security risk from externally obtained elements. In regular software engineering these elements are source code or software components (e.g. open source). The particularities for AI are:
+1. supplied elements can include data and models, 
+2. many of the software components are executed development-time instead of just in production (the runtime of the application),
+3. as explained in the development-time threats, there are new vulnerable assets during AI development: training data and model parameters.
 
 Security risks in obtained data or models can arise from accidental mistakes or from manipulations - just like with obtained source code or software components.
 
@@ -111,7 +114,7 @@ Because of hise supply chain complexity, data and model provenance is a helpful 
 
 Standard supply chain management includes provenance & pedigree, verifying signatures, using package repositories, frequent patching, and using dependency verification tools. 
 
-As said, in AI many of the software components are executed development-time, instead of just in production. Data engineering and model enmgineering involve operations on data and models for which often external components are used (e.g. tools such as Notebooks, or other MLOps applications). Because AI development has new assets such as the data and model parameters, these components pose a new threat. To make matters worse, data scientists also install dependencies on the Notebooks which makes the data and model engineering environment a dangerous attack vector and the classic supply chain guardrails typically don’t scan it.
+As said, in AI many of the software components are executed development-time, instead of just in production. Data engineering and model engineering involve operations on data and models for which often external components are used (e.g. tools such as Notebooks, or other MLOps applications). Because AI development has new assets such as the data and model parameters, these components pose a new threat. To make matters worse, data scientists also install dependencies on the Notebooks which makes the data and model engineering environment a dangerous attack vector and the classic supply chain guardrails typically don’t scan it.
 
 See [MITRE ATLAS - ML Supply chain compromise](https://atlas.mitre.org/techniques/AML.T0010).
 
