@@ -41,7 +41,7 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
 <table border='1'>
     <tr><th>Name</th><th>Company</th><th>Country</th><th>Contribution</th></tr>
     <tr><td>Adelin Travers</td><td>Trail of Bits</td><td></td><td></td></tr>
-    <tr><td>Alon Tron</td><td></td><td></td><td></td></tr>
+    <tr><td>Alon Tron</td><td>Stealth</td><td>Israel</td><td>Improved supply chain management</td></tr>
     <tr><td>Angie Qarry</td><td>QDeepTech</td><td>Austria</td><td>several elaborations and references on datascience defence mechanisms</td></tr>
     <tr><td>Annegrit Seyerlein-Klug</td><td>TH Brandenburg</td><td>Germany</td><td>mapping with misc. standards</td></tr>
     <tr><td>Anthony Glynn</td><td>CapitalOne</td><td>US</td><td>many textual improvements & link to LLM top 10</td></tr>
