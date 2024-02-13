@@ -81,7 +81,7 @@ Detect odd input: implement tools to detect whether input is odd: significantly 
 
 Purpose: Odd input can result in unwanted model behaviour because the model by definition has not seen this data before and will likely produce false results, whether the input is malicious or not. When detected, the input can be logged for analysis and optionally discarded. It is important to note that not all odd input will be malicious and not all malicious input will be odd. There are examples of adversarial input specifically crafted to bypass detection of odd input. Nevertheless, detecting odd input is critical to maintaining model integrity, addressing potential concept drift, and preventing adversarial attacks that may take advantage of model behaviors on out of distribution data.
 
-**Types of detecting odd input**
+**Types of detecting odd input**  
 Out-of-Distribution Detection (OOD), Novelty Detection (ND), Outlier Detection (OD), Anomaly Detection (AD), and Open Set Recognition (OSR) are all related and sometimes overlapping tasks that deal with unexpected or unseen data. However, each of these tasks has its own specific focus and methodology. In practical applications, the techniques used to solve the problems may be similar or the same. Which task or problem should be addressed and which solution is most appropriate also depends on the definition of in-distribution and out-of-distribution. We use an example of a machine learning system designed for a self-driving car to illustrate all these concepts.
 
 **Out-of-Distribution Detection (OOD)** - the broad category of detecting odd input:  
