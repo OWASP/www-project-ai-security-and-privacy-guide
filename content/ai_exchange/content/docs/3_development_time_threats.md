@@ -209,7 +209,7 @@ Link to standards:
 #### #POISONROBUSTMODEL
 (development-time datascience). Poison robust model: select a model type and approach to reduce sensitivity to poisoned training data.  
 
-Example: Reducing sensitivity to backdoor poisoning attacks with **fine-pruning** (See [paper on fine-pruning](https://arxiv.org/pdf/1805.12185.pdf)). Fine-pruning consists of two complemntary approaches: Pruning and fine-tuning:  
+Example: Reducing sensitivity to backdoor poisoning attacks with **fine-pruning** (See [paper on fine-pruning](https://arxiv.org/pdf/1805.12185.pdf)). Fine-pruning consists of two complementary approaches: Pruning and fine-tuning:  
 **Pruning** in essence reduces the size of the model so it does not have the capacity to trigger on backdoor-examples while remaining sufficient accuracy for the intended use case. The approach removes neurons in a neural network that have been identified as non-essential for sufficient accuracy.  
 **Fine tuning** retrains a model on a clean dataset(without poisoning) with the intention to remove memorisation of any backdoor triggers.
 
