@@ -103,6 +103,7 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
 - Under INPUTDISTORTION: See ENISA Annex C to add data randomisation, input transformation and input denoising.
 - Under INPUTDISTORTION: add Gradient masking - Annex C ENISA 2021
 - Cover integrity checks in development pipeline (build, deploy, supply chain) - under supplychainmanage and/or secdevprogram
+- Create an overall community outreach marketing plan, and regional outreach plans. 
 
 ## TODOs requiring access to ISO/IEC documents
 
