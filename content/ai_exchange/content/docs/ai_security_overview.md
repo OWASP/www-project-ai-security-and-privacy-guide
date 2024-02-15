@@ -43,7 +43,7 @@ The groups of controls form a summary of how to address AI security (controls ar
       >(MONITORUSE, MODELACCESSCONTROL, RATELIMIT)
     - 2c Adopt **new** IT security controls:  
       >(CONFCOMPUTE, MODELOBFUSCATION, PROMPTINPUTVALIDATION, INPUTSEGREGATION)
-3. Data scientistists apply **datascience security controls** risk-based :
+3. Data scientists apply **datascience security controls** risk-based :
     - 3a Development-time controls when developing the model:  
       >(FEDERATIVELEARNING, CONTINUOUSVALIDATION, UNWANTEDBIASTESTING, EVASIONROBUSTMODEL, POISONROBUSTMODEL, TRAINADVERSARIAL, TRAINDATADISTORTION, ADVERSARIALROBUSTDISTILLATION, FILERSENSITIVETRAINDATA, MODELENSEMBLE, MORETRAINDATA, SMALLMODEL, DATAQUALITYCONTROL)
     - 3b Runtime controls to filter and detect attacks:  
