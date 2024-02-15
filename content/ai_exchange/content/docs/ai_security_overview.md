@@ -198,6 +198,7 @@ GenAI security particularities are:
 GenAI References:
 
 - [OWASP LLM top 10](https://llmtop10.com/)
+- [Demystifying the LLM top 10](https://blog.kloudzone.co.in/demystifying-the-owasp-top-10-for-large-language-model-applications/)
 - [Impacts and risks of GenAI](https://arxiv.org/pdf/2306.13033.pdf)
 
 ### How about the NCSC/CISA guidelines?
