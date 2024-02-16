@@ -1457,7 +1457,7 @@ The intent of this document is to concisely capture the key elements of an effec
 We utilize the ISO 31000 as a good framework to overlay our AI Risk Management process.  
 
 
-<img src="assets/images/Riskmanagement3.JPG" align="left" width="700" height="500">
+<img src="assets/images/Riskmanagement3.JPG" align="left" width="800" height="500">
 
 
 <br>
