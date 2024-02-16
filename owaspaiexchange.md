@@ -1446,7 +1446,7 @@ GenAI models mostly live in the cloud - often managed by an external party, whic
 
 ## 5.1. Introduction
 
-## 5.2. Establishing Context: 
+## 5.2. Establishing Context
 <img src="assets/images/Riskmanagement1.JPG" align="right" width="250" height="400"> 
 
 
@@ -1458,11 +1458,19 @@ GenAI models mostly live in the cloud - often managed by an external party, whic
 - **Internal Context**: Assess the capabilities, culture, and objectives of the organization developing or using these technologies. This includes technical infrastructure, data governance policies, ethical standards, and the strategic goals related to AI deployment.
 - **Risk Management Context**: Define the scope and objectives of risk management activities, considering the stakes involved in deploying AI systems, such as ethical implications, bias, and potential for misuse.
 
--
 
--
 
--
+
+
+## 5.3. Risk Assessment
+<img src="assets/images/Riskmanagement1.JPG" align="right" width="250" height="400"> 
+
+
+ 
+- **Identification:** Recognize the specific risks associated with ML and AI projects, such as data bias, model interpretability, algorithmic transparency, security vulnerabilities, and unintended consequences of AI behavior.
+- **Analysis:** Evaluate the nature and magnitude of identified risks. This involves understanding the probability of occurrences (e.g., data breaches, model failures, bias) and their impact on various stakeholders, including users, the organization, and society at large.
+- **Evaluation:** Prioritize risks based on their severity and likelihood. This helps in determining which risks need immediate attention and which can be monitored over time.
+
 
 
 # References
