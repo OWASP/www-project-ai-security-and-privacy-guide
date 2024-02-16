@@ -1475,6 +1475,14 @@ GenAI models mostly live in the cloud - often managed by an external party, whic
 <br>
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
 # References
 
 References on the OWASP AI guide (a project of which this document is part):
