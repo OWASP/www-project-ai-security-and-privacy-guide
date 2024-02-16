@@ -1460,7 +1460,7 @@ GenAI models mostly live in the cloud - often managed by an external party, whic
 
 
 ## 5.3. Risk Assessment
-<img src="assets/images/Riskmanagement1.JPG" align="right" width="250" height="400"> 
+<img src="assets/images/Riskmanagement2.JPG" align="right" width="250" height="400"> 
 
 
  
