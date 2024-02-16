@@ -1452,7 +1452,7 @@ In the context of AI Risk Management process, the term AI encompasses all flavor
 
 The intent of this document is to concisely capture the key elements of an effective AI risk management framework and provide a prescriptive framework.  This document  is organized by AI Risk Management Process, Model,  Activities, Risk Catalog, Roles and Responsibilities and Risk Catalog.  
 
-## 5.2. AI Risk Management Process:**
+## 5.2. AI Risk Management Process
 
 We utilize the ISO 31000 as a good framework to overlay our AI Risk Management process.  
 
