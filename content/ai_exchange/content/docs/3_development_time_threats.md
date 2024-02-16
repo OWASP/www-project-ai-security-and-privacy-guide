@@ -177,7 +177,7 @@ Links to standards:
 #### #DATAQUALITYCONTROL
 (development-time datascience). Data quality control: Perform quality control on data including detecting poisoned samples through statistical deviation or pattern recognition. For important data and scenarios this may involve human verification.
 
-Particularity: standard quality control needs to take into account that data may have maliciously been changed.
+Particularity for AI and security: standard quality control needs to take into account that data may have maliciously been changed. This means that extra checks can be placed to detect changes that would normally not happen by themselves. For example: safely storing hash codes of data elements, such as images, and regularly checking to see if the images have been manipulated.
 
 A method to detect statistical deviation is to train models on random selections of the training dataset and then feed each training sample to those models and compare results.
 
