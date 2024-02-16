@@ -1504,7 +1504,7 @@ Source:  ISO 31000:2009(en), Risk management — Principles and guidelines
 
 
 
-## 5.2.2.  Risk Assessment
+## 5.4.  Risk Assessment
 <img src="assets/images/Riskmanagement2.JPG" align="right" width="250" height="400"> 
 
 
