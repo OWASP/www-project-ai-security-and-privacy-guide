@@ -19,21 +19,21 @@ See Risk management under SECPROGRAM for security-specific risk analysis.
 Note that an AI program is not just about risk TO AI, such as security risks - it is also about risks BY AI, such as threats to fairness, safety, etc.
 
 Links to standards:
- - ISO/IEC 42001 AI management system (under development). Gap: covers this control fully.
+ - ISO/IEC 42001 AI management system. Gap: covers this control fully.
  
-42001 is about extending your risk management system - it focuses on governance. 5338 (see #DEVPROGRAM below) is about extending your software lifecycle practices - it focuses on engineering and everything around it. The 42001 can be seen as a management system for the governance of responsible AI in an organization, similar to how 27001 is a management system for information security. The 42001 doesn’t go into the lifecycle processes. It for example does not discuss how to train models, how to do data lineage, continuous validation, versioning of AI models, project planning challenges, and how and when exactly sensitive data is used in engineering.
+42001 is about extending your risk management system - it focuses on governance. 5338 (see [#DEVPROGRAM](#devprogram) below) is about extending your software lifecycle practices - it focuses on engineering and everything around it. The 42001 can be seen as a management system for the governance of responsible AI in an organization, similar to how 27001 is a management system for information security. The 42001 doesn’t go into the lifecycle processes. It for example does not discuss how to train models, how to do data lineage, continuous validation, versioning of AI models, project planning challenges, and how and when exactly sensitive data is used in engineering.
 
 
 #### #SECPROGRAM 
 (management). Having a security program. Include the whole AI lifecycle and AI particularities in the organization's security program (also referred to as _information security management system_).
 
-Make sure to include AI-specific threats and assets (e.g. assets the development environment includign AI Ops / ML Ops).
+Make sure to include AI-specific threats and assets (e.g. assets the development environment including AI Ops / ML Ops).
 
 Purpose: reduces probability of AI initiatives being overlooked for information security management, vastly decreasing security risk as the security program takes responsibility for the AI-specific threats and corresponding controls in this document. For more details on using this document in risk analysis, see the Introduction section.
 
 Particularity: the AI lifecycle and its specific assets and security threats need to be part of the organization's information security governance.
 
-Because AI has specific assets (e.g. training data), **AI-speific honeypots** are a partiularly interesting control. These are fake parts of the data/model/datascience infrastucture that are exposed on purpose, in order to detect or capture attackers, before they succeed to access the real assets. Examples:
+Because AI has specific assets (e.g. training data), **AI-specific honeypots** are a partiularly interesting control. These are fake parts of the data/model/datascience infrastucture that are exposed on purpose, in order to detect or capture attackers, before they succeed to access the real assets. Examples:
 
 - Hardened data services, but with an unpatched vulnerability (e.g. Elasticsearch)
 - Exposed data lakes, not revealing details of the actual assets
@@ -92,7 +92,7 @@ Links to standards:
   - See [OpenCRE on secure software development processes](https://www.opencre.org/cre/616-305) with notable links to NIST SSDF and OWASP SAMM. Gap: covers this control fully, with said particularity
 
 #### #DEVPROGRAM 
-(management). Having a development program for AI. Apply general (not just security-oriented) software engineering best practices to AI development.
+(management). Having a development lifecycle program for AI. Apply general (not just security-oriented) software engineering best practices to AI development.
 
 Data scientists are focused on creating working models, not on creating future-proof software per se. Often, organizations already have software practices and processes in place. It is important to extend these to AI development, instead of treating AI as something that requires a separate approach. Do not isolate AI engineering. This includes automated testing, code quality, documentation, and versioning. ISO/IEC 5338 explains how to make these practices work for AI.
 
@@ -104,9 +104,12 @@ Another best practice is to continuously measure quality aspects of data science
 
 Apart from conventional software best practices, there are important AI-specific engineering practices, including for example data provenance & lineage, model traceability and AI-specific testing such as continuous validation, testing for model staleness and concept drift. ISO/IEC 5338 discussess these AI engineering practices.
 
+The below interpretation diagram of ISO/IEC 5338 provides a good overview to get an idea of the topics involved.
+![5338](/images/5338.png)
+
 Links to standards:
 
-  - [ISO/IEC 5338 - AI lifecycle](https://www.iso.org/standard/81118.html) Gap: covers this control fully - the 5338 covers the complete software development lifecycle for AI, by extending the existing 12207 standard on software lifecycle: defining several new processes and discussing AI-specific particularities for existing processes.
+  - [ISO/IEC 5338 - AI lifecycle](https://www.iso.org/standard/81118.html) Gap: covers this control fully - the 5338 covers the complete software development lifecycle for AI, by extending the existing 12207 standard on software lifecycle: defining several new processes and discussing AI-specific particularities for existing processes. See also [this blog](https://www.softwareimprovementgroup.com/iso-5338-get-to-know-the-global-standard-on-ai-systems/).
   - 27002 control 5.37 Documented operating procedures. Gap: covers this control minimally - this covers only a very small part of the control
   - [OpenCRE on documentation of function](https://www.opencre.org/cre/162-655) Gap: covers this control minimally
  
@@ -175,12 +178,20 @@ Adding sufficient noise to training data can make it effectively uncrecognizable
     
 - Objective function perturbation
     
-In privacy-preserving machine learning, objective function perturbation is a technique to enhance training data privacy. It introduces noise or modifications to the objective function, adding controlled randomness to make it difficult for adversaries to extract specific details about individual data points. This method contributes to achieving differential privacy, preventing the undue influence of a single data point on the model's behavior.
+Objective function perturbation is a differential privacy technique used to train machine learning models while maintaining data privacy. It involves the intentional introduction of a controlled amount of noise into the learning algorithm’s objective function, which is a measure of the discrepancy between a model’s predictions and the actual results. The perturbation, or slight modification, involves adding noise to the objective function, resulting in a final model that doesn’t exactly fit the original data, thereby preserving privacy. The added noise is typically calibrated to the objective function’s sensitivity to individual data points and the desired privacy level, as quantified by parameters like epsilon in differential privacy. This ensures that the trained model doesn’t reveal sensitive information about any individual data point in the training dataset. The main challenge in objective function perturbation is balancing data privacy with the accuracy of the resulting model. Increasing the noise enhances privacy but can degrade the model’s accuracy. The goal is to strike an optimal balance where the model remains useful while individual data points stay private.
+
+References:
+
+- [Differentially Private Objective Perturbation: Beyond Smoothness and Convexity](https://arxiv.org/abs/1909.01783v1)
 
 - Masking
-    
-Masking encompasses the intentional concealment or modification of sensitive information within training datasets to enhance privacy during the development of machine learning models. This is achieved by introducing a level of obfuscation through techniques like data masking or feature masking, where certain elements are replaced, encrypted, or obscured, preventing unauthorized access to specific details. This approach strikes a balance between extracting valuable data insights and safeguarding individual privacy, contributing to a more secure and privacy-preserving data science process. 
-    
+
+Masking involves the alteration or replacement of sensitive features within datasets with alternative representations that retain the essential information required for training while obscuring sensitive details. Various methods can be employed for masking, including tokenization, perturbation, generalization, and feature engineering. Tokenization replaces sensitive text data with unique identifiers, while perturbation adds random noise to numerical data to obscure individual values. Generalization involves grouping individuals into broader categories, and feature engineering creates derived features that convey relevant information without revealing sensitive details. Once the sensitive features are masked or transformed, machine learning models can be trained on the modified dataset, ensuring that they learn useful patterns without exposing sensitive information about individuals. However, achieving a balance between preserving privacy and maintaining model utility is crucial, as more aggressive masking techniques may lead to reduced model performance. 
+
+References:
+
+- [Data Masking with Privacy Guarantees]([https://arxiv.org/abs/1909.01783v1](https://arxiv.org/abs/1901.02185))
+
 - Encryption
 
 Encryption is a fundamental technique for pseudonymization and data protection. It underscores the need for careful implementation of encryption techniques, particularly asymmetric encryption, to achieve robust pseudonymization. Emphasis is placed on the importance of employing randomized encryption schemes, such as Paillier and Elgamal, to ensure unpredictable pseudonyms. Furthermore, homomorphic encryption, which allows computations on ciphertexts without the decryption key, presents potential advantages for cryptographic operations but poses challenges in pseudonymization. The use of asymmetric encryption for outsourcing pseudonymization and the introduction of cryptographic primitives like ring signatures and group pseudonyms in advanced pseudonymization schemes are important.
@@ -208,7 +219,6 @@ Challenges in anonymization include the need for robust techniques to prevent re
 In the healthcare sector with personally identifiable information (PII), there are potential pseudonymization options, emphasizing advanced techniques like asymmetric encryption, ring signatures, group pseudonyms and pseudonyms based on multiple identifiers. In the cybersecurity sector, pseudonymization is applied in common use cases, such as telemetry and reputation systems.
     
 These use cases demonstrate the practical relevance and applicability of pseudonymization techniques in real-world scenarios, offering valuable insights for stakeholders involved in data pseudonymization and data protection.
-
 
   
 
@@ -262,9 +272,19 @@ Example: LLMs (GenAI), just like most AI models, induce their results based on t
 **Controls to limit the effects of unwanted model behaviour:**
 
 #### #OVERSIGHT
-(runtime). Oversight of model behaviour by humans or business logic (guardrails).
+(runtime). Oversight of model behaviour by humans or business logic in the form of rules (guardrails).
   
-Purpose: Detect unwanted model behavior and correct or halt the execution of a model's decision. Note: Unwanted model behavior often cannot be entirely specified, limiting the effectiveness of guardrails.
+Purpose: Detect unwanted model behavior and correct or halt the execution of a model's decision. 
+
+**Limitations of guardrails:**
+The properties of wanted or unwanted model behavior often cannot be entirely specified, limiting the effectiveness of guardrails. 
+
+**Limitations of human oversight:**
+The alternative to guardrails is to apply human oversight. This is of course more costly and slower, but allows for more intelligent validation given the involved common sense and human domain knowledge - provided that the person performing the oversight actually has that knowledge.
+For human operators or drivers of automated systems like self-driving cars, staying actively involved or having a role in the control loop helps maintain situational awareness. This involvement can prevent complacency and ensure that the human operator is ready to take over control if the automated system fails or encounters a scenario it cannot handle. However, maintaining situational awareness can be challenging with high levels of automation due to the "out-of-the-loop" phenomenon, where the human operator may become disengaged from the task at hand, leading to slower response times or decreased effectiveness in managing unexpected situations.
+In other words: If you as a user are not involved actively in performing a task, then you lose understanding of whether it is correct or what the impact can be. If you then only need to confirm something by saying 'go ahead' or 'cancel', a badly informed 'go ahead' is easy to pick.
+
+Designing automated systems that require some level of human engagement or regularly update the human operator on the system's status can help maintain situational awareness and ensure safer operations.
   
 Examples:
 

@@ -2,12 +2,9 @@
 title: AI Security Overview
 weight: 1
 ---
-See [home](https://owaspai.org/) for more information about this initiative, how to contribute or connect.  
+## Summary - How to address AI Security?
+>See [home](https://owaspai.org/) for more information about this initiative, how to contribute or connect.  
 This page contains an overview of AI security and the next pages provide the main content: details on security threats to AI and controls against them. You can navigate through  pages at the bottom of every page, or in the left sidebar. The right sidebar shows the different sections on a page. On small screens you can navigate through the menu.
-
-## Summary and visualisations
-
-### Short summary: How to address AI Security?
 
 While AI offers powerful perfomance boosts, it also increases the attack surface available to bad actors. It is therefore imperative to approach AI applications with a clear understanding of potential threats and which of those threats to prioritize for each use case. Standards and governance help guide this process for individual entities leveraging AI capabilities.
 
@@ -17,7 +14,58 @@ While AI offers powerful perfomance boosts, it also increases the attack surface
 - **Limit the impact** of AI by minimizing privileges and adding oversight, e.g. guardrails, human oversight.
 - **Countermeasures in data science** through understanding of model attacks, e.g. data quality assurance, larger training sets, detecting common perturbation attacks, input filtering.
 
-![AI Specific Security Threats](/images/owaspaimodelv1.png)
+## Threats overview
+
+### Threat model
+We distinguish three types of threats: during development-time (when data is obtained and prepared, and the model is trained/obtained), through using the model (providing input and reading the output), and by attacking the system during runtime (in production).
+The diagram shows the threats in these three groups as arrows. Each threat has a specific impact, indicated by letters referring to the Impact legend. The control overview section contains this diagram with groups of controls added.
+![AI Security Threats](/images/threats.png)
+
+### AI Security Matrix
+The AI security matrix below shows all threats and risks, ordered by type and impact.
+[![](/images/OwaspAIsecuritymatix.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/OwaspAIsecuritymatix.png)
+
+## Controls overview
+
+### Threat model with controls - general
+The below diagram puts the controls in the AI Exchange into groups and places these groups in the right lifecycle with the corresponding threats.
+![AI Security Threats and controls](/images/threatscontrols.png)
+The groups of controls form a summary of how to address AI security (controls are in capitals):
+1. **AI Governance**: implement governance processes for AI risk, and include AI into your processes for information security and software lifecycle:  
+   >(AIPROGRAM, SECPROGRAM, DEVPROGRAM, SECDEVPROGRAM, CHECKCOMPLIANCE, SECEDUCATE)
+2. Apply conventional **technical IT security controls** risk-based, since an AI system is an IT system:
+    - 2a Apply **standard** conventional IT security controls (e.g. 15408, ASVS, OpenCRE, ISO 27001 Annex A, NIST SP800-53) to the complete AI system and don't forget the new AI-specific assets :
+      - Development-time: model & data storage, model & data supply chain, data science documentation:  
+        >(DEVDATAPROTECT, DEVSECURITY, SEGREGATEDATA, SUPPLYCHAINMANAGE, DISCRETE)
+      - Runtime: model storage, model use, plug-ins, and model input/output:  
+        >(RUNTIMEMODELINTEGRITY, RUNTIMEMODELIOINTEGRITY, RUNTIMEMODELCONFIDENTIALITY, MODELINPUTCONFIDENTIALITY, ENCODEMODELOUTPUT, LIMITRESOURCES)
+    - 2b **Adapt** conventional IT security controls to make them more suitable for AI (e.g. which usage patterns to monitor for):  
+      >(MONITORUSE, MODELACCESSCONTROL, RATELIMIT)
+    - 2c Adopt **new** IT security controls:  
+      >(CONFCOMPUTE, MODELOBFUSCATION, PROMPTINPUTVALIDATION, INPUTSEGREGATION)
+3. Data scientists apply **datascience security controls** risk-based :
+    - 3a Development-time controls when developing the model:  
+      >(FEDERATIVELEARNING, CONTINUOUSVALIDATION, UNWANTEDBIASTESTING, EVASIONROBUSTMODEL, POISONROBUSTMODEL, TRAINADVERSARIAL, TRAINDATADISTORTION, ADVERSARIALROBUSTDISTILLATION, FILERSENSITIVETRAINDATA, MODELENSEMBLE, MORETRAINDATA, SMALLMODEL, DATAQUALITYCONTROL)
+    - 3b Runtime controls to filter and detect attacks:  
+      >(DETECTODDINPUT, DETECTADVERSARIALINPUT, DOSINPUTVALIDATION, INPUTDISTORTION, FILTERSENSITIVEMODELOUTPUT, OBSCURECONFIDENCE)
+4. **Minimize data:** Limit the amount of data in rest and in transit, and the time it is stored, development-time and runtime:  
+   >(DATAMINIMIZE, ALLOWEDDATA, SHORTRETAIN, OBFUSCATETRAININGDATA)
+5. **Control behaviour impact** as the model can behave in unwanted ways - by mistake or by manipulation:  
+   >(OVERSIGHT, LEASTMODELPRIVILEGE, AITRAINSPARENCY, EXPLAINABILITY, CONTINUOUSVALIDATION, UNWANTEDBIASTESTING)
+
+
+All threats and controls are discussed in the further content of the AI Exchange.
+
+### Threat model with controls - GenAI trained/finetuned
+Below diagram restricts the threats and controls to Generative AI only, for situations in which **training or finetuning** is done by the organization (note: this is not very common given the high cost and required expertise).
+
+![AI Security Threats and controls - GenAI trained or finetuned](/images/threatscontrols-genainotready.png)
+
+### Threat model with controls - GenAI as-is
+Below diagram restricts the threats and controls to Generative AI only where the model is used **as-is** by the organization. The provider (e.g. OpenAI) has done the training/finetuning. Therefore, some threats are the responsibility of the model provider (sensitive/copyrighted data, manipulation at the provider). Nevertheless, the organization that uses the model should take these risks into account and gain assurance about them from the provider.
+
+![AI Security Threats and controls - GenAI as-is](/images/threatscontrols-readymodel.png)
+
 
 ### Navigator diagram
 The navigator diagram below shows all threats, controls and how they relate, including risks and the types of controls.  
@@ -25,36 +73,6 @@ The navigator diagram below shows all threats, controls and how they relate, inc
   Click on the image to get a PDF with clickable links.
 {{< /callout >}}
 [![](/images/owaspaioverviewv2.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf)
-
-### AI Security Matrix
-The AI security matrix below shows all threats and risks, ordered by attack surface and lifecycle.
-[![](/images/OwaspAIsecuritymatix.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/OwaspAIsecuritymatix.png)
-
-### Summary with controls
-
-How to address AI security, including all controls (in capitals - and discussed further on in the document):
-
-1. Implement governance processes for AI risk, and if not already there: governance of information security and software lifecycle:  
-   >(AIPROGRAM, SECPROGRAM, DEVPROGRAM, SECDEVPROGRAM, CHECKCOMPLIANCE, SECEDUCATE)
-2. Apply technical IT security controls risk-based:
-    - 2a Apply **standard** conventional IT security controls (e.g. 15408, ASVS, OpenCRE, ISO 27001 Annex A, NIST SP800-53) to the complete AI system and don't forget the new AI-specific parts :
-      - Development-time: model & data storage, model & data supply chain, data science documentation:  
-        >(DEVDATAPROTECT, DEVSECURITY, SEGREGATEDATA, SUPPLYCHAINMANAGE, DISCRETE)
-      - Runtime: model storage, model use and model input/output:  
-        >(RUNTIMEMODELINTEGRITY, RUNTIMEMODELIOINTEGRITY, RUNTIMEMODELCONFIDENTIALITY, MODELINPUTCONFIDENTIALITY, ENCODEMODELOUTPUT, LIMITRESOURCES)
-    - 2b **Adapt** conventional IT security controls to make them more suitable for AI:  
-      >(MONITORUSE, MODELACCESSCONTROL, RATELIMIT)
-    - 2c Adopt **new** IT security controls:  
-      >(CONFCOMPUTE, MODELOBFUSCATION, PROMPTINPUTVALIDATION, INPUTSEGREGATION)
-3. Apply datascience security controls risk-based:
-    - 3a Development-time controls when developing the model:  
-      >(FEDERATIVELEARNING, CONTINUOUSVALIDATION, UNWANTEDBIASTESTING, EVASIONROBUSTMODEL, POISONROBUSTMODEL, TRAINADVERSARIAL, TRAINDATADISTORTION, ADVERSARIALROBUSTDISTILLATION, FILERSENSITIVETRAINDATA, MODELENSEMBLE, MORETRAINDATA, SMALLMODEL, DATAQUALITYCONTROL)
-    - 3b Runtime controls when running the model:  
-      >(CONTINUOUSVALIDATION, UNWANTEDBIASTESTING, DETECTODDINPUT, DETECTADVERSARIALINPUT, DOSINPUTVALIDATION, INPUTDISTORTION, FILTERSENSITIVEMODELOUTPUT, OBSCURECONFIDENCE)
-4. Limit the amount of data and the time it is stored:  
-   >(DATAMINIMIZE, ALLOWEDDATA, SHORTRETAIN, OBFUSCATETRAININGDATA)
-5. Limit the effect of unwanted model behaviour:  
-   >(OVERSIGHT, LEASTMODELPRIVILEGE, AITRAINSPARENCY, EXPLAINABILITY, CONTINUOUSVALIDATION)
 
 
 ## About this Document
@@ -98,14 +116,14 @@ There are many threats and controls described in this document. Your situation d
 
     These are the responsbilities of the model maker, but be aware you may be effected by the unwanted results. The maker may take the blame for any issue, which would take care of confidentiality issues, but you would suffer effectively from any manipulated model behaviour.
 
-    If your train data is not sensitive: ignore the confidentiality of train data threats
+    If your train data is not sensitive: ignore the confidentiality of train data threats. A special case is the threat of _membership inference_: this threat only applies when the **fact** that a person was part of the training set is harmful information about the person, for example when the trainset consists of criminals and their history to predict criminal careers: membership of that set gives away the person is a convicted or aledged criminal.
 
     If your model is a GenAI model, ignore the following threats: evasion, model inversion. Also ignore prompt injection and insecure output handling if your GenAI model is NOT an LLM
     If your model is not a GenAI model, ignore (direct) prompt injection, and insecure output handling
 
     If your input data is not sensitive, ignore ‘leaking input data’. If you use RAG, consider data you retrieve also as input data.
 
-2. **Arranging responsibility**: For each selected threat, determine who is responsible to address it. By default, the organization that builds and deploys the AI system is responsible, but building and deploying may be done by different organizations, and some parts of the building and deployment may be deferred to other organizations, e.g. hosting the model, or providing a cloud environment for the application to run. Some aspects are shared responsibilities.
+3. **Arranging responsibility**: For each selected threat, determine who is responsible to address it. By default, the organization that builds and deploys the AI system is responsible, but building and deploying may be done by different organizations, and some parts of the building and deployment may be deferred to other organizations, e.g. hosting the model, or providing a cloud environment for the application to run. Some aspects are shared responsibilities.
 
     If components of your AI system are hosted, then you share responsibility regarding all controls for the relevant threats with the hosting provider. This needs to be arranged with the provider, using for example a responsibility matrix. Components can be the model, model extensions, your application, or your infrastructure.
 
@@ -152,7 +170,7 @@ Responsible or trustworthy AI include security, but not the other way around: th
 AI Privacy can be divided into two parts:
 
 1. The AI security threats and controls in this document that are about confidentiality and integrity of (personal) data (e.g. model inversion, leaking training data), plus the integrity of the model behaviour
-2. Threats and controls with respect to rights of the individual, as covered by privacy regulations such as the GDPR, including use limitation, consent, fairness, transparency, data accuracy, right of correction/objection/reasure/access. For an overview, see the [Privacy part of the OWASP AI guide](/docs/privacy/#how-to-deal-with-ai-privacy)
+2. Threats and controls with respect to rights of the individual, as covered by privacy regulations such as the GDPR, including use limitation, consent, fairness, transparency, data accuracy, right of correction/objection/reasure/access. For an overview, see the [Privacy part of the OWASP AI guide](https://owasp.org/www-project-ai-security-and-privacy-guide/)
 
 ### How about Generative AI (e.g. LLM)?
 
@@ -180,6 +198,7 @@ GenAI security particularities are:
 GenAI References:
 
 - [OWASP LLM top 10](https://llmtop10.com/)
+- [Demystifying the LLM top 10](https://blog.kloudzone.co.in/demystifying-the-owasp-top-10-for-large-language-model-applications/)
 - [Impacts and risks of GenAI](https://arxiv.org/pdf/2306.13033.pdf)
 
 ### How about the NCSC/CISA guidelines?

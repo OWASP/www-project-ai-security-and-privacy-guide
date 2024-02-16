@@ -78,20 +78,43 @@ Links to standards:
 #### #FEDERATIVELEARNING
 (development-time datascience). Federative learning can be applied when a training set is distributed over different organizations, preventing that the data needs to be collected in a central place - increasing the risk of leaking.
 
+Federated Learning is a decentralized Machine Learning architecture wherein a number of edge clients (e.g., sensor or mobile devices) participate in collaborative, decentralized, asynchronous training, which is orchestrated and aggregated by a controlling central server. Advantages of Federated Learning include reduced central compute, and the potential for preservation of privacy, since training data may remain local to the edge/client device. 
+
+Broadly, Federated Learning generally consists of four high-level steps: First, there is a server-to-client broadcast; next, local models are updated on the client; once trained, local models are then returned to the central server; and finally, the central server updates via model aggregation.
+
+Challenges in Federated Learning include managing device and model heterogeneity, latency in broadcast phases, and preservation of privacy. Security concerns also include backdoor attacks via data/model poisoning; with federated systems additionally introducing a vast network of edge clients, some of which may be malicious. 
+
+Device Heterogeneity. User- or other edge devices may vary widely in their computational, storage, transmission, or other capabilities, presenting challenges for federated deployments. These may additionally introduce device-specific security concerns, which practitioners should take into consideration in design phases. While designing for constraints including connectivity, battery life, and compute, it is also critical to consider edge device security. 
+
+Broadcast Latency & Security. Efficient communication across a federated network introduces additional challenges. While strategies exist to minimize broadcast phase latency, they must also take into consideration potential data security risks. Because models are vulnerable during transmission phases, any communication optimizations must account for data security in transit. 
+
+Preservation of Privacy. Because data remain local to the client device, Federated Learning architectures are sometimes assumed to be fully privacy-preserving. However this is not the case, as sensitive data may still be extracted from the transmitted models themselves. Data may be revealed from models intercepted in transmission, or during the process of model aggregation by the central server. For this reason, additional privacy-enhancing measures may be applied to Federated Learning settings. 
+
+Privacy-preserving mitigations for Federated Learning include cryptographic and information-theoretic strategies, such as Secure Function Evaluation (SFE), also known as Secure Multi-Party Computation (SMC/SMPC); and Differential Privacy. However, all approaches entail tradeoffs between privacy and utility.
+
+Backdoor Attacks. Federated Learning systems have shown particular vulnerability to data- and model-poisoning attacks. Two key aspects of federated systems may exacerbate this vulnerability in production. First, Federated Learning introduces a potentially vast number of edge clients, with few guarantees against malicious actors at the device level. Second, data localization–intended to be privacy-preserving–circumvents typical centralized data curation strategies. 
+
+Recent advances in Federated (on-device) Analytics may provide tools to address some of these issues. Practitioners should implement the fullest suite of MLSecOps tools possible to detect and mitigate backdoor attacks against Federated Learning systems.
+
+
 Links to standards:
 
 - Not covered yet in ISO/IEC standards
 
 #### #SUPPLYCHAINMANAGE
-(development-time infosec) Supply chain management: Managing the supply chain to to minimize the security risk from externally obtained elements. In regular software engineering these elements are source code or software components (e.g. open source). The particularity for AI is that this also includes obtained data and obtained models.
+(development-time infosec) Supply chain management: Managing the supply chain to minimize the security risk from externally obtained elements. In regular software engineering these elements are source code or software components (e.g. open source). The particularities for AI are:
+1. supplied elements can include data and models, 
+2. many of the software components are executed development-time instead of just in production (the runtime of the application),
+3. as explained in the development-time threats, there are new vulnerable assets during AI development: training data and model parameters.
 
-Security risks in obtained elements can arise from accidental mistakes or from manipulations - just like with obtained source code or software components.
+Security risks in obtained data or models can arise from accidental mistakes or from manipulations - just like with obtained source code or software components.
 
-Just like with obtained source code or software components, data or models may involve multiple suppliers. For example: a model is trained by one vendor and then fine-tuned by another vendor. Or: an AI system contains multiple models, one is a model that has been fine-tuned with data from source X, using a base model from vendor A that claims data is used from sources Y and Z, where the data from source Z was labeled by vendor B.
+The AI supply chain can be complex. Just like with obtained source code or software components, data or models may involve multiple suppliers. For example: a model is trained by one vendor and then fine-tuned by another vendor. Or: an AI system contains multiple models, one is a model that has been fine-tuned with data from source X, using a base model from vendor A that claims data is used from sources Y and Z, where the data from source Z was labeled by vendor B. 
+Because of hise supply chain complexity, data and model provenance is a helpful activity.  The Software Bill Of Materials (SBOM) becomes the AIBOM (AI Bill Of Materials) or MBOM (Model Bill of Material). 
 
-Data provenance is a helpful activity to support supply chain management for obtained data.  The Software Bill Of Materials (SBOM) becomes the AIBOM (AI Bill Of Materials) or MBOM (Model Bill of Material). AI systems often have a variation of supply chains, including the data supply chain, the labeling supply chain, and the model supply chain.
+Standard supply chain management includes provenance & pedigree, verifying signatures, using package repositories, frequent patching, and using dependency verification tools. 
 
-Standard supply chain management includes provenance & pedigree, verifying signatures, using package repositories, frequent patching, and using dependency verification tools.
+As said, in AI many of the software components are executed development-time, instead of just in production. Data engineering and model engineering involve operations on data and models for which often external components are used (e.g. tools such as Notebooks, or other MLOps applications). Because AI development has new assets such as the data and model parameters, these components pose a new threat. To make matters worse, data scientists also install dependencies on the Notebooks which makes the data and model engineering environment a dangerous attack vector and the classic supply chain guardrails typically don’t scan it.
 
 See [MITRE ATLAS - ML Supply chain compromise](https://atlas.mitre.org/techniques/AML.T0010).
 
@@ -154,7 +177,7 @@ Links to standards:
 #### #DATAQUALITYCONTROL
 (development-time datascience). Data quality control: Perform quality control on data including detecting poisoned samples through statistical deviation or pattern recognition. For important data and scenarios this may involve human verification.
 
-Particularity: standard quality control needs to take into account that data may have maliciously been changed.
+Particularity for AI and security: standard quality control needs to take into account that data may have maliciously been changed. This means that extra checks can be placed to detect changes that would normally not happen by themselves. For example: safely storing hash codes of data elements, such as images, and regularly checking to see if the images have been manipulated.
 
 A method to detect statistical deviation is to train models on random selections of the training dataset and then feed each training sample to those models and compare results.
 
@@ -184,7 +207,12 @@ Link to standards:
 - Not covered yet in ISO/IEC standards
 
 #### #POISONROBUSTMODEL
-(development-time datascience). Poison robus model: select model types that are less sensitive to poisoned training data.  
+(development-time datascience). Poison robust model: select a model type and approach to reduce sensitivity to poisoned training data.  
+
+Example: Reducing sensitivity to backdoor poisoning attacks with **fine-pruning** (See [paper on fine-pruning](https://arxiv.org/pdf/1805.12185.pdf)). Fine-pruning consists of two complementary approaches: Pruning and fine-tuning:  
+**Pruning** in essence reduces the size of the model so it does not have the capacity to trigger on backdoor-examples while remaining sufficient accuracy for the intended use case. The approach removes neurons in a neural network that have been identified as non-essential for sufficient accuracy.  
+**Fine tuning** retrains a model on a clean dataset(without poisoning) with the intention to remove memorisation of any backdoor triggers.
+
 Links to standards:
 - Not covered yet in ISO/IEC standards
 
