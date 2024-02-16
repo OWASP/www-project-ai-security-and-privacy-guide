@@ -1447,7 +1447,8 @@ GenAI models mostly live in the cloud - often managed by an external party, whic
 ## 5.1. Introduction
 
 ## 5.2. Establishing Context: 
-![Risk Management Image](assets/images/Riskmanagement1.JPG)
+<img src="assets/images/Riskmanagement1.JPG" align="right" width="250" height="400"> 
+
 
 
 
