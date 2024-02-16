@@ -1445,6 +1445,51 @@ GenAI models mostly live in the cloud - often managed by an external party, whic
 ---
 
 ## 5.1. Introduction
+AI Risk Management applies regardless of where in the supply chain your organization fits. 
+Whether you are integrating AI systems built by others or developing ,modifying or training them to be utilized internally or externally by others, it is imperative to manage their risks.
+
+In the context of AI Risk Management process, the term AI encompasses all flavors of AI including AGI, Machine Learning, Deep Learning, and Data Science, while acknowledging that the actual risks overlap and vary depending on the flavor of AI and the applicable domain. 
+
+The intent of this document is to concisely capture the key elements of an effective AI risk management framework and provide a prescriptive framework.  This document  is organized by AI Risk Management Process, Model,  Activities, Risk Catalog, Roles and Responsibilities and Risk Catalog.  
+
+**AI Risk Management Process:**
+
+We utilize the ISO 31000 as a good framework to overlay our AI Risk Management process.  
+
+
+<img src="assets/images/Riskmanagement3.JPG" align="left" width="700" height="500">
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+Source:  ISO 31000:2009(en), Risk management — Principles and guidelines
+
+
+
+
+
+
+
 
 ## 5.2. Establishing Context
 <img src="assets/images/Riskmanagement1.JPG" align="right" width="250" height="400"> 
