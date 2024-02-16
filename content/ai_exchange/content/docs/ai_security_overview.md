@@ -116,14 +116,14 @@ There are many threats and controls described in this document. Your situation d
 
     These are the responsbilities of the model maker, but be aware you may be effected by the unwanted results. The maker may take the blame for any issue, which would take care of confidentiality issues, but you would suffer effectively from any manipulated model behaviour.
 
-    If your train data is not sensitive: ignore the confidentiality of train data threats
+    If your train data is not sensitive: ignore the confidentiality of train data threats. A special case is the threat of _membership inference_: this threat only applies when the **fact** that a person was part of the training set is harmful information about the person, for example when the trainset consists of criminals and their history to predict criminal careers: membership of that set gives away the person is a convicted or aledged criminal.
 
     If your model is a GenAI model, ignore the following threats: evasion, model inversion. Also ignore prompt injection and insecure output handling if your GenAI model is NOT an LLM
     If your model is not a GenAI model, ignore (direct) prompt injection, and insecure output handling
 
     If your input data is not sensitive, ignore ‘leaking input data’. If you use RAG, consider data you retrieve also as input data.
 
-2. **Arranging responsibility**: For each selected threat, determine who is responsible to address it. By default, the organization that builds and deploys the AI system is responsible, but building and deploying may be done by different organizations, and some parts of the building and deployment may be deferred to other organizations, e.g. hosting the model, or providing a cloud environment for the application to run. Some aspects are shared responsibilities.
+3. **Arranging responsibility**: For each selected threat, determine who is responsible to address it. By default, the organization that builds and deploys the AI system is responsible, but building and deploying may be done by different organizations, and some parts of the building and deployment may be deferred to other organizations, e.g. hosting the model, or providing a cloud environment for the application to run. Some aspects are shared responsibilities.
 
     If components of your AI system are hosted, then you share responsibility regarding all controls for the relevant threats with the hosting provider. This needs to be arranged with the provider, using for example a responsibility matrix. Components can be the model, model extensions, your application, or your infrastructure.
 
