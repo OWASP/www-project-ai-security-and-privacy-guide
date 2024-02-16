@@ -1452,7 +1452,7 @@ In the context of AI Risk Management process, the term AI encompasses all flavor
 
 The intent of this document is to concisely capture the key elements of an effective AI risk management framework and provide a prescriptive framework.  This document  is organized by AI Risk Management Process, Model,  Activities, Risk Catalog, Roles and Responsibilities and Risk Catalog.  
 
-## 5.2 AI Risk Management Process
+## 5.2.  AI Risk Management Process
 
 We utilize the ISO 31000 as a good framework to overlay our AI Risk Management process.  
 
@@ -1491,7 +1491,7 @@ Source:  ISO 31000:2009(en), Risk management — Principles and guidelines
 
 
 
-## 5.2.1 Establishing Context
+## 5.2.1.  Establishing Context
 <img src="assets/images/Riskmanagement1.JPG" align="right" width="250" height="400"> 
 
 - **External Context**: Understand the environment in which ML, Data Science, and Gen AI systems operate, including legal, regulatory, financial, and social factors. Consider compliance with privacy (e.g. GDPR in Europe), or specific jurisdictional (e.g. Canada Bill C27-AIDA) or industry (e.g. Healthcare or Finance) requirements. 
@@ -1504,7 +1504,7 @@ Source:  ISO 31000:2009(en), Risk management — Principles and guidelines
 
 
 
-## 5.2.2 Risk Assessment
+## 5.2.2.  Risk Assessment
 <img src="assets/images/Riskmanagement2.JPG" align="right" width="250" height="400"> 
 
 
