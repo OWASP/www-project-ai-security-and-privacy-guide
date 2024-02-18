@@ -119,7 +119,8 @@ There are many threats and controls described in this document. Your situation d
     If your train data is not sensitive: ignore the confidentiality of train data threats. A special case is the threat of _membership inference_: this threat only applies when the **fact** that a person was part of the training set is harmful information about the person, for example when the trainset consists of criminals and their history to predict criminal careers: membership of that set gives away the person is a convicted or aledged criminal.
 
     If your model is a GenAI model, ignore the following threats: evasion, model inversion. Also ignore prompt injection and insecure output handling if your GenAI model is NOT an LLM
-    If your model is not a GenAI model, ignore (direct) prompt injection, and insecure output handling
+
+    If your model is not a GenAI model, ignore (direct) prompt injection, and insecure output handling. Also, consider the risks around **Evasion attacks**: is it interesting AND possible for an attacker to manipulate input so that the model makes a wrong decision? An example where evasion IS interesting and possible: adding certain words in a spam email so that it is not recoginzed as such. An example where evasion is not interesting is when a patient gets a skin desease diagnosis based on a picture of the skin. The patient has no interest in a wrong decision, and also the patient typically has no control - well maybe by painting the skin. There are situations in which this CAN be of interest for the patient, for example to be eligible for compensation in case the (faked) skin desease was caused by certain restaurant food. This demonstrates that it all depends on the context whether a theoretical threat is a real threat or not.
 
     If your input data is not sensitive, ignore ‘leaking input data’. If you use RAG, consider data you retrieve also as input data.
 
