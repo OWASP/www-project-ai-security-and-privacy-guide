@@ -357,6 +357,13 @@ Workshops (DSN-W). IEEE, 2023.
 attacks to deep neural networks without training substitute models."
 Proceedings of the 10th ACM workshop on artificial intelligence and security. 2017.
 
+  - Guo, Chuan, et al. "Simple black-box adversarial attacks." International
+Conference on Machine Learning. PMLR, 2019.
+
+  - Andriushchenko, Maksym, et al. "Square attack: a query-efficient
+black-box adversarial attack via random search." European conference on
+computer vision. Cham: Springer International Publishing, 2020.
+
 **Controls:**
 
 - See General controls
