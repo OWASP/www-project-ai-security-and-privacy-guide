@@ -261,7 +261,8 @@ Maintaining model correctness can be improved by performing multiple random modi
 
 The security of these defenses often relies on gradient masking (sometimes called gradient obfuscation) when the functions are non-differentiable (shattered gradients). These defenses can be attacked by approximating the gradients, e.g., using BPDA. Systems that use defenses based on randomness to mask the gradients (stochastic gradients) can be attacked by combining the attack with EOT.
 A set of defense techniques called Random Transfomations (RT) defends neural networks by implementing enough randmoness that computing adversarial examples using EOT is computationally inefficient. This randomness is typically achieved by using a random subset of input transformations with random parameters. Since multiple transformations are applied to each input sample, the benign accuracy drops significantly, thus the network must be trained with the RT in place.
-Note that black-box or closed-box attacks do not rely on the gradients and are therefore not affected by shattered gradients. 
+
+Note that black-box or closed-box attacks do not rely on the gradients and are therefore not affected by shattered gradients, as they do not use the gradients to calculate the attack. Black box attacks use only the input and the output of the model or whole AI system to calculate the adversarial input. For a more detailed discussion of these attacks see Closed-box evasion. 
   
 See DETECTADVERSARIALINPUT for an approach where the distorted input is used for detecting an adversarial attack.
 
@@ -302,7 +303,8 @@ robust to adversarial examples." arXiv preprint arXiv:1607.04311 (2016).
 
 ### 2.1.1. Closed-box evasion
 
-Input is manipulated in a way not based on observations of the model implementation (code, training set, parameters, architecture). The model is a 'closed box'. This often requires experimenting with how the model responds to input.
+
+Black box or closed-box attacks are methods where an attacker manipulates the input to exploit a model without having any internal knowledge or access to that model's implementation, including code, training set, parameters, and architecture. The term "black box" reflects the attacker's perspective, viewing the model as a 'closed box' whose internal workings are unknown. This approach often requires experimenting with how the model responds to various inputs, as the attacker navigates this lack of transparency to identify and leverage potential vulnerabilities.
 
 <p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inputblack3.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inputblack3.png?raw=true"/></a></p>
 
