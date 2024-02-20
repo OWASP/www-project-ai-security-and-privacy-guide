@@ -259,7 +259,7 @@ PMLR, 2018.
 
 Maintaining model correctness can be improved by performing multiple random modifications (e.g. randomized smoothing) to the input and then comparing the model output (e.g. best of three).  
 
-The security of these defenses often relies on gradient masking (sometimes called gradient obfuscation) when the functions are non-differentiable ( shattered gradients). These defenses can be attacked by approximating the gradients, e.g., using BPDA. Systems that use defenses based on randomness to mask the gradients (stochastic gradients) can be attacked by combining the attack with EOT.
+The security of these defenses often relies on gradient masking (sometimes called gradient obfuscation) when the functions are non-differentiable (shattered gradients). These defenses can be attacked by approximating the gradients, e.g., using BPDA. Systems that use defenses based on randomness to mask the gradients (stochastic gradients) can be attacked by combining the attack with EOT.
 A set of defense techniques called Random Transfomations (RT) defends neural networks by implementing enough randmoness that computing adversarial examples using EOT is computationally inefficient. This randomness is typically achieved by using a random subset of input transformations with random parameters. Since multiple transformations are applied to each input sample, the benign accuracy drops significantly, thus the network must be trained with the RT in place.
 Note that black-box or closed-box attacks do not rely on the gradients and are therefore not affected by shattered gradients. 
   
