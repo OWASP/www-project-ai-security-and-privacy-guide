@@ -305,6 +305,7 @@ robust to adversarial examples." arXiv preprint arXiv:1607.04311 (2016).
 
 
 Black box or closed-box attacks are methods where an attacker manipulates the input to exploit a model without having any internal knowledge or access to that model's implementation, including code, training set, parameters, and architecture. The term "black box" reflects the attacker's perspective, viewing the model as a 'closed box' whose internal workings are unknown. This approach often requires experimenting with how the model responds to various inputs, as the attacker navigates this lack of transparency to identify and leverage potential vulnerabilities.
+Since the attacker does not have access to the inner workings of the model, he cannot calculate the gradients to create the adversarial inputs. Therefore, the attacks do not rely on the actual gradients of the network, in contrast to white-box or open-box attacks (see 2.1.2. Open-box evasion).
 
 Black box attack strategies are:
 - Transferability-Based Attacks:
