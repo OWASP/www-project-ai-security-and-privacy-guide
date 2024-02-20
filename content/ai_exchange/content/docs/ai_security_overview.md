@@ -64,6 +64,8 @@ Below diagram restricts the threats and controls to Generative AI only, for situ
 ### Threat model with controls - GenAI as-is
 Below diagram restricts the threats and controls to Generative AI only where the model is used **as-is** by the organization. The provider (e.g. OpenAI) has done the training/finetuning. Therefore, some threats are the responsibility of the model provider (sensitive/copyrighted data, manipulation at the provider). Nevertheless, the organization that uses the model should take these risks into account and gain assurance about them from the provider.
 
+In many situation, the as-is model will be hosted externally and therefore security depends on how the supplier is handling the data, including the security configuration. How is the API protected? What is virtual private cloud? The entire external model, or just the API? Key management? Data retention? Logging? Does the model reach out to third party sources by sendint out sensitive input data?
+
 ![AI Security Threats and controls - GenAI as-is](/images/threatscontrols-readymodel.png)
 
 
