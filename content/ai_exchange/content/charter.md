@@ -4,21 +4,25 @@ title: 'AI Exchange Charter'
 ## Purpose
 >Comprehensive guidance and alignment on how to protect AI against security threats - by professionals, for professionals.
 
-The goal of the OWASP AI Exchange is to protect society from AI security issues by independently harnessing the collective wisdom of global experts across various disciplines. This initiative focuses on advancing AI security understanding, supporting the development of global AI security guidelines, standards and regulations, and simplifying the AI security domain for professionals and organizations. Its goal is to provide a comprehensive overview of AI threats, risks, mitigations, and controls, aligning with global standardization initiatives such as the EU AI Act, ISO/IEC 27090 (AI Security), the OWASP ML Top 10, the OWASP LLM Top 10, and OpenCRE. This alignment, achieved through open source, is crucial to prevent confusion and ignorance, leading to harm from AI security incidents.
+The goal of the OWASP AI Exchange is to protect society from AI security issues by independently harnessing the collective wisdom of global experts across various disciplines. This initiative focuses on advancing AI security understanding, supporting the development of global AI security guidelines, standards and regulations, and simplifying the AI security domain for professionals and organizations. Its goal is to provide a comprehensive overview of AI threats, risks, mitigations, and controls. This overview needs to align and feed into global standardization initiatives such as the EU AI Act, ISO/IEC 27090 (AI Security), the OWASP ML Top 10, the OWASP LLM Top 10, and OpenCRE. This alignment, achieved through open source Github collaboration and liaisons with working groups. Alignment is crucial to prevent confusion and ignorance, leading to harm from AI security incidents. The position of the Exchange is altruistic: NOT to set a standard, but to drive standards, and still be the top bookmark for people dealing with AI security.
 
 ## Target Audience
-This charter primarily addresses the needs of cybersecurity experts, privacy/regulatory/ legal professionals, AI leaders, developers, and data scientists. It offers accessible guidance and resources to these groups, enabling them to build and maintain secure AI systems effectively.
+This charter primarily addresses the needs of cybersecurity experts, privacy/regulatory/ legal professionals, AI leaders, developers, and data scientists. It offers accessible guidance and resources to these groups, enabling them to apply, build and maintain secure AI systems effectively.
 
 ## Mission / Goals 
 Our mission is to establish the OWASP AI Exchange as the place to go for professionals who want to understand AI security, and to be the authoritative source for consensus, alignment, and collaboration among various AI initiatives. We aim to foster a unified approach to addressing AI security challenges.
 
 ## Scope & Responsibilities
-- Develop a comprehensive framework for AI threats, risks, mitigations, and controls.
-- Create a map integrating AI regulatory and privacy regulations.
-- Establish a common taxonomy and glossary for AI security.
-- Provide guidance on testing tools with outcome assessments.
-- Formulate a shared responsibility model for third-party AI model usage.
-- Offer supply chain guidance and an incident response plan.
+- **AI-specific**: Focus on the topics that are specific to AI, and cover how generic topics (e.g. risk analysis) can be adapted for AI and discuss AI attention points for them
+- **The security OF AI**: that's what the Exchange is about, so it covers threats TO AI systems. Some of those threats have effect on the behaviour/availability of the AI system which indirectly creates threats BY AI.
+- **Explain and refer**: the Exchange covers a topic by a concise explanation that transcends the material by making it clear, sensible, mentioning important points of consideration, and referring the reader to further reading. Think of the explanation of 'AI security for professional dummies'.
+- Develop a **comprehensive framework** for AI threats, risks, and controls (mitigations) - establish a common taxonomy and glossary for AI security.
+- Create insight into **relevant laws and regulations**.
+- Provide guidance on **testing tools and methods** with outcome assessments.
+- Formulate a **shared responsibility model** for working with third-parties providing AI models or other relevant facilities.
+- Offer **supply chain guidance** and an **incident response plan**.
+
+The AI Exchange aims to be primarily a single coherent publication on AI security, containing separate sections. It should not be a set of separate publications, unless we really need to.
 
 ## Relation to other OWASP or other organization initiatives
 These are the other OWASP AI initiatives and the relation with the AI Exchange;
