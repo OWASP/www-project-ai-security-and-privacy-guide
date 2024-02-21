@@ -32,7 +32,7 @@ The OWASP AI Exchange has open sourced the global discussion on the security of 
 
 Our **mission** is to be the authoritative source for consensus, foster alignment, and drive collaboration among initiatives - NOT to set a standard, but to drive standards. By doing so, we provide a safe, open, and independent place to find and share insights for everyone. See [AI Exchange LinkedIn page](https://www.linkedin.com/company/owasp-ai-exchange/).
 
-The AI Exchange is displayed here at [owaspai.org](https://owaspai.org) and edited using a [GitHub repository](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/tree/main/content/ai_exchange/content) (see the links _Edit on Github_). It is is an **open-source set of living documents** for the worldwide exchange of AI security expertise, and part of the [OWASP AI security & privacy guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) project. 
+The AI Exchange is displayed here at [owaspai.org](https://owaspai.org) and edited using a [GitHub repository](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/tree/main/content/ai_exchange/content) (see the links _Edit on Github_). It is is an **open-source living publication** for the worldwide exchange of AI security expertise, and part of the [OWASP AI security & privacy guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) project. It is structured as one coherent resource consisting of several sections under 'content', each represented by a page on this website.
 
 ## Other OWASP AI Initiatives
 
