@@ -82,6 +82,20 @@ Federated Learning is a decentralized Machine Learning architecture wherein a nu
 
 Broadly, Federated Learning generally consists of four high-level steps: First, there is a server-to-client broadcast; next, local models are updated on the client; once trained, local models are then returned to the central server; and finally, the central server updates via model aggregation.
 
+Federated machine learning benefits & use cases
+
+Federated machine learning may offer significant benefits for organizations in several domains, including regulatory compliance, enhanced privacy, scalability and bandwidth, and other user/client considerations.  
+
+Regulatory compliance. In federated machine learning, data collection is decentralized, which may allow for greater ease of regulatory compliance. Decentralization of data may be especially beneficial for international organizations, where data transfer across borders may be unlawful.
+
+Enhanced privacy. Federated learning can provide enhanced privacy, as data does not leave the client device, minimizing the potential for exposure of sensitive information. Because data is vulnerable in transit, minimizing data broadcast back to a central server may additionally provide security benefits. However, care must be taken to guard models in transit, as sensitive data may still be extracted from the models themselves.
+
+Scalability & bandwidth. Decreased data transfer between client devices and a central server may provide significant benefits for organizations where data transfer costs are high. Similarly, federation may provide advantages in resource-constrained environments where bandwidth considerations might otherwise limit data uptake and/or availability for modeling. Further, because federated learning optimizes network resources, these benefits may on aggregate allow for overall greater capacity & flexible scalability.  
+
+Additional benefits. Because federated learning relies on a plurality of models to aggregate an update to the central model, it may provide benefits in data & model diversity. The ability to operate efficiently in resource-constrained environments may further allow for increases in heterogeneity of client devices, further increasing the diversity of available data.
+
+Challenges in federated machine learning
+
 Challenges in Federated Learning include managing device and model heterogeneity, latency in broadcast phases, and preservation of privacy. Security concerns also include backdoor attacks via data/model poisoning; with federated systems additionally introducing a vast network of edge clients, some of which may be malicious. 
 
 Device Heterogeneity. User- or other edge devices may vary widely in their computational, storage, transmission, or other capabilities, presenting challenges for federated deployments. These may additionally introduce device-specific security concerns, which practitioners should take into consideration in design phases. While designing for constraints including connectivity, battery life, and compute, it is also critical to consider edge device security. 
