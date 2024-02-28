@@ -10,11 +10,13 @@
     "redirects": [
       {
         "source": "/goto/secdevprogram",
-        "destination": "/docs/1_general_controls/#secdevprogram"
+        "destination": "/docs/1_general_controls/#secdevprogram",
+        "type": 301
       },
       {
         "source": "/goto/3_development_time_threats",
-        "destination": "/docs/3_development_time_threats"
+        "destination": "/docs/3_development_time_threats",
+        "type": 301
       }
     ]
   }
