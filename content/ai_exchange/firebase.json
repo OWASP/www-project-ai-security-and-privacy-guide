@@ -7,7 +7,7 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "redirects": [
+    "rewrites": [
       {
         "source": "/goto/aiprogram/",
         "destination": "/docs/1_general_controls/#aiprogram",
