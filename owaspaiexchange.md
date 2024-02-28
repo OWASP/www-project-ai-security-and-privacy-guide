@@ -1269,11 +1269,139 @@ An attacker supplies a manipulated pre-trained model which is then unknowingly f
 
   Example: GenAI models are sometimes obtained elsewhere (e.g. open source) and then fine-tuned. These models may have been manipulated at the source, or in transit. See [OWASP for LLM 05: Supply Chain Vulnerabilities.](https://llmtop10.com/llm05/).
 
+- **A model type resilient against a transfer learning attack**
+
+<img width="700" alt="transferlearningattack" src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/assets/63918143/b610536a-9524-4b53-a05b-df5ed52cd298">
+
+
+
+1. Use Secure and Trusted Training Datasets
+
+   Using secure and trusted training dataset can help prevent the transfer of malicious knowledge from the attacker's model to the target model.
+
+   
+2. Apply Differential Privacy
+
+   Differential privacy techniques add noise to training data or model parameters, making it harder for attackers to extract sensitive information. By safeguarding individual records during training, the resilience of the model against transfer learning attacks will be enhanced.
+
+
+3. Implement Model Isolation
+   
+   The implementation of model isolation enables different models to run independently. Separating training and delivery environments prevents attackers from transferring knowledge from one environment to another. This isolation helps protect the target model from potentially adversarial  influences.
+
+
+
+4. Model Architecture Variability
+
+   Variability in model design can make it difficult for attackers to transfer knowledge effectively (different architectures when fine-tuning). Exploring diverse architectures e.g., different layer sizes, skip connections, attention mechanisms can lead to better performance. For example:
+
+     - Attempt different neural network architectures during fine-tuning, such as altering hidden layers or activation functions to make the model more unpredictable for attackers.
+     - Investigate new architectures like capsule networks or attention mechanisms that introduce non-linearity and improve transferability.
+     - Replace a standard convolutional layer with a capsule layer.
+
+
+    
+5. Embedding Layers Protection
+
+   Embedding layers (e.g., word embeddings), are susceptible to adversarial attacks, but safeguarding them with methods like adversarial training or robust optimization can mitigate this vulnerability. For instance, when fine-tuning a language model, its 
+   crucial   to ensure the robustness of embedding layers (word vectors) by incorporating regularization techniques during training. This can involve measures like adversarial training or gradient clipping to enhance their resilience against perturbations. For 
+   example,   
+   adding an adversarial loss term to the embedding layer during training can bolster its robustness.
+
+
+
+
+6. Fine-Tuning Restrictions
+
+   Fine-tunning entails adjusting a pre-trained model for a specific task using task-specific data, necessitating constrains to prevent overfitting. Techniques like Layerwise Noise Stability Regularization (LNSR) introduce noise into hidden representations,     
+   bolstering the stability of the fine-tuned model. For example, when fine-tuning pre-trained language model for sentiment analysis, limiting the epochs to a maximum of 5 instead of allowing unlimited fine-tuning helps prevent overfitting.
+   To enhance fine-tuning, adaptive strategies based on validation performance can replace fixed epoch numbers. Early stopping, for instance, effectively prevents overfitting while offering flexibility. For example, when fine-tuning, monitoring validation     
+   accuracy during training and halting when it plateaus or decreases ensures optimal performance and prevents overfitting.  
+
+
+
+
+7. Regularization Techniques
+
+   During fine-tuning, it’s crucial to incorporate regularization techniques like L1,L2 and dropout to counter overfitting and enhance model generalization, reducing vulnerability to adversarial transfer. These methods constrain the model by adding penalties or    constraints. Common approaches include the dropout, which randomly deactivates neurons to prevent reliance on specific features, L2-Regularization, which penalizes large weights to promote simplicity, and Tuneout, a variation of dropout injecting noise into     hidden layers to regularize neural networks. 
+   For instance, in linear regression, L2 regularization (ridge regression) adds a penalty term to the loss function, effectively reducing coefficient magnitude. Similarly, L1 regularization (Lasso regression) encourages feature sparsity. An advanced method is 
+   Elastic Net, combining L1 and L2 regularization for a balanced approach, allowing experimentation with different strengths.
+
+
+
+
+8. Adversarial Training
+
+   Adversarial training is a method where a model is trained against adversarial examples crafted to deceive it, thereby enhancing the model’s robustness and generalization. Integrating adversarial examples into fine-tuning enhances model resilience by exposing 
+   it to adversarial perturbations during training.
+
+   For instance, when fine-tuning a model for image classification, deliberately introducing adversarial examples during training can bolster its robustness against attacks.
+   An advanced approach involves dynamically generating adversarial examples during training, adapting to the model’s current state. Exploring robust optimization techniques like projected gradient descent can facilitate this process.
+
+
+
+9. Dynamic Model Updates
+
+   To ensure adaptability to changing data distribution, models must undergo dynamic updates, involving periodic or incremental retraining to maintain relevance. Regularly refreshing the model with new data prevents it from becoming stale and minimizes the risk 
+   of transferring outdated or compromised knowledge.
+   For instance, continuously updating the model with fresh data allows it to adapt to evolving patterns and reduces susceptibility to transfer learning attack. An enhancement strategy involves implementing online learning or incremental training, enabling the 
+   model to be updated with new data points without starting from scratch. For example, continuously integrating user feedback into a recommendation system ensures its relevance over time.
+
+
+
+10. Ensemble Randomization
+
+    Creating an ensemble of fine-tuned models with different random seeds or initialization weights can enhance robustness against transfer learning attacks by combining their predictions. Ensemble methods leverage the power of multiple models to improve 
+    overall performance. Introducing randomization through various initializations or data subsets during training enhances diversity among ensemble members. An advanced approach extends beyond diverse seeds to encompass varying hyperparameters to encompass 
+    varying hyperparameters like tree depth or number of estimators, employing techniques such as bagging or boosting. By constructing a random forest ensemble with a spectrum of decision trees, this strategy maximizes model robustness and adaptability.
+
+
+
+11. Access Controls
+
+    Controlling access to models and data is paramount for security and privacy. By implementing access controls, only authorized users can interact with the model, safeguarding sensitive information. To further enhance security, access to fine-tuning processes 
+    should be limited exclusively to authorized personnel. This mitigates the risk of malicious modifications to the models. An enhanced strategy involves implementing fine-grained access controls not only for fine-tuning but also for model deployment and 
+    inference. Role-based access ensures comprehensive security measures. For instance, restricting fine-tuning permissions to specific user roles helps maintain control over model modifications.
+
+
+
+12. Regular Model Audiths
+
+    Regularly auditing models is essential for identifying biases, vulnerabilities, or performance degradation, ensuring their reliability and alignment with their intended purpose. Conducting routine security audits is crucial to detect any indicators of 
+    compromised models or transfer learning attacks, highlighting the importance of vigilance and proactive monitoring.
+    For example, conducting periodic security audits can help uncover signs of compromised models or transfer learning attacks.
+    An enhanced approach involves extending audits beyond security to encompass bias detection, robustness checks, and transferability analysis. Regularly assessing model fairness and robustness through bias metrics and adversarial testing ensures comprehensive 
+    evaluation.
+
+
+
+
+Refrences: 
+-  OWASP Machine Learning Security Top Ten 2023 | ML07:2023 Transfer Learning Attack | OWASP Foundation
+-  OWASP ML07:2023 Transfer Learning Attack
+-  Dynamic Routing Between Capsules Sara Sabour, Nicholas Frosst, Geoffrey E Hinton
+-  regularization-in-machine-learning , geeksforgeeks.org
+-  Adversarial Training for Word Embeddings
+-  Improving Pre-trained Language Model Fine-tuning with Noise Stability Regularization, Hang Hua, Xingjian Li, Dejing Dou, Cheng-Zhong Xu, Jiebo Luo
+-  OpenAI API Fine-Tuning Guide
+-  TensorFlow Early Stopping Callback
+-  Regularization in Machine Learning (with Code Examples)
+-  Complete Guide to Regularization Techniques in Machine Learning
+-  Chatgen.ai: The GPT-4 Fine-Tuning Process
+-  Adversarial Robustness Toolbox
+-  IBM Data Resiliency
+-  Online Learning with scikit-learn
+-  scikit-learn Ensemble Documentation
+-  AWS Identity and Access Management
+-  AI Fairness 360 Toolkit
+
+
+
 **Controls specific for transfer learning:**
 
 - See General controls
 - SUPPLYCHAINMANAGE
-- Choose a model type resilient against a transfer learning attack
+
 
 ---
 
