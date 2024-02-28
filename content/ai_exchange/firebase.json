@@ -9,13 +9,253 @@
     ],
     "redirects": [
       {
+        "source": "/goto/aiprogram/",
+        "destination": "/docs/1_general_controls/#aiprogram",
+        "type": 301
+      },
+      {
+        "source": "/goto/secprogram/",
+        "destination": "/docs/1_general_controls/#secprogram",
+        "type": 301
+      },
+      {
         "source": "/goto/secdevprogram/",
         "destination": "/docs/1_general_controls/#secdevprogram",
         "type": 301
       },
       {
-        "source": "/goto/3_development_time_threats/",
-        "destination": "/docs/3_development_time_threats/",
+        "source": "/goto/devprogram/",
+        "destination": "/docs/1_general_controls/#devprogram",
+        "type": 301
+      },
+      {
+        "source": "/goto/checkcompliance/",
+        "destination": "/docs/1_general_controls/#checkcompliance",
+        "type": 301
+      },
+      {
+        "source": "/goto/seceducate/",
+        "destination": "/docs/1_general_controls/#seceducate",
+        "type": 301
+      },
+      {
+        "source": "/goto/dataminimize/",
+        "destination": "/docs/1_general_controls/#dataminimize",
+        "type": 301
+      },
+      {
+        "source": "/goto/alloweddata/",
+        "destination": "/docs/1_general_controls/#alloweddata",
+        "type": 301
+      },
+      {
+        "source": "/goto/shortretain/",
+        "destination": "/docs/1_general_controls/#shortretain",
+        "type": 301
+      },
+      {
+        "source": "/goto/obfuscatetrainingdata/",
+        "destination": "/docs/1_general_controls/#obfuscatetrainingdata",
+        "type": 301
+      },
+      {
+        "source": "/goto/discrete/",
+        "destination": "/docs/1_general_controls/#discrete",
+        "type": 301
+      },
+      {
+        "source": "/goto/oversight/",
+        "destination": "/docs/1_general_controls/#oversight",
+        "type": 301
+      },
+      {
+        "source": "/goto/leastmodelprivilege/",
+        "destination": "/docs/1_general_controls/#leastmodelprivilege",
+        "type": 301
+      },
+      {
+        "source": "/goto/aitransparency/",
+        "destination": "/docs/1_general_controls/#aitransparency",
+        "type": 301
+      },
+      {
+        "source": "/goto/continuousvalidation/",
+        "destination": "/docs/1_general_controls/#continuousvalidation",
+        "type": 301
+      },
+      {
+        "source": "/goto/explainability/",
+        "destination": "/docs/1_general_controls/#explainability",
+        "type": 301
+      },
+      {
+        "source": "/goto/unwantedbiastesting/",
+        "destination": "/docs/1_general_controls/#unwantedbiastesting",
+        "type": 301
+      },
+      {
+        "source": "/goto/monitoruse/",
+        "destination": "/docs/2_threats_through_use/#monitoruse",
+        "type": 301
+      },
+      {
+        "source": "/goto/ratelimit/",
+        "destination": "/docs/2_threats_through_use/#ratelimit",
+        "type": 301
+      },
+      {
+        "source": "/goto/modelaccesscontrol/",
+        "destination": "/docs/2_threats_through_use/#modelaccesscontrol",
+        "type": 301
+      },
+      {
+        "source": "/goto/detectoddinput/",
+        "destination": "/docs/2_threats_through_use/#detectoddinput",
+        "type": 301
+      },
+      {
+        "source": "/goto/detectadversarialinput/",
+        "destination": "/docs/2_threats_through_use/#detectadversarialinput",
+        "type": 301
+      },
+      {
+        "source": "/goto/evasionrobustmodel/",
+        "destination": "/docs/2_threats_through_use/#evasionrobustmodel",
+        "type": 301
+      },
+      {
+        "source": "/goto/trainadversarial/",
+        "destination": "/docs/2_threats_through_use/#trainadversarial",
+        "type": 301
+      },
+      {
+        "source": "/goto/inputdistortion/",
+        "destination": "/docs/2_threats_through_use/#inputdistortion",
+        "type": 301
+      },
+      {
+        "source": "/goto/adversarialrobustdistillation/",
+        "destination": "/docs/2_threats_through_use/#adversarialrobustdistillation",
+        "type": 301
+      },
+      {
+        "source": "/goto/filtersensitivemodeloutput/",
+        "destination": "/docs/2_threats_through_use/#filtersensitivemodeloutput",
+        "type": 301
+      },
+      {
+        "source": "/goto/obscureconfidence/",
+        "destination": "/docs/2_threats_through_use/#obscureconfidence",
+        "type": 301
+      },
+      {
+        "source": "/goto/smallmodel/",
+        "destination": "/docs/2_threats_through_use/#smallmodel",
+        "type": 301
+      },
+      {
+        "source": "/goto/dosinputvalidation/",
+        "destination": "/docs/2_threats_through_use/#dosinputvalidation",
+        "type": 301
+      },
+      {
+        "source": "/goto/limitresources/",
+        "destination": "/docs/2_threats_through_use/#limitresources",
+        "type": 301
+      },
+      {
+        "source": "/goto/devdataprotect/",
+        "destination": "/docs/3_development_time_threats/#devdataprotect",
+        "type": 301
+      },
+      {
+        "source": "/goto/devsecurity/",
+        "destination": "/docs/3_development_time_threats/#devsecurity",
+        "type": 301
+      },
+      {
+        "source": "/goto/segregatedata/",
+        "destination": "/docs/3_development_time_threats/#segregatedata",
+        "type": 301
+      },
+      {
+        "source": "/goto/confcompute/",
+        "destination": "/docs/3_development_time_threats/#confcompute",
+        "type": 301
+      },
+      {
+        "source": "/goto/federativelearning/",
+        "destination": "/docs/3_development_time_threats/#federativelearning",
+        "type": 301
+      },
+      {
+        "source": "/goto/supplychainmanage/",
+        "destination": "/docs/3_development_time_threats/#supplychainmanage",
+        "type": 301
+      },
+      {
+        "source": "/goto/modelensemble/",
+        "destination": "/docs/3_development_time_threats/#modelensemble",
+        "type": 301
+      },
+      {
+        "source": "/goto/moretraindata/",
+        "destination": "/docs/3_development_time_threats/#moretraindata",
+        "type": 301
+      },
+      {
+        "source": "/goto/dataqualitycontrol/",
+        "destination": "/docs/3_development_time_threats/#dataqualitycontrol",
+        "type": 301
+      },
+      {
+        "source": "/goto/traindatadistortion/",
+        "destination": "/docs/3_development_time_threats/#traindatadistortion",
+        "type": 301
+      },
+      {
+        "source": "/goto/poisonrobustmodel/",
+        "destination": "/docs/3_development_time_threats/#poisonrobustmodel",
+        "type": 301
+      },
+      {
+        "source": "/goto/runtimemodelintegrity/",
+        "destination": "/docs/4_runtime_application_security_threats/#runtimemodelintegrity",
+        "type": 301
+      },
+      {
+        "source": "/goto/runtimemodeliointegrity/",
+        "destination": "/docs/4_runtime_application_security_threats/#runtimemodeliointegrity",
+        "type": 301
+      },
+      {
+        "source": "/goto/runtimemodelconfidentiality/",
+        "destination": "/docs/4_runtime_application_security_threats/#runtimemodelconfidentiality",
+        "type": 301
+      },
+      {
+        "source": "/goto/modelobfuscation/",
+        "destination": "/docs/4_runtime_application_security_threats/#modelobfuscation",
+        "type": 301
+      },
+      {
+        "source": "/goto/encodemodeloutput/",
+        "destination": "/docs/4_runtime_application_security_threats/#encodemodeloutput",
+        "type": 301
+      },
+      {
+        "source": "/goto/promptinputvalidation/",
+        "destination": "/docs/4_runtime_application_security_threats/#promptinputvalidation",
+        "type": 301
+      },
+      {
+        "source": "/goto/inputsegregation/",
+        "destination": "/docs/4_runtime_application_security_threats/#inputsegregation",
+        "type": 301
+      },
+      {
+        "source": "/goto/modelinputconfidentiality/",
+        "destination": "/docs/4_runtime_application_security_threats/#modelinputconfidentiality",
         "type": 301
       }
     ]
