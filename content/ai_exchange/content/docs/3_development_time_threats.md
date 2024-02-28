@@ -76,8 +76,8 @@ Links to standards:
 - Not covered yet in ISO/IEC standards
 
 #### #FEDERATIVELEARNING
-Category: development-time datascience.  
 Description: Federative (or better: federated) learning can be applied when a training set is distributed over different organizations, preventing that the data needs to be collected in a central place - increasing the risk of leaking.  
+Category: development-time datascience.  
 Permalink: https://owaspai.org/goto/federativelearning/
 
 Federated Learning is a decentralized Machine Learning architecture wherein a number of clients (e.g. sensor or mobile devices) participate in collaborative, decentralized, asynchronous training, which is orchestrated and aggregated by a controlling central server. Advantages of Federated Learning include reduced central compute, and the potential for preservation of privacy, since training data may remain local to the client. 
