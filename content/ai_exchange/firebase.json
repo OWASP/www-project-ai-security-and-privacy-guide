@@ -6,6 +6,16 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/goto/secdevprogram",
+        "destination": "/docs/1_general_controls/#secdevprogram"
+      },
+      {
+        "source": "/goto/3_development_time_threats",
+        "destination": "/docs/3_development_time_threats"
+      }
     ]
   }
 }
