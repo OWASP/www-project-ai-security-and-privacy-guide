@@ -126,7 +126,7 @@ ISO/IEC TR 27562:2023 provides details on these processes and templates for capt
 
 Links to standards:
 
-  - [ISO/IEC TR 27562:2023 - Security and privacy in artificial intelligence use cases — Best practices](https://www.iso.org/standard/80396.html) covers this contorl fully. 
+  - [ISO/IEC TR 27562:2023 - Security and privacy in artificial intelligence use cases — Best practices](https://www.iso.org/standard/80396.html) covers this control fully. 
   - [ISO/IEC 5338 - AI lifecycle](https://www.iso.org/standard/81118.html) Gap: covers this control fully - the 5338 covers the complete software development lifecycle for AI, by extending the existing 12207 standard on software lifecycle: defining several new processes and discussing AI-specific particularities for existing processes. See also [this blog](https://www.softwareimprovementgroup.com/iso-5338-get-to-know-the-global-standard-on-ai-systems/).
   - 27002 control 5.37 Documented operating procedures. Gap: covers this control minimally - this covers only a very small part of the control
   - [OpenCRE on documentation of function](https://www.opencre.org/cre/162-655) Gap: covers this control minimally
