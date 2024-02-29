@@ -1,7 +1,7 @@
 ---
 # AI Exchange Team Meetings
 ---
-- Bi-weekly Sync on **Thursdays at 5 PM (GMT), 8 AM (PST)**
+- Bi-weekly Sync on **Thursdays 8 AM (PST)**
 - Previous Meetings can be viewed on the **[YouTube channel](https://youtube.com/@RobvanderVeer-ex3gj?si=s2-gDFrRCazNge_c)**
 ## Next Meeting
 🐝28 Feb 2024 **Meeting 4** 🐝 Meeting Link Coming
