@@ -114,7 +114,7 @@ ISO/IEC TR 27563:2023, which bases its list of AI use cases on the 132 use cases
 These analyses can be performed early in the development process and will guide security and privacy controls for the system. These controls are based on security protection goals such as Confidentiality, Integrity and Availability, and privacygoals such as Unlinkability, Transparency and Intervenability. ISO/IEC TR 27562:2023 provides a detailed list of points of attention for these goals and coverage. Particular emphasis should be paid to points of attention on privacy principals, and AI trustworthiness vulnerabilities. 
 
 The general process for performing an AI Use Case Privacy and Security Analysis is:
- - Decribe the Ecosystem
+ - Describe the Ecosystem
  - Provide an assessment of the system of interest
  - Identify the security and privacy concerns
  - Identify the security and privacy risks
