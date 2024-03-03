@@ -214,6 +214,11 @@
         "type": 301
       },
       {
+        "source": "/goto/t1/",
+        "destination": "/docs/3_development_time_threats/#313-transfer-learning-attack",
+        "type": 301
+      },
+      {
         "source": "/goto/moretraindata/",
         "destination": "/docs/3_development_time_threats/#moretraindata",
         "type": 301
