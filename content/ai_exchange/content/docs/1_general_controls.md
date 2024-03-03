@@ -14,7 +14,7 @@ Technically one could argue that this control is out of scope for cyber security
 
 Purpose: 1) reduces probability of AI initiatives being overlooked for proper governance (including security) - as covered by controls in this document, and 2) increases incentive for proper governance as the AI program takes responsibility for it. Without proper governance, the controls in this document can only happen by accident.
 
-See Risk management under SECPROGRAM for security-specific risk analysis.
+See Risk management under SECPROGRAM for security-specific risk analysis, also involving privacy.
 
 Note that an AI program is not just about risk TO AI, such as security risks - it is also about risks BY AI, such as threats to fairness, safety, etc.
 
@@ -22,26 +22,6 @@ Links to standards:
  - ISO/IEC 42001 AI management system. Gap: covers this control fully.
  
 42001 is about extending your risk management system - it focuses on governance. 5338 (see [#DEVPROGRAM](#devprogram) below) is about extending your software lifecycle practices - it focuses on engineering and everything around it. The 42001 can be seen as a management system for the governance of responsible AI in an organization, similar to how 27001 is a management system for information security. The 42001 doesn’t go into the lifecycle processes. It for example does not discuss how to train models, how to do data lineage, continuous validation, versioning of AI models, project planning challenges, and how and when exactly sensitive data is used in engineering.
-
-Every devlopment program should perform a privacy and security analysis to assess potential impacts to users. AI programs have additional concerns around privacy and security that need to be considered. While each system implementation will be different based on its contextual purpose, the same process can be applied. 
-
-ISO/IEC TR 27563:2023, which bases its list of AI use cases on the 132 use cases belonging to 22 application domains in ISO/IEC TR 24030:2021, identifies 11 use cases with a maximum concern rating for security and 49 use cases with a maximun concern rating for privacy. While individual AI projects may have differening uses cases, it is critical to perform a use case privacy and secrutiy analysis. 
-
-These analyses can be performed early in the development process and will guide security and privacy controls for the system. These controls are based on security protection goals such as Confidentiality, Integrity and Availability, and privacygoals such as Unlinkability, Transparency and Intervenability. ISO/IEC TR 27562:2023 provides a detailed list of points of attention for these goals and coverage. Particular emphasis should be paid to points of attention on privacy principals, and AI trustworthiness vulnerabilities. 
-
-The general process for performing an AI Use Case Privacy and Security Analysis is:
- - Describe the Ecosystem
- - Provide an assessment of the system of interest
- - Identify the security and privacy concerns
- - Identify the security and privacy risks
- - Identify the security and privacy controls
- - Identify the security and privacy assurance concerns
- - Identify the security and privacy plan requirements
-
-AI requires a dedicated AI risk management program similar to secure development programs as mentioned in [#SECPROGRAM](#SECPROGRAM) below. AI programs however extend the risk profile more significantly in privacy and inclusiveness. Proper AI risk controls based on your use cases need to be identified and monitored as part of your prioritised risk register. 
-
-ISO/IEC TR 27562:2023 provides details on these processes and templates for captuing the information. 
-  - [ISO/IEC TR 27562:2023 - Security and privacy in artificial intelligence use cases — Best practices]
 
 #### #SECPROGRAM 
 (management). Having a security program. Include the whole AI lifecycle and AI particularities in the organization's security program (also referred to as _information security management system_).
@@ -52,7 +32,7 @@ Purpose: reduces probability of AI initiatives being overlooked by information s
 
 Particularity: the AI lifecycle and its specific assets and security threats need to be part of the organization's information security governance.
 
-Because AI has specific assets (e.g. training data), **AI-specific honeypots** are a partiularly interesting control. These are fake parts of the data/model/datascience infrastucture that are exposed on purpose, in order to detect or capture attackers, before they succeed to access the real assets. Examples:
+Because AI has specific assets (e.g. training data), **AI-specific honeypots** are a particularly interesting control. These are fake parts of the data/model/datascience infrastucture that are exposed on purpose, in order to detect or capture attackers, before they succeed to access the real assets. Examples:
 
 - Hardened data services, but with an unpatched vulnerability (e.g. Elasticsearch)
 - Exposed data lakes, not revealing details of the actual assets
@@ -63,6 +43,16 @@ Because AI has specific assets (e.g. training data), **AI-specific honeypots** a
 - External access granted to a specific library
 - Models imported as-is from GitHub
 
+Every AI initiative, new and existing, should perform a privacy and security risk analysis. AI programs have additional concerns around privacy and security that need to be considered. While each system implementation will be different based on its contextual purpose, the same process can be applied. These analyses can be performed before the development process and will guide security and privacy controls for the system. These controls are based on security protection goals such as Confidentiality, Integrity and Availability, and privacygoals such as Unlinkability, Transparency and Intervenability. ISO/IEC TR 27562:2023 provides a detailed list of points of attention for these goals and coverage.
+
+The general process for performing an AI Use Case Privacy and Security Analysis is:
+ - Describe the Ecosystem
+ - Provide an assessment of the system of interest
+ - Identify the security and privacy concerns
+ - Identify the security and privacy risks
+ - Identify the security and privacy controls
+ - Identify the security and privacy assurance concerns
+ 
 Links to standards:
 
   - The entire 27000-27005 range is applicable to AI systems in the general sense as they are IT systems. Gap: covers this control fully, with the high-level particularity that there are three AI-specific attack surfaces that need to be taken into account in information security management: 1)AI development-time attacks, 2)attacks through model use and 3)AI Application security attacks. See the controls under the corresponding sections to see more particularities.
@@ -84,7 +74,7 @@ Links to standards:
     - This document contains AI security threats and controls to facilitate risk analysis
     - See also [MITRE ATLAS framework for AI threats](https://atlas.mitre.org/)
     - ISO/IEC 27005 - as mentioned above. Gap: covers this control fully, with said particularity (as 27005 doesn't mention AI-specific threats)
-    - ISO/IEC 27563 (AI use cases security & privacy) Discusses the impact of security and privacy in AI use cases and may serve as useful input to AI security risk analysis. 
+    - ISO/IEC 27563:2023 (AI use cases security & privacy) Discusses the impact of security and privacy in AI use cases and may serve as useful input to AI security risk analysis. The work bases its list of AI use cases on the 132 use cases belonging to 22 application domains in ISO/IEC TR 24030:2021, identifies 11 use cases with a maximum concern rating for security and 49 use cases with a maximun concern rating for privacy.
     - ISO/IEC 23894 (AI Risk management). Gap: covers this control fully - yet it refers to ISO/IEC 24028 (AI trustworthiness) for AI security threats, which is incomplete compared to for example the AI exchange (this document). The scope is broader than security which is not an issue. 
     - ISO/IEC 5338 (AI lifecycle) covers the AI risk management process. Gap: same as 23894 above.
     - [ETSI Method and pro forma for Threat, Vulnerability, Risk Analysis](https://www.etsi.org/deliver/etsi_ts/102100_102199/10216501/05.02.03_60/ts_10216501v050203p.pdf)
@@ -92,6 +82,7 @@ Links to standards:
     - [OpenCRE on security risk analysis](https://www.opencre.org/cre/307-242)
     - [NIST SP 800-53 on general security/privacy controls](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final)
     - [NIST cyber security framework](https://www.nist.gov/cyberframework)
+      
 
 #### #SECDEVPROGRAM
 (management). Make data science development activities part of the secure software development program.
