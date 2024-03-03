@@ -38,7 +38,7 @@ The general process for performing an AI Use Case Privacy and Security Analysis 
  - Identify the security and privacy assurance concerns
  - Identify the security and privacy plan requirements
 
-AI requires a dedicated AI risk management program similar to secure development programs as mentioned in #SECPROGRAM below. AI programs however extend the risk profile more significantly in privacy and inclusiveness. Proper AI risk controls based on your use cases need to be identified and monitored as part of your prioritised risk register. 
+AI requires a dedicated AI risk management program similar to secure development programs as mentioned in [#SECPROGRAM](#SECPROGRAM) below. AI programs however extend the risk profile more significantly in privacy and inclusiveness. Proper AI risk controls based on your use cases need to be identified and monitored as part of your prioritised risk register. 
 
 ISO/IEC TR 27562:2023 provides details on these processes and templates for captuing the information. 
   - [ISO/IEC TR 27562:2023 - Security and privacy in artificial intelligence use cases — Best practices]
