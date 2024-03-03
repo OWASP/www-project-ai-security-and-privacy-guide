@@ -35,6 +35,7 @@ This threat involves manipulating the behavior of the model by altering the para
 **Controls:**
 
 - See General controls
+- The below control(s), each marked with a # and a short name in capitals
 
 #### #RUNTIMEMODELINTEGRITY
 (runtime appsec). Run-time model integrity: apply traditional application security controls to protect the storage of model parameters (e.g. access control, checksums, encryption) A Trusted Execution Environment can help to protect model integrity.
@@ -53,6 +54,7 @@ Stealing model parameters from a live system by breaking into it (e.g. by gainin
 **Controls:**
 
 - See General controls
+- The below control(s), each marked with a # and a short name in capitals
   
 #### #RUNTIMEMODELCONFIDENTIALITY
 (runtime appsec). Run-time model confidentiality: see SECDEVPROGRAM to attain application security, with the focus on protecting the storage of model parameters (e.g. access control, encryption).  
@@ -70,6 +72,8 @@ Impact: Textual model output may contain 'traditional' injection attacks such as
 This is like the standard output encoding issue, but the particularity is that the output of AI may include attacks such as XSS.
 
 **Controls:**
+
+- The below control(s), each marked with a # and a short name in capitals
 
 #### #ENCODEMODELOUTPUT
 (runtime appsec). Encode model output: apply output encoding on model output if it text. See [OpenCRE on Output encoding and injection prevention](https://www.opencre.org/cre/161-451)
@@ -103,9 +107,10 @@ Example: let's say a chat application takes questions about car models. It turns
 
 See [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.T0051).
 
-Controls:
+**Controls:**
 
 - See General controls, in particular section 1.4 _Controls to limit effects of unwanted model behaviour_ as those are the last defense
+- - The below control(s), each marked with a # and a short name in capitals
 
 #### #PROMPTINPUTVALIDATION
 (runtime appsec). Prompt input validation by removing malicious instructions - although with limited effectiveness. The flexibility of natural language makes it harder to apply input validation than for strict syntax situations like SQL commands
@@ -132,6 +137,7 @@ GenAI models mostly live in the cloud - often managed by an external party, whic
 
 **Controls:**
 - See General controls, in particular Minimizing data
+- The below control(s), each marked with a # and a short name in capitals
 
 #### #MODELINPUTCONFIDENTIALITY
 (runtime appsec). Model input confidentiality: see SECDEVPROGRAM to attain application security, with the focus on protecting the transport and storage of model input (e.g. access control, encryption, minimize retention)
