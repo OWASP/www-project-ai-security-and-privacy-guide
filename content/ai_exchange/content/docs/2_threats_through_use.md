@@ -9,6 +9,7 @@ Threats through use take place through normal interaction with an AI model: prov
 **Controls for threats through use:**
 
 - See General controls
+- The below control(s), each marked with a # and a short name in capitals
 
 #### #MONITORUSE 
 
@@ -73,6 +74,7 @@ Another categorization is to distinguish between physical input manipulation (e.
 
   - See General controls
   - See controls for threats through use
+  - The below control(s), each marked with a # and a short name in capitals
 
   
 #### #DETECTODDINPUT 
@@ -411,9 +413,12 @@ The disclosure is caused by an unintentional fault of including this data, and e
 
 - See General controls, in particular data minimization
 - See controls for threats through use
-- FILTERSENSITIVETRAINDATA (development-time appsec). Actively prevent sensitive data when constructing the training dataset using manual verification and/or automated detection and/or careful selection of train data sources
+- The below control(s), each marked with a # and a short name in capitals
 
-  Links to standards:
+### #FILTERSENSITIVETRAINDATA
+(development-time appsec). Actively prevent sensitive data when constructing the training dataset using manual verification and/or automated detection and/or careful selection of train data sources
+
+Links to standards:
 
   - Not covered yet in ISO/IEC standards
 
@@ -446,6 +451,7 @@ Controls for Model inversion and membership inference:
 
 - See General controls, in particular data minimization
 - See controls for threats through use
+- The below control(s), each marked with a # and a short name in capitals
 
 #### #OBSCURECONFIDENCE 
 (runtime datascience). Obscure confidence: exclude indications of confidence in the output, or round confidence so it cannot be used for optimization.
@@ -494,6 +500,7 @@ This threat refers to application failure (i.e. denial of service) typically cau
 
 - See General controls
 - See Controls for threats through use
+- The below control(s), each marked with a # and a short name in capitals
 
   
 #### #DOSINPUTVALIDATION
