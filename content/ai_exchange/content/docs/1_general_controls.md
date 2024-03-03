@@ -6,22 +6,31 @@ weight: 2
 
 #### #AIPROGRAM
 
-(management). Having an AI program. Take responsibility for AI as an organization, by keeping an inventory of AI initiatives, perform risk analysis on them, and manage those risks.
-
-This includes assigning responsibilities, e.g. model accountability, data accountability, and risk governance. For the high risk systems: attain responsible AI and transparency in the form of communication and documentation, auditability, bias countermeasures, oversight and cyber security.
-
-Technically one could argue that this control is out of scope for cyber security, but it initiates action to get in control of AI security.
+Description: Install and execute a program to govern AI. Take responsibility for AI as an organization, by keeping an inventory of AI initiatives, perform risk analysis on them, and manage those risks.  
+Category: management
 
 Purpose: 1) reduces probability of AI initiatives being overlooked for proper governance (including security) - as covered by controls in this document, and 2) increases incentive for proper governance as the AI program takes responsibility for it. Without proper governance, the controls in this document can only happen by accident.
 
-See Risk management under SECPROGRAM for security-specific risk analysis, also involving privacy.
+This includes assigning responsibilities, e.g. model accountability, data accountability, and risk governance. 
 
-Note that an AI program is not just about risk TO AI, such as security risks - it is also about risks BY AI, such as threats to fairness, safety, etc.
+Technically one could argue that this control is out of scope for cyber security, but it initiates action to get in control of AI security.
+
+When doing risk analysis on AI initiatives, consider at least the following: 
+-Note that an AI program is not just about risk TO AI, such as security risks - it is also about risks BY AI, such as threats to fairness, safety, etc.
+-Include laws and regulations, as the type of AI apllication may be prohibited (e.g. social scoring under the EU AI Act). See #CHECKCOMPLIANCE
+-Can the required transparency be provided into how the AI works?
+-Can the privacy rights be achieved (right to access, erase, correct, update personal data, and the right to object)?
+-Can unwanted bias regarding protected groups of people be sufficiently mitigated?
+-Is AI really needed to solve the problem?
+-Is the right expertise available (e.g. data scientists)?
+-Is it allowed to use the data for the purpose - especially if it is personal data collected for a different purpose?
+-Can unwanted behaviour be sufficiently contained by mitigations (see Controls to limit unwanted behaviour)?
+-See Risk management under SECPROGRAM for security-specific risk analysis, also involving privacy.
 
 Links to standards:
  - ISO/IEC 42001 AI management system. Gap: covers this control fully.
  
-42001 is about extending your risk management system - it focuses on governance. 5338 (see [#DEVPROGRAM](#devprogram) below) is about extending your software lifecycle practices - it focuses on engineering and everything around it. The 42001 can be seen as a management system for the governance of responsible AI in an organization, similar to how 27001 is a management system for information security. The 42001 doesn’t go into the lifecycle processes. It for example does not discuss how to train models, how to do data lineage, continuous validation, versioning of AI models, project planning challenges, and how and when exactly sensitive data is used in engineering.
+42001 is about extending your risk management system - it focuses on governance. 5338 (see #DEVPROGRAM below) is about extending your software lifecycle practices - it focuses on engineering and everything around it. The 42001 can be seen as a management system for the governance of responsible AI in an organization, similar to how 27001 is a management system for information security. The 42001 doesn’t go into the lifecycle processes. It for example does not discuss how to train models, how to do data lineage, continuous validation, versioning of AI models, project planning challenges, and how and when exactly sensitive data is used in engineering.
 
 #### #SECPROGRAM 
 (management). Having a security program. Include the whole AI lifecycle and AI particularities in the organization's security program (also referred to as _information security management system_).
