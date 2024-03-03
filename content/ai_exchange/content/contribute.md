@@ -9,7 +9,7 @@ excludeSearch: true
 
 &nbsp;{{< github-stars user="OWASP" repo="www-project-ai-security-and-privacy-guide" repo_url="https://github.com/OWASP/www-project-ai-security-and-privacy-guide" >}}
 
-{{< tabs items="Guidelines,Authors,Organizations" >}}
+{{< tabs items="Guidelines,Authors" >}}
 
 {{< tab >}}
 
@@ -52,7 +52,7 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
     <tr><td>Marko Lihter</td><td>SplxAI</td><td>Croatia</td><td>step-by-step guide for organizations, website creation, various textual improvements</td></tr>
     <tr><td>Niklas Bunzel</td><td>Fraunhofer institute</td><td>Germany</td><td>datascience discussion and references around evasion attacks</td></tr>
     <tr><td><b>Rob van der Veer</b></td><td>Software Improvement Group (SIG)</td><td>Netherlands</td><td><b>Project leader</b></td></tr>
-    <tr><td>Rocky Heckman</td><td>Cyber dynamio</td><td>US</td><td>Security & privacy risk analysis and ISO/IEC 27562</td></tr>
+    <tr><td>Rocky Heckman</td><td>Cyber dynamo</td><td>Australia</td><td>Security & privacy risk analysis and ISO/IEC 27562</td></tr>
     <tr><td>Roger Sanz</td><td>Universidad Isabel</td><td>Spain</td><td></td></tr>
     <tr><td><b>Sandy Dunn</b></td><td>Boise State University, AI Cyber Advisors</td><td>US</td><td></td></tr>
     <tr><td>Sean Oesch</td><td>Oak Ridge National Laboratory</td><td>US</td><td>BLUF, Adversarial Training, OOD detection, NISTIR 8269, Guide Usability/Structure</td></tr>
@@ -64,7 +64,4 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
 </table>
 
 {{< /html-tab >}}
-
-{{< tab >}}
-{{< /tab >}}
 {{< /tabs >}}
