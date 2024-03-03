@@ -18,6 +18,7 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 **Controls for development-time protection:**
 
 - See General controls
+- The below control(s), each marked with a # and a short name in capitals
 
 #### **#DEVDATAPROTECT**
 (development-time infosec). Development data protect: protect (train/test) data, source code, configuration & parameters
@@ -148,6 +149,7 @@ References
 
 - See General controls
 - See controls for development-time protection
+- The below control(s), each marked with a # and a short name in capitals
   
 #### #MODELENSEMBLE
 (development-time datascience). Model ensemble: include the model as part of an ensemble, where each model is trained in a separately protected environment. If one model's output deviates from the others, it can be ignored, as this indicates possible manipulation.
@@ -168,6 +170,9 @@ Example 3: false information in documents on the internet causes a Large Languag
 
 - See General controls
 - See controls for development-time protection
+- See controls for broad model poisoning
+- The below control(s), each marked with a # and a short name in capitals
+
 #### #MORETRAINDATA
 (development-time datascience): More train data: increasing the amount of non-malicious data makes training more robust against poisoned examples - provided that these poisoned examples are small in number. One way to do this is through data augmentation - the creation of artificial training set samples that are small variations of existing samples.
 
@@ -226,6 +231,7 @@ Data manipulation is referred to as data poisoning and is covered in separate th
 
 - See General controls
 - See controls for development-time protection
+- See controls for broad model poisoning
 
 ### 3.1.3 Transfer learning attack
 
@@ -236,7 +242,8 @@ An attacker supplies a manipulated pre-trained model which is then unknowingly f
 **Controls specific for transfer learning:**
 
 - See General controls
-- See #SUPPLYCHAINMANAGE
+- See controls for development-time protection, especially #SUPPLYCHAINMANAGE to manage the source of the obtained model
+- See controls for broad model poisoning
 - Choose a model type resilient against a transfer learning attack
 
 ---
