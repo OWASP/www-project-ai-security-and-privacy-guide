@@ -9,7 +9,7 @@ excludeSearch: true
 
 &nbsp;{{< github-stars user="OWASP" repo="www-project-ai-security-and-privacy-guide" repo_url="https://github.com/OWASP/www-project-ai-security-and-privacy-guide" >}}
 
-{{< tabs items="Guidelines,Authors,Organizations,TODOs" >}}
+{{< tabs items="Guidelines,Authors,Organizations" >}}
 
 {{< tab >}}
 
@@ -52,6 +52,7 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
     <tr><td>Marko Lihter</td><td>SplxAI</td><td>Croatia</td><td>step-by-step guide for organizations, website creation, various textual improvements</td></tr>
     <tr><td>Niklas Bunzel</td><td>Fraunhofer institute</td><td>Germany</td><td>datascience discussion and references around evasion attacks</td></tr>
     <tr><td><b>Rob van der Veer</b></td><td>Software Improvement Group (SIG)</td><td>Netherlands</td><td><b>Project leader</b></td></tr>
+    <tr><td>Rocky Heckman</td><td>Cyber dynamio</td><td>US</td><td>Security & privacy risk analysis and ISO/IEC 27562</td></tr>
     <tr><td>Roger Sanz</td><td>Universidad Isabel</td><td>Spain</td><td></td></tr>
     <tr><td><b>Sandy Dunn</b></td><td>Boise State University, AI Cyber Advisors</td><td>US</td><td></td></tr>
     <tr><td>Sean Oesch</td><td>Oak Ridge National Laboratory</td><td>US</td><td>BLUF, Adversarial Training, OOD detection, NISTIR 8269, Guide Usability/Structure</td></tr>
@@ -65,53 +66,5 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
 {{< /html-tab >}}
 
 {{< tab >}}
-{{< /tab >}}
-
-{{< tab >}}
-
-> Tasks are sorted by urgency, with the top item being the most urgent.
-
-- POISONROBUSTMODEL: elaborate
-- Tweak navigator: 1) "deal with conidentiality issues" -> "minimize data to help confidentiality", 2) remove ADDTRAINNOISE
-- Futureproof hyperlinks: Create a way to link to Controls and to Threats with permanent links (we probably need to generate html from the md)
-- Update hyperlinks in navigator, taking into account the 'futureproof hyperlinks'
-- Elaborate on "Choose a model type resilient against a transfer learning attack"
-- Under DATAQUALITCONTROL: Elaborate on that method to detect statistical deviation by training models on random selections of the training dataset and then feeding each training sample to those models and compare results.
-- BIG ONE- DISTRIBUTE: Each section (threat, control):
-  - review on clarity,
-  - grammar & spelling
-  - completeness. Goal: offer a clear summary to non AI security experts, mention important attention points/potential challenges, and refer them to other work for more details.
-  - examples needed?
-  - visualisation needed?
-  - sufficiently practical: make clear what needs to be done. Best practices.
-  - sufficient references.  Use a 'References' section and/or a 'Links to standards' section.
- 
-- Create a visualisation of the new Summary with controls, perhaps combine it with the new threat model diagram ideas and replace the current one
-- BIG ONE: Risk analysis: Further design the risk analysis process and especially make responsiblity assignment more clear. Include for example: when is evasion really a problem in practice
-- BIG ONE: Write more of a step-by-step guide for organizations to start with AI (security)
-- BIG ONE: high level sanity check with NIST adversarial machine learning document
-- BIG ONE: high level sanity check with MITRE ATLAS
-- Add 'Leak sensitive input data' to threat diagram and check further for any gaps with this document
-- Check if OBFUSCATETRAININGDATA has strategies (anonymization, tokenization) that are covered in ISO/IEC standards and add references to those standards
-- Under DATAQUALITCONTROL: elaborate on RONI and tRONI training sample selection
-- Elaborate on the various methods and the general approach of TRAINDATADISTORTION to prevent data poisoning
-- Add attribute inference attacks and consider making that part of 'data reconstruction', together with model inversion, although it is a different approach
-- Work with the LLM top 10 team to make sure that the LLM top 10 entries link back to the AI Exchange
-- Under TRAINADVERSARIAL: Elaborate - See Annex C of ENISA Secure machine learning algorithms 2021.
-- Under DETECTADVERSARIALINPUT: elaborate on detector subnetworks in Annex C of ENISA 2021 and on the references in that section
-- Under EVASIONROBUSTMODEL: See Annex C in ENISA 2021 document to cover Stability terms, adversarial regulaiser, input gradient regularisation, defenisvie distillation and Random feature nullification.
-- Under INPUTDISTORTION: See ENISA Annex C to add data randomisation, input transformation and input denoising.
-- Under INPUTDISTORTION: add Gradient masking - Annex C ENISA 2021
-- Cover integrity checks in development pipeline (build, deploy, supply chain) - under supplychainmanage and/or secdevprogram
-- Create an overall community outreach marketing plan, and regional outreach plans. 
-
-## TODOs requiring access to ISO/IEC documents
-
-- Do gap analysis and elaborate on ISO/IEC 27563 on AI use case security & privacy (search for it in this document)
-- Do gap analysis and elaborate on ISO/IEC 23894 on Risk analysis (search for it in this document)
-- Do gap analysis and elaborate on ISO/IEC 27115 on Cybersecurity evaluation of complex systems (search for it in this document)
-- Do gap analysis and elaborate on ISO/IEC TR 24029 on Assessment of the robustness of neural networks (search for it in this document)
-
-Anything is welcome: more controls, improved descriptions, examples, references, etc. We will make sure you get credit for your input.
 {{< /tab >}}
 {{< /tabs >}}
