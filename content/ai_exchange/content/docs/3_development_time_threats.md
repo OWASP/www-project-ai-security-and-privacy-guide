@@ -147,7 +147,7 @@ References
 
 **Controls for broad model poisoning:**
 
-- See General controls
+- See General controls, especially controls to limit the effects of unwanted behaviour
 - See controls for development-time protection
 - The below control(s), each marked with a # and a short name in capitals
   
@@ -168,7 +168,7 @@ Example 3: false information in documents on the internet causes a Large Languag
 
 **Controls for data poisoning:**
 
-- See General controls
+- See General controls, especially controls to limit the effects of unwanted behaviour
 - See controls for development-time protection
 - See controls for broad model poisoning
 - The below control(s), each marked with a # and a short name in capitals
@@ -229,7 +229,7 @@ Data manipulation is referred to as data poisoning and is covered in separate th
 
 **Controls:**
 
-- See General controls
+- See General controls, especially controls to limit the effects of unwanted behaviour
 - See controls for development-time protection
 - See controls for broad model poisoning
 
@@ -244,7 +244,7 @@ The type of manipulation can be through data poisoning, or by specifically chang
 
 **Controls specific for transfer learning:**
 
-- See General controls
+- See General controls, especially controls to limit the effects of unwanted behaviour
 - See controls for development-time protection, especially #SUPPLYCHAINMANAGE to manage the source of the obtained model
 - See controls for broad model poisoning
 - Choose a model type resilient against a transfer learning attack
