@@ -6,7 +6,7 @@ weight: 1
 >See [home](https://owaspai.org/) for more information about this initiative, how to contribute or connect.  
 This page contains an overview of AI security and the next pages provide the main content: details on security threats to AI and controls against them. You can navigate through  pages at the bottom of every page, or in the left sidebar. The right sidebar shows the different sections on a page. On small screens you can navigate through the menu.
 
-While AI offers powerful perfomance boosts, it also increases the attack surface available to bad actors. It is therefore imperative to approach AI applications with a clear understanding of potential threats and which of those threats to prioritize for each use case. Standards and governance help guide this process for individual entities leveraging AI capabilities.
+While AI offers powerful performance boosts, it also increases the attack surface available to bad actors. It is therefore imperative to approach AI applications with a clear understanding of potential threats and which of those threats to prioritize for each use case. Standards and governance help guide this process for individual entities leveraging AI capabilities.
 
 - Implement **AI governance**
 - **Extend security and development practices** to include data science activities especially to protect and streamline the engineering environment.
@@ -56,15 +56,15 @@ The groups of controls form a summary of how to address AI security (controls ar
 
 All threats and controls are discussed in the further content of the AI Exchange.
 
-### Threat model with controls - GenAI trained/finetuned
-Below diagram restricts the threats and controls to Generative AI only, for situations in which **training or finetuning** is done by the organization (note: this is not very common given the high cost and required expertise).
+### Threat model with controls - GenAI trained/fine tuned
+Below diagram restricts the threats and controls to Generative AI only, for situations in which **training or fine tuning** is done by the organization (note: this is not very common given the high cost and required expertise).
 
-![AI Security Threats and controls - GenAI trained or finetuned](/images/threatscontrols-genainotready.png)
+![AI Security Threats and controls - GenAI trained or fine tuned](/images/threatscontrols-genainotready.png)
 
 ### Threat model with controls - GenAI as-is
 Below diagram restricts the threats and controls to Generative AI only where the model is used **as-is** by the organization. The provider (e.g. OpenAI) has done the training/fine tuning. Therefore, some threats are the responsibility of the model provider (sensitive/copyrighted data, manipulation at the provider). Nevertheless, the organization that uses the model should take these risks into account and gain assurance about them from the provider.
 
-In many situation, the as-is model will be hosted externally and therefore security depends on how the supplier is handling the data, including the security configuration. How is the API protected? What is virtual private cloud? The entire external model, or just the API? Key management? Data retention? Logging? Does the model reach out to third party sources by sendint out sensitive input data?
+In many situation, the as-is model will be hosted externally and therefore security depends on how the supplier is handling the data, including the security configuration. How is the API protected? What is virtual private cloud? The entire external model, or just the API? Key management? Data retention? Logging? Does the model reach out to third party sources by sending out sensitive input data?
 
 ![AI Security Threats and controls - GenAI as-is](/images/threatscontrols-readymodel.png)
 
@@ -106,8 +106,8 @@ There are many threats and controls described in this document. Your situation d
 1. **Threat identification**: First select the threats that apply to your case by going through the list of threats and use the _Impact_ description to see if it is applicable. For example the impact of identifying individuals in your training data would not apply to your case if your training data has no individuals. The [Navigator](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf) shows impact in purple.
 
     If you use RAG (Retrieval Augmented Generation), then treat the retrieval repository (including embeddings) just like training data. Meaning:
-      - Include the threats regarding data poisoning 
-      - Include the threats regarding train/test data leak if the data is sensitive 
+      - Include the threats regarding data poisoning
+      - Include the threats regarding train/test data leak if the data is sensitive
 
     Else, if you don’t train or fine tune the model:
       - Ignore the development-time threats, with the exception of supply chain management: make sure the model you obtain is not manipulated, and genuine
@@ -159,7 +159,7 @@ This document focuses on machine learning. Nevertheless, here is a quick summary
 Responsible or trustworthy AI include security, but not the other way around: there are many more aspects of responsible/trustworthy AI than just security, and to make matters confusing, each of these aspects has a link with security. Let's try to clarify:
 - **Accuracy** is about the AI model being sufficiently correct to perform its 'business function'. Being incorrect can lead to physical safety problems (e.g. car trunk opens during driving) or other wrong decisions that are harmful (e.g. wrongfully declined loan). The link with security is that some attacks cause unwanted model behaviour which is by definition an accuracy problem. Nevertheless, the security scope is restricted to mitigating the risks of those attacks - NOT solve the entire problem of creating an accurate model (selecting representative data for the trainset etc.).
 - **Safety** (also _reliability_) is about the level of accuracy when there is a risk of harm (typically implying physical harm but not restricted to that) , plus the things that are in place to mitigate those risks (apart from accuracy), which included security to safeguard accuracy, plus a number of safety measures that are important for the business function of the model. These need to be taken care of not just for security reasons because the model can make unsafe decisions for other reasons (e.g. bad training data), so they are a shared concern between safety and security:
-  -  oversight to restrict unsafe behaviuour, and connected to that: assigning least privileges to the model,
+  -  oversight to restrict unsafe behaviour, and connected to that: assigning least privileges to the model,
   -  continuous validation to safeguard accuracy,
   -  transparency to warn users and depending systems of accuracy risks,
   -  explainability to help users validate accuracy
@@ -175,7 +175,7 @@ Responsible or trustworthy AI include security, but not the other way around: th
 AI Privacy can be divided into two parts:
 
 1. The AI security threats and controls in this document that are about confidentiality and integrity of (personal) data (e.g. model inversion, leaking training data), plus the integrity of the model behaviour
-2. Threats and controls with respect to rights of the individual, as covered by privacy regulations such as the GDPR, including use limitation, consent, fairness, transparency, data accuracy, right of correction/objection/reasure/access. For an overview, see the [Privacy part of the OWASP AI guide](https://owasp.org/www-project-ai-security-and-privacy-guide/)
+2. Threats and controls with respect to rights of the individual, as covered by privacy regulations such as the GDPR, including use limitation, consent, fairness, transparency, data accuracy, right of correction/objection/reassure/access. For an overview, see the [Privacy part of the OWASP AI guide](https://owasp.org/www-project-ai-security-and-privacy-guide/)
 
 ### How about Generative AI (e.g. LLM)?
 
@@ -283,7 +283,7 @@ Overviews of AI security threats:
 Overviews of AI security/privacy incidents:
 
 - [AVID AI Vulnerability database](https://avidml.org/)
-- [OECD AI Incidents Monitor (AIM)](https://oecd.ai/en/incidents) 
+- [OECD AI Incidents Monitor (AIM)](https://oecd.ai/en/incidents)
 
 Misc.:
 
@@ -296,4 +296,3 @@ Misc.:
 - [ETSI GR SAI 002 V 1.1.1 Securing Artificial Intelligence (SAI) – Data Supply Chain Security](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/002/01.01.01_60/gr_SAI002v010101p.pdf)
 - [ISO/IEC 20547-4 Big data security](https://www.iso.org/standard/71278.html)
 - [IEEE 2813 Big Data Business Security Risk Assessment](https://standards.ieee.org/ieee/2813/7535/)
-

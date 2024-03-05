@@ -11,11 +11,11 @@ Category: management
 
 Purpose: 1) reduces probability of AI initiatives being overlooked for proper governance (including security) - as covered by controls in this document, and 2) increases incentive for proper governance as the AI program takes responsibility for it. Without proper governance, the controls in this document can only happen by accident.
 
-This includes assigning responsibilities, e.g. model accountability, data accountability, and risk governance. 
+This includes assigning responsibilities, e.g. model accountability, data accountability, and risk governance.
 
 Technically one could argue that this control is out of scope for cyber security, but it initiates action to get in control of AI security.
 
-When doing risk analysis on AI initiatives, consider at least the following: 
+When doing risk analysis on AI initiatives, consider at least the following:
 -Note that an AI program is not just about risk TO AI, such as security risks - it is also about risks BY AI, such as threats to fairness, safety, etc.
 -Include laws and regulations, as the type of AI apllication may be prohibited (e.g. social scoring under the EU AI Act). See #[CHECKCOMPLIANCE](/goto/checkcompliance/)
 -Can the required transparency be provided into how the AI works?
@@ -107,7 +107,7 @@ An important practice in secure software development is Threat modeling, which i
 Links to standards:
 
   - ISO 27002 control 8.25 Secure development lifecycle. Gap: covers this control fully, with said particularity, but lack of detail - the 8.25 Control description in ISO 27002:2022 is one page, whereas secure software development is a large and complex topic - see below for further references
-  - ISO/IEC 27115 (Cybersecurity evaluation of complex systems) 
+  - ISO/IEC 27115 (Cybersecurity evaluation of complex systems)
   - See [OpenCRE on secure software development processes](https://www.opencre.org/cre/616-305) with notable links to NIST SSDF and OWASP SAMM. Gap: covers this control fully, with said particularity
 
 #### #DEVPROGRAM 
@@ -128,11 +128,11 @@ The below interpretation diagram of ISO/IEC 5338 provides a good overview to get
 
 Links to standards:
 
-[ISO/IEC TR 27563:2023](https://www.iso.org/standard/80396.html) covers this control fully. 
+[ISO/IEC TR 27563:2023](https://www.iso.org/standard/80396.html) covers this control fully.
   - [ISO/IEC 5338 - AI lifecycle](https://www.iso.org/standard/81118.html) Gap: covers this control fully - ISO 5338 covers the complete software development lifecycle for AI, by extending the existing ISO 12207 standard on software lifecycle: defining several new processes and discussing AI-specific particularities for existing processes. See also [this blog](https://www.softwareimprovementgroup.com/iso-5338-get-to-know-the-global-standard-on-ai-systems/).
   - [ISO/IEC 27002](https://www.iso.org/standard/75652.html) control 5.37 Documented operating procedures. Gap: covers this control minimally - this covers only a very small part of the control
   - [OpenCRE on documentation of function](https://www.opencre.org/cre/162-655) Gap: covers this control minimally
- 
+
   References:
 
   - [Research on code quality gaps in AI systems](https://www.softwareimprovementgroup.com/averting-a-major-ai-crisis-we-need-to-fix-the-big-quality-gap-in-ai-systems/)
@@ -157,13 +157,13 @@ Links to standards:
 
 #### #DATAMINIMIZE
 Description: Data minimize: remove or anonymize data fields or records that are unnecessary for the application to prevent potential leaks. Data minimization can also involve statistically analyzing a training dataset to identify and eliminate superfluous records or fields that are not essential for achieving sufficient performance (Data Science).  
-Category: development-time and runtime 
+Category: development-time and runtime
 
 Purpose: reduce the impact in case of an attack by reducing the amount of data that can leak.
 
   Links to standards:
 
-  - Not covered yet in ISO/IEC standards. 
+  - Not covered yet in ISO/IEC standards.
 
 #### #ALLOWEDDATA 
 (development-time and runtime). Ensure allowed data, meaning the data used (e.g., training set) is permitted for the intended purpose. This is particularly important if consent was not given and the data contains personal information collected for a different purpose.
@@ -178,7 +178,7 @@ Limiting the retention period of data can be seen as a special form of data mini
   
 Links to standards:
 
-  - Not covered yet in ISO/IEC standards. 
+  - Not covered yet in ISO/IEC standards.
 
 #### #OBFUSCATETRAININGDATA
 (development-time data science). Obfuscate training data: attain a degree of obfuscation of sensitive data where possible. When this is done for personal data, it is referred to as _differential privacy_ which is a framework for formalizing privacy in statistical and data analysis, ensuring that the privacy of individual data entries in a database is protected. The key idea is to make it possible to learn about the population as a whole while providing strong guarantees that the presence or absence of any single individual in the dataset does not significantly affect the outcome of any analysis. This is often achieved by adding a controlled amount of random noise to the results of queries on the database. This noise is carefully calibrated to mask the contribution of individual data points, which means that the output of a data analysis (or query) should be essentially the same, whether any individual's data is included in the dataset or not. In other words by observing the output, one should not be able to infer whether any specific individual's data was used in the computation.
@@ -207,7 +207,7 @@ References:
 
 - Masking
 
-Masking involves the alteration or replacement of sensitive features within datasets with alternative representations that retain the essential information required for training while obscuring sensitive details. Various methods can be employed for masking, including tokenization, perturbation, generalization, and feature engineering. Tokenization replaces sensitive text data with unique identifiers, while perturbation adds random noise to numerical data to obscure individual values. Generalization involves grouping individuals into broader categories, and feature engineering creates derived features that convey relevant information without revealing sensitive details. Once the sensitive features are masked or transformed, machine learning models can be trained on the modified dataset, ensuring that they learn useful patterns without exposing sensitive information about individuals. However, achieving a balance between preserving privacy and maintaining model utility is crucial, as more aggressive masking techniques may lead to reduced model performance. 
+Masking involves the alteration or replacement of sensitive features within datasets with alternative representations that retain the essential information required for training while obscuring sensitive details. Various methods can be employed for masking, including tokenization, perturbation, generalization, and feature engineering. Tokenization replaces sensitive text data with unique identifiers, while perturbation adds random noise to numerical data to obscure individual values. Generalization involves grouping individuals into broader categories, and feature engineering creates derived features that convey relevant information without revealing sensitive details. Once the sensitive features are masked or transformed, machine learning models can be trained on the modified dataset, ensuring that they learn useful patterns without exposing sensitive information about individuals. However, achieving a balance between preserving privacy and maintaining model utility is crucial, as more aggressive masking techniques may lead to reduced model performance.
 
 References:
 
