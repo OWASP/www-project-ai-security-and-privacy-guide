@@ -253,7 +253,7 @@ GenAI References:
 
 The AI security controls (in capitals - and discussed further on in the document) can be grouped along meta controls:
 
-1. Apply **AI governance** ([AIPROGRAM](https://owaspai.org/docs/1_general_controls/#aiprogram))
+1. Apply **AI governance** ([AIPROGRAM](/goto/aiprogram/ ))
 2. Apply **information security management** ([SECPROGRAM](https://owaspai.org/docs/1_general_controls/#secprogram)), with AI attention points:
    - New assets: training/test data , input data, output data, model parameters, technical information about the model, and also code and configuration. This depends on if they represent important intellectual property, or if the data is sensitive, or if the data can help attackers to design an attack ([DISCRETE](https://owaspai.org/docs/1_general_controls/#discrete)).
    - New threats: ISO/IEC 27563 (on AI use cases security & privacy) describes security of some AI use cases to assist in risk analysis, and ISO/IEC 23894 elaborates on risk management. The AI Exchange and the upcoming ISO 27090 (AI security) are more comprehensive sources for threats and controls.
@@ -313,7 +313,7 @@ system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-syst
 - Model the threats to your system:  
   See Risk analysis under #[SECPROGRAM](https://owaspai.org/docs/1_general_controls/#secprogram)
 - Design your system for security as well as functionality and performance:  
-  #[AIPROGRAM](https://owaspai.org/docs/1_general_controls/#aiprogram), #[SECPROGRAM](https://owaspai.org/docs/1_general_controls/#secprogram), #[DEVPROGRAM](https://owaspai.org/docs/1_general_controls/#devprogram), #[SECDEVPROGRAM](https://owaspai.org/docs/1_general_controls/#secdevprogram), #[CHECKCOMPLIANCE](https://owaspai.org/docs/1_general_controls/#checkcompliance), #[LEASTMODELPRIVILEGE](https://owaspai.org/docs/1_general_controls/#leastmodelprivilege), #[DISCRETE](https://owaspai.org/docs/1_general_controls/#discrete), #[OBSCURECONFIDENCE](https://owaspai.org/docs/2_threats_through_use/#obscureconfidence), #[OVERSIGHT](https://owaspai.org/docs/1_general_controls/#oversight), #[RATELIMIT](https://owaspai.org/docs/2_threats_through_use/#ratelimit),  #[DOSINPUTVALIDATION](https://owaspai.org/docs/2_threats_through_use/#dosinputvalidation), #[LIMITRESOURCES](https://owaspai.org/docs/2_threats_through_use/#limitresources), #[MODELACCESSCONTROL](https://owaspai.org/docs/2_threats_through_use/#modelaccesscontrol), #AITRANSPRENCY
+  #[AIPROGRAM](/goto/aiprogram/ ), #[SECPROGRAM](https://owaspai.org/docs/1_general_controls/#secprogram), #[DEVPROGRAM](https://owaspai.org/docs/1_general_controls/#devprogram), #[SECDEVPROGRAM](https://owaspai.org/docs/1_general_controls/#secdevprogram), #[CHECKCOMPLIANCE](https://owaspai.org/docs/1_general_controls/#checkcompliance), #[LEASTMODELPRIVILEGE](https://owaspai.org/docs/1_general_controls/#leastmodelprivilege), #[DISCRETE](https://owaspai.org/docs/1_general_controls/#discrete), #[OBSCURECONFIDENCE](https://owaspai.org/docs/2_threats_through_use/#obscureconfidence), #[OVERSIGHT](https://owaspai.org/docs/1_general_controls/#oversight), #[RATELIMIT](https://owaspai.org/docs/2_threats_through_use/#ratelimit),  #[DOSINPUTVALIDATION](https://owaspai.org/docs/2_threats_through_use/#dosinputvalidation), #[LIMITRESOURCES](https://owaspai.org/docs/2_threats_through_use/#limitresources), #[MODELACCESSCONTROL](https://owaspai.org/docs/2_threats_through_use/#modelaccesscontrol), #AITRANSPRENCY
 - Consider security benefits and trade-offs when selecting your AI model  
   All development-time datascience controls (currently 13), #[EXPLAINABILITY](https://owaspai.org/docs/1_general_controls/#explainability)
 
@@ -360,7 +360,7 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
 ## 1.1 General governance controls
 
-- **#[AIPROGRAM](https://owaspai.org/docs/1_general_controls/#aiprogram)** (management). Having an AI program. Take responsibility for AI as an organization, by keeping an inventory of AI initiatives, perform risk analysis on them, and manage those risks.
+- **#[AIPROGRAM](/goto/aiprogram/ )** (management). Having an AI program. Take responsibility for AI as an organization, by keeping an inventory of AI initiatives, perform risk analysis on them, and manage those risks.
 
   This includes assigning responsibilities, e.g. model accountability, data accountability, and risk governance. For the high risk systems: attain responsible AI and transparency in the form of communication and documentation, auditability, bias countermeasures, oversight and cyber security.
 
@@ -1484,7 +1484,7 @@ Misc.:
 
   1.1 Governance controls:
 
-  - [AIPROGRAM](https://owaspai.org/docs/1_general_controls/#aiprogram) (management)
+  - [AIPROGRAM](/goto/aiprogram/ ) (management)
   - [SECPROGRAM](https://owaspai.org/docs/1_general_controls/#secprogram) (management)
   - [SECDEVPROGRAM](https://owaspai.org/docs/1_general_controls/#secdevprogram) (management)
   - [DEVPROGRAM](https://owaspai.org/docs/1_general_controls/#devprogram) (management)
