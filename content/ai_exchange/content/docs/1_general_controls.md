@@ -83,8 +83,8 @@ Links to standards:
     - This document contains AI security threats and controls to facilitate risk analysis
     - See also [MITRE ATLAS framework for AI threats](https://atlas.mitre.org/)
     - ISO/IEC 27005 - as mentioned above. Gap: covers this control fully, with said particularity (as 27005 doesn't mention AI-specific threats)
-    - ISO/IEC 27563:2023 (AI use cases security & privacy) Discusses the impact of security and privacy in AI use cases and may serve as useful input to AI security risk analysis. The work bases its list of AI use cases on the 132 use cases belonging to 22 application domains in ISO/IEC TR 24030:2021, identifies 11 use cases with a maximum concern rating for security and 49 use cases with a maximun concern rating for privacy.
-    - ISO/IEC 23894 (AI Risk management). Gap: covers this control fully - yet it refers to ISO/IEC 24028 (AI trustworthiness) for AI security threats, which is incomplete compared to for example the AI exchange (this document). The scope is broader than security which is not an issue. 
+    - ISO/IEC 27563:2023 (AI use cases security & privacy) Discusses the impact of security and privacy in AI use cases and may serve as useful input to AI security risk analysis. The work bases its list of AI use cases on the 132 use cases belonging to 22 application domains in ISO/IEC TR 24030:2021, identifies 11 use cases with a maximum concern rating for security and 49 use cases with a maximum concern rating for privacy.
+    - ISO/IEC 23894 (AI Risk management). Gap: covers this control fully - It refers to ISO/IEC 24028 (AI trustworthiness) for AI security threats. However,  ISO/IEC 24028 is not as comprehensive as AI Exchange (this document) or MITRE ATLAS as it is focused on risk management rather than threat enumeration. 
     - ISO/IEC 5338 (AI lifecycle) covers the AI risk management process. Gap: same as 23894 above.
     - [ETSI Method and pro forma for Threat, Vulnerability, Risk Analysis](https://www.etsi.org/deliver/etsi_ts/102100_102199/10216501/05.02.03_60/ts_10216501v050203p.pdf)
     - [NIST AI Risk Management Framework](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf)
@@ -121,16 +121,16 @@ A best practice is to mix data scientist profiles with software engineering prof
 
 Another best practice is to continuously measure quality aspects of data science code (maintainability, test code coverage), and provide coaching to data scientists in how to manage those quality levels.
 
-Apart from conventional software best practices, there are important AI-specific engineering practices, including for example data provenance & lineage, model traceability and AI-specific testing such as continuous validation, testing for model staleness and concept drift. ISO/IEC 5338 discussess these AI engineering practices.
+Apart from conventional software best practices, there are important AI-specific engineering practices, including for example data provenance & lineage, model traceability and AI-specific testing such as continuous validation, testing for model staleness and concept drift. ISO/IEC 5338 discusses these AI engineering practices.
 
 The below interpretation diagram of ISO/IEC 5338 provides a good overview to get an idea of the topics involved.
 ![5338](/images/5338.png)
 
 Links to standards:
 
-(https://www.iso.org/standard/80396.html) covers this control fully. 
+[ISO/IEC TR 27563:2023](https://www.iso.org/standard/80396.html) covers this control fully. 
   - [ISO/IEC 5338 - AI lifecycle](https://www.iso.org/standard/81118.html) Gap: covers this control fully - the 5338 covers the complete software development lifecycle for AI, by extending the existing 12207 standard on software lifecycle: defining several new processes and discussing AI-specific particularities for existing processes. See also [this blog](https://www.softwareimprovementgroup.com/iso-5338-get-to-know-the-global-standard-on-ai-systems/).
-  - 27002 control 5.37 Documented operating procedures. Gap: covers this control minimally - this covers only a very small part of the control
+  - [ISO/IEC 27002](https://www.iso.org/standard/75652.html) control 5.37 Documented operating procedures. Gap: covers this control minimally - this covers only a very small part of the control
   - [OpenCRE on documentation of function](https://www.opencre.org/cre/162-655) Gap: covers this control minimally
  
   References:
