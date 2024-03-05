@@ -197,7 +197,7 @@ Links to standards:
 (development-time datascience) - Train data distortion:.making poisoned samples ineffective by smoothing or adding noise to training data (with the best practice of keeping the original training data, in order to expertiment with the filtering)
 
 
-See also EVASTIONROBUSTMODEL on adding noise against evasion attacks and [OBFUSCATETRAININGDATA](https://owaspai.org/docs/1_general_controls/#obfuscatetrainingdata) to minimize sensitive data through randomisation.
+See also EVASTIONROBUSTMODEL on adding noise against evasion attacks and [OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/) to minimize sensitive data through randomisation.
 
 Examples:
 

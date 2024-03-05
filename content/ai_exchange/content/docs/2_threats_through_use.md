@@ -15,7 +15,7 @@ Threats through use take place through normal interaction with an AI model: prov
 
 (runtime appsec). Monitor the use of the model (input, date, time, user) by registering it in logs and make it part of incident detection, including:
 
-  - inproper functioning of the model (see [CONTINUOUSVALIDATION](https://owaspai.org/docs/1_general_controls/#continuousvalidation) and [UNWANTEDBIASTESTING](https://owaspai.org/docs/1_general_controls/#unwantedbiastesting))
+  - inproper functioning of the model (see [CONTINUOUSVALIDATION](/goto/continuousvalidation/) and [UNWANTEDBIASTESTING](/goto/unwantedbiastesting/))
   - suspicious patterns of model use (e.g. high frequency - see [RATELIMIT](#ratelimit) and [DETECTADVERSARIALINPUT](#detectadversarialinput))
   - suspicious inputs (see [DETECTODDINPUT](#detectoddinput) and [DETECTADVERSARIALINPUT](#detectadversarialinput))
 
@@ -205,7 +205,7 @@ Example approach: Measure model robustness by trying minor input deviations to d
 
 If we interpret the model with its inputs as a "system" and the sensitivity to evasion attacks as the "system fault" then this sensitivity may also be interpreted as (local) lack of graceful degradation. Such issues can be addressed by, for example, increasing training samples for that part of the input domain and tuning/optimising the model for variance.
 
-Another example approach: _Randomisation_ by injecting noise during training. The primary objective of this technique is to enhance the network's resilience to evasion attacks, especially those triggered by subtle, carefully crafted perturbations to input data that may result in misclassification or inaccurate predictions. See also [TRAINDATADISTORTION](https://owaspai.org/docs/3_development_time_threats/#traindatadistortion) against data poisoning and [OBFUSCATETRAININGDATA](https://owaspai.org/docs/1_general_controls/#obfuscatetrainingdata) to minimize sensitive data through randomisation.
+Another example approach: _Randomisation_ by injecting noise during training. The primary objective of this technique is to enhance the network's resilience to evasion attacks, especially those triggered by subtle, carefully crafted perturbations to input data that may result in misclassification or inaccurate predictions. See also [TRAINDATADISTORTION](/goto/traindatadistortion/) against data poisoning and [OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/) to minimize sensitive data through randomisation.
 
 Yet another approach is _gradient masking_: a technique employed to defend machine learning models against adversarial attacks. This involves altering the gradients of a model during training to increase the difficulty of generating adversarial examples for  attackers. Methods like adversarial training and ensemble approaches are utilized for gradient masking, but it comes with limitations, including computational expenses and potential in effectiveness against all types of attacks.
 
