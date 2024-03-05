@@ -78,8 +78,8 @@ Another categorization is to distinguish between physical input manipulation (e.
 
   
 #### #DETECTODDINPUT 
-(runtime data science). 
-Detect odd input: implement tools to detect whether input is odd: significantly different from the training data or even invalid - also called input validation - without knowledge on what malicious input looks like. 
+(runtime data science).
+Detect odd input: implement tools to detect whether input is odd: significantly different from the training data or even invalid - also called input validation - without knowledge on what malicious input looks like.
 
 Purpose: Odd input can result in unwanted model behaviour because the model by definition has not seen this data before and will likely produce false results, whether the input is malicious or not. When detected, the input can be logged for analysis and optionally discarded. It is important to note that not all odd input will be malicious and not all malicious input will be odd. There are examples of adversarial input specifically crafted to bypass detection of odd input. Nevertheless, detecting odd input is critical to maintaining model integrity, addressing potential concept drift, and preventing adversarial attacks that may take advantage of model behaviors on out of distribution data.
 
@@ -87,9 +87,9 @@ Purpose: Odd input can result in unwanted model behaviour because the model by d
 Out-of-Distribution Detection (OOD), Novelty Detection (ND), Outlier Detection (OD), Anomaly Detection (AD), and Open Set Recognition (OSR) are all related and sometimes overlapping tasks that deal with unexpected or unseen data. However, each of these tasks has its own specific focus and methodology. In practical applications, the techniques used to solve the problems may be similar or the same. Which task or problem should be addressed and which solution is most appropriate also depends on the definition of in-distribution and out-of-distribution. We use an example of a machine learning system designed for a self-driving car to illustrate all these concepts.
 
 **Out-of-Distribution Detection (OOD)** - the broad category of detecting odd input:  
-Identifying data points that differ significantly from the distribution of the training data. OOD is a broader concept that can include aspects of novelty, anomaly, and outlier detection, depending on the context. 
+Identifying data points that differ significantly from the distribution of the training data. OOD is a broader concept that can include aspects of novelty, anomaly, and outlier detection, depending on the context.
 
-Example: The system is trained on vehicles, pedestrians, and common animals like dogs and cats. One day, however, it encounters a horse on the street. The system needs to recognize that the horse is an out-of-distribution object. 
+Example: The system is trained on vehicles, pedestrians, and common animals like dogs and cats. One day, however, it encounters a horse on the street. The system needs to recognize that the horse is an out-of-distribution object.
 
 Methods for detecting out-of-distribution (OOD) inputs incorporate approaches from outlier detection, anomaly detection, novelty detection, and open set recognition, using techniques like similarity measures between training and test data, model introspection for activated neurons, and OOD sample generation and retraining. Approaches such as thresholding the output confidence vector help classify inputs as in or out-of-distribution, assuming higher confidence for in-distribution examples. Techniques like supervised contrastive learning, where a deep neural network learns to group similar classes together while separating different ones, and various clustering methods, also enhance the ability to distinguish between in-distribution and OOD inputs. For more details, one can refer to the survey by [Yang et al.](https://arxiv.org/pdf/2110.11334.pdf) and other resources on the learnability of OOD: [here](https://arxiv.org/abs/2210.14707).
 
@@ -264,7 +264,7 @@ Maintaining model correctness can be improved by performing multiple random modi
 The security of these defenses often relies on gradient masking (sometimes called gradient obfuscation) when the functions are non-differentiable (shattered gradients). These defenses can be attacked by approximating the gradients, e.g., using BPDA. Systems that use defenses based on randomness to mask the gradients (stochastic gradients) can be attacked by combining the attack with EOT.
 A set of defense techniques called Random Transfomations (RT) defends neural networks by implementing enough randmoness that computing adversarial examples using EOT is computationally inefficient. This randomness is typically achieved by using a random subset of input transformations with random parameters. Since multiple transformations are applied to each input sample, the benign accuracy drops significantly, thus the network must be trained with the RT in place.
 
-Note that black-box or closed-box attacks do not rely on the gradients and are therefore not affected by shattered gradients, as they do not use the gradients to calculate the attack. Black box attacks use only the input and the output of the model or whole AI system to calculate the adversarial input. For a more detailed discussion of these attacks see Closed-box evasion. 
+Note that black-box or closed-box attacks do not rely on the gradients and are therefore not affected by shattered gradients, as they do not use the gradients to calculate the attack. Black box attacks use only the input and the output of the model or whole AI system to calculate the adversarial input. For a more detailed discussion of these attacks see Closed-box evasion.
   
 See [DETECTADVERSARIALINPUT](#detectadversarialinput) for an approach where the distorted input is used for detecting an adversarial attack.
 

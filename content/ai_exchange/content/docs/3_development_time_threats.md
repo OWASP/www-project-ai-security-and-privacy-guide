@@ -81,7 +81,7 @@ Description: Federated (or better: federated) learning can be applied when a tra
 Category: development-time data science.  
 Permalink: https://owaspai.org/goto/federatedlearning/
 
-Federated Learning is a decentralized Machine Learning architecture wherein a number of clients (e.g. sensor or mobile devices) participate in collaborative, decentralized, asynchronous training, which is orchestrated and aggregated by a controlling central server. Advantages of Federated Learning include reduced central compute, and the potential for preservation of privacy, since training data may remain local to the client. 
+Federated Learning is a decentralized Machine Learning architecture wherein a number of clients (e.g. sensor or mobile devices) participate in collaborative, decentralized, asynchronous training, which is orchestrated and aggregated by a controlling central server. Advantages of Federated Learning include reduced central compute, and the potential for preservation of privacy, since training data may remain local to the client.
 
 Broadly, Federated Learning generally consists of four high-level steps: First, there is a server-to-client broadcast; next, local models are updated on the client; once trained, local models are then returned to the central server; and finally, the central server updates via model aggregation.
 
@@ -94,10 +94,10 @@ Federated machine learning may offer significant benefits for organizations in s
 
 **Challenges in federated machine learning**  
 - **Remaining risk of data disclosure by the model**. Care must be taken to protect against  _data disclosure by use_ threats (e.g. membership inference), as sensitive data may still be extracted from the model/models. Therefore, _model theft_ threats also need mitigation, as training data may be disclosed from a stolen model. The federated learning architecture has specific attack surfaces for _model theft_ in the form of transfering the model from client to server and storage of the model at the server. These require protection.
-- **More attack surface for poisoning**. Security concerns also include attacks via data/model poisoning; with federated systems additionally introducing a vast network of clients, some of which may be malicious. 
-- **Device Heterogeneity**. User- or other devices may vary widely in their computational, storage, transmission, or other capabilities, presenting challenges for federated deployments. These may additionally introduce device-specific security concerns, which practitioners should take into consideration in design phases. While designing for constraints including connectivity, battery life, and compute, it is also critical to consider edge device security. 
+- **More attack surface for poisoning**. Security concerns also include attacks via data/model poisoning; with federated systems additionally introducing a vast network of clients, some of which may be malicious.
+- **Device Heterogeneity**. User- or other devices may vary widely in their computational, storage, transmission, or other capabilities, presenting challenges for federated deployments. These may additionally introduce device-specific security concerns, which practitioners should take into consideration in design phases. While designing for constraints including connectivity, battery life, and compute, it is also critical to consider edge device security.
 - **Broadcast Latency & Security**. Efficient communication across a federated network introduces additional challenges. While strategies exist to minimize broadcast phase latency, they must also take into consideration potential data security risks. Because models are vulnerable during transmission phases, any communication optimizations must account for data security in transit.
-- **Querying the data creates a risk**. When collected data is stored on multiple clients, central data queries may be required for analysis work, next to Federated learning. Such queries would need the server to have access to the data at all cients, creating a security risk. In order to analyse the data without collecting it, various Privacy-preserving techniques exist, including cryptographic and information-theoretic strategies, such as Secure Function Evaluation (SFE), also known as Secure Multi-Party Computation (SMC/SMPC). However, all approaches entail tradeoffs between privacy and utility.
+- **Querying the data creates a risk**. When collected data is stored on multiple clients, central data queries may be required for analysis work, next to Federated learning. Such queries would need the server to have access to the data at all clients, creating a security risk. In order to analyse the data without collecting it, various Privacy-preserving techniques exist, including cryptographic and information-theoretic strategies, such as Secure Function Evaluation (SFE), also known as Secure Multi-Party Computation (SMC/SMPC). However, all approaches entail tradeoffs between privacy and utility.
 
 Links to standards:
 
@@ -111,10 +111,10 @@ Links to standards:
 
 Security risks in obtained data or models can arise from accidental mistakes or from manipulations - just like with obtained source code or software components.
 
-The AI supply chain can be complex. Just like with obtained source code or software components, data or models may involve multiple suppliers. For example: a model is trained by one vendor and then fine-tuned by another vendor. Or: an AI system contains multiple models, one is a model that has been fine-tuned with data from source X, using a base model from vendor A that claims data is used from sources Y and Z, where the data from source Z was labeled by vendor B. 
-Because of hise supply chain complexity, data and model provenance is a helpful activity.  The Software Bill Of Materials (SBOM) becomes the AIBOM (AI Bill Of Materials) or MBOM (Model Bill of Material). 
+The AI supply chain can be complex. Just like with obtained source code or software components, data or models may involve multiple suppliers. For example: a model is trained by one vendor and then fine-tuned by another vendor. Or: an AI system contains multiple models, one is a model that has been fine-tuned with data from source X, using a base model from vendor A that claims data is used from sources Y and Z, where the data from source Z was labeled by vendor B.
+Because of this supply chain complexity, data and model provenance is a helpful activity.  The Software Bill Of Materials (SBOM) becomes the AI Bill Of Materials (AIBOM) or Model Bill of Material (MBOM).
 
-Standard supply chain management includes provenance & pedigree, verifying signatures, using package repositories, frequent patching, and using dependency verification tools. 
+Standard supply chain management includes provenance & pedigree, verifying signatures, using package repositories, frequent patching, and using dependency verification tools.
 
 As said, in AI many of the software components are executed development-time, instead of just in production. Data engineering and model engineering involve operations on data and models for which often external components are used (e.g. tools such as Notebooks, or other MLOps applications). Because AI development has new assets such as the data and model parameters, these components pose a new threat. To make matters worse, data scientists also install dependencies on the Notebooks which makes the data and model engineering environment a dangerous attack vector and the classic supply chain guardrails typically don’t scan it.
 
@@ -240,7 +240,7 @@ Permalink: https://owaspai.org/goto/t1
 
 AI models are sometimes obtained elsewhere (e.g. open source) and then further trained or fine-tuned. These models may have been manipulated(poisoned) at the source, or in transit. See [OWASP for LLM 05: Supply Chain Vulnerabilities.](https://llmtop10.com/llm05/).
 
-The type of manipulation can be through data poisoning, or by specifically changing the model parameters. Therefore, the same controls apply that help against those attacks. Since changing the model parameters requires protection of the parameters at the moment they are manipulated, this is not in the hands of the one who obtained the model. What remains are the controls against data poisoning, the controls against model poisoning in general (e.g. model ensembles), plus of course good supply chain management, and some specific controls that help agains transfer learning attacks.
+The type of manipulation can be through data poisoning, or by specifically changing the model parameters. Therefore, the same controls apply that help against those attacks. Since changing the model parameters requires protection of the parameters at the moment they are manipulated, this is not in the hands of the one who obtained the model. What remains are the controls against data poisoning, the controls against model poisoning in general (e.g. model ensembles), plus of course good supply chain management, and some specific controls that help against transfer learning attacks.
 
 **Controls specific for transfer learning:**
 

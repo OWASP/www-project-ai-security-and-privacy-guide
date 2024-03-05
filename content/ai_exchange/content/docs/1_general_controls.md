@@ -230,7 +230,7 @@ Within the realm of personal data protection, tokenization aligns with the princ
     
 Tokenization aligns with this concept by replacing personal details with tokens, increasing the difficulty of linking specific records back to individuals.
 Tokenization proves particularly advantageous in development-time data science when handling sensitive datasets. It enhances security by enabling data scientists to work with valuable information without compromising individual privacy. The implementation of tokenization techniques supports the broader objective of obfuscating training data, striking a balance between leveraging valuable data insights and safeguarding the privacy of individuals.
- 
+
 - Anonymization
     
 Anonymization is the process of concealing or transforming sensitive information in a dataset to protect individuals' privacy and identity. This involves replacing or modifying identifiable elements with generic labels or pseudonyms, aiming to obfuscate data and prevent specific individual identification while maintaining data utility for effective model training. In the broader context of advanced pseudonymization methods, anonymization is crucial for preserving privacy and confidentiality in data analysis and processing.
@@ -242,10 +242,9 @@ In the healthcare sector with personally identifiable information (PII), there a
 These use cases demonstrate the practical relevance and applicability of pseudonymization techniques in real-world scenarios, offering valuable insights for stakeholders involved in data pseudonymization and data protection.
 
   
-
   Links to standards:
 
-  - Not covered yet in ISO/IEC standards. 
+  - Not covered yet in ISO/IEC standards.
 
 #### #DISCRETE
 (management, development-time and runtime). Minimize access to technical details that could help attackers.
@@ -264,7 +263,7 @@ Particularity: Technical data science details need to be incorporated in asset m
 
 Links to standards:
 
-  - ISO 27002 Control 5.9: Inventory of information and other associated assets. Gap: covers this control fully, with the obvious particularity that technical data science details can be sensitive. As soon as the inventory identifies this, depending processes such as security requirements, risk analysis and awareness traing will take care of the threat. In other words: it starts with identifying this information as an asset.
+  - ISO 27002 Control 5.9: Inventory of information and other associated assets. Gap: covers this control fully, with the obvious particularity that technical data science details can be sensitive. As soon as the inventory identifies this, depending processes such as security requirements, risk analysis and awareness training will take care of the threat. In other words: it starts with identifying this information as an asset.
   - See [OpenCRE on data classification and handling](https://www.opencre.org/cre/074-873). Gap: idem
   - [MITRE ATlAS Acquire Public ML Artifacts](https://atlas.mitre.org/techniques/AML.T0002)
 
@@ -295,10 +294,10 @@ Example: LLMs (GenAI), just like most AI models, induce their results based on t
 #### #OVERSIGHT
 (runtime). Oversight of model behaviour by humans or business logic in the form of rules (guardrails).
   
-Purpose: Detect unwanted model behavior and correct or halt the execution of a model's decision. 
+Purpose: Detect unwanted model behavior and correct or halt the execution of a model's decision.
 
 **Limitations of guardrails:**
-The properties of wanted or unwanted model behavior often cannot be entirely specified, limiting the effectiveness of guardrails. 
+The properties of wanted or unwanted model behavior often cannot be entirely specified, limiting the effectiveness of guardrails.
 
 **Limitations of human oversight:**
 The alternative to guardrails is to apply human oversight. This is of course more costly and slower, but allows for more intelligent validation given the involved common sense and human domain knowledge - provided that the person performing the oversight actually has that knowledge.
@@ -315,7 +314,7 @@ Examples:
 Links to standards:
 
   - ISO/IEC 42001 B.9.3 defines controls for human oversight and decisions regarding autonomy. Gap: covers this control partly (human oversight only, not business logic)
-  - Not covered further in ISO/IEC standards. 
+  - Not covered further in ISO/IEC standards.
 
 #### #LEASTMODELPRIVILEGE
 (runtime infosec). Least model privilege: Minimize privileges; avoid connecting a model to an email facility to prevent it from sending incorrect information to others.
@@ -333,7 +332,7 @@ See the [DISCRETE](#discrete) control for the balance between being transparent 
 Links to standards:
 
   - ISO/IEC 42001 B.7.2 describes data management to support transparency. Gap: covers this control minimally, as it only covers the data mnanagement part.
-  - Not covered further in ISO/IEC standards. 
+  - Not covered further in ISO/IEC standards.
 
 #### #CONTINUOUSVALIDATION
 

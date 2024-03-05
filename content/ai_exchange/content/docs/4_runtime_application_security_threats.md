@@ -93,7 +93,7 @@ See [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.
 **Controls:**
 
 - See General controls
-- Controls against direct prompt injection mostly are embedded in the implementation of the large languag model itself
+- Controls against direct prompt injection mostly are embedded in the implementation of the large language model itself
 
 ---
 
@@ -103,7 +103,7 @@ Impact: Getting unwanted answers or actions from hidden instructions in a prompt
 
 Prompt injection ([OWASP for LLM 01](https://llmtop10.com/llm01/)) manipulates a large language model (GenAI) through the injection of instructions as part of a text from a compromised source that is inserted into a prompt by an application, causing unintended actions or answers by the LLM (GenAI).
 
-Example: let's say a chat application takes questions about car models. It turns a question into a prompt to a Large Language Model (LLM, a GenAI) by adding the text from the website about that car. If that website has been compromised with instruction invisibile to the eye, those instructions are inserted into the prompt and may result in the user getting false or offensive information.
+Example: let's say a chat application takes questions about car models. It turns a question into a prompt to a Large Language Model (LLM, a GenAI) by adding the text from the website about that car. If that website has been compromised with instructions invisible to the eye, those instructions are inserted into the prompt and may result in the user getting false or offensive information.
 
 See [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.T0051).
 
