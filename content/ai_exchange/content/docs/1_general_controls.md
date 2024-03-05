@@ -156,7 +156,8 @@ Links to standards:
 ## 1.2 General controls for sensitive data limitation
 
 #### #DATAMINIMIZE
-(development-time and runtime). Data minimize: remove or anonymize data fields or records that are unnecessary for the application to prevent potential leaks. Data minimization can also involve statistically analyzing a training dataset to identify and eliminate superfluous records or fields that are not essential for achieving sufficient performance (Data Science).
+Description: Data minimize: remove or anonymize data fields or records that are unnecessary for the application to prevent potential leaks. Data minimization can also involve statistically analyzing a training dataset to identify and eliminate superfluous records or fields that are not essential for achieving sufficient performance (Data Science).  
+Category: development-time and runtime 
 
 Purpose: reduce the impact in case of an attack by reducing the amount of data that can leak.
 
