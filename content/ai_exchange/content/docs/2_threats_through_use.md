@@ -415,13 +415,6 @@ The disclosure is caused by an unintentional fault of including this data, and e
 - See controls for threats through use
 - The below control(s), each marked with a # and a short name in capitals
 
-### #FILTERSENSITIVETRAINDATA
-(development-time appsec). Actively prevent sensitive data when constructing the training dataset using manual verification and/or automated detection and/or careful selection of train data sources
-
-Links to standards:
-
-  - Not covered yet in ISO/IEC standards
-
 #### #FILTERSENSITIVEMODELOUTPUT 
 (runtime appsec). Filter sensitive model output: actively censor sensitive data by detecting it when possible (e.g. phone number)
 
