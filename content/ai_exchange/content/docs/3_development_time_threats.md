@@ -33,26 +33,26 @@ Protection strategies:
 
 - Encryption of data at rest  
   Links to standards:
-  - 27002 control 5.33 Protection of records. Gap: covers this control fully, with the particularities
+  - ISO 27002 control 5.33 Protection of records. Gap: covers this control fully, with the particularities
   - [OpenCE on encryption of data at rest](https://www.opencre.org/cre/400-007)
 - Technical access control for the data, to limit access following the least privilege principle  
   Links to standards:
-  - 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: covers this control fully, with the particularities
+  - ISO 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: covers this control fully, with the particularities
   - [OpenCRE](https://www.opencre.org/cre/724-770)
   - Centralized access control for the data  
   Links to standards:
-  - There is no 27002 control for this
+  - There is no ISO 27002 control for this
   - [OpenCRE](https://www.opencre.org/cre/117-371)
 - Operational security to protect stored data  
   Links to standards:
-  - Many 27002 controls cover operational security. Gap: covers this control fully, with the particularities.
-    - 27002 control 5.23 Information security for use of cloud services
-    - 27002 control 5.37 Documented operating procedures
-    - Many more 27002 controls (See OpenCRE link)
+  - Many ISO 27002 controls cover operational security. Gap: covers this control fully, with the particularities.
+    - ISO 27002 control 5.23 Information security for use of cloud services
+    - ISO 27002 control 5.37 Documented operating procedures
+    - Many more ISO 27002 controls (See OpenCRE link)
   - [OpenCRE](https://www.opencre.org/cre/862-452)
 - Logging and monitoring to detect suspicious manipulation of data, (e.g. outside office hours)  
   Links to standards:
-  - 27002 control 8.16 Monitoring activities. Gap: covers this control fully
+  - ISO 27002 control 8.16 Monitoring activities. Gap: covers this control fully
   - [OpenCRE on Detect and respond](https://www.opencre.org/cre/887-750)
 
 #### #DEVSECURITY
@@ -60,14 +60,14 @@ Protection strategies:
 
 Links to standards:
 
-- 27001 Information Security Management System, with the particularity
+- ISO 27001 Information Security Management System, with the particularity
 
 #### #SEGREGATEDATA
 (development-time infosec). Segregate data: store sensitive training or test data in a separated environment with restricted access.
 
 Links to standards:
 
-- 27002 control 8.31 Separation of development, test and production environments. Gap: covers this control partly - the particularity is that the development environment typically has the sensitive data instead of the production environment - which is typically the other way around in non-AI systems. Therefore it helps to restrict access to that data within the development environment. Even more: within the development environment further segregation can take place to limit access to only those who need the data for their work, as some developers will not be processing data.
+- ISO 27002 control 8.31 Separation of development, test and production environments. Gap: covers this control partly - the particularity is that the development environment typically has the sensitive data instead of the production environment - which is typically the other way around in non-AI systems. Therefore it helps to restrict access to that data within the development environment. Even more: within the development environment further segregation can take place to limit access to only those who need the data for their work, as some developers will not be processing data.
 
 #### #CONFCOMPUTE
 (development-time infosec). 'Confidential compute': If available and possible, use features of the data science environment to hide training data and model parameters from model engineers
@@ -122,9 +122,9 @@ See [MITRE ATLAS - ML Supply chain compromise](https://atlas.mitre.org/technique
 
 Links to standards:
 
-- 27002 Controls 5.19, 5.20, 5.21, 5.22, 5.23, 8.30. Gap: covers this control fully, with said particularity, and lacking controls on data provenance.
-- ISO/IEC AWI 5181 (Data provenance). Gap: covers the data provenance aspect to complete the coverage together with the 27002 controls - provided that the provenance concerns all sensitive data and is not limited to personal data.
-- ISO/IEC 42001 (AI management) briefly mentions data provenance and refers to 5181 in section B.7.5
+-ISO  Controls 5.19, 5.20, 5.21, 5.22, 5.23, 8.30. Gap: covers this control fully, with said particularity, and lacking controls on data provenance.
+- ISO/IEC AWI 5181 (Data provenance). Gap: covers the data provenance aspect to complete the coverage together with the ISO 27002 controls - provided that the provenance concerns all sensitive data and is not limited to personal data.
+- ISO/IEC 42001 (AI management) briefly mentions data provenance and refers to ISO 5181 in section B.7.5
 - [OpenCRE](https://www.opencre.org/cre/613-285)
 
 ---
@@ -190,7 +190,7 @@ A method to detect statistical deviation is to train models on random selections
 Links to standards:
 
 - ISO/IEC 5259 series on Data quality for analytics and ML. Gap: covers this control minimally. in light of the particularity - the standard does not mention approaches to detect malicious changes (including detecting statistical deviations). Nevertheless, standard data quality control helps to detect malicious changes that violate data quality rules.
-- ISO/iEC 42001 B.7.4 briefly covers data quality for AI. Gap: idem as 5259
+- ISO/iEC 42001 B.7.4 briefly covers data quality for AI. Gap: idem as ISO 5259
 - Not further covered yet in ISO/IEC standards
 
 #### #TRAINDATADISTORTION

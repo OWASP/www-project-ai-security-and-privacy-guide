@@ -16,13 +16,13 @@ Note: some controls in this document are application security controls that are 
 - Technical application security controls  
   Links to standards:
   - See [OpenCRE on technical application security controls](https://www.opencre.org/cre/636-660)
-  - The 27002 controls only partly cover technical application security controls, and on a high abstraction level
-  - More detailed and comprehensive control overviews can be found in for example Common criteria protection profiles (ISO/IEC 15408 with evaluation described in 18045),
+  - The ISO 27002 controls only partly cover technical application security controls, and on a high abstraction level
+  - More detailed and comprehensive control overviews can be found in for example Common criteria protection profiles (ISO/IEC 15408 with evaluation described in ISO 18045),
   - or in [OWASP ASVS](https://owasp.org/www-project-application-security-verification-standard/)
 - Operational security  
   Links to standards:
   - See [OpenCRE on operational security processes](https://www.opencre.org/cre/862-452)
-  - The 27002 controls only partly cover operational security controls, and on a high abstraction level
+  - The ISO 27002 controls only partly cover operational security controls, and on a high abstraction level
 
 ---
 

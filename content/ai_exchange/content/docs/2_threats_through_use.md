@@ -23,7 +23,7 @@ By adding details to logs on the version of the model used and the output, troub
   
 Links to standards:
 
-  - 27002 Control 8.16 Monitoring activities. Gap: covers this control fully, with the particularity: monitoring needs to look for specific patterns of AI attacks (e.g. model attacks through use). The 27002 control has no details on that.
+  - ISO 27002 Control 8.16 Monitoring activities. Gap: covers this control fully, with the particularity: monitoring needs to look for specific patterns of AI attacks (e.g. model attacks through use). The ISO 27002 control has no details on that.
   - ISO/IEC 42001 B.6.2.6 discusses AI system operation and monitoring. Gap: covers this control fully, but on a high abstraction level.
   - See [OpenCRE](https://www.opencre.org/cre/058-083). Idem
 
@@ -38,7 +38,7 @@ Remaining risk: this control does not prevent attacks that use low frequency of 
 
 Links to standards:
 
-  - 27002 has no control for this
+  - ISO 27002 has no control for this
   - See [OpenCRE](https://www.opencre.org/cre/630-573)
 
 #### #MODELACCESSCONTROL
@@ -50,7 +50,7 @@ Remaining risk: attackers may succeed in authenticating as an authorized user, o
 
 Links to standards:
 
-  - Technical access control: 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: covers this control fully
+  - Technical access control: ISO 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: covers this control fully
   - [OpenCRE on technical access control](https://www.opencre.org/cre/724-770)
   - [OpenCRE on centralized access control](https://www.opencre.org/cre/117-371)
 
@@ -501,7 +501,7 @@ This threat refers to application failure (i.e. denial of service) typically cau
 
 Links to standards:
 
-  - 27002 has no control for this
+  - ISO 27002 has no control for this
   - Not covered yet in ISO/IEC standards
   - [OpenCRE on input validation](https://www.opencre.org/cre/010-308)
 
@@ -511,7 +511,7 @@ Links to standards:
 
   Links to standards:
 
-  - 27002 has no control for this, except for Monitoring (covered in Controls for threats through use)
+  - ISO 27002 has no control for this, except for Monitoring (covered in Controls for threats through use)
   - Not covered yet in ISO/IEC standards
 
 ### 2.4.1. Denial of model service due to inconsistent data or a sponge example

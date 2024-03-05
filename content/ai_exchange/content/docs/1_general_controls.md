@@ -30,7 +30,7 @@ When doing risk analysis on AI initiatives, consider at least the following:
 Links to standards:
  - ISO/IEC 42001 AI management system. Gap: covers this control fully.
  
-42001 is about extending your risk management system - it focuses on governance. 5338 (see #[DEVPROGRAM](#devprogram) below) is about extending your software lifecycle practices - it focuses on engineering and everything around it. The 42001 can be seen as a management system for the governance of responsible AI in an organization, similar to how 27001 is a management system for information security. The 42001 doesn’t go into the lifecycle processes. It for example does not discuss how to train models, how to do data lineage, continuous validation, versioning of AI models, project planning challenges, and how and when exactly sensitive data is used in engineering.
+42001 is about extending your risk management system - it focuses on governance. ISO 5338 (see #[DEVPROGRAM](#devprogram) below) is about extending your software lifecycle practices - it focuses on engineering and everything around it. ISO 42001 can be seen as a management system for the governance of responsible AI in an organization, similar to how ISO 27001 is a management system for information security. ISO 42001 doesn’t go into the lifecycle processes. It for example does not discuss how to train models, how to do data lineage, continuous validation, versioning of AI models, project planning challenges, and how and when exactly sensitive data is used in engineering.
 
 #### #SECPROGRAM 
 (management). Having a security program. Include the whole AI lifecycle and AI particularities in the organization's security program (also referred to as _information security management system_).
@@ -64,7 +64,7 @@ The general process for performing an AI Use Case Privacy and Security Analysis 
  
 Links to standards:
 
-  - The entire 27000-27005 range is applicable to AI systems in the general sense as they are IT systems. Gap: covers this control fully, with the high-level particularity that there are three AI-specific attack surfaces that need to be taken into account in information security management: 1)AI development-time attacks, 2)attacks through model use and 3)AI Application security attacks. See the controls under the corresponding sections to see more particularities.
+  - The entire ISO 27000-27005 range is applicable to AI systems in the general sense as they are IT systems. Gap: covers this control fully, with the high-level particularity that there are three AI-specific attack surfaces that need to be taken into account in information security management: 1)AI development-time attacks, 2)attacks through model use and 3)AI Application security attacks. See the controls under the corresponding sections to see more particularities.
     These standards cover:
 
     - ISO/IEC 27000 – Information security management systems – Overview and vocabulary
@@ -74,18 +74,18 @@ Links to standards:
     - ISO/IEC 27004 – Information security management measurements)
     - ISO/IEC 27005 – Information security risk management
 
-  - The '27002 controls' mentioned throughout this document are listed in the Annex of 27001, and further detailed with practices in 27002. At the high abstraction level, the most relevant 27002 controls are:
-    - 27002 control 5.1 Policies for information security
-    - 27002 control 5.10 Acceptable use of information and other associated assets
-    - 27002 control 5.8 Information security in project management
+  - The '27002 controls' mentioned throughout this document are listed in the Annex of ISO 27001, and further detailed with practices in ISO 27002. At the high abstraction level, the most relevant ISO 27002 controls are:
+    - ISO 27002 control 5.1 Policies for information security
+    - ISO 27002 control 5.10 Acceptable use of information and other associated assets
+    - ISO 27002 control 5.8 Information security in project management
   - [OpenCRE on security program management](https://www.opencre.org/cre/261-010)
   - Risk analysis standards:
     - This document contains AI security threats and controls to facilitate risk analysis
     - See also [MITRE ATLAS framework for AI threats](https://atlas.mitre.org/)
-    - ISO/IEC 27005 - as mentioned above. Gap: covers this control fully, with said particularity (as 27005 doesn't mention AI-specific threats)
+    - ISO/IEC 27005 - as mentioned above. Gap: covers this control fully, with said particularity (as ISO 27005 doesn't mention AI-specific threats)
     - ISO/IEC 27563:2023 (AI use cases security & privacy) Discusses the impact of security and privacy in AI use cases and may serve as useful input to AI security risk analysis. The work bases its list of AI use cases on the 132 use cases belonging to 22 application domains in ISO/IEC TR 24030:2021, identifies 11 use cases with a maximum concern rating for security and 49 use cases with a maximum concern rating for privacy.
     - ISO/IEC 23894 (AI Risk management). Gap: covers this control fully - It refers to ISO/IEC 24028 (AI trustworthiness) for AI security threats. However,  ISO/IEC 24028 is not as comprehensive as AI Exchange (this document) or MITRE ATLAS as it is focused on risk management rather than threat enumeration. 
-    - ISO/IEC 5338 (AI lifecycle) covers the AI risk management process. Gap: same as 23894 above.
+    - ISO/IEC 5338 (AI lifecycle) covers the AI risk management process. Gap: same as ISO 23894 above.
     - [ETSI Method and pro forma for Threat, Vulnerability, Risk Analysis](https://www.etsi.org/deliver/etsi_ts/102100_102199/10216501/05.02.03_60/ts_10216501v050203p.pdf)
     - [NIST AI Risk Management Framework](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf)
     - [OpenCRE on security risk analysis](https://www.opencre.org/cre/307-242)
@@ -106,7 +106,7 @@ An important practice in secure software development is Threat modeling, which i
 
 Links to standards:
 
-  - 27002 control 8.25 Secure development lifecycle. Gap: covers this control fully, with said particularity, but lack of detail - the 8.25 Control description in 27002(2022) is one page, whereas secure software development is a large and complex topic - see below for further references
+  - ISO 27002 control 8.25 Secure development lifecycle. Gap: covers this control fully, with said particularity, but lack of detail - the 8.25 Control description in ISO 27002:2022 is one page, whereas secure software development is a large and complex topic - see below for further references
   - ISO/IEC 27115 (Cybersecurity evaluation of complex systems) 
   - See [OpenCRE on secure software development processes](https://www.opencre.org/cre/616-305) with notable links to NIST SSDF and OWASP SAMM. Gap: covers this control fully, with said particularity
 
@@ -129,7 +129,7 @@ The below interpretation diagram of ISO/IEC 5338 provides a good overview to get
 Links to standards:
 
 [ISO/IEC TR 27563:2023](https://www.iso.org/standard/80396.html) covers this control fully. 
-  - [ISO/IEC 5338 - AI lifecycle](https://www.iso.org/standard/81118.html) Gap: covers this control fully - the 5338 covers the complete software development lifecycle for AI, by extending the existing 12207 standard on software lifecycle: defining several new processes and discussing AI-specific particularities for existing processes. See also [this blog](https://www.softwareimprovementgroup.com/iso-5338-get-to-know-the-global-standard-on-ai-systems/).
+  - [ISO/IEC 5338 - AI lifecycle](https://www.iso.org/standard/81118.html) Gap: covers this control fully - ISO 5338 covers the complete software development lifecycle for AI, by extending the existing ISO 12207 standard on software lifecycle: defining several new processes and discussing AI-specific particularities for existing processes. See also [this blog](https://www.softwareimprovementgroup.com/iso-5338-get-to-know-the-global-standard-on-ai-systems/).
   - [ISO/IEC 27002](https://www.iso.org/standard/75652.html) control 5.37 Documented operating procedures. Gap: covers this control minimally - this covers only a very small part of the control
   - [OpenCRE on documentation of function](https://www.opencre.org/cre/162-655) Gap: covers this control minimally
  
@@ -142,14 +142,14 @@ Links to standards:
 Links to standards:
 
   - [OpenCRE on Compliance](https://www.opencre.org/cre/510-324)
-  - 27002 Control 5.36 Compliance with policies, rules and standards. Gap: covers this control fully, with the particularity that AI regulation needs to be taken into account.
+  - ISO 27002 Control 5.36 Compliance with policies, rules and standards. Gap: covers this control fully, with the particularity that AI regulation needs to be taken into account.
 
 #### #SECEDUCATE
 (management). Security education for data scientists and development teams on AI threat awareness, including attacks on models. It is essential for all engineers, including data scientists, to attain a security mindset.
 
 Links to standards:
 
-  - 27002 Control 6.3 Awareness training. Gap: covers this control fully, but lacks detail and needs to take into account the particularity: training material needs to cover AI security threats and controls
+  - ISO 27002 Control 6.3 Awareness training. Gap: covers this control fully, but lacks detail and needs to take into account the particularity: training material needs to cover AI security threats and controls
 
 ---
 
@@ -264,7 +264,7 @@ Particularity: Technical data science details need to be incorporated in asset m
 
 Links to standards:
 
-  - 27002 Control 5.9: Inventory of information and other associated assets. Gap: covers this control fully, with the obvious particularity that technical data science details can be sensitive. As soon as the inventory identifies this, depending processes such as security requirements, risk analysis and awareness traing will take care of the threat. In other words: it starts with identifying this information as an asset.
+  - ISO 27002 Control 5.9: Inventory of information and other associated assets. Gap: covers this control fully, with the obvious particularity that technical data science details can be sensitive. As soon as the inventory identifies this, depending processes such as security requirements, risk analysis and awareness traing will take care of the threat. In other words: it starts with identifying this information as an asset.
   - See [OpenCRE on data classification and handling](https://www.opencre.org/cre/074-873). Gap: idem
   - [MITRE ATlAS Acquire Public ML Artifacts](https://atlas.mitre.org/techniques/AML.T0002)
 
@@ -322,7 +322,7 @@ Links to standards:
 
 Links to standards:
 
-  - 27002 control 8.2 Privileged access rights. Gap: covers this control fully, with the particularity that privileges assigned to autonomous model decisions need to be assigned with the risk of unwanted model behaviour in mind.
+  - ISO 27002 control 8.2 Privileged access rights. Gap: covers this control fully, with the particularity that privileges assigned to autonomous model decisions need to be assigned with the risk of unwanted model behaviour in mind.
   - [OpenCRE on least privilege](https://www.opencre.org/cre/368-633) Gap: idem
 
 #### #AITRANSPARENCY
