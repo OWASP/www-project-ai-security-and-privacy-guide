@@ -271,7 +271,7 @@ The AI security controls (in capitals - and discussed further on in the document
    - [DEVSECURITY](/goto/devsecurity/) (further information security including screening of engineers)
    - [SEGREGATEDATA](/goto/segregatedata/)
    - [CONFCOMPUTE](/goto/confcompute/)
-   - [FEDERATIVELEARNING](/goto/federativelearning/)
+   - [FEDERATEDLEARNING](/goto/federatedlearning/)
    - [SUPPLYCHAINMANAGE](/goto/supplychainmanage/)
 6. Completely **new application security controls** are [MODELOBFUSCATION](/goto/modelobfuscation/) and protection against indirect prompt injection of GenAI: [PROMPTINPUTVALIDATION](/goto/promptinputvalidation/) plus [INPUTSEGREGATION](/goto/inputsegregation/)
 7. **Limit the amount of data and the time it is stored**, if it is sensitive ([DATAMINIMIZE](/goto/dataminimize/), [ALLOWEDDATA](/goto/alloweddata/), [SHORTRETAIN](/goto/shortretain/), [OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/))
@@ -1146,7 +1146,7 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 
   - Not covered yet in ISO/IEC standards
 
-- **#[FEDERATIVELEARNING](/goto/federativelearning/)** (development-time datascience). Federative learning can be applied when a training set is distributed over different organizations, preventing that the data needs to be collected in a central place - increasing the risk of leaking.
+- **#[FEDERATEDLEARNING](/goto/federatedlearning/)** (development-time datascience). Federative learning can be applied when a training set is distributed over different organizations, preventing that the data needs to be collected in a central place - increasing the risk of leaking.
 
   Links to standards:
 
@@ -1567,7 +1567,7 @@ Misc.:
   - [DEVSECURITY](/goto/devsecurity/) (management)
   - [SEGREGATEDATA](/goto/segregatedata/) (development-time infosec)
   - [CONFCOMPUTE](/goto/confcompute/) (development-time infosec)
-  - [FEDERATIVELEARNING](/goto/federativelearning/) (development-time datascience)
+  - [FEDERATEDLEARNING](/goto/federatedlearning/) (development-time datascience)
   - [SUPPLYCHAINMANAGE](/goto/supplychainmanage/) (development-time infosec)
 
     3.1. Broad model poisoning: model behaviour manipulation by altering data, engineering, or model  
