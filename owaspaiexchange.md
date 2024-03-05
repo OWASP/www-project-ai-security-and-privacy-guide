@@ -119,12 +119,12 @@ Anything is welcome: more controls, improved descriptions, examples, references,
 - Annegrit Seyerlein-Klug (TH Brandenburg, Germany) - mapping with misc. standards
 - Wei Wei (IBM, Germany) - mapping with ISO/IEC 42001
 - Roger Sanz (Universidad Isabel, Spain)
-- Angie Qarry (QDeepTech, Austria) - several elaborations and references on datascience defence mechanisms
+- Angie Qarry (QDeepTech, Austria) - several elaborations and references on data science defence mechanisms
 - Behnaz Karimi (Accenture, Germany)- misc. contributions including model obfuscation and explanation
 - Sean Oesch (Oak Ridge National Laboratory, US) - BLUF, Adversarial Training, OOD detection, NISTIR 8269, Guide Usability/Structure
 - Anthony Glynn (CapitalOne, US) - many textual improvements & link to LLM top 10
 - Zoe Braiterman (Mutual Knowledge Systems, US) - Many markdown improvements
-- Niklas Bunzel (Fraunhofer institute, Germany) - datascience discussion and references around evasion attacks
+- Niklas Bunzel (Fraunhofer institute, Germany) - data science discussion and references around evasion attacks
 - Marko Lihter (Endava Adriatic, Croatia) - various textual improvements
 
 # Introduction
@@ -276,7 +276,7 @@ The AI security controls (in capitals - and discussed further on in the document
 6. Completely **new application security controls** are [MODELOBFUSCATION](/goto/modelobfuscation/) and protection against indirect prompt injection of GenAI: [PROMPTINPUTVALIDATION](/goto/promptinputvalidation/) plus [INPUTSEGREGATION](/goto/inputsegregation/)
 7. **Limit the amount of data and the time it is stored**, if it is sensitive ([DATAMINIMIZE](/goto/dataminimize/), [ALLOWEDDATA](/goto/alloweddata/), [SHORTRETAIN](/goto/shortretain/), [OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/))
 8. **Limit the effect** of unwanted model behaviour ([OVERSIGHT](/goto/oversight/), [LEASTMODELPRIVILEGE](/goto/leastmodelprivilege/), AITRAINSPARENCY, [EXPLAINABILITY](/goto/explainability/))
-9. **Datascience runtime** controls when using the model:
+9. **Data science runtime** controls when using the model:
    - [CONTINUOUSVALIDATION](/goto/continuousvalidation/)
    - [UNWANTEDBIASTESTING](/goto/unwantedbiastesting/)
    - [[DETECTODDINPUT](/goto/detectoddinput/)](/goto/detectoddinput/)
@@ -285,7 +285,7 @@ The AI security controls (in capitals - and discussed further on in the document
    - [INPUTDISTORTION](/goto/inputdistortion/)
    - [FILTERSENSITIVEMODELOUTPUT](/goto/filtersensitivemodeloutput/)
    - [OBSCURECONFIDENCE](/goto/obscureconfidence/) (to prevent reconstructing train data)
-10. **Datascience development-time** controls:
+10. **Data science development-time** controls:
     - [CONTINUOUSVALIDATION](/goto/continuousvalidation/)
     - [UNWANTEDBIASTESTING](/goto/unwantedbiastesting/)
     - [EVASIONROBUSTMODEL](/goto/evasionrobustmodel/)
@@ -315,7 +315,7 @@ system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-syst
 - Design your system for security as well as functionality and performance:  
   #[AIPROGRAM](/goto/aiprogram/ ), #[SECPROGRAM](/goto/secprogram/), #[DEVPROGRAM](/goto/devprogram/), #[SECDEVPROGRAM](/goto/secdevprogram/), #[CHECKCOMPLIANCE](/goto/checkcompliance/), #[LEASTMODELPRIVILEGE](/goto/leastmodelprivilege/), #[DISCRETE](/goto/discrete/), #[OBSCURECONFIDENCE](/goto/obscureconfidence/), #[OVERSIGHT](/goto/oversight/), #[RATELIMIT](/goto/ratelimit/),  #[DOSINPUTVALIDATION](/goto/dosinputvalidation/), #[LIMITRESOURCES](/goto/limitresources/), #[MODELACCESSCONTROL](/goto/modelaccesscontrol/), #AITRANSPRENCY
 - Consider security benefits and trade-offs when selecting your AI model  
-  All development-time datascience controls (currently 13), #[EXPLAINABILITY](/goto/explainability/)
+  All development-time data science controls (currently 13), #[EXPLAINABILITY](/goto/explainability/)
 
 2. Secure Development
 - Secure your supply chain:  
@@ -387,7 +387,7 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
   Particularity: the AI lifecycle and its specific assets and security threats need to be part of the organization's information security governance.
 
-  Because AI has specific assets (e.g. training data), **AI-speific honeypots** are a partiularly interesting control. These are fake parts of the data/model/datascience infrastucture that are exposed on purpose, in order to detect or capture attackers, before they succeed to access the real assets. Examples:
+  Because AI has specific assets (e.g. training data), **AI-speific honeypots** are a partiularly interesting control. These are fake parts of the data/model/data science infrastucture that are exposed on purpose, in order to detect or capture attackers, before they succeed to access the real assets. Examples:
 
   - Hardened data services, but with an unpatched vulnerability (e.g. Elasticsearch)
   - Exposed data lakes, not revealing details of the actual assets
@@ -503,7 +503,7 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
   - Not covered yet in ISO/IEC standards. 
 
-- **#[OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/)** (development-time datascience). Obfuscate training data: attain a degree of obfuscation of sensitive data where possible. When this is done for personal data, it is referred to as _differential privacy_.
+- **#[OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/)** (development-time data science). Obfuscate training data: attain a degree of obfuscation of sensitive data where possible. When this is done for personal data, it is referred to as _differential privacy_.
 
   Examples of approaches are:
 
@@ -648,15 +648,15 @@ Example: LLMs (GenAI), just like most AI models, induce their results based on t
   - ISO/IEC 42001 B.7.2 describes data management to support transparency. Gap: covers this control minimally, as it only covers the data mnanagement part.
   - Not covered further in ISO/IEC standards. 
 
-- **#[CONTINUOUSVALIDATION](/goto/continuousvalidation/)** (datascience). Continuous validation: by frequently testing the behaviour of the model against an appropriate test set, sudden changes caused by a permanent attack (e.g. data poisoning, model poisoning) can be detected.
+- **#[CONTINUOUSVALIDATION](/goto/continuousvalidation/)** (data science). Continuous validation: by frequently testing the behaviour of the model against an appropriate test set, sudden changes caused by a permanent attack (e.g. data poisoning, model poisoning) can be detected.
 
   Links to standards:
 
   - ISO 5338 (AI lifecycle) Continuous validation. Gap: covers this control fully
 
-- **#[EXPLAINABILITY](/goto/explainability/)** (runtime datascience). Explaining how individual model decisions are made, a field referred to as Explainable AI (XAI), can aid in gaining user trust in the model. In some cases, this can also prevent overreliance, for example, when the user observes the simplicity of the 'reasoning' or even errors in that process. See [this Stanford article on explainability and overreliance](https://hai.stanford.edu/news/ai-overreliance-problem-are-explanations-solution). Explanations of how a model works can also aid security assessors to evaluate AI security risks of a model.
+- **#[EXPLAINABILITY](/goto/explainability/)** (runtime data science). Explaining how individual model decisions are made, a field referred to as Explainable AI (XAI), can aid in gaining user trust in the model. In some cases, this can also prevent overreliance, for example, when the user observes the simplicity of the 'reasoning' or even errors in that process. See [this Stanford article on explainability and overreliance](https://hai.stanford.edu/news/ai-overreliance-problem-are-explanations-solution). Explanations of how a model works can also aid security assessors to evaluate AI security risks of a model.
 
-- **#[UNWANTEDBIASTESTING](/goto/unwantedbiastesting/)** (datascience). Unwanted bias testing: by doing test runs of the model to measure unwanted bias, unwanted behaviour caused by an attack can be detected. The details of bias detection fall outside the scope of this document as it is not a security concern - other than that an attack on model behaviour can cause bias.
+- **#[UNWANTEDBIASTESTING](/goto/unwantedbiastesting/)** (data science). Unwanted bias testing: by doing test runs of the model to measure unwanted bias, unwanted behaviour caused by an attack can be detected. The details of bias detection fall outside the scope of this document as it is not a security concern - other than that an attack on model behaviour can cause bias.
 
 ---
 
@@ -728,7 +728,7 @@ Another categorization is to distinguish between physical input manipulation (e.
 
 - See General controls
 - See controls for threats through use
-- **#[DETECTODDINPUT](/goto/detectoddinput/)** (runtime datascience). Detect odd input: implement tools to detect whether input is out of distribution (OOD) or invalid - also called input validation - without knowledge on what malicious input looks like. It is not safe to assume that the test data models will evaluate comes from the same distribution as the training data, or is in distribution (ID). When a sample is OOD, the model should not make a prediction because the sample may represent a novel class/label and therefore be misclassified.
+- **#[DETECTODDINPUT](/goto/detectoddinput/)** (runtime data science). Detect odd input: implement tools to detect whether input is out of distribution (OOD) or invalid - also called input validation - without knowledge on what malicious input looks like. It is not safe to assume that the test data models will evaluate comes from the same distribution as the training data, or is in distribution (ID). When a sample is OOD, the model should not make a prediction because the sample may represent a novel class/label and therefore be misclassified.
 
   Purpose: By detecting OOD or anomalous input, input that would result in unwanted model behavior can be discarded or retained for analysis. It is important to note that not all OOD input is malicious and not all malicious input is OOD. However, detecting OOD input is critical to maintaining model integrity, addressing potential concept drift, and preventing adversarial attacks that may take advantage of model behaviors on out of distribution data.
 
@@ -738,7 +738,7 @@ Another categorization is to distinguish between physical input manipulation (e.
 
   - Not covered yet in ISO/IEC standards
 
-- **#[DETECTADVERSARIALINPUT](/goto/detectadversarialinput/)** (runtime datascience). Detect adversarial input: implement tools to detect specific evasions in input (e.g. patches in images).
+- **#[DETECTADVERSARIALINPUT](/goto/detectadversarialinput/)** (runtime data science). Detect adversarial input: implement tools to detect specific evasions in input (e.g. patches in images).
 
   The main concepts of adversarial attack detectors include:
   - Activation Analysis: Examining the activations of different layers in
@@ -809,7 +809,7 @@ against adversarial patch attacks with robust patch detection."
 Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern
 Recognition. 2022.
 
-* **#[EVASIONROBUSTMODEL](/goto/evasionrobustmodel/)** (development-time datascience). Choose an evasion-robust model design, configuration and/or training approach to maximize resilience against evasion (Datascience).
+* **#[EVASIONROBUSTMODEL](/goto/evasionrobustmodel/)** (development-time data science). Choose an evasion-robust model design, configuration and/or training approach to maximize resilience against evasion (Data science).
 
   A robust model in the light of evasion is a model that does not display significant changes in output for minor changes in input.
 
@@ -849,7 +849,7 @@ gradients give a false sense of security: Circumventing defenses to
 adversarial examples." International conference on machine learning.
 PMLR, 2018.
 
-* **#[TRAINADVERSARIAL](/goto/trainadversarial/)** (development-time datascience). Train adversarial: add adversarial examples to the training set to make the model more resilient (Datascience). While adversarial training does make a model more robust against specific attacks, it is important to note that it also adds significant training overhead, does not scale well with model complexity / input dimension, can lead to overfitting, and may not generalize well to new attack methods. For a general summary of adversarial training, see [Bai et al.](https://arxiv.org/pdf/2102.01356.pdf)
+* **#[TRAINADVERSARIAL](/goto/trainadversarial/)** (development-time data science). Train adversarial: add adversarial examples to the training set to make the model more resilient (Data science). While adversarial training does make a model more robust against specific attacks, it is important to note that it also adds significant training overhead, does not scale well with model complexity / input dimension, can lead to overfitting, and may not generalize well to new attack methods. For a general summary of adversarial training, see [Bai et al.](https://arxiv.org/pdf/2102.01356.pdf)
 
   References:
 
@@ -862,7 +862,7 @@ PMLR, 2018.
 
   - Not covered yet in ISO/IEC standards
 
-* **#[INPUTDISTORTION](/goto/inputdistortion/)** (runtime datascience). Input distortion: lightly modify the input with the intention to distort the adversarial attack causing it to fail, while maintaining sufficient model correctness.
+* **#[INPUTDISTORTION](/goto/inputdistortion/)** (runtime data science). Input distortion: lightly modify the input with the intention to distort the adversarial attack causing it to fail, while maintaining sufficient model correctness.
   Modification can be done by adding noise (randomization), or by smoothing.  
   Maintaining model correctness can be improved by performing multiple random modifications (e.g. randomized smoothing) to the input and then comparing the model output (e.g. best of three).  
   
@@ -872,7 +872,7 @@ PMLR, 2018.
 
   - Not covered yet in ISO/IEC standards
   
-* **#[ADVERSARIALROBUSTDISTILLATION](/goto/adversarialrobustdistillation/)** (development-time datascience). Adversarial-robust distillation: defensive distillation involves training a student model to
+* **#[ADVERSARIALROBUSTDISTILLATION](/goto/adversarialrobustdistillation/)** (development-time data science). Adversarial-robust distillation: defensive distillation involves training a student model to
 replicate the softened outputs of the *teacher* model, increasing the
 resilience of the *student* model to adversarial examples by smoothing the
 decision boundaries and making the model less sensitive to small
@@ -1010,13 +1010,13 @@ Controls for Model inversion and membership inference:
 
 - See General controls, in particular data minimization
 - See controls for threats through use
-- **#[OBSCURECONFIDENCE](/goto/obscureconfidence/)** (runtime datascience). Obscure confidence: exclude indications of confidence in the output, or round confidence so it cannot be used for optimization.
+- **#[OBSCURECONFIDENCE](/goto/obscureconfidence/)** (runtime data science). Obscure confidence: exclude indications of confidence in the output, or round confidence so it cannot be used for optimization.
 
   Links to standards:
 
   - Not covered yet in ISO/IEC standards
 
-- **#[SMALLMODEL](/goto/smallmodel/)** (development-time datascience). Small model: overfitting can be prevented by keeping the model small so it is not able to store detail at the level of individual training set samples.
+- **#[SMALLMODEL](/goto/smallmodel/)** (development-time data science). Small model: overfitting can be prevented by keeping the model small so it is not able to store detail at the level of individual training set samples.
 
   Links to standards:
 
@@ -1146,7 +1146,7 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 
   - Not covered yet in ISO/IEC standards
 
-- **#[FEDERATEDLEARNING](/goto/federatedlearning/)** (development-time datascience). Federative learning can be applied when a training set is distributed over different organizations, preventing that the data needs to be collected in a central place - increasing the risk of leaking.
+- **#[FEDERATEDLEARNING](/goto/federatedlearning/)** (development-time data science). Federated learning can be applied when a training set is distributed over different organizations, preventing that the data needs to be collected in a central place - increasing the risk of leaking.
 
   Links to standards:
 
@@ -1191,7 +1191,7 @@ This poisoning is **hard to detect** once it has happened: there is no code to r
 
 - See General controls
 - See controls for development-time protection
-- **#[MODELENSEMBLE](/goto/modelensemble/)** (development-time datascience). Model ensemble: include the model as part of an ensemble, where each model is trained in a separately protected environment. If one model's output deviates from the others, it can be ignored, as this indicates possible manipulation.
+- **#[MODELENSEMBLE](/goto/modelensemble/)** (development-time data science). Model ensemble: include the model as part of an ensemble, where each model is trained in a separately protected environment. If one model's output deviates from the others, it can be ignored, as this indicates possible manipulation.
 
   Links to standards:
   - Not covered yet in ISO/IEC standards
@@ -1213,13 +1213,13 @@ Example 3: false information in documents on the internet causes a Large Languag
 
 - See General controls
 - See controls for development-time protection
-- **#[MORETRAINDATA](/goto/moretraindata/)** (development-time datascience): More train data: increasing the amount of non-malicious data makes training more robust against poisoned examples - provided that these poisoned examples are small in number. One way to do this is through data augmentation - the creation of artificial training set samples that are small variations of existing samples.
+- **#[MORETRAINDATA](/goto/moretraindata/)** (development-time data science): More train data: increasing the amount of non-malicious data makes training more robust against poisoned examples - provided that these poisoned examples are small in number. One way to do this is through data augmentation - the creation of artificial training set samples that are small variations of existing samples.
 
   Links to standards:
 
   - Not covered yet in ISO/IEC standards
 
-- **#[DATAQUALITYCONTROL](/goto/dataqualitycontrol/)** (development-time datascience). Data quality control: Perform quality control on data including detecting poisoned samples through statistical deviation or pattern recognition. For important data and scenarios this may involve human verification.
+- **#[DATAQUALITYCONTROL](/goto/dataqualitycontrol/)** (development-time data science). Data quality control: Perform quality control on data including detecting poisoned samples through statistical deviation or pattern recognition. For important data and scenarios this may involve human verification.
 
   Particularity: standard quality control needs to take into account that data may have maliciously been changed.
 
@@ -1231,7 +1231,7 @@ Example 3: false information in documents on the internet causes a Large Languag
   - ISO/iEC 42001 B.7.4 briefly covers data quality for AI. Gap: idem as 5259
   - Not further covered yet in ISO/IEC standards
 
-- **#[TRAINDATADISTORTION](/goto/traindatadistortion/)** (development-time datascience) - Train data distortion:.making poisoned samples ineffective by smoothing or adding noise to training data (with the best practice of keeping the original training data, in order to expertiment with the filtering)
+- **#[TRAINDATADISTORTION](/goto/traindatadistortion/)** (development-time data science) - Train data distortion:.making poisoned samples ineffective by smoothing or adding noise to training data (with the best practice of keeping the original training data, in order to expertiment with the filtering)
 
 
   See also EVASTIONROBUSTMODEL on adding noise against evasion attacks and [OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/) to minimize sensitive data through randomisation.
@@ -1249,7 +1249,7 @@ Example 3: false information in documents on the internet causes a Large Languag
 
   - Not covered yet in ISO/IEC standards
 
-- **#[POISONROBUSTMODEL](/goto/poisonrobustmodel/)** (development-time datascience). Poison robus model: select model types that are less sensitive to poisoned training data.  
+- **#[POISONROBUSTMODEL](/goto/poisonrobustmodel/)** (development-time data science). Poison robus model: select model types that are less sensitive to poisoned training data.  
   Links to standards:
   - Not covered yet in ISO/IEC standards
 
@@ -1494,7 +1494,7 @@ Misc.:
   - [DATAMINIMIZE](/goto/dataminimize/) (development-time and runtime)
   - [ALLOWEDDATA](/goto/alloweddata/) (development-time and runtime)
   - [SHORTRETAIN](/goto/shortretain/) (development-time and runtime)
-  - [OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/) (development-time datascience).
+  - [OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/) (development-time data science).
   - [DISCRETE](/goto/discrete/) (management, development-time and runtime)
 
     1.3. Controls to limit the effects of unwanted behaviour from threats:
@@ -1502,9 +1502,9 @@ Misc.:
   - [OVERSIGHT](/goto/oversight/) (runtime)
   - [LEASTMODELPRIVILEGE](/goto/leastmodelprivilege/) (runtime infosec)
   - [AITRANSPARENCY](/goto/aitransparency/) (runtime, management)
-  - [CONTINUOUSVALIDATION](/goto/continuousvalidation/) (runtime datascience)
-  - [EXPLAINABILITY](/goto/explainability/) (runtime datascience)
-  - [UNWANTEDBIASTESTING](/goto/unwantedbiastesting/) (datascience)
+  - [CONTINUOUSVALIDATION](/goto/continuousvalidation/) (runtime data science)
+  - [EXPLAINABILITY](/goto/explainability/) (runtime data science)
+  - [UNWANTEDBIASTESTING](/goto/unwantedbiastesting/) (data science)
 
   Related threats that increase the effects of unwanted behaviour:
 
@@ -1523,12 +1523,12 @@ Misc.:
 
   - See General controls
   - See controls for threats through use
-  - [DETECTODDINPUT](/goto/detectoddinput/) (runtime datascience)
-  - [DETECTADVERSARIALINPUT](/goto/detectadversarialinput/) (runtime datascience)
-  - [EVASIONROBUSTMODEL](/goto/evasionrobustmodel/) (development-time datascience)
-  - [TRAINADVERSARIAL](/goto/trainadversarial/) (development-time datascience)
-  - [INPUTDISTORTION](/goto/inputdistortion/) (runtime datascience)
-  - [ADVERSARIALROBUSTDISTILLATION](/goto/adversarialrobustdistillation/) (development-time datascience)
+  - [DETECTODDINPUT](/goto/detectoddinput/) (runtime data science)
+  - [DETECTADVERSARIALINPUT](/goto/detectadversarialinput/) (runtime data science)
+  - [EVASIONROBUSTMODEL](/goto/evasionrobustmodel/) (development-time data science)
+  - [TRAINADVERSARIAL](/goto/trainadversarial/) (development-time data science)
+  - [INPUTDISTORTION](/goto/inputdistortion/) (runtime data science)
+  - [ADVERSARIALROBUSTDISTILLATION](/goto/adversarialrobustdistillation/) (development-time data science)
 
   2.2. Sensitive data disclosure through use  
   Impact: Confidentiality breach of sensitive train data.
@@ -1544,8 +1544,8 @@ Misc.:
 
   - See General controls
   - See controls for threats through use
-  - [OBSCURECONFIDENCE](/goto/obscureconfidence/) (runtime datascience)
-  - [SMALLMODEL](/goto/smallmodel/) (development-time datascience)
+  - [OBSCURECONFIDENCE](/goto/obscureconfidence/) (runtime data science)
+  - [SMALLMODEL](/goto/smallmodel/) (development-time data science)
   
     2.3. Model theft through use  
     Impact: Confidentiality breach of intellectual property.
@@ -1567,7 +1567,7 @@ Misc.:
   - [DEVSECURITY](/goto/devsecurity/) (management)
   - [SEGREGATEDATA](/goto/segregatedata/) (development-time infosec)
   - [CONFCOMPUTE](/goto/confcompute/) (development-time infosec)
-  - [FEDERATEDLEARNING](/goto/federatedlearning/) (development-time datascience)
+  - [FEDERATEDLEARNING](/goto/federatedlearning/) (development-time data science)
   - [SUPPLYCHAINMANAGE](/goto/supplychainmanage/) (development-time infosec)
 
     3.1. Broad model poisoning: model behaviour manipulation by altering data, engineering, or model  
@@ -1575,16 +1575,16 @@ Misc.:
 
   - See General controls
   - See controls for development-time protection
-  - [MODELENSEMBLE](/goto/modelensemble/) (development-time datascience)
+  - [MODELENSEMBLE](/goto/modelensemble/) (development-time data science)
 
   ...3.1.1. Data poisoning by changing data development-time or supply chain
 
   - See General controls
   - See controls for development-time protection
-  - [MORETRAINDATA](/goto/moretraindata/) (development-time datascience)
-  - [DATAQUALITYCONTROL](/goto/dataqualitycontrol/) (development-time datascience)
-  - [TRAINDATADISTORTION](/goto/traindatadistortion/) (development-time datascience)
-  - [POISONROBUSTMODEL](/goto/poisonrobustmodel/) (development-time datascience)
+  - [MORETRAINDATA](/goto/moretraindata/) (development-time data science)
+  - [DATAQUALITYCONTROL](/goto/dataqualitycontrol/) (development-time data science)
+  - [TRAINDATADISTORTION](/goto/traindatadistortion/) (development-time data science)
+  - [POISONROBUSTMODEL](/goto/poisonrobustmodel/) (development-time data science)
 
   ...3.1.2. Development-time model poisoning
 

@@ -42,15 +42,15 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
     <tr><th>Name</th><th>Company</th><th>Country</th><th>Contribution</th></tr>
     <tr><td>Adelin Travers</td><td>Trail of Bits</td><td></td><td></td></tr>
     <tr><td>Alon Tron</td><td>Stealth</td><td>Israel</td><td>Improved supply chain management</td></tr>
-    <tr><td>Angie Qarry</td><td>QDeepTech</td><td>Austria</td><td>several elaborations and references on datascience defence mechanisms</td></tr>
+    <tr><td>Angie Qarry</td><td>QDeepTech</td><td>Austria</td><td>several elaborations and references on data science defence mechanisms</td></tr>
     <tr><td>Annegrit Seyerlein-Klug</td><td>TH Brandenburg</td><td>Germany</td><td>mapping with misc. standards</td></tr>
     <tr><td>Anthony Glynn</td><td>CapitalOne</td><td>US</td><td>many textual improvements & link to LLM top 10</td></tr>
     <tr><td>Behnaz Karimi</td><td>Accenture</td><td>Germany</td><td>misc. contributions including model obfuscation and explanation</td></tr>
-    <tr><td>Disesdi Susanna Cox</td><td>BobiHealth</td><td>US</td><td>Federative learning</td></tr>
+    <tr><td>Disesdi Susanna Cox</td><td>BobiHealth</td><td>US</td><td>Federated learning</td></tr>
     <tr><td>Feiyang Tang</td><td>Software Improvement Group (SIG)</td><td></td><td></td></tr>
     <tr><td>John Sotiropoulos</td><td>Kainos</td><td></td><td>External relations from leadership team</td></tr>
     <tr><td>Marko Lihter</td><td>SplxAI</td><td>Croatia</td><td>step-by-step guide for organizations, website creation, various textual improvements</td></tr>
-    <tr><td>Niklas Bunzel</td><td>Fraunhofer institute</td><td>Germany</td><td>datascience discussion and references around evasion attacks</td></tr>
+    <tr><td>Niklas Bunzel</td><td>Fraunhofer institute</td><td>Germany</td><td>data science discussion and references around evasion attacks</td></tr>
     <tr><td><b>Rob van der Veer</b></td><td>Software Improvement Group (SIG)</td><td>Netherlands</td><td><b>Project leader</b></td></tr>
     <tr><td>Rocky Heckman</td><td>Cyber Dynamo</td><td>Australia</td><td>Security & privacy risk analysis and ISO/IEC 27562</td></tr>
     <tr><td>Roger Sanz</td><td>Universidad Isabel</td><td>Spain</td><td></td></tr>

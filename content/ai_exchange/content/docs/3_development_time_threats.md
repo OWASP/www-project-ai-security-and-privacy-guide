@@ -77,8 +77,8 @@ Links to standards:
 - Not covered yet in ISO/IEC standards
 
 #### #FEDERATEDLEARNING
-Description: Federative (or better: federated) learning can be applied when a training set is distributed over different organizations, preventing that the data needs to be collected in a central place - increasing the risk of leaking.  
-Category: development-time datascience.  
+Description: Federated (or better: federated) learning can be applied when a training set is distributed over different organizations, preventing that the data needs to be collected in a central place - increasing the risk of leaking.  
+Category: development-time data science.  
 Permalink: https://owaspai.org/goto/federatedlearning/
 
 Federated Learning is a decentralized Machine Learning architecture wherein a number of clients (e.g. sensor or mobile devices) participate in collaborative, decentralized, asynchronous training, which is orchestrated and aggregated by a controlling central server. Advantages of Federated Learning include reduced central compute, and the potential for preservation of privacy, since training data may remain local to the client. 
@@ -152,7 +152,7 @@ References
 - The below control(s), each marked with a # and a short name in capitals
   
 #### #MODELENSEMBLE
-(development-time datascience). Model ensemble: include the model as part of an ensemble, where each model is trained in a separately protected environment. If one model's output deviates from the others, it can be ignored, as this indicates possible manipulation.
+(development-time data science). Model ensemble: include the model as part of an ensemble, where each model is trained in a separately protected environment. If one model's output deviates from the others, it can be ignored, as this indicates possible manipulation.
 
 Links to standards:
   - Not covered yet in ISO/IEC standards
@@ -174,14 +174,14 @@ Example 3: false information in documents on the internet causes a Large Languag
 - The below control(s), each marked with a # and a short name in capitals
 
 #### #MORETRAINDATA
-(development-time datascience): More train data: increasing the amount of non-malicious data makes training more robust against poisoned examples - provided that these poisoned examples are small in number. One way to do this is through data augmentation - the creation of artificial training set samples that are small variations of existing samples.
+(development-time data science): More train data: increasing the amount of non-malicious data makes training more robust against poisoned examples - provided that these poisoned examples are small in number. One way to do this is through data augmentation - the creation of artificial training set samples that are small variations of existing samples.
 
 Links to standards:
 
 - Not covered yet in ISO/IEC standards
 
 #### #DATAQUALITYCONTROL
-(development-time datascience). Data quality control: Perform quality control on data including detecting poisoned samples through statistical deviation or pattern recognition. For important data and scenarios this may involve human verification.
+(development-time data science). Data quality control: Perform quality control on data including detecting poisoned samples through statistical deviation or pattern recognition. For important data and scenarios this may involve human verification.
 
 Particularity for AI and security: standard quality control needs to take into account that data may have maliciously been changed. This means that extra checks can be placed to detect changes that would normally not happen by themselves. For example: safely storing hash codes of data elements, such as images, and regularly checking to see if the images have been manipulated.
 
@@ -194,7 +194,7 @@ Links to standards:
 - Not further covered yet in ISO/IEC standards
 
 #### #TRAINDATADISTORTION
-(development-time datascience) - Train data distortion:.making poisoned samples ineffective by smoothing or adding noise to training data (with the best practice of keeping the original training data, in order to expertiment with the filtering)
+(development-time data science) - Train data distortion:.making poisoned samples ineffective by smoothing or adding noise to training data (with the best practice of keeping the original training data, in order to expertiment with the filtering)
 
 
 See also EVASTIONROBUSTMODEL on adding noise against evasion attacks and [OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/) to minimize sensitive data through randomisation.
@@ -213,7 +213,7 @@ Link to standards:
 - Not covered yet in ISO/IEC standards
 
 #### #POISONROBUSTMODEL
-(development-time datascience). Poison robust model: select a model type and approach to reduce sensitivity to poisoned training data.  
+(development-time data science). Poison robust model: select a model type and approach to reduce sensitivity to poisoned training data.  
 
 Example: Reducing sensitivity to backdoor poisoning attacks with **fine-pruning** (See [paper on fine-pruning](https://arxiv.org/pdf/1805.12185.pdf)). Fine-pruning consists of two complementary approaches: Pruning and fine-tuning:  
 **Pruning** in essence reduces the size of the model so it does not have the capacity to trigger on backdoor-examples while remaining sufficient accuracy for the intended use case. The approach removes neurons in a neural network that have been identified as non-essential for sufficient accuracy.  

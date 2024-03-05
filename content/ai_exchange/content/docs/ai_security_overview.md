@@ -43,7 +43,7 @@ The groups of controls form a summary of how to address AI security (controls ar
       >([MONITORUSE](/goto/monitoruse/), [MODELACCESSCONTROL](/goto/modelaccesscontrol/), [RATELIMIT](/goto/ratelimit/))
     - 2c Adopt **new** IT security controls:  
       >([CONFCOMPUTE](/goto/confcompute/), [MODELOBFUSCATION](/goto/modelobfuscation/), [PROMPTINPUTVALIDATION](/goto/promptinputvalidation/), [INPUTSEGREGATION](/goto/inputsegregation/))
-3. Data scientists apply **datascience security controls** risk-based :
+3. Data scientists apply **data science security controls** risk-based :
     - 3a Development-time controls when developing the model:  
       >([FEDERATEDLEARNING](/goto/federatedlearning/), [CONTINUOUSVALIDATION](/goto/continuousvalidation/), [UNWANTEDBIASTESTING](/goto/unwantedbiastesting/), [EVASIONROBUSTMODEL](/goto/evasionrobustmodel/), [POISONROBUSTMODEL](/goto/poisonrobustmodel/), [TRAINADVERSARIAL](/goto/trainadversarial/), [TRAINDATADISTORTION](/goto/traindatadistortion/), [ADVERSARIALROBUSTDISTILLATION](/goto/adversarialrobustdistillation/), [MODELENSEMBLE](/goto/modelensemble/), [MORETRAINDATA](/goto/moretraindata/), [SMALLMODEL](/goto/smallmodel/), [DATAQUALITYCONTROL](/goto/dataqualitycontrol/))
     - 3b Runtime controls to filter and detect attacks:  
@@ -221,7 +221,7 @@ system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-syst
 - Design your system for security as well as functionality and performance:  
   #[AIPROGRAM](/goto/aiprogram/ ), #[SECPROGRAM](/goto/secprogram/), #[DEVPROGRAM](/goto/devprogram/), #[SECDEVPROGRAM](/goto/secdevprogram/), #[CHECKCOMPLIANCE](/goto/checkcompliance/), #[LEASTMODELPRIVILEGE](/goto/leastmodelprivilege/), #[DISCRETE](/goto/discrete/), #[OBSCURECONFIDENCE](/goto/obscureconfidence/), #[OVERSIGHT](/goto/oversight/), #[RATELIMIT](/goto/ratelimit/),  #[DOSINPUTVALIDATION](/goto/dosinputvalidation/), #[LIMITRESOURCES](/goto/limitresources/), #[MODELACCESSCONTROL](/goto/modelaccesscontrol/), #AITRANSPRENCY
 - Consider security benefits and trade-offs when selecting your AI model  
-  All development-time datascience controls (currently 13), #[EXPLAINABILITY](/goto/explainability/)
+  All development-time data science controls (currently 13), #[EXPLAINABILITY](/goto/explainability/)
 
 2. Secure Development
 

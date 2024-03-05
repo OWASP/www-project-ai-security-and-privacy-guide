@@ -78,7 +78,7 @@ Another categorization is to distinguish between physical input manipulation (e.
 
   
 #### #DETECTODDINPUT 
-(runtime datascience). 
+(runtime data science). 
 Detect odd input: implement tools to detect whether input is odd: significantly different from the training data or even invalid - also called input validation - without knowledge on what malicious input looks like. 
 
 Purpose: Odd input can result in unwanted model behaviour because the model by definition has not seen this data before and will likely produce false results, whether the input is malicious or not. When detected, the input can be logged for analysis and optionally discarded. It is important to note that not all odd input will be malicious and not all malicious input will be odd. There are examples of adversarial input specifically crafted to bypass detection of odd input. Nevertheless, detecting odd input is critical to maintaining model integrity, addressing potential concept drift, and preventing adversarial attacks that may take advantage of model behaviors on out of distribution data.
@@ -132,7 +132,7 @@ References:
 
 
 #### #DETECTADVERSARIALINPUT
-(runtime datascience). Detect adversarial input: Implement tools to detect specific evasions in input (e.g. patches in images).
+(runtime data science). Detect adversarial input: Implement tools to detect specific evasions in input (e.g. patches in images).
 
 The main concepts of adversarial attack detectors include:
   - Activation Analysis: Examining the activations of different layers in a neural network can reveal unusual patterns or anomalies when processing an adversarial input. These anomalies can be used as a signal to detect potential attacks.
@@ -197,7 +197,7 @@ Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern
 Recognition. 2022.
 
 #### #EVASIONROBUSTMODEL
-(development-time datascience). Choose an evasion-robust model design, configuration and/or training approach to maximize resilience against evasion (Datascience).
+(development-time data science). Choose an evasion-robust model design, configuration and/or training approach to maximize resilience against evasion (Data science).
 
 A robust model in the light of evasion is a model that does not display significant changes in output for minor changes in input.
 
@@ -241,7 +241,7 @@ adversarial examples." International conference on machine learning.
 PMLR, 2018.
 
 #### #TRAINADVERSARIAL
-(development-time datascience). Train adversarial: Add adversarial examples to the training set to make the model more resilient (Datascience). While adversarial training does make a model more robust against specific attacks, it is important to note that it also adds significant training overhead, does not scale well with model complexity / input dimension, can lead to overfitting, and may not generalize well to new attack methods. For a general summary of adversarial training, see [Bai et al.](https://arxiv.org/pdf/2102.01356.pdf)
+(development-time data science). Train adversarial: Add adversarial examples to the training set to make the model more resilient (Data science). While adversarial training does make a model more robust against specific attacks, it is important to note that it also adds significant training overhead, does not scale well with model complexity / input dimension, can lead to overfitting, and may not generalize well to new attack methods. For a general summary of adversarial training, see [Bai et al.](https://arxiv.org/pdf/2102.01356.pdf)
 
   Links to standards:
 
@@ -257,7 +257,7 @@ PMLR, 2018.
   - Vaishnavi, Pratik, Kevin Eykholt, and Amir Rahmati. "Transferring adversarial robustness through robust representation matching." 31st USENIX Security Symposium (USENIX Security 22). 2022.
 
 #### #INPUTDISTORTION
-(runtime datascience). Input distortion: Lightly modify the input with the intention to distort the adversarial attack causing it to fail, while maintaining sufficient model correctness. Modification can be done by e.g. adding noise (randomization), smoothing or JPEG compression.
+(runtime data science). Input distortion: Lightly modify the input with the intention to distort the adversarial attack causing it to fail, while maintaining sufficient model correctness. Modification can be done by e.g. adding noise (randomization), smoothing or JPEG compression.
 
 Maintaining model correctness can be improved by performing multiple random modifications (e.g. randomized smoothing) to the input and then comparing the model output (e.g. best of three).  
 
@@ -286,7 +286,7 @@ References:
 
   
 #### #ADVERSARIALROBUSTDISTILLATION
-(development-time datascience). Adversarial-robust distillation: defensive distillation involves training a student model to replicate the softened outputs of the *teacher* model, increasing the resilience of the *student* model to adversarial examples by smoothing the decision boundaries and making the model less sensitive to small perturbations in the input. Care must be taken when considering defensive distillation techniques, as security concerns have arisen about their effectiveness.
+(development-time data science). Adversarial-robust distillation: defensive distillation involves training a student model to replicate the softened outputs of the *teacher* model, increasing the resilience of the *student* model to adversarial examples by smoothing the decision boundaries and making the model less sensitive to small perturbations in the input. Care must be taken when considering defensive distillation techniques, as security concerns have arisen about their effectiveness.
 
 Links to standards:
 
@@ -447,14 +447,14 @@ Controls for Model inversion and membership inference:
 - The below control(s), each marked with a # and a short name in capitals
 
 #### #OBSCURECONFIDENCE 
-(runtime datascience). Obscure confidence: exclude indications of confidence in the output, or round confidence so it cannot be used for optimization.
+(runtime data science). Obscure confidence: exclude indications of confidence in the output, or round confidence so it cannot be used for optimization.
 
 Links to standards:
 
   - Not covered yet in ISO/IEC standards
 
 #### #SMALLMODEL 
-(development-time datascience). Small model: overfitting can be prevented by keeping the model small so it is not able to store detail at the level of individual training set samples.
+(development-time data science). Small model: overfitting can be prevented by keeping the model small so it is not able to store detail at the level of individual training set samples.
 
 Links to standards:
 

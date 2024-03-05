@@ -181,7 +181,7 @@ Links to standards:
   - Not covered yet in ISO/IEC standards. 
 
 #### #OBFUSCATETRAININGDATA
-(development-time datascience). Obfuscate training data: attain a degree of obfuscation of sensitive data where possible. When this is done for personal data, it is referred to as _differential privacy_ which is a framework for formalizing privacy in statistical and data analysis, ensuring that the privacy of individual data entries in a database is protected. The key idea is to make it possible to learn about the population as a whole while providing strong guarantees that the presence or absence of any single individual in the dataset does not significantly affect the outcome of any analysis. This is often achieved by adding a controlled amount of random noise to the results of queries on the database. This noise is carefully calibrated to mask the contribution of individual data points, which means that the output of a data analysis (or query) should be essentially the same, whether any individual's data is included in the dataset or not. In other words by observing the output, one should not be able to infer whether any specific individual's data was used in the computation.
+(development-time data science). Obfuscate training data: attain a degree of obfuscation of sensitive data where possible. When this is done for personal data, it is referred to as _differential privacy_ which is a framework for formalizing privacy in statistical and data analysis, ensuring that the privacy of individual data entries in a database is protected. The key idea is to make it possible to learn about the population as a whole while providing strong guarantees that the presence or absence of any single individual in the dataset does not significantly affect the outcome of any analysis. This is often achieved by adding a controlled amount of random noise to the results of queries on the database. This noise is carefully calibrated to mask the contribution of individual data points, which means that the output of a data analysis (or query) should be essentially the same, whether any individual's data is included in the dataset or not. In other words by observing the output, one should not be able to infer whether any specific individual's data was used in the computation.
 
 Examples of approaches are:
 
@@ -337,14 +337,14 @@ Links to standards:
 
 #### #CONTINUOUSVALIDATION
 
-(datascience). Continuous validation: by frequently testing the behaviour of the model against an appropriate test set, sudden changes caused by a permanent attack (e.g. data poisoning, model poisoning) can be detected.
+(data science). Continuous validation: by frequently testing the behaviour of the model against an appropriate test set, sudden changes caused by a permanent attack (e.g. data poisoning, model poisoning) can be detected.
 
 Links to standards:
 
 - ISO 5338 (AI lifecycle) Continuous validation. Gap: covers this control fully
 
 #### #EXPLAINABILITY 
-(runtime datascience). Explaining how individual model decisions are made, a field referred to as Explainable AI (XAI), can aid in gaining user trust in the model. In some cases, this can also prevent overreliance, for example, when the user observes the simplicity of the 'reasoning' or even errors in that process. See [this Stanford article on explainability and overreliance](https://hai.stanford.edu/news/ai-overreliance-problem-are-explanations-solution). Explanations of how a model works can also aid security assessors to evaluate AI security risks of a model.
+(runtime data science). Explaining how individual model decisions are made, a field referred to as Explainable AI (XAI), can aid in gaining user trust in the model. In some cases, this can also prevent overreliance, for example, when the user observes the simplicity of the 'reasoning' or even errors in that process. See [this Stanford article on explainability and overreliance](https://hai.stanford.edu/news/ai-overreliance-problem-are-explanations-solution). Explanations of how a model works can also aid security assessors to evaluate AI security risks of a model.
 
 #### #UNWANTEDBIASTESTING 
-(datascience). Unwanted bias testing: by doing test runs of the model to measure unwanted bias, unwanted behaviour caused by an attack can be detected. The details of bias detection fall outside the scope of this document as it is not a security concern - other than that an attack on model behaviour can cause bias.
+(data science). Unwanted bias testing: by doing test runs of the model to measure unwanted bias, unwanted behaviour caused by an attack can be detected. The details of bias detection fall outside the scope of this document as it is not a security concern - other than that an attack on model behaviour can cause bias.
