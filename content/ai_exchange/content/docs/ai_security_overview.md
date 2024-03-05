@@ -32,26 +32,26 @@ The below diagram puts the controls in the AI Exchange into groups and places th
 ![AI Security Threats and controls](/images/threatscontrols.png)
 The groups of controls form a summary of how to address AI security (controls are in capitals):
 1. **AI Governance**: implement governance processes for AI risk, and include AI into your processes for information security and software lifecycle:  
-   >(AIPROGRAM, SECPROGRAM, DEVPROGRAM, SECDEVPROGRAM, CHECKCOMPLIANCE, SECEDUCATE)
+   >( [AIPROGRAM](https://owaspai.org/docs/1_general_controls/#aiprogram), [SECPROGRAM](https://owaspai.org/docs/1_general_controls/#secprogram), [DEVPROGRAM](https://owaspai.org/docs/1_general_controls/#devprogram), [SECDEVPROGRAM](https://owaspai.org/docs/1_general_controls/#secdevprogram), [CHECKCOMPLIANCE](https://owaspai.org/docs/1_general_controls/#checkcompliance), [SECEDUCATE](https://owaspai.org/docs/1_general_controls/#seceducate))
 2. Apply conventional **technical IT security controls** risk-based, since an AI system is an IT system:
     - 2a Apply **standard** conventional IT security controls (e.g. 15408, ASVS, OpenCRE, ISO 27001 Annex A, NIST SP800-53) to the complete AI system and don't forget the new AI-specific assets :
       - Development-time: model & data storage, model & data supply chain, data science documentation:  
-        >(DEVDATAPROTECT, DEVSECURITY, SEGREGATEDATA, SUPPLYCHAINMANAGE, DISCRETE)
+        >([DEVDATAPROTECT](https://owaspai.org/docs/3_development_time_threats/#devdataprotect), [DEVSECURITY](https://owaspai.org/docs/3_development_time_threats/#devsecurity), [SEGREGATEDATA](https://owaspai.org/docs/3_development_time_threats/#segregatedata), [SUPPLYCHAINMANAGE](https://owaspai.org/docs/3_development_time_threats/#supplychainmanage), [DISCRETE](https://owaspai.org/docs/1_general_controls/#discrete))
       - Runtime: model storage, model use, plug-ins, and model input/output:  
-        >(RUNTIMEMODELINTEGRITY, RUNTIMEMODELIOINTEGRITY, RUNTIMEMODELCONFIDENTIALITY, MODELINPUTCONFIDENTIALITY, ENCODEMODELOUTPUT, LIMITRESOURCES)
+        >([RUNTIMEMODELINTEGRITY](https://owaspai.org/docs/4_runtime_application_security_threats/#runtimemodelintegrity), [RUNTIMEMODELIOINTEGRITY](https://owaspai.org/docs/4_runtime_application_security_threats/#runtimemodeliointegrity), [RUNTIMEMODELCONFIDENTIALITY](https://owaspai.org/docs/4_runtime_application_security_threats/#runtimemodelconfidentiality), [MODELINPUTCONFIDENTIALITY](https://owaspai.org/docs/4_runtime_application_security_threats/#modelinputconfidentiality), [ENCODEMODELOUTPUT](https://owaspai.org/docs/4_runtime_application_security_threats/#encodemodeloutput), [LIMITRESOURCES](https://owaspai.org/docs/2_threats_through_use/#limitresources))
     - 2b **Adapt** conventional IT security controls to make them more suitable for AI (e.g. which usage patterns to monitor for):  
-      >(MONITORUSE, MODELACCESSCONTROL, RATELIMIT)
+      >([MONITORUSE](https://owaspai.org/docs/2_threats_through_use/#monitoruse), [MODELACCESSCONTROL](https://owaspai.org/docs/2_threats_through_use/#modelaccesscontrol), [RATELIMIT](https://owaspai.org/docs/2_threats_through_use/#ratelimit))
     - 2c Adopt **new** IT security controls:  
-      >(CONFCOMPUTE, MODELOBFUSCATION, PROMPTINPUTVALIDATION, INPUTSEGREGATION)
+      >([CONFCOMPUTE](https://owaspai.org/docs/3_development_time_threats/#confcompute), [MODELOBFUSCATION](https://owaspai.org/docs/4_runtime_application_security_threats/#modelobfuscation), [PROMPTINPUTVALIDATION](https://owaspai.org/docs/4_runtime_application_security_threats/#promptinputvalidation), [INPUTSEGREGATION](https://owaspai.org/docs/4_runtime_application_security_threats/#inputsegregation))
 3. Data scientists apply **datascience security controls** risk-based :
     - 3a Development-time controls when developing the model:  
-      >(FEDERATIVELEARNING, CONTINUOUSVALIDATION, UNWANTEDBIASTESTING, EVASIONROBUSTMODEL, POISONROBUSTMODEL, TRAINADVERSARIAL, TRAINDATADISTORTION, ADVERSARIALROBUSTDISTILLATION, FILERSENSITIVETRAINDATA, MODELENSEMBLE, MORETRAINDATA, SMALLMODEL, DATAQUALITYCONTROL)
+      >([FEDERATIVELEARNING](https://owaspai.org/docs/3_development_time_threats/#federativelearning), [CONTINUOUSVALIDATION](https://owaspai.org/docs/1_general_controls/#continuousvalidation), [UNWANTEDBIASTESTING](https://owaspai.org/docs/1_general_controls/#unwantedbiastesting), [EVASIONROBUSTMODEL](https://owaspai.org/docs/2_threats_through_use/#evasionrobustmodel), [POISONROBUSTMODEL](https://owaspai.org/docs/3_development_time_threats/#poisonrobustmodel), [TRAINADVERSARIAL](https://owaspai.org/docs/2_threats_through_use/#trainadversarial), [TRAINDATADISTORTION](https://owaspai.org/docs/3_development_time_threats/#traindatadistortion), [ADVERSARIALROBUSTDISTILLATION](https://owaspai.org/docs/2_threats_through_use/#adversarialrobustdistillation), FILERSENSITIVETRAINDATA, [MODELENSEMBLE](https://owaspai.org/docs/3_development_time_threats/#modelensemble), [MORETRAINDATA](https://owaspai.org/docs/3_development_time_threats/#moretraindata), [SMALLMODEL](https://owaspai.org/docs/2_threats_through_use/#smallmodel), [DATAQUALITYCONTROL](https://owaspai.org/docs/3_development_time_threats/#dataqualitycontrol))
     - 3b Runtime controls to filter and detect attacks:  
-      >(DETECTODDINPUT, DETECTADVERSARIALINPUT, DOSINPUTVALIDATION, INPUTDISTORTION, FILTERSENSITIVEMODELOUTPUT, OBSCURECONFIDENCE)
+      >([DETECTODDINPUT](https://owaspai.org/docs/2_threats_through_use/#detectoddinput), [DETECTADVERSARIALINPUT](https://owaspai.org/docs/2_threats_through_use/#detectadversarialinput), [DOSINPUTVALIDATION](https://owaspai.org/docs/2_threats_through_use/#dosinputvalidation), [INPUTDISTORTION](https://owaspai.org/docs/2_threats_through_use/#inputdistortion), [FILTERSENSITIVEMODELOUTPUT](https://owaspai.org/docs/2_threats_through_use/#filtersensitivemodeloutput), [OBSCURECONFIDENCE](https://owaspai.org/docs/2_threats_through_use/#obscureconfidence))
 4. **Minimize data:** Limit the amount of data in rest and in transit, and the time it is stored, development-time and runtime:  
-   >(DATAMINIMIZE, ALLOWEDDATA, SHORTRETAIN, OBFUSCATETRAININGDATA)
+   >([DATAMINIMIZE](https://owaspai.org/docs/1_general_controls/#dataminimize), [ALLOWEDDATA](https://owaspai.org/docs/1_general_controls/#alloweddata), [SHORTRETAIN](https://owaspai.org/docs/1_general_controls/#shortretain), [OBFUSCATETRAININGDATA](https://owaspai.org/docs/1_general_controls/#obfuscatetrainingdata))
 5. **Control behaviour impact** as the model can behave in unwanted ways - by mistake or by manipulation:  
-   >(OVERSIGHT, LEASTMODELPRIVILEGE, AITRAINSPARENCY, EXPLAINABILITY, CONTINUOUSVALIDATION, UNWANTEDBIASTESTING)
+   >([OVERSIGHT](https://owaspai.org/docs/1_general_controls/#oversight), [LEASTMODELPRIVILEGE](https://owaspai.org/docs/1_general_controls/#leastmodelprivilege), [AITRANSPARENCY](https://owaspai.org/docs/1_general_controls/#aitransparency), [EXPLAINABILITY](https://owaspai.org/docs/1_general_controls/#explainability), [CONTINUOUSVALIDATION](https://owaspai.org/docs/1_general_controls/#continuousvalidation), [UNWANTEDBIASTESTING](https://owaspai.org/docs/1_general_controls/#unwantedbiastesting))
 
 
 All threats and controls are discussed in the further content of the AI Exchange.
@@ -138,9 +138,9 @@ There are many threats and controls described in this document. Your situation d
 5. **Control selection**: Then, for the threats that are relevant to you and for which you are responsible: consider the various controls listed with that threat (or the parent section of that threat) and the general controls (they always apply). When considering a control, look at its purpose and determine if you think it is important enough to implement it and to what extent. This depends on the cost of implementation compared to how the purpose mitigates the threat, and the level of risk of the threat. These elements also play a role of course in the order you select controls: highest risks first, then starting with the lower cost controls (low hanging fruit).
 6. **Use references**: When implementing a control, consider the references and the links to standards. You may have implemented some of these standards, or the content of the standards may help you to implement the control.
 7. **Risk acceptance**: In the end you need to be able to accept the risks that remain regarding each threat, given the controls that you implemented.
-8. **Further management of these controls** (see SECPROGRAM), which includes continuous monitoring, documentation, reporting, and incident response.
+8. **Further management of these controls** (see [SECPROGRAM](https://owaspai.org/docs/1_general_controls/#secprogram)), which includes continuous monitoring, documentation, reporting, and incident response.
 
-For more information on risk analysis, see the SECPROGRAM control.
+For more information on risk analysis, see the [SECPROGRAM](https://owaspai.org/docs/1_general_controls/#secprogram) control.
 
 ## How about ...
 ### How about AI outside of machine learning?
@@ -152,7 +152,7 @@ This document focuses on machine learning. Nevertheless, here is a quick summary
 - Overreliance in use - heuristic systems can also be relied on too much. The applied knowledge can be false
 - Data poisoning and model poisoning is possible by manipulating data that is used to improve knowledge and by manipulating the rules development-time or runtime
 - Leaks of data used for analysis or testing can still be an issue
-- Knowledgebase, source code and configuration can be regarded as sensitive data when it is intellectual property, so it needs protection
+- Knowledge base, source code and configuration can be regarded as sensitive data when it is intellectual property, so it needs protection
 - Leak sensitive input data, for example when a heuristic system needs to diagnose a patient
 
 ### How about responsible or trustworthy AI?
@@ -164,8 +164,8 @@ Responsible or trustworthy AI include security, but not the other way around: th
   -  transparency to warn users and depending systems of accuracy risks,
   -  explainability to help users validate accuracy
 - **Transparency**: see above, plus in many cases users have the right to know details about a model being used and how it has been created. Therefore it is a shared concern between security, privacy and safety.
-- **Explainability**: see above, and apart from validating accuracy this can also support users to get transprancy and also understand what needs to change to get a different outcome. Therefore it is a shared concern between security, privacy, safety and business function. A special case is when explainability is required by law separate from privacy, which adds 'compliance' to the list of aspects that share this concern.
-- **Robustness** is about the ability of maintaining accuracy under expected or unexpected variations in input. The security scope is about when those variations are malicious which often requires different countermeasures than those required for robustness against benign variations. Just like with accuracy, security is not involved per se in creating a robust model for benign variations. The excption to this is when benign robustness supports malicious robustness, in which case this is a shared concern between safety and security. This depends on a case by case basis.
+- **Explainability**: see above, and apart from validating accuracy this can also support users to get transparency and also understand what needs to change to get a different outcome. Therefore it is a shared concern between security, privacy, safety and business function. A special case is when explainability is required by law separate from privacy, which adds 'compliance' to the list of aspects that share this concern.
+- **Robustness** is about the ability of maintaining accuracy under expected or unexpected variations in input. The security scope is about when those variations are malicious which often requires different countermeasures than those required for robustness against benign variations. Just like with accuracy, security is not involved per se in creating a robust model for benign variations. The exception to this is when benign robustness supports malicious robustness, in which case this is a shared concern between safety and security. This depends on a case by case basis.
 - **Fairness** as in 'free of unwanted bias' where the model 'mistreats' certain groups. This is undesired for legal and ethical reasons and primarily therefore a business concern. The relation with security is that having detection of unwanted bias can help to identify unwanted model behaviour caused by an attack. For example, a data poisoning attack has inserted malicious data samples in the training set, which at first goes unnoticed, but then is discovered by an unexplained detection of bias in the model.
 - **Empathy**. The relation of that with security is that the feasible level of security should always be taken into account when validating a certain application of AI. If a sufficient level of security cannot be provided to individuals or organizations, then empathy means invalidating the idea, or takin other precautions.
 - **Accountability**. The relation of accountability with security is that security measures should be demonstrable, including the process that have led to those measures. In addition, traceability as a security property is important, just like in any IT system, in order to detect, reconstruct and respond to security incidents and provide accountability.
@@ -215,48 +215,48 @@ system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-syst
 1. Secure design
 
 - Raise staff awareness of threats and risks:  
-  #SECEDUCATE
+  #[SECEDUCATE](https://owaspai.org/docs/1_general_controls/#seceducate)
 - Model the threats to your system:  
-  See Risk analysis under #SECPROGRAM
+  See Risk analysis under #[SECPROGRAM](https://owaspai.org/docs/1_general_controls/#secprogram)
 - Design your system for security as well as functionality and performance:  
-  #AIPROGRAM, #SECPROGRAM, #DEVPROGRAM, #SECDEVPROGRAM, #CHECKCOMPLIANCE, #LEASTMODELPRIVILEGE, #DISCRETE, #OBSCURECONFIDENCE, #OVERSIGHT, #RATELIMIT,  #DOSINPUTVALIDATION, #LIMITRESOURCES, #MODELACCESSCONTROL, #AITRANSPRENCY
+  #[AIPROGRAM](https://owaspai.org/docs/1_general_controls/#aiprogram), #[SECPROGRAM](https://owaspai.org/docs/1_general_controls/#secprogram), #[DEVPROGRAM](https://owaspai.org/docs/1_general_controls/#devprogram), #[SECDEVPROGRAM](https://owaspai.org/docs/1_general_controls/#secdevprogram), #[CHECKCOMPLIANCE](https://owaspai.org/docs/1_general_controls/#checkcompliance), #[LEASTMODELPRIVILEGE](https://owaspai.org/docs/1_general_controls/#leastmodelprivilege), #[DISCRETE](https://owaspai.org/docs/1_general_controls/#discrete), #[OBSCURECONFIDENCE](https://owaspai.org/docs/2_threats_through_use/#obscureconfidence), #[OVERSIGHT](https://owaspai.org/docs/1_general_controls/#oversight), #[RATELIMIT](https://owaspai.org/docs/2_threats_through_use/#ratelimit),  #[DOSINPUTVALIDATION](https://owaspai.org/docs/2_threats_through_use/#dosinputvalidation), #[LIMITRESOURCES](https://owaspai.org/docs/2_threats_through_use/#limitresources), #[MODELACCESSCONTROL](https://owaspai.org/docs/2_threats_through_use/#modelaccesscontrol), #AITRANSPRENCY
 - Consider security benefits and trade-offs when selecting your AI model  
-  All development-time datascience controls (currently 13), #EXPLAINABILITY
+  All development-time datascience controls (currently 13), #[EXPLAINABILITY](https://owaspai.org/docs/1_general_controls/#explainability)
 
 2. Secure Development
 
 - Secure your supply chain:  
-  #SUPPLYCHAINMANAGE
+  #[SUPPLYCHAINMANAGE](https://owaspai.org/docs/3_development_time_threats/#supplychainmanage)
 - Identify, track and protect your assets:  
-  #DEVDATAPROTECT, #DEVSECURITY, #SEGREGATEDATA, #CONFCOMPUTE, #MODELINPUTCONFIDENTIALITY, #RUNTIMEMODELCONFIDENTIALITY, #DATAMINIMIZE, #ALLOWEDDATA, #SHORTRETAIN, #OBFUSCATETRAININGDATA and part of #SECPROGRAM
+  #[DEVDATAPROTECT](https://owaspai.org/docs/3_development_time_threats/#devdataprotect), #[DEVSECURITY](https://owaspai.org/docs/3_development_time_threats/#devsecurity), #[SEGREGATEDATA](https://owaspai.org/docs/3_development_time_threats/#segregatedata), #[CONFCOMPUTE](https://owaspai.org/docs/3_development_time_threats/#confcompute), #[MODELINPUTCONFIDENTIALITY](https://owaspai.org/docs/4_runtime_application_security_threats/#modelinputconfidentiality), #[RUNTIMEMODELCONFIDENTIALITY](https://owaspai.org/docs/4_runtime_application_security_threats/#runtimemodelconfidentiality), #[DATAMINIMIZE](https://owaspai.org/docs/1_general_controls/#dataminimize), #[ALLOWEDDATA](https://owaspai.org/docs/1_general_controls/#alloweddata), #[SHORTRETAIN](https://owaspai.org/docs/1_general_controls/#shortretain), #[OBFUSCATETRAININGDATA](https://owaspai.org/docs/1_general_controls/#obfuscatetrainingdata) and part of #[SECPROGRAM](https://owaspai.org/docs/1_general_controls/#secprogram)
 - Document your data, models and prompts:  
-  Part of #DEVPROGRAM
+  Part of #[DEVPROGRAM](https://owaspai.org/docs/1_general_controls/#devprogram)
 - Manage your technical debt:  
-  Part of #DEVPROGRAM
+  Part of #[DEVPROGRAM](https://owaspai.org/docs/1_general_controls/#devprogram)
 
 3. Secure deployment
 
 - Secure your infrastructure:  
-  Part of #SECPROGRAM and see ‘Identify, track and protect your assets’
+  Part of #[SECPROGRAM](https://owaspai.org/docs/1_general_controls/#secprogram) and see ‘Identify, track and protect your assets’
 - Protect your model continuously:  
-  #INPUTDISTORTION, #FILTERSENSITIVEMODELOUTPUT, #RUNTIMEMODELIOINTEGRITY, #MODELINPUTCONFIDENTIALITY, #PROMPTINPUTVALIDATION, #INPUTSEGREGATION
+  #[INPUTDISTORTION](https://owaspai.org/docs/2_threats_through_use/#inputdistortion), #[FILTERSENSITIVEMODELOUTPUT](https://owaspai.org/docs/2_threats_through_use/#filtersensitivemodeloutput), #[RUNTIMEMODELIOINTEGRITY](https://owaspai.org/docs/4_runtime_application_security_threats/#runtimemodeliointegrity), #[MODELINPUTCONFIDENTIALITY](https://owaspai.org/docs/4_runtime_application_security_threats/#modelinputconfidentiality), #[PROMPTINPUTVALIDATION](https://owaspai.org/docs/4_runtime_application_security_threats/#promptinputvalidation), #[INPUTSEGREGATION](https://owaspai.org/docs/4_runtime_application_security_threats/#inputsegregation)
 - Develop incident management procedures:  
-  Part of #SECPROGRAM
+  Part of #[SECPROGRAM](https://owaspai.org/docs/1_general_controls/#secprogram)
 - Release AI responsibly:  
-  Part of #DEVPROGRAM
+  Part of #[DEVPROGRAM](https://owaspai.org/docs/1_general_controls/#devprogram)
 - Make it easy for users to do the right things:  
-  Part of #SECPROGRAM
+  Part of #[SECPROGRAM](https://owaspai.org/docs/1_general_controls/#secprogram)
 
 4. Secure operation and maintenance
 
 - Monitor your system’s behaviour:  
-  #CONTINUOUSVALIDATION, #UNWANTEDBIASTESTING
+  #[CONTINUOUSVALIDATION](https://owaspai.org/docs/1_general_controls/#continuousvalidation), #[UNWANTEDBIASTESTING](https://owaspai.org/docs/1_general_controls/#unwantedbiastesting)
 - Monitor your system’s inputs:  
-  #MONITORUSE, #DETECTODDINPUT, #DETECTADVERSARIALINPUT
+  #[MONITORUSE](https://owaspai.org/docs/2_threats_through_use/#monitoruse), #[DETECTODDINPUT](https://owaspai.org/docs/2_threats_through_use/#detectoddinput), #[DETECTADVERSARIALINPUT](https://owaspai.org/docs/2_threats_through_use/#detectadversarialinput)
 - Follow a secure by design approach to updates:  
-  Part of #SECDEVPROGRAM
+  Part of #[SECDEVPROGRAM](https://owaspai.org/docs/1_general_controls/#secdevprogram)
 - Collect and share lessons learned:  
-  Part of #SECPROGAM and #SECDEVPROGRAM
+  Part of #[SECDEVPROGRAM](https://owaspai.org/docs/1_general_controls/#secprogram) and #[SECDEVPROGRAM](https://owaspai.org/docs/1_general_controls/#secdevprogram)
 
 ## References
 

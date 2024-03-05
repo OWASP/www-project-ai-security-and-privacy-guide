@@ -15,9 +15,9 @@ Threats through use take place through normal interaction with an AI model: prov
 
 (runtime appsec). Monitor the use of the model (input, date, time, user) by registering it in logs and make it part of incident detection, including:
 
-  - inproper functioning of the model (see CONTINUOUSVALIDATION and UNWANTEDBIASTESTING)
-  - suspicious patterns of model use (e.g. high frequency - see RATELIMIT and DETECTADVERSARIALINPUT)
-  - suspicious inputs (see DETECTODDINPUT and DETECTADVERSARIALINPUT)
+  - inproper functioning of the model (see [CONTINUOUSVALIDATION](https://owaspai.org/docs/1_general_controls/#continuousvalidation) and [UNWANTEDBIASTESTING](https://owaspai.org/docs/1_general_controls/#unwantedbiastesting))
+  - suspicious patterns of model use (e.g. high frequency - see [RATELIMIT](#ratelimit) and [DETECTADVERSARIALINPUT](#detectadversarialinput))
+  - suspicious inputs (see [DETECTODDINPUT](#detectoddinput) and [DETECTADVERSARIALINPUT](#detectadversarialinput))
 
 By adding details to logs on the version of the model used and the output, troubleshooting becomes easier.
   
@@ -149,7 +149,7 @@ Links to standards:
 
 References:
 
-  - [Feature squeezing](https://arxiv.org/pdf/1704.01155.pdf) (IDBT) compares the output of the model against the output based on a distortion of the input that reduces the level of detail. This is done by reducing the number of features or reducing the detail of certain features (e.g. by smoothing). This approach is like INPUTDISTORTION, but instead of just changing the input to remove any adversarial data, the model is also applied to the original input and then used to compare it, as a detection mechanism.
+  - [Feature squeezing](https://arxiv.org/pdf/1704.01155.pdf) (IDBT) compares the output of the model against the output based on a distortion of the input that reduces the level of detail. This is done by reducing the number of features or reducing the detail of certain features (e.g. by smoothing). This approach is like [INPUTDISTORTION](#inputdistortion), but instead of just changing the input to remove any adversarial data, the model is also applied to the original input and then used to compare it, as a detection mechanism.
 
   - [MagNet](https://arxiv.org/abs/1705.09064) and [here](https://www.mdpi.com/2079-9292/11/8/1283)
 
@@ -205,7 +205,7 @@ Example approach: Measure model robustness by trying minor input deviations to d
 
 If we interpret the model with its inputs as a "system" and the sensitivity to evasion attacks as the "system fault" then this sensitivity may also be interpreted as (local) lack of graceful degradation. Such issues can be addressed by, for example, increasing training samples for that part of the input domain and tuning/optimising the model for variance.
 
-Another example approach: _Randomisation_ by injecting noise during training. The primary objective of this technique is to enhance the network's resilience to evasion attacks, especially those triggered by subtle, carefully crafted perturbations to input data that may result in misclassification or inaccurate predictions. See also TRAINDATADISTORTION against data poisoning and OBFUSCATETRAININGDATA to minimize sensitive data through randomisation.
+Another example approach: _Randomisation_ by injecting noise during training. The primary objective of this technique is to enhance the network's resilience to evasion attacks, especially those triggered by subtle, carefully crafted perturbations to input data that may result in misclassification or inaccurate predictions. See also [TRAINDATADISTORTION](https://owaspai.org/docs/3_development_time_threats/#traindatadistortion) against data poisoning and [OBFUSCATETRAININGDATA](https://owaspai.org/docs/1_general_controls/#obfuscatetrainingdata) to minimize sensitive data through randomisation.
 
 Yet another approach is _gradient masking_: a technique employed to defend machine learning models against adversarial attacks. This involves altering the gradients of a model during training to increase the difficulty of generating adversarial examples for  attackers. Methods like adversarial training and ensemble approaches are utilized for gradient masking, but it comes with limitations, including computational expenses and potential in effectiveness against all types of attacks.
 
@@ -266,7 +266,7 @@ A set of defense techniques called Random Transfomations (RT) defends neural net
 
 Note that black-box or closed-box attacks do not rely on the gradients and are therefore not affected by shattered gradients, as they do not use the gradients to calculate the attack. Black box attacks use only the input and the output of the model or whole AI system to calculate the adversarial input. For a more detailed discussion of these attacks see Closed-box evasion. 
   
-See DETECTADVERSARIALINPUT for an approach where the distorted input is used for detecting an adversarial attack.
+See [DETECTADVERSARIALINPUT](#detectadversarialinput) for an approach where the distorted input is used for detecting an adversarial attack.
 
 Links to standards:
 

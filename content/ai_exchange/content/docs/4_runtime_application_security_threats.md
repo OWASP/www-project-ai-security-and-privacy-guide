@@ -12,7 +12,7 @@ Note: some controls in this document are application security controls that are 
 
 **Controls:**
 
-- See The Governance controls in the general section, in particular SECDEVPROGRAM to attain application security, and SECPROGRAM to attain information security in the organization.
+- See The Governance controls in the general section, in particular [SECDEVPROGRAM](https://owaspai.org/docs/1_general_controls/#secdevprogram) to attain application security, and [SECPROGRAM](https://owaspai.org/docs/1_general_controls/#secprogram) to attain information security in the organization.
 - Technical application security controls  
   Links to standards:
   - See [OpenCRE on technical application security controls](https://www.opencre.org/cre/636-660)
@@ -57,7 +57,7 @@ Stealing model parameters from a live system by breaking into it (e.g. by gainin
 - The below control(s), each marked with a # and a short name in capitals
   
 #### #RUNTIMEMODELCONFIDENTIALITY
-(runtime appsec). Run-time model confidentiality: see SECDEVPROGRAM to attain application security, with the focus on protecting the storage of model parameters (e.g. access control, encryption).  
+(runtime appsec). Run-time model confidentiality: see [SECDEVPROGRAM](https://owaspai.org/docs/1_general_controls/#secdevprogram) to attain application security, with the focus on protecting the storage of model parameters (e.g. access control, encryption).  
 A Trusted Execution Environment can help to protect against attacks, including side-channel hardware attacks like [DeepSniffer](https://sites.cs.ucsb.edu/~sherwood/pubs/ASPLOS-20-deepsniff.pdf).
 
 #### #MODELOBFUSCATION
@@ -140,4 +140,4 @@ GenAI models mostly live in the cloud - often managed by an external party, whic
 - The below control(s), each marked with a # and a short name in capitals
 
 #### #MODELINPUTCONFIDENTIALITY
-(runtime appsec). Model input confidentiality: see SECDEVPROGRAM to attain application security, with the focus on protecting the transport and storage of model input (e.g. access control, encryption, minimize retention)
+(runtime appsec). Model input confidentiality: see [SECDEVPROGRAM](https://owaspai.org/docs/1_general_controls/#secdevprogram) to attain application security, with the focus on protecting the transport and storage of model input (e.g. access control, encryption, minimize retention)

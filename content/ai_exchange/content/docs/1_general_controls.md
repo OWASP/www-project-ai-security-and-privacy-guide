@@ -17,7 +17,7 @@ Technically one could argue that this control is out of scope for cyber security
 
 When doing risk analysis on AI initiatives, consider at least the following: 
 -Note that an AI program is not just about risk TO AI, such as security risks - it is also about risks BY AI, such as threats to fairness, safety, etc.
--Include laws and regulations, as the type of AI apllication may be prohibited (e.g. social scoring under the EU AI Act). See #CHECKCOMPLIANCE
+-Include laws and regulations, as the type of AI apllication may be prohibited (e.g. social scoring under the EU AI Act). See #[CHECKCOMPLIANCE](https://owaspai.org/docs/1_general_controls/#checkcompliance)
 -Can the required transparency be provided into how the AI works?
 -Can the privacy rights be achieved (right to access, erase, correct, update personal data, and the right to object)?
 -Can unwanted bias regarding protected groups of people be sufficiently mitigated?
@@ -25,12 +25,12 @@ When doing risk analysis on AI initiatives, consider at least the following:
 -Is the right expertise available (e.g. data scientists)?
 -Is it allowed to use the data for the purpose - especially if it is personal data collected for a different purpose?
 -Can unwanted behaviour be sufficiently contained by mitigations (see Controls to limit unwanted behaviour)?
--See Risk management under SECPROGRAM for security-specific risk analysis, also involving privacy.
+-See Risk management under [SECPROGRAM](https://owaspai.org/docs/1_general_controls/#secprogram) for security-specific risk analysis, also involving privacy.
 
 Links to standards:
  - ISO/IEC 42001 AI management system. Gap: covers this control fully.
  
-42001 is about extending your risk management system - it focuses on governance. 5338 (see #DEVPROGRAM below) is about extending your software lifecycle practices - it focuses on engineering and everything around it. The 42001 can be seen as a management system for the governance of responsible AI in an organization, similar to how 27001 is a management system for information security. The 42001 doesn’t go into the lifecycle processes. It for example does not discuss how to train models, how to do data lineage, continuous validation, versioning of AI models, project planning challenges, and how and when exactly sensitive data is used in engineering.
+42001 is about extending your risk management system - it focuses on governance. 5338 (see #[DEVPROGRAM](#devprogram) below) is about extending your software lifecycle practices - it focuses on engineering and everything around it. The 42001 can be seen as a management system for the governance of responsible AI in an organization, similar to how 27001 is a management system for information security. The 42001 doesn’t go into the lifecycle processes. It for example does not discuss how to train models, how to do data lineage, continuous validation, versioning of AI models, project planning challenges, and how and when exactly sensitive data is used in engineering.
 
 #### #SECPROGRAM 
 (management). Having a security program. Include the whole AI lifecycle and AI particularities in the organization's security program (also referred to as _information security management system_).
@@ -96,7 +96,7 @@ Links to standards:
 #### #SECDEVPROGRAM
 (management). Make data science development activities part of the secure software development program.
 
-See elsewhere in this document for SUPPLYCHAINMANAGE which discusses AI-specific supply-chain risks.
+See elsewhere in this document for [SUPPLYCHAINMANAGE](https://owaspai.org/docs/3_development_time_threats/#supplychainmanage) which discusses AI-specific supply-chain risks.
 
 Purpose: Reduces security risks by proper attention to mitigating those risks during software development.
 
@@ -194,7 +194,7 @@ References:
 
 - Randomisation
     
-Adding sufficient noise to training data can make it effectively uncrecognizable, which of course needs to be weighed against the inaccuracy that this typically creates. See also TRAINDATADISTORTION against data poisoning and EVASIONROBUSTMODEL for randomisation against evasion attacks.
+Adding sufficient noise to training data can make it effectively uncrecognizable, which of course needs to be weighed against the inaccuracy that this typically creates. See also [TRAINDATADISTORTION](https://owaspai.org/docs/3_development_time_threats/#traindatadistortion) against data poisoning and [EVASIONROBUSTMODEL](https://owaspai.org/docs/2_threats_through_use/#evasionrobustmodel) for randomisation against evasion attacks.
     
 - Objective function perturbation
     
@@ -251,7 +251,7 @@ These use cases demonstrate the practical relevance and applicability of pseudon
 
 Purpose: reduce the information available to attackers, which can assist them in selecting and tailoring their attacks, thereby lowering the probability of a successful attack.
 
-Note: this control needs to be weighed against the AITRANSPARENCY control that requires to be more open about technical aspects of the model. The key is to minimize information that can help attackers while being transparent.
+Note: this control needs to be weighed against the [AITRANSPARENCY](#aitransparency) control that requires to be more open about technical aspects of the model. The key is to minimize information that can help attackers while being transparent.
 
 For example:
 
@@ -327,7 +327,7 @@ Links to standards:
 #### #AITRANSPARENCY
 (runtime, management). AI transparency: By being transparent with users about the rough workings of the model, its training process, and the general expected accuracy and reliability of the AI system's output, people can adjust their reliance ([OWASP for LLM 09](https://llmtop10.com/llm09/)) on it accordingly. The simplest form of this is to inform users that an AI model is being involved.
 
-See the DISCRETE control for the balance between being transparent and being discrete about the model. Transparency here is about providing abstract information regarding the model and is therefore something else than _explainability_.
+See the [DISCRETE](#discrete) control for the balance between being transparent and being discrete about the model. Transparency here is about providing abstract information regarding the model and is therefore something else than _explainability_.
 
 Links to standards:
 

@@ -197,7 +197,7 @@ Links to standards:
 (development-time datascience) - Train data distortion:.making poisoned samples ineffective by smoothing or adding noise to training data (with the best practice of keeping the original training data, in order to expertiment with the filtering)
 
 
-See also EVASTIONROBUSTMODEL on adding noise against evasion attacks and OBFUSCATETRAININGDATA to minimize sensitive data through randomisation.
+See also EVASTIONROBUSTMODEL on adding noise against evasion attacks and [OBFUSCATETRAININGDATA](https://owaspai.org/docs/1_general_controls/#obfuscatetrainingdata) to minimize sensitive data through randomisation.
 
 Examples:
 
@@ -245,7 +245,7 @@ The type of manipulation can be through data poisoning, or by specifically chang
 **Controls specific for transfer learning:**
 
 - See General controls, especially controls to limit the effects of unwanted behaviour
-- See controls for development-time protection, especially #SUPPLYCHAINMANAGE to manage the source of the obtained model
+- See controls for development-time protection, especially #[SUPPLYCHAINMANAGE](#supplychainmanage) to manage the source of the obtained model
 - See controls for broad model poisoning
 - Choose a model type resilient against a transfer learning attack
 
