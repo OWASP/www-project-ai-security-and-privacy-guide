@@ -96,7 +96,7 @@ Links to standards:
 #### #SECDEVPROGRAM
 (management). Make data science development activities part of the secure software development program.
 
-See elsewhere in this document for [SUPPLYCHAINMANAGE](/goto/supplychainmanage/) which discusses AI-specific supply-chain risks.
+See elsewhere in this document for [SUPPLYCHAINMANAGE](/goto/t32/) which discusses AI-specific supply-chain risks.
 
 Purpose: Reduces security risks by proper attention to mitigating those risks during software development.
 
@@ -195,7 +195,7 @@ References:
 
 - Randomisation
     
-Adding sufficient noise to training data can make it effectively uncrecognizable, which of course needs to be weighed against the inaccuracy that this typically creates. See also [TRAINDATADISTORTION](/goto/traindatadistortion/) against data poisoning and [EVASIONROBUSTMODEL](/goto/evasionrobustmodel/) for randomisation against evasion attacks.
+Adding sufficient noise to training data can make it effectively uncrecognizable, which of course needs to be weighed against the inaccuracy that this typically creates. See also [TRAINDATADISTORTION](/goto/t38/) against data poisoning and [EVASIONROBUSTMODEL](/goto/t8/) for randomisation against evasion attacks.
     
 - Objective function perturbation
     

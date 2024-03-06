@@ -36,22 +36,22 @@ The groups of controls form a summary of how to address AI security (controls ar
 2. Apply conventional **technical IT security controls** risk-based, since an AI system is an IT system:
     - 2a Apply **standard** conventional IT security controls (e.g. 15408, ASVS, OpenCRE, ISO 27001 Annex A, NIST SP800-53) to the complete AI system and don't forget the new AI-specific assets :
       - Development-time: model & data storage, model & data supply chain, data science documentation:  
-        >([DEVDATAPROTECT](/goto/devdataprotect/), [DEVSECURITY](/goto/devsecurity/), [SEGREGATEDATA](/goto/segregatedata/), [SUPPLYCHAINMANAGE](/goto/supplychainmanage/), [DISCRETE](/goto/c13/))
+        >([DEVDATAPROTECT](/goto/devdataprotect/), [DEVSECURITY](/goto/t28/), [SEGREGATEDATA](/goto/t29/), [SUPPLYCHAINMANAGE](/goto/t32/), [DISCRETE](/goto/c13/))
       - Runtime: model storage, model use, plug-ins, and model input/output:  
-        >([RUNTIMEMODELINTEGRITY](/goto/runtimemodelintegrity/), [RUNTIMEMODELIOINTEGRITY](/goto/runtimemodeliointegrity/), [RUNTIMEMODELCONFIDENTIALITY](/goto/runtimemodelconfidentiality/), [MODELINPUTCONFIDENTIALITY](/goto/modelinputconfidentiality/), [ENCODEMODELOUTPUT](/goto/encodemodeloutput/), [LIMITRESOURCES](/goto/limitresources/))
+        >([RUNTIMEMODELINTEGRITY](/goto/t48/), [RUNTIMEMODELIOINTEGRITY](/goto/t49/), [RUNTIMEMODELCONFIDENTIALITY](/goto/t51/), [MODELINPUTCONFIDENTIALITY](/goto/t60/), [ENCODEMODELOUTPUT](/goto/t54/), [LIMITRESOURCES](/goto/limitresources/))
     - 2b **Adapt** conventional IT security controls to make them more suitable for AI (e.g. which usage patterns to monitor for):  
-      >([MONITORUSE](/goto/monitoruse/), [MODELACCESSCONTROL](/goto/modelaccesscontrol/), [RATELIMIT](/goto/ratelimit/))
+      >([MONITORUSE](/goto/t2/), [MODELACCESSCONTROL](/goto/t4/), [RATELIMIT](/goto/t3/))
     - 2c Adopt **new** IT security controls:  
-      >([CONFCOMPUTE](/goto/confcompute/), [MODELOBFUSCATION](/goto/modelobfuscation/), [PROMPTINPUTVALIDATION](/goto/promptinputvalidation/), [INPUTSEGREGATION](/goto/inputsegregation/))
+      >([CONFCOMPUTE](/goto/t30/), [MODELOBFUSCATION](/goto/t52/), [PROMPTINPUTVALIDATION](/goto/t57/), [INPUTSEGREGATION](/goto/t58/))
 3. Data scientists apply **data science security controls** risk-based :
     - 3a Development-time controls when developing the model:  
-      >([FEDERATEDLEARNING](/goto/federatedlearning/), [CONTINUOUSVALIDATION](/goto/continuousvalidation/), [UNWANTEDBIASTESTING](/goto/unwantedbiastesting/), [EVASIONROBUSTMODEL](/goto/evasionrobustmodel/), [POISONROBUSTMODEL](/goto/poisonrobustmodel/), [TRAINADVERSARIAL](/goto/trainadversarial/), [TRAINDATADISTORTION](/goto/traindatadistortion/), [ADVERSARIALROBUSTDISTILLATION](/goto/adversarialrobustdistillation/), [MODELENSEMBLE](/goto/modelensemble/), [MORETRAINDATA](/goto/moretraindata/), [SMALLMODEL](/goto/smallmodel/), [DATAQUALITYCONTROL](/goto/dataqualitycontrol/))
+      >([FEDERATEDLEARNING](/goto/t31/), [CONTINUOUSVALIDATION](/goto/c18/), [UNWANTEDBIASTESTING](/goto/c20/), [EVASIONROBUSTMODEL](/goto/t8/), [POISONROBUSTMODEL](/goto/t39/), [TRAINADVERSARIAL](/goto/t9/), [TRAINDATADISTORTION](/goto/t38/), [ADVERSARIALROBUSTDISTILLATION](/goto/adversarialrobustdistillation/), [MODELENSEMBLE](/goto/t34/), [MORETRAINDATA](/goto/t36/), [SMALLMODEL](/goto/t20/), [DATAQUALITYCONTROL](/goto/t37/))
     - 3b Runtime controls to filter and detect attacks:  
-      >([DETECTODDINPUT](/goto/detectoddinput/), [DETECTADVERSARIALINPUT](/goto/detectadversarialinput/), [DOSINPUTVALIDATION](/goto/dosinputvalidation/), [INPUTDISTORTION](/goto/inputdistortion/), [FILTERSENSITIVEMODELOUTPUT](/goto/filtersensitivemodeloutput/), [OBSCURECONFIDENCE](/goto/obscureconfidence/))
+      >([DETECTODDINPUT](/goto/t6/), [DETECTADVERSARIALINPUT](/goto/t7/), [DOSINPUTVALIDATION](/goto/dosinputvalidation/), [INPUTDISTORTION](/goto/inputdistortion/), [FILTERSENSITIVEMODELOUTPUT](/goto/t17/), [OBSCURECONFIDENCE](/goto/t19/))
 4. **Minimize data:** Limit the amount of data in rest and in transit, and the time it is stored, development-time and runtime:  
    >([DATAMINIMIZE](/goto/c8/), [ALLOWEDDATA](/goto/c10/), [SHORTRETAIN](/goto/c11/), [OBFUSCATETRAININGDATA](/goto/c12/))
 5. **Control behaviour impact** as the model can behave in unwanted ways - by mistake or by manipulation:  
-   >([OVERSIGHT](/goto/c14/), [LEASTMODELPRIVILEGE](/goto/c16/), [AITRANSPARENCY](/goto/aitransparency/), [EXPLAINABILITY](/goto/explainability/), [CONTINUOUSVALIDATION](/goto/continuousvalidation/), [UNWANTEDBIASTESTING](/goto/unwantedbiastesting/))
+   >([OVERSIGHT](/goto/c14/), [LEASTMODELPRIVILEGE](/goto/c16/), [AITRANSPARENCY](/goto/c17/), [EXPLAINABILITY](/goto/c19/), [CONTINUOUSVALIDATION](/goto/c18/), [UNWANTEDBIASTESTING](/goto/c20/))
 
 
 All threats and controls are discussed in the further content of the AI Exchange.
@@ -219,16 +219,16 @@ system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-syst
 - Model the threats to your system:  
   See Risk analysis under #[SECPROGRAM](/goto/c3/)
 - Design your system for security as well as functionality and performance:  
-  #[AIPROGRAM](/goto/c1/ ), #[SECPROGRAM](/goto/c3/), #[DEVPROGRAM](/goto/c5/), #[SECDEVPROGRAM](/goto/c4/), #[CHECKCOMPLIANCE](/goto/c6/), #[LEASTMODELPRIVILEGE](/goto/c16/), #[DISCRETE](/goto/c13/), #[OBSCURECONFIDENCE](/goto/obscureconfidence/), #[OVERSIGHT](/goto/c14/), #[RATELIMIT](/goto/ratelimit/),  #[DOSINPUTVALIDATION](/goto/dosinputvalidation/), #[LIMITRESOURCES](/goto/limitresources/), #[MODELACCESSCONTROL](/goto/modelaccesscontrol/), #AITRANSPRENCY
+  #[AIPROGRAM](/goto/c1/ ), #[SECPROGRAM](/goto/c3/), #[DEVPROGRAM](/goto/c5/), #[SECDEVPROGRAM](/goto/c4/), #[CHECKCOMPLIANCE](/goto/c6/), #[LEASTMODELPRIVILEGE](/goto/c16/), #[DISCRETE](/goto/c13/), #[OBSCURECONFIDENCE](/goto/t19/), #[OVERSIGHT](/goto/c14/), #[RATELIMIT](/goto/t3/),  #[DOSINPUTVALIDATION](/goto/dosinputvalidation/), #[LIMITRESOURCES](/goto/limitresources/), #[MODELACCESSCONTROL](/goto/t4/), #AITRANSPRENCY
 - Consider security benefits and trade-offs when selecting your AI model  
-  All development-time data science controls (currently 13), #[EXPLAINABILITY](/goto/explainability/)
+  All development-time data science controls (currently 13), #[EXPLAINABILITY](/goto/c19/)
 
 2. Secure Development
 
 - Secure your supply chain:  
-  #[SUPPLYCHAINMANAGE](/goto/supplychainmanage/)
+  #[SUPPLYCHAINMANAGE](/goto/t32/)
 - Identify, track and protect your assets:  
-  #[DEVDATAPROTECT](/goto/devdataprotect/), #[DEVSECURITY](/goto/devsecurity/), #[SEGREGATEDATA](/goto/segregatedata/), #[CONFCOMPUTE](/goto/confcompute/), #[MODELINPUTCONFIDENTIALITY](/goto/modelinputconfidentiality/), #[RUNTIMEMODELCONFIDENTIALITY](/goto/runtimemodelconfidentiality/), #[DATAMINIMIZE](/goto/c8/), #[ALLOWEDDATA](/goto/c10/), #[SHORTRETAIN](/goto/c11/), #[OBFUSCATETRAININGDATA](/goto/c12/) and part of #[SECPROGRAM](/goto/c3/)
+  #[DEVDATAPROTECT](/goto/devdataprotect/), #[DEVSECURITY](/goto/t28/), #[SEGREGATEDATA](/goto/t29/), #[CONFCOMPUTE](/goto/t30/), #[MODELINPUTCONFIDENTIALITY](/goto/t60/), #[RUNTIMEMODELCONFIDENTIALITY](/goto/t51/), #[DATAMINIMIZE](/goto/c8/), #[ALLOWEDDATA](/goto/c10/), #[SHORTRETAIN](/goto/c11/), #[OBFUSCATETRAININGDATA](/goto/c12/) and part of #[SECPROGRAM](/goto/c3/)
 - Document your data, models and prompts:  
   Part of #[DEVPROGRAM](/goto/c5/)
 - Manage your technical debt:  
@@ -239,7 +239,7 @@ system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-syst
 - Secure your infrastructure:  
   Part of #[SECPROGRAM](/goto/c3/) and see ‘Identify, track and protect your assets’
 - Protect your model continuously:  
-  #[INPUTDISTORTION](/goto/inputdistortion/), #[FILTERSENSITIVEMODELOUTPUT](/goto/filtersensitivemodeloutput/), #[RUNTIMEMODELIOINTEGRITY](/goto/runtimemodeliointegrity/), #[MODELINPUTCONFIDENTIALITY](/goto/modelinputconfidentiality/), #[PROMPTINPUTVALIDATION](/goto/promptinputvalidation/), #[INPUTSEGREGATION](/goto/inputsegregation/)
+  #[INPUTDISTORTION](/goto/inputdistortion/), #[FILTERSENSITIVEMODELOUTPUT](/goto/t17/), #[RUNTIMEMODELIOINTEGRITY](/goto/t49/), #[MODELINPUTCONFIDENTIALITY](/goto/t60/), #[PROMPTINPUTVALIDATION](/goto/t57/), #[INPUTSEGREGATION](/goto/t58/)
 - Develop incident management procedures:  
   Part of #[SECPROGRAM](/goto/c3/)
 - Release AI responsibly:  
@@ -250,9 +250,9 @@ system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-syst
 4. Secure operation and maintenance
 
 - Monitor your system’s behaviour:  
-  #[CONTINUOUSVALIDATION](/goto/continuousvalidation/), #[UNWANTEDBIASTESTING](/goto/unwantedbiastesting/)
+  #[CONTINUOUSVALIDATION](/goto/c18/), #[UNWANTEDBIASTESTING](/goto/c20/)
 - Monitor your system’s inputs:  
-  #[MONITORUSE](/goto/monitoruse/), #[DETECTODDINPUT](/goto/detectoddinput/), #[DETECTADVERSARIALINPUT](/goto/detectadversarialinput/)
+  #[MONITORUSE](/goto/t2/), #[DETECTODDINPUT](/goto/t6/), #[DETECTADVERSARIALINPUT](/goto/t7/)
 - Follow a secure by design approach to updates:  
   Part of #[SECDEVPROGRAM](/goto/c4/)
 - Collect and share lessons learned:  
