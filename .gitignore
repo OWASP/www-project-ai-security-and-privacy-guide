@@ -20,3 +20,4 @@ go.work
 *.dylib
 *.test
 *.out
+*/firebase.json

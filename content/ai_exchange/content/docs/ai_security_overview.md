@@ -32,11 +32,11 @@ The below diagram puts the controls in the AI Exchange into groups and places th
 ![AI Security Threats and controls](/images/threatscontrols.png)
 The groups of controls form a summary of how to address AI security (controls are in capitals):
 1. **AI Governance**: implement governance processes for AI risk, and include AI into your processes for information security and software lifecycle:  
-   >( [AIPROGRAM](/goto/aiprogram/ ), [SECPROGRAM](/goto/secprogram/), [DEVPROGRAM](/goto/devprogram/), [SECDEVPROGRAM](/goto/secdevprogram/), [CHECKCOMPLIANCE](/goto/checkcompliance/), [SECEDUCATE](/goto/seceducate/))
+   >( [AIPROGRAM](/goto/c1/ ), [SECPROGRAM](/goto/c3/), [DEVPROGRAM](/goto/c5/), [SECDEVPROGRAM](/goto/c4/), [CHECKCOMPLIANCE](/goto/c6/), [SECEDUCATE](/goto/c7/))
 2. Apply conventional **technical IT security controls** risk-based, since an AI system is an IT system:
     - 2a Apply **standard** conventional IT security controls (e.g. 15408, ASVS, OpenCRE, ISO 27001 Annex A, NIST SP800-53) to the complete AI system and don't forget the new AI-specific assets :
       - Development-time: model & data storage, model & data supply chain, data science documentation:  
-        >([DEVDATAPROTECT](/goto/devdataprotect/), [DEVSECURITY](/goto/devsecurity/), [SEGREGATEDATA](/goto/segregatedata/), [SUPPLYCHAINMANAGE](/goto/supplychainmanage/), [DISCRETE](/goto/discrete/))
+        >([DEVDATAPROTECT](/goto/devdataprotect/), [DEVSECURITY](/goto/devsecurity/), [SEGREGATEDATA](/goto/segregatedata/), [SUPPLYCHAINMANAGE](/goto/supplychainmanage/), [DISCRETE](/goto/c13/))
       - Runtime: model storage, model use, plug-ins, and model input/output:  
         >([RUNTIMEMODELINTEGRITY](/goto/runtimemodelintegrity/), [RUNTIMEMODELIOINTEGRITY](/goto/runtimemodeliointegrity/), [RUNTIMEMODELCONFIDENTIALITY](/goto/runtimemodelconfidentiality/), [MODELINPUTCONFIDENTIALITY](/goto/modelinputconfidentiality/), [ENCODEMODELOUTPUT](/goto/encodemodeloutput/), [LIMITRESOURCES](/goto/limitresources/))
     - 2b **Adapt** conventional IT security controls to make them more suitable for AI (e.g. which usage patterns to monitor for):  
@@ -49,9 +49,9 @@ The groups of controls form a summary of how to address AI security (controls ar
     - 3b Runtime controls to filter and detect attacks:  
       >([DETECTODDINPUT](/goto/detectoddinput/), [DETECTADVERSARIALINPUT](/goto/detectadversarialinput/), [DOSINPUTVALIDATION](/goto/dosinputvalidation/), [INPUTDISTORTION](/goto/inputdistortion/), [FILTERSENSITIVEMODELOUTPUT](/goto/filtersensitivemodeloutput/), [OBSCURECONFIDENCE](/goto/obscureconfidence/))
 4. **Minimize data:** Limit the amount of data in rest and in transit, and the time it is stored, development-time and runtime:  
-   >([DATAMINIMIZE](/goto/dataminimize/), [ALLOWEDDATA](/goto/alloweddata/), [SHORTRETAIN](/goto/shortretain/), [OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/))
+   >([DATAMINIMIZE](/goto/c8/), [ALLOWEDDATA](/goto/c10/), [SHORTRETAIN](/goto/c11/), [OBFUSCATETRAININGDATA](/goto/c12/))
 5. **Control behaviour impact** as the model can behave in unwanted ways - by mistake or by manipulation:  
-   >([OVERSIGHT](/goto/oversight/), [LEASTMODELPRIVILEGE](/goto/leastmodelprivilege/), [AITRANSPARENCY](/goto/aitransparency/), [EXPLAINABILITY](/goto/explainability/), [CONTINUOUSVALIDATION](/goto/continuousvalidation/), [UNWANTEDBIASTESTING](/goto/unwantedbiastesting/))
+   >([OVERSIGHT](/goto/c14/), [LEASTMODELPRIVILEGE](/goto/c16/), [AITRANSPARENCY](/goto/aitransparency/), [EXPLAINABILITY](/goto/explainability/), [CONTINUOUSVALIDATION](/goto/continuousvalidation/), [UNWANTEDBIASTESTING](/goto/unwantedbiastesting/))
 
 
 All threats and controls are discussed in the further content of the AI Exchange.
@@ -138,9 +138,9 @@ There are many threats and controls described in this document. Your situation d
 5. **Control selection**: Then, for the threats that are relevant to you and for which you are responsible: consider the various controls listed with that threat (or the parent section of that threat) and the general controls (they always apply). When considering a control, look at its purpose and determine if you think it is important enough to implement it and to what extent. This depends on the cost of implementation compared to how the purpose mitigates the threat, and the level of risk of the threat. These elements also play a role of course in the order you select controls: highest risks first, then starting with the lower cost controls (low hanging fruit).
 6. **Use references**: When implementing a control, consider the references and the links to standards. You may have implemented some of these standards, or the content of the standards may help you to implement the control.
 7. **Risk acceptance**: In the end you need to be able to accept the risks that remain regarding each threat, given the controls that you implemented.
-8. **Further management of these controls** (see [SECPROGRAM](/goto/secprogram/)), which includes continuous monitoring, documentation, reporting, and incident response.
+8. **Further management of these controls** (see [SECPROGRAM](/goto/c3/)), which includes continuous monitoring, documentation, reporting, and incident response.
 
-For more information on risk analysis, see the [SECPROGRAM](/goto/secprogram/) control.
+For more information on risk analysis, see the [SECPROGRAM](/goto/c3/) control.
 
 ## How about ...
 ### How about AI outside of machine learning?
@@ -215,11 +215,11 @@ system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-syst
 1. Secure design
 
 - Raise staff awareness of threats and risks:  
-  #[SECEDUCATE](/goto/seceducate/)
+  #[SECEDUCATE](/goto/c7/)
 - Model the threats to your system:  
-  See Risk analysis under #[SECPROGRAM](/goto/secprogram/)
+  See Risk analysis under #[SECPROGRAM](/goto/c3/)
 - Design your system for security as well as functionality and performance:  
-  #[AIPROGRAM](/goto/aiprogram/ ), #[SECPROGRAM](/goto/secprogram/), #[DEVPROGRAM](/goto/devprogram/), #[SECDEVPROGRAM](/goto/secdevprogram/), #[CHECKCOMPLIANCE](/goto/checkcompliance/), #[LEASTMODELPRIVILEGE](/goto/leastmodelprivilege/), #[DISCRETE](/goto/discrete/), #[OBSCURECONFIDENCE](/goto/obscureconfidence/), #[OVERSIGHT](/goto/oversight/), #[RATELIMIT](/goto/ratelimit/),  #[DOSINPUTVALIDATION](/goto/dosinputvalidation/), #[LIMITRESOURCES](/goto/limitresources/), #[MODELACCESSCONTROL](/goto/modelaccesscontrol/), #AITRANSPRENCY
+  #[AIPROGRAM](/goto/c1/ ), #[SECPROGRAM](/goto/c3/), #[DEVPROGRAM](/goto/c5/), #[SECDEVPROGRAM](/goto/c4/), #[CHECKCOMPLIANCE](/goto/c6/), #[LEASTMODELPRIVILEGE](/goto/c16/), #[DISCRETE](/goto/c13/), #[OBSCURECONFIDENCE](/goto/obscureconfidence/), #[OVERSIGHT](/goto/c14/), #[RATELIMIT](/goto/ratelimit/),  #[DOSINPUTVALIDATION](/goto/dosinputvalidation/), #[LIMITRESOURCES](/goto/limitresources/), #[MODELACCESSCONTROL](/goto/modelaccesscontrol/), #AITRANSPRENCY
 - Consider security benefits and trade-offs when selecting your AI model  
   All development-time data science controls (currently 13), #[EXPLAINABILITY](/goto/explainability/)
 
@@ -228,24 +228,24 @@ system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-syst
 - Secure your supply chain:  
   #[SUPPLYCHAINMANAGE](/goto/supplychainmanage/)
 - Identify, track and protect your assets:  
-  #[DEVDATAPROTECT](/goto/devdataprotect/), #[DEVSECURITY](/goto/devsecurity/), #[SEGREGATEDATA](/goto/segregatedata/), #[CONFCOMPUTE](/goto/confcompute/), #[MODELINPUTCONFIDENTIALITY](/goto/modelinputconfidentiality/), #[RUNTIMEMODELCONFIDENTIALITY](/goto/runtimemodelconfidentiality/), #[DATAMINIMIZE](/goto/dataminimize/), #[ALLOWEDDATA](/goto/alloweddata/), #[SHORTRETAIN](/goto/shortretain/), #[OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/) and part of #[SECPROGRAM](/goto/secprogram/)
+  #[DEVDATAPROTECT](/goto/devdataprotect/), #[DEVSECURITY](/goto/devsecurity/), #[SEGREGATEDATA](/goto/segregatedata/), #[CONFCOMPUTE](/goto/confcompute/), #[MODELINPUTCONFIDENTIALITY](/goto/modelinputconfidentiality/), #[RUNTIMEMODELCONFIDENTIALITY](/goto/runtimemodelconfidentiality/), #[DATAMINIMIZE](/goto/c8/), #[ALLOWEDDATA](/goto/c10/), #[SHORTRETAIN](/goto/c11/), #[OBFUSCATETRAININGDATA](/goto/c12/) and part of #[SECPROGRAM](/goto/c3/)
 - Document your data, models and prompts:  
-  Part of #[DEVPROGRAM](/goto/devprogram/)
+  Part of #[DEVPROGRAM](/goto/c5/)
 - Manage your technical debt:  
-  Part of #[DEVPROGRAM](/goto/devprogram/)
+  Part of #[DEVPROGRAM](/goto/c5/)
 
 3. Secure deployment
 
 - Secure your infrastructure:  
-  Part of #[SECPROGRAM](/goto/secprogram/) and see ‘Identify, track and protect your assets’
+  Part of #[SECPROGRAM](/goto/c3/) and see ‘Identify, track and protect your assets’
 - Protect your model continuously:  
   #[INPUTDISTORTION](/goto/inputdistortion/), #[FILTERSENSITIVEMODELOUTPUT](/goto/filtersensitivemodeloutput/), #[RUNTIMEMODELIOINTEGRITY](/goto/runtimemodeliointegrity/), #[MODELINPUTCONFIDENTIALITY](/goto/modelinputconfidentiality/), #[PROMPTINPUTVALIDATION](/goto/promptinputvalidation/), #[INPUTSEGREGATION](/goto/inputsegregation/)
 - Develop incident management procedures:  
-  Part of #[SECPROGRAM](/goto/secprogram/)
+  Part of #[SECPROGRAM](/goto/c3/)
 - Release AI responsibly:  
-  Part of #[DEVPROGRAM](/goto/devprogram/)
+  Part of #[DEVPROGRAM](/goto/c5/)
 - Make it easy for users to do the right things:  
-  Part of #[SECPROGRAM](/goto/secprogram/)
+  Part of #[SECPROGRAM](/goto/c3/)
 
 4. Secure operation and maintenance
 
@@ -254,9 +254,9 @@ system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-syst
 - Monitor your system’s inputs:  
   #[MONITORUSE](/goto/monitoruse/), #[DETECTODDINPUT](/goto/detectoddinput/), #[DETECTADVERSARIALINPUT](/goto/detectadversarialinput/)
 - Follow a secure by design approach to updates:  
-  Part of #[SECDEVPROGRAM](/goto/secdevprogram/)
+  Part of #[SECDEVPROGRAM](/goto/c4/)
 - Collect and share lessons learned:  
-  Part of #[SECDEVPROGRAM](/goto/secprogram/) and #[SECDEVPROGRAM](/goto/secdevprogram/)
+  Part of #[SECDEVPROGRAM](/goto/c3/) and #[SECDEVPROGRAM](/goto/c4/)
 
 ## References
 

@@ -83,7 +83,7 @@ The AI security matrix below shows all threats and risks, ordered by attack surf
 - Do gap analysis with CSA sheet of attacks and references: https://docs.google.com/spreadsheets/d/1uUqAQkDTBrwWp9AxiBHUOB9mRrEF27mxrsOC1ZUsoYY/edit#gid=0
 - Add 'Leak sensitive input data' to threat diagram and check further for any gaps with this document
 -USe 'Securing AIML systems in the age of information warfare' by Susanna Cox as sanity check and add it to references.
-- Check if [OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/) has strategies (anonymization, tokenization) that are covered in ISO/IEC standards and add references to those standards
+- Check if [OBFUSCATETRAININGDATA](/goto/c12/) has strategies (anonymization, tokenization) that are covered in ISO/IEC standards and add references to those standards
 - Under DATAQUALITCONTROL: elaborate on RONI and tRONI training sample selection
 - Process the following resources on privacy of GenAI (part is data security)
   - https://www.protecto.ai/blog/customer-case-study-preserving-privacy-in-a-generative-ai-application-rag-for-contract-review
@@ -209,9 +209,9 @@ There are many threats and controls described in this document. Your situation d
 4. **Control selection**: Then, for the threats that are relevant to you and for which you are responsible: consider the various controls listed with that threat (or the parent section of that threat) and the general controls (they always apply). When considering a control, look at its purpose and determine if you think it is important enough to implement it and to what extent. This depends on the cost of implementation compared to how the purpose mitigates the threat, and the level of risk of the threat.
 5. **Use references**: When implementing a control, consider the references and the links to standards. You may have implemented some of these standards, or the content of the standards may help you to implement the control.
 6. **Risk acceptance**: In the end you need to be able to accept the risks that remain regarding each threat, given the controls that you implemented.
-7. **Further management of these controls** (see [SECPROGRAM](/goto/secprogram/)), which includes continuous monitoring, documentation, reporting, and incident response.
+7. **Further management of these controls** (see [SECPROGRAM](/goto/c3/)), which includes continuous monitoring, documentation, reporting, and incident response.
 
-For more information on risk analysis, see the [SECPROGRAM](/goto/secprogram/) control.
+For more information on risk analysis, see the [SECPROGRAM](/goto/c3/) control.
 
 # How about privacy?
 
@@ -253,15 +253,15 @@ GenAI References:
 
 The AI security controls (in capitals - and discussed further on in the document) can be grouped along meta controls:
 
-1. Apply **AI governance** ([AIPROGRAM](/goto/aiprogram/ ))
-2. Apply **information security management** ([SECPROGRAM](/goto/secprogram/)), with AI attention points:
-   - New assets: training/test data , input data, output data, model parameters, technical information about the model, and also code and configuration. This depends on if they represent important intellectual property, or if the data is sensitive, or if the data can help attackers to design an attack ([DISCRETE](/goto/discrete/)).
+1. Apply **AI governance** ([AIPROGRAM](/goto/c1/ ))
+2. Apply **information security management** ([SECPROGRAM](/goto/c3/)), with AI attention points:
+   - New assets: training/test data , input data, output data, model parameters, technical information about the model, and also code and configuration. This depends on if they represent important intellectual property, or if the data is sensitive, or if the data can help attackers to design an attack ([DISCRETE](/goto/c13/)).
    - New threats: ISO/IEC 27563 (on AI use cases security & privacy) describes security of some AI use cases to assist in risk analysis, and ISO/IEC 23894 elaborates on risk management. The AI Exchange and the upcoming ISO 27090 (AI security) are more comprehensive sources for threats and controls.
-   - AI regulation needs to be taken into account ([CHECKCOMPLIANCE](/goto/checkcompliance/}))
-   - Awareness training needs to include AI threats and controls ([SECEDUCATE](/goto/seceducate/))
+   - AI regulation needs to be taken into account ([CHECKCOMPLIANCE](/goto/c6/}))
+   - Awareness training needs to include AI threats and controls ([SECEDUCATE](/goto/c7/))
    - The information security controls in this document fall under the security management activity (e.g. model privileges, monitoring, access control, data protection, supply chain)
-3. Apply **professional software engineering practices** to the AI lifecycle ([DEVPROGRAM]((/goto/devprogram/)).
-4. Apply **secure software development** to AI engineering ([SECDEVPROGRAM](/goto/secdevprogram/)), and when developing securely, use standards that cover technical application security controls and operational security, (e.g.ISO 15408, ASVS, OpenCRE). AI attention points:
+3. Apply **professional software engineering practices** to the AI lifecycle ([DEVPROGRAM]((/goto/c5/)).
+4. Apply **secure software development** to AI engineering ([SECDEVPROGRAM](/goto/c4/)), and when developing securely, use standards that cover technical application security controls and operational security, (e.g.ISO 15408, ASVS, OpenCRE). AI attention points:
    - Make sure to protect the runtime model and its IO ([RUNTIMEMODELINTEGRITY](/goto/runtimemodelintegrity/), [RUNTIMEMODELIOINTEGRITY](/goto/runtimemodeliointegrity/), [RUNTIMEMODELCONFIDENTIALITY](/goto/runtimemodelconfidentiality/), [MODELINPUTCONFIDENTIALITY](/goto/modelinputconfidentiality/), [MODELOBFUSCATION](/goto/modelobfuscation/))
    - Control model use ([MONITORUSE](/goto/monitoruse/), [MODELACCESSCONTROL](/goto/modelaccesscontrol/), [RATELIMIT](/goto/ratelimit/))
    - [ENCODEMODELOUTPUT](/goto/encodemodeloutput/) if it is text based
@@ -274,8 +274,8 @@ The AI security controls (in capitals - and discussed further on in the document
    - [FEDERATEDLEARNING](/goto/federatedlearning/)
    - [SUPPLYCHAINMANAGE](/goto/supplychainmanage/)
 6. Completely **new application security controls** are [MODELOBFUSCATION](/goto/modelobfuscation/) and protection against indirect prompt injection of GenAI: [PROMPTINPUTVALIDATION](/goto/promptinputvalidation/) plus [INPUTSEGREGATION](/goto/inputsegregation/)
-7. **Limit the amount of data and the time it is stored**, if it is sensitive ([DATAMINIMIZE](/goto/dataminimize/), [ALLOWEDDATA](/goto/alloweddata/), [SHORTRETAIN](/goto/shortretain/), [OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/))
-8. **Limit the effect** of unwanted model behaviour ([OVERSIGHT](/goto/oversight/), [LEASTMODELPRIVILEGE](/goto/leastmodelprivilege/), AITRAINSPARENCY, [EXPLAINABILITY](/goto/explainability/))
+7. **Limit the amount of data and the time it is stored**, if it is sensitive ([DATAMINIMIZE](/goto/c8/), [ALLOWEDDATA](/goto/c10/), [SHORTRETAIN](/goto/c11/), [OBFUSCATETRAININGDATA](/goto/c12/))
+8. **Limit the effect** of unwanted model behaviour ([OVERSIGHT](/goto/c14/), [LEASTMODELPRIVILEGE](/goto/c16/), AITRAINSPARENCY, [EXPLAINABILITY](/goto/explainability/))
 9. **Data science runtime** controls when using the model:
    - [CONTINUOUSVALIDATION](/goto/continuousvalidation/)
    - [UNWANTEDBIASTESTING](/goto/unwantedbiastesting/)
@@ -309,11 +309,11 @@ system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-syst
 
 1. Secure design
 - Raise staff awareness of threats and risks:  
-  #[SECEDUCATE](/goto/seceducate/)
+  #[SECEDUCATE](/goto/c7/)
 - Model the threats to your system:  
-  See Risk analysis under #[SECPROGRAM](/goto/secprogram/)
+  See Risk analysis under #[SECPROGRAM](/goto/c3/)
 - Design your system for security as well as functionality and performance:  
-  #[AIPROGRAM](/goto/aiprogram/ ), #[SECPROGRAM](/goto/secprogram/), #[DEVPROGRAM](/goto/devprogram/), #[SECDEVPROGRAM](/goto/secdevprogram/), #[CHECKCOMPLIANCE](/goto/checkcompliance/), #[LEASTMODELPRIVILEGE](/goto/leastmodelprivilege/), #[DISCRETE](/goto/discrete/), #[OBSCURECONFIDENCE](/goto/obscureconfidence/), #[OVERSIGHT](/goto/oversight/), #[RATELIMIT](/goto/ratelimit/),  #[DOSINPUTVALIDATION](/goto/dosinputvalidation/), #[LIMITRESOURCES](/goto/limitresources/), #[MODELACCESSCONTROL](/goto/modelaccesscontrol/), #AITRANSPRENCY
+  #[AIPROGRAM](/goto/c1/ ), #[SECPROGRAM](/goto/c3/), #[DEVPROGRAM](/goto/c5/), #[SECDEVPROGRAM](/goto/c4/), #[CHECKCOMPLIANCE](/goto/c6/), #[LEASTMODELPRIVILEGE](/goto/c16/), #[DISCRETE](/goto/c13/), #[OBSCURECONFIDENCE](/goto/obscureconfidence/), #[OVERSIGHT](/goto/c14/), #[RATELIMIT](/goto/ratelimit/),  #[DOSINPUTVALIDATION](/goto/dosinputvalidation/), #[LIMITRESOURCES](/goto/limitresources/), #[MODELACCESSCONTROL](/goto/modelaccesscontrol/), #AITRANSPRENCY
 - Consider security benefits and trade-offs when selecting your AI model  
   All development-time data science controls (currently 13), #[EXPLAINABILITY](/goto/explainability/)
 
@@ -321,23 +321,23 @@ system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-syst
 - Secure your supply chain:  
   #[SUPPLYCHAINMANAGE](/goto/supplychainmanage/)
 - Identify, track and protect your assets:  
-  #[DEVDATAPROTECT](/goto/devdataprotect/), #[DEVSECURITY](/goto/devsecurity/), #[SEGREGATEDATA](/goto/segregatedata/), #[CONFCOMPUTE](/goto/confcompute/), #[MODELINPUTCONFIDENTIALITY](/goto/modelinputconfidentiality/), #[RUNTIMEMODELCONFIDENTIALITY](/goto/runtimemodelconfidentiality/), #[DATAMINIMIZE](/goto/dataminimize/), #[ALLOWEDDATA](/goto/alloweddata/), #[SHORTRETAIN](/goto/shortretain/), #[OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/) and part of #[SECPROGRAM](/goto/secprogram/)
+  #[DEVDATAPROTECT](/goto/devdataprotect/), #[DEVSECURITY](/goto/devsecurity/), #[SEGREGATEDATA](/goto/segregatedata/), #[CONFCOMPUTE](/goto/confcompute/), #[MODELINPUTCONFIDENTIALITY](/goto/modelinputconfidentiality/), #[RUNTIMEMODELCONFIDENTIALITY](/goto/runtimemodelconfidentiality/), #[DATAMINIMIZE](/goto/c8/), #[ALLOWEDDATA](/goto/c10/), #[SHORTRETAIN](/goto/c11/), #[OBFUSCATETRAININGDATA](/goto/c12/) and part of #[SECPROGRAM](/goto/c3/)
 - Document your data, models and prompts:  
-  Part of #[DEVPROGRAM](/goto/devprogram/)
+  Part of #[DEVPROGRAM](/goto/c5/)
 - Manage your technical debt:  
-  Part of #[DEVPROGRAM](/goto/devprogram/)
+  Part of #[DEVPROGRAM](/goto/c5/)
 
 3. Secure deployment
 - Secure your infrastructure:  
-  Part of #[SECPROGRAM](/goto/secprogram/) and see ‘Identify, track and protect your assets’
+  Part of #[SECPROGRAM](/goto/c3/) and see ‘Identify, track and protect your assets’
 - Protect your model continuously:  
   #INPUTDISTORTION, #[FILTERSENSITIVEMODELOUTPUT](/goto/filtersensitivemodeloutput/), #[RUNTIMEMODELIOINTEGRITY](/goto/runtimemodeliointegrity/), #[MODELINPUTCONFIDENTIALITY](/goto/modelinputconfidentiality/), #[PROMPTINPUTVALIDATION](/goto/promptinputvalidation/), #[INPUTSEGREGATION](/goto/inputsegregation/)
 - Develop incident management procedures:  
-  Part of #[SECPROGRAM](/goto/secprogram/)
+  Part of #[SECPROGRAM](/goto/c3/)
 - Release AI responsibly:  
-  Part of #[DEVPROGRAM](/goto/devprogram/)
+  Part of #[DEVPROGRAM](/goto/c5/)
 - Make it easy for users to do the right things:  
-  Part of #[SECPROGRAM](/goto/secprogram/)
+  Part of #[SECPROGRAM](/goto/c3/)
 
 4. Secure operation and maintenance
 - Monitor your system’s behaviour:  
@@ -345,9 +345,9 @@ system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-syst
 - Monitor your system’s inputs:  
   #[MONITORUSE](/goto/monitoruse/), #[DETECTODDINPUT](/goto/detectoddinput/), #[DETECTADVERSARIALINPUT](/goto/detectadversarialinput/)
 - Follow a secure by design approach to updates:  
-  Part of #[SECDEVPROGRAM](/goto/secdevprogram/)
+  Part of #[SECDEVPROGRAM](/goto/c4/)
 - Collect and share lessons learned:  
-  Part of #SECPROGAM and #[SECDEVPROGRAM](/goto/secdevprogram/)
+  Part of #SECPROGAM and #[SECDEVPROGRAM](/goto/c4/)
 
 
 ---
@@ -360,7 +360,7 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
 ## 1.1 General governance controls
 
-- **#[AIPROGRAM](/goto/aiprogram/ )** (management). Having an AI program. Take responsibility for AI as an organization, by keeping an inventory of AI initiatives, perform risk analysis on them, and manage those risks.
+- **#[AIPROGRAM](/goto/c1/ )** (management). Having an AI program. Take responsibility for AI as an organization, by keeping an inventory of AI initiatives, perform risk analysis on them, and manage those risks.
 
   This includes assigning responsibilities, e.g. model accountability, data accountability, and risk governance. For the high risk systems: attain responsible AI and transparency in the form of communication and documentation, auditability, bias countermeasures, oversight and cyber security.
 
@@ -368,7 +368,7 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
   Purpose: 1) reduces probability of AI initiatives being overlooked for proper governance (including security) - as covered by controls in this document, and 2) increases incentive for proper governance as the AI program takes responsibility for it. Without proper governance, the controls in this document can only happen by accident.
 
-  See Risk management under [SECPROGRAM](/goto/secprogram/) for security-specific risk analysis.
+  See Risk management under [SECPROGRAM](/goto/c3/) for security-specific risk analysis.
 
   Note that an AI program is not just about risk TO AI, such as security risks - it is also about risks BY AI, such as threats to fairness, safety, etc.
 
@@ -379,7 +379,7 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
     ISO 42001 is about extending your risk management system - it focuses on governance. ISO 5338 is about extending your software lifecycle practices - it focuses on engineering and everything around it. ISO 42001 can be seen as a management system for the governance of responsible AI in an organization, similar to how ISO 27001 is a management system for information security. ISO 42001 doesn’t go deep into the lifecycle processes. It for example does not discuss versioning of AI models, project planning issues, and how and when exactly sensitive data is used.
 
 
-- **#[SECPROGRAM](/goto/secprogram/)** (management). Having a security program. Include the whole AI lifecycle and AI particularities in the organization's security program (also referred to as _information security management system_).
+- **#[SECPROGRAM](/goto/c3/)** (management). Having a security program. Include the whole AI lifecycle and AI particularities in the organization's security program (also referred to as _information security management system_).
 
   Make sure to include AI-specific threats and assets (e.g. assets the development environment includign AI Ops / ML Ops).
 
@@ -428,7 +428,7 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
     - [NIST SP 800-53 on general security/privacy controls](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final)
     - [NIST cyber security framework](https://www.nist.gov/cyberframework)
 
-- **#[SECDEVPROGRAM](/goto/secdevprogram/)** (management). Make data science development activities part of the secure software development program.
+- **#[SECDEVPROGRAM](/goto/c4/)** (management). Make data science development activities part of the secure software development program.
 
   See elsewhere in this document for [SUPPLYCHAINMANAGE](/goto/supplychainmanage/) which discusses AI-specific supply-chain risks.
 
@@ -444,7 +444,7 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
   - ISO/IEC 27115 (Cybersecurity evaluation of complex systems) 
   - See [OpenCRE on secure software development processes](https://www.opencre.org/cre/616-305) with notable links to NIST SSDF and OWASP SAMM. Gap: covers this control fully, with said particularity
 
-- **#[DEVPROGRAM](/goto/devprogram/)** (management). Having a development program for AI. Apply general (not just security-oriented) software engineering best practices to AI development.
+- **#[DEVPROGRAM](/goto/c5/)** (management). Having a development program for AI. Apply general (not just security-oriented) software engineering best practices to AI development.
 
   Data scientists are focused on creating working models, not on creating future-proof software per se. Often, organizations already have software practices and processes in place. It is important to extend these to AI development, instead of treating AI as something that requires a separate approach. Do not isolate AI engineering. This includes automated testing, code quality, documentation, and versioning. ISO/IEC 5338 explains how to make these practices work for AI.
 
@@ -466,13 +466,13 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
   - [Research on code quality gaps in AI systems](https://www.softwareimprovementgroup.com/averting-a-major-ai-crisis-we-need-to-fix-the-big-quality-gap-in-ai-systems/)
 
-- **#[CHECKCOMPLIANCE](/goto/checkcompliance/)** (management). Check compliance with laws and regulations, to validate compliance which may include security aspects. See the [OWASP AI Guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) for privacy aspects of AI.  
+- **#[CHECKCOMPLIANCE](/goto/c6/)** (management). Check compliance with laws and regulations, to validate compliance which may include security aspects. See the [OWASP AI Guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) for privacy aspects of AI.  
   Links to standards:
 
   - [OpenCRE on Compliance](https://www.opencre.org/cre/510-324)
   - ISO 27002 Control 5.36 Compliance with policies, rules and standards. Gap: covers this control fully, with the particularity that AI regulation needs to be taken into account.
 
-- **#[SECEDUCATE](/goto/seceducate/)** (management). Security education for data scientists and development teams on AI threat awareness, including attacks on models. It is essential for all engineers, including data scientists, to attain a security mindset.
+- **#[SECEDUCATE](/goto/c7/)** (management). Security education for data scientists and development teams on AI threat awareness, including attacks on models. It is essential for all engineers, including data scientists, to attain a security mindset.
 
   Links to standards:
 
@@ -482,7 +482,7 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
 ## 1.2 General controls for sensitive data limitation
 
-- **#[DATAMINIMIZE](/goto/dataminimize/)** (development-time and runtime). Data minimize: remove or anonymize data fields or records that are unnecessary for the application to prevent potential leaks. Data minimization can also involve statistically analyzing a training dataset to identify and eliminate superfluous records or fields that are not essential for achieving sufficient performance (Data Science).
+- **#[DATAMINIMIZE](/goto/c8/)** (development-time and runtime). Data minimize: remove or anonymize data fields or records that are unnecessary for the application to prevent potential leaks. Data minimization can also involve statistically analyzing a training dataset to identify and eliminate superfluous records or fields that are not essential for achieving sufficient performance (Data Science).
 
   Purpose: reduce the impact in case of an attack by reducing the amount of data that can leak.
 
@@ -490,12 +490,12 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
   - Not covered yet in ISO/IEC standards. 
 
-- **#[ALLOWEDDATA](/goto/alloweddata/)** (development-time and runtime). Ensure allowed data, meaning the data used (e.g., training set) is permitted for the intended purpose. This is particularly important if consent was not given and the data contains personal information collected for a different purpose.
+- **#[ALLOWEDDATA](/goto/c10/)** (development-time and runtime). Ensure allowed data, meaning the data used (e.g., training set) is permitted for the intended purpose. This is particularly important if consent was not given and the data contains personal information collected for a different purpose.
   Links to standards:
 
   - ISO/IEC 23894 (AI risk management) covers this in A.8 Privacy. Gap: covers this control fully, with a brief section on the idea
 
-- **#[SHORTRETAIN](/goto/shortretain/)** (development-time and runtime). Short retain: Remove or anonymize data once it is no longer needed, or when legally required (e.g., due to privacy laws), to minimize the risk of data leakage.
+- **#[SHORTRETAIN](/goto/c11/)** (development-time and runtime). Short retain: Remove or anonymize data once it is no longer needed, or when legally required (e.g., due to privacy laws), to minimize the risk of data leakage.
 
   Limiting the retention period of data can be seen as a special form of data minimization. Privacy regulations typically require personal data to be removed when it is no longer needed for the purpose for which it was collected. Sometimes exceptions need to be made because of other rules (e.g. to keep a record of proof). Apart from these regulations, it is a general best practice to remove any sensitive data when it is no longer of use, to reduce the impact of a data leak.
   
@@ -503,7 +503,7 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
   - Not covered yet in ISO/IEC standards. 
 
-- **#[OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/)** (development-time data science). Obfuscate training data: attain a degree of obfuscation of sensitive data where possible. When this is done for personal data, it is referred to as _differential privacy_.
+- **#[OBFUSCATETRAININGDATA](/goto/c12/)** (development-time data science). Obfuscate training data: attain a degree of obfuscation of sensitive data where possible. When this is done for personal data, it is referred to as _differential privacy_.
 
   Examples of approaches are:
 
@@ -575,7 +575,7 @@ Note: For all controls in this document: a _vulnerability_ occurs when a control
 
   - Not covered yet in ISO/IEC standards. 
 
-- **#[DISCRETE](/goto/discrete/)** (management, development-time and runtime). Minimize access to technical details that could help attackers.
+- **#[DISCRETE](/goto/c13/)** (management, development-time and runtime). Minimize access to technical details that could help attackers.
 
   Purpose: reduce the information available to attackers, which can assist them in selecting and tailoring their attacks, thereby lowering the probability of a successful attack.
 
@@ -619,7 +619,7 @@ Example: LLMs (GenAI), just like most AI models, induce their results based on t
 
 **Controls to limit the effects of unwanted model behaviour:**
 
-- **#[OVERSIGHT](/goto/oversight/)** (runtime). Oversight of model behaviour by humans or business logic (guardrails).
+- **#[OVERSIGHT](/goto/c14/)** (runtime). Oversight of model behaviour by humans or business logic (guardrails).
   
   Purpose: Detect unwanted model behavior and correct or halt the execution of a model's decision. Note: Unwanted model behavior often cannot be entirely specified, limiting the effectiveness of guardrails.
   
@@ -633,7 +633,7 @@ Example: LLMs (GenAI), just like most AI models, induce their results based on t
   - ISO/IEC 42001 B.9.3 defines controls for human oversight and decisions regarding autonomy. Gap: covers this control partly (human oversight only, not business logic)
   - Not covered further in ISO/IEC standards. 
 
-- **#[LEASTMODELPRIVILEGE](/goto/leastmodelprivilege/)** (runtime infosec). Least model privilege: Minimize privileges; avoid connecting a model to an email facility to prevent it from sending incorrect information to others.
+- **#[LEASTMODELPRIVILEGE](/goto/c16/)** (runtime infosec). Least model privilege: Minimize privileges; avoid connecting a model to an email facility to prevent it from sending incorrect information to others.
 
   Links to standards:
 
@@ -641,7 +641,7 @@ Example: LLMs (GenAI), just like most AI models, induce their results based on t
   - [OpenCRE on least privilege](https://www.opencre.org/cre/368-633) Gap: idem
 
 - **#[AITRANSPARENCY](/goto/aitransparency/)** (runtime, management). AI transparency: By being transparent with users about the rough workings of the model, its training process, and the general expected accuracy and reliability of the AI system's output, people can adjust their reliance ([OWASP for LLM 09](https://llmtop10.com/llm09/)) on it accordingly. The simplest form of this is to inform users that an AI model is being involved.
-  See the [DISCRETE](/goto/discrete/) control for the balance between being transparent and being discrete about the model. Transparency here is about providing abstract information regarding the model and is therefore something else than _explainability_.
+  See the [DISCRETE](/goto/c13/) control for the balance between being transparent and being discrete about the model. Transparency here is about providing abstract information regarding the model and is therefore something else than _explainability_.
 
   Links to standards:
 
@@ -816,7 +816,7 @@ Recognition. 2022.
   Example approach: Measure model robustness by trying minor input deviations to detect meaningful outcome variations that undermine the model's reliability. If these variations are undetectable to the human eye but can produce false or incorrect outcome descriptions, they may also significantly undermine the model's reliability. Such cases indicate lack of model resilience to input variance resulting in sensitivity to evasion attacks and require detailed investigation.  
   If we interpret the model with its inputs as a "system" and the sensitivity to evasion attacks as the "system fault" then this sensitivity may also be interpreted as (local) lack of graceful degradation. Such issues can be addressed by, for example, increasing training samples for that part of the input domain and tuning/optimising the model for variance.
 
-  Another example approach: _Randomisation_ by injecting noise during training. The primary objective of this technique is to enhance the network's resilience to evasion attacks, especially those triggered by subtle, carefully crafted perturbations to input data that may result in misclassification or inaccurate predictions. See also [TRAINDATADISTORTION](/goto/traindatadistortion/) against data poisoning and [OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/) to minimize sensitive data through randomisation.
+  Another example approach: _Randomisation_ by injecting noise during training. The primary objective of this technique is to enhance the network's resilience to evasion attacks, especially those triggered by subtle, carefully crafted perturbations to input data that may result in misclassification or inaccurate predictions. See also [TRAINDATADISTORTION](/goto/traindatadistortion/) against data poisoning and [OBFUSCATETRAININGDATA](/goto/c12/) to minimize sensitive data through randomisation.
 
   Yet another approach is _gradient masking_: a technique employed to defend machine learning models against adversarial attacks. This involves altering the gradients of a model during training to increase the difficulty of generating adversarial examples for 
     attackers. Methods like adversarial training and ensemble approaches are utilized for gradient masking, but it comes with limitations, including computational expenses and potential in effectiveness against all types of attacks.
@@ -1234,7 +1234,7 @@ Example 3: false information in documents on the internet causes a Large Languag
 - **#[TRAINDATADISTORTION](/goto/traindatadistortion/)** (development-time data science) - Train data distortion:.making poisoned samples ineffective by smoothing or adding noise to training data (with the best practice of keeping the original training data, in order to expertiment with the filtering)
 
 
-  See also EVASTIONROBUSTMODEL on adding noise against evasion attacks and [OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/) to minimize sensitive data through randomisation.
+  See also EVASTIONROBUSTMODEL on adding noise against evasion attacks and [OBFUSCATETRAININGDATA](/goto/c12/) to minimize sensitive data through randomisation.
 
   Examples:
 
@@ -1328,7 +1328,7 @@ Note: some controls in this document are application security controls that are 
 
 **Controls:**
 
-- See The Governance controls in the general section, in particular [SECDEVPROGRAM](/goto/secdevprogram/) to attain application security, and [SECPROGRAM](/goto/secprogram/) to attain information security in the organization.
+- See The Governance controls in the general section, in particular [SECDEVPROGRAM](/goto/c4/) to attain application security, and [SECPROGRAM](/goto/c3/) to attain information security in the organization.
 - Technical application security controls  
   Links to standards:
   - See [OpenCRE on technical application security controls](https://www.opencre.org/cre/636-660)
@@ -1366,7 +1366,7 @@ Stealing model parameters from a live system by breaking into it (e.g. by gainin
 **Controls:**
 
 - See General controls
-- **#[RUNTIMEMODELCONFIDENTIALITY](/goto/runtimemodelconfidentiality/)** (runtime appsec). Run-time model confidentiality: see [SECDEVPROGRAM](/goto/secdevprogram/) to attain application security, with the focus on protecting the storage of model parameters (e.g. access control, encryption).  
+- **#[RUNTIMEMODELCONFIDENTIALITY](/goto/runtimemodelconfidentiality/)** (runtime appsec). Run-time model confidentiality: see [SECDEVPROGRAM](/goto/c4/) to attain application security, with the focus on protecting the storage of model parameters (e.g. access control, encryption).  
   A Trusted Execution Environment can help to protect against attacks, including side-channel hardware attacks like [DeepSniffer](https://sites.cs.ucsb.edu/~sherwood/pubs/ASPLOS-20-deepsniff.pdf).
 
 - **#[MODELOBFUSCATION](/goto/modelobfuscation/)** (runtime appsec). Model obfuscation: techniques to store the model in a complex and confusing way with minimal technical information, to make it more difficult for attackers to extract and understand a model from a deployed system. See this [article on ModelObfuscator](https://dl.acm.org/doi/abs/10.1145/3597926.3598113)
@@ -1437,7 +1437,7 @@ GenAI models mostly live in the cloud - often managed by an external party, whic
 
 **Controls:**
 
-- **#[MODELINPUTCONFIDENTIALITY](/goto/modelinputconfidentiality/)** (runtime appsec). Model input confidentiality: see [SECDEVPROGRAM](/goto/secdevprogram/) to attain application security, with the focus on protecting the transport and storage of model parameters (e.g. access control, encryption, minimize retention)
+- **#[MODELINPUTCONFIDENTIALITY](/goto/modelinputconfidentiality/)** (runtime appsec). Model input confidentiality: see [SECDEVPROGRAM](/goto/c4/) to attain application security, with the focus on protecting the transport and storage of model parameters (e.g. access control, encryption, minimize retention)
 
 # References
 
@@ -1484,23 +1484,23 @@ Misc.:
 
   1.1 Governance controls:
 
-  - [AIPROGRAM](/goto/aiprogram/ ) (management)
-  - [SECPROGRAM](/goto/secprogram/) (management)
-  - [SECDEVPROGRAM](/goto/secdevprogram/) (management)
-  - [DEVPROGRAM](/goto/devprogram/) (management)
-  - [CHECKCOMPLIANCE](/goto/checkcompliance/) (management)
-  - [SECEDUCATE](/goto/seceducate/) (management)
+  - [AIPROGRAM](/goto/c1/ ) (management)
+  - [SECPROGRAM](/goto/c3/) (management)
+  - [SECDEVPROGRAM](/goto/c4/) (management)
+  - [DEVPROGRAM](/goto/c5/) (management)
+  - [CHECKCOMPLIANCE](/goto/c6/) (management)
+  - [SECEDUCATE](/goto/c7/) (management)
     1.2 Controls for sensitive data limitation:
-  - [DATAMINIMIZE](/goto/dataminimize/) (development-time and runtime)
-  - [ALLOWEDDATA](/goto/alloweddata/) (development-time and runtime)
-  - [SHORTRETAIN](/goto/shortretain/) (development-time and runtime)
-  - [OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/) (development-time data science).
-  - [DISCRETE](/goto/discrete/) (management, development-time and runtime)
+  - [DATAMINIMIZE](/goto/c8/) (development-time and runtime)
+  - [ALLOWEDDATA](/goto/c10/) (development-time and runtime)
+  - [SHORTRETAIN](/goto/c11/) (development-time and runtime)
+  - [OBFUSCATETRAININGDATA](/goto/c12/) (development-time data science).
+  - [DISCRETE](/goto/c13/) (management, development-time and runtime)
 
     1.3. Controls to limit the effects of unwanted behaviour from threats:
 
-  - [OVERSIGHT](/goto/oversight/) (runtime)
-  - [LEASTMODELPRIVILEGE](/goto/leastmodelprivilege/) (runtime infosec)
+  - [OVERSIGHT](/goto/c14/) (runtime)
+  - [LEASTMODELPRIVILEGE](/goto/c16/) (runtime infosec)
   - [AITRANSPARENCY](/goto/aitransparency/) (runtime, management)
   - [CONTINUOUSVALIDATION](/goto/continuousvalidation/) (runtime data science)
   - [EXPLAINABILITY](/goto/explainability/) (runtime data science)
@@ -1613,7 +1613,7 @@ Misc.:
   4.1. Non AI-specific application security threats  
   Impact: General application security threats can impact confidentiality, integrity and availability of all assets.
 
-  - See general controls - in particular [SECDEVPROGRAM](/goto/secdevprogram/)
+  - See general controls - in particular [SECDEVPROGRAM](/goto/c4/)
   - Technical application security controls
   - Operational security
 
