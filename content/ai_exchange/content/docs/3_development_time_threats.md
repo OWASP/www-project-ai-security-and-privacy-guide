@@ -234,8 +234,8 @@ Data manipulation is referred to as data poisoning and is covered in separate th
 - See controls for broad model poisoning
 
 ### 3.1.3 Transfer learning attack
+Description: An attacker supplies a manipulated pre-trained model which is then obtained and unknowingly further trained/fine tuned with still having the unwanted behaviour.  
 Category: development-time  
-Description: An attacker supplies a manipulated pre-trained model which is then unknowingly further trained/fine tuned with still having the unwanted behaviour.  
 Permalink: https://owaspai.org/goto/t41
 
 AI models are sometimes obtained elsewhere (e.g. open source) and then further trained or fine-tuned. These models may have been manipulated(poisoned) at the source, or in transit. See [OWASP for LLM 05: Supply Chain Vulnerabilities.](https://llmtop10.com/llm05/).
