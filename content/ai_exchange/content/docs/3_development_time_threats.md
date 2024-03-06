@@ -79,7 +79,7 @@ Links to standards:
 #### #FEDERATEDLEARNING
 Description: Federated (or better: federated) learning can be applied when a training set is distributed over different organizations, preventing that the data needs to be collected in a central place - increasing the risk of leaking.  
 Category: development-time data science.  
-Permalink: https://owaspai.org/goto/federatedlearning/
+Permalink: https://owaspai.org/goto/t31/
 
 Federated Learning is a decentralized Machine Learning architecture wherein a number of clients (e.g. sensor or mobile devices) participate in collaborative, decentralized, asynchronous training, which is orchestrated and aggregated by a controlling central server. Advantages of Federated Learning include reduced central compute, and the potential for preservation of privacy, since training data may remain local to the client.
 
@@ -234,9 +234,9 @@ Data manipulation is referred to as data poisoning and is covered in separate th
 - See controls for broad model poisoning
 
 ### 3.1.3 Transfer learning attack
-Category: development-time  
-Description: An attacker supplies a manipulated pre-trained model which is then unknowingly further trained/fine tuned with still having the unwanted behaviour.  
-Permalink: https://owaspai.org/goto/t1
+Description: An attacker supplies a manipulated pre-trained model which is then obtained and unknowingly further trained/fine tuned with still having the unwanted behaviour.  
+Category: development-time threat  
+Permalink: https://owaspai.org/goto/t41
 
 AI models are sometimes obtained elsewhere (e.g. open source) and then further trained or fine-tuned. These models may have been manipulated(poisoned) at the source, or in transit. See [OWASP for LLM 05: Supply Chain Vulnerabilities.](https://llmtop10.com/llm05/).
 
