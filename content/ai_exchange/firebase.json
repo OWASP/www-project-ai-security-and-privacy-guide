@@ -319,7 +319,7 @@
         "type": 301
       },
       {
-        "source": "/goto/transferlearnattack/",
+        "source": "/goto/transferlearningattack/",
         "destination": "/docs/3_development_time_threats/#313-transfer-learning-attack",
         "type": 301
       },
