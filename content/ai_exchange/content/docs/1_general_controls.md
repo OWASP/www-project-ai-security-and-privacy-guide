@@ -2,12 +2,15 @@
 title: 1. General controls
 weight: 2
 ---
+>Permalink: https://owaspai.org/goto/generalcontrols/
 ## 1.1 General governance controls
+>Permalink: https://owaspai.org/goto/governancecontrols/
 
 #### #AIPROGRAM
 
 Description: Install and execute a program to govern AI. Take responsibility for AI as an organization, by keeping an inventory of AI initiatives, perform risk analysis on them, and manage those risks.  
-Category: management
+> Category: management  
+> Permalink: https://owaspai.org/goto/aiprogram/
 
 Purpose: 1) reduces probability of AI initiatives being overlooked for proper governance (including security) - as covered by controls in this document, and 2) increases incentive for proper governance as the AI program takes responsibility for it. Without proper governance, the controls in this document can only happen by accident.
 
@@ -33,7 +36,10 @@ Links to standards:
 42001 is about extending your risk management system - it focuses on governance. ISO 5338 (see #[DEVPROGRAM](#devprogram) below) is about extending your software lifecycle practices - it focuses on engineering and everything around it. ISO 42001 can be seen as a management system for the governance of responsible AI in an organization, similar to how ISO 27001 is a management system for information security. ISO 42001 doesn’t go into the lifecycle processes. It for example does not discuss how to train models, how to do data lineage, continuous validation, versioning of AI models, project planning challenges, and how and when exactly sensitive data is used in engineering.
 
 #### #SECPROGRAM 
-(management). Having a security program. Include the whole AI lifecycle and AI particularities in the organization's security program (also referred to as _information security management system_).
+
+Description:Having a security program. Include the whole AI lifecycle and AI particularities in the organization's security program (also referred to as _information security management system_).
+> Category: management  
+> Permalink: https://owaspai.org/goto/secprogram/
 
 Make sure to include AI-specific threats and assets (e.g. assets the development environment including AI Ops / ML Ops).
 
@@ -94,7 +100,9 @@ Links to standards:
       
 
 #### #SECDEVPROGRAM
-(management). Make data science development activities part of the secure software development program.
+Description: Make data science development activities part of the secure software development program.
+> Category: management  
+> Permalink: https://owaspai.org/goto/secdevprogram/
 
 See elsewhere in this document for [SUPPLYCHAINMANAGE](/goto/supplychainmanage/) which discusses AI-specific supply-chain risks.
 
