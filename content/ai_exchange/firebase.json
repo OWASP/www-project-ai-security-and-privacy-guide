@@ -9,422 +9,412 @@
     ],
     "redirects": [
       {
-        "source": "/goto/general_controls/",
+        "source": "/goto/generalcontrols/",
         "destination": "/docs/1_general_controls/",
         "type": 301
       },
       {
-        "source": "/goto/c1/",
+        "source": "/goto/governancecontrols/",
         "destination": "/docs/1_general_controls/#11-general-governance-controls",
         "type": 301
-      },
+      },  
       {
-        "source": "/goto/c2/",
+        "source": "/goto/aiprogram/",
         "destination": "/docs/1_general_controls/#aiprogram",
         "type": 301
       },
       {
-        "source": "/goto/c3/",
+        "source": "/goto/secprogram/",
         "destination": "/docs/1_general_controls/#secprogram",
         "type": 301
       },
       {
-        "source": "/goto/c4/",
+        "source": "/goto/secdevprogram/",
         "destination": "/docs/1_general_controls/#secdevprogram",
         "type": 301
       },
       {
-        "source": "/goto/c5/",
+        "source": "/goto/devprogram/",
         "destination": "/docs/1_general_controls/#devprogram",
         "type": 301
       },
       {
-        "source": "/goto/c6/",
+        "source": "/goto/checkcompliance/",
         "destination": "/docs/1_general_controls/#checkcompliance",
         "type": 301
       },
       {
-        "source": "/goto/c7/",
+        "source": "/goto/seceducate/",
         "destination": "/docs/1_general_controls/#seceducate",
         "type": 301
       },
       {
-        "source": "/goto/c8/",
+        "source": "/goto/datalimit/",
         "destination": "/docs/1_general_controls/#12-general-controls-for-sensitive-data-limitation",
         "type": 301
       },
       {
-        "source": "/goto/c9/",
+        "source": "/goto/dataminimize/",
         "destination": "/docs/1_general_controls/#dataminimize",
         "type": 301
       },
       {
-        "source": "/goto/c10/",
+        "source": "/goto/alloweddata/",
         "destination": "/docs/1_general_controls/#alloweddata",
         "type": 301
       },
       {
-        "source": "/goto/c11/",
+        "source": "/goto/shortretain/",
         "destination": "/docs/1_general_controls/#shortretain",
         "type": 301
       },
       {
-        "source": "/goto/c12/",
+        "source": "/goto/obfuscatetrainingdata/",
         "destination": "/docs/1_general_controls/#obfuscatetrainingdata",
         "type": 301
       },
       {
-        "source": "/goto/c13/",
+        "source": "/goto/discrete/",
         "destination": "/docs/1_general_controls/#discrete",
         "type": 301
       },
       {
-        "source": "/goto/c14/",
+        "source": "/goto/limitunwanted/",
         "destination": "/docs/1_general_controls/#13-controls-to-limit-the-effects-of-unwanted-behaviour",
         "type": 301
       },
       {
-        "source": "/goto/c15/",
+        "source": "/goto/oversight/",
         "destination": "/docs/1_general_controls/#oversight",
         "type": 301
       },
       {
-        "source": "/goto/c16/",
+        "source": "/goto/leastmodelprivilege/",
         "destination": "/docs/1_general_controls/#leastmodelprivilege",
         "type": 301
       },
       {
-        "source": "/goto/c17/",
+        "source": "/goto/aitransparency/",
         "destination": "/docs/1_general_controls/#aitransparency",
         "type": 301
       },
       {
-        "source": "/goto/c18/",
+        "source": "/goto/continuousvalidation/",
         "destination": "/docs/1_general_controls/#continuousvalidation",
         "type": 301
       },
       {
-        "source": "/goto/c19/",
+        "source": "/goto/explainability/",
         "destination": "/docs/1_general_controls/#explainability",
         "type": 301
       },
       {
-        "source": "/goto/c20/",
+        "source": "/goto/unwantedbiastesting/",
         "destination": "/docs/1_general_controls/#unwantedbiastesting",
         "type": 301
       },
       {
-        "source": "/goto/threats_through_use/",
+        "source": "/goto/threatsuse/",
         "destination": "/docs/2_threats_through_use/",
         "type": 301
       },
       {
-        "source": "/goto/t1/",
-        "destination": "/docs/2_threats_through_use/#20-threats-through-use---introduction",
-        "type": 301
-      },
-      {
-        "source": "/goto/t2/",
+        "source": "/goto/monitoruse/",
         "destination": "/docs/2_threats_through_use/#monitoruse",
         "type": 301
       },
       {
-        "source": "/goto/t3/",
+        "source": "/goto/ratelimit/",
         "destination": "/docs/2_threats_through_use/#ratelimit",
         "type": 301
       },
       {
-        "source": "/goto/t4/",
+        "source": "/goto/modelaccesscontrol/",
         "destination": "/docs/2_threats_through_use/#modelaccesscontrol",
         "type": 301
       },
       {
-        "source": "/goto/t5/",
+        "source": "/goto/evasion/",
         "destination": "/docs/2_threats_through_use/#21-evasion---model-behaviour-manipulation-through-use",
         "type": 301
       },
       {
-        "source": "/goto/t6/",
+        "source": "/goto/detectoddinput/",
         "destination": "/docs/2_threats_through_use/#detectoddinput",
         "type": 301
       },
       {
-        "source": "/goto/t7/",
+        "source": "/goto/detectadversarialinput/",
         "destination": "/docs/2_threats_through_use/#detectadversarialinput",
         "type": 301
       },
       {
-        "source": "/goto/t8/",
+        "source": "/goto/evasionrobustmodel/",
         "destination": "/docs/2_threats_through_use/#evasionrobustmodel",
         "type": 301
       },
       {
-        "source": "/goto/t9/",
+        "source": "/goto/trainadversarial/",
         "destination": "/docs/2_threats_through_use/#trainadversarial",
         "type": 301
       },
       {
-        "source": "/goto/t10/",
+        "source": "/goto/inputdistortion/",
         "destination": "/docs/2_threats_through_use/#inputdistortion",
         "type": 301
       },
       {
-        "source": "/goto/t11/",
+        "source": "/goto/adversarialrobustdistillation/",
         "destination": "/docs/2_threats_through_use/#adversarialrobustdistillation",
         "type": 301
       },
       {
-        "source": "/goto/t12/",
+        "source": "/goto/closedboxevasion/",
         "destination": "/docs/2_threats_through_use/#211-closed-box-evasion",
         "type": 301
       },
       {
-        "source": "/goto/t13/",
+        "source": "/goto/openboxevasion/",
         "destination": "/docs/2_threats_through_use/#212-open-box-evasion",
         "type": 301
       },
       {
-        "source": "/goto/t14/",
+        "source": "/goto/evasionafterpoison/",
         "destination": "/docs/2_threats_through_use/#213-evasion-after-data-poisoning",
         "type": 301
       },
       {
-        "source": "/goto/t15/",
+        "source": "/goto/disclosureuse/",
         "destination": "/docs/2_threats_through_use/#22-sensitive-data-disclosure-through-use",
         "type": 301
       },
       {
-        "source": "/goto/t16/",
+        "source": "/goto/disclosureuseoutput/",
         "destination": "/docs/2_threats_through_use/#221-sensitive-data-output-from-model",
         "type": 301
       },
       {
-        "source": "/goto/t17/",
+        "source": "/goto/filtersensitivemodeloutput/",
         "destination": "/docs/2_threats_through_use/#filtersensitivemodeloutput",
         "type": 301
       },
       {
-        "source": "/goto/t18/",
+        "source": "/goto/modelinversionandmembership/",
         "destination": "/docs/2_threats_through_use/#222-model-inversion-and-membership-inference",
         "type": 301
       },
       {
-        "source": "/goto/t19/",
+        "source": "/goto/obscureconfidence/",
         "destination": "/docs/2_threats_through_use/#obscureconfidence",
         "type": 301
       },
       {
-        "source": "/goto/t20/",
+        "source": "/goto/smallmodel/",
         "destination": "/docs/2_threats_through_use/#smallmodel",
         "type": 301
       },
       {
-        "source": "/goto/t21/",
+        "source": "/goto/modeltheftuse/",
         "destination": "/docs/2_threats_through_use/#23-model-theft-through-use",
         "type": 301
       },
       {
-        "source": "/goto/t22/",
+        "source": "/goto/denialmodelservice/",
         "destination": "/docs/2_threats_through_use/#24-failure-or-malfunction-of-ai-specific-elements-through-use",
         "type": 301
       },
       {
-        "source": "/goto/t23/",
+        "source": "/goto/dosinputvalidation/",
         "destination": "/docs/2_threats_through_use/#dosinputvalidation",
         "type": 301
       },
       {
-        "source": "/goto/t24/",
+        "source": "/goto/limitresources/",
         "destination": "/docs/2_threats_through_use/#limitresources",
         "type": 301
       },
       {
-        "source": "/goto/t25/",
+        "source": "/goto/denialmodelservicedata/",
         "destination": "/docs/2_threats_through_use/#241-denial-of-model-service-due-to-inconsistent-data-or-a-sponge-example",
         "type": 301
       },
       {
-        "source": "/goto/development_time_threats/",
+        "source": "/goto/developmenttime/",
         "destination": "/docs/3_development_time_threats/",
         "type": 301
       },
       {
-        "source": "/goto/t26/",
+        "source": "/goto/developmenttimeintro/",
         "destination": "/docs/3_development_time_threats/#30-development-time-threats---introduction",
         "type": 301
       },
       {
-        "source": "/goto/t27/",
+        "source": "/goto/devdataprotect/",
         "destination": "/docs/3_development_time_threats/#devdataprotect",
         "type": 301
       },
       {
-        "source": "/goto/t28/",
+        "source": "/goto/devsecurity/",
         "destination": "/docs/3_development_time_threats/#devsecurity",
         "type": 301
       },
       {
-        "source": "/goto/t29/",
+        "source": "/goto/segregatedata/",
         "destination": "/docs/3_development_time_threats/#segregatedata",
         "type": 301
       },
       {
-        "source": "/goto/t30/",
+        "source": "/goto/confcompute/",
         "destination": "/docs/3_development_time_threats/#confcompute",
         "type": 301
       },
       {
-        "source": "/goto/t31/",
+        "source": "/goto/federatedlearning/",
         "destination": "/docs/3_development_time_threats/#federatedlearning",
         "type": 301
       },
       {
-        "source": "/goto/t32/",
+        "source": "/goto/supplychainmanage/",
         "destination": "/docs/3_development_time_threats/#supplychainmanage",
         "type": 301
       },
       {
-        "source": "/goto/t33/",
+        "source": "/goto/modelpoison/",
         "destination": "/docs/3_development_time_threats/#31-broad-model-poisoning-model-behaviour-manipulation-by-altering-data-engineering-or-model",
         "type": 301
       },
       {
-        "source": "/goto/t34/",
+        "source": "/goto/modelensemble/",
         "destination": "/docs/3_development_time_threats/#modelensemble",
         "type": 301
       },
       {
-        "source": "/goto/t35/",
+        "source": "/goto/datapoison/",
         "destination": "/docs/3_development_time_threats/#311-data-poisoning-by-changing-data-development-time-or-supply-chain",
         "type": 301
       },
       {
-        "source": "/goto/t36/",
+        "source": "/goto/moretraindata/",
         "destination": "/docs/3_development_time_threats/#moretraindata",
         "type": 301
       },
       {
-        "source": "/goto/t37/",
+        "source": "/goto/dataqualitycontrol/",
         "destination": "/docs/3_development_time_threats/#dataqualitycontrol",
         "type": 301
       },
       {
-        "source": "/goto/t38/",
+        "source": "/goto/traindatadistortion/",
         "destination": "/docs/3_development_time_threats/#traindatadistortion",
         "type": 301
       },
       {
-        "source": "/goto/t39/",
+        "source": "/goto/poisonrobustmodel/",
         "destination": "/docs/3_development_time_threats/#poisonrobustmodel",
         "type": 301
       },
       {
-        "source": "/goto/t40/",
+        "source": "/goto/devmodelpoison/",
         "destination": "/docs/3_development_time_threats/#312-development-time-model-poisoning",
         "type": 301
       },
       {
-        "source": "/goto/t41/",
+        "source": "/goto/transferlearnattack/",
         "destination": "/docs/3_development_time_threats/#313-transfer-learning-attack",
         "type": 301
       },
       {
-        "source": "/goto/t42/",
-        "destination": "/docs/3_development_time_threats/#32-sensitive-data-leak-development-time",
-        "type": 301
-      },
-      {
-        "source": "/goto/t43/",
-        "destination": "/docs/3_development_time_threats/#321-development-time-data-leak",
-        "type": 301
-      },
-      {
-        "source": "/goto/t44/",
-        "destination": "/docs/3_development_time_threats/#322-model-theft-through-development-time-model-parameter-leak",
-        "type": 301
-      },
-      {
-        "source": "/goto/t45/",
-        "destination": "/docs/3_development_time_threats/#323-source-codeconfiguration-leak",
-        "type": 301
-      },
-      {
-        "source": "/goto/runtime_application_security_threats/",
+        "source": "/goto/runtimeappsec/",
         "destination": "/docs/4_runtime_application_security_threats/",
         "type": 301
       },
       {
-        "source": "/goto/t46/",
+        "source": "/goto/devleak/",
+        "destination": "/docs/3_development_time_threats/#32-sensitive-data-leak-development-time",
+        "type": 301
+      },
+      {
+        "source": "/goto/devdataleak/",
+        "destination": "/docs/3_development_time_threats/#321-development-time-data-leak",
+        "type": 301
+      },
+      {
+        "source": "/goto/devmodelleak/",
+        "destination": "/docs/3_development_time_threats/#322-model-theft-through-development-time-model-parameter-leak",
+        "type": 301
+      },
+      {
+        "source": "/goto/devcodeleak/",
+        "destination": "/docs/3_development_time_threats/#323-source-codeconfiguration-leak",
+        "type": 301
+      },
+      {
+        "source": "/goto/generalappsecthreats/",
         "destination": "/docs/4_runtime_application_security_threats/#41-non-ai-specific-application-security-threats",
         "type": 301
       },
       {
-        "source": "/goto/t47/",
+        "source": "/goto/runtimemodelpoison/",
         "destination": "/docs/4_runtime_application_security_threats/#42-runtime-model-poisoning-manipulating-the-model-itself-or-its-inputoutput-logic",
         "type": 301
       },
       {
-        "source": "/goto/t48/",
+        "source": "/goto/runtimemodelintegrity/",
         "destination": "/docs/4_runtime_application_security_threats/#runtimemodelintegrity",
         "type": 301
       },
       {
-        "source": "/goto/t49/",
+        "source": "/goto/runtimemodeliointegrity/",
         "destination": "/docs/4_runtime_application_security_threats/#runtimemodeliointegrity",
         "type": 301
       },
       {
-        "source": "/goto/t50/",
-        "destination": "/docs/4_runtime_application_security_threats/#43-runtime-model-theft",
-        "type": 301
-      },
-      {
-        "source": "/goto/t51/",
+        "source": "/goto/runtimemodelconfidentiality/",
         "destination": "/docs/4_runtime_application_security_threats/#runtimemodelconfidentiality",
         "type": 301
       },
       {
-        "source": "/goto/t52/",
+        "source": "/goto/modelobfuscation/",
         "destination": "/docs/4_runtime_application_security_threats/#modelobfuscation",
         "type": 301
       },
       {
-        "source": "/goto/t53/",
+        "source": "/goto/insecureoutput/",
         "destination": "/docs/4_runtime_application_security_threats/#44-insecure-output-handling",
         "type": 301
       },
       {
-        "source": "/goto/t54/",
+        "source": "/goto/encodemodeloutput/",
         "destination": "/docs/4_runtime_application_security_threats/#encodemodeloutput",
         "type": 301
       },
-      {
-        "source": "/goto/t55/",
+       {
+        "source": "/goto/directpromptinjection/",
         "destination": "/docs/4_runtime_application_security_threats/#45-direct-prompt-injection",
         "type": 301
       },
       {
-        "source": "/goto/t56/",
+        "source": "/goto/indirectpromptinjection/",
         "destination": "/docs/4_runtime_application_security_threats/#46-indirect-prompt-injection",
         "type": 301
       },
       {
-        "source": "/goto/t57/",
+        "source": "/goto/promptinputvalidation/",
         "destination": "/docs/4_runtime_application_security_threats/#promptinputvalidation",
         "type": 301
       },
       {
-        "source": "/goto/t58/",
+        "source": "/goto/inputsegregation/",
         "destination": "/docs/4_runtime_application_security_threats/#inputsegregation",
         "type": 301
       },
       {
-        "source": "/goto/t59/",
+        "source": "/goto/leakinput/",
         "destination": "/docs/4_runtime_application_security_threats/#47-leak-sensitive-input-data",
         "type": 301
       },
       {
-        "source": "/goto/t60/",
+        "source": "/goto/modelinputconfidentiality/",
         "destination": "/docs/4_runtime_application_security_threats/#modelinputconfidentiality",
         "type": 301
       }
