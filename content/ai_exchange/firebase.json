@@ -221,6 +221,7 @@
       {
         "source": "/goto/denialmodelservice/",
         "destination": "/docs/2_threats_through_use/#24-failure-or-malfunction-of-ai-specific-elements-through-use",
+        https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/content/ai_exchange/content/docs/2_threats_through_use.md#24-failure-or-malfunction-of-ai-specific-elements-through-use
         "type": 301
       },
       {
@@ -280,7 +281,7 @@
       },
       {
         "source": "/goto/modelpoison/",
-        "destination": "/docs/3_development_time_threats/#31-broad-model-poisoning-model-behaviour-manipulation-by-altering-data-engineering-or-model",
+        "destination": "/docs/3_development_time_threats/#31-broad-model-poisoning-development-time",
         "type": 301
       },
       {
