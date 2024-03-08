@@ -70,7 +70,7 @@ Links to standards:
 - ISO 27002 control 8.31 Separation of development, test and production environments. Gap: covers this control partly - the particularity is that the development environment typically has the sensitive data instead of the production environment - which is typically the other way around in non-AI systems. Therefore it helps to restrict access to that data within the development environment. Even more: within the development environment further segregation can take place to limit access to only those who need the data for their work, as some developers will not be processing data.
 
 #### #CONFCOMPUTE
-(development-time infosec). 'Confidential compute': If available and possible, use features of the data science environment to hide training data and model parameters from model engineers
+(development-time infosec). 'Confidential compute': If available and possible, use features of the data science environment to hide training data and model parameters from model engineers - even while it is in use.
 
 Links to standards:
 
