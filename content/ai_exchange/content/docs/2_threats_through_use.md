@@ -13,11 +13,11 @@ Threats through use take place through normal interaction with an AI model: prov
 
 #### #MONITORUSE 
 
-(runtime appsec). Monitor the use of the model (input, date, time, user) by registering it in logs and make it part of incident detection, including:
+(runtime appsec). Monitor the use of the model (input, date, time, user) by registering it in logs, so it can be used to reconstruct incidents, and made it part of the existing incident detection process - extended with AI-specific methods, including:
 
   - inproper functioning of the model (see [CONTINUOUSVALIDATION](/goto/continuousvalidation/) and [UNWANTEDBIASTESTING](/goto/unwantedbiastesting/))
   - suspicious patterns of model use (e.g. high frequency - see [RATELIMIT](#ratelimit) and [DETECTADVERSARIALINPUT](#detectadversarialinput))
-  - suspicious inputs (see [DETECTODDINPUT](#detectoddinput) and [DETECTADVERSARIALINPUT](#detectadversarialinput))
+  - suspicious inputs or series of inputs (see [DETECTODDINPUT](#detectoddinput) and [DETECTADVERSARIALINPUT](#detectadversarialinput))
 
 By adding details to logs on the version of the model used and the output, troubleshooting becomes easier.
   
