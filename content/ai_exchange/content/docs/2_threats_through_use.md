@@ -201,17 +201,19 @@ Recognition. 2022.
 #### #EVASIONROBUSTMODEL
 (development-time data science). Choose an evasion-robust model design, configuration and/or training approach to maximize resilience against evasion (Data science).
 
-A robust model in the light of evasion is a model that does not display significant changes in output for minor changes in input.
+A robust model in the light of evasion is a model that does not display significant changes in output for minor changes in input. Adversarial examples are the name for inputs that represent input with an unwanted result, where the input is a minor change of an input that leads to a wanted reults.
 
-Example approach: Measure model robustness by trying minor input deviations to detect meaningful outcome variations that undermine the model's reliability. If these variations are undetectable to the human eye but can produce false or incorrect outcome descriptions, they may also significantly undermine the model's reliability. Such cases indicate lack of model resilience to input variance resulting in sensitivity to evasion attacks and require detailed investigation.  
+In other words: if we interpret the model with its inputs as a "system" and the sensitivity to evasion attacks as the "system fault" then this sensitivity may also be interpreted as (local) lack of graceful degradation.
 
-If we interpret the model with its inputs as a "system" and the sensitivity to evasion attacks as the "system fault" then this sensitivity may also be interpreted as (local) lack of graceful degradation. Such issues can be addressed by, for example, increasing training samples for that part of the input domain and tuning/optimising the model for variance.
-
-Another example approach: _Randomisation_ by injecting noise during training. The primary objective of this technique is to enhance the network's resilience to evasion attacks, especially those triggered by subtle, carefully crafted perturbations to input data that may result in misclassification or inaccurate predictions. See also [TRAINDATADISTORTION](/goto/traindatadistortion/) against data poisoning and [OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/) to minimize sensitive data through randomisation.
-
-Yet another approach is _gradient masking_: a technique employed to defend machine learning models against adversarial attacks. This involves altering the gradients of a model during training to increase the difficulty of generating adversarial examples for  attackers. Methods like adversarial training and ensemble approaches are utilized for gradient masking, but it comes with limitations, including computational expenses and potential in effectiveness against all types of attacks.
-
+Reinforcing adversarial robustness is an experimental process where model robustness is measured in order to determine countermeasures. Measurement takes place by trying minor input deviations to detect meaningful outcome variations that undermine the model's reliability. If these variations are undetectable to the human eye but can produce false or incorrect outcome descriptions, they may also significantly undermine the model's reliability. Such cases indicate lack of model resilience to input variance resulting in sensitivity to evasion attacks and require detailed investigation.  
 Adversarial robustness (the senstitivity to adversarial examples) can be assessed with tools like [IBM Adversarial Robustness Toolbox](https://research.ibm.com/projects/adversarial-robustness-toolbox), [CleverHans](https://github.com/cleverhans-lab/cleverhans), or [Foolbox](https://github.com/bethgelab/foolbox).
+
+Robustness issues can be addressed by:
+- Adversarial training - see [TRAINADVERSARIAL](/goto/trainadversarial/)
+- Increasing training samples for the problematic part of the input domain
+- Tuning/optimising the model for variance
+- _Randomisation_ by injecting noise during training, causing the input space for correct classifications to grow. See also [TRAINDATADISTORTION](/goto/traindatadistortion/) against data poisoning and [OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/) to minimize sensitive data through randomisation.
+- _gradient masking_: a technique employed to make training more efficient and defend machine learning models against adversarial attacks. This involves altering the gradients of a model during training to increase the difficulty of generating adversarial examples for  attackers. Methods like adversarial training and ensemble approaches are utilized for gradient masking, but it comes with limitations, including computational expenses and potential in effectiveness against all types of attacks. See [Article in which this was introduced](https://arxiv.org/abs/1602.02697).
 
 Care must be taken when considering robust model designs, as security concerns have arisen about their effectiveness.
 
