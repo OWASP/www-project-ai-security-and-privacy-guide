@@ -103,6 +103,8 @@ Identifying abnormal or irregular instances that raise suspicions by differing s
 
 Example: The system might flag a vehicle going the wrong way on a one-way street as an anomaly. It's not just an outlier; it's an anomaly that indicates a potentially dangerous situation.
 
+An example of how to implement this is _activation Analysis_: Examining the activations of different layers in a neural network can reveal unusual patterns (anomalies) when processing an adversarial input. These anomalies can be used as a signal to detect potential attacks.
+
 **Open Set Recognition (OSR)** - a way to perform Anomaly Detection):  
 Classifying known classes while identifying and rejecting unknown classes during testing. OSR is a way to perform anomaly detection, as it involves recognizing when an instance does not belong to any of the learned categories. This recognition makes use of the decision boundaries of the model.
 
@@ -132,14 +134,14 @@ References:
 
 
 #### #DETECTADVERSARIALINPUT
-(runtime data science). Detect adversarial input: Implement tools to detect specific evasions in input (e.g. patches in images).
+(runtime data science). Detect adversarial input: Implement tools to detect specific attack patterns in input or series of inputs (e.g. patches in images).
 
 The main concepts of adversarial attack detectors include:
-  - Activation Analysis: Examining the activations of different layers in a neural network can reveal unusual patterns or anomalies when processing an adversarial input. These anomalies can be used as a signal to detect potential attacks.
-  - Statistical Analysis: This involves examining the statistical properties of the input data. Adversarial attacks often leave statistical anomalies in the data, which can be detected through various statistical tests or anomaly detection techniques. Sometimes this involves statistical properties of input from a specific user, for example to detect series of small deviations in the input space, indicating a possible attack.
-  - Input Distortion Based Techniques (IDBT): A function is used to modify the input to remove any adversarial data. The model is applied to both versions of the image, the original input and the modified version. The results are compared to detect possible attacks.
-  - Detection of adversarial patches: These patches are localized, often visible modifications that can even be placed in the real world. The techniques mentioned above can detect adversarial patches, yet they often require modification due to the unique noise pattern of these patches, particularly when they are used in real-world settings and processed through a camera. In these scenarios, the entire image includes benign camera noise (camera fingerprint), complicating the detection of the specially crafted adversarial patches.
-  
+- **Statistical analysis of input series**: Adversarial attacks often follow certain patterns, which can be analysed by looking at input on a per-user basis. For example to detect series of small deviations in the input space, indicating a possible attack such as a search to perform model inversion or an evasion attack. These attacks also typically have series of inputs with a general increase of confidence value. Another example: if inputs seem systematic (very random or very uniform or covering the entire input space) it may indicate a [model theft throught use attack](/goto/modeltheftuse/).
+- **Input Distortion Based Techniques (IDBT)**: A function is used to modify the input to remove any adversarial data. The model is applied to both versions of the image, the original input and the modified version. The results are compared to detect possible attacks. See [INPUTDISTORTION](/goto/inputdistortion/).
+- **Detection of adversarial patches**: These patches are localized, often visible modifications that can even be placed in the real world. The techniques mentioned above can detect adversarial patches, yet they often require modification due to the unique noise pattern of these patches, particularly when they are used in real-world settings and processed through a camera. In these scenarios, the entire image includes benign camera noise (camera fingerprint), complicating the detection of the specially crafted adversarial patches.
+
+See also [DETECTODDINPUT](/goto/detectoddinput/) for detecting abnormal input which can be an indication of adversarialinput.
   
 Links to standards:
 
