@@ -468,7 +468,7 @@ Links to standards:
 
 Impact: Confidentiality breach of model intellectual property.
 
-This attack is known as model stealing attack or model extraction attack. It occurs when an attacker collects inputs and outputs of an existing model and uses those combinations to train a new model, in order to replicate the original model.
+This attack is known as model stealing attack or model extraction attack or model exfiltration attack. It occurs when an attacker collects inputs and outputs of an existing model and uses those combinations to train a new model, in order to replicate the original model.
 
 <p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/theft3.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/theft3.png?raw=true"/></a></p>
 <br />
