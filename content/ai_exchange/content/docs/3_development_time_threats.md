@@ -129,7 +129,8 @@ Links to standards:
 
 ---
 
-## 3.1. Broad model poisoning: model behaviour manipulation by altering data, engineering, or model
+## 3.1. Broad model poisoning development-time
+Description: manipulating model behaviour by altering data, engineering, or model parameters during development-time
 
 Impact: Integrity of model behaviour is affected, leading to issues from unwanted model output (e.g. failing fraud detection, decisions leading to safety issues, reputation damage, liability).
 
