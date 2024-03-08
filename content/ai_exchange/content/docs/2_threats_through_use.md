@@ -486,15 +486,16 @@ References
 ---
 
 ## 2.4. Failure or malfunction of AI-specific elements through use
+Description: specific input to the model leads to availabity issues (system being very slow or unresponsive, also called _denial of service_), typically caused by excessive resource usage. The failure occurs from frequency, volume, or the content of the input. See [MITRE ATLAS - Denial of ML service](https://atlas.mitre.org/techniques/AML.T0029).
 
 Impact: The AI systems is unavailable, leading to issues with processes, organizations or individuals that depend on the AI system (e.g. business continuity issues, safety issues in process control, unavailability of services)
 
-This threat refers to application failure (i.e. denial of service) typically caused by excessive resource usage, induced by an attacker through use (i.e. providing input). The failure occurs from frequency, volume, or the content of the input. See [MITRE ATLAS - Denial of ML service](https://atlas.mitre.org/techniques/AML.T0029).
+For example: A _sponge attack_ or _energy latency attack_ provides input that is designed to increase the computation time of the model, potentially causing a denial of service. See [article on sponge examples](https://arxiv.org/pdf/2006.03463.pdf)
 
 **Controls:**
 
 - See General controls
-- See Controls for threats through use
+- See Controls for threats through use, including for example [RATELIMIT](/goto/ratelimit/)
 - The below control(s), each marked with a # and a short name in capitals
 
   
@@ -515,8 +516,3 @@ Links to standards:
 
   - ISO 27002 has no control for this, except for Monitoring (covered in Controls for threats through use)
   - Not covered yet in ISO/IEC standards
-
-### 2.4.1. Denial of model service due to inconsistent data or a sponge example
-
-A denial of service could be caused by input data with an inappropriate format, and causing malfunctioning of the model or its input logic.
-A _sponge attack_ provides input that is designed to increase the computation time of the model, potentially causing a denial of service.
