@@ -73,7 +73,7 @@ Another categorization is to distinguish between physical input manipulation (e.
 **Controls for evasion:**
 
   - See General controls
-  - See controls for threats through use
+  - See [controls for threats through use](/goto/threatsuse/)
   - The below control(s), each marked with a # and a short name in capitals
 
   
@@ -374,7 +374,7 @@ computer vision. Cham: Springer International Publishing, 2020.
 **Controls:**
 
 - See General controls
-- See controls for threats through use
+- See [controls for threats through use](/goto/threatsuse/)
 
 ### 2.1.2. Open-box evasion
 
@@ -386,7 +386,7 @@ When attackers have access to a models' implementation (code, training set, para
 **Controls:**
 
 - See General controls
-- See controls for threats through use
+- See See [controls for threats through use](/goto/threatsuse/)
 
 References:
 
@@ -416,7 +416,7 @@ The disclosure is caused by an unintentional fault of including this data, and e
 **Controls specific for sensitive data output from model:**
 
 - See General controls, in particular data minimization
-- See controls for threats through use
+- See See [controls for threats through use](/goto/threatsuse/)
 - The below control(s), each marked with a # and a short name in capitals
 
 #### #FILTERSENSITIVEMODELOUTPUT 
@@ -447,7 +447,7 @@ The more details a model is able to learn, the more it can store information on 
 Controls for Model inversion and membership inference:
 
 - See General controls, in particular data minimization
-- See controls for threats through use
+- See [controls for threats through use](/goto/threatsuse/)
 - The below control(s), each marked with a # and a short name in capitals
 
 #### #OBSCURECONFIDENCE 
@@ -478,7 +478,7 @@ This attack is known as model stealing attack or model extraction attack or mode
 **Controls:**
 
 - See General controls
-- See controls for threats through use
+- See [controls for threats through use](/goto/threatsuse/)
 
 References
 
@@ -497,7 +497,7 @@ For example: A _sponge attack_ or _energy latency attack_ provides input that is
 **Controls:**
 
 - See General controls
-- See Controls for threats through use, including for example [RATELIMIT](/goto/ratelimit/)
+- See [controls for threats through use](/goto/threatsuse/), including for example [RATELIMIT](/goto/ratelimit/)
 - The below control(s), each marked with a # and a short name in capitals
 
   
