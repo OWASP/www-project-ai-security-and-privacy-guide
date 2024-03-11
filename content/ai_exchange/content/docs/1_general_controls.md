@@ -47,15 +47,13 @@ Links to standards:
 
 #### #SECPROGRAM 
 
-Description:Having a security program. Include the whole AI lifecycle and AI particularities in the organization's security program (also referred to as _information security management system_).
+Description: Make sure the organization has a security program (also referred to as _information security management system_) and that it includes the whole AI lifecycle and AI particularities.
 > Category: management  
 > Permalink: https://owaspai.org/goto/secprogram/
 
-Make sure to include AI-specific threats and assets (e.g. assets the development environment including AI Ops / ML Ops).
-
 Purpose: reduces probability of AI initiatives being overlooked by information security management, vastly decreasing security risk as the security program takes responsibility for the AI-specific threats and corresponding controls in this document. For more details on using this document in risk analysis, see the Introduction section.
 
-Particularity: the AI lifecycle and its specific assets and security threats need to be part of the organization's information security governance.
+Make sure to include AI-specific threats and assets. The threats are covered in this resource and the assets are: training data, test data, model paramters, and AI documentation.
 
 Because AI has specific assets (e.g. training data), **AI-specific honeypots** are a particularly interesting control. These are fake parts of the data/model/data science infrastructure that are exposed on purpose, in order to detect or capture attackers, before they succeed to access the real assets. Examples:
 
