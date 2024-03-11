@@ -33,7 +33,7 @@ When doing risk analysis on AI initiatives, consider at least the following:
 In general risk management it may help to keep in mind the following particularities of AI:
 1. Inductive instead of deductive, meaning that being wrong is part of the game for machine learning models, which can lead to harm
 2. Connected to 1: models can go stale
-3. Organizes its behaviour based on data, so data becomes a source of opportunity (e.g. complex problem solving, adaptability) and of risk (e.g. unwanted bias, incompleteness, error, manipulation)
+3. Organizes its behaviour based on data, so data becomes a source of opportunity (e.g. complex real-world problem solving, adaptability) and of risk (e.g. unwanted bias, incompleteness, error, manipulation)
 4. Unfamiliar to organizations and to people, with the risk of implementation mistakes, underreliance, overreliance, and incorrect attribution of human tendencies
 5. Incomprehensible, resulting in trust issues
 6. New technical assets that form security threats (data/model supply chain, train data, model parameters, AI documentation)
