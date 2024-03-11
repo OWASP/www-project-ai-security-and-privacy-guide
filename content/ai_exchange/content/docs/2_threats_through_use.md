@@ -8,7 +8,7 @@ Threats through use take place through normal interaction with an AI model: prov
 
 **Controls for threats through use:**
 
-- See General controls
+- See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/) and [Sensitive data limitation](/goto/dataminimize/)
 - The below control(s), each marked with a # and a short name in capitals
 
 #### #MONITORUSE 
@@ -72,7 +72,7 @@ Another categorization is to distinguish between physical input manipulation (e.
 
 **Controls for evasion:**
 
-  - See General controls
+  - See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
   - See [controls for threats through use](/goto/threatsuse/)
   - The below control(s), each marked with a # and a short name in capitals
 
@@ -373,7 +373,7 @@ computer vision. Cham: Springer International Publishing, 2020.
 
 **Controls:**
 
-- See General controls
+- See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
 - See [controls for threats through use](/goto/threatsuse/)
 
 ### 2.1.2. Open-box evasion
@@ -385,7 +385,7 @@ When attackers have access to a models' implementation (code, training set, para
 
 **Controls:**
 
-- See General controls
+- See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
 - See See [controls for threats through use](/goto/threatsuse/)
 
 References:
@@ -415,7 +415,7 @@ The disclosure is caused by an unintentional fault of including this data, and e
 
 **Controls specific for sensitive data output from model:**
 
-- See General controls, in particular data minimization
+- See [General controls](/goto/generalcontrols/), especially [Sensitive data limitation](/goto/dataminimize/)
 - See See [controls for threats through use](/goto/threatsuse/)
 - The below control(s), each marked with a # and a short name in capitals
 
@@ -446,7 +446,7 @@ The more details a model is able to learn, the more it can store information on 
 
 Controls for Model inversion and membership inference:
 
-- See General controls, in particular data minimization
+- See [General controls](/goto/generalcontrols/), especially [Sensitive data limitation](/goto/dataminimize/)
 - See [controls for threats through use](/goto/threatsuse/)
 - The below control(s), each marked with a # and a short name in capitals
 
@@ -477,7 +477,7 @@ This attack is known as model stealing attack or model extraction attack or mode
 
 **Controls:**
 
-- See General controls
+- See [General controls](/goto/generalcontrols/), especially management controls
 - See [controls for threats through use](/goto/threatsuse/)
 
 References
@@ -496,7 +496,7 @@ For example: A _sponge attack_ or _energy latency attack_ provides input that is
 
 **Controls:**
 
-- See General controls
+- See [General controls](/goto/generalcontrols/), especially management controls
 - See [controls for threats through use](/goto/threatsuse/), including for example [RATELIMIT](/goto/ratelimit/)
 - The below control(s), each marked with a # and a short name in capitals
 
