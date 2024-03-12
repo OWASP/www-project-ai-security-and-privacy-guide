@@ -163,9 +163,15 @@ Links to standards:
   - Not covered yet in ISO/IEC standards
 
 
-### 3.1.1. Data poisoning by changing data development-time or supply chain
-
-The attacker manipulates (training) data to affect the algorithm's behavior. Also called _causative attacks_.
+### 3.1.1. Data poisoning
+> Permalink: owaspai.org/goto/datapoison
+ 
+The attacker manipulates (training) data to affect the algorithm's behavior. Also called _causative attacks_. There are mutiple ways to do this (attack vectors):
+- Changing the data while in storage during development-time (e.g. by hacking the database)
+- Changing the data while in transit to the storage (e.g. by hacking into a data connection)
+- Changing the data while at the supplier, before the data is obtained from the supplier
+- Changing the data while at the supplier, where a model is trained and then that model is obtained from the supplier
+- Manipulaing data entry, for example by creating fake accounts to enter positieve reviews for products, making these products get recommended more often
 
 Example 1: an attacker breaks into a training set database to add images of houses and labels them as 'fighter plane', to mislead the camera system of an autonomous missile. The missile is then manipulated to attack houses. With a good test set this unwanted behaviour may be detected. However, the attacker can make the poisoned data represent input that normally doesn't occur and therefore would not be in a testset. The attacker can then create that abnormal input in practice. In the previous exmaple this could be houses with white crosses on the door.  See [MITRE ATLAS - Poison traing data](https://atlas.mitre.org/techniques/AML.T0020)
 Example 2: a malicious supplier poisons data that is later obtained by another party to train a model. See [MITRE ATLAS - Publish poisoned datasets](https://atlas.mitre.org/techniques/AML.T0019)
