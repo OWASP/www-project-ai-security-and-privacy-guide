@@ -290,7 +290,7 @@
       },
       {
         "source": "/goto/datapoison/",
-        "destination": "/docs/3_development_time_threats/#311-data-poisoning-by-changing-data-development-time-or-supply-chain",
+        "destination": "/docs/3_development_time_threats/#311-data-poisoning",
         "type": 301
       },
       {
