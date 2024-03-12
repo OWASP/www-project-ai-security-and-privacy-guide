@@ -200,7 +200,7 @@ Links to standards:
 
 #### #TRAINDATADISTORTION
 Description: Train data distortion: making poisoned samples ineffective by smoothing or adding noise to training data (with the best practice of keeping the original training data, in order to expertiment with the filtering)
-> Category: development-time data science
+> Category: development-time data science  
 > Permalink: owaspai.org/goto/traindatadistortion/
 
 Effectiveness: 
