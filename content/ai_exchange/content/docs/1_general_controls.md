@@ -169,25 +169,35 @@ Links to standards:
 ---
 
 ## 1.2 General controls for sensitive data limitation
+The impact of security threats on confidentiality and integrity can be reduced by limiting the data attack surface, meaning that the amount and the variety of data is reduced as much as possible, as well as the duration in which it is kept. This section describes several controls to apply this limitation.
 
 #### #DATAMINIMIZE
-Description: Data minimize: remove or anonymize data fields or records that are unnecessary for the application to prevent potential leaks. Data minimization can also involve statistically analyzing a training dataset to identify and eliminate superfluous records or fields that are not essential for achieving sufficient performance (Data Science).  
-Category: development-time and runtime
+Description: Data minimize: remove or anonymize data fields or records (e.g. from a trainin set) that are unnecessary for the application, in order to prevent potential data leaks or manipulation. 
+> Category: development-time and runtime datascience
 
-Purpose: reduce the impact in case of an attack by reducing the amount of data that can leak.
+Purpose: minimize the impact of data leakage or manipulation
+
+A method to determine which fields or records can be removed is to statistically analyze which data elements do not play a role in model performance. 
 
   Links to standards:
 
   - Not covered yet in ISO/IEC standards.
 
 #### #ALLOWEDDATA 
-(development-time and runtime). Ensure allowed data, meaning the data used (e.g., training set) is permitted for the intended purpose. This is particularly important if consent was not given and the data contains personal information collected for a different purpose.
+Description: Ensure allowed data, meaning: removing data (e.g. from a training set) that is prohibited for the intended purpose. This is particularly important if consent was not given and the data contains personal information collected for a different purpose. 
+> Category: development-time and runtime management
+
+Purpose: Apart from compliance, the purpose is to minimize the impact of data leakage or manipulation
+
 Links to standards:
 
   - ISO/IEC 23894 (AI risk management) covers this in A.8 Privacy. Gap: covers this control fully, with a brief section on the idea
 
 #### #SHORTRETAIN
-(development-time and runtime). Short retain: Remove or anonymize data once it is no longer needed, or when legally required (e.g., due to privacy laws), to minimize the risk of data leakage.
+Description: Short retain: Remove or anonymize data once it is no longer needed, or when legally required (e.g., due to privacy laws).
+> Gategory: development-time and runtime
+
+Purpose: minimize the impact of data leakage or manipulation
 
 Limiting the retention period of data can be seen as a special form of data minimization. Privacy regulations typically require personal data to be removed when it is no longer needed for the purpose for which it was collected. Sometimes exceptions need to be made because of other rules (e.g. to keep a record of proof). Apart from these regulations, it is a general best practice to remove any sensitive data when it is no longer of use, to reduce the impact of a data leak.
   
@@ -196,7 +206,12 @@ Links to standards:
   - Not covered yet in ISO/IEC standards.
 
 #### #OBFUSCATETRAININGDATA
-(development-time data science). Obfuscate training data: attain a degree of obfuscation of sensitive data where possible. When this is done for personal data, it is referred to as _differential privacy_ which is a framework for formalizing privacy in statistical and data analysis, ensuring that the privacy of individual data entries in a database is protected. The key idea is to make it possible to learn about the population as a whole while providing strong guarantees that the presence or absence of any single individual in the dataset does not significantly affect the outcome of any analysis. This is often achieved by adding a controlled amount of random noise to the results of queries on the database. This noise is carefully calibrated to mask the contribution of individual data points, which means that the output of a data analysis (or query) should be essentially the same, whether any individual's data is included in the dataset or not. In other words by observing the output, one should not be able to infer whether any specific individual's data was used in the computation.
+Description: Obfuscate training data: attain a degree of obfuscation of sensitive data where possible
+> Category: development-time data science
+
+Purpose: minimize the impact of data leakage or manipulation
+
+When this is done for personal data, it is referred to as _differential privacy_ which is a framework for formalizing privacy in statistical and data analysis, ensuring that the privacy of individual data entries in a database is protected. The key idea is to make it possible to learn about the population as a whole while providing strong guarantees that the presence or absence of any single individual in the dataset does not significantly affect the outcome of any analysis. This is often achieved by adding a controlled amount of random noise to the results of queries on the database. This noise is carefully calibrated to mask the contribution of individual data points, which means that the output of a data analysis (or query) should be essentially the same, whether any individual's data is included in the dataset or not. In other words by observing the output, one should not be able to infer whether any specific individual's data was used in the computation.
 
 Examples of approaches are:
 
@@ -262,23 +277,25 @@ Links to standards:
 - Not covered yet in ISO/IEC standards.
 
 #### #DISCRETE
-(management, development-time and runtime). Minimize access to technical details that could help attackers.
+Minimize access to technical details that could help attackers.
+> Category: management, development-time and runtime
 
 Purpose: reduce the information available to attackers, which can assist them in selecting and tailoring their attacks, thereby lowering the probability of a successful attack.
+
+Miminizing and protecting technical details can be achieved by incorporating such details as an asset into information security management. This will ensure proper asset management, data classification, awareness education, policy, and inclusion in risk analysis.
 
 Note: this control needs to be weighed against the [AITRANSPARENCY](#aitransparency) control that requires to be more open about technical aspects of the model. The key is to minimize information that can help attackers while being transparent.
 
 For example:
 
-  - Be careful with publishing technical articles on your solution
+  - Consider this risk when publishing technical articles on the AI system
   - When choosing a model type or model implementation, take into account that there is an advantage of having technology with which attackers are less familiar
   - Minimize model output regarding technical details
 
-Particularity: Technical data science details need to be incorporated in asset management, data classification and hence in risk analysis.
 
 Links to standards:
 
-  - ISO 27002 Control 5.9: Inventory of information and other associated assets. Gap: covers this control fully, with the obvious particularity that technical data science details can be sensitive. As soon as the inventory identifies this, depending processes such as security requirements, risk analysis and awareness training will take care of the threat. In other words: it starts with identifying this information as an asset.
+  - ISO 27002 Control 5.9: Inventory of information and other associated assets. Gap: covers this control fully, with the particularity that technical data science details can be sensitive. .
   - See [OpenCRE on data classification and handling](https://www.opencre.org/cre/074-873). Gap: idem
   - [MITRE ATlAS Acquire Public ML Artifacts](https://atlas.mitre.org/techniques/AML.T0002)
 
