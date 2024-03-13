@@ -19,16 +19,16 @@ This includes assigning responsibilities, e.g. model accountability, data accoun
 Technically one could argue that this control is out of scope for cyber security, but it initiates action to get in control of AI security.
 
 When doing risk analysis on AI initiatives, consider at least the following:
--Note that an AI program is not just about risk TO AI, such as security risks - it is also about risks BY AI, such as threats to fairness, safety, etc.
--Include laws and regulations, as the type of AI apllication may be prohibited (e.g. social scoring under the EU AI Act). See #[CHECKCOMPLIANCE](/goto/checkcompliance/)
--Can the required transparency be provided into how the AI works?
--Can the privacy rights be achieved (right to access, erase, correct, update personal data, and the right to object)?
--Can unwanted bias regarding protected groups of people be sufficiently mitigated?
--Is AI really needed to solve the problem?
--Is the right expertise available (e.g. data scientists)?
--Is it allowed to use the data for the purpose - especially if it is personal data collected for a different purpose?
--Can unwanted behaviour be sufficiently contained by mitigations (see Controls to limit unwanted behaviour)?
--See Risk management under [SECPROGRAM](/goto/secprogram/) for security-specific risk analysis, also involving privacy.
+- Note that an AI program is not just about risk TO AI, such as security risks - it is also about risks BY AI, such as threats to fairness, safety, etc.
+- Include laws and regulations, as the type of AI apllication may be prohibited (e.g. social scoring under the EU AI Act). See #[CHECKCOMPLIANCE](/goto/checkcompliance/)
+- Can the required transparency be provided into how the AI works?
+- Can the privacy rights be achieved (right to access, erase, correct, update personal data, and the right to object)?
+- Can unwanted bias regarding protected groups of people be sufficiently mitigated?
+- Is AI really needed to solve the problem?
+- Is the right expertise available (e.g. data scientists)?
+- Is it allowed to use the data for the purpose - especially if it is personal data collected for a different purpose?
+- Can unwanted behaviour be sufficiently contained by mitigations (see Controls to limit unwanted behaviour)?
+- See Risk management under [SECPROGRAM](/goto/secprogram/) for security-specific risk analysis, also involving privacy.
 
 In general risk management it may help to keep in mind the following particularities of AI:
 1. Inductive instead of deductive, meaning that being wrong is part of the game for machine learning models, which can lead to harm
