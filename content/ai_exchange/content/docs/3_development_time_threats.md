@@ -134,7 +134,7 @@ Links to standards:
 ---
 
 ## 3.1. Broad model poisoning development-time
-Description: manipulating model behaviour by altering data, engineering, or model parameters during development-time
+Description: manipulating model behaviour by altering training data, engineering, or model parameters during development-time
 
 Impact: Integrity of model behaviour is affected, leading to issues from unwanted model output (e.g. failing fraud detection, decisions leading to safety issues, reputation damage, liability).
 
@@ -242,7 +242,7 @@ Links to standards:
 
 ### 3.1.2. Development-time model poisoning
 
-This threat refers to manipulating behaviour of the model by manipulating the engineering elements that lead to the model (including the parameters during development time), e.g. through supplying, changing components, code, or configuration. In some cases, the model is trained externally and supplied as-is, which also introduces a model poisoning threat.
+This threat refers to manipulating behaviour of the model by not poisoning the training data, but insead alter the engineering elements that lead to the model or represent the model (i.e. model parameters) during development time, e.g. by attacking the engineering environment to manipulate storage. When the model is trained by a supplier in a manipulative way and supplied as-is, then it is a [Transfer learning attack](goto/transferlearningattack/).
 Data manipulation is referred to as data poisoning and is covered in separate threats.
 
 **Controls:**
@@ -252,7 +252,7 @@ Data manipulation is referred to as data poisoning and is covered in separate th
 - See controls for broad model poisoning
 
 ### 3.1.3 Transfer learning attack
-Description: An attacker supplies a manipulated pre-trained model which is then obtained and unknowingly further trained/fine tuned with still having the unwanted behaviour.
+Description: An attacker supplies a manipulated pre-trained model which is then obtained and unknowingly further used and/or trained/fine tuned, with still having the unwanted behaviour.
 >Category: development-time threat  
 >Permalink: https://owaspai.org/goto/transferlearningattack/
 
