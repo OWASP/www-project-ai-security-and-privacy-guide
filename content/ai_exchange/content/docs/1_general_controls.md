@@ -303,16 +303,16 @@ Links to standards:
 
 ## 1.3. Controls to limit the effects of unwanted behaviour
 
-The cause of unwanted model behaviour can be the result of various factors, including model use, development time, and run-time. Preventative controls for these are discussed in their corresponding sections. However, the controls to mitigate the impact of such behavior are general for each of these threats and are covered in this section.
+Unwanted model behaviour is the intended result of many AI security attacks. There are many ways to prevent and to detect these attacks. This section is about how the effects of unwanted model behaviour can be controlled, in order to reduce the impact of an attack.
 
-Main potential causes of unwanted model behaviour:
+Besides attacks, AI systems can display unwanted behaviour for other reasons, making the control of this behaviour a shared responsibility. Main potential causes of unwanted model behaviour:
 
 - Insufficient or incorrect training data
 - Model staleness/ Model drift (i.e. the model becoming outdated)
 - Mistakes during model and data engineering
 - Security threats: attacks as laid out in this document, e.g. model poisoning, evasion attacks
 
-Successfully mitigating unwanted model behaviour knows the following threats:
+Successfully mitigating unwanted model behaviour has its own threats:
 
 - Overreliance: the model is being trusted too much by users
 - Excessive agency: the model is being trusted too much by engineers and gets excessive functionality, permissions, or autonomy
@@ -324,7 +324,8 @@ Example: LLMs (GenAI), just like most AI models, induce their results based on t
 **Controls to limit the effects of unwanted model behaviour:**
 
 #### #OVERSIGHT
-(runtime). Oversight of model behaviour by humans or business logic in the form of rules (guardrails).
+Description: Oversight of model behaviour by humans or business logic in the form of rules (guardrails).
+> Category: runtime 
   
 Purpose: Detect unwanted model behavior and correct or halt the execution of a model's decision.
 
@@ -332,8 +333,8 @@ Purpose: Detect unwanted model behavior and correct or halt the execution of a m
 The properties of wanted or unwanted model behavior often cannot be entirely specified, limiting the effectiveness of guardrails.
 
 **Limitations of human oversight:**
-The alternative to guardrails is to apply human oversight. This is of course more costly and slower, but allows for more intelligent validation given the involved common sense and human domain knowledge - provided that the person performing the oversight actually has that knowledge.
-For human operators or drivers of automated systems like self-driving cars, staying actively involved or having a role in the control loop helps maintain situational awareness. This involvement can prevent complacency and ensure that the human operator is ready to take over control if the automated system fails or encounters a scenario it cannot handle. However, maintaining situational awareness can be challenging with high levels of automation due to the "out-of-the-loop" phenomenon, where the human operator may become disengaged from the task at hand, leading to slower response times or decreased effectiveness in managing unexpected situations.
+The alternative to guardrails is to apply human oversight. This is of course more costly and slower, but allows for more intelligent validation given the involved common sense and human domain knowledge - provided that the person performing the oversight actually has the required knowledge.
+For human operators or drivers of automated systems like self-driving cars, staying actively involved or having a role in the control loop helps maintain situational awareness. This involvement can prevent complacency and ensures that the human operator is ready to take over control if the automated system fails or encounters a scenario it cannot handle. However, maintaining situational awareness can be challenging with high levels of automation due to the "out-of-the-loop" phenomenon, where the human operator may become disengaged from the task at hand, leading to slower response times or decreased effectiveness in managing unexpected situations.
 In other words: If you as a user are not involved actively in performing a task, then you lose understanding of whether it is correct or what the impact can be. If you then only need to confirm something by saying 'go ahead' or 'cancel', a badly informed 'go ahead' is easy to pick.
 
 Designing automated systems that require some level of human engagement or regularly update the human operator on the system's status can help maintain situational awareness and ensure safer operations.
@@ -343,13 +344,16 @@ Examples:
   - Logic preventing the trunk of a car from opening while the car is moving, even if the driver seems to request it
   - Requesting user confirmation before sending a large number of emails as instructed by a model
   - A special form of guardrails is censoring unwanted output of GenAI models (e.g. violent, unethical)
+  - 
 Links to standards:
 
   - ISO/IEC 42001 B.9.3 defines controls for human oversight and decisions regarding autonomy. Gap: covers this control partly (human oversight only, not business logic)
   - Not covered further in ISO/IEC standards.
 
 #### #LEASTMODELPRIVILEGE
-(runtime infosec). Least model privilege: Minimize privileges; avoid connecting a model to an email facility to prevent it from sending incorrect information to others.
+(runtime infosec). Least model privilege: Minimize privileges of a model to autonomously take actions.
+
+For example: avoid connecting a model to an email facility to prevent it from sending incorrect or sensitive information to others.
 
 Links to standards:
 
@@ -357,9 +361,9 @@ Links to standards:
   - [OpenCRE on least privilege](https://www.opencre.org/cre/368-633) Gap: idem
 
 #### #AITRANSPARENCY
-(runtime, management). AI transparency: By being transparent with users about the rough workings of the model, its training process, and the general expected accuracy and reliability of the AI system's output, people can adjust their reliance ([OWASP for LLM 09](https://llmtop10.com/llm09/)) on it accordingly. The simplest form of this is to inform users that an AI model is being involved.
+(runtime, management). AI transparency: By being transparent with users about the rough workings of the model, its training process, and the general expected accuracy and reliability of the AI system's output, people can adjust their reliance ([OWASP for LLM 09](https://llmtop10.com/llm09/)) on it accordingly. The simplest form of this is to inform users that an AI model is being involved. Transparency here is about providing abstract information regarding the model and is therefore something else than _explainability_.
 
-See the [DISCRETE](#discrete) control for the balance between being transparent and being discrete about the model. Transparency here is about providing abstract information regarding the model and is therefore something else than _explainability_.
+See the [DISCRETE](#discrete) control for the balance between being transparent and being discrete about the model. 
 
 Links to standards:
 
@@ -368,7 +372,9 @@ Links to standards:
 
 #### #CONTINUOUSVALIDATION
 
-(data science). Continuous validation: by frequently testing the behaviour of the model against an appropriate test set, sudden changes caused by a permanent attack (e.g. data poisoning, model poisoning) can be detected.
+(data science). Continuous validation: by frequently testing the behaviour of the model against an appropriate test set, it is possible to detect sudden changes caused by a permanent attack (e.g. data poisoning, model poisoning).
+
+Continuous validation is a process that is often in place to detect other issues than attacks: system failures, or the model performance going down because of changes in the real world since it was trained.
 
 Links to standards:
 
