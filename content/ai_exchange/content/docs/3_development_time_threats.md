@@ -247,7 +247,7 @@ Data manipulation is referred to as data poisoning and is covered in separate th
 
 **Controls:**
 
-- - See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
+- See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
 - See [controls for development-time protection](/goto/developmenttimeintro/)
 - See controls for broad model poisoning
 
