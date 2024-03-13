@@ -144,7 +144,6 @@ The below interpretation diagram of ISO/IEC 5338 provides a good overview to get
 
 Links to standards:
 
-[ISO/IEC TR 27563:2023](https://www.iso.org/standard/80396.html) covers this control fully.
   - [ISO/IEC 5338 - AI lifecycle](https://www.iso.org/standard/81118.html) Gap: covers this control fully - ISO 5338 covers the complete software development lifecycle for AI, by extending the existing ISO 12207 standard on software lifecycle: defining several new processes and discussing AI-specific particularities for existing processes. See also [this blog](https://www.softwareimprovementgroup.com/iso-5338-get-to-know-the-global-standard-on-ai-systems/).
   - [ISO/IEC 27002](https://www.iso.org/standard/75652.html) control 5.37 Documented operating procedures. Gap: covers this control minimally - this covers only a very small part of the control
   - [OpenCRE on documentation of function](https://www.opencre.org/cre/162-655) Gap: covers this control minimally
