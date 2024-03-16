@@ -324,9 +324,8 @@ These attacks are categorized based on the type of output the model provides:
   - Desicion-based (or Label-based) attacks: where the model only reveals the top prediction label
   - Score-based attacks: where the model discloses a score (like a softmax score), often in the form of a vector indicating the top-k predictions.In research typically models which output the whole vector are evaluated, but the output could also be restricted to e.g. top-10 vector. The confidence scores provide more detailed feedback about how close the adversarial example is to succeeding, allowing for more precise adjustments. In a score-based scenario an attacker can for example approximate the gradient by evaluating the objective function values at two very close points.
 
-<p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inputblack3.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inputblack3.png?raw=true"/></a></p>
-
 Example 1: slightly changing traffic signs so that self-driving cars may be fooled.
+[![](/images/inputblack3.png)](/images/inputblack3.png)
 
 Example 2: crafting an e-mail text by carefully choosing words to avoid triggering a spam detection algorithm.
 
