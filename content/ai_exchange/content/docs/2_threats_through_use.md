@@ -379,8 +379,7 @@ computer vision. Cham: Springer International Publishing, 2020.
 
 When attackers have access to a models' implementation (code, training set, parameters, architecture), and especially the model parameters (e.g. weights of neural network), they can geneate adversarial examples more efficient. 
 
-<p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inputwhite3.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inputwhite3.png?raw=true"/></a></p>
-    <br/>
+![](/images/inputwhite3.png)
 
 **Controls:**
 
@@ -429,13 +428,11 @@ Links to standards:
 
 Model inversion (or _data reconstruction_) occurs when an attacker reconstructs a part of the training set by intensive experimentation during which the input is optimized to maximize indications of confidence level in the output of the model.
 
-  <p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inversion3.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/inversion3.png?raw=true"/></a></p>
-  <br />
-
+![](/images/inversion3.png)
+  
 Membership inference is presenting a model with input data that identifies something or somebody (e.g. a personal identity or a portrait picture), and using any indication of confidence in the output to infer the presence of that something or somebody in the training set.
 
-  <p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/membership3.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/membership3.png?raw=true"/></a></p>
-  <br />
+![](/images/membership3.png)
 
 References:
 
@@ -471,8 +468,7 @@ Impact: Confidentiality breach of model intellectual property.
 
 This attack is known as model stealing attack or model extraction attack or model exfiltration attack. It occurs when an attacker collects inputs and outputs of an existing model and uses those combinations to train a new model, in order to replicate the original model.
 
-<p align="center"><a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/theft3.png?raw=true" target="_blank" rel="noopener noreferrer"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/theft3.png?raw=true"/></a></p>
-<br />
+![](/images/theft3.png)
 
 **Controls:**
 
