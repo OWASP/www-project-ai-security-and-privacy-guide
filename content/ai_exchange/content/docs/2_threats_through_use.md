@@ -71,7 +71,7 @@ Example 2: through a special search process it is determined how a digital input
 
 Example 3: crafting an e-mail text by carefully choosing words to avoid triggering a spam detection algorithm.
 
-Generative AI model can be fooled with crafted input (prompt) to circumvent mechanisms that protect against unwanted output. Although this is also about fooling models with input, it is typically not referred to as an evasion attack, but as [direct prompt injection](owaspai.org/goto/directpromptinjection/). 
+Generative AI model can be fooled with crafted input (prompt) to circumvent mechanisms that protect against unwanted output. Although this is also about fooling models with input, it is typically not referred to as an evasion attack, but as [direct prompt injection](/goto/directpromptinjection/). 
 
 See [MITRE ATLAS - Evade ML model](https://atlas.mitre.org/techniques/AML.T0015)
 
@@ -388,7 +388,7 @@ adversarial attacks." arXiv preprint arXiv:1706.06083 (2017).
 
 ### 2.1.3. Evasion after data poisoning
 
-After training data has been poisoned (see corresponding section), specific input can lead to unwanted decisions, sometimes referred to as _backdoors_.
+After training data has been poisoned (see [data poisoning section](/goto/datapoison/)), specific input  (called _backdoors_ or _triggers_) can lead to unwanted model output.
 
 ---
 
