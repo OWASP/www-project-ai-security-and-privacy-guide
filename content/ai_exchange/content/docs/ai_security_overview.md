@@ -23,7 +23,7 @@ The diagram shows the threats in these three groups as arrows. Each threat has a
 
 ### AI Security Matrix
 The AI security matrix below shows all threats and risks, ordered by type and impact.
-[![](/images/OwaspAIsecuritymatix.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/OwaspAIsecuritymatix.png)
+![](/images/OwaspAIsecuritymatix.png)
 
 ## Controls overview
 
