@@ -325,7 +325,7 @@ These attacks are categorized based on the type of output the model provides:
   - Score-based attacks: where the model discloses a score (like a softmax score), often in the form of a vector indicating the top-k predictions.In research typically models which output the whole vector are evaluated, but the output could also be restricted to e.g. top-10 vector. The confidence scores provide more detailed feedback about how close the adversarial example is to succeeding, allowing for more precise adjustments. In a score-based scenario an attacker can for example approximate the gradient by evaluating the objective function values at two very close points.
 
 Example 1: slightly changing traffic signs so that self-driving cars may be fooled.
-[![](/images/inputblack3.png)](/images/inputblack3.png)
+![](/images/inputblack3.png)
 
 Example 2: crafting an e-mail text by carefully choosing words to avoid triggering a spam detection algorithm.
 
