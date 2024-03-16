@@ -183,6 +183,15 @@ Yes, GenAI is leading the current AI revolution and it's the fastest moving subf
 
 Important note: from a security threat perspective, GenAI is not that different from other forms of AI (_predictive AI_). GenAI threats and controls largely overlap and are very similar to AI in general. Nevertheless, some risks are (much) higher. Some are lower. Only a few risks are GenAI-specific. Some of the control categories differ substantially between GenAI and predictive AI - mostly the data science controls (e.g. adding noise to the training set). In many cases, GenAI solutions will use a model as-is and not involve any training by the organization whatsoever, shifting some of the security responsibilities from the organization to the supplier.
 
+What is mainly new to the threat landscape because of LLMs?  
+- First of all, LLMs pose new threats to security because they may be used to create code with vulnerabilities, or they may be used by attackers to create malware, but let’s focus on threats TO systems that use an LLM.
+- Regarding input:
+  - Prompt injection is a completely new threat: attackers manipulating the behaviour of the model with crafted and sometimes hidden instructions.
+  - Also new is organizations sending huge amounts of data in prompts, with company secrets and personal data.
+- Regarding output: New is the fact that output can contain injection attacks, or can contain sensitive or copyrighted data.
+- Overreliance and excessive agency are issues. We let LLMs control things and may have too much trust in how correct they are, and also underestimate the risk of them being manipulated. The result is that attacks can have much impact.
+- Regarding training: Since the training sets are so large and based on public data, it is easier to perform data poisoning. Poisoned foundation models are also a big supply chain issues.
+
 GenAI security particularities are:
 
 |Nr.| GenAI security particularities |OWASP for LLM TOP 10|
