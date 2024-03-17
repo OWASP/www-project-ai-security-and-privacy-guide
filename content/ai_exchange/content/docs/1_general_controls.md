@@ -56,11 +56,15 @@ Purpose: reduces probability of AI risks being overlooked by information securit
 Make sure to include AI-specific assets and the threats to them. The threats are covered in this resource and the assets are:
 - training data
 - test data
-- model parameters (values that change when a model is trained)
+- the model - often reffered to as _model parameters_ (values that change when a model is trained)
 - documentation of models and the process of their development including experiments
 - model input
-- model output
+- model output, which needs to be regarded as untrusted if the training data or model is untrusted
 - sufficienntly correct model behaviour
+- data to train and test obtained from external sources
+- models to train and use from external sources
+
+By incorporating these assets and the threats to them, the security program takes care of mitigating these risks. For example: by informing engineers in awareness training that they should not leave their documentation laying around.
 
 Every AI initiative, new and existing, should perform a privacy and security risk analysis. AI programs have additional concerns around privacy and security that need to be considered. While each system implementation will be different based on its contextual purpose, the same process can be applied. These analyses can be performed before the development process and will guide security and privacy controls for the system. These controls are based on security protection goals such as Confidentiality, Integrity and Availability, and privacy goals such as Unlinkability, Transparency and Intervenability. ISO/IEC TR 27562:2023 provides a detailed list of points of attention for these goals and coverage.
 
