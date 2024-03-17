@@ -23,7 +23,7 @@ By adding details to logs on the version of the model used and the output, troub
   
 Links to standards:
 
-  - ISO 27002 Control 8.16 Monitoring activities. Gap: covers this control fully, with the particularity: monitoring needs to look for specific patterns of AI attacks (e.g. model attacks through use). The ISO 27002 control has no details on that.
+  - ISO 27002 Controls 8.15 Logging and 8.16 Monitoring activities. Gap: covers this control fully, with the particularity: monitoring needs to look for specific patterns of AI attacks (e.g. model attacks through use). The ISO 27002 control has no details on that.
   - ISO/IEC 42001 B.6.2.6 discusses AI system operation and monitoring. Gap: covers this control fully, but on a high abstraction level.
   - See [OpenCRE](https://www.opencre.org/cre/058-083). Idem
 
