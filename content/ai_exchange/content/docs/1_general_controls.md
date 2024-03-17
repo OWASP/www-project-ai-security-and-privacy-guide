@@ -164,7 +164,7 @@ Links to standards:
   - [Research on code quality gaps in AI systems](https://www.softwareimprovementgroup.com/averting-a-major-ai-crisis-we-need-to-fix-the-big-quality-gap-in-ai-systems/)
 
 #### #CHECKCOMPLIANCE 
-(management). Check compliance with laws and regulations, to validate compliance which may include security aspects. See the [OWASP AI Guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) for privacy aspects of AI.  
+(management). Make sure that AI-specific laws and regulations are taken into account in compliance management (including security aspects). If personal data is involved and/or AI is applied to make decisions about individuals, then privacy laws and regulations are also in scope. See the [OWASP AI Guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) for privacy aspects of AI.  
 Links to standards:
 
   - [OpenCRE on Compliance](https://www.opencre.org/cre/510-324)
