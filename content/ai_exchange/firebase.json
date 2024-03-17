@@ -9,6 +9,11 @@
     ],
     "redirects": [
       {
+        "source": "/goto/aisecuritymatrix/",
+        "destination": "/docs/ai_security_overview/#ai-security-matrix",
+        "type": 301
+      },
+      {
         "source": "/goto/riskanalysis/",
         "destination": "/docs/ai_security_overview/#how-to-select-relevant-threats-and-controls-risk-analysis",
         "type": 301
