@@ -105,11 +105,19 @@ There are many threats and controls described in this document. Your situation d
 
 1. **Risk identification and estimation**: First select the threats that are relevant to your situation and estimate their level of impact and probability.  
 
-  You can do this by going through the list of threats and use the _Impact_ description to see if it is applicable. For example the impact of identifying individuals in your training data would not apply to your case if your training data has no individuals. The [Navigator](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf) shows impact in purple. A bief overview of all impact can be found in the [AI security matrix](/goto/aisecuritymatrix).
+    You can do this by going through the list of threats and use the _Impact_ description to see if it is applicable. For example the impact of identifying individuals in your training data would not apply to your case if your training data has no individuals. The [Navigator](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf) shows impact in purple. A bief overview of all impact can be found in the [AI security matrix](/goto/aisecuritymatrix).
 
-  Next, you can walk by the remaining threats and look at the attack surface to see if that is relevant. For example, if you don't use an external model, then the model supply chain is not a relevant attack surface and neither are the connected threats.
+    Next, you can walk by the remaining threats and look at the attack surface to see if that is relevant. For example, if you don't use an external model, then the model supply chain is not a relevant attack surface and neither are the connected threats.
 
-  You can use the following decision steps to further select relevant threats:
+    You can use the following decision steps to further select relevant threats:
+
+    If your train data is not sensitive: ignore the confidentiality of train data threats. A special case is the threat of _membership inference_: this threat only applies when the **fact** that a person was part of the training set is harmful information about the person, for example when the training set consists of criminals and their history to predict criminal careers: membership of that set gives away the person is a convicted or alleged criminal.
+
+    If your model is a GenAI model, ignore the following threats: evasion, model inversion. Also ignore prompt injection and insecure output handling if your GenAI model is NOT an LLM
+
+    If your model is not a GenAI model, ignore (direct) prompt injection, and insecure output handling.
+
+    If your input data is not sensitive, ignore ‘leaking input data’. If you use RAG, consider data you retrieve also as input data.
 
     If you use RAG (Retrieval Augmented Generation), then treat the retrieval repository (including embeddings) just like training data. Meaning:
       - Include the threats regarding data poisoning
@@ -123,14 +131,6 @@ There are many threats and controls described in this document. Your situation d
       - Ignore development-time controls (e.g. filtering sensitive training data)
 
     These are the responsibilities of the model maker, but be aware you may be effected by the unwanted results. The maker may take the blame for any issue, which would take care of confidentiality issues, but you would suffer effectively from any manipulated model behaviour.
-
-    If your train data is not sensitive: ignore the confidentiality of train data threats. A special case is the threat of _membership inference_: this threat only applies when the **fact** that a person was part of the training set is harmful information about the person, for example when the training set consists of criminals and their history to predict criminal careers: membership of that set gives away the person is a convicted or alleged criminal.
-
-    If your model is a GenAI model, ignore the following threats: evasion, model inversion. Also ignore prompt injection and insecure output handling if your GenAI model is NOT an LLM
-
-    If your model is not a GenAI model, ignore (direct) prompt injection, and insecure output handling.
-
-    If your input data is not sensitive, ignore ‘leaking input data’. If you use RAG, consider data you retrieve also as input data.
 
     If threats are remaining that effect the behaviour of the model (e.g. evasion, data poisoning), then consider what the motivation of an attacker could be. What could an attacker gain by for example sabotaging your model? Just a claim to fame? Could it be a disgruntled employee? Maybe a competitor? What could an attacker gain by a less conspicuous model behaviour attack, like an evasion attack or data poisoning with a trigger? Is there a scenario where an attacker benefits from fooling the model? An example where evasion IS interesting and possible: adding certain words in a spam email so that it is not recognized as such. An example where evasion is not interesting is when a patient gets a skin disease diagnosis based on a picture of the skin. The patient has no interest in a wrong decision, and also the patient typically has no control - well maybe by painting the skin. There are situations in which this CAN be of interest for the patient, for example to be eligible for compensation in case the (faked) skin disease was caused by certain restaurant food. This demonstrates that it all depends on the context whether a theoretical threat is a real threat or not. Depending on the probability and impact of the threats, and on the relevant policies, some threats may be accepted as risk. When not accepted, the level of risk is input to the strength of the controls. For example: if data poisoning can lead to substantial benefit for a group of attackers, then the training data needs to be get a high level of protection.
 
