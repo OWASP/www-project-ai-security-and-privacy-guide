@@ -51,7 +51,7 @@ Description: Make sure the organization has a security program (also referred to
 > Category: management  
 > Permalink: https://owaspai.org/goto/secprogram/
 
-Purpose: reduces probability of AI risks being overlooked by information security management, so to mitigate security risk as the security program takes responsibility for the AI-specific threats and corresponding controls in this document. For more details on using this document in risk analysis, see the [risk analysis section](owaspai.org/goto/riskanalysis/).
+Purpose: reduces probability of AI risks being overlooked by information security management, so to mitigate security risk as the security program takes responsibility for the AI-specific threats and corresponding controls in this document. For more details on using this document in risk analysis, see the [risk analysis section](/goto/riskanalysis/).
 
 Make sure to include AI-specific assets and the threats to them. The threats are covered in this resource and the assets are:
 - training data
