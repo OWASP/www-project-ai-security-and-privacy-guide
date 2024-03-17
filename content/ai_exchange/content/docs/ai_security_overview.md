@@ -103,7 +103,7 @@ The threats are organized by attack surface (how and where does the attack take 
 ## How to select relevant threats and controls? risk analysis
 There are many threats and controls described in this document. Your situation determines which threats are relevant to you, and what controls are your responsibility. This selection process can be performed through risk analysis (or risk assessment) of the use case and architecture at hand:
 
-1. **Risk identification and estimation**: First select the threats that are relvant to your situation and estimate their level of impact and probability.
+1. **Risk identification and estimation**: First select the threats that are relevant to your situation and estimate their level of impact and probability.  
 
   You can do this by going through the list of threats and use the _Impact_ description to see if it is applicable. For example the impact of identifying individuals in your training data would not apply to your case if your training data has no individuals. The [Navigator](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf) shows impact in purple. A bief overview of all impact can be found in the [AI security matrix](/goto/aisecuritymatrix).
 
