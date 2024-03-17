@@ -9,6 +9,11 @@
     ],
     "redirects": [
       {
+        "source": "/goto/riskanalysis/",
+        "destination": "/docs/ai_security_overview/#how-to-select-relevant-threats-and-controls-risk-analysis",
+        "type": 301
+      },
+      {
         "source": "/goto/generalcontrols/",
         "destination": "/docs/1_general_controls/",
         "type": 301
