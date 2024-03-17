@@ -47,13 +47,30 @@ Links to standards:
 
 #### #SECPROGRAM 
 
-Description: Make sure the organization has a security program (also referred to as _information security management system_) and that it includes the whole AI lifecycle and AI particularities.
+Description: Make sure the organization has a security program (also referred to as _information security management system_) and that it includes the whole AI lifecycle and AI specific aspects.
 > Category: management  
 > Permalink: https://owaspai.org/goto/secprogram/
 
-Purpose: reduces probability of AI initiatives being overlooked by information security management, vastly decreasing security risk as the security program takes responsibility for the AI-specific threats and corresponding controls in this document. For more details on using this document in risk analysis, see the Introduction section.
+Purpose: reduces probability of AI risks being overlooked by information security management, so to mitigate security risk as the security program takes responsibility for the AI-specific threats and corresponding controls in this document. For more details on using this document in risk analysis, see the [risk analysis section](owaspai.org/goto/riskanalysis/).
 
-Make sure to include AI-specific threats and assets. The threats are covered in this resource and the assets are: training data, test data, model paramters, and AI documentation.
+Make sure to include AI-specific assets and the threats to them. The threats are covered in this resource and the assets are:
+- training data
+- test data
+- model parameters (values that change when a model is trained)
+- documentation of models and the process of their development including experiments
+- model input
+- model output
+- sufficienntly correct model behaviour
+
+Every AI initiative, new and existing, should perform a privacy and security risk analysis. AI programs have additional concerns around privacy and security that need to be considered. While each system implementation will be different based on its contextual purpose, the same process can be applied. These analyses can be performed before the development process and will guide security and privacy controls for the system. These controls are based on security protection goals such as Confidentiality, Integrity and Availability, and privacy goals such as Unlinkability, Transparency and Intervenability. ISO/IEC TR 27562:2023 provides a detailed list of points of attention for these goals and coverage.
+
+The general process for performing an AI Use Case Privacy and Security Analysis is:
+ - Describe the Ecosystem
+ - Provide an assessment of the system of interest
+ - Identify the security and privacy concerns
+ - Identify the security and privacy risks
+ - Identify the security and privacy controls
+ - Identify the security and privacy assurance concerns
 
 Because AI has specific assets (e.g. training data), **AI-specific honeypots** are a particularly interesting control. These are fake parts of the data/model/data science infrastructure that are exposed on purpose, in order to detect or capture attackers, before they succeed to access the real assets. Examples:
 
@@ -66,19 +83,9 @@ Because AI has specific assets (e.g. training data), **AI-specific honeypots** a
 - External access granted to a specific library
 - Models imported as-is from GitHub
 
-Every AI initiative, new and existing, should perform a privacy and security risk analysis. AI programs have additional concerns around privacy and security that need to be considered. While each system implementation will be different based on its contextual purpose, the same process can be applied. These analyses can be performed before the development process and will guide security and privacy controls for the system. These controls are based on security protection goals such as Confidentiality, Integrity and Availability, and privacy goals such as Unlinkability, Transparency and Intervenability. ISO/IEC TR 27562:2023 provides a detailed list of points of attention for these goals and coverage.
-
-The general process for performing an AI Use Case Privacy and Security Analysis is:
- - Describe the Ecosystem
- - Provide an assessment of the system of interest
- - Identify the security and privacy concerns
- - Identify the security and privacy risks
- - Identify the security and privacy controls
- - Identify the security and privacy assurance concerns
- 
 Links to standards:
 
-  - The entire ISO 27000-27005 range is applicable to AI systems in the general sense as they are IT systems. Gap: covers this control fully, with the high-level particularity that there are three AI-specific attack surfaces that need to be taken into account in information security management: 1)AI development-time attacks, 2)attacks through model use and 3)AI Application security attacks. See the controls under the corresponding sections to see more particularities.
+  - The entire ISO 27000-27005 range is applicable to AI systems in the general sense as they are IT systems. Gap: covers this control fully regarding the processes, with the high-level particularity that there are three AI-specific attack surfaces that need to be taken into account in information security management: 1)AI development-time attacks, 2)attacks through model use and 3)AI Application security attacks. See the controls under the corresponding sections to see more particularities.
     These standards cover:
 
     - ISO/IEC 27000 – Information security management systems – Overview and vocabulary
