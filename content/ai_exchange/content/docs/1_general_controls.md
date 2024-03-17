@@ -51,7 +51,7 @@ Description: Make sure the organization has a security program (also referred to
 > Category: management  
 > Permalink: https://owaspai.org/goto/secprogram/
 
-Purpose: reduces probability of AI risks being overlooked by information security management, so to mitigate security risk as the security program takes responsibility for the AI-specific threats and corresponding controls in this document. For more details on using this document in risk analysis, see the [risk analysis section](/goto/riskanalysis/).
+Purpose: ensures adequate mitigation of AI security risks through information security management, as the security program takes responsibility for the AI-specific threats and corresponding. For more details on using this document in risk analysis, see the [risk analysis section](/goto/riskanalysis/).
 
 Make sure to include AI-specific assets and the threats to them. The threats are covered in this resource and the assets are:
 - training data
@@ -64,7 +64,7 @@ Make sure to include AI-specific assets and the threats to them. The threats are
 - data to train and test obtained from external sources
 - models to train and use from external sources
 
-By incorporating these assets and the threats to them, the security program takes care of mitigating these risks. For example: by informing engineers in awareness training that they should not leave their documentation laying around.
+By incorporating these assets and the threats to them, the security program takes care of mitigating these risks. For example: by informing engineers in awareness training that they should not leave their documentation laying around. Or: by installing malware detection on engineer machines because of the high sensitivity of the training data that they work with. 
 
 Every AI initiative, new and existing, should perform a privacy and security risk analysis. AI programs have additional concerns around privacy and security that need to be considered. While each system implementation will be different based on its contextual purpose, the same process can be applied. These analyses can be performed before the development process and will guide security and privacy controls for the system. These controls are based on security protection goals such as Confidentiality, Integrity and Availability, and privacy goals such as Unlinkability, Transparency and Intervenability. ISO/IEC TR 27562:2023 provides a detailed list of points of attention for these goals and coverage.
 
