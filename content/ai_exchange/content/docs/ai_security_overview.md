@@ -22,8 +22,8 @@ The diagram shows the threats in these three groups as arrows. Each threat has a
 ![AI Security Threats](/images/threats.png)
 
 ### AI Security Matrix
-The AI security matrix below shows all threats and risks, ordered by type and impact.
-![](/images/OwaspAIsecuritymatix.png)
+The AI security matrix below (click to enlarge) shows all threats and risks, ordered by type and impact.
+[![](/images/OwaspAIsecuritymatix.png)](/images/OwaspAIsecuritymatix.png)
 
 ## Controls overview
 
