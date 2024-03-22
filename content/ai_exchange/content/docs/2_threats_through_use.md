@@ -372,7 +372,9 @@ computer vision. Cham: Springer International Publishing, 2020.
 
 ### 2.1.2. Open-box evasion
 
-When attackers have access to a models' implementation (code, training set, parameters, architecture), and especially the model parameters (e.g. weights of neural network), they can geneate adversarial examples more efficient. 
+In open-box or white-box attacks, the attacker knows the architecture, parameters, and weights of the target model. Therefore, the attacker has the ability to create input data designed to introduce errors in the model's predictions. These attacks may be targeted or untargeted. In a targeted attack, the attacker wants to force a specific prediction, while in an untargeted attack, the goal is to cause the model to make a false prediction. A famous example in this domain is the Fast Gradient Sign Method (FGSM) developed by Goodfellow et al. which demonstrates the efficiency of white-box attacks. FGSM operates by calculating a perturbation $p$ for a given image $x$ and it's label $l$, following the equation $p = \varepsilon \textnormal{sign}(\nabla_x J(\theta, x, l))$, where $\nabla_x J(\cdot, \cdot, \cdot)$ is the gradient of the cost function with respect to the input, computed via backpropagation. The model's parameters are denoted by $\theta$ and $\varepsilon$ is a scalar defining the perturbation's magnitude. Even universal adversarial attacks, perturbations that can be applied to any input and result in a successful attack, or attacks against certified defenses are possible.
+
+In contrast to white-box attacks, black-box attacks operate without direct access to the inner workings of the model and therefore without access to the gradients. Instead of exploiting detailed knowledge, black-box attackers must rely on output observations to infer how to effectively craft adversarial examples.
 
 **Controls:**
 
@@ -381,8 +383,11 @@ When attackers have access to a models' implementation (code, training set, para
 
 References:
 
+- Goodfellow, Ian J., Jonathon Shlens, and Christian Szegedy. "Explaining and harnessing adversarial examples." arXiv preprint arXiv:1412.6572 (2014).
 - Madry, Aleksander, et al. "Towards deep learning models resistant to
 adversarial attacks." arXiv preprint arXiv:1706.06083 (2017).
+- Ghiasi, Amin, Ali Shafahi, and Tom Goldstein. "Breaking certified defenses: Semantic adversarial examples with spoofed robustness certificates." arXiv preprint arXiv:2003.08937 (2020).
+- Hirano, Hokuto, and Kazuhiro Takemoto. "Simple iterative method for generating targeted universal adversarial perturbations." Algorithms 13.11 (2020): 268.
 - [Traffic signs](https://openaccess.thecvf.com/content_cvpr_2018/papers/Eykholt_Robust_Physical-World_Attacks_CVPR_2018_paper.pdf)
 - [Panda images](https://arxiv.org/pdf/1412.6572.pdf)
 
