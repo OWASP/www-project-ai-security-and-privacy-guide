@@ -105,7 +105,7 @@ There are many threats and controls described in this document. Your situation d
 
 1. **Risk identification and estimation**: First select the threats that are relevant to your situation and estimate their level of impact and probability.  
 
-    You can do this by going through the list of threats and use the _Impact_ description to see if it is applicable. For example the impact of identifying individuals in your training data would not apply to your case if your training data has no individuals. The [Navigator](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf) shows impact in purple. A bief overview of all impact can be found in the [AI security matrix](/goto/aisecuritymatrix).
+    You can do this by going through the list of threats and use the _Impact_ description to see if it is applicable. For example the impact of identifying individuals in your training data would not apply to your case if your training data has no individuals. The [Navigator](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf) shows impact in purple. A brief overview of all impact can be found in the [AI security matrix](/goto/aisecuritymatrix).
 
     Next, you can walk by the remaining threats and look at the attack surface to see if that is relevant. For example, if you don't use an external model, then the model supply chain is not a relevant attack surface and neither are the connected threats.
 
