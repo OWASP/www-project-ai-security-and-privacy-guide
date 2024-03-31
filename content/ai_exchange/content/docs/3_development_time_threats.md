@@ -4,7 +4,7 @@ weight: 4
 ---
 ## 3.0 Development-time threats - Introduction
 > Category: group of threats  
-> Permalink: /goto/developmenttime/
+> Permalink: https://owaspai.org/goto/developmenttime/
 
 **Background:**
 
@@ -25,7 +25,7 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 
 #### **#DEVDATAPROTECT**
 > Category: development-time information security control  
-> Permalink: owaspai.org/goto/devdataprotect/
+> Permalink: https://owaspai.org/goto/devdataprotect/
 
 Development data protect: protect (train/test) data, source code, configuration & parameters
 
