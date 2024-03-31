@@ -10,7 +10,7 @@
     "redirects": [
       {
         "source": "/goto/media/",
-        "destination": "/media/",
+        "destination": "/media",
         "type": 301
       },
       {
