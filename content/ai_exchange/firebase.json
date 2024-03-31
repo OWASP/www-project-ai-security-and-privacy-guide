@@ -9,6 +9,11 @@
     ],
     "redirects": [
       {
+        "source": "/goto/media/",
+        "destination": "/docs/media/",
+        "type": 301
+      },
+      {
         "source": "/goto/summary/",
         "destination": "/docs/ai_security_overview/#summary---how-to-address-ai-security",
         "type": 301
