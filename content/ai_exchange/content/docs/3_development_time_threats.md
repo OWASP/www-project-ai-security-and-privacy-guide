@@ -4,7 +4,7 @@ weight: 4
 ---
 ## 3.0 Development-time threats - Introduction
 > Category: group of threats  
-> Permalink: owaspai.org/goto/developmenttime/
+> Permalink: /goto/developmenttime/
 
 **Background:**
 
