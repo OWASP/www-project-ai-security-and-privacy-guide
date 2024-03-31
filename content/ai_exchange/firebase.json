@@ -9,8 +9,28 @@
     ],
     "redirects": [
       {
+        "source": "/goto/threatsoverview/",
+        "destination": "/docs/ai_security_overview/#threats-overview",
+        "type": 301
+      },
+      {
         "source": "/goto/aisecuritymatrix/",
         "destination": "/docs/ai_security_overview/#ai-security-matrix",
+        "type": 301
+      },
+      {
+        "source": "/goto/controlsoverview/",
+        "destination": "/docs/ai_security_overview/#controls-overview",
+        "type": 301
+      },
+      {
+        "source": "/goto/navigator/",
+        "destination": "/docs/ai_security_overview/#navigator-diagram",
+        "type": 301
+      },
+      {
+        "source": "/goto/about/",
+        "destination": "/docs/ai_security_overview/#about-this-document",
         "type": 301
       },
       {
