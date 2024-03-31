@@ -3,6 +3,9 @@ title: 3. Development-time threats
 weight: 4
 ---
 ## 3.0 Development-time threats - Introduction
+> Category: group of threats  
+> Permalink: owaspai.org/goto/developmenttime/
+
 **Background:**
 
 Data science (data engineering and model engineering - for machine learning often referred to as _training phase_) uses a development environment typically outside of the regular application development scope, introducing a new attack surface. Data engineering (collecting, storing, and preparing data) is typically a large and important part of machine learning engineering. Together with model engineering, it requires appropriate security to protect against data leaks, data poisoning, leaks of intellectual property, and supply chain attacks (see further below). In addition, data quality assurance can help reduce risks of intended and unintended data issues.
@@ -21,7 +24,10 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 - The below control(s), each marked with a # and a short name in capitals
 
 #### **#DEVDATAPROTECT**
-(development-time infosec). Development data protect: protect (train/test) data, source code, configuration & parameters
+> Category: development-time information security control  
+> Permalink: owaspai.org/goto/devdataprotect/
+
+Development data protect: protect (train/test) data, source code, configuration & parameters
 
 This data protection is important because when it leaks it hurts confidentiality of intellectual property and/or the confidentiality of train/test data which also may contain company secrets, or personal data for example. Also the integrity of this data is important to protect, to prevent data or model poisoning.
 
@@ -56,9 +62,10 @@ Protection strategies:
   - [OpenCRE on Detect and respond](https://www.opencre.org/cre/887-750)
 
 #### #DEVSECURITY
-Description: Development security: sufficient security of the AI development infrastructure, also taking into account the sensitive information that is typical to AI: training data, test data, model parameters and technical documentation. This can be achieved by adding these assets to the existing security management system. Security involves for example screening of development personnel, protection of source code/configuration, virus scanning on engineering machines.
-> Category: management  
-> Permalink owaspai.org/goto/devsecurity/
+> Category: development-time information security control  
+> Permalink: owaspai.org/goto/devsecurity/
+ 
+Development security: sufficient security of the AI development infrastructure, also taking into account the sensitive information that is typical to AI: training data, test data, model parameters and technical documentation. This can be achieved by adding these assets to the existing security management system. Security involves for example screening of development personnel, protection of source code/configuration, virus scanning on engineering machines.
 
 Apart from the AI-specific assets there is also the AI-specific supply chain of data and models, plus the fact that obtained software components are running in the development environment instead of in test, acceptance or production. This creates new risks of these components being a threat to development security. See [SUPPLYCHAINMANAGE](/goto/supplychainmanage/).
 
@@ -67,23 +74,30 @@ Links to standards:
 - ISO 27001 Information Security Management System, with the particularity
 
 #### #SEGREGATEDATA
-(development-time infosec). Segregate data: store sensitive training or test data in a separated environment with restricted access.
+> Category: development-time information security control  
+> Permalink: owaspai.org/goto/devdataprotect/
+
+Segregate data: store sensitive training or test data in a separated environment with restricted access.
 
 Links to standards:
 
 - ISO 27002 control 8.31 Separation of development, test and production environments. Gap: covers this control partly - the particularity is that the development environment typically has the sensitive data instead of the production environment - which is typically the other way around in non-AI systems. Therefore it helps to restrict access to that data within the development environment. Even more: within the development environment further segregation can take place to limit access to only those who need the data for their work, as some developers will not be processing data.
 
 #### #CONFCOMPUTE
-(development-time infosec). 'Confidential compute': If available and possible, use features of the data science environment to hide training data and model parameters from model engineers - even while it is in use.
+> Category: development-time information security control  
+> Permalink: owaspai.org/goto/confcompute/
+
+Confidential compute: If available and possible, use features of the data science execution environment to hide training data and model parameters from model engineers - even while it is in use.
 
 Links to standards:
 
 - Not covered yet in ISO/IEC standards
 
 #### #FEDERATEDLEARNING
-Description: Federated (or better: federated) learning can be applied when a training set is distributed over different organizations, preventing that the data needs to be collected in a central place - increasing the risk of leaking.  
-> Category: development-time data science  
-> Permalink: https://owaspai.org/goto/federatedlearning/
+> Category: development-time data science control  
+> Permalink: owaspai.org/goto/federatedlearning/
+ 
+Federated learning can be applied when a training set is distributed over different organizations, preventing that the data needs to be collected in a central place - increasing the risk of leaking.  
 
 Federated Learning is a decentralized Machine Learning architecture wherein a number of clients (e.g. sensor or mobile devices) participate in collaborative, decentralized, asynchronous training, which is orchestrated and aggregated by a controlling central server. Advantages of Federated Learning include reduced central compute, and the potential for preservation of privacy, since training data may remain local to the client.
 
@@ -108,7 +122,10 @@ Links to standards:
 - Not covered yet in ISO/IEC standards
 
 #### #SUPPLYCHAINMANAGE
-(development-time infosec) Supply chain management: Managing the supply chain to minimize the security risk from externally obtained elements. In regular software engineering these elements are source code or software components (e.g. open source). The particularities for AI are:
+> Category: development-time information security control  
+> Permalink: owaspai.org/goto/supplychainmanage/
+
+Supply chain management: Managing the supply chain to minimize the security risk from externally obtained elements. In regular software engineering these elements are source code or software components (e.g. open source). The particularities for AI are:
 1. supplied elements can include data and models, 
 2. many of the software components are executed development-time instead of just in production (the runtime of the application),
 3. as explained in the development-time threats, there are new vulnerable assets during AI development: training data and model parameters.
@@ -134,7 +151,10 @@ Links to standards:
 ---
 
 ## 3.1. Broad model poisoning development-time
-Description: manipulating model behaviour by altering training data, engineering, or model parameters during development-time
+> Category: group of threats  
+> Permalink: owaspai.org/goto/modelpoison/
+
+Model poisoning in de broad sense is manipulating model behaviour by altering training data, engineering, or model parameters during development-time.
 
 Impact: Integrity of model behaviour is affected, leading to issues from unwanted model output (e.g. failing fraud detection, decisions leading to safety issues, reputation damage, liability).
 
@@ -157,14 +177,18 @@ References
 - The below control(s), each marked with a # and a short name in capitals
   
 #### #MODELENSEMBLE
-(development-time data science). Model ensemble: include the model as part of an ensemble, where each model is trained in a separately protected environment. If one model's output deviates from the others, it can be ignored, as this indicates possible manipulation.
+> Category: development-time data science control  
+> Permalink: owaspai.org/goto/modelensemble/
+
+Model ensemble: include the model as part of an ensemble, where each model is trained in a separately protected environment. If one model's output deviates from the others, it can be ignored, as this indicates possible manipulation.
 
 Links to standards:
   - Not covered yet in ISO/IEC standards
 
 
 ### 3.1.1. Data poisoning
-> Permalink: owaspai.org/goto/datapoison
+> Category: threat  
+> Permalink: owaspai.org/goto/datapoison/
  
 The attacker manipulates (training) data to affect the algorithm's behavior. Also called _causative attacks_. There are mutiple ways to do this (attack vectors):
 - Changing the data while in storage during development-time (e.g. by hacking the database)
