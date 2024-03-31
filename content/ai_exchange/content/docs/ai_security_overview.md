@@ -5,6 +5,8 @@ weight: 1
 ## Summary - How to address AI Security?
 >See [home](https://owaspai.org/) for more information about this initiative, how to contribute or connect.  
 This page contains an overview of AI security and the next pages provide the main content: details on security threats to AI and controls against them. You can navigate through  pages at the bottom of every page, or in the left sidebar. The right sidebar shows the different sections on a page. On small screens you can navigate through the menu.
+>Category: discussion  
+>Permalink: https://owaspai.org/goto/summary/
 
 While AI offers powerful performance boosts, it also increases the attack surface available to bad actors. It is therefore imperative to approach AI applications with a clear understanding of potential threats and which of those threats to prioritize for each use case. Standards and governance help guide this process for individual entities leveraging AI capabilities.
 
@@ -15,6 +17,8 @@ While AI offers powerful performance boosts, it also increases the attack surfac
 - **Countermeasures in data science** through understanding of model attacks, e.g. data quality assurance, larger training sets, detecting common perturbation attacks, input filtering.
 
 ## Threats overview
+>Category: discussion  
+>Permalink: https://owaspai.org/goto/threatsoverview/
 
 ### Threat model
 We distinguish three types of threats: during development-time (when data is obtained and prepared, and the model is trained/obtained), through using the model (providing input and reading the output), and by attacking the system during runtime (in production).
@@ -22,10 +26,15 @@ The diagram shows the threats in these three groups as arrows. Each threat has a
 ![AI Security Threats](/images/threats.png)
 
 ### AI Security Matrix
+>Category: discussion  
+>Permalink: https://owaspai.org/goto/aisecuritymatrix/
+
 The AI security matrix below (click to enlarge) shows all threats and risks, ordered by type and impact.
 [![](/images/OwaspAIsecuritymatix.png)](/images/OwaspAIsecuritymatix.png)
 
 ## Controls overview
+>Category: discussion  
+>Permalink: https://owaspai.org/goto/controlsoverview/
 
 ### Threat model with controls - general
 The below diagram puts the controls in the AI Exchange into groups and places these groups in the right lifecycle with the corresponding threats.
@@ -70,6 +79,9 @@ In many situation, the as-is model will be hosted externally and therefore secur
 
 
 ### Navigator diagram
+>Category: discussion  
+>Permalink: https://owaspai.org/goto/navigator/
+
 The navigator diagram below shows all threats, controls and how they relate, including risks and the types of controls.  
 {{< callout type="info" >}}
   Click on the image to get a PDF with clickable links.
@@ -78,6 +90,8 @@ The navigator diagram below shows all threats, controls and how they relate, inc
 
 
 ## About this Document
+>Category: discussion  
+>Permalink: https://owaspai.org/goto/about/
 
 This document discusses threats to AI cyber security and controls for those threats (i.e. countermeasures, requirements, mitigations).
 Security here means preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.
@@ -101,6 +115,9 @@ The threats are organized by attack surface (how and where does the attack take 
 3. model theft by reverse engineering from using the AI system. These are three very different attacks, with similar impacts. This way of organizing is helpful because the goal is to link the threats to controls, and these controls vary per attack surface.
 
 ## How to select relevant threats and controls? risk analysis
+>Category: discussion  
+>Permalink: https://owaspai.org/goto/riskanalysis/
+
 There are many threats and controls described in this document. Your situation determines which threats are relevant to you, and what controls are your responsibility. This selection process can be performed through risk analysis (or risk assessment) of the use case and architecture at hand:
 
 1. **Risk identification and estimation**: First select the threats that are relevant to your situation and estimate their level of impact and probability.  
@@ -274,24 +291,22 @@ system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-syst
   Part of #[SECDEVPROGRAM](/goto/secprogram/) and #[SECDEVPROGRAM](/goto/secdevprogram/)
 
 ## References
+>Category: discussion  
+>Permalink: https://owaspai.org/goto/references/
 
-References on the OWASP AI guide (a project of which this document is part):
-
-- [Recording](https://www.youtube.com/watch?v=ABmWHnFrMqI) or [slides](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/20230215-Rob-AIsecurity-Appsec-ForSharing.pdf?raw=true) from [Rob van der Veer's talk](https://sched.co/1F9DT) at the OWASP Global appsec event in Dublin on February 15 2023, during which the OWASP AI guide was launched.
-- Appsec Podcast episode on the OWASP AI guide ([audio](https://www.buzzsprout.com/1730684/12313155-rob-van-der-veer-owasp-ai-security-privacy-guide),[video](https://www.youtube.com/watch?v=SLdn3AwlCAk&))
-- The [September 2023 MLSecops Podcast](https://mlsecops.com/podcast/a-holistic-approach-to-understanding-the-ai-lifecycle-and-securing-ml-systems-protecting-ai-through-people-processes-technology), and If you want the short story, check out [the 13 minute AI security quick-talk](https://www.brighttalk.com/webcast/19697/586526).
+See the [Media page](/goto/media/) for several webinars and podcast by and about the AI Exchange.
 
 Overviews of AI security threats:
 
+- [OWASP LLM top 10](https://llmtop10.com/)
 - [ENISA ML threats and countermeasures 2021](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
 - [MITRE ATLAS framework for AI threats](https://atlas.mitre.org/)
+- [NIST threat taxonomy](https://csrc.nist.gov/publications/detail/white-paper/2023/03/08/adversarial-machine-learning-taxonomy-and-terminology/draft)
 - [ETSI SAI Problem statement Section 6](https://www.etsi.org/committee/1640-sai#)
 - [Microsoft AI failure modes](https://docs.microsoft.com/en-us/security/failure-modes-in-machine-learning)
 - [NIST](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
-- [NIST threat taxonomy](https://csrc.nist.gov/publications/detail/white-paper/2023/03/08/adversarial-machine-learning-taxonomy-and-terminology/draft)
 - [NISTIR 8269 - A Taxonomy and Terminology of Adversarial Machine Learning](https://csrc.nist.rip/external/nvlpubs.nist.gov/nistpubs/ir/2019/NIST.IR.8269-draft.pdf)
 - [OWASP ML top 10](https://mltop10.info/)
-- [OWASP LLM top 10](https://llmtop10.com/)
 - [BIML](https://berryvilleiml.com/taxonomy/)
 - [PLOT4ai threat library](https://plot4.ai/library)
 
