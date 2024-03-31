@@ -3,6 +3,8 @@ title: 2. Threats through use
 weight: 3
 ---
 ## 2.0. Threats through use - introduction
+>Category: group of threats through use  
+>Permalink: https://owaspai.org/goto/threatsuse/
 
 Threats through use take place through normal interaction with an AI model: providing input and receiving output. Many of these threats require experimentation with the model, which is referred to in itself as an _Oracle attack_.
 
@@ -12,8 +14,10 @@ Threats through use take place through normal interaction with an AI model: prov
 - The below control(s), each marked with a # and a short name in capitals
 
 #### #MONITORUSE 
+>Category: runtime information security control for threats through use  
+>Permalink: https://owaspai.org/goto/monitoruse/
 
-(runtime appsec). Monitor the use of the model (input, date, time, user) by registering it in logs, so it can be used to reconstruct incidents, and made it part of the existing incident detection process - extended with AI-specific methods, including:
+Monitor use: Monitor the use of the model (input, date, time, user) by registering it in logs, so it can be used to reconstruct incidents, and made it part of the existing incident detection process - extended with AI-specific methods, including:
 
   - inproper functioning of the model (see [CONTINUOUSVALIDATION](/goto/continuousvalidation/) and [UNWANTEDBIASTESTING](/goto/unwantedbiastesting/))
   - suspicious patterns of model use (e.g. high frequency - see [RATELIMIT](#ratelimit) and [DETECTADVERSARIALINPUT](#detectadversarialinput))
@@ -28,7 +32,10 @@ Links to standards:
   - See [OpenCRE](https://www.opencre.org/cre/058-083). Idem
 
 #### #RATELIMIT
-(runtime appsec). Limit the rate (frequency) of access to the model (e.g. API) - preferably per user.
+>Category: runtime information security control for threats through use  
+>Permalink: https://owaspai.org/goto/ratelimit/
+
+Rate limit: Limit the rate (frequency) of access to the model (e.g. API) - preferably per user.
 
 Purpose: severely delay attackers trying many inputs to perform attacks through use (e.g. try evasion attacks or for model inversion).
 
@@ -42,7 +49,10 @@ Links to standards:
   - See [OpenCRE](https://www.opencre.org/cre/630-573)
 
 #### #MODELACCESSCONTROL
-(runtime appsec). Model access control: Securely limit allowing access to use the model to authorized users.
+>Category: runtime information security control for threats through use  
+>Permalink: https://owaspai.org/goto/modelaccesscontrol/
+
+Model access control: Securely limit allowing access to use the model to authorized users.
 
 Purpose: prevent attackers that are not authorized to perform attacks through use.
 
@@ -57,7 +67,10 @@ Links to standards:
 ---
 
 ## 2.1. Evasion - Model behaviour manipulation through use
-Description: Fooling models with deceptive input data. In other words: an attacker provides input that has intentionally been designed to cause a machine learning model to behave in an unwanted way.
+>Category: group of threats through use  
+>Permalink: https://owaspai.org/goto/evasion/
+
+Evasion: fooling models with deceptive input data. In other words: an attacker provides input that has intentionally been designed to cause a machine learning model to behave in an unwanted way.
 
 Impact: Integrity of model behaviour is affected, leading to issues from unwanted model output (e.g. failing fraud detection, decisions leading to safety issues, reputation damage, liability).
 
@@ -82,7 +95,9 @@ See [MITRE ATLAS - Evade ML model](https://atlas.mitre.org/techniques/AML.T0015)
   - The below control(s), each marked with a # and a short name in capitals
 
 #### #DETECTODDINPUT 
-(runtime data science).
+>Category: runtime datasciuence control for threats through use  
+>Permalink: https://owaspai.org/goto/detectoddinpunt/
+
 Detect odd input: implement tools to detect whether input is odd: significantly different from the training data or even invalid - also called input validation - without knowledge on what malicious input looks like.
 
 Purpose: Odd input can result in unwanted model behaviour because the model by definition has not seen this data before and will likely produce false results, whether the input is malicious or not. When detected, the input can be logged for analysis and optionally discarded. It is important to note that not all odd input will be malicious and not all malicious input will be odd. There are examples of adversarial input specifically crafted to bypass detection of odd input. Nevertheless, detecting odd input is critical to maintaining model integrity, addressing potential concept drift, and preventing adversarial attacks that may take advantage of model behaviors on out of distribution data.
@@ -138,7 +153,10 @@ References:
 
 
 #### #DETECTADVERSARIALINPUT
-(runtime data science). Detect adversarial input: Implement tools to detect specific attack patterns in input or series of inputs (e.g. patches in images).
+>Category: runtime data science control for threats through use  
+>Permalink: https://owaspai.org/goto/detectadversarialinput/
+
+Detect adversarial input: Implement tools to detect specific attack patterns in input or series of inputs (e.g. patches in images).
 
 The main concepts of adversarial attack detectors include:
 - **Statistical analysis of input series**: Adversarial attacks often follow certain patterns, which can be analysed by looking at input on a per-user basis. For example to detect series of small deviations in the input space, indicating a possible attack such as a search to perform model inversion or an evasion attack. These attacks also typically have series of inputs with a general increase of confidence value. Another example: if inputs seem systematic (very random or very uniform or covering the entire input space) it may indicate a [model theft throught use attack](/goto/modeltheftuse/).
@@ -203,7 +221,10 @@ Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern
 Recognition. 2022.
 
 #### #EVASIONROBUSTMODEL
-(development-time data science). Choose an evasion-robust model design, configuration and/or training approach to maximize resilience against evasion (Data science).
+>Category: development-time datascience control for threats through use  
+>Permalink: https://owaspai.org/goto/evasionrobustmodel/
+
+Evastion-robust model: choose an evasion-robust model design, configuration and/or training approach to maximize resilience against evasion (Data science).
 
 A robust model in the light of evasion is a model that does not display significant changes in output for minor changes in input. Adversarial examples are the name for inputs that represent input with an unwanted result, where the input is a minor change of an input that leads to a wanted reults.
 
@@ -249,7 +270,10 @@ adversarial examples." International conference on machine learning.
 PMLR, 2018.
 
 #### #TRAINADVERSARIAL
-(development-time data science). Train adversarial: Add adversarial examples to the training set to make the model more resilient (Data science). While adversarial training does make a model more robust against specific attacks, it is important to note that it also adds significant training overhead, does not scale well with model complexity / input dimension, can lead to overfitting, and may not generalize well to new attack methods. For a general summary of adversarial training, see [Bai et al.](https://arxiv.org/pdf/2102.01356.pdf)
+>Category: development-time data science control for threats through use  
+>Permalink: https://owaspai.org/goto/trainadversarial/
+
+Train adversarial: Add adversarial examples to the training set to make the model more resilient (Data science). While adversarial training does make a model more robust against specific attacks, it is important to note that it also adds significant training overhead, does not scale well with model complexity / input dimension, can lead to overfitting, and may not generalize well to new attack methods. For a general summary of adversarial training, see [Bai et al.](https://arxiv.org/pdf/2102.01356.pdf)
 
   Links to standards:
 
@@ -294,7 +318,10 @@ References:
 
   
 #### #ADVERSARIALROBUSTDISTILLATION
-(development-time data science). Adversarial-robust distillation: defensive distillation involves training a student model to replicate the softened outputs of the *teacher* model, increasing the resilience of the *student* model to adversarial examples by smoothing the decision boundaries and making the model less sensitive to small perturbations in the input. Care must be taken when considering defensive distillation techniques, as security concerns have arisen about their effectiveness.
+>Category: development-time data science control for threats through use  
+>Permalink: https://owaspai.org/goto/adversarialrobustdistillation/
+
+Adversarial-robust distillation: defensive distillation involves training a student model to replicate the softened outputs of the *teacher* model, increasing the resilience of the *student* model to adversarial examples by smoothing the decision boundaries and making the model less sensitive to small perturbations in the input. Care must be taken when considering defensive distillation techniques, as security concerns have arisen about their effectiveness.
 
 Links to standards:
 
@@ -312,7 +339,8 @@ security and privacy (SP). IEEE, 2016.
 robust to adversarial examples." arXiv preprint arXiv:1607.04311 (2016).
 
 ### 2.1.1. Closed-box evasion
-
+>Category: threat through use  
+>Permalink: https://owaspai.org/goto/closedboxevasion/
 
 Black box or closed-box attacks are methods where an attacker crafts an input to exploit a model without having any internal knowledge or access to that model's implementation, including code, training set, parameters, and architecture. The term "black box" reflects the attacker's perspective, viewing the model as a 'closed box' whose internal workings are unknown. This approach often requires experimenting with how the model responds to various inputs, as the attacker navigates this lack of transparency to identify and leverage potential vulnerabilities.
 Since the attacker does not have access to the inner workings of the model, he cannot calculate the internal model gradients to efficiently create the adversarial inputs - in contrast to white-box or open-box attacks (see 2.1.2. Open-box evasion).
@@ -371,6 +399,8 @@ computer vision. Cham: Springer International Publishing, 2020.
 - See [controls for threats through use](/goto/threatsuse/)
 
 ### 2.1.2. Open-box evasion
+>Category: threat through use  
+>Permalink: https://owaspai.org/goto/openboxevasion/
 
 In open-box or white-box attacks, the attacker knows the architecture, parameters, and weights of the target model. Therefore, the attacker has the ability to create input data designed to introduce errors in the model's predictions. These attacks may be targeted or untargeted. In a targeted attack, the attacker wants to force a specific prediction, while in an untargeted attack, the goal is to cause the model to make a false prediction. A famous example in this domain is the Fast Gradient Sign Method (FGSM) developed by Goodfellow et al. which demonstrates the efficiency of white-box attacks. FGSM operates by calculating a perturbation $p$ for a given image $x$ and it's label $l$, following the equation $p = \varepsilon \textnormal{sign}(\nabla_x J(\theta, x, l))$, where $\nabla_x J(\cdot, \cdot, \cdot)$ is the gradient of the cost function with respect to the input, computed via backpropagation. The model's parameters are denoted by $\theta$ and $\varepsilon$ is a scalar defining the perturbation's magnitude. Even universal adversarial attacks, perturbations that can be applied to any input and result in a successful attack, or attacks against certified defenses are possible.
 
@@ -392,20 +422,26 @@ adversarial attacks." arXiv preprint arXiv:1706.06083 (2017).
 - [Panda images](https://arxiv.org/pdf/1412.6572.pdf)
 
 ### 2.1.3. Evasion after data poisoning
+>Category: threat through use  
+>Permalink: https://owaspai.org/goto/evasionafterpoison/
 
 After training data has been poisoned (see [data poisoning section](/goto/datapoison/)), specific input  (called _backdoors_ or _triggers_) can lead to unwanted model output.
 
 ---
 
 ## 2.2. Sensitive data disclosure through use
+>Category: group of threats through use  
+>Permalink: https://owaspai.org/goto/disclosureuse/
 
 Impact: Confidentiality breach of sensitive training data.
 
 The model discloses sensitive training data or is abused to do so.
 
 ### 2.2.1. Sensitive data output from model
+>Category: threat through use  
+>Permalink: https://owaspai.org/goto/disclosureoutput/
 
-The output of the model may contain sensitive data from the training set, for example a large language model (GenAI) generating output including personal data that was part of its training set. Furthermore, GenAI can output other types of sensitive data, such as copyrighted text or images. Once training data is in a GenAI model, original variations in access rights do not apply anymore. ([OWASP for LLM 06](https://llmtop10.com/llm06/))
+The output of the model may contain sensitive data from the training set, for example a large language model (GenAI) generating output including personal data that was part of its training set. Furthermore, GenAI can output other types of sensitive data, such as copyrighted text or images. Once training data is in a GenAI model, original variations in access rights cannot be controled anymore. ([OWASP for LLM 06](https://llmtop10.com/llm06/))
 
 The disclosure is caused by an unintentional fault of including this data, and exposed through normal use or through provocation by an attacker using the system. See [MITRE ATLAS - LLM Data Leakage](https://atlas.mitre.org/techniques/AML.T0057)
 
@@ -416,13 +452,18 @@ The disclosure is caused by an unintentional fault of including this data, and e
 - The below control(s), each marked with a # and a short name in capitals
 
 #### #FILTERSENSITIVEMODELOUTPUT 
-(runtime appsec). Filter sensitive model output: actively censor sensitive data by detecting it when possible (e.g. phone number)
+>Category: runtime information security control for threats through use  
+>Permalink: https://owaspai.org/goto/filtersensitivemodeloutput/
+
+Filter sensitive model output: actively censor sensitive data by detecting it when possible (e.g. phone number)
 
 Links to standards:
 
   - Not covered yet in ISO/IEC standards
 
 ### 2.2.2. Model inversion and Membership inference
+>Category: threat through use  
+>Permalink: https://owaspai.org/goto/modelinversionandmembership/
 
 Model inversion (or _data reconstruction_) occurs when an attacker reconstructs a part of the training set by intensive experimentation during which the input is optimized to maximize indications of confidence level in the output of the model.
 
@@ -445,14 +486,20 @@ Controls for Model inversion and membership inference:
 - The below control(s), each marked with a # and a short name in capitals
 
 #### #OBSCURECONFIDENCE 
-(runtime data science). Obscure confidence: exclude indications of confidence in the output, or round confidence so it cannot be used for optimization.
+>Category: runtime data science control for threats through use  
+>Permalink: https://owaspai.org/goto/obscureconfidence/
+
+Obscure confidence: exclude indications of confidence in the output, or round confidence so it cannot be used for optimization.
 
 Links to standards:
 
   - Not covered yet in ISO/IEC standards
 
 #### #SMALLMODEL 
-(development-time data science). Small model: overfitting can be prevented by keeping the model small so it is not able to store detail at the level of individual training set samples.
+>Category: development-time data science control for threats through use  
+>Permalink: https://owaspai.org/goto/smallmodel/
+
+Small model: overfitting can be prevented by keeping the model small so it is not able to store detail at the level of individual training set samples.
 
 Links to standards:
 
@@ -461,6 +508,8 @@ Links to standards:
 ---
 
 ## 2.3. Model theft through use
+>Category: threat through use  
+>Permalink: https://owaspai.org/goto/modeltheftuse/
 
 Impact: Confidentiality breach of model intellectual property.
 
@@ -481,6 +530,9 @@ References
 ---
 
 ## 2.4. Failure or malfunction of AI-specific elements through use
+>Category: threat through use  
+>Permalink: https://owaspai.org/goto/denialmodelservice/
+
 Description: specific input to the model leads to availabity issues (system being very slow or unresponsive, also called _denial of service_), typically caused by excessive resource usage. The failure occurs from frequency, volume, or the content of the input. See [MITRE ATLAS - Denial of ML service](https://atlas.mitre.org/techniques/AML.T0029).
 
 Impact: The AI systems is unavailable, leading to issues with processes, organizations or individuals that depend on the AI system (e.g. business continuity issues, safety issues in process control, unavailability of services)
@@ -495,7 +547,10 @@ For example: A _sponge attack_ or _energy latency attack_ provides input that is
 
   
 #### #DOSINPUTVALIDATION
-(runtime appsec). Denial-of-service input validation: input validation and sanitization to reject or correct malicious (e.g. very large) content
+>Category: runtime information security control for threats through use  
+>Permalink: https://owaspai.org/goto/detectoddinpunt/
+
+Denial-of-service input validation: input validation and sanitization to reject or correct malicious (e.g. very large) content
 
 Links to standards:
 
@@ -505,9 +560,12 @@ Links to standards:
 
 
 #### #LIMITRESOURCES
-(runtime). Limit resource usage for a single model input, to prevent resource overuse.
+>Category: runtime information security control for threats through use  
+>Permalink: https://owaspai.org/goto/limitresources/
 
-  Links to standards:
+Limit resource usage for a single model input, to prevent resource overuse.
+
+Links to standards:
 
   - ISO 27002 has no control for this, except for Monitoring (covered in Controls for threats through use)
   - Not covered yet in ISO/IEC standards
