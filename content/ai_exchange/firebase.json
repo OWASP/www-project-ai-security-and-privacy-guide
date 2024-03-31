@@ -44,6 +44,11 @@
         "type": 301
       },
       {
+        "source": "/goto/references/",
+        "destination": "/docs/ai_security_overview/#references",
+        "type": 301
+      },
+      {
         "source": "/goto/generalcontrols/",
         "destination": "/docs/1_general_controls/",
         "type": 301
