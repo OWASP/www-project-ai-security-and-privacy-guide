@@ -3,7 +3,7 @@ title: 3. Development-time threats
 weight: 4
 ---
 ## 3.0 Development-time threats - Introduction
-> Category: group of threats  
+> Category: group of development-time threats  
 > Permalink: https://owaspai.org/goto/developmenttime/
 
 **Background:**
@@ -63,7 +63,7 @@ Protection strategies:
 
 #### #DEVSECURITY
 > Category: development-time information security control  
-> Permalink: owaspai.org/goto/devsecurity/
+> Permalink: https://owaspai.org/goto/devsecurity/
  
 Development security: sufficient security of the AI development infrastructure, also taking into account the sensitive information that is typical to AI: training data, test data, model parameters and technical documentation. This can be achieved by adding these assets to the existing security management system. Security involves for example screening of development personnel, protection of source code/configuration, virus scanning on engineering machines.
 
@@ -75,7 +75,7 @@ Links to standards:
 
 #### #SEGREGATEDATA
 > Category: development-time information security control  
-> Permalink: owaspai.org/goto/devdataprotect/
+> Permalink: https://owaspai.org/goto/devdataprotect/
 
 Segregate data: store sensitive training or test data in a separated environment with restricted access.
 
@@ -85,7 +85,7 @@ Links to standards:
 
 #### #CONFCOMPUTE
 > Category: development-time information security control  
-> Permalink: owaspai.org/goto/confcompute/
+> Permalink: https://owaspai.org/goto/confcompute/
 
 Confidential compute: If available and possible, use features of the data science execution environment to hide training data and model parameters from model engineers - even while it is in use.
 
@@ -95,7 +95,7 @@ Links to standards:
 
 #### #FEDERATEDLEARNING
 > Category: development-time data science control  
-> Permalink: owaspai.org/goto/federatedlearning/
+> Permalink: https://owaspai.org/goto/federatedlearning/
  
 Federated learning can be applied when a training set is distributed over different organizations, preventing that the data needs to be collected in a central place - increasing the risk of leaking.  
 
@@ -123,7 +123,7 @@ Links to standards:
 
 #### #SUPPLYCHAINMANAGE
 > Category: development-time information security control  
-> Permalink: owaspai.org/goto/supplychainmanage/
+> Permalink: https://owaspai.org/goto/supplychainmanage/
 
 Supply chain management: Managing the supply chain to minimize the security risk from externally obtained elements. In regular software engineering these elements are source code or software components (e.g. open source). The particularities for AI are:
 1. supplied elements can include data and models, 
@@ -151,8 +151,8 @@ Links to standards:
 ---
 
 ## 3.1. Broad model poisoning development-time
-> Category: group of threats  
-> Permalink: owaspai.org/goto/modelpoison/
+> Category: group of development-time threats  
+> Permalink: https://owaspai.org/goto/modelpoison/
 
 Model poisoning in de broad sense is manipulating model behaviour by altering training data, engineering, or model parameters during development-time.
 
@@ -178,7 +178,7 @@ References
   
 #### #MODELENSEMBLE
 > Category: development-time data science control  
-> Permalink: owaspai.org/goto/modelensemble/
+> Permalink: https://owaspai.org/goto/modelensemble/
 
 Model ensemble: include the model as part of an ensemble, where each model is trained in a separately protected environment. If one model's output deviates from the others, it can be ignored, as this indicates possible manipulation.
 
@@ -187,8 +187,8 @@ Links to standards:
 
 
 ### 3.1.1. Data poisoning
-> Category: threat  
-> Permalink: owaspai.org/goto/datapoison/
+> Category: development-time threat  
+> Permalink: https://owaspai.org/goto/datapoison/
  
 The attacker manipulates (training) data to affect the algorithm's behavior. Also called _causative attacks_. There are mutiple ways to do this (attack vectors):
 - Changing the data while in storage during development-time (e.g. by hacking the database)
@@ -209,14 +209,20 @@ Example 3: false information in documents on the internet causes a Large Languag
 - The below control(s), each marked with a # and a short name in capitals
 
 #### #MORETRAINDATA
-(development-time data science): More train data: increasing the amount of non-malicious data makes training more robust against poisoned examples - provided that these poisoned examples are small in number. One way to do this is through data augmentation - the creation of artificial training set samples that are small variations of existing samples.
+> Category: development-time data science control  
+> Permalink: https://owaspai.org/goto/moretraindata/
+
+More train data: increasing the amount of non-malicious data makes training more robust against poisoned examples - provided that these poisoned examples are small in number. One way to do this is through data augmentation - the creation of artificial training set samples that are small variations of existing samples.
 
 Links to standards:
 
 - Not covered yet in ISO/IEC standards
 
 #### #DATAQUALITYCONTROL
-(development-time data science). Data quality control: Perform quality control on data including detecting poisoned samples through statistical deviation or pattern recognition. For important data and scenarios this may involve human verification.
+> Category: development-time data science control  
+> Permalink: https://owaspai.org/goto/dataqualitycontrol/
+
+Data quality control: Perform quality control on data including detecting poisoned samples through statistical deviation or pattern recognition. For important data and scenarios this may involve human verification.
 
 Particularity for AI and security: standard quality control needs to take into account that data may have maliciously been changed. This means that extra checks can be placed to detect changes that would normally not happen by themselves. For example: safely storing hash codes of data elements, such as images, and regularly checking to see if the images have been manipulated.
 
@@ -229,9 +235,10 @@ Links to standards:
 - Not further covered yet in ISO/IEC standards
 
 #### #TRAINDATADISTORTION
-Description: Train data distortion: making poisoned samples ineffective by smoothing or adding noise to training data (with the best practice of keeping the original training data, in order to expertiment with the filtering)
-> Category: development-time data science  
-> Permalink: owaspai.org/goto/traindatadistortion/
+> Category: development-time data science control  
+> Permalink: https://owaspai.org/goto/traindatadistortion/
+
+Train data distortion: making poisoned samples ineffective by smoothing or adding noise to training data (with the best practice of keeping the original training data, in order to expertiment with the filtering)
 
 Effectiveness: 
 - The level of effectiveness needs to be tested by experimenting, which will not give conclusive results, as an attacker my find more clever ways to poison the data than the methods used during testing.
@@ -253,9 +260,10 @@ Link to standards:
 - Not covered yet in ISO/IEC standards
 
 #### #POISONROBUSTMODEL
-Description: Poison robust model: select a model type and creation approach to reduce sensitivity to poisoned training data.
-> Category: development-time data science  
-> Permalink: owaspai.org/goto/poisonrobustmodel/
+> Category: development-time data science control  
+> Permalink: https://owaspai.org/goto/poisonrobustmodel/
+
+Poison robust model: select a model type and creation approach to reduce sensitivity to poisoned training data.
 
 The general principle of reducing sensitivity to poisoned training data is to make sure that the model does not memorize the specific malicious input pattern (or _backdoor trigger_). The following two examples represent different strategies, which can also complement each other in an approach called **fine pruning** (See [paper on fine-pruning](https://arxiv.org/pdf/1805.12185.pdf)):
 1. Reduce memorization by removing elements of memory using **pruning**. Pruning in essence reduces the size of the model so it does not have the capacity to trigger on backdoor-examples while retaining sufficient accuracy for the intended use case. The approach removes neurons in a neural network that have been identified as non-essential for sufficient accuracy.
@@ -265,6 +273,8 @@ Links to standards:
 - Not covered yet in ISO/IEC standards
 
 ### 3.1.2. Development-time model poisoning
+> Category: development-time threat  
+> Permalink: https://owaspai.org/goto/devmodelpoison/
 
 This threat refers to manipulating behaviour of the model by not poisoning the training data, but insead alter the engineering elements that lead to the model or represent the model (i.e. model parameters) during development time, e.g. by attacking the engineering environment to manipulate storage. When the model is trained by a supplier in a manipulative way and supplied as-is, then it is a [Transfer learning attack](goto/transferlearningattack/).
 Data manipulation is referred to as data poisoning and is covered in separate threats.
@@ -276,9 +286,10 @@ Data manipulation is referred to as data poisoning and is covered in separate th
 - See controls for broad model poisoning
 
 ### 3.1.3 Transfer learning attack
-Description: An attacker supplies a manipulated pre-trained model which is then obtained and unknowingly further used and/or trained/fine tuned, with still having the unwanted behaviour.
 >Category: development-time threat  
 >Permalink: https://owaspai.org/goto/transferlearningattack/
+
+An attacker supplies a manipulated pre-trained model which is then obtained and unknowingly further used and/or trained/fine tuned, with still having the unwanted behaviour.
 
 AI models are sometimes obtained elsewhere (e.g. open source) and then further trained or fine-tuned. These models may have been manipulated(poisoned) at the source, or in transit. See [OWASP for LLM 05: Supply Chain Vulnerabilities.](https://llmtop10.com/llm05/).
 
@@ -294,8 +305,15 @@ The type of manipulation can be through data poisoning, or by specifically chang
 ---
 
 ## 3.2. Sensitive data leak development-time
+>Category: group of development-time threats  
+>Permalink: https://owaspai.org/goto/devleak/
+
 
 ### 3.2.1. Development-time data leak
+>Category: development-time threat  
+>Permalink: https://owaspai.org/goto/devdataleak/
+
+Unauthorized access to train or test data through a data leak of the development environment.
 
 Impact: Confidentiality breach of sensitive train/test data.
 
@@ -306,10 +324,14 @@ GenAI models are often hosted in the cloud, sometimes managed by an external par
 
 **Controls:**
 
-- - See [General controls](/goto/generalcontrols/), especially [Sensitive data limitation](/goto/dataminimize/)
+- See [General controls](/goto/generalcontrols/), especially [Sensitive data limitation](/goto/dataminimize/)
 - See [controls for development-time protection](/goto/developmenttimeintro/)
 
 ### 3.2.2. Model theft through development-time model parameter leak
+>Category: development-time threat  
+>Permalink: https://owaspai.org/goto/devmodelleak/
+
+Unauthorized access to model parameters through a data leak of the development environment.
 
 Impact: Confidentiality breach of model intellectual property.
 
@@ -319,6 +341,10 @@ Impact: Confidentiality breach of model intellectual property.
 - See [controls for development-time protection](/goto/developmenttimeintro/)
 
 ### 3.2.3. Source code/configuration leak
+>Category: development-time threat  
+>Permalink: https://owaspai.org/goto/devcodeleak/
+
+Unauthorized access to code or configuration that leads to the model, through a data leak of the development environment. SUch code or configuration is used to preprocess the training/test data and train the model.
 
 Impact: Confidentiality breach of model intellectual property.
 
