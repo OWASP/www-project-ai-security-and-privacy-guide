@@ -294,7 +294,7 @@ system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-syst
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/references/
 
-See the [Media page](/goto/media/) for several webinars and podcast by and about the AI Exchange.
+See the [Media page](/media) for several webinars and podcast by and about the AI Exchange.
 
 Overviews of AI security threats:
 
