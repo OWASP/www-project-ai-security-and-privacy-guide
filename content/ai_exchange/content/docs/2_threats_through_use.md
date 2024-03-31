@@ -548,7 +548,7 @@ For example: A _sponge attack_ or _energy latency attack_ provides input that is
   
 #### #DOSINPUTVALIDATION
 >Category: runtime information security control for threats through use  
->Permalink: https://owaspai.org/goto/detectoddinpunt/
+>Permalink: https://owaspai.org/goto/dosinputvalidation/
 
 Denial-of-service input validation: input validation and sanitization to reject or correct malicious (e.g. very large) content
 
