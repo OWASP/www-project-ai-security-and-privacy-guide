@@ -96,7 +96,7 @@ See [MITRE ATLAS - Evade ML model](https://atlas.mitre.org/techniques/AML.T0015)
 
 #### #DETECTODDINPUT 
 >Category: runtime datasciuence control for threats through use  
->Permalink: https://owaspai.org/goto/detectoddinpunt/
+>Permalink: https://owaspai.org/goto/detectoddinput/
 
 Detect odd input: implement tools to detect whether input is odd: significantly different from the training data or even invalid - also called input validation - without knowledge on what malicious input looks like.
 
@@ -289,7 +289,10 @@ Train adversarial: Add adversarial examples to the training set to make the mode
   - Vaishnavi, Pratik, Kevin Eykholt, and Amir Rahmati. "Transferring adversarial robustness through robust representation matching." 31st USENIX Security Symposium (USENIX Security 22). 2022.
 
 #### #INPUTDISTORTION
-(runtime data science). Input distortion: Lightly modify the input with the intention to distort the adversarial attack causing it to fail, while maintaining sufficient model correctness. Modification can be done by e.g. adding noise (randomization), smoothing or JPEG compression.
+>Category: runtime datasciuence control for threats through use  
+>Permalink: https://owaspai.org/goto/inputdistortion/
+
+Input distortion: Lightly modify the input with the intention to distort the adversarial attack causing it to fail, while maintaining sufficient model correctness. Modification can be done by e.g. adding noise (randomization), smoothing or JPEG compression.
 
 Maintaining model correctness can be improved by performing multiple random modifications (e.g. randomized smoothing) to the input and then comparing the model output (e.g. best of three).  
 
@@ -439,7 +442,7 @@ The model discloses sensitive training data or is abused to do so.
 
 ### 2.2.1. Sensitive data output from model
 >Category: threat through use  
->Permalink: https://owaspai.org/goto/disclosureoutput/
+>Permalink: https://owaspai.org/goto/disclosureuseoutput/
 
 The output of the model may contain sensitive data from the training set, for example a large language model (GenAI) generating output including personal data that was part of its training set. Furthermore, GenAI can output other types of sensitive data, such as copyrighted text or images. Once training data is in a GenAI model, original variations in access rights cannot be controled anymore. ([OWASP for LLM 06](https://llmtop10.com/llm06/))
 
