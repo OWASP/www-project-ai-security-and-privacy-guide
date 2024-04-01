@@ -75,7 +75,7 @@ Links to standards:
 
 #### #SEGREGATEDATA
 > Category: development-time information security control  
-> Permalink: https://owaspai.org/goto/devdataprotect/
+> Permalink: https://owaspai.org/goto/segregatedata/
 
 Segregate data: store sensitive training or test data in a separated environment with restricted access.
 
