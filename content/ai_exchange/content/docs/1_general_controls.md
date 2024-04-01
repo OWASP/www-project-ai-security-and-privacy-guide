@@ -5,7 +5,7 @@ weight: 2
 > Category: group of controls  
 > Permalink: https://owaspai.org/goto/generalcontrols/
 ## 1.1 General governance controls
-> Category: group of controls
+> Category: group of controls  
 > Permalink: https://owaspai.org/goto/governancecontrols/
 
 #### #AIPROGRAM
@@ -201,7 +201,7 @@ The impact of security threats on confidentiality and integrity can be reduced b
 
 #### #DATAMINIMIZE
 > Category: development-time and runtime control  
-> Permalink: https://owaspai.org/goto/secdevprogram/
+> Permalink: https://owaspai.org/goto/dataminimize/
 
 Data minimize: remove or anonymize data fields or records (e.g. from a trainin set) that are unnecessary for the application, in order to prevent potential data leaks or manipulation. 
 
@@ -214,8 +214,10 @@ A method to determine which fields or records can be removed is to statistically
   - Not covered yet in ISO/IEC standards.
 
 #### #ALLOWEDDATA 
-Description: Ensure allowed data, meaning: removing data (e.g. from a training set) that is prohibited for the intended purpose. This is particularly important if consent was not given and the data contains personal information collected for a different purpose. 
-> Category: development-time and runtime management
+> Category: development-time and runtime control    
+> Permalink: https://owaspai.org/goto/alloweddata/
+
+Ensure allowed data, meaning: removing data (e.g. from a training set) that is prohibited for the intended purpose. This is particularly important if consent was not given and the data contains personal information collected for a different purpose. 
 
 Purpose: Apart from compliance, the purpose is to minimize the impact of data leakage or manipulation
 
@@ -224,8 +226,10 @@ Links to standards:
   - ISO/IEC 23894 (AI risk management) covers this in A.8 Privacy. Gap: covers this control fully, with a brief section on the idea
 
 #### #SHORTRETAIN
-Description: Short retain: Remove or anonymize data once it is no longer needed, or when legally required (e.g., due to privacy laws).
-> Gategory: development-time and runtime
+> Category: development-time and runtime control    
+> Permalink: https://owaspai.org/goto/shortretain/
+
+Short retain: Remove or anonymize data once it is no longer needed, or when legally required (e.g., due to privacy laws).
 
 Purpose: minimize the impact of data leakage or manipulation
 
@@ -307,8 +311,10 @@ Links to standards:
 - Not covered yet in ISO/IEC standards.
 
 #### #DISCRETE
+> Category: development-time and runtime control    
+> Permalink: https://owaspai.org/goto/discrete/
+
 Minimize access to technical details that could help attackers.
-> Category: management, development-time and runtime
 
 Purpose: reduce the information available to attackers, which can assist them in selecting and tailoring their attacks, thereby lowering the probability of a successful attack.
 
@@ -332,6 +338,8 @@ Links to standards:
 ---
 
 ## 1.3. Controls to limit the effects of unwanted behaviour
+> Category: group of controls  
+> Permalink: https://owaspai.org/goto/limitedunwanted/
 
 Unwanted model behaviour is the intended result of many AI security attacks. There are many ways to prevent and to detect these attacks. This section is about how the effects of unwanted model behaviour can be controlled, in order to reduce the impact of an attack.
 
@@ -354,8 +362,10 @@ Example: LLMs (GenAI), just like most AI models, induce their results based on t
 **Controls to limit the effects of unwanted model behaviour:**
 
 #### #OVERSIGHT
-Description: Oversight of model behaviour by humans or business logic in the form of rules (guardrails).
-> Category: runtime 
+> Category: runtime control    
+> Permalink: https://owaspai.org/goto/ovesight/
+
+Oversight of model behaviour by humans or business logic in the form of rules (guardrails).
   
 Purpose: Detect unwanted model behavior and correct or halt the execution of a model's decision.
 
@@ -381,7 +391,10 @@ Links to standards:
   - Not covered further in ISO/IEC standards.
 
 #### #LEASTMODELPRIVILEGE
-(runtime infosec). Least model privilege: Minimize privileges of a model to autonomously take actions.
+> Category: runtime information security control    
+> Permalink: https://owaspai.org/goto/leastmodelprivilege/
+
+Least model privilege: Minimize privileges of a model to autonomously take actions.
 
 For example: avoid connecting a model to an email facility to prevent it from sending incorrect or sensitive information to others.
 
@@ -391,7 +404,10 @@ Links to standards:
   - [OpenCRE on least privilege](https://www.opencre.org/cre/368-633) Gap: idem
 
 #### #AITRANSPARENCY
-(runtime, management). AI transparency: By being transparent with users about the rough workings of the model, its training process, and the general expected accuracy and reliability of the AI system's output, people can adjust their reliance ([OWASP for LLM 09](https://llmtop10.com/llm09/)) on it accordingly. The simplest form of this is to inform users that an AI model is being involved. Transparency here is about providing abstract information regarding the model and is therefore something else than _explainability_.
+> Category: runtime control    
+> Permalink: https://owaspai.org/goto/aitransparency/
+
+AI transparency: By being transparent with users about the rough workings of the model, its training process, and the general expected accuracy and reliability of the AI system's output, people can adjust their reliance ([OWASP for LLM 09](https://llmtop10.com/llm09/)) on it accordingly. The simplest form of this is to inform users that an AI model is being involved. Transparency here is about providing abstract information regarding the model and is therefore something else than _explainability_.
 
 See the [DISCRETE](#discrete) control for the balance between being transparent and being discrete about the model. 
 
@@ -401,8 +417,10 @@ Links to standards:
   - Not covered further in ISO/IEC standards.
 
 #### #CONTINUOUSVALIDATION
+> Category: runtime data science control  
+> Permalink: https://owaspai.org/goto/continuousvalidation/
 
-(data science). Continuous validation: by frequently testing the behaviour of the model against an appropriate test set, it is possible to detect sudden changes caused by a permanent attack (e.g. data poisoning, model poisoning).
+Continuous validation: by frequently testing the behaviour of the model against an appropriate test set, it is possible to detect sudden changes caused by a permanent attack (e.g. data poisoning, model poisoning).
 
 Continuous validation is a process that is often in place to detect other issues than attacks: system failures, or the model performance going down because of changes in the real world since it was trained.
 
@@ -411,7 +429,13 @@ Links to standards:
 - ISO 5338 (AI lifecycle) Continuous validation. Gap: covers this control fully
 
 #### #EXPLAINABILITY 
-(runtime data science). Explaining how individual model decisions are made, a field referred to as Explainable AI (XAI), can aid in gaining user trust in the model. In some cases, this can also prevent overreliance, for example, when the user observes the simplicity of the 'reasoning' or even errors in that process. See [this Stanford article on explainability and overreliance](https://hai.stanford.edu/news/ai-overreliance-problem-are-explanations-solution). Explanations of how a model works can also aid security assessors to evaluate AI security risks of a model.
+> Category: runtime data science control  
+> Permalink: https://owaspai.org/goto/explainability/
+
+Explainability: Explaining how individual model decisions are made, a field referred to as Explainable AI (XAI), can aid in gaining user trust in the model. In some cases, this can also prevent overreliance, for example, when the user observes the simplicity of the 'reasoning' or even errors in that process. See [this Stanford article on explainability and overreliance](https://hai.stanford.edu/news/ai-overreliance-problem-are-explanations-solution). Explanations of how a model works can also aid security assessors to evaluate AI security risks of a model.
 
 #### #UNWANTEDBIASTESTING 
-(data science). Unwanted bias testing: by doing test runs of the model to measure unwanted bias, unwanted behaviour caused by an attack can be detected. The details of bias detection fall outside the scope of this document as it is not a security concern - other than that an attack on model behaviour can cause bias.
+> Category: runtime data science control  
+> Permalink: https://owaspai.org/goto/unwantedbiastesting/
+
+Unwanted bias testing: by doing test runs of the model to measure unwanted bias, unwanted behaviour caused by an attack can be detected. The details of bias detection fall outside the scope of this document as it is not a security concern - other than that an attack on model behaviour can cause bias.
