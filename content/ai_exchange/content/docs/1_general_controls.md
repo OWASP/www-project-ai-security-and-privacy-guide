@@ -241,7 +241,7 @@ Links to standards:
 
 #### #OBFUSCATETRAININGDATA
 > Category: development-time data science control    
-> Permalink: https://owaspai.org/goto/obfuscatetraindata/
+> Permalink: https://owaspai.org/goto/obfuscatetrainingdata/
 
 Obfuscate training data: attain a degree of obfuscation of sensitive data where possible
 
