@@ -2,15 +2,18 @@
 title: 1. General controls
 weight: 2
 ---
->Permalink: https://owaspai.org/goto/generalcontrols/
+> Category: group of controls  
+> Permalink: https://owaspai.org/goto/generalcontrols/
 ## 1.1 General governance controls
->Permalink: https://owaspai.org/goto/governancecontrols/
+> Category: group of controls
+> Permalink: https://owaspai.org/goto/governancecontrols/
 
 #### #AIPROGRAM
-
-Description: Install and execute a program to govern AI. Take responsibility for AI as an organization, by keeping an inventory of AI initiatives, perform risk analysis on them, and manage those risks.  
-> Category: management  
+> Category: governance control  
 > Permalink: https://owaspai.org/goto/aiprogram/
+
+AI program: Install and execute a program to govern AI. Take responsibility for AI as an organization, by keeping an inventory of AI initiatives, perform risk analysis on them, and manage those risks.  
+
 
 Purpose: 1) reduces probability of AI initiatives being overlooked for proper governance (including security) - as covered by controls in this document, and 2) increases incentive for proper governance as the AI program takes responsibility for it. Without proper governance, the controls in this document can only happen by accident.
 
@@ -46,10 +49,10 @@ Links to standards:
 42001 is about extending your risk management system - it focuses on governance. ISO 5338 (see #[DEVPROGRAM](#devprogram) below) is about extending your software lifecycle practices - it focuses on engineering and everything around it. ISO 42001 can be seen as a management system for the governance of responsible AI in an organization, similar to how ISO 27001 is a management system for information security. ISO 42001 doesn’t go into the lifecycle processes. It for example does not discuss how to train models, how to do data lineage, continuous validation, versioning of AI models, project planning challenges, and how and when exactly sensitive data is used in engineering.
 
 #### #SECPROGRAM 
-
-Description: Make sure the organization has a security program (also referred to as _information security management system_) and that it includes the whole AI lifecycle and AI specific aspects.
-> Category: management  
+> Category: governance control  
 > Permalink: https://owaspai.org/goto/secprogram/
+
+Security program: Make sure the organization has a security program (also referred to as _information security management system_) and that it includes the whole AI lifecycle and AI specific aspects.
 
 Purpose: ensures adequate mitigation of AI security risks through information security management, as the security program takes responsibility for the AI-specific threats and corresponding. For more details on using this document in risk analysis, see the [risk analysis section](/goto/riskanalysis/).
 
@@ -119,26 +122,31 @@ Links to standards:
       
 
 #### #SECDEVPROGRAM
-Description: Make data science development activities part of the secure software development program.
-> Category: management  
+> Category: governance control  
 > Permalink: https://owaspai.org/goto/secdevprogram/
 
-See elsewhere in this document for [SUPPLYCHAINMANAGE](/goto/supplychainmanage/) which discusses AI-specific supply-chain risks.
+Secure development program:  Have processes in place to make sure that security is built into software. Make sure that data science development activities are also part of this. Examples of these processes: secure development training, code review, security requirements, secure coding guidelines, threat modeling (including AI-specific threats), static analysis tooling, dynamic analysis tooling, penetration testing. 
 
 Purpose: Reduces security risks by proper attention to mitigating those risks during software development.
 
+See elsewhere in this document for [SUPPLYCHAINMANAGE](/goto/supplychainmanage/) which discusses AI-specific supply-chain risks.
+
 Particularity: Data science development activities need to be taken into scope of secure development lifecycle.
 
-An important practice in secure software development is Threat modeling, which in the case of AI needs to take the threats in this document into account.
-
 Links to standards:
+- ISO 27002 control 8.25 Secure development lifecycle. Gap: covers this control fully, with said particularity, but lack of detail - the 8.25 Control description in ISO 27002:2022 is one page, whereas secure software development is a large and complex topic - see below for further references
+- ISO/IEC 27115 (Cybersecurity evaluation of complex systems)
+- See [OpenCRE on secure software development processes](https://www.opencre.org/cre/616-305) with notable links to NIST SSDF and OWASP SAMM. Gap: covers this control fully, with said particularity
 
-  - ISO 27002 control 8.25 Secure development lifecycle. Gap: covers this control fully, with said particularity, but lack of detail - the 8.25 Control description in ISO 27002:2022 is one page, whereas secure software development is a large and complex topic - see below for further references
-  - ISO/IEC 27115 (Cybersecurity evaluation of complex systems)
-  - See [OpenCRE on secure software development processes](https://www.opencre.org/cre/616-305) with notable links to NIST SSDF and OWASP SAMM. Gap: covers this control fully, with said particularity
+References: 
+- [OWASP SAMM](https://owaspsamm.org)
+- [NIST SSDF](https://csrc.nist.gov/projects/ssdf)
 
 #### #DEVPROGRAM 
-(management). Having a development lifecycle program for AI. Apply general (not just security-oriented) software engineering best practices to AI development.
+> Category: governance control  
+> Permalink: https://owaspai.org/goto/devprogram/
+
+Development program: Having a development lifecycle program for AI. Apply general (not just security-oriented) software engineering best practices to AI development.
 
 Data scientists are focused on creating working models, not on creating future-proof software per se. Often, organizations already have software practices and processes in place. It is important to extend these to AI development, instead of treating AI as something that requires a separate approach. Do not isolate AI engineering. This includes automated testing, code quality, documentation, and versioning. ISO/IEC 5338 explains how to make these practices work for AI.
 
@@ -164,14 +172,20 @@ Links to standards:
   - [Research on code quality gaps in AI systems](https://www.softwareimprovementgroup.com/averting-a-major-ai-crisis-we-need-to-fix-the-big-quality-gap-in-ai-systems/)
 
 #### #CHECKCOMPLIANCE 
-(management). Make sure that AI-specific laws and regulations are taken into account in compliance management (including security aspects). If personal data is involved and/or AI is applied to make decisions about individuals, then privacy laws and regulations are also in scope. See the [OWASP AI Guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) for privacy aspects of AI.  
+> Category: governance control  
+> Permalink: https://owaspai.org/goto/checkcompliance/
+
+Check compliance: Make sure that AI-specific laws and regulations are taken into account in compliance management (including security aspects). If personal data is involved and/or AI is applied to make decisions about individuals, then privacy laws and regulations are also in scope. See the [OWASP AI Guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) for privacy aspects of AI.  
 Links to standards:
 
   - [OpenCRE on Compliance](https://www.opencre.org/cre/510-324)
   - ISO 27002 Control 5.36 Compliance with policies, rules and standards. Gap: covers this control fully, with the particularity that AI regulation needs to be taken into account.
 
 #### #SECEDUCATE
-(management). Security education for data scientists and development teams on AI threat awareness, including attacks on models. It is essential for all engineers, including data scientists, to attain a security mindset.
+> Category: governance control  
+> Permalink: https://owaspai.org/goto/seceducate/
+
+Security education for data scientists and development teams on AI threat awareness, including attacks on models. It is essential for all engineers, including data scientists, to attain a security mindset.
 
 Links to standards:
 
@@ -180,11 +194,16 @@ Links to standards:
 ---
 
 ## 1.2 General controls for sensitive data limitation
+> Category: group of congtrols  
+> Permalink: https://owaspai.org/goto/datalimit/
+
 The impact of security threats on confidentiality and integrity can be reduced by limiting the data attack surface, meaning that the amount and the variety of data is reduced as much as possible, as well as the duration in which it is kept. This section describes several controls to apply this limitation.
 
 #### #DATAMINIMIZE
-Description: Data minimize: remove or anonymize data fields or records (e.g. from a trainin set) that are unnecessary for the application, in order to prevent potential data leaks or manipulation. 
-> Category: development-time and runtime datascience
+> Category: development-time and runtime control  
+> Permalink: https://owaspai.org/goto/secdevprogram/
+
+Data minimize: remove or anonymize data fields or records (e.g. from a trainin set) that are unnecessary for the application, in order to prevent potential data leaks or manipulation. 
 
 Purpose: minimize the impact of data leakage or manipulation
 
