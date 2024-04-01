@@ -4,7 +4,7 @@ weight: 5
 ---
 
 ## 4.1. Non AI-specific application security threats
-> Category: group of runtime threats
+> Category: group of runtime threats  
 > Permalink: https://owaspai.org/goto/generalappsecthreats/
 
 Impact: General application security threats can impact confidentiality, integrity and availability of all assets.
@@ -29,7 +29,7 @@ Note: some controls in this document are application security controls that are 
 ---
 
 ## 4.2. Runtime model poisoning (manipulating the model itself or its input/output logic)
-> Category: runtime application security threat
+> Category: runtime application security threat  
 > Permalink: https://owaspai.org/goto/runtimemodelpoison/
 
 Impact: see Broad model poisoning.
@@ -42,13 +42,13 @@ This threat involves manipulating the behavior of the model by altering the para
 - The below control(s), each marked with a # and a short name in capitals
 
 #### #RUNTIMEMODELINTEGRITY
-> Category: runtime information security control against application security threats
+> Category: runtime information security control against application security threats  
 > Permalink: https://owaspai.org/goto/runtimemodelintegrity/
 
 Run-time model integrity: apply traditional application security controls to protect the storage of model parameters (e.g. access control, checksums, encryption) A Trusted Execution Environment can help to protect model integrity.
 
 #### #RUNTIMEMODELIOINTEGRITY
-> Category: runtime information security control against application security threats
+> Category: runtime information security control against application security threats  
 > Permalink: https://owaspai.org/goto/runtimemodeliointegrity/
 
 Run-time model Input/Output integrity: apply traditional application security controls to protect the runtime manipulation of the model's input/output logic (e.g. protect against a man-in-the-middle attack)
@@ -56,7 +56,7 @@ Run-time model Input/Output integrity: apply traditional application security co
 ---
 
 ## 4.3. Runtime model theft
-> Category: runtime application security threat
+> Category: runtime application security threat  
 > Permalink: https://owaspai.org/goto/runtimemodeltheft/
 
 
@@ -70,14 +70,14 @@ Stealing model parameters from a live system by breaking into it (e.g. by gainin
 - The below control(s), each marked with a # and a short name in capitals
   
 #### #RUNTIMEMODELCONFIDENTIALITY
-> Category: runtime information security control against application security threats
+> Category: runtime information security control against application security threats  
 > Permalink: https://owaspai.org/goto/runtimemodelconfidentiality/
 
 Run-time model confidentiality: see [SECDEVPROGRAM](/goto/secdevprogram/) to attain application security, with the focus on protecting the storage of model parameters (e.g. access control, encryption).  
 A Trusted Execution Environment can help to protect against attacks, including side-channel hardware attacks like [DeepSniffer](https://sites.cs.ucsb.edu/~sherwood/pubs/ASPLOS-20-deepsniff.pdf).
 
 #### #MODELOBFUSCATION
-> Category: runtime information security control against application security threats
+> Category: runtime information security control against application security threats  
 > Permalink: https://owaspai.org/goto/modelobfuscation/
 
 Model obfuscation: techniques to store the model in a complex and confusing way with minimal technical information, to make it more difficult for attackers to extract and understand a model after having gained acces to its runtime storage. See this [article on ModelObfuscator](https://dl.acm.org/doi/abs/10.1145/3597926.3598113)
@@ -85,7 +85,7 @@ Model obfuscation: techniques to store the model in a complex and confusing way 
 ---
 
 ## 4.4. Insecure output handling
-> Category: runtime application security threat
+> Category: runtime application security threat  
 > Permalink: https://owaspai.org/goto/insecureoutput/
 
 Impact: Textual model output may contain 'traditional' injection attacks such as XSS-Cross site scripting, which can create a vulnerability when processed (e.g. shown on a website, execute a command).
@@ -97,7 +97,7 @@ This is like the standard output encoding issue, but the particularity is that t
 - The below control(s), each marked with a # and a short name in capitals
 
 #### #ENCODEMODELOUTPUT
-> Category: runtime information security control against application security threats
+> Category: runtime information security control against application security threats  
 > Permalink: https://owaspai.org/goto/encodemodeloutput/
 
 Encode model output: apply output encoding on model output if it text. See [OpenCRE on Output encoding and injection prevention](https://www.opencre.org/cre/161-451)
@@ -105,10 +105,10 @@ Encode model output: apply output encoding on model output if it text. See [Open
 ---
 
 ## 4.5. Direct prompt injection
-> Category: runtime application security threat
+> Category: runtime application security threat  
 > Permalink: https://owaspai.org/goto/directpromptinjection/
 
-Description: Direct prompt injection fools a large language model (LLM, a GenAI) by presenting prompts that manipulate the way the model has been instructed, making it behave in unwanted ways.
+Direct prompt injection fools a large language model (LLM, a GenAI) by presenting prompts that manipulate the way the model has been instructed, making it behave in unwanted ways.
 
 Impact: Getting unwanted answers or actions by manipulating through prompts how a large language model(GenAI) has been instructed.
 
@@ -126,7 +126,7 @@ See [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.
 ---
 
 ## 4.6. Indirect prompt injection
-> Category: runtime application security threat
+> Category: runtime application security threat  
 > Permalink: https://owaspai.org/goto/indirectpromptinjection/
 
 Impact: Getting unwanted answers or actions from hidden instructions in a prompt.
@@ -145,13 +145,13 @@ See [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.
 - The below control(s), each marked with a # and a short name in capitals
 
 #### #PROMPTINPUTVALIDATION
-> Category: runtime information security control against application security threats
+> Category: runtime information security control against application security threats  
 > Permalink: https://owaspai.org/goto/promptinputvalidation/
 
-Prompt input validation by removing malicious instructions - although with limited effectiveness. The flexibility of natural language makes it harder to apply input validation than for strict syntax situations like SQL commands
+Prompt input validation: trying to detect/remove malicious instructions by attempting to recognize them in the input. The flexibility of natural language makes it harder to apply input validation than for strict syntax situations like SQL commands
 
 #### #INPUTSEGREGATION
-> Category: runtime information security control against application security threats
+> Category: runtime information security control against application security threats  
 > Permalink: https://owaspai.org/goto/inputsegregation/
 
 Input segregation: clearly separate untrusted input and make that separation clear in the prompt instructions. There are developments that allow marking user input in prompts, reducing, but not removing the risk of prompt injection (e.g. ChatML for OpenAI API calls and Langchain prompt formaters).
@@ -166,7 +166,7 @@ References:
 ---
 
 ## 4.7. Leak sensitive input data
-> Category: runtime application security threat
+> Category: runtime application security threat  
 > Permalink: https://owaspai.org/goto/leakinput/
 
 Impact: Confidentiality breach of sensitive input data.
@@ -180,7 +180,7 @@ GenAI models mostly live in the cloud - often managed by an external party, whic
 - The below control(s), each marked with a # and a short name in capitals
 
 #### #MODELINPUTCONFIDENTIALITY
-> Category: runtime information security control against application security threats
+> Category: runtime information security control against application security threats  
 > Permalink: https://owaspai.org/goto/modelinputconfidentiality/
 
 Model input confidentiality: see [SECDEVPROGRAM](/goto/secdevprogram/) to attain application security, with the focus on protecting the transport and storage of model input (e.g. access control, encryption, minimize retention)
