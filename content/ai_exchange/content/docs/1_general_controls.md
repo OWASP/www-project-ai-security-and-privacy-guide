@@ -240,8 +240,10 @@ Links to standards:
   - Not covered yet in ISO/IEC standards.
 
 #### #OBFUSCATETRAININGDATA
-Description: Obfuscate training data: attain a degree of obfuscation of sensitive data where possible
-> Category: development-time data science
+> Category: development-time data science control    
+> Permalink: https://owaspai.org/goto/obfuscatetraindata/
+
+Obfuscate training data: attain a degree of obfuscation of sensitive data where possible
 
 Purpose: minimize the impact of data leakage or manipulation
 
@@ -339,7 +341,7 @@ Links to standards:
 
 ## 1.3. Controls to limit the effects of unwanted behaviour
 > Category: group of controls  
-> Permalink: https://owaspai.org/goto/limitedunwanted/
+> Permalink: https://owaspai.org/goto/limitunwanted/
 
 Unwanted model behaviour is the intended result of many AI security attacks. There are many ways to prevent and to detect these attacks. This section is about how the effects of unwanted model behaviour can be controlled, in order to reduce the impact of an attack.
 
@@ -363,7 +365,7 @@ Example: LLMs (GenAI), just like most AI models, induce their results based on t
 
 #### #OVERSIGHT
 > Category: runtime control    
-> Permalink: https://owaspai.org/goto/ovesight/
+> Permalink: https://owaspai.org/goto/oversight/
 
 Oversight of model behaviour by humans or business logic in the form of rules (guardrails).
   
