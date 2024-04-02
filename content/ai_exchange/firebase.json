@@ -49,6 +49,11 @@
         "type": 301
       },
       {
+        "source": "/goto/privacy/",
+        "destination": "/docs/ai_security_overview/#how-about-privacy",
+        "type": 301
+      },
+      {
         "source": "/goto/references/",
         "destination": "/docs/ai_security_overview/#references",
         "type": 301
