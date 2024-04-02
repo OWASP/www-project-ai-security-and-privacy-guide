@@ -194,6 +194,8 @@ Responsible or trustworthy AI include security, but not the other way around: th
 - **Accountability**. The relation of accountability with security is that security measures should be demonstrable, including the process that have led to those measures. In addition, traceability as a security property is important, just like in any IT system, in order to detect, reconstruct and respond to security incidents and provide accountability.
 
 ### How about privacy?
+> Category: discussion  
+> Permalink: https://owaspai.org/goto/privacy/
 
 AI Privacy can be divided into two parts:
 
