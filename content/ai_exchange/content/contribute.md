@@ -46,6 +46,7 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
     <tr><td>Annegrit Seyerlein-Klug</td><td>TH Brandenburg</td><td>Germany</td><td>mapping with misc. standards</td></tr>
     <tr><td>Anthony Glynn</td><td>CapitalOne</td><td>US</td><td>many textual improvements & link to LLM top 10</td></tr>
     <tr><td>Behnaz Karimi</td><td>Accenture</td><td>Germany</td><td>misc. contributions including model obfuscation and explanation</td></tr>
+    <tr><td>Dennis Charolle</td><td>MilliporeSigma</td><td>US</td><td>Compliance overview</td></tr>
     <tr><td>Disesdi Susanna Cox</td><td>BobiHealth</td><td>US</td><td>Federated learning</td></tr>
     <tr><td>Feiyang Tang</td><td>Software Improvement Group (SIG)</td><td></td><td></td></tr>
     <tr><td>John Sotiropoulos</td><td>Kainos</td><td></td><td>External relations from leadership team</td></tr>
