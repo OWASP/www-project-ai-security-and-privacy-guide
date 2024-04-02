@@ -175,7 +175,28 @@ Links to standards:
 > Category: governance control  
 > Permalink: https://owaspai.org/goto/checkcompliance/
 
-Check compliance: Make sure that AI-specific laws and regulations are taken into account in compliance management (including security aspects). If personal data is involved and/or AI is applied to make decisions about individuals, then privacy laws and regulations are also in scope. See the [OWASP AI Guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) for privacy aspects of AI.  
+Check compliance: Make sure that AI-relevant laws and regulations are taken into account in compliance management (including security aspects). If personal data is involved and/or AI is applied to make decisions about individuals, then privacy laws and regulations are also in scope. See the [OWASP AI Guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) for privacy aspects of AI.  
+
+Global Jurisdictional considerations (as of end of 2023):
+- Canada: Artificial Intelligence & Data Act
+- USA: (i) Federal AI Disclosure Act, (ii) Federal Algorithmic Accountability Act
+- Brazil: AI Regulatory Framework
+- India: Digital India Act
+- Europe: (i) AI Act, (ii) AI Liability Directive, (iii) Product Liability Directive
+- China: (i) Regulations on the Administration of Deep Synthesis of Internet Information Services, (ii) Shanghai Municipal Regulations on Promoting Development of AI Industry, (iii) Shenzhen Special Economic Zone AI Industry Promotion Regulations, (iv) Provisional Administrative Measures for Generative AI Services
+
+General Legal Considerations on AI/Security:
+- Privacy Laws: AI must comply with all local/global privacy laws at all times, such as GDPR, CCPA, HIPAA. See [Privacy](/goto/privacy/)
+- Data Governance: any AI components/functions provided by a 3rd party for integration must have data governance frameworks, including those for the protection of personal data and structure/definitions on how its collected, processed, stored
+- Data Breaches: any 3rd party supplier must answer as to how they store their data and security frameworks around it, which may include personal data or IP of end-users
+
+Non-Security Compliance Considerations: 
+- Ethics: Deep fake weaponization and how system addresses and deals with it, protects against it and mitigates it
+- Human Control: any and all AI systems should be deployed with appropriate level of human control and oversight, based on ascertained risks to individuals. AI systems should be designed and utilized with the concept that the use of AI respects dignity and rights of individuals; “Keep the human in the loop” concept. See [Oversight](/goto/oversight/).
+- Discrimination: a process must be included to review datasets to avoid and prevent any bias. See [Unwanted bias testing](/goto/unwantedbiastesting/).
+- Transparency: ensure transparency in the AI system deployment, usage and proactive compliance with regulatory requirements; “Trust by Design”
+- Accountability: AI systems should be accountable for actions and outputs and usage of data sets. See [AI Program](/goto/aiprogram/)
+
 Links to standards:
 
   - [OpenCRE on Compliance](https://www.opencre.org/cre/510-324)
