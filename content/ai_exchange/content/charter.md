@@ -32,26 +32,12 @@ These are the other OWASP AI initiatives and the relation with the AI Exchange;
 - OpenCRE.org has been established under the OWASP Integration standards project and holds a catalog of common requirements across various security standards inside and outside of OWASP. The plan is to let OpenCRE contain new AI security controls as well.
 
 ## Roadmap
-- Purpose and mission defined for OWASP AI Exchange Project Working Group
-- Working group charter to 1.0
-- Project Plan
-- Working group established
-
-## Implementation
-- Create a roadmap, share documents, and establish a meeting cadence.
-- Record meetings and take notes for transparency and accessibility.
-- Communicate developments through newsletters.
-
-## Next milestone for content
-- Bring content to 1.0 draft.
-- Address all outstanding tasks in the ‘Contribute’ section.
-- Make sure all topics are sufficiently covered regarding depth and width, including references to relevant work.
-- Ensure clarity of all content.
-- Align content as good as possible, with other initiatives like Mitre Atlas, NIST, the LLM Top 10, ENISA’s work, and the AIAPP International Privacy Group.
-- Review 1.0 draft.
-- Conduct internal reviews.
-- Get public comment from other communities / peer review.
-- Release the final version 1.0, alongside a communication strategy and feedback process.
+1. Prep 0.9: Finish all todos in the internal TODO table -> release 0.9
+2. Prep 1.0: Review by community and by ourselves -> release 1.0
+3. Feed the Exchange 1.0 into at least the AI Act and ISO 27090
+4. Make it easier for readers to recognize their deployment model and select only what is relevant to them
+5. More illustration of threat models and attack vectors
+6. Further alignment with Mitre Atlas, NIST, the LLM Top 10, ENISA’s work, and the AIAPP International Privacy Group
 
 ## Copyright 
 The AI security community is marked with CC0 1.0 meaning you can use any part freely, without attribution. If possible, it would be nice if the OWASP AI Exchange is credited and/or linked to, for readers to find more information.
