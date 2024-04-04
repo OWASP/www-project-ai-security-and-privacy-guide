@@ -215,7 +215,7 @@ Links to standards:
 ---
 
 ## 1.2 General controls for sensitive data limitation
-> Category: group of congtrols  
+> Category: group of controls  
 > Permalink: https://owaspai.org/goto/datalimit/
 
 The impact of security threats on confidentiality and integrity can be reduced by limiting the data attack surface, meaning that the amount and the variety of data is reduced as much as possible, as well as the duration in which it is kept. This section describes several controls to apply this limitation.
