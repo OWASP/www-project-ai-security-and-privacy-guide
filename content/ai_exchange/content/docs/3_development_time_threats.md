@@ -69,7 +69,7 @@ Development security: sufficient security of the AI development infrastructure, 
 
 Apart from the AI-specific assets there is also the AI-specific supply chain of data and models, plus the fact that obtained software components are running in the development environment instead of in test, acceptance or production. This creates new risks of these components being a threat to development security. See [SUPPLYCHAINMANAGE](/goto/supplychainmanage/).
 
-One control to increase development security is to segregate the environment, see [SEGREGATEDATA](/goto/segregatedata).
+One control to increase development security is to segregate the environment, see [SEGREGATEDATA](/goto/segregatedata/).
 
 Links to standards:
 
@@ -87,6 +87,8 @@ Examples of areas in which training data can be segregated:
 3. Data engineering environment: for engineers collecting and processing the data.
 4. Training environment: for engineers training the model with the processed data. In this area, controls can be applied against risks that involve access to the other less-protected development areas. That way, for example data poisoning can be mitigated.
 5. Operational environment - for when training data is collected in operation
+
+For more development environment security, see [DEVSECURITY)[/goto/devsecurity/).
 
 Links to standards:
 
