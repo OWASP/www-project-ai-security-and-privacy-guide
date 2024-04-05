@@ -14,7 +14,7 @@
 | 16 May 2024   | Ninth call  |
 | 2 May 2024    | Eighth  call|
 | 18 April 2024 | Seventh call|
-| 4 April 2024  | Sixth call  | [Youtub](https://www.youtube.com/watch?v=27by1QHumK4)
+| 4 April 2024  | Sixth call  | [Youtube](https://www.youtube.com/watch?v=27by1QHumK4)
 | 21 March 2024 | Fifth call  | [Youtube](https://www.youtube.com/watch?v=EE5B_SM9T5s)
 | 7 March 2024  | Fourth call | [YouTube](https://youtu.be/tMnLFH4aZa8)
 | 22 Feb 2024   | Third call  | No video
