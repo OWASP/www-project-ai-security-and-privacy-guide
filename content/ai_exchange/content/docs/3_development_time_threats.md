@@ -88,7 +88,7 @@ Examples of areas in which training data can be segregated:
 4. Training environment: for engineers training the model with the processed data. In this area, controls can be applied against risks that involve access to the other less-protected development areas. That way, for example data poisoning can be mitigated.
 5. Operational environment - for when training data is collected in operation
 
-For more development environment security, see [DEVSECURITY)[/goto/devsecurity/).
+For more development environment security, see [DEVSECURITY](/goto/devsecurity/).
 
 Links to standards:
 
