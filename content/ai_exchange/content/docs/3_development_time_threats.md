@@ -176,6 +176,14 @@ The type of impact on behaviour using broad model poisoning is typically more pr
 
 This poisoning is **hard to detect** once it has happened: there is no code to review in a model to look for backdoors, the model parameters make no sense to the human eye, and testing is typically done using normal cases, with blind spots for backdoors. This is the intention of attackers - to bypass regular testing. The best approach is 1) to prevent poisoining by protecting development-time, and 2) to assume training data has been compromised.
 
+Data and model poisoning can occur at various stages, as illustrated in the threat model below.  
+- Supplied data or a supplied model can have been poisoned
+- Poisoning in the development environment can occur in the data preparation domain, or in the training environment. If the training environment is separated security-wise, then it is possible to implement certain countermeasures against data poisoning that took place at the supplier or during preparation time.
+- In the case that training data is collected runtime, then this data is under poisoning threat.
+- Model poisoning alters the model directly, either at the supplier, or development-time, or during runtime.
+
+![](/images/poisonthreatmodel2.png)
+
 References
 
 - [Summary of 15 backdoor papers at CVPR '23](https://zahalka.net/ai_security_blog/2023/09/backdoor-attacks-defense-cvpr-23-how-to-build-and-burn-trojan-horses/)
