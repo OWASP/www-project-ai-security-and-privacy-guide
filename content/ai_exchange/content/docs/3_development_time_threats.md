@@ -257,10 +257,10 @@ Links to standards:
 > Category: development-time data science control  
 > Permalink: https://owaspai.org/goto/traindatadistortion/
 
-Train data distortion: making poisoned samples ineffective by smoothing or adding noise to training data (with the best practice of keeping the original training data, in order to expertiment with the filtering)
+Train data distortion: distorting untrusted training data by smoothing or adding noise, to make poisoned 'triggers' ineffective. Such a trigger has been inserted by an attacker in the training data, together with an unwanted output. Whenever input data is presented that contains a similar 'trigger', the model can recognize it and output the unwanted value. The idea is to distort the triggers so that they are not recognized anymore nby the model.
 
 Effectiveness: 
-- The level of effectiveness needs to be tested by experimenting, which will not give conclusive results, as an attacker my find more clever ways to poison the data than the methods used during testing.
+- The level of effectiveness needs to be tested by experimenting, which will not give conclusive results, as an attacker my find more clever ways to poison the data than the methods used during testing. It is a best practice to keep the original training data, in order to expertiment with the amount or distortion.
 - This control has no effect against attackers that have direct access to the training data after it has been distorted. For example, if the distorted training data is stored in a file or database to which the attacker has access, then the poisoned samples can still be injected. In other words: if there is zero trust in protection of the engineering environment, then train data distortion is only effective against data poisoning that took place outside the engineering environment (collected during runtime or obtained through the supply chain). This problem can be reduced by creating a trusted environment in which the model is trained, separated from the rest of the engineering environment. By doing so, controls such as train data distortion can be applied in that trusted environment and thus protect against data poisoning that may have taken place in the rest of the engineering environment.
 
 See also EVASTIONROBUSTMODEL on adding noise against evasion attacks and [OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/) to minimize sensitive data through randomisation.
