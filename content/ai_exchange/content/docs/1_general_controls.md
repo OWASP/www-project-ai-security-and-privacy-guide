@@ -63,7 +63,7 @@ Make sure to include AI-specific assets and the threats to them. The threats are
 - documentation of models and the process of their development including experiments
 - model input
 - model output, which needs to be regarded as untrusted if the training data or model is untrusted
-- sufficienntly correct model behaviour
+- sufficiently correct model behaviour
 - data to train and test obtained from external sources
 - models to train and use from external sources
 
