@@ -178,7 +178,7 @@ This poisoning is **hard to detect** once it has happened: there is no code to r
 
 Data and model poisoning can occur at various stages, as illustrated in the threat model below.  
 - Supplied data or a supplied model can have been poisoned
-- Poisoning in the development environment can occur in the data preparation domain, or in the training environment. If the training environment is separated security-wise, then it is possible to implement certain countermeasures against data poisoning that took place at the supplier or during preparation time.
+- Poisoning in the development environment can occur in the data preparation domain, or in the training environment. If the training environment is separated security-wise, then it is possible to implement certain controls (including tests) against data poisoning that took place at the supplier or during preparation time.
 - In the case that training data is collected runtime, then this data is under poisoning threat.
 - Model poisoning alters the model directly, either at the supplier, or development-time, or during runtime.
 
@@ -224,14 +224,16 @@ Example 3: false information in documents on the internet causes a Large Languag
 
 - See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
 - See [controls for development-time protection](/goto/developmenttimeintro/)
-- See controls for broad model poisoning
+- See controls for [broad model poisoning](/goto/modelpoison/)
 - The below control(s), each marked with a # and a short name in capitals
 
 #### #MORETRAINDATA
 > Category: development-time data science control  
 > Permalink: https://owaspai.org/goto/moretraindata/
 
-More train data: increasing the amount of non-malicious data makes training more robust against poisoned examples - provided that these poisoned examples are small in number. One way to do this is through data augmentation - the creation of artificial training set samples that are small variations of existing samples.
+More train data: increasing the amount of non-malicious data makes training more robust against poisoned examples - provided that these poisoned examples are small in number. One way to do this is through data augmentation - the creation of artificial training set samples that are small variations of existing samples.  The goal is to 'outnumber' the poisoned samples so the model 'forgets' them.
+
+This control can only be applied during training and therefore not to an already trained model. Nevertheless, a variation can be applied to a trained model: by fine-tuning it with additional non-malicious data - see [POISONROBUSTMODEL](/goto/poisonrobustmodel/).
 
 Links to standards:
 
@@ -247,6 +249,8 @@ Particularity for AI and security: standard quality control needs to take into a
 
 A method to detect statistical deviation is to train models on random selections of the training dataset and then feed each training sample to those models and compare results.
 
+This control can only be applied during training and therefore not to an already trained model. 
+
 Links to standards:
 
 - ISO/IEC 5259 series on Data quality for analytics and ML. Gap: covers this control minimally. in light of the particularity - the standard does not mention approaches to detect malicious changes (including detecting statistical deviations). Nevertheless, standard data quality control helps to detect malicious changes that violate data quality rules.
@@ -257,7 +261,10 @@ Links to standards:
 > Category: development-time data science control  
 > Permalink: https://owaspai.org/goto/traindatadistortion/
 
-Train data distortion: distorting untrusted training data by smoothing or adding noise, to make poisoned 'triggers' ineffective. Such a trigger has been inserted by an attacker in the training data, together with an unwanted output. Whenever input data is presented that contains a similar 'trigger', the model can recognize it and output the unwanted value. The idea is to distort the triggers so that they are not recognized anymore nby the model.
+Train data distortion: distorting untrusted training data by smoothing or adding noise, to make poisoned 'triggers' ineffective. Such a trigger has been inserted by an attacker in the training data, together with an unwanted output. Whenever input data is presented that contains a similar 'trigger', the model can recognize it and output the unwanted value. The idea is to distort the triggers so that they are not recognized anymore by the model.  
+A special form of traindata distortion is complete removal of certain input fields. Technically, this is data minimization (see [DATAMINIMIZE)(goto/dataminimize/)), but its purpose is not protecting the confidentiality of that data per se, but reducing the ability to memorize poisoned samples.
+
+This control can only be applied during training and therefore not to an already trained model.
 
 Effectiveness: 
 - The level of effectiveness needs to be tested by experimenting, which will not give conclusive results, as an attacker my find more clever ways to poison the data than the methods used during testing. It is a best practice to keep the original training data, in order to expertiment with the amount or distortion.
@@ -284,6 +291,8 @@ Link to standards:
 
 Poison robust model: select a model type and creation approach to reduce sensitivity to poisoned training data.
 
+This control can be applied to a model that has already been training, so including models that have been obtained from an external source. 
+
 The general principle of reducing sensitivity to poisoned training data is to make sure that the model does not memorize the specific malicious input pattern (or _backdoor trigger_). The following two examples represent different strategies, which can also complement each other in an approach called **fine pruning** (See [paper on fine-pruning](https://arxiv.org/pdf/1805.12185.pdf)):
 1. Reduce memorization by removing elements of memory using **pruning**. Pruning in essence reduces the size of the model so it does not have the capacity to trigger on backdoor-examples while retaining sufficient accuracy for the intended use case. The approach removes neurons in a neural network that have been identified as non-essential for sufficient accuracy.
 2. Overwrite memorized malicious patterns using **fine tuning** by retraining a model on a clean dataset(without poisoning).
@@ -303,6 +312,7 @@ Data manipulation is referred to as data poisoning and is covered in separate th
 - See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
 - See [controls for development-time protection](/goto/developmenttimeintro/)
 - See controls for broad model poisoning
+- Controls that are aimed to improve the generalization ability of the model - reducing the memorization of any poisoned samples: [training with adversarial samples](/goto/trainadversarial/) and [adversarial robust distillation](/goto/adversarialrobustdistillation/)
 
 ### 3.1.3 Transfer learning attack
 >Category: development-time threat  
@@ -316,10 +326,10 @@ The type of manipulation can be through data poisoning, or by specifically chang
 
 **Controls specific for transfer learning:**
 
-- - See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
-- See [controls for development-time protection](/goto/developmenttimeintro/), especially #[SUPPLYCHAINMANAGE](/goto/supplychainmanage/) to manage the source of the obtained model
-- See controls for broad model poisoning
-- Choose a model type resilient against a transfer learning attack
+- See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
+- See #[SUPPLYCHAINMANAGE](/goto/supplychainmanage/). The other [controls for development-time protection](/goto/developmenttimeintro/), like for example protecting the training set database against data poisoning, need to be applied by the supplier of the model.
+- See controls for [broad model poisoning](/goto/modelpoison/)
+- See those controls for [data poisoning](/goto/modelpoison/) that work on models that have already been trained
 
 ---
 
