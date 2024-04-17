@@ -54,8 +54,9 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
     <tr><td>Niklas Bunzel</td><td>Fraunhofer institute</td><td>Germany</td><td>data science discussion and references around evasion attacks</td></tr>
     <tr><td><b>Rob van der Veer</b></td><td>Software Improvement Group (SIG)</td><td>Netherlands</td><td><b>Project leader</b></td></tr>
     <tr><td>Rocky Heckman</td><td>Cyber Dynamo</td><td>Australia</td><td>Security & privacy risk analysis and ISO/IEC 27562</td></tr>
+    <tr><td>Rubens Zimbres</td><td></td><td>Brazil</td><td>Adversarial machine learning</td></tr>
     <tr><td>Roger Sanz</td><td>Universidad Isabel</td><td>Spain</td><td></td></tr>
-    <tr><td><b>Sandy Dunn</b></td><td>Boise State University, AI Cyber Advisors</td><td>US</td><td>Community management from leadership team</td></tr>
+    <tr><td>Sandy Dunn</td><td>Boise State University, AI Cyber Advisors</td><td>US</td><td>Community management in the initial phase</td></tr>
     <tr><td>Sean Oesch</td><td>Oak Ridge National Laboratory</td><td>US</td><td>BLUF, Adversarial Training, OOD detection, NISTIR 8269, Guide Usability/Structure</td></tr>
     <tr><td>Srajan Gupta</td><td>Dave</td><td></td><td></td></tr>
     <tr><td>Steve Francolla</td><td>Workforce Tech LLC</td><td></td><td></td></tr>
