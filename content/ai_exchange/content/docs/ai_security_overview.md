@@ -397,7 +397,7 @@ infringement in their AI systems. Implementing them early can be much more cost
 effective than fixing at later stages of AI system operations. While each comes with 
 certain financial and operating costs, the “hard savings” may result in a positive 
 outcome. These may include:  
-1. Of course taking measures to protect the security of training data in rest and in transit, and control the output of data appropriately. The OWASP AI Exchange covers this through the corresponding threats: the ones that effect confidentiality of training data. See [Threats overview](/goto/threatsoverview/): [development-time data leak](/goto/devdataleak/) and [sensitive data disclosure throught use](/goto/disclosureuse/).
+1. Taking measures to control the output of data appropriately. The OWASP AI Exchange covers this through the corresponding threat: [sensitive data disclosure throught use](/goto/disclosureuse/).
 2. Comprehensive IP Audits: a thorough audit may be used to identify all 
 intellectual property related to the AI system as a whole. This does not 
 necessarily apply only to data sets but overall source code, systems, 
