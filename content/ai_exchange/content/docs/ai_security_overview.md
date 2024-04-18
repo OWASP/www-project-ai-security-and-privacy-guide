@@ -232,7 +232,7 @@ What is mainly new to the threat landscape because of LLMs?
 - Regarding input:
   - Prompt injection is a completely new threat: attackers manipulating the behaviour of the model with crafted and sometimes hidden instructions.
   - Also new is organizations sending huge amounts of data in prompts, with company secrets and personal data.
-- Regarding output: New is the fact that output can contain injection attacks, or can contain sensitive or copyrighted data.
+- Regarding output: New is the fact that output can contain injection attacks, or can contain sensitive or copyrighted data (see [Copyright](/goto/copyright/)).
 - Overreliance and excessive agency are issues. We let LLMs control things and may have too much trust in how correct they are, and also underestimate the risk of them being manipulated. The result is that attacks can have much impact.
 - Regarding training: Since the training sets are so large and based on public data, it is easier to perform data poisoning. Poisoned foundation models are also a big supply chain issues.
 
@@ -311,7 +311,147 @@ system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-syst
 - Collect and share lessons learned:  
   Part of #[SECDEVPROGRAM](/goto/secprogram/) and #[SECDEVPROGRAM](/goto/secdevprogram/)
 
-## References
+
+### How about copyright?
+>Category: discussion  
+>Permalink: https://owaspai.org/goto/copyright/
+
+#### Introduction
+AI and copyright are two (of many) areas of law and policy, (both public and 
+private), that raise complex and often unresolved questions. AI output or generated 
+content is not yet protected by US copyright laws. Many other jurisdictions have yet 
+to announce any formal status as to intellectual property protections for such 
+materials. On the other hand, the human contributor who provides the input 
+content, text, training data, etc. may own a copyright for such materials. Finally, the
+usage of certain copyrighted materials in AI training may be considered [fair use](https://en.wikipedia.org/wiki/Fair_use).
+
+#### AI & Copyright Security
+In AI, companies face a myriad of security threats that could have far-reaching 
+implications for intellectual property rights, particularly copyrights. As AI systems, 
+including large data training models, become more sophisticated, they 
+inadvertently raise the specter of copyright infringement. This is due in part to the 
+need for development and training of AI models that process vast amounts of data, 
+which may contain copyright works. In these instances, if copyright works were 
+inserted into the training data without the permission of the owner, and without 
+consent of the AI model operator or provider, such a breach could pose significant 
+financial and reputational risk of infringement of such copyright and corrupt the 
+entire data set itself.  
+
+The legal challenges surrounding AI are multifaceted. On one hand, there is the
+question of whether the use of copyrighted works to train AI models constitutes 
+infringement, potentially exposing developers to legal claims. On the other hand, 
+the majority of the industry grapples with the ownership of AI-generated works and 
+the use of unlicensed content in training data. This legal ambiguity affects all 
+stakeholders—developers, content creators, and copyright owners alike.
+
+#### Lawsuits Related to AI & Copyright
+Recent lawsuits (writing is April 2024) highlight the urgency of these issues. For instance, a class 
+action suit filed against Stability AI, Midjourney, and DeviantArt alleges infringement
+on the rights of millions of artists by training their tools on web-scraped images2.  
+Similarly, Getty Images’ lawsuit against Stability AI for using images from its catalog
+without permission to train an art-generating AI underscores the potential for 
+copyright disputes to escalate. Imagine the same scenario where a supplier 
+provides vast quantities of training data for your systems, that has been 
+compromised by protected work, data sets, or blocks of materials not licensed or 
+authorized for such use. 
+
+#### Copyright of AI-generated source code
+Source code constitutes a significant intellectual property (IP) asset of a 
+software development company, as it embodies the innovation and creativity
+of its developers. Therefore, source code is subject to IP protection, through 
+copyrights, patents, and trade secrets. In most cases, human generated 
+source code carries copyright status as soon as it is produced.
+
+However, the emergence of AI systems capable of generating source code 
+without human input poses new challenges for the IP regime. For instance, 
+who is the author of the AI-generated source code? Who can claim the IP 
+rights over it? How can AI-generated source code be licensed and exploited 
+by third parties?
+
+These questions are not easily resolved, as the current IP legal and 
+regulatory framework does not adequately address the IP status of AI-
+generated works. Furthermore, the AI-generated source code may not be 
+entirely novel, as it may be derived from existing code or data 
+sources. Therefore, it is essential to conduct a thorough analysis of the 
+origin and the process of the AI-generated source code, to determine its IP 
+implications and ensure the safeguarding of the company's IP assets. Legal 
+professionals specializing in the field of IP and technology should be 
+consulted during the process. 
+
+As an example, a recent case still in adjudication shows the complexities of 
+source code copyrights and licensing filed against GitHub, OpenAI, and 
+Microsoft by creators of certain code they claim the three entities violated. 
+More information is available here: [: GitHub Copilot copyright case narrowed 
+but not neutered • The Register](https://www.theregister.com/2024/01/12/github_copilot_copyright_case_narrowed/)
+
+####  Copyright damages indemnification
+Note that AI vendors have started to take responsibility for copyright issues of their models, under certain circumstances. Microsoft offers users the so-called [Copilot Copyright Commitment](https://www.microsoft.com/en-us/licensing/news/microsoft-copilot-copyright-commitment), which indemnifies users from legal damages regarding copyright of code that Copilot has produced - provided a number of things incuding that the client has used content filters and other safety systems in Copilot and uses specific services. Google Cloud offers its [Generative AI indemnification](https://cloud.google.com/blog/products/ai-machine-learning/protecting-customers-with-generative-ai-indemnification).  
+Read more at [The Verge on Microsoft indemnification](https://www.theverge.com/2023/9/7/23863349/microsoft-ai-assume-responsibility-copyright-lawsuit) and [Direction Microsoft on the requirements of the indemnification](https://www.directionsonmicrosoft.com/blog/why-microsofts-copilot-copyright-commitment-may-not-mean-much-for-customers-yet/).
+
+#### Do generative AI models really copy existing work?
+Do generative AI models really lookup existing work that may be copyrighted? In essence: no. A Generative AI model does not have sufficient capacity to store all the examples of code or pictures that were in its training set. Instead, during training it extracts patterns about how things work in the data that is sees, and then later, based on those patterns, it generates new content. Parts of this content may show remnants of existing work, but that is more of a coincidence. In essence, a model doesn't recall exact blocks of code, but uses its 'understanding' of coding to create new code. Just like with human beings, this understanding may result in reproducing parts of something you have seen before, but not per se because this was from exact memory. Having said that, this remains a difficult discussion that we also see in the music industry: did a musician come up with a chord sequence because she learned from many songs that this type of sequence works and then coincidentally created something that already existed, or did she copy it exactly from that existing song?
+
+#### Mitigating Risk
+Organizations have several key strategies to mitigate the risk of copyright 
+infringement in their AI systems. Implementing them early can be much more cost 
+effective than fixing at later stages of AI system operations. While each comes with 
+certain financial and operating costs, the “hard savings” may result in a positive 
+outcome. These may include:  
+1. Of course taking measures to protect the security of training data in rest and in transit, and control the output of data appropriately. The OWASP AI Exchange covers this through the corresponding threats: the ones that effect confidentiality of training data. See [Threats overview](/goto/threatsoverview/): [development-time data leak](/goto/devdataleak/) and [sensitive data disclosure throught use](/goto/disclosureuse/).
+2. Comprehensive IP Audits: a thorough audit may be used to identify all 
+intellectual property related to the AI system as a whole. This does not 
+necessarily apply only to data sets but overall source code, systems, 
+applications, interfaces and other tech stacks.
+3. Clear Legal Framework and Policy: development and enforcement of legal 
+policies and procedures for AI use, which ensure they align with current IP 
+laws including copyright.
+4. Ethics in Data Sourcing: source data ethically, ensuring all date used for 
+training the AI models is either created in-house, or obtained with all 
+necessary permissions, or is sourced from public domains which provide 
+sufficient license for the organization’s intended use.
+5. Define AI-Generated Content Ownership: clearly defined ownership of the 
+content generated by AI systems, which should include under what conditions
+it be used, shared, disseminated.
+6. Confidentiality and Trade Secret Protocols: strict protocols will help protect 
+confidentiality of the materials while preserving and maintaining trade secret 
+status.
+7. Training for Employees: training employees on the significance and 
+importance of the organization’s AI IP policies along with implications on what
+IP infringement may be will help be more risk averse.
+8. Compliance Monitoring Systems: an updated and properly utilized monitoring 
+system will help check against potential infringements by the AI system.
+9. Response Planning for IP Infringement: an active plan will help respond 
+quickly and effectively to any potential infringement claims.
+10. Additional mitigating factors to consider include seeking licenses and/or warranties 
+from AI suppliers regarding the organization’s intended use, as well as all future uses by the AI system. With the 
+help of legal counsel the organization should also consider other contractually 
+binding obligations on suppliers to cover any potential claims of infringement.
+
+
+#### Helpful resources regarding AI and copyright:
+- [Artificial Intelligence (AI) and Copyright | Copyright Alliance](https://copyrightalliance.org/education/artificial-intelligence-copyright/)
+- [AI industry faces threat of copyright law in 2024 | Digital Watch  Observatory](https://dig.watch/updates/ai-industry-faces-threat-of-copyright-law-in-2024)
+- [Using generative AI and protecting against copyright issues | World    
+Economic Forum -weforum.org](https://www.weforum.org/agenda/2024/01/cracking-the-code-generative-ai-and-intellectual-property/)
+- [Legal Challenges Against Generative AI: Key Takeaways | Bipartisan    
+Policy Center](https://bipartisanpolicy.org/blog/legal-challenges-against-generative-ai-key-takeaways/)
+- [Generative AI Has an Intellectual Property Problem - hbr.org](https://hbr.org/2023/04/generative-ai-has-an-intellectual-property-problem)
+- [Recent Trends in Generative Artificial Intelligence Litigation in the    
+United States | HUB | K&L Gates - klgates.com](https://www.klgates.com/Recent-Trends-in-Generative-Artificial-Intelligence-Litigation-in-the-United-States-9-5-2023)
+- [Generative AI could face its biggest legal tests in 2024 | Popular    
+Science - popsci.com](https://www.popsci.com/technology/generative-ai-lawsuits/)
+- [Is AI Model Training Compliant With Data Privacy Laws? - termly.io](https://termly.io/resources/articles/is-ai-model-training-compliant-with-data-privacy-laws/)
+- [The current legal cases against generative AI are just the beginning |    
+TechCrunch](https://techcrunch.com/2023/01/27/the-current-legal-cases-against-generative-ai-are-just-the-beginning/?guccounter=1)
+- [(Un)fair Use? Copyrighted Works as AI Training Data — AI: The    
+Washington Report | Mintz](https://www.mintz.com/insights-center/viewpoints/54731/2024-01-10-unfair-use-copyrighted-works-ai-training-data-ai)
+- [Potential Supreme Court clash looms over copyright issues in    
+generative AI training data | VentureBeat](https://venturebeat.com/ai/potential-supreme-court-clash-looms-over-copyright-issues-in-generative-ai-training-data/)
+- [AI-Related Lawsuits: How The Stable Diffusion Case Could Set a Legal    
+Precedent | Fieldfisher](https://www.fieldfisher.com/en/insights/ai-related-lawsuits-how-the-stable-diffusion-case)
+
+
+## References of the OWASP AI Exchange
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/references/
 
