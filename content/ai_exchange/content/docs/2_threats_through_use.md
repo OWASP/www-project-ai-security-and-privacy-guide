@@ -273,7 +273,7 @@ PMLR, 2018.
 >Category: development-time data science control for threats through use  
 >Permalink: https://owaspai.org/goto/trainadversarial/
 
-Train adversarial: Add adversarial examples to the training set to make the model more robust against evasion attacks. First, adversarial examples are generated, just like they would be generated for an evasion attack. By definition, the model produces the wrong output for those examples. By adding them to the training set with the right output, the model is in essence corrected. As a result it generalizes better.
+Train adversarial: Add adversarial examples to the training set to make the model more robust against evasion attacks. First, adversarial examples are generated, just like they would be generated for an evasion attack. By definition, the model produces the wrong output for those examples. By adding them to the training set with the right output, the model is in essence corrected. As a result it generalizes better. In other words, by training the model on adversarial examples, it learns to not overly rely on subtle patterns that might not generalize well, which are by the way similar to the patterns that poisoned data might introduce.
 
 It is important to note that generating the adversarial examples creates significant training overhead, does not scale well with model complexity / input dimension, can lead to overfitting, and may not generalize well to new attack methods.
 
