@@ -4,7 +4,7 @@
 - Bi-weekly Sync on **Thursdays 5 PM Amsterdam time**
 - Previous Meetings can be viewed on the **[YouTube channel](https://youtube.com/@RobvanderVeer-ex3gj?si=s2-gDFrRCazNge_c)**
 ## Next Meeting
-🐝April 18 2024 **Meeting 6** 🐝 [Join Zoom Meeting](https://kainos.zoom.us/j/99836667919)
+🐝May 2 2024🐝 [Join Zoom Meeting](https://kainos.zoom.us/j/99836667919)
 
 ### Previous Meetings (last meetings first in the list)
 
@@ -13,7 +13,7 @@
 | 30 May 2024  | Tenth call   |
 | 16 May 2024   | Ninth call  |
 | 2 May 2024    | Eighth  call|
-| 18 April 2024 | Seventh call|
+| 18 April 2024 | Seventh call| [Youtube](https://youtu.be/Urssb9MPNR0)
 | 4 April 2024  | Sixth call  | [Youtube](https://www.youtube.com/watch?v=27by1QHumK4)
 | 21 March 2024 | Fifth call  | [Youtube](https://www.youtube.com/watch?v=EE5B_SM9T5s)
 | 7 March 2024  | Fourth call | [YouTube](https://youtu.be/tMnLFH4aZa8)
