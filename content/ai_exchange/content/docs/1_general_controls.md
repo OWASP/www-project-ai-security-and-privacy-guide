@@ -45,6 +45,7 @@ In general risk management it may help to keep in mind the following particulari
 
 Links to standards:
  - ISO/IEC 42001 AI management system. Gap: covers this control fully.
+ - [US Federal Reserve SR 11-07: Guidance on Model Risk Management](https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm): supervisory guidance for banking organizations and supervisors. 
  
 42001 is about extending your risk management system - it focuses on governance. ISO 5338 (see #[DEVPROGRAM](#devprogram) below) is about extending your software lifecycle practices - it focuses on engineering and everything around it. ISO 42001 can be seen as a management system for the governance of responsible AI in an organization, similar to how ISO 27001 is a management system for information security. ISO 42001 doesn’t go into the lifecycle processes. It for example does not discuss how to train models, how to do data lineage, continuous validation, versioning of AI models, project planning challenges, and how and when exactly sensitive data is used in engineering.
 
