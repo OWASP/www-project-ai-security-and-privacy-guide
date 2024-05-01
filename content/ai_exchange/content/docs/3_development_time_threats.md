@@ -200,7 +200,7 @@ References
 > Category: development-time data science control - including specific runtime implementation
 > Permalink: https://owaspai.org/goto/modelensemble/
 
-Model ensemble: include the model as part of an ensemble, where each model is trained in a separately protected environment. If one model's output deviates from the others, it can be ignored, as this indicates possible manipulation.
+Model ensemble: include the model as part of an ensemble, where each model is trained in a separately protected environment. If one model's output deviates from the others, it can be ignored, as this indicates possible manipulation. Also called: model isolation.
 
 Links to standards:
   - Not covered yet in ISO/IEC standards
@@ -224,7 +224,7 @@ Example 3: unwanted information (e.g. false facts) in documents on the internet 
 **Controls for data poisoning:**
 
 - See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
-- See [controls for development-time protection](/goto/developmenttimeintro/)
+- See [controls for development-time protection](/goto/developmenttimeintro/) of primarily the training data
 - See controls for [broad model poisoning](/goto/modelpoison/)
 - The below control(s), each marked with a # and a short name in capitals
 
@@ -263,7 +263,9 @@ Links to standards:
 > Permalink: https://owaspai.org/goto/traindatadistortion/
 
 Train data distortion: distorting untrusted training data by smoothing or adding noise, to make poisoned 'triggers' ineffective. Such a trigger has been inserted by an attacker in the training data, together with an unwanted output. Whenever input data is presented that contains a similar 'trigger', the model can recognize it and output the unwanted value. The idea is to distort the triggers so that they are not recognized anymore by the model.  
-A special form of traindata distortion is complete removal of certain input fields. Technically, this is data minimization (see [DATAMINIMIZE)(goto/dataminimize/)), but its purpose is not protecting the confidentiality of that data per se, but reducing the ability to memorize poisoned samples.
+A special form of traindata distortion is complete removal of certain input fields. Technically, this is data minimization (see [DATAMINIMIZE](goto/dataminimize/)), but its purpose is not protecting the confidentiality of that data per se, but reducing the ability to memorize poisoned samples.
+
+Data distortion can also be part of differential privacy: to make personal data less recognizable. This means that applying differential privacy can be a countermeasure to data poisoning as well.
 
 This control can only be applied during training and therefore not to an already trained model.
 
@@ -328,8 +330,8 @@ The type of manipulation can be through data poisoning, or by specifically chang
 **Controls specific for transfer learning:**
 
 - See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
-- See #[SUPPLYCHAINMANAGE](/goto/supplychainmanage/). 
 - See those controls for [data poisoning](/goto/modelpoison/) that work on models that have already been trained (post-training), e.g. [POISONROBUSTMODEL](/goto/poisonrobustmodel/)
+- See #[SUPPLYCHAINMANAGE](/goto/supplychainmanage/) to control obtaining a reliable model from a reliable supplier. 
 - Other controls need to be applied by the supplier of the model:
   - Controls for [development-time protection](/goto/developmenttimeintro/), like for example protecting the training set database against data poisoning
   - Controls for [broad model poisoning](/goto/modelpoison/)
