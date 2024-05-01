@@ -197,7 +197,7 @@ References
 - The below control(s), each marked with a # and a short name in capitals
   
 #### #MODELENSEMBLE
-> Category: development-time data science control  
+> Category: development-time data science control - including specific runtime implementation
 > Permalink: https://owaspai.org/goto/modelensemble/
 
 Model ensemble: include the model as part of an ensemble, where each model is trained in a separately protected environment. If one model's output deviates from the others, it can be ignored, as this indicates possible manipulation.
@@ -229,7 +229,7 @@ Example 3: unwanted information (e.g. false facts) in documents on the internet 
 - The below control(s), each marked with a # and a short name in capitals
 
 #### #MORETRAINDATA
-> Category: development-time data science control  
+> Category: development-time data science control - pre-training    
 > Permalink: https://owaspai.org/goto/moretraindata/
 
 More train data: increasing the amount of non-malicious data makes training more robust against poisoned examples - provided that these poisoned examples are small in number. One way to do this is through data augmentation - the creation of artificial training set samples that are small variations of existing samples.  The goal is to 'outnumber' the poisoned samples so the model 'forgets' them.
@@ -241,7 +241,7 @@ Links to standards:
 - Not covered yet in ISO/IEC standards
 
 #### #DATAQUALITYCONTROL
-> Category: development-time data science control  
+> Category: development-time data science control - pre-training  
 > Permalink: https://owaspai.org/goto/dataqualitycontrol/
 
 Data quality control: Perform quality control on data including detecting poisoned samples through statistical deviation or pattern recognition. For important data and scenarios this may involve human verification.
@@ -259,7 +259,7 @@ Links to standards:
 - Not further covered yet in ISO/IEC standards
 
 #### #TRAINDATADISTORTION
-> Category: development-time data science control  
+> Category: development-time data science control - pre-training  
 > Permalink: https://owaspai.org/goto/traindatadistortion/
 
 Train data distortion: distorting untrusted training data by smoothing or adding noise, to make poisoned 'triggers' ineffective. Such a trigger has been inserted by an attacker in the training data, together with an unwanted output. Whenever input data is presented that contains a similar 'trigger', the model can recognize it and output the unwanted value. The idea is to distort the triggers so that they are not recognized anymore by the model.  
@@ -287,7 +287,7 @@ Link to standards:
 - Not covered yet in ISO/IEC standards
 
 #### #POISONROBUSTMODEL
-> Category: development-time data science control  
+> Category: development-time data science control - post-training  
 > Permalink: https://owaspai.org/goto/poisonrobustmodel/
 
 Poison robust model: select a model type and creation approach to reduce sensitivity to poisoned training data.
@@ -328,9 +328,12 @@ The type of manipulation can be through data poisoning, or by specifically chang
 **Controls specific for transfer learning:**
 
 - See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
-- See #[SUPPLYCHAINMANAGE](/goto/supplychainmanage/). The other [controls for development-time protection](/goto/developmenttimeintro/), like for example protecting the training set database against data poisoning, need to be applied by the supplier of the model.
-- See controls for [broad model poisoning](/goto/modelpoison/)
-- See those controls for [data poisoning](/goto/modelpoison/) that work on models that have already been trained
+- See #[SUPPLYCHAINMANAGE](/goto/supplychainmanage/). 
+- See those controls for [data poisoning](/goto/modelpoison/) that work on models that have already been trained (post-training), e.g. [POISONROBUSTMODEL](/goto/poisonrobustmodel/)
+- Other controls need to be applied by the supplier of the model:
+  - Controls for [development-time protection](/goto/developmenttimeintro/), like for example protecting the training set database against data poisoning
+  - Controls for [broad model poisoning](/goto/modelpoison/)
+  - Controls for [data poisoning](/goto/modelpoison/) that work pre-training
 
 ---
 
