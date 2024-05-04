@@ -186,7 +186,7 @@ There are many threats and controls described in this document. Your situation a
    **Model theft**
 
     Do you train/finetune the model yourself?
-      -Yes, and is the model regarded intellectual poperty? Then you need to prevent:
+      - Yes, and is the model regarded intellectual poperty? Then you need to prevent:
         - [Model theft through use](/goto/modeltheftuse/)
         - [Model theft development-time](/goto/devmodelleak/)
         - [Source code/configuration leak](/goto/devcodeleak/)
