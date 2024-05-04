@@ -138,7 +138,7 @@ There are many threats and controls described in this document. Your situation a
 
    **Unwanted model behaviour**
 
-    Regarding model behaviour, we foucs on manipulation by attackers, as the scope of this document is security. Other sources of unwanted behaviour are general inaccuracy (e.g. hallucinations) and/or unwanted bias regarding certain groups (discrimination).
+    Regarding model behaviour, we focus on manipulation by attackers, as the scope of this document is security. Other sources of unwanted behaviour are general inaccuracy (e.g. hallucinations) and/or unwanted bias regarding certain groups (discrimination).
     
     This will always be an applicable threat, independent of your situation, although the risk level may sometimes be accepted - see below.
 
@@ -146,7 +146,7 @@ There are many threats and controls described in this document. Your situation a
       - [General governance controls](/goto/governancecontrols/) (eg having an inventory of AI use and some control over it)
       - [Controls to limit effects of unwanted model behaviour](https://owaspai.org/goto/limitunwanted/) (e.g. human oversight)
 
-    The model is generative AI? 
+    Is the model generative AI? 
       - Prevent [prompt injection](/goto/directpromptinjection/) (mostly done by the model supplier) in case untrusted input goes directly into the model, and it is important that the model follows the general instructions about how it communicates. Mostly this is the case if model input is from end users and output also goes straight to end users, who could show that the model can misbehave (e.g. be politically incorrect), which can lead to reputation damage. 
       - Prevent [indirect prompt injection](/goto/indirectpromptinjection/), in case untrusted input goes somehow into the model e.g. you retrieve somebody's resume and include it in a prompt.
 
@@ -163,13 +163,13 @@ There are many threats and controls described in this document. Your situation a
       - The supplier: the supplier needs to prevent [runtime model poisoning](/goto/runtimemodelpoison/) just like any supplier who you expect to protect the running application from manipulation
       - You: You need to prevent [Runtime model poisoning](/goto/runtimemodelpoison/)
 
-    If the model is predictive AI:
+    Is the model predictive AI?
      - Prevent an [evasion attack](/goto/evasion/) in which a user tries to fool the model into a wrong decision. Here, the level or risk is an important aspect to evaluate - see below.
     
     In order to assess the level of risk for unwanted model behaviour through manipulation, consider what the motivation of an attacker could be. What could an attacker gain by for example sabotaging your model? Just a claim to fame? Could it be a disgruntled employee? Maybe a competitor? What could an attacker gain by a less conspicuous model behaviour attack, like an evasion attack or data poisoning with a trigger? Is there a scenario where an attacker benefits from fooling the model? An example where evasion IS interesting and possible: adding certain words in a spam email so that it is not recognized as such. An example where evasion is not interesting is when a patient gets a skin disease diagnosis based on a picture of the skin. The patient has no interest in a wrong decision, and also the patient typically has no control - well maybe by painting the skin. There are situations in which this CAN be of interest for the patient, for example to be eligible for compensation in case the (faked) skin disease was caused by certain restaurant food. This demonstrates that it all depends on the context whether a theoretical threat is a real threat or not. Depending on the probability and impact of the threats, and on the relevant policies, some threats may be accepted as risk. When not accepted, the level of risk is input to the strength of the controls. For example: if data poisoning can lead to substantial benefit for a group of attackers, then the training data needs to be get a high level of protection.
 
 
-  **Leaking training data**
+   **Leaking training data**
 
     Do you train/finetune the model yourself?
       - Yes: and is the training data sensitive? Then you need to prevent:
@@ -183,7 +183,7 @@ There are many threats and controls described in this document. Your situation a
     If you don't train/finetune the model, then the supplier of the model is responsible for unwanted content in the training data. This can be poisoned data (see above), data that is confidential, or data that is copyrighted. It is important to check licenses, warranties and contracts for these matters, or accept the risk based on your circumstances.
 
 
-  **Model theft**
+   **Model theft**
 
     Do you train/finetune the model yourself?
       -Yes, and is the model regarded intellectual poperty? Then you need to prevent:
@@ -194,10 +194,11 @@ There are many threats and controls described in this document. Your situation a
       
    **Leaking input data**
  
-    If your input data is sensitive, prevent [leaking input data](/goto/leakinput/). Especially if the model is run by a supplier, proper care needs to be taken that this data is transferred or stored in a protected way and as little as possible. Note, that if you use RAG, that the  data you retrieve and insert into the prompt is also input data. This typically contains company secrets or personal data.
+    Is your input data sensitive?
+      Prevent [leaking input data](/goto/leakinput/). Especially if the model is run by a supplier, proper care needs to be taken that this data is transferred or stored in a protected way and as little as possible. Note, that if you use RAG, that the  data you retrieve and insert into the prompt is also input data. This typically contains company secrets or personal data.
 
 
-  **Misc.**
+   **Misc.**
 
     Is your model a Large Language Model? Then prevent [insecure output handling](/goto/insecureoutput/), for example when you display the output of the model on a website and the output contains malicious Javascript.
 
