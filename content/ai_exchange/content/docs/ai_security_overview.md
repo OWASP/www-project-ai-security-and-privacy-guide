@@ -132,38 +132,80 @@ The threats are organized by attack surface (how and where does the attack take 
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/riskanalysis/
 
-There are many threats and controls described in this document. Your situation determines which threats are relevant to you, and what controls are your responsibility. This selection process can be performed through risk analysis (or risk assessment) of the use case and architecture at hand:
+There are many threats and controls described in this document. Your situation and how you use AI determines which threats are relevant to you, and what controls are your responsibility. This selection process can be performed through risk analysis (or risk assessment) of the use case and architecture at hand:
 
 1. **Risk identification and estimation**: First select the threats that are relevant to your situation and estimate their level of impact and probability.  
 
-    You can do this by going through the list of threats and use the _Impact_ description to see if it is applicable. For example the impact of identifying individuals in your training data would not apply to your case if your training data has no individuals. The [Navigator](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf) shows impact in purple. A brief overview of all impact can be found in the [AI security matrix](/goto/aisecuritymatrix).
+   **Unwanted model behaviour**
 
-    Next, you can walk by the remaining threats and look at the attack surface to see if that is relevant. For example, if you don't use an external model, then the model supply chain is not a relevant attack surface and neither are the connected threats.
+    Regarding model behaviour, we foucs on manipulation by attackers, as the scope of this document is security. Other sources of unwanted behaviour are general inaccuracy (e.g. hallucinations) and/or unwanted bias regarding certain groups (discrimination).
+    
+    This will always be an applicable threat, independent of your situation, although the risk level may sometimes be accepted - see below.
 
-    You can use the following decision steps to further select relevant threats:
+    Which means that you always need to have in place:
+      - [General governance controls](/goto/governancecontrols/) (eg having an inventory of AI use and some control over it)
+      - [Controls to limit effects of unwanted model behaviour](https://owaspai.org/goto/limitunwanted/) (e.g. human oversight)
 
-    If your train data is not sensitive: ignore the confidentiality of train data threats. A special case is the threat of _membership inference_: this threat only applies when the **fact** that a person was part of the training set is harmful information about the person, for example when the training set consists of criminals and their history to predict criminal careers: membership of that set gives away the person is a convicted or alleged criminal.
+    The model is generative AI? 
+      - Prevent [prompt injection](/goto/directpromptinjection/) (mostly done by the model supplier) in case untrusted input goes directly into the model, and it is important that the model follows the general instructions about how it communicates. Mostly this is the case if model input is from end users and output also goes straight to end users, who could show that the model can misbehave (e.g. be politically incorrect), which can lead to reputation damage. 
+      - Prevent [indirect prompt injection](/goto/indirectpromptinjection/), in case untrusted input goes somehow into the model e.g. you retrieve somebody's resume and include it in a prompt.
 
-    If your model is a GenAI model, ignore the following threats: evasion, model inversion. Also ignore prompt injection and insecure output handling if your GenAI model is NOT an LLM
+    Sometimes model training and running the model is deferred to a supplier. For generative AI, training is mostly performed by an external supplier given the cost of typically millions of dollars. Finetuning of generative AI is also not often performed by organizations given the cost of compute and the complexity involved. Some GenAI models can be obtained and run at your own premises. The reasons to do this can be lower cost (if is is an open source model), and the fact that sensitive input information does not have to be sent externally. A reason to use an externally hosted GenAI model can be the quality of the mode.
+    
+    Who trains/finetunes the model?
+      - The supplier: you need to prevent [obtaining a poisoned model](/goto/transferlearningattack/) by proper supply chain mangement, including assuring that: the supplier prevents development-time model poisoning and data poisoning (including obtaing poisoned data). If the remaining risk for data poisoning cannot be accepted, performing post-training countermeasures ([POISONROBUSTMODEL](/goto/poisonrobustmodel/)can be an option.
+      - You: you need to prevent [Development-time model poisoning](/goto/modelpoison/) which includes data poisoning and obtaining poisoned data
+ 
+    If you use RAG (Retrieval Augmented Generation using GenAI), then your retrieval repository plays a role in determining the model behaviour.This means:
+      - You need to prevent [data poisoning](/goto/datapoison/), which includes obtaining poisoned data.
 
-    If your model is not a GenAI model, ignore (direct) prompt injection, and insecure output handling.
+    Who runs the model?
+      - The supplier: the supplier needs to prevent [runtime model poisoning](/goto/runtimemodelpoison/) just like any supplier who you expect to protect the running application from manipulation
+      - You: You need to prevent [Runtime model poisoning](/goto/runtimemodelpoison/)
 
-    If your input data is not sensitive, ignore ‘leaking input data’. If you use RAG, consider data you retrieve also as input data.
+    If the model is predictive AI:
+     - Prevent an [evasion attack](/goto/evasion/) in which a user tries to fool the model into a wrong decision. Here, the level or risk is an important aspect to evaluate - see below.
+    
+    In order to assess the level of risk for unwanted model behaviour through manipulation, consider what the motivation of an attacker could be. What could an attacker gain by for example sabotaging your model? Just a claim to fame? Could it be a disgruntled employee? Maybe a competitor? What could an attacker gain by a less conspicuous model behaviour attack, like an evasion attack or data poisoning with a trigger? Is there a scenario where an attacker benefits from fooling the model? An example where evasion IS interesting and possible: adding certain words in a spam email so that it is not recognized as such. An example where evasion is not interesting is when a patient gets a skin disease diagnosis based on a picture of the skin. The patient has no interest in a wrong decision, and also the patient typically has no control - well maybe by painting the skin. There are situations in which this CAN be of interest for the patient, for example to be eligible for compensation in case the (faked) skin disease was caused by certain restaurant food. This demonstrates that it all depends on the context whether a theoretical threat is a real threat or not. Depending on the probability and impact of the threats, and on the relevant policies, some threats may be accepted as risk. When not accepted, the level of risk is input to the strength of the controls. For example: if data poisoning can lead to substantial benefit for a group of attackers, then the training data needs to be get a high level of protection.
 
-    If you use RAG (Retrieval Augmented Generation), then treat the retrieval repository (including embeddings) just like training data. Meaning:
-      - Include the threats regarding data poisoning
-      - Include the threats regarding train/test data leak if the data is sensitive
 
-    Else, if you don’t train or fine tune the model:
-      - Ignore the development-time threats, with the exception of supply chain management: make sure the model you obtain is not manipulated, and genuine
-      - Ignore the confidentiality of train data threats
-      - Ignore the confidentiality of model IP threats
-      - Ignore the data poisoning threat
-      - Ignore development-time controls (e.g. filtering sensitive training data)
+  **Leaking training data**
 
-    These are the responsibilities of the model maker, but be aware you may be effected by the unwanted results. The maker may take the blame for any issue, which would take care of confidentiality issues, but you would suffer effectively from any manipulated model behaviour.
+  Do you train/finetune the model yourself?
+    - Yes: and is the training data sensitive? Then you need to prevent:
+      - [unwanted disclosure in model output](/goto/disclosureuse/)
+      - [model inversion](/goto/modelinversionandmembership/) (but not for GenAI)
+      - [training data leaking from your engineering environment](/goto/devdataleak/).
+      - [membership inference]((/goto/modelinversionandmembership/)) - but only if the **fact** that something or somebody was part of the training set is sensitive information. For example when the training set consists of criminals and their history to predict criminal careers: membership of that set gives away the person is a convicted or alleged criminal.
+    
+   If you use RAG: apply the above to your repository data, as if it was part of the training set: as the repository data feeds into the model and can therefore be part of the output as well.
 
-    If threats are remaining that effect the behaviour of the model (e.g. evasion, data poisoning), then consider what the motivation of an attacker could be. What could an attacker gain by for example sabotaging your model? Just a claim to fame? Could it be a disgruntled employee? Maybe a competitor? What could an attacker gain by a less conspicuous model behaviour attack, like an evasion attack or data poisoning with a trigger? Is there a scenario where an attacker benefits from fooling the model? An example where evasion IS interesting and possible: adding certain words in a spam email so that it is not recognized as such. An example where evasion is not interesting is when a patient gets a skin disease diagnosis based on a picture of the skin. The patient has no interest in a wrong decision, and also the patient typically has no control - well maybe by painting the skin. There are situations in which this CAN be of interest for the patient, for example to be eligible for compensation in case the (faked) skin disease was caused by certain restaurant food. This demonstrates that it all depends on the context whether a theoretical threat is a real threat or not. Depending on the probability and impact of the threats, and on the relevant policies, some threats may be accepted as risk. When not accepted, the level of risk is input to the strength of the controls. For example: if data poisoning can lead to substantial benefit for a group of attackers, then the training data needs to be get a high level of protection.
+  If you don't train/finetune the model, then the supplier of the model is responsible for unwanted content in the training data. This can be poisoned data (see above), data that is confidential, or data that is copyrighted. It is important to check licenses, warranties and contracts for these matters, or accept the risk based on your circumstances.
+
+
+  **Model theft**
+
+  Do you train/finetune the model yourself?
+    -Yes, and is the model regarded intellectual poperty? Then you need to prevent:
+      - [Model theft through use](/goto/modeltheftuse/)
+      - [Model theft development-time](/goto/devmodelleak/)
+      - [Source code/configuration leak](/goto/devcodeleak/)
+      - [Runtime model theft]/(goto/runtimemodeltheft/)
+
+      
+ **Leaking input data**
+ 
+  If your input data is sensitive, prevent [leaking input data](/goto/leakinput/). Especially if the model is run by a supplier, proper care needs to be taken that this data is transferred or stored in a protected way and as little as possible. Note, that if you use RAG, that the  data you retrieve and insert into the prompt is also input data. This typically contains company secrets or personal data.
+
+
+**Misc.**
+
+  Is your model a Large Language Model? Then prevent [insecure output handling](/goto/insecureoutput/), for example when you display the output of the model on a website and the output contains malicious Javascript.
+
+  Make sure to prevent [model inavailability by malicious users](/denialmodelservice/) (e.g. large inputs, many requests). If your model is run by a supplier, then certain countermeasures may already be in place.
+
+  Since AI systems are software systems, they require appropriate conventional application security and operational security, apart from the AI-specific threats and controls mentioned in this section.
+
 
 3. **Arrange responsibility**: For each selected threat, determine who is responsible to address it. By default, the organization that builds and deploys the AI system is responsible, but building and deploying may be done by different organizations, and some parts of the building and deployment may be deferred to other organizations, e.g. hosting the model, or providing a cloud environment for the application to run. Some aspects are shared responsibilities.
 
