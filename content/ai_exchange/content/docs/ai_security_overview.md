@@ -143,28 +143,28 @@ There are many threats and controls described in this document. Your situation a
     This will always be an applicable threat, independent of your situation, although the risk level may sometimes be accepted - see below.
 
     Which means that you always need to have in place:
-      - [General governance controls](/goto/governancecontrols/) (eg having an inventory of AI use and some control over it)
-      - [Controls to limit effects of unwanted model behaviour](https://owaspai.org/goto/limitunwanted/) (e.g. human oversight)
+      - [General governance controls](/goto/governancecontrols/) (e.g. having an inventory of AI use and some control over it)
+      - [Controls to limit effects of unwanted model behaviour](/goto/limitunwanted/) (e.g. human oversight)
 
-    Is the model generative AI? 
-      - Prevent [prompt injection](/goto/directpromptinjection/) (mostly done by the model supplier) in case untrusted input goes directly into the model, and it is important that the model follows the general instructions about how it communicates. Mostly this is the case if model input is from end users and output also goes straight to end users, who could show that the model can misbehave (e.g. be politically incorrect), which can lead to reputation damage. 
-      - Prevent [indirect prompt injection](/goto/indirectpromptinjection/), in case untrusted input goes somehow into the model e.g. you retrieve somebody's resume and include it in a prompt.
+    Is the model GenAI (e.g. a Large Language Model)? 
+      - Prevent [prompt injection](/goto/directpromptinjection/) (mostly done by the model supplier) in case untrusted input goes directly into the model, and it is important that the model follows its policy instructions about how it communicates. Mostly this is the case if model input is from end users and output also goes straight to end users, who could show that the model can misbehave (e.g. be politically incorrect), which can lead to reputation damage. 
+      - Prevent [indirect prompt injection](/goto/indirectpromptinjection/), in case untrusted input goes somehow into the prompt e.g. you retrieve somebody's resume and include it in a prompt.
 
     Sometimes model training and running the model is deferred to a supplier. For generative AI, training is mostly performed by an external supplier given the cost of typically millions of dollars. Finetuning of generative AI is also not often performed by organizations given the cost of compute and the complexity involved. Some GenAI models can be obtained and run at your own premises. The reasons to do this can be lower cost (if is is an open source model), and the fact that sensitive input information does not have to be sent externally. A reason to use an externally hosted GenAI model can be the quality of the mode.
     
     Who trains/finetunes the model?
-      - The supplier: you need to prevent [obtaining a poisoned model](/goto/transferlearningattack/) by proper supply chain mangement, including assuring that: the supplier prevents development-time model poisoning and data poisoning (including obtaing poisoned data). If the remaining risk for data poisoning cannot be accepted, performing post-training countermeasures ([POISONROBUSTMODEL](/goto/poisonrobustmodel/)can be an option.
-      - You: you need to prevent [Development-time model poisoning](/goto/modelpoison/) which includes data poisoning and obtaining poisoned data
+      - The supplier: you need to prevent [obtaining a poisoned model](/goto/transferlearningattack/) by proper supply chain mangement (selecting a proper supplier and making sure you use the actual model), including assuring that: the supplier prevents development-time model poisoning including data poisoning and obtainubg poisoned data. If the remaining risk for data poisoning cannot be accepted, performing post-training countermeasures can be an option - see [POISONROBUSTMODEL](/goto/poisonrobustmodel/).
+      - You: you need to prevent [development-time model poisoning](/goto/modelpoison/) which includes model poisoning, data poisoning and obtaining poisoned data
  
     If you use RAG (Retrieval Augmented Generation using GenAI), then your retrieval repository plays a role in determining the model behaviour.This means:
-      - You need to prevent [data poisoning](/goto/datapoison/), which includes obtaining poisoned data.
+      - You need to prevent [data poisoning](/goto/datapoison/) of your retrieval repository, which includes preventing that it contains externally obtained poisoned data.
 
     Who runs the model?
-      - The supplier: the supplier needs to prevent [runtime model poisoning](/goto/runtimemodelpoison/) just like any supplier who you expect to protect the running application from manipulation
-      - You: You need to prevent [Runtime model poisoning](/goto/runtimemodelpoison/)
+      - The supplier: make sure the supplier prevents [runtime model poisoning](/goto/runtimemodelpoison/) just like any supplier who you expect to protect the running application from manipulation
+      - You: You need to prevent [runtime model poisoning](/goto/runtimemodelpoison/)
 
     Is the model predictive AI?
-     - Prevent an [evasion attack](/goto/evasion/) in which a user tries to fool the model into a wrong decision. Here, the level or risk is an important aspect to evaluate - see below.
+     - Prevent an [evasion attack](/goto/evasion/) in which a user tries to fool the model into a wrong decision. Here, the level of risk is an important aspect to evaluate - see below. The risk of an evasion attack may be acceptable.
     
     In order to assess the level of risk for unwanted model behaviour through manipulation, consider what the motivation of an attacker could be. What could an attacker gain by for example sabotaging your model? Just a claim to fame? Could it be a disgruntled employee? Maybe a competitor? What could an attacker gain by a less conspicuous model behaviour attack, like an evasion attack or data poisoning with a trigger? Is there a scenario where an attacker benefits from fooling the model? An example where evasion IS interesting and possible: adding certain words in a spam email so that it is not recognized as such. An example where evasion is not interesting is when a patient gets a skin disease diagnosis based on a picture of the skin. The patient has no interest in a wrong decision, and also the patient typically has no control - well maybe by painting the skin. There are situations in which this CAN be of interest for the patient, for example to be eligible for compensation in case the (faked) skin disease was caused by certain restaurant food. This demonstrates that it all depends on the context whether a theoretical threat is a real threat or not. Depending on the probability and impact of the threats, and on the relevant policies, some threats may be accepted as risk. When not accepted, the level of risk is input to the strength of the controls. For example: if data poisoning can lead to substantial benefit for a group of attackers, then the training data needs to be get a high level of protection.
 
