@@ -171,40 +171,39 @@ There are many threats and controls described in this document. Your situation a
 
   **Leaking training data**
 
-  Do you train/finetune the model yourself?
-    - Yes: and is the training data sensitive? Then you need to prevent:
-      - [unwanted disclosure in model output](/goto/disclosureuse/)
-      - [model inversion](/goto/modelinversionandmembership/) (but not for GenAI)
-      - [training data leaking from your engineering environment](/goto/devdataleak/).
-      - [membership inference]((/goto/modelinversionandmembership/)) - but only if the **fact** that something or somebody was part of the training set is sensitive information. For example when the training set consists of criminals and their history to predict criminal careers: membership of that set gives away the person is a convicted or alleged criminal.
+    Do you train/finetune the model yourself?
+      - Yes: and is the training data sensitive? Then you need to prevent:
+        - [unwanted disclosure in model output](/goto/disclosureuse/)
+        - [model inversion](/goto/modelinversionandmembership/) (but not for GenAI)
+        - [training data leaking from your engineering environment](/goto/devdataleak/).
+        - [membership inference]((/goto/modelinversionandmembership/)) - but only if the **fact** that something or somebody was part of the training set is sensitive information. For example when the training set consists of criminals and their history to predict criminal careers: membership of that set gives away the person is a convicted or alleged criminal.
     
-   If you use RAG: apply the above to your repository data, as if it was part of the training set: as the repository data feeds into the model and can therefore be part of the output as well.
+     If you use RAG: apply the above to your repository data, as if it was part of the training set: as the repository data feeds into the model and can therefore be part of the output as well.
 
-  If you don't train/finetune the model, then the supplier of the model is responsible for unwanted content in the training data. This can be poisoned data (see above), data that is confidential, or data that is copyrighted. It is important to check licenses, warranties and contracts for these matters, or accept the risk based on your circumstances.
+    If you don't train/finetune the model, then the supplier of the model is responsible for unwanted content in the training data. This can be poisoned data (see above), data that is confidential, or data that is copyrighted. It is important to check licenses, warranties and contracts for these matters, or accept the risk based on your circumstances.
 
 
   **Model theft**
 
-  Do you train/finetune the model yourself?
-    -Yes, and is the model regarded intellectual poperty? Then you need to prevent:
-      - [Model theft through use](/goto/modeltheftuse/)
-      - [Model theft development-time](/goto/devmodelleak/)
-      - [Source code/configuration leak](/goto/devcodeleak/)
-      - [Runtime model theft]/(goto/runtimemodeltheft/)
-
+    Do you train/finetune the model yourself?
+      -Yes, and is the model regarded intellectual poperty? Then you need to prevent:
+        - [Model theft through use](/goto/modeltheftuse/)
+        - [Model theft development-time](/goto/devmodelleak/)
+        - [Source code/configuration leak](/goto/devcodeleak/)
+        - [Runtime model theft]/(goto/runtimemodeltheft/)
       
- **Leaking input data**
+   **Leaking input data**
  
-  If your input data is sensitive, prevent [leaking input data](/goto/leakinput/). Especially if the model is run by a supplier, proper care needs to be taken that this data is transferred or stored in a protected way and as little as possible. Note, that if you use RAG, that the  data you retrieve and insert into the prompt is also input data. This typically contains company secrets or personal data.
+    If your input data is sensitive, prevent [leaking input data](/goto/leakinput/). Especially if the model is run by a supplier, proper care needs to be taken that this data is transferred or stored in a protected way and as little as possible. Note, that if you use RAG, that the  data you retrieve and insert into the prompt is also input data. This typically contains company secrets or personal data.
 
 
-**Misc.**
+  **Misc.**
 
-  Is your model a Large Language Model? Then prevent [insecure output handling](/goto/insecureoutput/), for example when you display the output of the model on a website and the output contains malicious Javascript.
+    Is your model a Large Language Model? Then prevent [insecure output handling](/goto/insecureoutput/), for example when you display the output of the model on a website and the output contains malicious Javascript.
 
-  Make sure to prevent [model inavailability by malicious users](/denialmodelservice/) (e.g. large inputs, many requests). If your model is run by a supplier, then certain countermeasures may already be in place.
+    Make sure to prevent [model inavailability by malicious users](/denialmodelservice/) (e.g. large inputs, many requests). If your model is run by a supplier, then certain countermeasures may already be in place.
 
-  Since AI systems are software systems, they require appropriate conventional application security and operational security, apart from the AI-specific threats and controls mentioned in this section.
+    Since AI systems are software systems, they require appropriate conventional application security and operational security, apart from the AI-specific threats and controls mentioned in this section.
 
 
 3. **Arrange responsibility**: For each selected threat, determine who is responsible to address it. By default, the organization that builds and deploys the AI system is responsible, but building and deploying may be done by different organizations, and some parts of the building and deployment may be deferred to other organizations, e.g. hosting the model, or providing a cloud environment for the application to run. Some aspects are shared responsibilities.
