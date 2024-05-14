@@ -307,7 +307,7 @@ Links to standards:
 > Category: development-time threat  
 > Permalink: https://owaspai.org/goto/devmodelpoison/
 
-This threat refers to manipulating behaviour of the model by not poisoning the training data, but insead alter the engineering elements that lead to the model or represent the model (i.e. model parameters) during development time, e.g. by attacking the engineering environment to manipulate storage. When the model is trained by a supplier in a manipulative way and supplied as-is, then it is a [Transfer learning attack](goto/transferlearningattack/).
+This threat refers to manipulating behaviour of the model by not poisoning the training data, but instead alter the engineering elements that lead to the model or represent the model (i.e. model parameters) during development time, e.g. by attacking the engineering environment to manipulate storage. When the model is trained by a supplier in a manipulative way and supplied as-is, then it is a [Transfer learning attack](goto/transferlearningattack/).
 Data manipulation is referred to as data poisoning and is covered in separate threats.
 
 **Controls:**
