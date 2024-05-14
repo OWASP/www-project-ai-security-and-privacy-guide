@@ -165,7 +165,7 @@ Links to standards:
 > Category: group of development-time threats  
 > Permalink: https://owaspai.org/goto/modelpoison/
 
-Model poisoning in de broad sense is manipulating model behaviour by altering training data, code, configuration, or model parameters during development-time.
+Model poisoning in the broad sense is manipulating model behaviour by altering training data, code, configuration, or model parameters during development-time.
 
 Impact: Integrity of model behaviour is affected, leading to issues from unwanted model output (e.g. failing fraud detection, decisions leading to safety issues, reputation damage, liability).
 
