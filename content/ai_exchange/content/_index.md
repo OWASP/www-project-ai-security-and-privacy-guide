@@ -3,7 +3,7 @@
 
 {{< image-centered src="/images/aixlogosml.jpg" alt="OWASP AI Exchange Logo" >}}
 
->Comprehensive guidance and alignment on how to protect AI against security threats - by professionals, for professionals.
+>Comprehensive guidance and alignment on how to protect AI against security threats - by professionals, for professionals. Part of the [OWASP AI Security & privacy guide](https://owasp.org/www-project-ai-security-and-privacy-guide/).
 
 {{< spacer height="40" >}}
 
