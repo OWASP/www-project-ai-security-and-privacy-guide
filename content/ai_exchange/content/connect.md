@@ -6,7 +6,7 @@ excludeSearch: true
 ## Platforms
 
 {{< cards >}}
-    {{< small-card link="https://forms.gle/XwEEK52y4iZQChuJ6" title="Register" icon="login" >}}
+    {{< small-card link="https://forms.gle/XwEEK52y4iZQChuJ6" title="Join authors" icon="login" >}}
     {{< small-card link="https://owasp.slack.com/join/shared_invite/zt-g398htpy-AZ40HOM1WUOZguJKbblqkw#" title="Slack" icon="slack-big" >}}
     {{< small-card link="https://www.linkedin.com/company/owasp-ai-exchange/" title="LinkedIn" icon="linkedin" >}}
     {{< small-card link="mailto:rob.vanderveer@owasp.org" title="E-mail" icon="mail">}}
