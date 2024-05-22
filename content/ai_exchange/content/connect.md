@@ -4,10 +4,9 @@ excludeSearch: true
 ---
 
 ## Platforms
-
 {{< cards >}}
     {{< small-card link="https://forms.gle/XwEEK52y4iZQChuJ6" title="Join authors" icon="login" >}}
-    {{< small-card link="https://owasp.slack.com/join/shared_invite/zt-g398htpy-AZ40HOM1WUOZguJKbblqkw#" title="Slack" icon="slack-big" >}}
+    {{< small-card link="https://owasp.org/slack/invite" title="Slack" icon="slack-big" >}}
     {{< small-card link="https://www.linkedin.com/company/owasp-ai-exchange/" title="LinkedIn" icon="linkedin" >}}
     {{< small-card link="mailto:rob.vanderveer@owasp.org" title="E-mail" icon="mail">}}
     {{< small-card link="https://twitter.com/owasp" title="Twitter" icon="x-twitter" >}}
@@ -34,6 +33,6 @@ Lead author of ISO/IEC 5338 on AI lifecycle, working group member of ISO/IEC 270
 Senior principal expert at Software Improvement Group.
 
 - {{< icon "x-twitter" >}} [Twitter](https://twitter.com/robvanderveer "Twitter")
-- {{< icon "slack" >}} [Slack](https://owasp.slack.com/team/UF0TXT8VD "Slack")
+- {{< icon "slack" >}} [Slack](https://owasp.org/slack/invite "Slack")
 - {{< icon "mail" >}} [E-mail](mailto:rob.vanderveer@owasp.org "E-mail")
 - {{< icon "linkedin" >}} [LinkedIn](https://www.linkedin.com/in/robvanderveer "LinkedIn")
