@@ -17,7 +17,8 @@ AI program: Install and execute a program to govern AI. Take responsibility for 
 
 Purpose: 1) reduces probability of AI initiatives being overlooked for proper governance (including security) - as covered by controls in this document, and 2) increases incentive for proper governance as the AI program takes responsibility for it. Without proper governance, the controls in this document can only happen by accident.
 
-This includes assigning responsibilities, e.g. model accountability, data accountability, and risk governance.
+This includes assigning responsibilities, e.g. model accountability, data accountability, and risk governance.  
+This governance challenge may seem daunting because of all the new things to take care of, but there are plenty of existing controls in organizations that can be extended to include AI (e.g. policies, risk analysis, impact analysis, inventory of used services etc.).
 
 Technically one could argue that this control is out of scope for cyber security, but it initiates action to get in control of AI security.
 
