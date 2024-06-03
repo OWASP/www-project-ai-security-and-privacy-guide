@@ -36,7 +36,9 @@ The AI Exchange is displayed here at [owaspai.org](https://owaspai.org) and edit
 
 [OWASP AI Exchange](https://owaspai.org) by the AI security community is marked with [CC0 1.0](http://creativecommons.org/publicdomain/zero/1.0?ref=chooser-v1) meaning you can use any part **freely without copyright and without attribution**. If possible, it would be nice if the OWASP AI Exchange is credited and/or linked to, for readers to find more information.
 
+{{< rawhtml >}}
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://owaspai.org">OWASP AI Exchange</a> by <span property="cc:attributionName">The AI security community</span> is marked with <a href="http://creativecommons.org/publicdomain/zero/1.0?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC0 1.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/zero.svg?ref=chooser-v1"></a> meaning you can use any part freely without copyright and without attribution. If possible, it would be nice if the OWASP AI Exchange is credited and/or linked to, for readers to find more information.</p>
+{{< /rawhtml >}}
 
 ## Other OWASP AI Initiatives
 
