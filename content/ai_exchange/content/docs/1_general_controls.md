@@ -454,6 +454,8 @@ Continuous validation: by frequently testing the behaviour of the model against 
 
 Continuous validation is a process that is often in place to detect other issues than attacks: system failures, or the model performance going down because of changes in the real world since it was trained.
 
+Note that continuous validation is typically not suitable for detecting backdoor poisoning attacks, as these are designed to trigger with very specific input that would normally not be present in test sets. In fact. Such attacks are often designed to pass validation tests.
+
 Links to standards:
 
 - ISO 5338 (AI lifecycle) Continuous validation. Gap: covers this control fully
