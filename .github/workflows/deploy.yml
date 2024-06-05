@@ -24,7 +24,7 @@ jobs:
       - name: Build
         run: |
          cd content/ai_exchange
-         hugo mod get github.com/imfing/hextra
+         hugo mod get github.com/imfing/hextra@v0.7.3
          hugo --gc --minify
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
