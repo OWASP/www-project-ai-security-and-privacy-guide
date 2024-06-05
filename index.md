@@ -162,7 +162,7 @@ Generative AI needs to disclose what copyrighted sources were used, and prevent 
 
 Links:
 
-- [Original draft AI Act](<https://www.europarl.europa.eu/RegData/docs_autres_institutions/commission_europeenne/com/2021/0206/COM_COM(2021)0206_EN.pdf>)
+- [Original draft AI Act](https://www.europarl.europa.eu/RegData/docs_autres_institutions/commission_europeenne/com/2021/0206/COM_COM(2021)0206_EN.pdf)
 - [Amendments](https://www.europarl.europa.eu/doceo/document/CJ40-PR-731563_EN.pdf)
 - [More information](https://www.europarl.europa.eu/legislative-train/theme-a-europe-fit-for-the-digital-age/file-regulation-on-artificial-intelligence)
 
