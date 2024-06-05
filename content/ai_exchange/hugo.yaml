@@ -5,6 +5,9 @@ title: AI Exchange
 module:
   imports:
     - path: github.com/imfing/hextra
+  hugoVersion:
+    extended: true
+    min: 0.119.0
 
 
 
