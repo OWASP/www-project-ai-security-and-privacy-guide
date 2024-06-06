@@ -8,7 +8,7 @@ This page contains an overview of AI security and the next pages provide the mai
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/summary/
 
-While AI offers powerful performance boosts, it also increases the attack surface available to bad actors. It is therefore imperative to approach AI applications with a clear understanding of potential threats and which of those threats to prioritize for each use case. Standards and governance help guide this process for individual entities leveraging AI capabilities.
+While AI offers tremendous opportunities, it also brings new risks including security threats. It is therefore imperative to approach AI applications with a clear understanding of potential threats and which of those threats to prioritize for each use case. Standards and governance help guide this process for individual entities leveraging AI capabilities. In a nutshell, the main steps to address AI security are: 
 
 - Implement **AI governance**
 - **Extend security and development practices** to include data science activities especially to protect and streamline the engineering environment.
