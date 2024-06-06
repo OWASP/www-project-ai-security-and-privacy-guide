@@ -313,8 +313,13 @@ Responsible or trustworthy AI includes security, but not the other way around: t
 
 AI Privacy can be divided into two parts:
 
-1. The AI security threats and controls in this document that are about confidentiality and integrity of (personal) data (e.g. model inversion, leaking training data), plus the integrity of the model behaviour
-2. Threats and controls with respect to rights of the individual, as covered by privacy regulations such as the GDPR, including use limitation, consent, fairness, transparency, data accuracy, right of correction/objection/reassure/access. For an overview, see the [Privacy part of the OWASP AI guide](https://owasp.org/www-project-ai-security-and-privacy-guide/)
+1. The threats to AI security and their controls (this document), including:
+  - Confidentiality and integrity protection of personal data in train/test data, model input or output - which consists of:
+    - 'Conventional' security of personal data in transit and in rest
+    - Protecting against model attacks that try to retrieve personal data (e.g. model inversion)
+    - personal data minimization / differential privacy, including minimized retention
+  - Integrity protection of the model behaviour if that behaviour can hurt privacy of individuals. This happens for example when individuals are unlawfully discriminated or when the model output leads to actions that invade privacy (e.g. undergoing a fraud investigation).
+2. Threats and controls that are not about security, but about further rights of the individual, as covered by privacy regulations such as the GDPR, including use limitation, consent, fairness, transparency, data accuracy, right of correction/objection/reassure/access. For an overview, see the [Privacy part of the OWASP AI guide](https://owasp.org/www-project-ai-security-and-privacy-guide/)
 
 ### How about Generative AI (e.g. LLM)?
 
