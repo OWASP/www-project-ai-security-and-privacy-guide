@@ -311,6 +311,15 @@ Responsible or trustworthy AI includes security, but not the other way around: t
 > Category: discussion  
 > Permalink: https://owaspai.org/goto/privacy/
 
+As any system that processes data, AI systems can have privacy risks. There are some particual privacy aspects to AI:
+- AI systems are data-intensive and typically present additional risks regarding data collection and retention. Personal data may be collected from various sources, each subject to different levels of **sensitivity and regulatory constraints**. Legislation typicalle requires a **legal basis and/or consent** for the collection and use of personal data, and specifies **rights to individuals** to correct, request, and remove their own data.
+- **Protecting training data** is a challenge, especially because it typically needs to be retained for long periods - as models typically need to be retrained. Often, the actual identities of people involved are irrelevant for the data processing objectives, but privacy risks still remain even if identity data is removed because it might be possible to deduce individual identities from the remaining data. This is where differential privacy becomes crucial: by altering the data to make it sufficiently unrecognizable, it ensures individual privacy while still allowing for valuable insights to be derived from the data. Alteration can be done by for example adding noise or aggregating.
+- An additional complication in the protection of training data is that the **training data is accessible in the engineering environment**, which therefore needs more protection than it usually does - since conventional systems normally don't have personal data available to technical teams.
+- The nature of machine learning allows for certain **unique strategies** to improve privacy, such as federated learning: splitting up the training set in different separated systems - typically aligning with separated data collection.
+- AI systems **make decisions** and if these decisions are about people they may be discriminating regarding certain protected attributes (e.g. gender, race), plus the decisions may result in actions that invade privacy, which makes the model a matter of concern. Furthermore, legislation may prohibit some types of decisions and sets rules regardin transparancy about how these decisions are made, and about how individuals have the right to object.
+- Last but not least: AI models suffer from **model attack risks** that allow attackers to extract training data from the model, e.g. model inversion, memership inference, and disclosing sensitive data in large language models
+
+
 AI Privacy can be divided into two parts:
 
 1. The threats to AI security and their controls (this document), including:
