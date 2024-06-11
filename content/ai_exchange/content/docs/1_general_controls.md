@@ -204,6 +204,9 @@ Non-Security Compliance Considerations:
 - Transparency: ensure transparency in the AI system deployment, usage and proactive compliance with regulatory requirements; “Trust by Design”
 - Accountability: AI systems should be accountable for actions and outputs and usage of data sets. See [AI Program](/goto/aiprogram/)
 
+References
+  - [Vischer on legal aspects of AI](https://www.vischer.com/en/artificial-intelligence/)
+
 Links to standards:
 
   - [OpenCRE on Compliance](https://www.opencre.org/cre/510-324)
