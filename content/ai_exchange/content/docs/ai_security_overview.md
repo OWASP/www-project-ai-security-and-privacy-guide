@@ -29,7 +29,7 @@ We distinguish three types of threats:
 In AI we distinguish 6 types of impacts, for three types of attacker goals (disrupt, deceive and disclose):
 1. disclose: hurt confidentiality of train/test data
 2. disclose: hurt confidentiality of model Intellectual property (the _model parameters_ or the process and data that led to them)
-3. disclose: hart confidentiality of input data
+3. disclose: hurt confidentiality of input data
 4. deceive: hurt integrity of model behaviour (the model is manipulated to behave in an unwanted way to deceive)
 5. disrupt: hurt availability of the model (the model either doesn't work or behaves in an unwanted way - not to deceive but to disrupt)
 6. confidentiality, integrity, and availability of non AI-specific assets
