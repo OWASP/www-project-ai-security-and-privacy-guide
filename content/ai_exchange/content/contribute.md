@@ -15,17 +15,17 @@ excludeSearch: true
 
 The OWASP projects are an open source effort, and we enthusiastically welcome all forms of contributions and feedback.
 
+In any case, if you are interested in AI security, [join OWASP Slack](https://owasp.org/slack/invite) and come to #project-ai-community to learn and discuss.
+
 ## Participate in Content Development
 
 - 📥 Send your suggestion to the [project leader](/connect/#owasp-ai-project-leader).
-- 👋 Join `#project-ai-community` in our [Slack](https://owasp.slack.com/join/shared_invite/zt-g398htpy-AZ40HOM1WUOZguJKbblqkw#) workspace.
-- 🗣️ Discuss with the [project leader](/connect/#owasp-ai-project-leader) how to become part of the writing group.
-- 💡Propose your [concepts](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions/categories/ideas), or submit an [issue](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues).
-- 📄 Fork our repo and submit a [Pull Request](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/pulls) for concrete fixes (e.g. grammar/typos) or content already approved by the core team.
-- 🙌 Showcase your [contributions](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions/categories/show-and-tell).
-- 🐞 Identify an [issue](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues) or fix it on a [Pull Request](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/pulls).
-- 💬 Provide your insights in [GitHub Discussions](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions/categories/general).
-- 🙏 Pose your [questions](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions/categories/q-a).
+- 📄 or [apply to join the Authors group](https://forms.gle/XwEEK52y4iZQChuJ6)
+- 🗣️ or discuss with the [project leader](/connect/#owasp-ai-project-leader) how to become part of the Authors group
+- 💡 or propose your [ideas](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions/categories/ideas), or submit an [issue](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues).
+- 📄 or fork our repo and submit a [Pull Request](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/pulls) for fixes or suggestions.
+- 🙏 or pose your questions on [GitHub](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions/categories/q-a) or in #project-ai-community.
+
 
 ## What to Avoid
 
