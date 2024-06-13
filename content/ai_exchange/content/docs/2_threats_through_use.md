@@ -304,7 +304,7 @@ It is important to note that generating the adversarial examples creates signifi
   References:
 
   - For a general summary of adversarial training, see [Bai et al.](https://arxiv.org/pdf/2102.01356.pdf)
-  - Goodfellow, I.J.; Shlens, J.; Szegedy, C. Explaining and harnessing adversarial examples. arXiv 2014, arXiv:1412.6572.
+  - Goodfellow, I.J.; Shlens, J.; Szegedy, C. Explaining and harnessing adversarial examples. arXiv 2014, [arXiv:1412.6572](https://arxiv.org/abs/1412.6572).
   - Lyu, C.; Huang, K.; Liang, H.N. A unified gradient regularization family for adversarial examples. In Proceedings of the 2015 ICDM.
   - Papernot, N.; Mcdaniel, P. Extending defensive distillation. arXiv 2017, arXiv:1705.05264.
   - Vaishnavi, Pratik, Kevin Eykholt, and Amir Rahmati. "Transferring adversarial robustness through robust representation matching." 31st USENIX Security Symposium (USENIX Security 22). 2022.
