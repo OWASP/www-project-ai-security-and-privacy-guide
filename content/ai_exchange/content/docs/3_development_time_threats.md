@@ -258,7 +258,11 @@ References
 > Category: development-time data science control - including specific runtime implementation
 > Permalink: https://owaspai.org/goto/modelensemble/
 
-Model ensemble: include the model as part of an ensemble, where each model is trained in a separately protected environment. If one model's output deviates from the others, it can be ignored, as this indicates possible manipulation. Also called: model isolation.
+Model ensemble: deploy the model as an ensemble of models by randomly splitting the trainset to allow detection of poisoning. If one model's output deviates from the others, it can be ignored, as this indicates possible manipulation of the train set.
+
+Effectiveness: the more the dataset has been poisoned with samples, the less effective this approach is.
+
+Ensemble learning is a term in machine learning used for using multiple learning algorithms, with the purpose of better predictive performance.
 
 Links to standards:
   - Not covered yet in ISO/IEC standards
