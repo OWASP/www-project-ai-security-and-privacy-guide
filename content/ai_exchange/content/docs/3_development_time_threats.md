@@ -302,13 +302,20 @@ Links to standards:
 > Category: development-time data science control - pre-training  
 > Permalink: https://owaspai.org/goto/dataqualitycontrol/
 
-Data quality control: Perform quality control on data including detecting poisoned samples through statistical deviation or pattern recognition. For important data and scenarios this may involve human verification.
+Data quality control: Perform quality control on data including detecting poisoned samples through integrity checks, statistical deviation or pattern recognition. 
 
-Particularity for AI and security: standard quality control needs to take into account that data may have maliciously been changed. This means that extra checks can be placed to detect changes that would normally not happen by themselves. For example: safely storing hash codes of data elements, such as images, and regularly checking to see if the images have been manipulated.
+Particularity for AI: Standard data quality checks are not sufficient for AI systems, as data may be maliciously altered to compromise model behavior. This requires different checks than standard checks on quality issues from the source, or that occured by mistake. Nevertheless, standard checks can help somewhat to detect malicious changes. It is essential to implement enhanced security measures to detect these alterations:
+- Secure Hash Codes: Safely store hash codes of data elements, such as images, and conduct regular checks for manipulations. See [DEVSECURITY](/goto/devsecurity) for more details on integity checks.
+- Statistical deviation detection
+- Recognizing specific types of poisoned samples by applying pattern recognition
 
-A method to detect statistical deviation is to train models on random selections of the training dataset and then feed each training sample to those models and compare results.
+When: This control can only be applied during training and cannot be retroactively applied to an already trained model. Implementing it during training ensures that the model learns from clean, high-quality data, thus enhancing its performance and security. This is key to know and implement early on in the training process to ensure adequate training results and long-term success in the overall quality of the data.
 
-This control can only be applied during training and therefore not to an already trained model. 
+Key Points for Consideration:
+- Proactive Approach: Implement data quality controls during the training phase to prevent issues before they arise in production.
+- Comprehensive Verification: Combine automated methods with human oversight for critical data, ensuring that anomalies are accurately identified and addressed.
+- Continuous Monitoring: Regularly update and audit data quality controls to adapt to evolving threats and maintain the robustness of AI systems.
+- Collaboration and Standards: Adhere to international standards like ISO/IEC 5259 and 42001 while recognizing their limitations. Advocate for the development of more comprehensive standards that address the unique challenges of AI data quality.
 
 Links to standards:
 
