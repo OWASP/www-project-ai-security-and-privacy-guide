@@ -142,7 +142,7 @@ The best way to do this is to build on your existing secure software development
 
 There is no need for a dedicated secure development framework for AI.
 
-Related conmtrols:
+Related controls:
 - [Development program](/goto/devprogram/) on including AI engineering in all software lifecycle processes (e.g. versioning, portfolio management, retirement)
 - [Supply chain management](/goto/supplychainmanage/) which discusses AI-specific supply-chain risks
 - [Development security](/goto/devsecurity/) on protecting the development environment
