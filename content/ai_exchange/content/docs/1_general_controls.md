@@ -146,6 +146,7 @@ Links to standards:
 References: 
 - [OWASP SAMM](https://owaspsamm.org)
 - [NIST SSDF](https://csrc.nist.gov/projects/ssdf)
+- [NIST SSDF AI practices](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-218A.ipd.pdf)
 
 #### #DEVPROGRAM 
 > Category: governance control  
