@@ -4,17 +4,21 @@ weight: 1
 ---
 ## Summary - How to address AI Security?
 >See [home](https://owaspai.org/) for more information about this initiative, how to contribute or connect.  
-This page contains an overview of AI security and the next pages provide the main content: details on security threats to AI and controls against them. You can navigate through  pages at the bottom of every page, or in the left sidebar. The right sidebar shows the different sections on a page. On small screens you can navigate through the menu.  
+This page contains an overview of AI security and the next pages 1,2,3 and 4 provide the main content: details on security threats to AI and controls against them. You can navigate through pages at the bottom of every page, or in the left sidebar. The right sidebar shows the different sections on a page. On small screens you can navigate through the menu.  
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/summary/
 
 While AI offers tremendous opportunities, it also brings new risks including security threats. It is therefore imperative to approach AI applications with a clear understanding of potential threats and which of those threats to prioritize for each use case. Standards and governance help guide this process for individual entities leveraging AI capabilities. In a nutshell, the main steps to address AI security are: 
 
-- Implement **AI governance**
-- **Extend security and development practices** to include data science activities especially to protect and streamline the engineering environment.
-- **Improve regular application and system security** through understanding of AI particularities e.g. model parameters need protection and access to the model needs to be monitored and rate-limited.
+- Implement **AI governance**.
+- **Extend your security practices** with the AI security assets, threats and controls from this document.
+- If you develop AI systems (even if you don't train your own models):
+  - Involve your data and AI engineering into your traditional **(secure) software development practices**.
+  - Apply appropriate process **controls** and technical controls through understanding of the threats as discusses in this document.
+- Make sure your AI **suppliers** applied the appropriate controls.
 - **Limit the impact** of AI by minimizing privileges and adding oversight, e.g. guardrails, human oversight.
-- **Countermeasures in data science** through understanding of model attacks, e.g. data quality assurance, larger training sets, detecting common perturbation attacks, input filtering.
+
+Note that an AI system can for example be a Large Language Model, a linear regression function, a rule-based system,or a lookup table based on statistics. Throughout this document it is made clear when which threats and controls play a role.
 
 ## Threats overview
 >Category: discussion  
