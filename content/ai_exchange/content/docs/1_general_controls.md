@@ -130,13 +130,22 @@ Links to standards:
 > Category: governance control  
 > Permalink: https://owaspai.org/goto/secdevprogram/
 
-Secure development program:  Have processes in place to make sure that security is built into software. Make sure that data science development activities are also part of this. Examples of these processes: secure development training, code review, security requirements, secure coding guidelines, threat modeling (including AI-specific threats), static analysis tooling, dynamic analysis tooling, penetration testing. 
+Secure development program:  Have processes concerning software development in place to make sure that security is built into your AI system.
 
 Purpose: Reduces security risks by proper attention to mitigating those risks during software development.
 
-See elsewhere in this document for [SUPPLYCHAINMANAGE](/goto/supplychainmanage/) which discusses AI-specific supply-chain risks.
+Particularities for AI in secure software development:
+- AI teams (e.g. data scientists) need to be taken into scope of secure development lifecycle
+- AI security assets, threats and controls (as covered in this document) need to be considered, effecting requirements, policies, coding guidelines, training, tooling, testing practices and more. Ususally, this is done bye adding these elements in the organizations Information Security Management System, as described in [SECPROGRAM](/goto/segprogram/), and align secure software development to that as it has been aligned on the conventional assets, threats and controls.
 
-Particularity: Data science development activities need to be taken into scope of secure development lifecycle.
+The best way to do this is to build on your existing secure software development practices and include AI teams and AI particularities. This means that data science development activities should become part of your secure software development practices. Examples of these processes: secure development training, code review, security requirements, secure coding guidelines, threat modeling (including AI-specific threats), static analysis tooling, dynamic analysis tooling, penetration testing. 
+
+There is no need for a dedicated secure development framework for AI.
+
+Related conmtrols:
+- [Development program](/goto/devprogram/) on including AI engineering in all software lifecycle processes (e.g. versioning, portfolio management, retirement)
+- [Supply chain management](/goto/supplychainmanage/) which discusses AI-specific supply-chain risks
+- [Development security](/goto/devsecurity/) on protecting the development environment
 
 Links to standards:
 - ISO 27002 control 8.25 Secure development lifecycle. Gap: covers this control fully, with said particularity, but lack of detail - the 8.25 Control description in ISO 27002:2022 is one page, whereas secure software development is a large and complex topic - see below for further references
@@ -163,6 +172,12 @@ A best practice is to mix data scientist profiles with software engineering prof
 Another best practice is to continuously measure quality aspects of data science code (maintainability, test code coverage), and provide coaching to data scientists in how to manage those quality levels.
 
 Apart from conventional software best practices, there are important AI-specific engineering practices, including for example data provenance & lineage, model traceability and AI-specific testing such as continuous validation, testing for model staleness and concept drift. ISO/IEC 5338 discusses these AI engineering practices.
+
+Related controls that are key parts of the development lifecycle:
+- [Secure development program](/goto/secdevprogram/)
+- [Supply chain management](/goto/supplychainmanage/)
+- [Continuous validation](/goto/continuousvalidation/)
+- [Unwanted bias testing](/goto/unwantedbiastesting)
 
 The below interpretation diagram of ISO/IEC 5338 provides a good overview to get an idea of the topics involved.
 ![5338](/images/5338.png)
