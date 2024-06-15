@@ -61,6 +61,9 @@ Therefore, if we want to be completely fair across groups, we need to accept tha
 
 A machine learning use case may have unsolvable bias issues, that are critical to recognize before you even start. Before you do any data analysis, you need to think if any of the key data elements involved have a skewed representation of protected groups (e.g. more men than women for certain types of education). I mean, not skewed in your training data, but in the real world. If so, bias is probably impossible to avoid - unless you can correct for the protected attributes. If you don't have those attributes (e.g. racial data) or proxies, there is no way. Then you have a dilemma between the benefit of an accurate model and a certain level of discrimination. This dilemma can be decided on before you even start, and save you a lot of trouble.
 
+Even with a diverse team, with an equally distributed dataset, and without any historical bias, your AI may still discriminate. And there may be nothing you can do about it.  
+For example: take a dataset of students with two variables: study program and  score on a math test. The goal is to let the model select students good at math for a special math program. Let's say that the study program 'computer science' has the best scoring students. And let's say that much more males then females are studying computer science. The result is that the model will select more males than females. Without having gender data in the dataset, this bias is impossible to counter.
+
 ## 3. Data Minimization and Storage Limitation
 
 This principle requires that you should minimize the amount, granularity and storage duration of personal information in your training dataset. To make it more concrete:
