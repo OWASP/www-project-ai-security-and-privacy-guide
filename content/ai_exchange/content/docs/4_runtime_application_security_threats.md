@@ -108,7 +108,7 @@ Encode model output: apply output encoding on model output if it text. See [Open
 > Category: runtime application security threat  
 > Permalink: https://owaspai.org/goto/directpromptinjection/
 
-Direct prompt injection tries to fool a Generative AI (eg. a Large Language Model) by presenting prompts that make it behave in unwanted ways. This is similar in a way to an [evasion attack](/goto/evasion/) for predictive AI, but because it is so different in nature, it is described here separately. It can be seen as social engineering of a generative AI.
+Direct prompt injection: a user tries to fool a Generative AI (eg. a Large Language Model) by presenting prompts that make it behave in unwanted ways. This is similar in a way to an [evasion attack](/goto/evasion/) for predictive AI, but because it is so different in nature, it is described here separately. It can be seen as social engineering of a generative AI.
 
 Impact: Getting information from the AI that is offensive, secret, or leads to certain rights for the attacker.
 
@@ -137,7 +137,7 @@ See [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.
 > Category: runtime application security threat  
 > Permalink: https://owaspai.org/goto/indirectpromptinjection/
 
-Indirect prompt injection ([OWASP for LLM 01](https://llmtop10.com/llm01/)) fools a large language model (GenAI) through the injection of instructions as part of a text from a compromised source that is inserted into a prompt by an application, causing unintended actions or answers by the LLM (GenAI).
+Indirect prompt injection ([OWASP for LLM 01](https://llmtop10.com/llm01/)): a third party fools a large language model (GenAI) through the inclusion of (often hidden) instructions as part of a text that is inserted into a prompt by an application, causing unintended actions or answers by the LLM (GenAI).
 
 Impact: Getting unwanted answers or actions from instructions from untrusted input that has been inserted in a prompt.
 
