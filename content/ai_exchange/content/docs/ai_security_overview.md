@@ -41,7 +41,7 @@ In AI we distinguish 6 types of impacts, for three types of attacker goals (disr
 The threats that create these impacts use different attack surfaces. For example: the confidentiality of train data can be compromised by hacking into the database during development-time, but it can also leak by a _membership inference attack_ that can find out whether a certain individual was in the train data, simply by feeding that person's data into the model and looking at the details of the model output.
 
 The diagram shows the threats as arrows. Each threat has a specific impact, indicated by letters referring to the Impact legend. The control overview section contains this diagram with groups of controls added.
-![AI Security Threats](/images/threats.png)
+[![](/images/threats.png)](/images/threats.png)
 
 ### AI Security Matrix
 >Category: discussion  
@@ -56,7 +56,7 @@ The AI security matrix below (click to enlarge) shows all threats and risks, ord
 
 ### Threat model with controls - general
 The below diagram puts the controls in the AI Exchange into groups and places these groups in the right lifecycle with the corresponding threats.
-![AI Security Threats and controls](/images/threatscontrols.png)
+[![](/images/threatscontrols.png)](/images/threatscontrols.png)
 The groups of controls form a summary of how to address AI security (controls are in capitals):
 1. **AI Governance**: implement governance processes for AI risk, and include AI into your processes for information security and software lifecycle:  
    >( [AIPROGRAM](/goto/aiprogram/ ), [SECPROGRAM](/goto/secprogram/), [DEVPROGRAM](/goto/devprogram/), [SECDEVPROGRAM](/goto/secdevprogram/), [CHECKCOMPLIANCE](/goto/checkcompliance/), [SECEDUCATE](/goto/seceducate/))
@@ -86,14 +86,14 @@ All threats and controls are discussed in the further content of the AI Exchange
 ### Threat model with controls - GenAI trained/fine tuned
 Below diagram restricts the threats and controls to Generative AI only, for situations in which **training or fine tuning** is done by the organization (note: this is not very common given the high cost and required expertise).
 
-![AI Security Threats and controls - GenAI trained or fine tuned](/images/threatscontrols-genainotready.png)
+[![AI Security Threats and controls - GenAI trained or fine tuned](/images/threatscontrols-genainotready.png)](/images/threatscontrols-genainotready.png)
 
 ### Threat model with controls - GenAI as-is
 Below diagram restricts the threats and controls to Generative AI only where the model is used **as-is** by the organization. The provider (e.g. OpenAI) has done the training/fine tuning. Therefore, some threats are the responsibility of the model provider (sensitive/copyrighted data, manipulation at the provider). Nevertheless, the organization that uses the model should take these risks into account and gain assurance about them from the provider.
 
 In many situation, the as-is model will be hosted externally and therefore security depends on how the supplier is handling the data, including the security configuration. How is the API protected? What is virtual private cloud? The entire external model, or just the API? Key management? Data retention? Logging? Does the model reach out to third party sources by sending out sensitive input data?
 
-![AI Security Threats and controls - GenAI as-is](/images/threatscontrols-readymodel.png)
+[![AI Security Threats and controls - GenAI as-is](/images/threatscontrols-readymodel.png)](/images/threatscontrols-readymodel.png)
 
 
 ### Navigator diagram
