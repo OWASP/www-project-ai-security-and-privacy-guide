@@ -295,9 +295,9 @@ This document focuses on machine learning. Nevertheless, here is a quick summary
 > Category: discussion  
 > Permalink: https://owaspai.org/goto/responsibleai/
 
-There are many aspects of AI that make up its quality - often referred to as responsible AI or trustworthy AI. risks.
+There are many aspects of AI that make up its quality - often referred to as responsible AI or trustworthy AI.
 
-If your main responsibility is security, then the best strategy is to first focus on AI security and after that learn more about the other AI aspects - if only to help your colleagues to stay alert. Security experts are typically good in identifying things that can go wrong. Furthermore, some aspects can be a consequence of compromised AI, such as safety.
+If your main responsibility is security, then the best strategy is to first focus on AI security and after that learn more about the other AI aspects - if only to help your colleagues with the corresponding responsibility to stay alert. After all, security professionals are typically good at identifying things that can go wrong. Furthermore, some aspects can be a consequence of compromised AI and are therefore helpful to understand, such as safety.
 
 Let's clarify the aspects of AI and see how they relate to security:
 - **Accuracy** is about the AI model being sufficiently correct to perform its 'business function'. Being incorrect can lead to harm, including (physical) safety problems (e.g. car trunk opens during driving) or other wrong decisions that are harmful (e.g. wrongfully declined loan). The link with security is that some attacks cause unwanted model behaviour which is by definition an accuracy problem. Nevertheless, the security scope is restricted to mitigating the risks of those attacks - NOT solve the entire problem of creating an accurate model (selecting representative data for the trainset etc.).
@@ -312,6 +312,11 @@ Let's clarify the aspects of AI and see how they relate to security:
 - **Free of discrimination**: without unwanted bias of protected attibutes, meaning: no systematic inaccuracy where the model 'mistreats' certain groups (e.g. gender, ethicity). Discrimination is undesired for legal and ethical reasons. The relation with security is that having detection of unwanted bias can help to identify unwanted model behaviour caused by an attack. For example, a data poisoning attack has inserted malicious data samples in the training set, which at first goes unnoticed, but then is discovered by an unexplained detection of bias in the model. Sometimes the term 'fairness' is used to refer to discrimination issues, but mostly fairness in privacy is a broader term referring to fair treatment of individuals, including transparency, ethical use, and privacy rights.
 - **Empathy**. The relation of that with security is that the feasible level of security should always be taken into account when validating a certain application of AI. If a sufficient level of security cannot be provided to individuals or organizations, then empathy means invalidating the idea, or takin other precautions.
 - **Accountability**. The relation of accountability with security is that security measures should be demonstrable, including the process that have led to those measures. In addition, traceability as a security property is important, just like in any IT system, in order to detect, reconstruct and respond to security incidents and provide accountability.
+- **AI security**. The security aspect of AI is the central topic of the AI Exchange. In short, it can be broken down into:
+  - [Input attacks](/goto/threatsuse/), that are performed by providing input to the model
+  - [Model poisoning](/goto/modelpoison/), aimed to alter the model's behavior
+  - Stealing AI assets, such as train data, model input, output, or the model itself, either [development time](/goto/devleak/) or runtime (see below)
+  - Further [runtime conventional security attacks](/goto/generalappsecthreats/)
 
 ### How about privacy?
 > Category: discussion  
