@@ -55,14 +55,13 @@ Run-time model Input/Output integrity: apply traditional application security co
 
 ---
 
-## 4.3. Runtime model theft
+## 4.3. Direct runtime model theft
 > Category: runtime application security threat  
 > Permalink: https://owaspai.org/goto/runtimemodeltheft/
 
+Impact: Confidentiality breach of model parameters, which can result in intellectual model theft and/or allowing to perform model attacks on the stolen model that normally would be mitigated by rate limiting, access control, or detection mechanisms.
 
-Impact: Confidentiality breach of model intellectual property.
-
-Stealing model parameters from a live system by breaking into it (e.g. by gaining access to executables, memory or other storage/transfer of  parameter data in the production environment)
+Stealing model parameters from a live system by breaking into it (e.g. by gaining access to executables, memory or other storage/transfer of  parameter data in the production environment). This is different from [model theft through use](/goto/modeltheftuse/) which goes through a number of steps to steal a model through normal use, hence the use of the word 'direct'.
 
 **Controls:**
 
