@@ -430,7 +430,7 @@
       },
       {
         "source": "/goto/runtimemodeltheft/",
-        "destination": "/docs/4_runtime_application_security_threats/#43-runtime-model-theft",
+        "destination": "/docs/4_runtime_application_security_threats/#43-direct-runtime-model-theft",
         "type": 301
       },
       {
