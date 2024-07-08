@@ -437,7 +437,9 @@ GenAI models are often hosted in the cloud, sometimes managed by an external par
 
 Unauthorized access to model parameters through a data leak of the development environment.
 
-Impact: Confidentiality breach of model intellectual property.
+Impact: Confidentiality breach of model parameters, which can result in intellectual model theft and/or allowing to perform model attacks on the stolen model that normally would be mitigated by rate limiting, access control, or detection mechanisms.
+
+Alternative ways of model theft are [model theft through use](/goto/modeltheftuse/) and [direct runtime model theft](/goto/runtimemodeltheft/).
 
 **Controls:**
 
