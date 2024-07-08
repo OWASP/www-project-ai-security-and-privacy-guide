@@ -84,7 +84,9 @@ Example 2: through a special search process it is determined how a digital input
 
 Example 3: crafting an e-mail text by carefully choosing words to avoid triggering a spam detection algorithm.
 
-Generative AI model can be fooled with crafted input (prompt) to circumvent mechanisms that protect against unwanted output. Although this is also about fooling models with input, it is typically not referred to as an evasion attack, but as [direct prompt injection](/goto/directpromptinjection/). 
+Example 4: by altering a few words, an attacker succeeds in posting an offensive message on a public forum, despite a filter with a large language model being in place
+
+AI models that take a prompt as input (e.g. GenAI) suffer from an additional threat where manipulative instructions are provided. This is typically referred to as [direct prompt injection](/goto/directpromptinjection/). 
 
 See [MITRE ATLAS - Evade ML model](https://atlas.mitre.org/techniques/AML.T0015)
 
