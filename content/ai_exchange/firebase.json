@@ -65,7 +65,7 @@
       },
       {
         "source": "/goto/references/",
-        "destination": "/docs/ai_security_overview/#references-of-the-owasp-ai-exchange",
+        "destination": "/docs/ai_security_references/",
         "type": 301
       },
       {
