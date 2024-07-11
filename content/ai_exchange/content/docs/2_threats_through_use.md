@@ -467,7 +467,7 @@ The model discloses sensitive training data or is abused to do so.
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/disclosureuseoutput/
 
-The output of the model may contain sensitive data from the training set, for example a large language model (GenAI) generating output including personal data that was part of its training set. Furthermore, GenAI can output other types of sensitive data, such as copyrighted text or images(see [Copyright](/goto/copyright/)). Once training data is in a GenAI model, original variations in access rights cannot be controled anymore. ([OWASP for LLM 06](https://llmtop10.com/llm06/))
+The output of the model may contain sensitive data from the training set, for example a large language model (GenAI) generating output including personal data that was part of its training set. Furthermore, GenAI can output other types of sensitive data, such as copyrighted text or images(see [Copyright](/goto/copyright/)). Once training data is in a GenAI model, original variations in access rights cannot be controled anymore. ([OWASP for LLM 06](https://genai.owasp.org/llmrisk/llm06/))
 
 The disclosure is caused by an unintentional fault of including this data, and exposed through normal use or through provocation by an attacker using the system. See [MITRE ATLAS - LLM Data Leakage](https://atlas.mitre.org/techniques/AML.T0057)
 
