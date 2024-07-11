@@ -91,7 +91,7 @@ Impact: Textual model output may contain 'traditional' injection attacks such as
 
 This is like the standard output encoding issue, but the particularity is that the output of AI may include attacks such as XSS.
 
-See [OWASP for LLM 02](https://llmtop10.com/llm02/).
+See [OWASP for LLM 02](https://genai.owasp.org/llmrisk/llm02/).
 
 **Controls:**
 
@@ -125,7 +125,7 @@ Example 4: Making a chatbot say things that are legally binding and gain attacke
 
 Example 5: The process of trying prompt injection can be automated, searching for _pertubations_ to a prompt that allow circumventing the alignment. See [this article by Zou et al](https://llm-attacks.org/).
 
-See [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.T0051) and ([OWASP for LLM 01](https://llmtop10.com/llm01/)).
+See [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.T0051) and ([OWASP for LLM 01](https://genai.owasp.org/llmrisk/llm01/)).
 
 **Controls:**
 
@@ -138,7 +138,7 @@ See [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.
 > Category: runtime application security threat  
 > Permalink: https://owaspai.org/goto/indirectpromptinjection/
 
-Indirect prompt injection ([OWASP for LLM 01](https://llmtop10.com/llm01/)): a third party fools a large language model (GenAI) through the inclusion of (often hidden) instructions as part of a text that is inserted into a prompt by an application, causing unintended actions or answers by the LLM (GenAI). This is similar to remote code execution.
+Indirect prompt injection ([OWASP for LLM 01](https://genai.owasp.org/llmrisk/llm01/)): a third party fools a large language model (GenAI) through the inclusion of (often hidden) instructions as part of a text that is inserted into a prompt by an application, causing unintended actions or answers by the LLM (GenAI). This is similar to remote code execution.
 
 Impact: Getting unwanted answers or actions from instructions from untrusted input that has been inserted in a prompt.
 
