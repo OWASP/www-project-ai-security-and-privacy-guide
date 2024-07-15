@@ -54,6 +54,11 @@
         "type": 301
       },
       {
+        "source": "/goto/genai/",
+        "destination": "/docs/ai_security_overview/#how-about-generative-ai-eg-llm",
+        "type": 301
+      },      
+      {
         "source": "/goto/responsibleai/",
         "destination": "/docs/ai_security_overview/#how-about-responsible-or-trustworthy-ai",
         "type": 301
