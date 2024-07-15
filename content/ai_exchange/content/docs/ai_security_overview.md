@@ -344,6 +344,8 @@ AI Privacy can be divided into two parts:
 2. Threats and controls that are not about security, but about further rights of the individual, as covered by privacy regulations such as the GDPR, including use limitation, consent, fairness, transparency, data accuracy, right of correction/objection/erasure/request. For an overview, see the [Privacy part of the OWASP AI guide](https://owasp.org/www-project-ai-security-and-privacy-guide/)
 
 ### How about Generative AI (e.g. LLM)?
+> Category: discussion  
+> Permalink: https://owaspai.org/goto/genai/
 
 Yes, GenAI is leading the current AI revolution and it's the fastest moving subfield of AI security. Nevertheless it is important to realize that other types of algorithms (let's call it _predictive AI_) will remain to be applied to many important use cases such as credit scoring, fraud detection, medical diagnosis, product recommendation, image recognition, predictive maintenance, process control, etc. Relevant content has been marked with 'GenAI' in this document.
 
