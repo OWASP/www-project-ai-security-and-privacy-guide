@@ -317,6 +317,8 @@ Let's clarify the aspects of AI and see how they relate to security:
   - [Model poisoning](/goto/modelpoison/), aimed to alter the model's behavior
   - Stealing AI assets, such as train data, model input, output, or the model itself, either [development time](/goto/devleak/) or runtime (see below)
   - Further [runtime conventional security attacks](/goto/generalappsecthreats/)
+ 
+[![](/images/aiwayfinder.png)](/images/aiwayfinder.png)
 
 ### How about privacy?
 > Category: discussion  
