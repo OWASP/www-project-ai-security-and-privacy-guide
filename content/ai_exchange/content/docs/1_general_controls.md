@@ -136,13 +136,13 @@ Secure development program:  Have processes concerning software development in p
 
 Purpose: Reduces security risks by proper attention to mitigating those risks during software development.
 
-The best way to do this is to build on your existing secure software development practices and include AI teams and AI particularities. This means that data science development activities should become part of your secure software development practices. Examples of these processes: secure development training, code review, security requirements, secure coding guidelines, threat modeling (including AI-specific threats), static analysis tooling, dynamic analysis tooling, penetration testing. There is no need for a dedicated secure development framework for AI.
+The best way to do this is to build on your existing secure software development practices and include AI teams and AI particularities. This means that data science development activities should become part of your secure software development practices. Examples of these practices: secure development training, code review, security requirements, secure coding guidelines, threat modeling (including AI-specific threats), static analysis tooling, dynamic analysis tooling, and penetration testing. There is no need for an isolated secure development framework for AI.
 
 Particularities for AI in secure software development:
 - AI teams (e.g. data scientists) need to be taken into scope of your secure development activities
 - AI security assets, threats and controls (as covered in this document) need to be considered, effecting requirements, policies, coding guidelines, training, tooling, testing practices and more. Ususally, this is done by adding these elements in the organizations Information Security Management System, as described in [SECPROGRAM](/goto/segprogram/), and align secure software development to that - just like it has been aligned on the conventional assets, threats and controls.
 
-Depending on risk analysis, certain threats may require specific practices in the development lifecycle. These threats and controls are covered elsewhere in this document. For example: if you work with an externally obtained model, this requires specific supply chain management. Or, if your training data is confidential and collected in a distributed way, then you may considere a federated learning approach.
+Depending on risk analysis, certain threats may require specific practices in the development lifecycle. These threats and controls are covered elsewhere in this document. For example: if you work with an externally obtained model, this requires specific supply chain management. Or, if your training data is confidential and collected in a distributed way, then you may considere a [federated learning](/goto/federatedlearning/) approach.
 
 Related controls:
 - [Development program](/goto/devprogram/) on including AI engineering in all software lifecycle processes (e.g. versioning, portfolio management, retirement)
