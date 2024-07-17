@@ -1,6 +1,6 @@
 ---
 title: AI Security References
-weight: 1
+weight: 6
 ---
 ## References of the OWASP AI Exchange
 >Category: discussion  
