@@ -40,9 +40,10 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
 
 <table border='1'>
     <tr><th>Name</th><th>Company</th><th>Country</th><th>Contribution</th></tr>
+    <tr><td><b>Rob van der Veer</b></td><td>Software Improvement Group (SIG)</td><td>Netherlands</td><td><b>Project founder and lead, content, leadership team</b></td></tr>
     <tr><td><b>Chris Ancharski</b></td><td>Global community builder</td><td>US</td><td>Engagement specialist, leadership team</td></tr>
-    <tr><td><b>John Sotiropoulos</b></td><td>Kainos</td><td>UK</td><td>External relations, leadership team</td></tr>
-    <tr><td><b>Rob van der Veer</b></td><td>Software Improvement Group (SIG)</td><td>Netherlands</td><td><b>Project leader</b></td></tr>
+    <tr><td><b>John Sotiropoulos</b></td><td>Kainos</td><td>UK</td><td>External relations, content, leadership team</td></tr>
+    <tr><td><b>Aruneesh Salhotra</b></td><td>SNM Consulting Inc</td><td>US</td><td><b>Outreach, management, content, leadership team</b></td></tr>
     <tr><td>Adelin Travers</td><td>Trail of Bits</td><td></td><td></td></tr>
     <tr><td>Alon Tron</td><td>Stealth</td><td>Israel</td><td>Improved supply chain management</td></tr>
     <tr><td>Angie Qarry</td><td>QDeepTech</td><td>Austria</td><td>several elaborations and references on data science defence mechanisms</td></tr>
