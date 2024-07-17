@@ -21,6 +21,7 @@ Overviews of AI security threats:
 - [OWASP ML top 10](https://mltop10.info/)
 - [BIML](https://berryvilleiml.com/taxonomy/)
 - [PLOT4ai threat library](https://plot4.ai/library)
+- [BSI AI recommendations including security aspects (Germany) - in English](https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/kuenstliche-intelligenz_node.html#doc916902bodyText8)
 
 Overviews of AI security/privacy incidents:
 
