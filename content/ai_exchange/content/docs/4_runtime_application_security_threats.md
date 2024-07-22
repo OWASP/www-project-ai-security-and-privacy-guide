@@ -109,7 +109,7 @@ Encode model output: apply output encoding on model output if it text. See [Open
 > Category: runtime application security threat  
 > Permalink: https://owaspai.org/goto/directpromptinjection/
 
-Direct prompt injection: a user tries to fool a Generative AI (eg. a Large Language Model) by presenting prompts that make it behave in unwanted ways. It can be seen as social engineering of a generative AI. This is different from an [evasion attack](/goto/evasion/) which is aimed at manipaluting input to make the model perform its task incorrectly.
+Direct prompt injection: a user tries to fool a Generative AI (eg. a Large Language Model) by presenting prompts that make it behave in unwanted ways. It can be seen as social engineering of a generative AI. This is different from an [evasion attack](/goto/evasion/) which is aimed at manipulating input to make the model perform its task incorrectly.
 
 Impact: Getting information from the AI that is offensive, secret, or leads to certain rights for the attacker.
 
