@@ -34,6 +34,11 @@
         "type": 301
       },
       {
+        "source": "/goto/lookuptable/",
+        "destination": "/docs/ai_security_overview/#ai-exchange-lookup-table",
+        "type": 301
+      },
+      {
         "source": "/goto/navigator/",
         "destination": "/docs/ai_security_overview/#navigator-diagram",
         "type": 301
