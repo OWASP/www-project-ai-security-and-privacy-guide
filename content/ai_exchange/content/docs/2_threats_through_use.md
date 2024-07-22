@@ -70,11 +70,11 @@ Links to standards:
 >Category: group of threats through use  
 >Permalink: https://owaspai.org/goto/evasion/
 
-Evasion: fooling models with deceptive input data. In other words: an attacker provides input that has intentionally been designed to cause a machine learning model to behave in an unwanted way.
+Evasion: an attacker fools the model by crafting input to mislead a model into performing its task incorrectly. 
 
 Impact: Integrity of model behaviour is affected, leading to issues from unwanted model output (e.g. failing fraud detection, decisions leading to safety issues, reputation damage, liability).
 
-A category of such an attack involves small perturbations leading to a large (and false) modification of its outputs. Such modified inputs are often called *adversarial examples*. Evasion attacks can also be categorized into physical (e.g. changing the real world to influence for example a camera image) and digital (e.g. changing the digital image).
+A typical attacker goal with Evaswion is to slightly change a certain input (say an image) to pass a certain test that normally would not be passed. Such small changes (perturbations) lead to a large (and false) modification of its outputs. The modified inputs are often called *adversarial examples*. Evasion attacks can also be categorized into physical (e.g. changing the real world to influence for example a camera image) and digital (e.g. changing the digital image).
 
 Example 1: slightly changing traffic signs so that self-driving cars may be fooled.
 ![](/images/inputphysical.png)
@@ -86,7 +86,7 @@ Example 3: crafting an e-mail text by carefully choosing words to avoid triggeri
 
 Example 4: by altering a few words, an attacker succeeds in posting an offensive message on a public forum, despite a filter with a large language model being in place
 
-AI models that take a prompt as input (e.g. GenAI) suffer from an additional threat where manipulative instructions are provided. This is typically referred to as [direct prompt injection](/goto/directpromptinjection/). 
+AI models that take a prompt as input (e.g. GenAI) suffer from an additional threat where manipulative instructions are provided - not to let the model perform its task correctly but for other goals, such as getting ofensive answers by bypassing certain protections. This is typically referred to as [direct prompt injection](/goto/directpromptinjection/). 
 
 See [MITRE ATLAS - Evade ML model](https://atlas.mitre.org/techniques/AML.T0015)
 
