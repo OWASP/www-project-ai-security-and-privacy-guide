@@ -20,6 +20,35 @@ While AI offers tremendous opportunities, it also brings new risks including sec
 
 Note that an AI system can for example be a Large Language Model, a linear regression function, a rule-based system,or a lookup table based on statistics. Throughout this document it is made clear when which threats and controls play a role.
 
+---
+
+## About this Document
+>Category: discussion  
+>Permalink: https://owaspai.org/goto/about/
+
+This document discusses threats to AI cyber security and controls for those threats (i.e. countermeasures, requirements, mitigations).
+Security here means preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.
+
+The AI Exchange initiative was taken by OWASP, triggered by [Rob van der Veer](https://www.linkedin.com/in/robvanderveer/) - bridge builder for security standards, senior director at [Software Improvement Group](https://www.softwareimprovementgroup.com), with 31 years of experience in AI & security, lead author of ISO/IEC 5338 on AI lifecycle, founding father of OpenCRE, and currently working on security requirements concerning the EU AI act in CEN/CENELEC.
+
+This material is all draft and work in progress for others to review and amend.
+It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 27090 on AI security, ISO/IEC 27091 on AI privacy, the [OWASP ML top 10](https://mltop10.info/), [OWASP LLM top 10](https://llmtop10.com/), and many more initiatives can benefit from consistent terminology and insights across the globe.
+
+### Sources
+
+- AI security experts who contributed to this as Open Source.
+- The insights of these experts were inspired by research work as mentioned in the references at the bottom of this document(ENISA, NIST, Microsoft, BIML, MITRE, etc.)
+
+### How we organized threats and controls
+
+The threats are organized by attack surface (how and where does the attack take place?), and not by impact. This means that for example model theft is mentioned in three different parts of the overview:
+
+1. model theft by stealing model parameters from a live system, e.g. breaking into the network and reading the parameters from a file,
+2. model theft by stealing the modeling process or parameters from the engineering environment, e.g. stored in the version management system of a data scientist, and
+3. model theft by reverse engineering from using the AI system. These are three very different attacks, with similar impacts. This way of organizing is helpful because the goal is to link the threats to controls, and these controls vary per attack surface.
+
+---
+
 ## Threats overview
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/threatsoverview/
@@ -50,6 +79,8 @@ The diagram shows the threats as arrows. Each threat has a specific impact, indi
 The AI security matrix below (click to enlarge) shows all threats and risks, ordered by type and impact.
 [![](/images/OwaspAIsecuritymatix.png)](/images/OwaspAIsecuritymatix.png)
 
+---
+
 ## Controls overview
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/controlsoverview/
@@ -63,7 +94,7 @@ The groups of controls form a summary of how to address AI security (controls ar
 2. Apply conventional **technical IT security controls** risk-based, since an AI system is an IT system:
     - 2a Apply **standard** conventional IT security controls (e.g. 15408, ASVS, OpenCRE, ISO 27001 Annex A, NIST SP800-53) to the complete AI system and don't forget the new AI-specific assets :
       - Development-time: model & data storage, model & data supply chain, data science documentation:  
-        >([DEVDATAPROTECT](/goto/devdataprotect/), [DEVSECURITY](/goto/devsecurity/), [SEGREGATEDATA](/goto/segregatedata/), [SUPPLYCHAINMANAGE](/goto/supplychainmanage/), [DISCRETE](/goto/discrete/))
+        >([DEVSECURITY](/goto/devsecurity/), [SEGREGATEDATA](/goto/segregatedata/), [SUPPLYCHAINMANAGE](/goto/supplychainmanage/), [DISCRETE](/goto/discrete/))
       - Runtime: model storage, model use, plug-ins, and model input/output:  
         >([RUNTIMEMODELINTEGRITY](/goto/runtimemodelintegrity/), [RUNTIMEMODELIOINTEGRITY](/goto/runtimemodeliointegrity/), [RUNTIMEMODELCONFIDENTIALITY](/goto/runtimemodelconfidentiality/), [MODELINPUTCONFIDENTIALITY](/goto/modelinputconfidentiality/), [ENCODEMODELOUTPUT](/goto/encodemodeloutput/), [LIMITRESOURCES](/goto/limitresources/))
     - 2b **Adapt** conventional IT security controls to make them more suitable for AI (e.g. which usage patterns to monitor for):  
@@ -101,20 +132,20 @@ In many situation, the as-is model will be hosted externally and therefore secur
 The below table, called the AI Exchange lookup table, shows the various threats, their impact and the corresponding controls, organized by asset, impact and attack surface:
 |Asset & Impact|Attack surface with lifecycle|Threat/Risk category|Controls|
 |-|-|-|-|
-|Model behaviour Integrity|Runtime -Model use (provide input/ read output)|[Direct prompt injection](/goto/directpromptinjection/)|Implemented in the model itself, [Input validation](/goto/promptinputvalidation)|
-|&nbsp;&nbsp;,,  ,, |&nbsp;&nbsp;,,  ,, |[Indirect prompt injection](/goto/indirectpromptinjection/)|[Input validation](/goto/promptinputvalidation), [Input segregation](/goto/inputsegregation/)|
-|&nbsp;&nbsp;,,  ,, |Runtime - Break into deployed model|[Model poisoning runtime](/goto/runtimemodelpoisoning/) (reprogramming)|[Runtime model integrity](/goto/runtimemodelintegrity/), [runtime model input/output integrity](/goto/runtimemodeliointegrity/)|
-|&nbsp;&nbsp;,,  ,, |&nbsp;&nbsp;,,  ,, |[Evasion](/goto/evasion) (e.g. adversarial examples)|[Monitor](/goto/monitor/), [rate limit](/goto/ratelimit), [model access control](/goto/modelaccesscontrol/) plus:<br><br> [Detect odd input](/goto/detectoddinput/), [detect adversarial input](/goto/detectadversarialinput/), [evasion robust model](/goto/evasionrobustmodel/), [train adversarial](/goto/trainadversarial/), [input distortion](/goto/inputdistortion/), [adversarial robust distillation](/goto/adversarialrobustdistillation/)|
-|&nbsp;&nbsp;,,  ,, |Development -Engineering environment|[Model poisoning development time](/goto/devmodelpoisoning/)|[Development data security](/goto/devdataprotect/), [development environment security](/goto/devsecurity), [data segregation](/goto/segregatedata/), [federated learning](/goto/federatedlearning/), [supply chain management](/goto/supplychainmanage/) plus:<br><br>[model ensemble](/goto/modelensemble/)|
-|&nbsp;&nbsp;,,  ,, |&nbsp;&nbsp;,,  ,, |[Data poisoning of train/finetune data](/goto/datapoison/)|[Development data security](/goto/devdataprotect/), [development environment security](/goto/devsecurity), [data segregation](/goto/segregatedata/), [federated learning](/goto/federatedlearning/), [supply chain management](/goto/supplychainmanage/) plus:<br><br>  [model ensemble](/goto/modelensemble/) plus:<br><br>  [More training data](/goto/moretraindata/), [data quality control](/goto/dataqualitycontrol/), [train data distortion](/goto/traindatadistortion/), [poison robust model](/goto/poisonrobustmodel/)|
-|&nbsp;&nbsp;,,  ,, |Development - Supply chain|[Model/data poisoning in supply chain](/goto/transferlearningattack/)|Supplier: [Development data security](/goto/devdataprotect/), [development environment security](/goto/devsecurity), [data segregation](/goto/segregatedata/), [federated learning](/goto/federatedlearning/)<br><br>Producer: [supply chain management](/goto/supplychainmanage/) plus:<br><br>[model ensemble](/goto/modelensemble/)|
-|Training data Confidentiality|Runtime - Model use|[Data disclosure in model output](/goto/disclosureuseoutput/)|[Sensitive data limitation](/goto/datalimit/) (data minimize, short retain, obfuscate training data) plus:<br><br>[Monitor](/goto/monitor/), [rate limit](/goto/ratelimit), [model access control](/goto/modelaccesscontrol/) plus:<br><br>[Filter sensitive model output](/goto/filtersensitivemodeloutput/)|
-|&nbsp;&nbsp;,,  ,, |&nbsp;&nbsp;,,  ,, |[Model inversion / Membership inference](/goto/modelinversionandmembership/)|[Sensitive data limitation](/goto/datalimit/) (data minimize, short retain, obfuscate training data) plus:<br><br>[Monitor](/goto/monitor/), [rate limit](/goto/ratelimit), [model access control](/goto/modelaccesscontrol/) plus:<br><br>  [Obscure confidence](/goto/obscureconfidence/), [Small model](/goto/smallmodel/)|
-|&nbsp;&nbsp;,,  ,, |Development - Engineering environment|[Training data leaks](/goto/devdataleak/)|[Sensitive data limitation](/goto/datalimit) (data minimize, short retain, obfuscate training data) plus:<br><br>[Development data security](/goto/devdataprotect/), [development environment security](/goto/devsecurity), [data segregation](/goto/segregatedata/), [federated learning](/goto/federatedlearning/)|
-|Model confidentiality|Runtime - Model use|[Model theft through use](/goto/modeltheftuse/) (input-output harvesting)|[Monitor](/goto/monitor/), [rate limit](/goto/ratelimit), [model access control](/goto/modelaccesscontrol/)|
-|&nbsp;&nbsp;,,  ,, |Runtime - Break into deployed model|[Direct model theft runtime](/goto/runtimemodeltheft])|[Runtime model confidentiality](/goto/runtimemodelconfidemtiality), [Model obfuscation](/goto/modelobfuscation/)|
-|&nbsp;&nbsp;,,  ,, |Development - Engineering environment|[Model theft development-time](/goto/devmodelleak/)|[Development data security](/goto/devdataprotect/), [development environment security](/goto/devsecurity), [data segregation](/goto/segregatedata/), [federated learning](/goto/federatedlearning/)|
-|Model behaviour Availability|Model use|[Denial of model service](/goto/denialmodelservice/) (model resource depletion)|[Monitor](/goto/monitor/), [rate limit](/goto/ratelimit), [model access control](/goto/modelaccesscontrol/) plus:<br><br>[Dos input validation](/goto/dosinputvalidation/), [limit resources](/goto/limitresources/)|
+|Model behaviour Integrity|Runtime -Model use (provide input/ read output)|[Direct prompt injection](/goto/directpromptinjection/)|Implemented in the model itself, [Input validation](/goto/promptinputvalidation/)|
+|&nbsp;&nbsp;,,  ,, |&nbsp;&nbsp;,,  ,, |[Indirect prompt injection](/goto/indirectpromptinjection/)|[Input validation](/goto/promptinputvalidation/), [Input segregation](/goto/inputsegregation/)|
+|&nbsp;&nbsp;,,  ,, |Runtime - Break into deployed model|[Model poisoning runtime](/goto/runtimemodelpoison/) (reprogramming)|[Runtime model integrity](/goto/runtimemodelintegrity/), [runtime model input/output integrity](/goto/runtimemodeliointegrity/)|
+|&nbsp;&nbsp;,,  ,, |&nbsp;&nbsp;,,  ,, |[Evasion](/goto/evasion) (e.g. adversarial examples)|[Monitor](/goto/monitoruse/), [rate limit](/goto/ratelimit/), [model access control](/goto/modelaccesscontrol/) plus:<br><br> [Detect odd input](/goto/detectoddinput/), [detect adversarial input](/goto/detectadversarialinput/), [evasion robust model](/goto/evasionrobustmodel/), [train adversarial](/goto/trainadversarial/), [input distortion](/goto/inputdistortion/), [adversarial robust distillation](/goto/adversarialrobustdistillation/)|
+|&nbsp;&nbsp;,,  ,, |Development -Engineering environment|[Model poisoning development time](/goto/devmodelpoison/)|[Development environment security](/goto/devsecurity/), [data segregation](/goto/segregatedata/), [federated learning](/goto/federatedlearning/), [supply chain management](/goto/supplychainmanage/) plus:<br><br>[model ensemble](/goto/modelensemble/)|
+|&nbsp;&nbsp;,,  ,, |&nbsp;&nbsp;,,  ,, |[Data poisoning of train/finetune data](/goto/datapoison/)|[Development environment security](/goto/devsecurity/), [data segregation](/goto/segregatedata/), [federated learning](/goto/federatedlearning/), [supply chain management](/goto/supplychainmanage/) plus:<br><br>  [model ensemble](/goto/modelensemble/) plus:<br><br>  [More training data](/goto/moretraindata/), [data quality control](/goto/dataqualitycontrol/), [train data distortion](/goto/traindatadistortion/), [poison robust model](/goto/poisonrobustmodel/)|
+|&nbsp;&nbsp;,,  ,, |Development - Supply chain|[Model/data poisoning in supply chain](/goto/transferlearningattack/)|Supplier: [Development environment security](/goto/devsecurity/), [data segregation](/goto/segregatedata/), [federated learning](/goto/federatedlearning/)<br><br>Producer: [supply chain management](/goto/supplychainmanage/) plus:<br><br>[model ensemble](/goto/modelensemble/)|
+|Training data Confidentiality|Runtime - Model use|[Data disclosure in model output](/goto/disclosureuseoutput/)|[Sensitive data limitation](/goto/datalimit/) (data minimize, short retain, obfuscate training data) plus:<br><br>[Monitor](/goto/monitoruse/), [rate limit](/goto/ratelimit/), [model access control](/goto/modelaccesscontrol/) plus:<br><br>[Filter sensitive model output](/goto/filtersensitivemodeloutput/)|
+|&nbsp;&nbsp;,,  ,, |&nbsp;&nbsp;,,  ,, |[Model inversion / Membership inference](/goto/modelinversionandmembership/)|[Sensitive data limitation](/goto/datalimit/) (data minimize, short retain, obfuscate training data) plus:<br><br>[Monitor](/goto/monitoruse/), [rate limit](/goto/ratelimit/), [model access control](/goto/modelaccesscontrol/) plus:<br><br>  [Obscure confidence](/goto/obscureconfidence/), [Small model](/goto/smallmodel/)|
+|&nbsp;&nbsp;,,  ,, |Development - Engineering environment|[Training data leaks](/goto/devdataleak/)|[Sensitive data limitation](/goto/datalimit) (data minimize, short retain, obfuscate training data) plus:<br><br>[Development environment security](/goto/devsecurity/), [data segregation](/goto/segregatedata/), [federated learning](/goto/federatedlearning/)|
+|Model confidentiality|Runtime - Model use|[Model theft through use](/goto/modeltheftuse/) (input-output harvesting)|[Monitor](/goto/monitoruse/), [rate limit](/goto/ratelimit/), [model access control](/goto/modelaccesscontrol/)|
+|&nbsp;&nbsp;,,  ,, |Runtime - Break into deployed model|[Direct model theft runtime](/goto/runtimemodeltheft/)|[Runtime model confidentiality](/goto/runtimemodelconfidentiality/), [Model obfuscation](/goto/modelobfuscation/)|
+|&nbsp;&nbsp;,,  ,, |Development - Engineering environment|[Model theft development-time](/goto/devmodelleak/)|[Development environment security](/goto/devsecurity/), [data segregation](/goto/segregatedata/), [federated learning](/goto/federatedlearning/)|
+|Model behaviour Availability|Model use|[Denial of model service](/goto/denialmodelservice/) (model resource depletion)|[Monitor](/goto/monitoruse/), [rate limit](/goto/ratelimit/), [model access control](/goto/modelaccesscontrol/) plus:<br><br>[Dos input validation](/goto/dosinputvalidation/), [limit resources](/goto/limitresources/)|
 |Model input data Confidentialiy|Runtime - All IT|[Model input leak](/goto/leakinput/)|[Model input confidentiality](/goto/modelinputconfidentiality/)|
 |Any asset, CIA|Runtime-All IT|[Model output contains injection](/goto/insecureoutput/)|[Encode model output](/goto/encodemodeloutput/)|
 |Any asset, CIA|Runtime - All IT|Conventional runtime security attack on conventional asset|Conventional runtime security controls|
@@ -131,31 +162,7 @@ The navigator diagram below shows all threats, controls and how they relate, inc
 {{< /callout >}}
 [![](/images/owaspaioverviewv2.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf)
 
-
-## About this Document
->Category: discussion  
->Permalink: https://owaspai.org/goto/about/
-
-This document discusses threats to AI cyber security and controls for those threats (i.e. countermeasures, requirements, mitigations).
-Security here means preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.
-
-The AI Exchange initiative was taken by OWASP, triggered by [Rob van der Veer](https://www.linkedin.com/in/robvanderveer/) - bridge builder for security standards, senior director at [Software Improvement Group](https://www.softwareimprovementgroup.com), with 31 years of experience in AI & security, lead author of ISO/IEC 5338 on AI lifecycle, founding father of OpenCRE, and currently working on security requirements concerning the EU AI act in CEN/CENELEC.
-
-This material is all draft and work in progress for others to review and amend.
-It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 27090 on AI security, ISO/IEC 27091 on AI privacy, the [OWASP ML top 10](https://mltop10.info/), [OWASP LLM top 10](https://llmtop10.com/), and many more initiatives can benefit from consistent terminology and insights across the globe.
-
-### Sources
-
-- AI security experts who contributed to this as Open Source.
-- The insights of these experts were inspired by research work as mentioned in the references at the bottom of this document(ENISA, NIST, Microsoft, BIML, MITRE, etc.)
-
-### How we organized threats and controls
-
-The threats are organized by attack surface (how and where does the attack take place?), and not by impact. This means that for example model theft is mentioned in three different parts of the overview:
-
-1. model theft by stealing model parameters from a live system, e.g. breaking into the network and reading the parameters from a file,
-2. model theft by stealing the modeling process or parameters from the engineering environment, e.g. stored in the version management system of a data scientist, and
-3. model theft by reverse engineering from using the AI system. These are three very different attacks, with similar impacts. This way of organizing is helpful because the goal is to link the threats to controls, and these controls vary per attack surface.
+---
 
 ## How to select relevant threats and controls? risk analysis
 >Category: discussion  
@@ -302,6 +309,7 @@ In the end you need to be able to accept the risks that remain regarding each th
 ### 10. Further management of these controls
 (see [SECPROGRAM](/goto/secprogram/)), which includes continuous monitoring, documentation, reporting, and incident response.
 
+---
 
 ## How about ...
 ### How about AI outside of machine learning?
@@ -429,7 +437,7 @@ system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-syst
 - Secure your supply chain:  
   #[SUPPLYCHAINMANAGE](/goto/supplychainmanage/)
 - Identify, track and protect your assets:  
-  #[DEVDATAPROTECT](/goto/devdataprotect/), #[DEVSECURITY](/goto/devsecurity/), #[SEGREGATEDATA](/goto/segregatedata/), #[CONFCOMPUTE](/goto/confcompute/), #[MODELINPUTCONFIDENTIALITY](/goto/modelinputconfidentiality/), #[RUNTIMEMODELCONFIDENTIALITY](/goto/runtimemodelconfidentiality/), #[DATAMINIMIZE](/goto/dataminimize/), #[ALLOWEDDATA](/goto/alloweddata/), #[SHORTRETAIN](/goto/shortretain/), #[OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/) and part of #[SECPROGRAM](/goto/secprogram/)
+  #[DEVSECURITY](/goto/devsecurity/), #[SEGREGATEDATA](/goto/segregatedata/), #[CONFCOMPUTE](/goto/confcompute/), #[MODELINPUTCONFIDENTIALITY](/goto/modelinputconfidentiality/), #[RUNTIMEMODELCONFIDENTIALITY](/goto/runtimemodelconfidentiality/), #[DATAMINIMIZE](/goto/dataminimize/), #[ALLOWEDDATA](/goto/alloweddata/), #[SHORTRETAIN](/goto/shortretain/), #[OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/) and part of #[SECPROGRAM](/goto/secprogram/)
 - Document your data, models and prompts:  
   Part of #[DEVPROGRAM](/goto/devprogram/)
 - Manage your technical debt:  
