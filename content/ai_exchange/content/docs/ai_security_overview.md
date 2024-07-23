@@ -132,7 +132,7 @@ In many situation, the as-is model will be hosted externally and therefore secur
 The below table, called the AI Exchange lookup table, shows the various threats, their impact and the corresponding controls, organized by asset, impact and attack surface:
 |Asset & Impact|Attack surface with lifecycle|Threat/Risk category|Controls|
 |-|-|-|-|
-|Model behaviour Integrity|Runtime -Model use (provide input/ read output)|[Direct prompt injection](/goto/directpromptinjection/)|Implemented in the model itself, [Input validation](/goto/promptinputvalidation/)|
+|Model behaviour Integrity|Runtime -Model use (provide input/ read output)|[Direct prompt injection](/goto/directpromptinjection/)|[Input validation](/goto/promptinputvalidation/), further controls implemented in the model|
 |&nbsp;&nbsp;,,  ,, |&nbsp;&nbsp;,,  ,, |[Indirect prompt injection](/goto/indirectpromptinjection/)|[Input validation](/goto/promptinputvalidation/), [Input segregation](/goto/inputsegregation/)|
 |&nbsp;&nbsp;,,  ,, |Runtime - Break into deployed model|[Model poisoning runtime](/goto/runtimemodelpoison/) (reprogramming)|[Runtime model integrity](/goto/runtimemodelintegrity/), [runtime model input/output integrity](/goto/runtimemodeliointegrity/)|
 |&nbsp;&nbsp;,,  ,, |&nbsp;&nbsp;,,  ,, |[Evasion](/goto/evasion/) (e.g. adversarial examples)|[Monitor](/goto/monitoruse/), [rate limit](/goto/ratelimit/), [model access control](/goto/modelaccesscontrol/) plus:<br><br> [Detect odd input](/goto/detectoddinput/), [detect adversarial input](/goto/detectadversarialinput/), [evasion robust model](/goto/evasionrobustmodel/), [train adversarial](/goto/trainadversarial/), [input distortion](/goto/inputdistortion/), [adversarial robust distillation](/goto/adversarialrobustdistillation/)|
