@@ -254,13 +254,38 @@
         "type": 301
       },
       {
+        "source": "/goto/promptinjection/",
+        "destination": "/docs/2_threats_through_use/#22prompt-injection",
+        "type": 301
+      },
+      {
+        "source": "/goto/directpromptinjection/",
+        "destination": "/docs/2_threats_through_use/#221-direct-prompt-injection",
+        "type": 301
+      },
+      {
+        "source": "/goto/indirectpromptinjection/",
+        "destination": "/docs/2_threats_through_use/#222-indirect-prompt-injection",
+        "type": 301
+      },
+      {
+        "source": "/goto/promptinputvalidation/",
+        "destination": "/docs/2_threats_through_use/#promptinputvalidation",
+        "type": 301
+      },
+      {
+        "source": "/goto/inputsegregation/",
+        "destination": "/docs/2_threats_through_use/#inputsegregation",
+        "type": 301
+      },
+      {
         "source": "/goto/disclosureuse/",
-        "destination": "/docs/2_threats_through_use/#22-sensitive-data-disclosure-through-use",
+        "destination": "/docs/2_threats_through_use/#23-sensitive-data-disclosure-through-use",
         "type": 301
       },
       {
         "source": "/goto/disclosureuseoutput/",
-        "destination": "/docs/2_threats_through_use/#221-sensitive-data-output-from-model",
+        "destination": "/docs/2_threats_through_use/#231-sensitive-data-output-from-model",
         "type": 301
       },
       {
@@ -270,7 +295,7 @@
       },
       {
         "source": "/goto/modelinversionandmembership/",
-        "destination": "/docs/2_threats_through_use/#222-model-inversion-and-membership-inference",
+        "destination": "/docs/2_threats_through_use/#232-model-inversion-and-membership-inference",
         "type": 301
       },
       {
@@ -285,12 +310,12 @@
       },
       {
         "source": "/goto/modeltheftuse/",
-        "destination": "/docs/2_threats_through_use/#23-model-theft-through-use",
+        "destination": "/docs/2_threats_through_use/#24-model-theft-through-use",
         "type": 301
       },
       {
         "source": "/goto/denialmodelservice/",
-        "destination": "/docs/2_threats_through_use/#24-failure-or-malfunction-of-ai-specific-elements-through-use",
+        "destination": "/docs/2_threats_through_use/#25-failure-or-malfunction-of-ai-specific-elements-through-use",
         "type": 301
       },
       {
@@ -463,29 +488,9 @@
         "destination": "/docs/4_runtime_application_security_threats/#encodemodeloutput",
         "type": 301
       },
-       {
-        "source": "/goto/directpromptinjection/",
-        "destination": "/docs/4_runtime_application_security_threats/#45-direct-prompt-injection",
-        "type": 301
-      },
-      {
-        "source": "/goto/indirectpromptinjection/",
-        "destination": "/docs/4_runtime_application_security_threats/#46-indirect-prompt-injection",
-        "type": 301
-      },
-      {
-        "source": "/goto/promptinputvalidation/",
-        "destination": "/docs/4_runtime_application_security_threats/#promptinputvalidation",
-        "type": 301
-      },
-      {
-        "source": "/goto/inputsegregation/",
-        "destination": "/docs/4_runtime_application_security_threats/#inputsegregation",
-        "type": 301
-      },
       {
         "source": "/goto/leakinput/",
-        "destination": "/docs/4_runtime_application_security_threats/#47-leak-sensitive-input-data",
+        "destination": "/docs/4_runtime_application_security_threats/#45-leak-sensitive-input-data",
         "type": 301
       },
       {
