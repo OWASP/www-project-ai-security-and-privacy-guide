@@ -34,8 +34,8 @@
         "type": 301
       },
       {
-        "source": "/goto/lookuptable/",
-        "destination": "/docs/ai_security_overview/#ai-exchange-lookup-table",
+        "source": "/goto/periodictable/",
+        "destination": "/docs/ai_security_overview/#periodic-table-of-ai-security",
         "type": 301
       },
       {
