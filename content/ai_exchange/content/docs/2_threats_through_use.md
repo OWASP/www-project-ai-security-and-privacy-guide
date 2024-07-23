@@ -504,12 +504,6 @@ See [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.
 - See [controls for prompt injection](/goto/promptinjection/)
 - Further controls against direct prompt injection mostly are embedded in the implementation of the large language model itself
 
-#### #PROMPTINPUTVALIDATION
-> Category: runtime information security control against application security threats  
-> Permalink: https://owaspai.org/goto/promptinputvalidation/
-
-Prompt input validation: trying to detect/remove malicious instructions by attempting to recognize them in the input. The flexibility of natural language makes it harder to apply input validation than for strict syntax situations like SQL commands.
-
 ---
 
 ### 2.2.2 Indirect prompt injection
