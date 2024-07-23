@@ -13,7 +13,7 @@
     {{< small-card link="/contribute" title="Contribute" icon="star" >}}
     {{< small-card link="https://forms.gle/XwEEK52y4iZQChuJ6" title="Register" icon="login" >}}
     {{< small-card link="/media" title="Media" icon="speakerphone" >}}
-    {{< small-card link="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf" title="Navigator" icon="document-download">}}
+    {{< small-card link="/goto/periodictable/" title="Periodic table" icon="document-text">}}
 {{< /cards >}}
 
 ## Our Content
