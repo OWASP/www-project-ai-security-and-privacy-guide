@@ -125,11 +125,11 @@ In many situation, the as-is model will be hosted externally and therefore secur
 
 [![AI Security Threats and controls - GenAI as-is](/images/threatscontrols-readymodel.png)](/images/threatscontrols-readymodel.png)
 
-### AI Exchange lookup table
+### Periodic table of AI security
 >Category: discussion  
->Permalink: https://owaspai.org/goto/lookuptable/
+>Permalink: https://owaspai.org/goto/periodictable/
 
-The below table, called the AI Exchange lookup table, shows the various threats, their impact and the corresponding controls, organized by asset, impact and attack surface:
+The table below, created by the OWASP AI Exchange, shows the various threats to AI and the controls you can use against them – all organized by asset, impact and attack surface, with deeplinks to comprehensive coverage here at the AI Exchange website.
 
 <table><thead>
 <tr><th>Asset &amp; Impact</th><th>Attack surface with lifecycle</th><th>Threat/Risk category</th><th>Controls</th></tr>
