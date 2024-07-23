@@ -92,3 +92,10 @@ services:
   googleAnalytics:
     # This might not be correct format?
     ID: G-QPGVTTDD3R
+
+markup:
+  goldmark:
+    renderer:
+      hardWraps: false
+      unsafe: true
+      xhtml: false
