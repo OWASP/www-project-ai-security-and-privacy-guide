@@ -255,7 +255,7 @@
       },
       {
         "source": "/goto/promptinjection/",
-        "destination": "/docs/2_threats_through_use/#22prompt-injection",
+        "destination": "/docs/2_threats_through_use/#22-prompt-injection",
         "type": 301
       },
       {
