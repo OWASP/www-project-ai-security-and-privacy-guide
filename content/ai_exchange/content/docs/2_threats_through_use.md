@@ -455,7 +455,7 @@ After training data has been poisoned (see [data poisoning section](/goto/datapo
 
 ---
 
-## 2.3 Prompt injection
+## 2.2 Prompt injection
 >Category: group of threats through use  
 >Permalink: https://owaspai.org/goto/promptinjection/
 
@@ -473,7 +473,7 @@ Prompt injection attacks involve maliciously crafting or manipulating input prom
 Prompt input validation: trying to detect/remove malicious instructions by attempting to recognize them in the input. The flexibility of natural language makes it harder to apply input validation than for strict syntax situations like SQL commands.
 
 
-### 2.3.1. Direct prompt injection
+### 2.2.1. Direct prompt injection
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/directpromptinjection/
 
@@ -512,7 +512,7 @@ Prompt input validation: trying to detect/remove malicious instructions by attem
 
 ---
 
-### 2.3.2 Indirect prompt injection
+### 2.2.2 Indirect prompt injection
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/indirectpromptinjection/
 
