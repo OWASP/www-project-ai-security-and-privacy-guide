@@ -252,9 +252,11 @@ The impact of security threats on confidentiality and integrity can be reduced b
 > Category: development-time and runtime control  
 > Permalink: https://owaspai.org/goto/dataminimize/
 
-Data minimize: remove or anonymize data fields or records (e.g. from a trainin set) that are unnecessary for the application, in order to prevent potential data leaks or manipulation. 
+Data minimize: remove data fields or records (e.g. from a training set) that are unnecessary for the application, in order to prevent potential data leaks or manipulation. 
 
 Purpose: minimize the impact of data leakage or manipulation
+
+A typical opportunity to remove unnecessary data in machine learning is to clean up data that has just been for experimental use.
 
 A method to determine which fields or records can be removed is to statistically analyze which data elements do not play a role in model performance. 
 
