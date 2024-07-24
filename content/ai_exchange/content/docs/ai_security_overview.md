@@ -244,7 +244,7 @@ Selecting potential risks (Threats) that could impact the organization requires 
     - [Model theft through use](/goto/modeltheftuse/)
     - [Model theft development-time](/goto/devmodelleak/)
     - [Source code/configuration leak](/goto/devcodeleak/)
-    - [Runtime model theft]/(goto/runtimemodeltheft/)
+    - [Runtime model theft](/goto/runtimemodeltheft/)
       
  **Leaking input data**
  
