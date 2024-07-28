@@ -29,7 +29,7 @@ This page contains an overview of AI security and the next pages provide the mai
 1. [General controls, such as AI governance](/goto/generalcontrols/)
 2. [Threats through use, such as Evasion attacks](/goto/threatsuse/)
 3. [Development-time threats, such as data poisoning](/goto/developmenttime/)
-4. [Runtime security threats, such as insecure output](/goto/runtimeappsecthreats/)
+4. [Runtime security threats, such as insecure output](/goto/runtimeappsec/)
 
 You can navigate through pages at the bottom of every page, or in the left sidebar. The right sidebar shows the different sections on a page. On small screens you can navigate through the menu.  
 
