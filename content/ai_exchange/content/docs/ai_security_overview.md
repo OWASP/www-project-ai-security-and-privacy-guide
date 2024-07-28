@@ -298,17 +298,23 @@ If an external party is not open about how certain risks are mitigated, consider
 
 ### 6. Verify external responsibilities
 For the threats that are the responsibility of other organisations: attain assurance whether these organisations take care of it. This would involve the controls that are linked to these threats.
+
+Example: Regular audits and assessments of third-party security measures.
  
 ### 7. Select controls
 Then, for the threats that are relevant to you and for which you are responsible: consider the various controls listed with that threat (or the parent section of that threat) and the general controls (they always apply). When considering a control, look at its purpose and determine if you think it is important enough to implement it and to what extent. This depends on the cost of implementation compared to how the purpose mitigates the threat, and the level of risk of the threat. These elements also play a role of course in the order you select controls: highest risks first, then starting with the lower cost controls (low hanging fruit).
 
 Controls typically have quality aspects to them, that need to be fine tuned to the situation and the level of risk. For example: the amount of noise to add to input data, or setting thresholds for anomaly detection. The effectiveness of controls can be tested in a simulation environement to evaluate the performance impact and security improvements to find the optimal balance. Fine tuning controls needs to continuously take place, based on feedback from testing in simulation in in production.
 
-### 8. Residual isk acceptance**
+### 8. Residual risk acceptance
 In the end you need to be able to accept the risks that remain regarding each threat, given the controls that you implemented.
 
 ### 9. Further management of the selected controls
 (see [SECPROGRAM](/goto/secprogram/)), which includes continuous monitoring, documentation, reporting, and incident response.
+
+### 10. Continuous risk assessment
+Implement continuous monitoring to detect and respond to new threats. Update the risk management strategies based on evolving threats and feedback from incident response activities.  
+Example: Regularly reviewing and updating risk treatment plans to adapt to new vulnerabilities.
 
 ---
 
