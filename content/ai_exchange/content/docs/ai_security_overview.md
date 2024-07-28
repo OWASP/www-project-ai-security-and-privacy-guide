@@ -37,7 +37,7 @@ Security here means preventing unauthorized access, use, disclosure, disruption,
 
 The AI Exchange initiative was taken by OWASP, triggered by [Rob van der Veer](https://www.linkedin.com/in/robvanderveer/) - bridge builder for security standards, senior director at [Software Improvement Group](https://www.softwareimprovementgroup.com), with 31 years of experience in AI & security, lead author of ISO/IEC 5338 on AI lifecycle, founding father of OpenCRE, and currently working on security requirements concerning the EU AI act in CEN/CENELEC.
 
-This material is evolving continiously through open source continious delivery. The authors group contains 50 experts (researchers, practitioners, vendors, data scientists, etc.) and other people in the community are welcome to make suggestions. See the [contribute page](/contribute).
+This material is evolving constantly through open source continuous delivery. The authors group consists of 50 experts (researchers, practitioners, vendors, data scientists, etc.) and other people in the community are welcome to provide input too. See the [contribute page](/contribute).
 It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 27090 on AI security, ISO/IEC 27091 on AI privacy, the [OWASP ML top 10](https://mltop10.info/), [OWASP LLM top 10](https://llmtop10.com/), and many more initiatives can benefit from consistent terminology and insights across the globe.
 
 This page will continue about:
