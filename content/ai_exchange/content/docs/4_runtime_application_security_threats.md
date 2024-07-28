@@ -3,7 +3,7 @@ title: 4. Runtime application security threats
 weight: 5
 ---
 > Category: group of runtime threats  
-> Permalink: https://owaspai.org/goto/runtimeappsec/)
+> Permalink: https://owaspai.org/goto/runtimeappsec/
 
 ## 4.1. Non AI-specific application security threats
 > Category: group of runtime threats  
