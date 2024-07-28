@@ -4,11 +4,10 @@ weight: 1
 ---
 ## Summary - How to address AI Security?
 >See [home](https://owaspai.org/) for more information about this initiative, the OWASP AI Exchange, how to contribute or connect.  
-This page contains an overview of AI security and the next pages 1,2,3 and 4 provide the main content: details on security threats to AI and controls against them. You can navigate through pages at the bottom of every page, or in the left sidebar. The right sidebar shows the different sections on a page. On small screens you can navigate through the menu.  
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/summary/
 
-While AI offers tremendous opportunities, it also brings new risks including security threats. It is therefore imperative to approach AI applications with a clear understanding of potential threats and which of those threats to prioritize for each use case. Standards and governance help guide this process for individual entities leveraging AI capabilities. In a nutshell, the main steps to address AI security are: 
+While AI offers tremendous opportunities, it also brings new risks including security threats. It is therefore imperative to approach AI applications with a clear understanding of potential threats and the controls against them. In a nutshell, the main steps to address AI security are: 
 
 - Implement **AI governance**.
 - **Extend your security practices** with the AI security assets, threats and controls from this document.
@@ -26,27 +25,26 @@ Note that an AI system can for example be a Large Language Model, a linear regre
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/about/
 
-This document discusses threats to AI cyber security and controls for those threats (i.e. countermeasures, requirements, mitigations).
+This page contains an overview of AI security and the next pages provide the main content about security threats to AI and controls against them, organized by attack surface:
+1. [General controls, such as AI governance](/goto/generalcontrols/)
+2. [Threats through use, such as Evasion attacks](/goto/threatsuse/)
+3. [Development-time threats, such as data poisoning](/goto/developmenttime/)
+4. [Runtime security threats, such as insecure output](/goto/runtimeappsecthreats/)
+
+You can navigate through pages at the bottom of every page, or in the left sidebar. The right sidebar shows the different sections on a page. On small screens you can navigate through the menu.  
+
 Security here means preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.
 
 The AI Exchange initiative was taken by OWASP, triggered by [Rob van der Veer](https://www.linkedin.com/in/robvanderveer/) - bridge builder for security standards, senior director at [Software Improvement Group](https://www.softwareimprovementgroup.com), with 31 years of experience in AI & security, lead author of ISO/IEC 5338 on AI lifecycle, founding father of OpenCRE, and currently working on security requirements concerning the EU AI act in CEN/CENELEC.
 
-This material is all draft and work in progress for others to review and amend.
+This material is evolving continiously through open source continious delivery. The authors group contains 50 experts (researchers, practitioners, vendors, data scientists, etc.) and other people in the community are welcome to make suggestions. See the [contribute page](/contribute).
 It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 27090 on AI security, ISO/IEC 27091 on AI privacy, the [OWASP ML top 10](https://mltop10.info/), [OWASP LLM top 10](https://llmtop10.com/), and many more initiatives can benefit from consistent terminology and insights across the globe.
 
-### Sources
-
-- AI security experts who contributed to this as Open Source.
-- The insights of these experts were inspired by research work as mentioned in the references at the bottom of this document(ENISA, NIST, Microsoft, BIML, MITRE, etc.)
-
-### How we organized threats and controls
-
-The threats are organized by attack surface (how and where does the attack take place?), and not by impact. This means that for example model theft is mentioned in three different parts of the overview:
-
-1. model theft by stealing model parameters from a live system, e.g. breaking into the network and reading the parameters from a file,
-2. model theft by stealing the modeling process or parameters from the engineering environment, e.g. stored in the version management system of a data scientist, and
-3. model theft by reverse engineering from using the AI system. These are three very different attacks, with similar impacts. This way of organizing is helpful because the goal is to link the threats to controls, and these controls vary per attack surface.
-
+This page will continue about:
+- Threats high-over
+- Various overviews of threats and controls: the matrix, the periodic table, and the navigator
+- Risk analysis to select relevant threats and controls
+- Discussion (how about ...) of various topics: heuristic systems, responsible AI, privacy, generative AI, the NCSC/CIS guidelines,and copyright
 ---
 
 ## Threats overview
