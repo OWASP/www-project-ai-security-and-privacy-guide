@@ -44,7 +44,7 @@ This page will continue about:
 - Threats high-over
 - Various overviews of threats and controls: the matrix, the periodic table, and the navigator
 - Risk analysis to select relevant threats and controls
-- Discussion (how about ...) of various topics: heuristic systems, responsible AI, privacy, generative AI, the NCSC/CIS guidelines,and copyright
+- Discussion (how about ...) of various topics: heuristic systems, responsible AI, privacy, generative AI, the NCSC/CISA guidelines,and copyright
 ---
 
 ## Threats overview
