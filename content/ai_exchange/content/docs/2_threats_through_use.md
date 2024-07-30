@@ -25,7 +25,7 @@ Monitor use: Monitor the use of the model (input, date, time, user) by registeri
 
 By adding details to logs on the version of the model used and the output, troubleshooting becomes easier.
   
-Links to standards:
+Useful standards include:
 
   - ISO 27002 Controls 8.15 Logging and 8.16 Monitoring activities. Gap: covers this control fully, with the particularity: monitoring needs to look for specific patterns of AI attacks (e.g. model attacks through use). The ISO 27002 control has no details on that.
   - ISO/IEC 42001 B.6.2.6 discusses AI system operation and monitoring. Gap: covers this control fully, but on a high abstraction level.
@@ -43,7 +43,7 @@ Particularity: limit access not to prevent system overload but to prevent experi
 
 Remaining risk: this control does not prevent attacks that use low frequency of interaction (e.g. don't rely on heavy experimentation)
 
-Links to standards:
+Useful standards include:
 
   - ISO 27002 has no control for this
   - See [OpenCRE](https://www.opencre.org/cre/630-573)
@@ -58,7 +58,7 @@ Purpose: prevent attackers that are not authorized to perform attacks through us
 
 Remaining risk: attackers may succeed in authenticating as an authorized user, or qualify as an authorized user, or bypass the access control through a vulnerability, or it is easy to become an authorized user (e.g. when the model is publicly available)
 
-Links to standards:
+Useful standards include:
 
   - Technical access control: ISO 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: covers this control fully
   - [OpenCRE on technical access control](https://www.opencre.org/cre/724-770)
@@ -137,7 +137,7 @@ OOD input data can sometimes be recognized as not malicious and relevant or of i
 Example: The system has been trained on various car models. However, it has never seen a newly released model. When it encounters a new model on the road, novelty detection recognizes it as a new car type it hasn't seen, but understands it's still a car, a novel instance within a known category.
 
 
-Links to standards:
+Useful standards include:
 
   - Not covered yet in ISO/IEC standards
 
@@ -169,7 +169,7 @@ The main concepts of adversarial attack detectors include:
 
 See also [DETECTODDINPUT](/goto/detectoddinput/) for detecting abnormal input which can be an indication of adversarialinput.
   
-Links to standards:
+Useful standards include:
 
   - Not covered yet in ISO/IEC standards
 
@@ -263,7 +263,7 @@ Robustness issues can be addressed by:
 
 Care must be taken when considering robust model designs, as security concerns have arisen about their effectiveness.
 
-  Links to standards:
+  Useful standards include:
 
   - ISO/IEC TR 24029 (Assessment of the robustness of neural networks) Gap: this standard discusses general robustness and does not discuss robustness against adversarial inputs explicitly.
 
@@ -298,7 +298,7 @@ Train adversarial: Add adversarial examples to the training set to make the mode
 
 It is important to note that generating the adversarial examples creates significant training overhead, does not scale well with model complexity / input dimension, can lead to overfitting, and may not generalize well to new attack methods.
 
-  Links to standards:
+  Useful standards include:
 
   - Not covered yet in ISO/IEC standards
   - ENISA Securing Machine Learning Algorithms Annex C: "Add some adversarial examples to the training dataset"
@@ -326,7 +326,7 @@ Note that black-box or closed-box attacks do not rely on the gradients and are t
   
 See [DETECTADVERSARIALINPUT](#detectadversarialinput) for an approach where the distorted input is used for detecting an adversarial attack.
 
-Links to standards:
+Useful standards include:
 
   - Not covered yet in ISO/IEC standards
 
@@ -349,7 +349,7 @@ References:
 
 Adversarial-robust distillation: defensive distillation involves training a student model to replicate the softened outputs of the *teacher* model, increasing the resilience of the *student* model to adversarial examples by smoothing the decision boundaries and making the model less sensitive to small perturbations in the input. Care must be taken when considering defensive distillation techniques, as security concerns have arisen about their effectiveness.
 
-Links to standards:
+Useful standards include:
 
   - Not covered yet in ISO/IEC standards
 
@@ -577,7 +577,7 @@ Filter sensitive model output: actively censor sensitive data by detecting it wh
 
 A variation of this filtering is providing a GenAI model with instructions (e.g. in a _system prompt_) not to disclose certain data, which is susceptible to [Direct prompt injection](/goto/directpromptinjection/) attacks.
 
-Links to standards:
+Useful standards include:
 
   - Not covered yet in ISO/IEC standards
 
@@ -611,7 +611,7 @@ Controls for Model inversion and membership inference:
 
 Obscure confidence: exclude indications of confidence in the output, or round confidence so it cannot be used for optimization.
 
-Links to standards:
+Useful standards include:
 
   - Not covered yet in ISO/IEC standards
 
@@ -621,7 +621,7 @@ Links to standards:
 
 Small model: overfitting (storing individual training samples) can be prevented by keeping the model small so it is not able to store detail at the level of individual training set samples.
 
-Links to standards:
+Useful standards include:
 
   - Not covered yet in ISO/IEC standards
 
@@ -672,7 +672,7 @@ For example: A _sponge attack_ or _energy latency attack_ provides input that is
 
 Denial-of-service input validation: input validation and sanitization to reject or correct malicious (e.g. very large) content
 
-Links to standards:
+Useful standards include:
 
   - ISO 27002 has no control for this
   - Not covered yet in ISO/IEC standards
@@ -685,7 +685,7 @@ Links to standards:
 
 Limit resource usage for a single model input, to prevent resource overuse.
 
-Links to standards:
+Useful standards include:
 
   - ISO 27002 has no control for this, except for Monitoring (covered in Controls for threats through use)
   - Not covered yet in ISO/IEC standards
