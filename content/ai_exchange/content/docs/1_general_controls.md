@@ -44,7 +44,7 @@ In general risk management it may help to keep in mind the following particulari
 7. Can listen and speak: communicate through natural language instead of user interfaces
 8. Can hear and see: have sound and vision recognition abilities
 
-Links to standards:
+Useful standards include:
  - ISO/IEC 42001 AI management system. Gap: covers this control fully.
  - [US Federal Reserve SR 11-07: Guidance on Model Risk Management](https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm): supervisory guidance for banking organizations and supervisors.
 
@@ -97,7 +97,7 @@ Because AI has specific assets (e.g. training data), **AI-specific honeypots** a
 
 Monitoring and incident response are standard elements of security programs and AI can be included in it by understanding the relevant AI security assets, threats, and controls The discussion of threats include detection mechanisms that become part of monitoring.
 
-**Links to standards:**
+**Useful standards include:**
 
   - The entire ISO 27000-27005 range is applicable to AI systems in the general sense as they are IT systems. Gap: covers this control fully regarding the processes, with the high-level particularity that there are three AI-specific attack surfaces that need to be taken into account in information security management: 1)AI development-time attacks, 2)attacks through model use and 3)AI Application security attacks. See the controls under the corresponding sections to see more particularities.
     These standards cover:
@@ -149,7 +149,7 @@ Related controls:
 - [Supply chain management](/goto/supplychainmanage/) which discusses AI-specific supply-chain risks
 - [Development security](/goto/devsecurity/) on protecting the development environment
 
-Links to standards:
+Useful standards include:
 - ISO 27002 control 8.25 Secure development lifecycle. Gap: covers this control fully, with said particularity, but lack of detail - the 8.25 Control description in ISO 27002:2022 is one page, whereas secure software development is a large and complex topic - see below for further references
 - ISO/IEC 27115 (Cybersecurity evaluation of complex systems)
 - See [OpenCRE on secure software development processes](https://www.opencre.org/cre/616-305) with notable links to NIST SSDF and OWASP SAMM. Gap: covers this control fully, with said particularity
@@ -184,7 +184,7 @@ Related controls that are key parts of the development lifecycle:
 The below interpretation diagram of ISO/IEC 5338 provides a good overview to get an idea of the topics involved.
 ![5338](/images/5338.png)
 
-Links to standards:
+Useful standards include:
 
   - [ISO/IEC 5338 - AI lifecycle](https://www.iso.org/standard/81118.html) Gap: covers this control fully - ISO 5338 covers the complete software development lifecycle for AI, by extending the existing ISO 12207 standard on software lifecycle: defining several new processes and discussing AI-specific particularities for existing processes. See also [this blog](https://www.softwareimprovementgroup.com/iso-5338-get-to-know-the-global-standard-on-ai-systems/).
   - [ISO/IEC 27002](https://www.iso.org/standard/75652.html) control 5.37 Documented operating procedures. Gap: covers this control minimally - this covers only a very small part of the control
@@ -225,7 +225,7 @@ Non-Security Compliance Considerations:
 References
   - [Vischer on legal aspects of AI](https://www.vischer.com/en/artificial-intelligence/)
 
-Links to standards:
+Useful standards include:
 
   - [OpenCRE on Compliance](https://www.opencre.org/cre/510-324)
   - ISO 27002 Control 5.36 Compliance with policies, rules and standards. Gap: covers this control fully, with the particularity that AI regulation needs to be taken into account.
@@ -236,7 +236,7 @@ Links to standards:
 
 Security education for data scientists and development teams on AI threat awareness, including attacks on models. It is essential for all engineers, including data scientists, to attain a security mindset.
 
-Links to standards:
+Useful standards include:
 
   - ISO 27002 Control 6.3 Awareness training. Gap: covers this control fully, but lacks detail and needs to take into account the particularity: training material needs to cover AI security threats and controls
 
@@ -260,7 +260,7 @@ A typical opportunity to remove unnecessary data in machine learning is to clean
 
 A method to determine which fields or records can be removed is to statistically analyze which data elements do not play a role in model performance. 
 
-  Links to standards:
+  Useful standards include:
 
   - Not covered yet in ISO/IEC standards.
 
@@ -272,7 +272,7 @@ Ensure allowed data, meaning: removing data (e.g. from a training set) that is p
 
 Purpose: Apart from compliance, the purpose is to minimize the impact of data leakage or manipulation
 
-Links to standards:
+Useful standards include:
 
   - ISO/IEC 23894 (AI risk management) covers this in A.8 Privacy. Gap: covers this control fully, with a brief section on the idea
 
@@ -286,7 +286,7 @@ Purpose: minimize the impact of data leakage or manipulation
 
 Limiting the retention period of data can be seen as a special form of data minimization. Privacy regulations typically require personal data to be removed when it is no longer needed for the purpose for which it was collected. Sometimes exceptions need to be made because of other rules (e.g. to keep a record of proof). Apart from these regulations, it is a general best practice to remove any sensitive data when it is no longer of use, to reduce the impact of a data leak.
   
-Links to standards:
+Useful standards include:
 
   - Not covered yet in ISO/IEC standards.
 
@@ -365,7 +365,7 @@ Tokenization proves particularly advantageous in development-time data science w
 - Abadi, M., Chu, A., Goodfellow, I., McMahan, H. B., Mironov, I., Talwar, K., & Zhang, L. (2016). Deep learning with differential privacy. Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security, 308-318. [Link](https://doi.org/10.1145/2976749.2978318)
   - Dwork, C., & Roth, A. (2014). The Algorithmic Foundations of Differential Privacy. Foundations and Trends in Theoretical Computer Science. [Link](https://doi.org/10.1561/0400000042)
 
-**Links to standards:**
+**Useful standards include:**
 
 - Not covered yet in ISO/IEC standards.
 
@@ -388,7 +388,7 @@ For example:
   - Minimize model output regarding technical details
 
 
-Links to standards:
+Useful standards include:
 
   - ISO 27002 Control 5.9: Inventory of information and other associated assets. Gap: covers this control fully, with the particularity that technical data science details can be sensitive. .
   - See [OpenCRE on data classification and handling](https://www.opencre.org/cre/074-873). Gap: idem
@@ -444,7 +444,7 @@ Examples:
   - Requesting user confirmation before sending a large number of emails as instructed by a model
   - A special form of guardrails is censoring unwanted output of GenAI models (e.g. violent, unethical)
   - 
-Links to standards:
+Useful standards include:
 
   - ISO/IEC 42001 B.9.3 defines controls for human oversight and decisions regarding autonomy. Gap: covers this control partly (human oversight only, not business logic)
   - Not covered further in ISO/IEC standards.
@@ -457,7 +457,7 @@ Least model privilege: Minimize privileges of a model to autonomously take actio
 
 For example: avoid connecting a model to an email facility to prevent it from sending incorrect or sensitive information to others.
 
-Links to standards:
+Useful standards include:
 
   - ISO 27002 control 8.2 Privileged access rights. Gap: covers this control fully, with the particularity that privileges assigned to autonomous model decisions need to be assigned with the risk of unwanted model behaviour in mind.
   - [OpenCRE on least privilege](https://www.opencre.org/cre/368-633) Gap: idem
@@ -470,7 +470,7 @@ AI transparency: By being transparent with users about the rough workings of the
 
 See the [DISCRETE](#discrete) control for the balance between being transparent and being discrete about the model. 
 
-Links to standards:
+Useful standards include:
 
   - ISO/IEC 42001 B.7.2 describes data management to support transparency. Gap: covers this control minimally, as it only covers the data mnanagement part.
   - Not covered further in ISO/IEC standards.
@@ -485,7 +485,7 @@ Continuous validation is a process that is often in place to detect other issues
 
 Note that continuous validation is typically not suitable for detecting backdoor poisoning attacks, as these are designed to trigger with very specific input that would normally not be present in test sets. In fact. Such attacks are often designed to pass validation tests.
 
-Links to standards:
+Useful standards include:
 
 - ISO 5338 (AI lifecycle) Continuous validation. Gap: covers this control fully
 
