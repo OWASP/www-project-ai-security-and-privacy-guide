@@ -50,27 +50,27 @@ Training data is in most cases only present during development-time, but there a
 **Details on the how: protection strategies:**
 
 - Encryption of data at rest  
-  Links to standards:
+  Useful standards include:
   - ISO 27002 control 5.33 Protection of records. Gap: covers this control fully, with the particularities
   - [OpenCE on encryption of data at rest](https://www.opencre.org/cre/400-007)
 - Technical access control for the data, to limit access following the least privilege principle  
-  Links to standards:
+  Useful standards include:
   - ISO 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: covers this control fully, with the particularities
   - [OpenCRE](https://www.opencre.org/cre/724-770)
   - Centralized access control for the data  
-  Links to standards:
+  Useful standards include:
   - There is no ISO 27002 control for this
   - [OpenCRE](https://www.opencre.org/cre/117-371)
 - Operational security to protect stored data  
   One control to increase development security is to segregate the environment, see [SEGREGATEDATA](/goto/segregatedata/).  
-  Links to standards:
+  Useful standards include:
   - Many ISO 27002 controls cover operational security. Gap: covers this control fully, with the particularities.
     - ISO 27002 control 5.23 Information security for use of cloud services
     - ISO 27002 control 5.37 Documented operating procedures
     - Many more ISO 27002 controls (See OpenCRE link)
   - [OpenCRE](https://www.opencre.org/cre/862-452)
 - Logging and monitoring to detect suspicious manipulation of data, (e.g. outside office hours)  
-  Links to standards:
+  Useful standards include:
   - ISO 27002 control 8.16 Monitoring activities. Gap: covers this control fully
   - [OpenCRE on Detect and respond](https://www.opencre.org/cre/887-750)
 - Integrity checking: see section below
@@ -114,7 +114,7 @@ The data a model consumes is the most influential part of the MLOps lifecycle an
 Often, datasets may not just be a collection of text or images but may be comprised of pointers to other pieces of data rather than the data itself. One such dataset is the LAOIN-400m, where pointers to images are stored as URLs - however, data stored at a URL is not permanent and may be subject to manipulation or removal of the content. As such having a level of indirection can introduce integrity issues and leave oneself vulnerable to data poisoning, as was shown by Carlini et al in their paper ‘Poisoning Web-Scale Datasets is practical’. For more information, see the [data poisoning section](/goto/datapoison/). 
 Verification of dataset entries through hashing is of the utmost importance so as to reduce the capacity for tampering, corruption, or potential for data poisoning. 
 
-**Links to standards:**
+**Useful standards include:**
 
 - ISO 27001 Information Security Management System does not cover development-environment security explicitly. Nevertheless, the information security management system is designed to take care of it, provided that the relevant assets and their threats are taken into account. Therefore it is important to add train/test/validation data, model parameters and technical documentation to the existing development environment asset list.
 
@@ -134,7 +134,7 @@ Examples of areas in which training data can be segregated:
 
 For more development environment security, see [DEVSECURITY](/goto/devsecurity/).
 
-Links to standards:
+Useful standards include:
 
 - ISO 27002 control 8.31 Separation of development, test and production environments. Gap: covers this control partly - the particularity is that the development environment typically has the sensitive data instead of the production environment - which is typically the other way around in non-AI systems. Therefore it helps to restrict access to that data within the development environment. Even more: within the development environment further segregation can take place to limit access to only those who need the data for their work, as some developers will not be processing data.
 - See the 'How' section above for further standard references
@@ -145,7 +145,7 @@ Links to standards:
 
 Confidential compute: If available and possible, use features of the data science execution environment to hide training data and model parameters from model engineers - even while it is in use.
 
-Links to standards:
+Useful standards include:
 
 - Not covered yet in ISO/IEC standards
 
@@ -179,7 +179,7 @@ References:
 - Wahab, Omar Abdel, Azzam Mourad, Hadi Otrok and Tarik Taleb. “Federated Machine Learning: Survey, Multi-Level Classification, Desirable Criteria and Future Directions in Communication and Networking Systems.” IEEE Communications Surveys & Tutorials 23 (2021): 1342-1397. [Link](https://oulurepo.oulu.fi/bitstream/handle/10024/30908/nbnfi-fe2021090144887.pdf;jsessionid=674F5A465BAAC880DF7621A6772251F8?sequence=1)
 - Sun, Gan, Yang Cong, Jiahua Dong, Qiang Wang and Ji Liu. “Data Poisoning Attacks on Federated Machine Learning.” IEEE Internet of Things Journal 9 (2020): 11365-11375. [Link](https://arxiv.org/pdf/2004.10020.pdf)
 
-Links to standards:
+Useful standards include:
 
 - Not covered yet in ISO/IEC standards
 
@@ -210,7 +210,7 @@ Standard supply chain management includes:
 
 See [MITRE ATLAS - ML Supply chain compromise](https://atlas.mitre.org/techniques/AML.T0010).
 
-Links to standards:
+Useful standards include:
 
 - ISO  Controls 5.19, 5.20, 5.21, 5.22, 5.23, 8.30. Gap: covers this control fully, with said particularity, and lacking controls on data provenance.
 - ISO/IEC AWI 5181 (Data provenance). Gap: covers the data provenance aspect to complete the coverage together with the ISO 27002 controls - provided that the provenance concerns all sensitive data and is not limited to personal data.
@@ -265,7 +265,7 @@ Effectiveness: the more the dataset has been poisoned with samples, the less eff
 
 Ensemble learning is a term in machine learning used for using multiple learning algorithms, with the purpose of better predictive performance.
 
-Links to standards:
+Useful standards include:
   - Not covered yet in ISO/IEC standards
 
 
@@ -299,7 +299,7 @@ More train data: increasing the amount of non-malicious data makes training more
 
 This control can only be applied during training and therefore not to an already trained model. Nevertheless, a variation can be applied to a trained model: by fine-tuning it with additional non-malicious data - see [POISONROBUSTMODEL](/goto/poisonrobustmodel/).
 
-Links to standards:
+Useful standards include:
 
 - Not covered yet in ISO/IEC standards
 
@@ -322,7 +322,7 @@ Key Points for Consideration:
 - Continuous Monitoring: Regularly update and audit data quality controls to adapt to evolving threats and maintain the robustness of AI systems.
 - Collaboration and Standards: Adhere to international standards like ISO/IEC 5259 and 42001 while recognizing their limitations. Advocate for the development of more comprehensive standards that address the unique challenges of AI data quality.
 
-Links to standards:
+Useful standards include:
 
 - ISO/IEC 5259 series on Data quality for analytics and ML. Gap: covers this control minimally. in light of the particularity - the standard does not mention approaches to detect malicious changes (including detecting statistical deviations). Nevertheless, standard data quality control helps to detect malicious changes that violate data quality rules.
 - ISO/iEC 42001 B.7.4 briefly covers data quality for AI. Gap: idem as ISO 5259
@@ -370,7 +370,7 @@ The general principle of reducing sensitivity to poisoned training data is to ma
 1. Reduce memorization by removing elements of memory using **pruning**. Pruning in essence reduces the size of the model so it does not have the capacity to trigger on backdoor-examples while retaining sufficient accuracy for the intended use case. The approach removes neurons in a neural network that have been identified as non-essential for sufficient accuracy.
 2. Overwrite memorized malicious patterns using **fine tuning** by retraining a model on a clean dataset(without poisoning).
 
-Links to standards:
+Useful standards include:
 - Not covered yet in ISO/IEC standards
 
 ### 3.1.2. Development-time model poisoning
