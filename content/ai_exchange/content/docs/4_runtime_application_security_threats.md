@@ -18,14 +18,14 @@ Note: some controls in this document are application security controls that are 
 
 - See the [Governance controls](/goto/governancecontrols/) in the general section, in particular [SECDEVPROGRAM](/goto/secdevprogram/) to attain application security, and [SECPROGRAM](/goto/secprogram/) to attain information security in the organization.
 - Technical application security controls  
-  Links to standards:
+  Useful standards include:
   - See [OpenCRE on technical application security controls](https://www.opencre.org/cre/636-660)
   - The ISO 27002 controls only partly cover technical application security controls, and on a high abstraction level
   - More detailed and comprehensive control overviews can be found in for example Common criteria protection profiles (ISO/IEC 15408 with evaluation described in ISO 18045),
   - or in [OWASP ASVS](https://owasp.org/www-project-application-security-verification-standard/)
 - Operational security  
   When models are hosted by third parties then security configuration of those services deserves special attention. Part of this configuration is [model access control](/goto/modelaccesscontrol/):  an important mitigation for security risks. Cloud AI configuation options deserve scrutiny, like for example opting out when necessary of monitoring by the third party - which could increase the risk of exposing sensitive data.
-  Links to standards:
+  Useful standards include:
   - See [OpenCRE on operational security processes](https://www.opencre.org/cre/862-452)
   - The ISO 27002 controls only partly cover operational security controls, and on a high abstraction level
 
