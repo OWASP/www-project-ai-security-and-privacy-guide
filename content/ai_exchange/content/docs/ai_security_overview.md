@@ -13,7 +13,7 @@ While AI offers tremendous opportunities, it also brings new risks including sec
 - **Extend your security practices** with the AI security assets, threats and controls from this document.
 - If you develop AI systems (even if you don't train your own models):
   - Involve your data and AI engineering into your traditional **(secure) software development practices**.
-  - Apply appropriate process **controls** and technical controls through understanding of the threats as discusses in this document.
+  - Apply appropriate process **controls** and technical controls through understanding of the threats as discussed in this document.
 - Make sure your AI **suppliers** applied the appropriate controls.
 - **Limit the impact** of AI by minimizing privileges and adding oversight, e.g. guardrails, human oversight.
 
