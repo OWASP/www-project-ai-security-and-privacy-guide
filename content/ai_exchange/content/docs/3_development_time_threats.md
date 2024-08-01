@@ -224,9 +224,9 @@ Useful standards include:
 > Category: group of development-time threats  
 > Permalink: https://owaspai.org/goto/modelpoison/
 
-Development-time model poisoning in the broad sense is when an attacker manipulates elements of the development environment to alter the behavior of the model. There ar two types, each covered in this section:
+Development-time model poisoning in the broad sense is when an attacker manipulates elements of the development environment to alter the behavior of the model. There are two types, each covered in a subsection:
 1. [data poisoning](/goto/datapoison/): manipulating training data, or data used for in-context learning
-2. [development-time model poisoning](/goto/devmodelpoison/]: manipulating model parameters, or other engineering elements that take part in creating the model, such as code, configuration or libraries.
+2. [development-time model poisoning](/goto/devmodelpoison/): manipulating model parameters, or other engineering elements that take part in creating the model, such as code, configuration or libraries.
 
 Impact: Integrity of model behaviour is affected, leading to issues from unwanted model output (e.g. failing fraud detection, decisions leading to safety issues, reputation damage, liability).
 
@@ -243,7 +243,7 @@ Data and model poisoning can occur at various stages, as illustrated in the thre
 
 - See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
 - See [controls for development-time protection](/goto/developmenttimeintro/)
-- The controls specific to [data poisoning](/goto/datapoison/) and [development-time model poisoning](/goto/devmodelpoison/]
+- The controls specific to [data poisoning](/goto/datapoison/) and [development-time model poisoning](/goto/devmodelpoison/)
 - The below control(s), each marked with a # and a short name in capitals
 
 
@@ -384,8 +384,11 @@ Useful standards include:
 - Not covered yet in ISO/IEC standards
 
 #### #TRAINADVERSARIAL
-Training with adversarial examples is used as a control against evasion attacks, but can also be helpful against datapoison trigger attacks that are based on slight alterations of training data, since these triggers are like adversarial samples. For example: adding images of stop signs in a training database for a self driving car, labeled as 35 miles an hour, where the stop sign is slightly altered. What this effectively does is to force to the model to make a mistake with traffic signs that have been altered in a similar way. This type of data poisoning aims to prevent anomaly detection of the poisoned samples.  
-Find the corresponding control section [here](/goto/trainadversarial).
+Training with adversarial examples is used as a control against evasion attacks, but can also be helpful against datapoison trigger attacks that are based on slight alterations of training data, since these triggers are like adversarial samples.
+
+For example: adding images of stop signs in a training database for a self driving car, labeled as 35 miles an hour, where the stop sign is slightly altered. What this effectively does is to force the model to make a mistake with traffic signs that have been altered in a similar way. This type of data poisoning aims to prevent anomaly detection of the poisoned samples.  
+
+Find the corresponding control section [here, with the other controls against Evasion attacks](/goto/trainadversarial).
 
 ### 3.1.2. Development-time model poisoning
 > Category: development-time threat  
