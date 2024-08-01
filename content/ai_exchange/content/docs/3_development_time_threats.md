@@ -224,17 +224,11 @@ Useful standards include:
 > Category: group of development-time threats  
 > Permalink: https://owaspai.org/goto/modelpoison/
 
-Model poisoning in the broad sense is manipulating model behaviour by altering training data, code, configuration, or model parameters during development-time.
+Development-time model poisoning in the broad sense is when an attacker manipulates elements of the development environment to alter the behavior of the model. There ar two types, each covered in this section:
+1. [data poisoning](/goto/datapoison/): manipulating training data, or data used for in-context learning
+2. [development-time model poisoning](/goto/devmodelpoison/]: manipulating model parameters, or other engineering elements that take part in creating the model, such as code, configuration or libraries.
 
 Impact: Integrity of model behaviour is affected, leading to issues from unwanted model output (e.g. failing fraud detection, decisions leading to safety issues, reputation damage, liability).
-
-There are roughly two categories of data poisoning: 
-
-- Backdoors - which trigger unwanted responses to specific inputs (e.g. a money transaction is wrongfully marked as NOT fraud because it has a specific amount of money for which the model has been manipulated to ignore). Other name: Trojan attack
-- Sabotage: data poisoning leads to unwanted results for regular inputs, leading to e.g. business continuity problems or safety issues.
-
-
-Sabotage data poisoning attacks are relatively easy to detect because they occur for regular inputs, but backdoor data posoning only occurs for really specific inputs and is therefore hard to detect. There is no code to review in a model to look for backdoors, the model parameters make no sense to the human eye, and testing is typically done using normal cases, with blind spots for backdoors. This is the intention of attackers - to bypass regular testing. The best approach is 1) to prevent poisoining by protecting development-time, and 2) to assume training data has been compromised.
 
 Data and model poisoning can occur at various stages, as illustrated in the threat model below.  
 - Supplied data or a supplied model can have been poisoned
@@ -244,17 +238,15 @@ Data and model poisoning can occur at various stages, as illustrated in the thre
 
 ![](/images/poisonthreatmodel2.png)
 
-References
-
-- [Summary of 15 backdoor papers at CVPR '23](https://zahalka.net/ai_security_blog/2023/09/backdoor-attacks-defense-cvpr-23-how-to-build-and-burn-trojan-horses/)
-
 
 **Controls for broad model poisoning:**
 
 - See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
 - See [controls for development-time protection](/goto/developmenttimeintro/)
+- The controls specific to [data poisoning](/goto/datapoison/) and [development-time model poisoning](/goto/devmodelpoison/]
 - The below control(s), each marked with a # and a short name in capitals
-  
+
+
 #### #MODELENSEMBLE
 > Category: development-time data science control - including specific runtime implementation
 > Permalink: https://owaspai.org/goto/modelensemble/
@@ -272,17 +264,35 @@ Useful standards include:
 ### 3.1.1. Data poisoning
 > Category: development-time threat  
 > Permalink: https://owaspai.org/goto/datapoison/
- 
-The attacker manipulates (training) data to affect the algorithm's behavior. Also called _causative attacks_. There are mutiple ways to do this (attack vectors):
+
+An attacker manipulates data that the model uses to learn, in order to affect the algorithm's behavior. Also called _causative attacks_. There are mutiple ways to do this (see the attack surface diagram in the [broad model poisong section](/goto/modelpoison/)):
 - Changing the data while in storage during development-time (e.g. by hacking the database)
-- Changing the data while in transit to the storage (e.g. by hacking into a data connection)
+- Changing the data while in transit to the storage (e.g. by hacking into a data transfer)
 - Changing the data while at the supplier, before the data is obtained from the supplier
 - Changing the data while at the supplier, where a model is trained and then that model is obtained from the supplier
-- Manipulating data entry in operation, for example by creating fake accounts to enter positieve reviews for products, making these products get recommended more often
+- Manipulating data entry in operation, feeding into training data, for example by creating fake accounts to enter positieve reviews for products, making these products get recommended more often
 
-Example 1: an attacker breaks into a training set database to add images of houses and labels them as 'fighter plane', to mislead the camera system of an autonomous missile. The missile is then manipulated to attack houses. With a good test set this unwanted behaviour may be detected. However, the attacker can make the poisoned data represent input that normally doesn't occur and therefore would not be in a testset. The attacker can then create that abnormal input in practice. In the previous exmaple this could be houses with white crosses on the door.  See [MITRE ATLAS - Poison traing data](https://atlas.mitre.org/techniques/AML.T0020)
+The manipulated data can be training data, but also in-context-learning data that is used to augment the input (e.g. a prompt) to a model with information to use.
+
+Example 1: an attacker breaks into a training set database to add images of houses and labels them as 'fighter plane', to mislead the camera system of an autonomous missile. The missile is then manipulated to attack houses. With a good test set this unwanted behaviour may be detected. However, the attacker can make the poisoned data represent input that normally doesn't occur and therefore would not be in a testset. The attacker can then create that abnormal input in practice. In the previous example this could be houses with white crosses on the door.  See [MITRE ATLAS - Poison traing data](https://atlas.mitre.org/techniques/AML.T0020)
+
 Example 2: a malicious supplier poisons data that is later obtained by another party to train a model. See [MITRE ATLAS - Publish poisoned datasets](https://atlas.mitre.org/techniques/AML.T0019)
+
 Example 3: unwanted information (e.g. false facts) in documents on the internet causes a Large Language Model (GenAI) to output unwanted results ([OWASP for LLM 03](https://genai.owasp.org/llmrisk/llm03/)). That unwanted information can be planted by an attacker, but of course also by accident. The latter case is a real GenAI risk, but technically comes down to the issue of having false data in a training set which falls outside of the security scope. Planted unwanted information in GenAI training data falls under the category of Sabotage attack as the intention is to make the model behave in unwanted ways for regular input.
+
+
+There are roughly two categories of data poisoning: 
+
+- Backdoors - which trigger unwanted responses to specific inputs (e.g. a money transaction is wrongfully marked as NOT fraud because it has a specific amount of money for which the model has been manipulated to ignore). Other name: Trojan attack
+- Sabotage: data poisoning leads to unwanted results for regular inputs, leading to e.g. business continuity problems or safety issues.
+
+Sabotage data poisoning attacks are relatively easy to detect because they occur for regular inputs, but backdoor data posoning only occurs for really specific inputs and is therefore hard to detect: there is no code to review in a model to look for backdoors, the model parameters cannot be reviewed as they make no sense to the human eye, and testing is typically done using normal cases, with blind spots for backdoors. This is the intention of attackers - to bypass regular testing. 
+
+References
+
+- [Summary of 15 backdoor papers at CVPR '23](https://zahalka.net/ai_security_blog/2023/09/backdoor-attacks-defense-cvpr-23-how-to-build-and-burn-trojan-horses/)
+- [Badnets article by Gu et al](https://arxiv.org/abs/1708.06733)
+- [Clean-label Backdoor attacks by Turner et al](https://people.csail.mit.edu/madry/lab/cleanlabel.pdf)
 
 **Controls for data poisoning:**
 
@@ -372,6 +382,10 @@ The general principle of reducing sensitivity to poisoned training data is to ma
 
 Useful standards include:
 - Not covered yet in ISO/IEC standards
+
+#### #ADVERSARIALTRAINING
+Training with adversarial examples is used as a control against evasion attacks, but can also be helpful against datapoison trigger attacks that are based on slight alterations of training data, since these triggers are like adversarial samples. For example: adding images of stop signs in a training database for a self driving car, labeled as 35 miles an hour, where the stop sign is slightly altered. What this effectively does is to force to the model to make a mistake with traffic signs that have been altered in a similar way. This type of data poisoning aims to prevent anomaly detection of the poisoned samples.  
+Find the corresponding control section [here](/goto/adversarialtraining).
 
 ### 3.1.2. Development-time model poisoning
 > Category: development-time threat  
