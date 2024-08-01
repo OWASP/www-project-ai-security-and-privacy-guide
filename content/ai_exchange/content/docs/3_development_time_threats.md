@@ -23,7 +23,7 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 - See [General controls](/goto/generalcontrols/)
 - The below control(s), each marked with a # and a short name in capitals
 
-#### **#DEVDATAPROTECT**
+#### #DEVDATAPROTECT
 > Category: information security control  
 > Permalink: https://owaspai.org/goto/devdataprotect/
 
@@ -383,9 +383,9 @@ The general principle of reducing sensitivity to poisoned training data is to ma
 Useful standards include:
 - Not covered yet in ISO/IEC standards
 
-#### #ADVERSARIALTRAINING
+#### #TRAINADVERSARIAL
 Training with adversarial examples is used as a control against evasion attacks, but can also be helpful against datapoison trigger attacks that are based on slight alterations of training data, since these triggers are like adversarial samples. For example: adding images of stop signs in a training database for a self driving car, labeled as 35 miles an hour, where the stop sign is slightly altered. What this effectively does is to force to the model to make a mistake with traffic signs that have been altered in a similar way. This type of data poisoning aims to prevent anomaly detection of the poisoned samples.  
-Find the corresponding control section [here](/goto/adversarialtraining).
+Find the corresponding control section [here](/goto/trainadversarial).
 
 ### 3.1.2. Development-time model poisoning
 > Category: development-time threat  
