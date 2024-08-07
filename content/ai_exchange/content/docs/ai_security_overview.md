@@ -15,7 +15,7 @@ While AI offers tremendous opportunities, it also brings new risks including sec
   - Involve your data and AI engineering into your traditional **(secure) software development practices**.
   - Apply appropriate process **controls** and technical controls through understanding of the threats as discussed in this document.
 - Make sure your AI **suppliers** applied the appropriate controls.
-- **Limit the impact** of AI by minimizing privileges and adding oversight, e.g. guardrails, human oversight.
+- **Limit the impact** of AI by minimizing data and privileges, and by adding oversight, e.g. guardrails, human oversight.
 
 Note that an AI system can for example be a Large Language Model, a linear regression function, a rule-based system,or a lookup table based on statistics. Throughout this document it is made clear when which threats and controls play a role.
 
