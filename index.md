@@ -38,6 +38,9 @@ In this section, we will discuss how privacy principles apply to AI systems:
 Essentially, you should not simply use data collected for one purpose (e.g. safety or security) as a training dataset to train your model for other purposes (e.g. profiling, personalized marketing, etc.) For example, if you collect phone numbers and other identifiers as part of your MFA flow (to improve security ), that doesn't mean you can also use it for user targeting and other unrelated purposes. Similarly, you may need to collect sensitive data under KYC requirements, but such data should not be used for ML models used for business analytics without proper controls.
 
 Some privacy laws require a lawful basis (or bases if for more than one purpose) for processing personal data (See GDPR's Art 6 and 9). 
+Here is a link with certain restrictions on the purpose of an AI application, like for example the [prohibited practices in the European AI Act](https://artificialintelligenceact.eu/article/5) such as using machine learning for individual criminal profiling. Some practices are regarded as too riskful when it comes to potential harm and unfairness towards individuals and society.
+
+Note that a use case may not even involve personal data, but can still be potentially harmful or unfair to indiduals. For example: an algorithm that decides who may join the army, based on the amount of weight a person can lift and how fast the person can run. This data can not be used to reidentify individuals (with some exceptions), but still the use case may be unrightfully unfair towards gender (if the algorithm for example is based on an unfair training set).
 
 In practical terms, you should reduce access to sensitive data and create anonymized copies for incompatible purposes (e.g. analytics). You should also document a purpose/lawful basis before collecting the data and communicate that purpose to the user in an appropriate way. 
 
