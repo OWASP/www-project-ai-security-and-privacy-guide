@@ -410,12 +410,17 @@
       },
       {
         "source": "/goto/devmodelpoison/",
-        "destination": "/docs/3_development_time_threats/#312-development-time-model-poisoning",
+        "destination": "/docs/3_development_time_threats/#312-development-environment-model-poisoning",
         "type": 301
       },
       {
         "source": "/goto/transferlearningattack/",
-        "destination": "/docs/3_development_time_threats/#313-transfer-learning-attack",
+        "destination": "/docs/3_development_time_threats/#313-supply-chain-model-poisoning",
+        "type": 301
+      },
+      {
+        "source": "/goto/supplymodelpoison/",
+        "destination": "/docs/3_development_time_threats/#313-supply-chain-model-poisoning",
         "type": 301
       },
       {
