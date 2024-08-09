@@ -39,9 +39,13 @@ Rate limit: Limit the rate (frequency) of access to the model (e.g. API) - prefe
 
 Purpose: severely delay attackers trying many inputs to perform attacks through use (e.g. try evasion attacks or for model inversion).
 
-Particularity: limit access not to prevent system overload but to prevent experimentation.
+Particularity: limit access not to prevent system overload (conventional rate limiting goal) but to also prevent experimentation for AI attacks.
 
 Remaining risk: this control does not prevent attacks that use low frequency of interaction (e.g. don't rely on heavy experimentation)
+
+References:
+ - [Article on token bucket and leaky bucket rate limiting](https://medium.com/@apurvaagrawal_95485/token-bucket-vs-leaky-bucket-1c25b388436c)
+ - [OWASP Cheat sheet on denial of service, featuring rate limiting](https://cheatsheetseries.owasp.org/cheatsheets/Denial_of_Service_Cheat_Sheet.html)
 
 Useful standards include:
 
