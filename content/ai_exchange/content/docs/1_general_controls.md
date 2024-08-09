@@ -501,7 +501,7 @@ Useful standards include:
 > Category: runtime data science control  
 > Permalink: https://owaspai.org/goto/continuousvalidation/
 
-Continuous validation: by frequently testing the behaviour of the model against an appropriate test set, it is possible to detect sudden changes caused by a permanent attack (e.g. data poisoning, model poisoning).
+Continuous validation: by frequently testing the behaviour of the model against an appropriate test set, it is possible to detect sudden changes caused by a permanent attack (e.g. data poisoning, model poisoning), and also some robustness issues agains for example evasion attacks.
 
 Continuous validation is a process that is often in place to detect other issues than attacks: system failures, or the model performance going down because of changes in the real world since it was trained.
 
