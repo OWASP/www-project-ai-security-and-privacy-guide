@@ -265,7 +265,7 @@ Useful standards include:
 > Category: development-time threat  
 > Permalink: https://owaspai.org/goto/datapoison/
 
-An attacker manipulates data that the model uses to learn, in order to affect the algorithm's behavior. Also called _causative attacks_. There are mutiple ways to do this (see the attack surface diagram in the [broad model poisong section](/goto/modelpoison/)):
+An attacker manipulates data that the model uses to learn, in order to affect the algorithm's behavior. Also called _causative attacks_. There are multiple ways to do this (see the attack surface diagram in the [broad model poisoning section](/goto/modelpoison/)):
 - Changing the data while in storage during development-time (e.g. by hacking the database)
 - Changing the data while in transit to the storage (e.g. by hacking into a data transfer)
 - Changing the data while at the supplier, before the data is obtained from the supplier
