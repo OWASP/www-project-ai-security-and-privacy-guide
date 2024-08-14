@@ -64,7 +64,9 @@ Run-time model Input/Output integrity: apply traditional application security co
 
 Impact: Confidentiality breach of model parameters, which can result in intellectual model theft and/or allowing to perform model attacks on the stolen model that normally would be mitigated by rate limiting, access control, or detection mechanisms.
 
-Stealing model parameters from a live system by breaking into it (e.g. by gaining access to executables, memory or other storage/transfer of  parameter data in the production environment). This is different from [model theft through use](/goto/modeltheftuse/) which goes through a number of steps to steal a model through normal use, hence the use of the word 'direct'.
+Stealing model parameters from a live system by breaking into it (e.g. by gaining access to executables, memory or other storage/transfer of  parameter data in the production environment). This is different from [model theft through use](/goto/modeltheftuse/) which goes through a number of steps to steal a model through normal use, hence the use of the word 'direct'. It is also different from [model theft development-time](/goto/devmodelleak/) from a lifecylce and attack surface perspective.
+
+This category also includes _side-channel attacks_, where attackers do not necessarily steal the entire model but instead extract specific details about the model’s behaviour or internal state. By observing characteristics like response times, power consumption, or electromagnetic emissions during inference, attackers can infer sensitive information about the model. This type of attack can provide insights into the model's structure, the type of data it processes, or even specific parameter values, which may be leveraged for subsequent attacks or to replicate the model.
 
 **Controls:**
 
@@ -76,7 +78,16 @@ Stealing model parameters from a live system by breaking into it (e.g. by gainin
 > Permalink: https://owaspai.org/goto/runtimemodelconfidentiality/
 
 Run-time model confidentiality: see [SECDEVPROGRAM](/goto/secdevprogram/) to attain application security, with the focus on protecting the storage of model parameters (e.g. access control, encryption).  
-A Trusted Execution Environment can help to protect against attacks, including side-channel hardware attacks like [DeepSniffer](https://sites.cs.ucsb.edu/~sherwood/pubs/ASPLOS-20-deepsniff.pdf).
+
+A Trusted Execution Environment can be highly effective in safeguarding the runtime environment, isolating model operations from potential threats, including side-channel hardware attacks like [DeepSniffer](https://sites.cs.ucsb.edu/~sherwood/pubs/ASPLOS-20-deepsniff.pdf). By ensuring that sensitive computations occur within this secure enclave,the TEE reduces the risk of attackers gaining useful information through side-channel methods.
+
+Side-Channel Mitigation Techniques:
+- Masking: Introducing random delays or noise during inference can help obscure the relationship between input data and the model’s response times, thereby
+complicating timing-based side-channel attacks. See [Masking against Side-Channel Attacks: A Formal Security Proof](https://www.iacr.org/archive/eurocrypt2013/78810139/78810139.pdf)
+
+- Shielding: Employing hardware-based shielding could help prevent electromagnetic
+or acoustic leakage that might be exploited for side-channel attacks. See [Electromagnetic Shielding for Side-Channel Attack Countermeasures](https://ieeexplore.ieee.org/document/8015660)
+
 
 #### #MODELOBFUSCATION
 > Category: runtime information security control against application security threats  
