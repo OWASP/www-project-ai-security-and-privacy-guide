@@ -52,9 +52,10 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
     <tr><td>Behnaz Karimi</td><td>Accenture</td><td>Germany</td><td>misc. contributions including model obfuscation and explanation</td></tr>
     <tr><td>Dan Sorensen</td><td>Centil</td><td>US</td><td>Misc. additions including development security</td></tr>
     <tr><td>Dennis Charolle</td><td>MilliporeSigma</td><td>US</td><td>Compliance overview and copyright</td></tr>
-    <tr><td>Disesdi Susanna Cox</td><td>BobiHealth</td><td>US</td><td>Federated learning</td></tr>
+    <tr><td>Disesdi Susanna Cox</td><td>OTW</td><td>US</td><td>Federated learning</td></tr>
     <tr><td>Eoin Wickens</td><td>HiddenLayer</td><td>Ireland</td><td>Additions to development security</td></tr>
     <tr><td>Feiyang Tang</td><td>Software Improvement Group (SIG)</td><td></td><td></td></tr>
+    <tr><td>Manish Garg</td><td>VE3</td><td>UK</td><td>Runtime model protection</td></tr>
     <tr><td>Marko Lihter</td><td>SplxAI</td><td>Croatia</td><td>step-by-step guide for organizations, website creation, various textual improvements</td></tr>
     <tr><td>Niklas Bunzel</td><td>Fraunhofer institute</td><td>Germany</td><td>data science discussion and references around evasion attacks</td></tr>
     <tr><td>Rocky Heckman</td><td>Cyber Dynamo</td><td>Australia</td><td>Security & privacy risk analysis and ISO/IEC 27562</td></tr>
