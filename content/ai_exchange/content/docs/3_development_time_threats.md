@@ -228,7 +228,7 @@ Useful standards include:
 > Category: group of development-time threats  
 > Permalink: https://owaspai.org/goto/modelpoison/
 
-Development-time model poisoning in the broad sense is when an attacker manipulates development elements (the engineering environment and the supplky chain), to alter the behavior of the model. There are two types, each covered in a subsection:
+Development-time model poisoning in the broad sense is when an attacker manipulates development elements (the engineering environment and the supply chain), to alter the behavior of the model. There are two types, each covered in a subsection:
 1. [data poisoning](/goto/datapoison/): an attacker manipulates training data, or data used for in-context learning.
 2. [development-environment model poisoning](/goto/devmodelpoison/): an attacker manipulates model parameters, or other engineering elements that take part in creating the model, such as code, configuration or libraries.
 3. [supply-chain model poisoning](/goto/supplymodelpoison/): using a supplied trained model which has been manipulated by an attacker.
