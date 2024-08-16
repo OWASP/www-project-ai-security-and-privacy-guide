@@ -93,7 +93,7 @@ or acoustic leakage that might be exploited for side-channel attacks. See [Elect
 > Category: runtime information security control against application security threats  
 > Permalink: https://owaspai.org/goto/modelobfuscation/
 
-Model obfuscation: techniques to store the model in a complex and confusing way with minimal technical information, to make it more difficult for attackers to extract and understand a model after having gained acces to its runtime storage. See this [article on ModelObfuscator](https://dl.acm.org/doi/abs/10.1145/3597926.3598113)
+Model obfuscation: techniques to store the model in a complex and confusing way with minimal technical information, to make it more difficult for attackers to extract and understand a model after having gained access to its runtime storage. See this [article on ModelObfuscator](https://dl.acm.org/doi/abs/10.1145/3597926.3598113)
 
 ---
 
