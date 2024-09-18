@@ -39,3 +39,6 @@ Misc.:
 - [ISO/IEC 20547-4 Big data security](https://www.iso.org/standard/71278.html)
 - [IEEE 2813 Big Data Business Security Risk Assessment](https://standards.ieee.org/ieee/2813/7535/)
 - [Awesome MLSecOps references](https://github.com/RiccardoBiosas/awesome-MLSecOps)
+
+Training:
+ - [Microsoft AI security fundamentals](https://learn.microsoft.com/en-us/training/paths/ai-security-fundamentals/?utm_source=substack)
