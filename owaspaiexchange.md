@@ -49,6 +49,7 @@ Table of contents:
 - [2. Threats through use](#2-threats-through-use)
 - [3. Development-time threats](#3-development-time-threats)
 - [4. Runtime Application security threats](#4-runtime-application-security-threats)
+- [5. Risk Management](#5-risk-management)
 - [References](#references)
 - [Expanded Table of contents](#expanded-table-of-contents)
 
@@ -1439,6 +1440,94 @@ GenAI models mostly live in the cloud - often managed by an external party, whic
 
 - **#[MODELINPUTCONFIDENTIALITY](/goto/t60/)** (runtime appsec). Model input confidentiality: see [SECDEVPROGRAM](/goto/c4/) to attain application security, with the focus on protecting the transport and storage of model parameters (e.g. access control, encryption, minimize retention)
 
+# 5. Risk Management
+
+---
+
+## 5.1. Introduction
+AI Risk Management applies regardless of where in the supply chain your organization fits. 
+Whether you are integrating AI systems built by others or developing ,modifying or training them to be utilized internally or externally by others, it is imperative to manage their risks.
+
+In the context of AI Risk Management process, the term AI encompasses all flavors of AI including AGI, Machine Learning, Deep Learning, and Data Science, while acknowledging that the actual risks overlap and vary depending on the flavor of AI and the applicable domain. 
+
+The intent of this document is to concisely capture the key elements of an effective AI risk management framework and provide a prescriptive framework.  This document  is organized by AI Risk Management Process, Model,  Activities, Risk Catalog, Roles and Responsibilities and Risk Catalog.  
+
+## 5.2.  AI Risk Management Process
+
+We utilize the ISO 31000 as a good framework to overlay our AI Risk Management process.  
+
+
+<img src="assets/images/Riskmanagement3.JPG" align="left" width="800" height="500">
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+Source:  ISO 31000:2009(en), Risk management — Principles and guidelines
+
+
+
+
+
+
+
+
+## 5.2.1.  Establishing Context
+<img src="assets/images/Riskmanagement1.JPG" align="right" width="250" height="400"> 
+
+- **External Context**: Understand the environment in which ML, Data Science, and Gen AI systems operate, including legal, regulatory, financial, and social factors. Consider compliance with privacy (e.g. GDPR in Europe), or specific jurisdictional (e.g. Canada Bill C27-AIDA) or industry (e.g. Healthcare or Finance) requirements. 
+- **Internal Context**: Assess the capabilities, culture, and objectives of the organization developing or using these technologies. This includes technical infrastructure, data governance policies, ethical standards, and the strategic goals related to AI deployment.
+- **Risk Management Context**: Define the scope and objectives of risk management activities, considering the stakes involved in deploying AI systems, such as ethical implications, bias, and potential for misuse.
+<br>
+<br>
+<br>
+<br>
+
+
+
+## 5.2.2  Risk Assessment
+<img src="assets/images/Riskmanagement2.JPG" align="right" width="250" height="400"> 
+
+
+ 
+- **Identification:** Recognize the specific risks associated with ML and AI projects, such as data bias, model interpretability, algorithmic transparency, security vulnerabilities, and unintended consequences of AI behavior.
+- **Analysis:** Evaluate the nature and magnitude of identified risks. This involves understanding the probability of occurrences (e.g., data breaches, model failures, bias) and their impact on various stakeholders, including users, the organization, and society at large.
+- **Evaluation:** Prioritize risks based on their severity and likelihood. This helps in determining which risks need immediate attention and which can be monitored over time.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
 # References
 
 References on the OWASP AI guide (a project of which this document is part):
@@ -1655,6 +1744,8 @@ Misc.:
 
   - See General controls
   - [MODELINPUTCONFIDENTIALITY](/goto/t60/) (runtime appsec)
+
+
 
 - [References](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#references)
 - [Expanded Table of contents](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/owaspaiexchange.md#expanded-table-of-contents)
