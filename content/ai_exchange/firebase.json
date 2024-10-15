@@ -65,7 +65,7 @@
       },
       {
         "source": "/goto/jointguidelines/",
-        "destination": "/docs/ai_security_overview/##how-about-the-ncsccisa-guidelines",
+        "destination": "/docs/ai_security_overview/#how-about-the-ncsccisa-guidelines",
         "type": 301
       },
       {
