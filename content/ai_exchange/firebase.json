@@ -62,7 +62,12 @@
         "source": "/goto/genai/",
         "destination": "/docs/ai_security_overview/#how-about-generative-ai-eg-llm",
         "type": 301
-      },      
+      },
+      {
+        "source": "/goto/jointguidelines/",
+        "destination": "/docs/ai_security_overview/##how-about-the-ncsccisa-guidelines",
+        "type": 301
+      },
       {
         "source": "/goto/responsibleai/",
         "destination": "/docs/ai_security_overview/#how-about-responsible-or-trustworthy-ai",
