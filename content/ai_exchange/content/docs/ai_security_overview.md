@@ -423,56 +423,57 @@ GenAI References:
 - [LLMsecurity.net](https://llmsecurity.net/)
 
 ### How about the NCSC/CISA guidelines?
+>Category: discussion  
+>Permalink: https://owaspai.org/goto/jointguidelines/
 
-Mapping of the UK/US [Guidelines for secure AI
-system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development) to the controls here at the AI Exchange:  
-(Search for them in this document or use the [Navigator](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf))
+Mapping of the UK NCSC /CISA [Joint Guidelines for secure AI system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development) to the controls here at the AI Exchange.  
+To see those controls linked to threats, refer to the [Periodic table of AI security](/goto/periodictable).
 
 1. Secure design
 
 - Raise staff awareness of threats and risks:  
-  #[SECEDUCATE](/goto/seceducate/)
+  #[SECURITY EDUCATE](/goto/seceducate/)
 - Model the threats to your system:  
-  See Risk analysis under #[SECPROGRAM](/goto/secprogram/)
+  See Risk analysis under #[SECURITY PROGRAM](/goto/secprogram/)
 - Design your system for security as well as functionality and performance:  
-  #[AIPROGRAM](/goto/aiprogram/ ), #[SECPROGRAM](/goto/secprogram/), #[DEVPROGRAM](/goto/devprogram/), #[SECDEVPROGRAM](/goto/secdevprogram/), #[CHECKCOMPLIANCE](/goto/checkcompliance/), #[LEASTMODELPRIVILEGE](/goto/leastmodelprivilege/), #[DISCRETE](/goto/discrete/), #[OBSCURECONFIDENCE](/goto/obscureconfidence/), #[OVERSIGHT](/goto/oversight/), #[RATELIMIT](/goto/ratelimit/),  #[DOSINPUTVALIDATION](/goto/dosinputvalidation/), #[LIMITRESOURCES](/goto/limitresources/), #[MODELACCESSCONTROL](/goto/modelaccesscontrol/), #AITRANSPRENCY
+  #[AI PROGRAM](/goto/aiprogram/ ), #[SECURITY PROGRAM](/goto/secprogram/), #[DEVELOPMENT PROGRAM](/goto/devprogram/), #[SECURE DEVELOPMENT PROGRAM](/goto/secdevprogram/), #[CHECK COMPLIANCE](/goto/checkcompliance/), #[LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/), #[DISCRETE](/goto/discrete/), #[OBSCURE CONFIDENCE](/goto/obscureconfidence/), #[OVERSIGHT](/goto/oversight/), #[RATE LIMIT](/goto/ratelimit/),  #[DOS INPUT VALIDATION](/goto/dosinputvalidation/), #[LIMIT RESOURCES](/goto/limitresources/), #[MODEL ACCESS CONTROL](/goto/modelaccesscontrol/), #[AI TRANSPARENCY](/goto/aitransparency)
 - Consider security benefits and trade-offs when selecting your AI model  
   All development-time data science controls (currently 13), #[EXPLAINABILITY](/goto/explainability/)
 
 2. Secure Development
 
 - Secure your supply chain:  
-  #[SUPPLYCHAINMANAGE](/goto/supplychainmanage/)
+  #[SUPPLY CHAIN MANAGE](/goto/supplychainmanage/)
 - Identify, track and protect your assets:  
-  #[DEVSECURITY](/goto/devsecurity/), #[SEGREGATEDATA](/goto/segregatedata/), #[CONFCOMPUTE](/goto/confcompute/), #[MODELINPUTCONFIDENTIALITY](/goto/modelinputconfidentiality/), #[RUNTIMEMODELCONFIDENTIALITY](/goto/runtimemodelconfidentiality/), #[DATAMINIMIZE](/goto/dataminimize/), #[ALLOWEDDATA](/goto/alloweddata/), #[SHORTRETAIN](/goto/shortretain/), #[OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/) and part of #[SECPROGRAM](/goto/secprogram/)
+  #[DEVELOPMENT SECURITY](/goto/devsecurity/), #[SEGREGATE DATA](/goto/segregatedata/), #[CONFIDENTIAL COMPUTE](/goto/confcompute/), #[MODEL INPUT CONFIDENTIALITY](/goto/modelinputconfidentiality/), #[RUNTIME MODEL CONFIDENTIALITY](/goto/runtimemodelconfidentiality/), #[DATA MINIMIZE](/goto/dataminimize/), #[ALLOWED DATA](/goto/alloweddata/), #[SHORT RETAIN](/goto/shortretain/), #[OBFUSCATE TRAINING DATA](/goto/obfuscatetrainingdata/) and part of #[SECURITY PROGRAM](/goto/secprogram/)
 - Document your data, models and prompts:  
-  Part of #[DEVPROGRAM](/goto/devprogram/)
+  Part of #[DEVELOPMENT PROGRAM](/goto/devprogram/)
 - Manage your technical debt:  
-  Part of #[DEVPROGRAM](/goto/devprogram/)
+  Part of #[DEVELOPMENT PROGRAM](/goto/devprogram/)
 
 3. Secure deployment
 
 - Secure your infrastructure:  
-  Part of #[SECPROGRAM](/goto/secprogram/) and see ‘Identify, track and protect your assets’
+  Part of #[SECURITY PROGRAM](/goto/secprogram/) and see ‘Identify, track and protect your assets’
 - Protect your model continuously:  
-  #[INPUTDISTORTION](/goto/inputdistortion/), #[FILTERSENSITIVEMODELOUTPUT](/goto/filtersensitivemodeloutput/), #[RUNTIMEMODELIOINTEGRITY](/goto/runtimemodeliointegrity/), #[MODELINPUTCONFIDENTIALITY](/goto/modelinputconfidentiality/), #[PROMPTINPUTVALIDATION](/goto/promptinputvalidation/), #[INPUTSEGREGATION](/goto/inputsegregation/)
+  #[INPUT DISTORTION](/goto/inputdistortion/), #[FILTER SENSITIVE MODEL OUTPUT](/goto/filtersensitivemodeloutput/), #[RUNTIME MODEL IO INTEGRITY](/goto/runtimemodeliointegrity/), #[MODEL INPUT CONFIDENTIALITY](/goto/modelinputconfidentiality/), #[PROMPT INPUT VALIDATION](/goto/promptinputvalidation/), #[INPUT SEGREGATION](/goto/inputsegregation/)
 - Develop incident management procedures:  
-  Part of #[SECPROGRAM](/goto/secprogram/)
+  Part of #[SECURITY PROGRAM](/goto/secprogram/)
 - Release AI responsibly:  
-  Part of #[DEVPROGRAM](/goto/devprogram/)
+  Part of #[DEVELOPMENT PROGRAM](/goto/devprogram/)
 - Make it easy for users to do the right things:  
-  Part of #[SECPROGRAM](/goto/secprogram/)
+  Part of #[SECURITY PROGRAM](/goto/secprogram/)
 
 4. Secure operation and maintenance
 
 - Monitor your system’s behaviour:  
-  #[CONTINUOUSVALIDATION](/goto/continuousvalidation/), #[UNWANTEDBIASTESTING](/goto/unwantedbiastesting/)
+  #[CONTINUOUS VALIDATION](/goto/continuousvalidation/), #[UNWANTED BIAS TESTING](/goto/unwantedbiastesting/)
 - Monitor your system’s inputs:  
-  #[MONITORUSE](/goto/monitoruse/), #[DETECTODDINPUT](/goto/detectoddinput/), #[DETECTADVERSARIALINPUT](/goto/detectadversarialinput/)
+  #[MONITOR USE](/goto/monitoruse/), #[DETECT ODD INPUT](/goto/detectoddinput/), #[DETECT ADVERSARIAL INPUT](/goto/detectadversarialinput/)
 - Follow a secure by design approach to updates:  
-  Part of #[SECDEVPROGRAM](/goto/secdevprogram/)
+  Part of #[SECURE DEVELOPMENT PROGRAM](/goto/secdevprogram/)
 - Collect and share lessons learned:  
-  Part of #[SECDEVPROGRAM](/goto/secprogram/) and #[SECDEVPROGRAM](/goto/secdevprogram/)
+  Part of #[SECURITY PROGRAM](/goto/secprogram/) and #[SECURE DEVELOPMENT PROGRAM](/goto/secdevprogram/)
 
 
 ### How about copyright?
