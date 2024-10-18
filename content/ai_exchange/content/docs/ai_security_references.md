@@ -22,6 +22,7 @@ Overviews of AI security threats:
 - [BIML](https://berryvilleiml.com/taxonomy/)
 - [PLOT4ai threat library](https://plot4.ai/library)
 - [BSI AI recommendations including security aspects (Germany) - in English](https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/kuenstliche-intelligenz_node.html#doc916902bodyText8)
+- [NCSC UK / CISA Joint Guidelines](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development) - see [its mapping with the AI Exchange](/goto/jointguidelines/)
 
 Overviews of AI security/privacy incidents:
 
