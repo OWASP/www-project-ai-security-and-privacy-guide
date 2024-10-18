@@ -396,7 +396,7 @@ Training with adversarial examples is used as a control against evasion attacks,
 
 For example: adding images of stop signs in a training database for a self driving car, labeled as 35 miles an hour, where the stop sign is slightly altered. What this effectively does is to force the model to make a mistake with traffic signs that have been altered in a similar way. This type of data poisoning aims to prevent anomaly detection of the poisoned samples.  
 
-Find the corresponding control section [here, with the other controls against Evasion attacks](/goto/trainadversarial).
+Find the corresponding control section [here, with the other controls against Evasion attacks](https://owaspai.org/goto/trainadversarial/).
 
 References:
 - ['How to adversarially train against data poisoning'](https://arxiv.org/abs/2102.13624)
