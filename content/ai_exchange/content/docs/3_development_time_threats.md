@@ -382,7 +382,7 @@ Link to standards:
 
 Poison robust model: select a model type and creation approach to reduce sensitivity to poisoned training data.
 
-This control can be applied to a model that has already been training, so including models that have been obtained from an external source. 
+This control can be applied to a model that has already been trained, so including models that have been obtained from an external source. 
 
 The general principle of reducing sensitivity to poisoned training data is to make sure that the model does not memorize the specific malicious input pattern (or _backdoor trigger_). The following two examples represent different strategies, which can also complement each other in an approach called **fine pruning** (See [paper on fine-pruning](https://arxiv.org/pdf/1805.12185.pdf)):
 1. Reduce memorization by removing elements of memory using **pruning**. Pruning in essence reduces the size of the model so it does not have the capacity to trigger on backdoor-examples while retaining sufficient accuracy for the intended use case. The approach removes neurons in a neural network that have been identified as non-essential for sufficient accuracy.
