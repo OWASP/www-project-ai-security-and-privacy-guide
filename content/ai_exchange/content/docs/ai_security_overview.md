@@ -427,7 +427,7 @@ GenAI References:
 >Permalink: https://owaspai.org/goto/jointguidelines/
 
 Mapping of the UK NCSC /CISA [Joint Guidelines for secure AI system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development) to the controls here at the AI Exchange.  
-To see those controls linked to threats, refer to the [Periodic table of AI security](/goto/periodictable).
+To see those controls linked to threats, refer to the [Periodic table of AI security](/goto/periodictable/).
 
 1. Secure design
 
