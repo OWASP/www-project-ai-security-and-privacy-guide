@@ -29,7 +29,9 @@
 
 ## Purpose
 
-The OWASP AI Exchange has open sourced the global discussion on the security of AI. It is an open collaborative project to advance the development of AI security standards and regulations, by providing a comprehensive overview of AI threats, vulnerabilities and controls. This content is feeding into standards for the EU AI Act, ISO/IEC 27090 (AI security), the [OWASP ML top 10](https://mltop10.info/), the [OWASP LLM top 10](https://llmtop10.com/), and [OpenCRE](https://opencre.org) - which we want to use to provide the AI Exchange content through the security chatbot [OpenCRE-Chat](https://opencre.org/chatbot).
+The OWASP AI Exchange has open sourced the global discussion on the security of AI and data-centric systems. It is an open collaborative project to advance the development of AI security standards and regulations, by providing a comprehensive overview of AI threats, vulnerabilities and controls. This content is feeding into standards for the EU AI Act, ISO/IEC 27090 (AI security), the [OWASP ML top 10](https://mltop10.info/), the [OWASP LLM top 10](https://llmtop10.com/), and [OpenCRE](https://opencre.org) - which we want to use to provide the AI Exchange content through the security chatbot [OpenCRE-Chat](https://opencre.org/chatbot).
+
+Data-centric systems can be divided into AI systems and 'big data' systems that don't have an AI model (e.g. data warehousing, BI, reporting, big data) to which many of the threats and controls in the AI Exchange are relevant: data poisoning, data supply chain management, data pipeline security, etc.
 
 Our **mission** is to be the authoritative source for consensus, foster alignment, and drive collaboration among initiatives - NOT to set a standard, but to drive standards. In other words: be among the top bookmarks of professionals involved in AI security. By doing so, we provide a safe, open, and independent place to find and share insights for everyone. See [AI Exchange LinkedIn page](https://www.linkedin.com/company/owasp-ai-exchange/).
 
