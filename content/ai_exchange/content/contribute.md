@@ -9,7 +9,7 @@ excludeSearch: true
 
 &nbsp;{{< github-stars user="OWASP" repo="www-project-ai-security-and-privacy-guide" repo_url="https://github.com/OWASP/www-project-ai-security-and-privacy-guide" >}}
 
-{{< tabs items="Guidelines,Authors" >}}
+{{< tabs items="Guidelines,Contributing authors" >}}
 
 {{< tab >}}
 
@@ -39,10 +39,9 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
 {{< html-tab >}}
 
 <table border='1'>
-    <tr><th>Name</th><th>Company</th><th>Country</th><th>Contribution</th></tr>
+    <tr><th>Name</th><th>Company</th><th>Country</th><th>Contributions</th></tr>
     <tr><td><b>Rob van der Veer</b></td><td>Software Improvement Group (SIG)</td><td>Netherlands</td><td><b>Project founder and lead, content, leadership team</b></td></tr>
     <tr><td><b>Chris Ancharski</b></td><td>Global community builder</td><td>US</td><td>Engagement specialist, leadership team</td></tr>
-    <tr><td><b>John Sotiropoulos</b></td><td>Kainos</td><td>UK</td><td>External relations, content, leadership team</td></tr>
     <tr><td><b>Aruneesh Salhotra</b></td><td>SNM Consulting Inc</td><td>US</td><td><b>Outreach, management, content, leadership team</b></td></tr>
     <tr><td>Adelin Travers</td><td>Trail of Bits</td><td></td><td></td></tr>
     <tr><td>Alon Tron</td><td>Stealth</td><td>Israel</td><td>Improved supply chain management</td></tr>
@@ -55,6 +54,7 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
     <tr><td>Disesdi Susanna Cox</td><td>OTW</td><td>US</td><td>Federated learning</td></tr>
     <tr><td>Eoin Wickens</td><td>HiddenLayer</td><td>Ireland</td><td>Additions to development security</td></tr>
     <tr><td>Feiyang Tang</td><td>Software Improvement Group (SIG)</td><td></td><td></td></tr>
+    <tr><td><b>John Sotiropoulos</b></td><td>Kainos</td><td>UK</td><td>Liaison to several insititutes</td></tr>
     <tr><td>Manish Garg</td><td>VE3</td><td>UK</td><td>Runtime model protection</td></tr>
     <tr><td>Marko Lihter</td><td>SplxAI</td><td>Croatia</td><td>step-by-step guide for organizations, website creation, various textual improvements</td></tr>
     <tr><td>Niklas Bunzel</td><td>Fraunhofer institute</td><td>Germany</td><td>data science discussion and references around evasion attacks</td></tr>
@@ -67,6 +67,7 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
     <tr><td>Steve Francolla</td><td>Workforce Tech LLC</td><td></td><td></td></tr>
     <tr><td>Wei Wei</td><td>IBM</td><td>Germany</td><td>mapping with ISO/IEC 42001</td></tr>
     <tr><td>Yiannis Kanellopoulos and team</td><td>Code4thought</td><td>Greece</td><td>evasion robustness</td></tr>
+    <tr><td>Zia Ur Rashid</td><td>Paycom</td><td>US</td><td>training resources table under references</td></tr>
     <tr><td>Zoe Braiterman</td><td>Mutual Knowledge Systems</td><td>US</td><td>Many markdown improvements</td></tr>
 </table>
 
