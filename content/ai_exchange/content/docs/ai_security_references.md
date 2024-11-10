@@ -8,9 +8,9 @@ weight: 6
 
 See the [Media page](/media) for several webinars and podcast by and about the AI Exchange.
 
-Overviews of AI security threats:
-
-- [OWASP LLM top 10](https://llmtop10.com/)
+## Overviews of AI Security Threats:
+---
+- [OWASP LLM top 10](https://genai.owasp.org/)
 - [ENISA ML threats and countermeasures 2021](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
 - [MITRE ATLAS framework for AI threats](https://atlas.mitre.org/)
 - [NIST threat taxonomy](https://csrc.nist.gov/publications/detail/white-paper/2023/03/08/adversarial-machine-learning-taxonomy-and-terminology/draft)
@@ -24,14 +24,16 @@ Overviews of AI security threats:
 - [BSI AI recommendations including security aspects (Germany) - in English](https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/kuenstliche-intelligenz_node.html#doc916902bodyText8)
 - [NCSC UK / CISA Joint Guidelines](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development) - see [its mapping with the AI Exchange](/goto/jointguidelines/)
 
-Overviews of AI security/privacy incidents:
-
+## Overviews of AI Security/Privacy Incidents:
+---
 - [AVID AI Vulnerability database](https://avidml.org/)
-- [AI/ML Supply Chain Vulnerability Database](https://sightline.protectai.com/)
+- [Sighline - AI/ML Supply Chain Vulnerability Database](https://sightline.protectai.com/)
 - [OECD AI Incidents Monitor (AIM)](https://oecd.ai/en/incidents)
+- [AI Incident Database](https://incidentdatabase.ai/)
+- [AI Exploits by ProtectAI](https://github.com/protectai/ai-exploits)
 
-Misc.:
-
+## Misc.:
+---
 - [ENISA AI security standard discussion](https://www.enisa.europa.eu/publications/cybersecurity-of-ai-and-standardisation)
 - [ENISA's multilayer AI security framework](https://www.enisa.europa.eu/publications/multilayer-framework-for-good-cybersecurity-practices-for-ai)
 - [Alan Turing institute's AI standards hub](https://aistandardshub.org)
@@ -41,8 +43,10 @@ Misc.:
 - [ISO/IEC 20547-4 Big data security](https://www.iso.org/standard/71278.html)
 - [IEEE 2813 Big Data Business Security Risk Assessment](https://standards.ieee.org/ieee/2813/7535/)
 - [Awesome MLSecOps references](https://github.com/RiccardoBiosas/awesome-MLSecOps)
+- [OffSec ML Playbook](https://wiki.offsecml.com/)
 
-Training:
+## Learning and Training:
+---
 | Category                   | Title                                        | Description                                                                                       | Provider       | Content Type     | Level       | Cost                             | Link                                                                                         |
 |---------------------------|----------------------------------------------|---------------------------------------------------------------------------------------------------|----------------|------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------|
 | **Courses and Labs**               | **AI Security Fundamentals**                 | Learn the basic concepts of AI security, including security controls and testing procedures.      | Microsoft       | Course           | Beginner    | Free                             | [AI Security Fundamentals](https://learn.microsoft.com/en-us/training/paths/ai-security-fundamentals/) |
