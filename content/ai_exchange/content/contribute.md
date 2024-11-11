@@ -62,12 +62,12 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
     <tr><td>Rubens Zimbres</td><td></td><td>Brazil</td><td>Adversarial machine learning</td></tr>
     <tr><td>Roger Sanz</td><td>Universidad Isabel</td><td>Spain</td><td></td></tr>
     <tr><td>Sandy Dunn</td><td>Boise State University, AI Cyber Advisors</td><td>US</td><td>Community management in the initial phase</td></tr>
+    <tr><td>S M Zia Ur Rashid</td><td>Paycom</td><td>US</td><td>Learning and training resources table under references</td></tr>
     <tr><td>Sean Oesch</td><td>Oak Ridge National Laboratory</td><td>US</td><td>BLUF, Adversarial Training, OOD detection, NISTIR 8269, Guide Usability/Structure</td></tr>
     <tr><td>Srajan Gupta</td><td>Dave</td><td></td><td></td></tr>
     <tr><td>Steve Francolla</td><td>Workforce Tech LLC</td><td></td><td></td></tr>
     <tr><td>Wei Wei</td><td>IBM</td><td>Germany</td><td>mapping with ISO/IEC 42001</td></tr>
-    <tr><td>Yiannis Kanellopoulos and team</td><td>Code4thought</td><td>Greece</td><td>evasion robustness</td></tr>
-    <tr><td>Zia Ur Rashid</td><td>Paycom</td><td>US</td><td>training resources table under references</td></tr>
+    <tr><td>Yiannis Kanellopoulos and team</td><td>Code4thought</td><td>Greece</td><td>evasion robustness</td></tr>   
     <tr><td>Zoe Braiterman</td><td>Mutual Knowledge Systems</td><td>US</td><td>Many markdown improvements</td></tr>
 </table>
 
