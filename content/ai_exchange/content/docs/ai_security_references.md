@@ -27,7 +27,7 @@ See the [Media page](/media) for several webinars and podcast by and about the A
 ## Overviews of AI Security/Privacy Incidents:
 ---
 - [AVID AI Vulnerability database](https://avidml.org/)
-- [Sighline - AI/ML Supply Chain Vulnerability Database](https://sightline.protectai.com/)
+- [Sightline - AI/ML Supply Chain Vulnerability Database](https://sightline.protectai.com/)
 - [OECD AI Incidents Monitor (AIM)](https://oecd.ai/en/incidents)
 - [AI Incident Database](https://incidentdatabase.ai/)
 - [AI Exploits by ProtectAI](https://github.com/protectai/ai-exploits)
@@ -44,6 +44,7 @@ See the [Media page](/media) for several webinars and podcast by and about the A
 - [IEEE 2813 Big Data Business Security Risk Assessment](https://standards.ieee.org/ieee/2813/7535/)
 - [Awesome MLSecOps references](https://github.com/RiccardoBiosas/awesome-MLSecOps)
 - [OffSec ML Playbook](https://wiki.offsecml.com/)
+- [MIT AI Risk Repository](https://airisk.mit.edu/)
 
 ## Learning and Training:
 ---
@@ -62,7 +63,9 @@ See the [Media page](/media) for several webinars and podcast by and about the A
 |                           | **AI CTF**                                  | AI/ML themed challenges to be solved over a 36-hour period.                                       | PHDay           | CTF              | Beginner, Intermediate | Free                             | [AI CTF](https://aictf.phdays.fun/) |
 |                           | **Prompt Injection Lab**                    | An immersive lab focused on gamified AI prompt injection challenges.                              | ImmersiveLabs    | CTF              | Beginner    | Free                             | [Prompt Injection Lab](https://prompting.ai.immersivelabs.com/) |
 |                           | **Doublespeak**                             | A text-based AI escape game designed to practice LLM vulnerabilities.                             | Forces Unseen    | CTF              | Beginner    | Free                             | [Doublespeak](https://doublespeak.chat/#/) |
+|                           | **MyLLMBank**                      | Prompt injection challenges against LLM chat agents that use ReAct to call tools.                                     | WithSecure          | CTF              | Beginner    | Free                             | [MyLLLBank](https://myllmbank.com/)|
+|                           | **MyLLMDoctor**                      | Advanced challenge focusing on multi-chain prompt injection.                                     | WithSecure          | CTF              | Intermediate    | Free                             | [MyLLMDoctor](https://myllmdoc.com/) |
 | **Talks**                  | **AI is just software, what could possible go wrong w/ Rob van der Veer** | The talk explores the dual nature of AI as both a powerful tool and a potential security risk, emphasizing the importance of secure AI development and oversight. | OWASP Lisbon Global AppSec 2024 | Conference | N/A | Free | [YouTube](https://www.youtube.com/watch?v=43cv4f--UU4)  |
-|                          | **Lessons Learned from Building & Defending LLM Applications** | Andra Lezza and Javan Rasokat discuss lessons learned in AI security, focusing on vulnerabilities in LLM applications, particularly chatbots. | DEF CON 32 | Conference | N/A | Free | [YouTube](https://www.youtube.com/watch?v=2-C7xSJ9rhI)  |
+|                          | **Lessons Learned from Building & Defending LLM Applications** | Andra Lezza and Javan Rasokat discuss lessons learned in AI security, focusing on vulnerabilities in LLM applications. | DEF CON 32 | Conference | N/A | Free | [YouTube](https://www.youtube.com/watch?v=2-C7xSJ9rhI)  |
 |                          | **Practical LLM Security: Takeaways From a Year in the Trenches** | NVIDIA’s AI Red Team shares insights on securing LLM integrations, focusing on identifying risks, common attacks, and effective mitigation strategies. | Black Hat USA 2024 | Conference | N/A | Free | [YouTube](https://www.youtube.com/watch?v=Rhpqiunpu0c)  |
 |                          | **Hacking generative AI with PyRIT** | Rajasekar from Microsoft AI Red Team presents PyRIT, a tool for identifying vulnerabilities in generative AI systems, emphasizing the importance of safety and security. | Black Hat USA 2024 | Walkthrough | N/A | Free | [YouTube](https://www.youtube.com/watch?v=M_H8ulTMAe4)  |
