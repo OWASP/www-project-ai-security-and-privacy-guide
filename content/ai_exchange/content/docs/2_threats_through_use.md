@@ -78,7 +78,10 @@ Evasion: an attacker fools the model by crafting input to mislead it into perfor
 
 Impact: Integrity of model behaviour is affected, leading to issues from unwanted model output (e.g. failing fraud detection, decisions leading to safety issues, reputation damage, liability).
 
-A typical attacker goal with Evasion is to slightly change a certain input (say an image, or a text) to pass a certain test that normally would not be passed. Such small changes (perturbations) lead to a large (and false) modification of its outputs. The modified inputs are often called *adversarial examples*. Evasion attacks can also be categorized into physical (e.g. changing the real world to influence for example a camera image) and digital (e.g. changing a digital image).
+A typical attacker goal with Evasion is to find out how to slightly change a certain input (say an image, or a text) to fool the model. The advantage of slight change is that it is harder to detect by humans or by an automated detection of unusal input, and it is typically easier to perform (e.g. slightly change an email message by adding a word so it still sends the same message, but it fools the model in for example deciding it is not a phishing message).  
+Such small changes (call 'perturbations') lead to a large (and false) modification of its outputs. The modified inputs are often called *adversarial examples*.  
+
+Evasion attacks can be categorized into physical (e.g. changing the real world to influence for example a camera image) and digital (e.g. changing a digital image). Furthermore, they can be categorized in either untargeted (any wrong output) and targeted (a specific wrong output). Note that Evastion of a binary classifier (i.e. yes/no) belongs to both categories.
 
 Example 1: slightly changing traffic signs so that self-driving cars may be fooled.
 ![](/images/inputphysical.png)
@@ -95,6 +98,8 @@ AI models that take a prompt as input (e.g. GenAI) suffer from an additional thr
 See [MITRE ATLAS - Evade ML model](https://atlas.mitre.org/techniques/AML.T0015)
 
 **Controls for evasion:**
+
+An Evasion attack typically consists of first searching for the inputs that mislead the model, and then applying it. That initial search can be very intensive, as it requires trying many variations of input. Therefore, limiting access to the model with for example Rate limiting mitigates the risk, but still leaves the possibility of using a so-called transfer attack (see [Closed box evasion](/goto/closedboxevasion/) to search for the inputs in another, similar, model.  
 
   - See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
   - See [controls for threats through use](/goto/threatsuse/)
