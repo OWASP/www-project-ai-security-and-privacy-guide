@@ -105,7 +105,7 @@ Impact: Textual model output may contain 'traditional' injection attacks such as
 
 This is like the standard output encoding issue, but the particularity is that the output of AI may include attacks such as XSS.
 
-See [OWASP for LLM 02](https://genai.owasp.org/llmrisk/llm02/).
+See [OWASP for LLM 05](https://genai.owasp.org/llmrisk/llm05/).
 
 **Controls:**
 
