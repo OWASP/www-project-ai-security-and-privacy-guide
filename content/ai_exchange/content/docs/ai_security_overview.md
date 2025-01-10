@@ -57,7 +57,7 @@ We distinguish three types of threats:
 2. through using the model (providing input and reading the output), and
 3. by attacking the system during runtime (in production).
 
-In AI we distinguish 6 types of impacts, for three types of attacker goals (disrupt, deceive and disclose):
+In AI we distinguish 6 types of impacts, for three types of attacker goals (disclose, deceive and disrupt):
 1. disclose: hurt confidentiality of train/test data
 2. disclose: hurt confidentiality of model Intellectual property (the _model parameters_ or the process and data that led to them)
 3. disclose: hurt confidentiality of input data
