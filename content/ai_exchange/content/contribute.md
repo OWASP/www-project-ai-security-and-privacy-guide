@@ -40,15 +40,15 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
 
 <table border='1'>
     <tr><th>Name</th><th>Company</th><th>Country</th><th>Contributions</th></tr>
-    <tr><td><b>Rob van der Veer</b></td><td>Software Improvement Group (SIG)</td><td>Netherlands</td><td><b>Project founder and lead, content, leadership team</b></td></tr>
+    <tr><td><b>Rob van der Veer</b></td><td>Software Improvement Group (SIG)</td><td>Netherlands</td><td>Project founder and lead, content, leadership team</td></tr>
+    <tr><td><b>Aruneesh Salhotra</b></td><td>SNM Consulting Inc</td><td>US</td><td>Outreach, management, content, leadership team</td></tr>
+    <tr><td><b>Behnaz Karimi</b></td><td>Accenture</td><td>Germany</td><td>Misc. contributions including model obfuscation and explanation, leadership team</td></tr>
     <tr><td><b>Chris Ancharski</b></td><td>Global community builder</td><td>US</td><td>Engagement specialist, leadership team</td></tr>
-    <tr><td><b>Aruneesh Salhotra</b></td><td>SNM Consulting Inc</td><td>US</td><td><b>Outreach, management, content, leadership team</b></td></tr>
     <tr><td>Adelin Travers</td><td>Trail of Bits</td><td></td><td></td></tr>
     <tr><td>Alon Tron</td><td>Stealth</td><td>Israel</td><td>Improved supply chain management</td></tr>
     <tr><td>Angie Qarry</td><td>QDeepTech</td><td>Austria</td><td>several elaborations and references on data science defence mechanisms</td></tr>
     <tr><td>Annegrit Seyerlein-Klug</td><td>TH Brandenburg</td><td>Germany</td><td>mapping with misc. standards</td></tr>
     <tr><td>Anthony Glynn</td><td>CapitalOne</td><td>US</td><td>many textual improvements & link to LLM top 10</td></tr>
-    <tr><td>Behnaz Karimi</td><td>Accenture</td><td>Germany</td><td>misc. contributions including model obfuscation and explanation</td></tr>
     <tr><td>Dan Sorensen</td><td>Centil</td><td>US</td><td>Misc. additions including development security</td></tr>
     <tr><td>Dennis Charolle</td><td>MilliporeSigma</td><td>US</td><td>Compliance overview and copyright</td></tr>
     <tr><td>Disesdi Susanna Cox</td><td>OTW</td><td>US</td><td>Federated learning</td></tr>
