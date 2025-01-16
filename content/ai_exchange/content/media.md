@@ -7,6 +7,9 @@ excludeSearch: true
 
 | Date | Event | Title | Video |
 | - | - | - | - |
+| 28 Nov 2024 | OWASP Benelux | AI: The New Beginning w/ Rob van der Veer | [Youtube](https://www.youtube.com/watch?v=UrzIHmecXnk) |
+| 14 Nov 2024 | Thread Modeling Connect | Threat modeling in the Age of AI w/ Susanna Cox | [Youtube](https://www.youtube.com/watch?v=cTbAD9K_FqA&t=1788s) |
+| 13 Nov 2024 | German OWASP day | Overview of OWASP AI Exchange w/ Behnaz Karimi | [Youtube](https://www.youtube.com/watch?v=WLIx5jMyJ_A) |
 | 28 Jun 2024 | OWASP Lisbon global appsec | Keynote: AI is just software, what could possible go wrong w/ Rob van der Veer | [Youtube](https://www.youtube.com/watch?v=43cv4f--UU4) |
 | 29 Jan 2024 | re:Invent security | AI for CISOs w/ Rob van der Veer | [Youtube](https://www.youtube.com/watch?v=wSSGK2HJPoo/) |
 | 5 Jan 2024 | Robust Intelligence | Understanding the AI threat Landscape w/ NIST, MITRE & OWASP | [Youtube](https://www.robustintelligence.com/resource-center/ai-security-understanding-the-threat-landscape) |
