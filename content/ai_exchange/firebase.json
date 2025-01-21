@@ -507,7 +507,7 @@
         "source": "/goto/modelinputconfidentiality/",
         "destination": "/docs/4_runtime_application_security_threats/#modelinputconfidentiality",
         "type": 301
-      }
+      },
       {
         "source": "/goto/testing/",
         "destination": "/docs/5_testing",
