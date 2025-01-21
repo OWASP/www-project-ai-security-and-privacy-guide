@@ -51,11 +51,11 @@ While we have mentioned the key threats for each of the AI Paradigm, we strongly
 
 The mind map provides an overview of open-source tools for AI Red Teaming, categorized into Predictive AI Red Teaming and Generative AI Red Teaming, highlighting examples like ART, Armory, TextAttack, and Promptfoo. These tools represent current capabilities but are not exhaustive or ranked by importance, as additional tools and methods will likely emerge and be integrated into this space in the future.
 
-![](testtoolstoattacks.png)
+![](/images/testtoolstoattacks.png)
 
 This diagram categorizes threats in AI systems and maps them to relevant open-source tools designed to address these threats.
 
-![](attackstotesttools.jpg)
+![](/images/attackstotesttools.jpg)
 
 In this list, you see five predictive AI red teaming tools:
 
@@ -996,9 +996,9 @@ Notes:
 - Prompt Injection: Evaluates the robustness of generative AI models by exploiting weaknesses in prompt design, leading to undesired outputs or bypassing model safeguards.
 *[https://owaspai.org/goto/promptinjection/](https://owaspai.org/goto/promptinjection/)*
 
-### Tool Ratings by Popularity, Community Support, Scalability and Integration
+## Tool Ratings by Popularity, Community Support, Scalability and Integration
 
-![](testtoolrating.png)
+![](/images/testtoolrating.png)
 
 | **Attribute** | High | Medium | Low |
 | --- | --- | --- | --- |
