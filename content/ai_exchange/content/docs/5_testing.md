@@ -7,7 +7,7 @@ weight: 6
 
 Testing AI system’s resilience and security relies on three pillars:
 1.	Conventional security testing (i.e. _pentesting_). See the [secure software developmentcontrol](/goto/secdevprogram/).
-2.	Model performance validation (see [continuous validation](/goto/continuusvalidation/)): testing if the model behaves according to its specified acceptance criteria isusing a validation set with inputs outputs that represent the intended behaviour of the model. For security,this is to detect if the model behaviour has been altered permanently through data poisoning or model poisoning. For non-security, it is for testing functional correctness, model drift etc.
+2.	Model performance validation (see [continuous validation](/goto/continuousvalidation/)): testing if the model behaves according to its specified acceptance criteria isusing a validation set with inputs outputs that represent the intended behaviour of the model. For security,this is to detect if the model behaviour has been altered permanently through data poisoning or model poisoning. For non-security, it is for testing functional correctness, model drift etc.
 3.	AI security testing (this section), a part of _AI read teaming_ which tests if the AI model can withstand certain attacks, by simulating these attacks.
 
 AI security tests simulate adversarial behaviors to uncover vulnerabilities, weaknesses, and risks in AI systems. While the focus areas of traditional AI testing are functionality and performance, the focus areas of AI Red Teaming go beyond standard validation and include intentional stress testing, attacks, and attempts to bypass safeguards. While the focus of red teaming can extend beyond Security, in this document, we focus primarily on “AI Red Teaming for AI Security”.
