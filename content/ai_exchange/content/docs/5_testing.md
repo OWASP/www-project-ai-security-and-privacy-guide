@@ -5,7 +5,7 @@ weight: 6
 > Category: discussion  
 > Permalink: https://owaspai.org/goto/testing/
 
-Testing AI system’s resilience and security relies on three pillars:
+Testing an AI system’s resilience and security relies on three pillars:
 1.	**Conventional security testing** (i.e. _pentesting_). See the [secure software developmentcontrol](/goto/secdevprogram/).
 2.	**Model performance validation** (see [continuous validation](/goto/continuousvalidation/)): testing if the model behaves according to its specified acceptance criteria isusing a validation set with inputs outputs that represent the intended behaviour of the model. For security,this is to detect if the model behaviour has been altered permanently through data poisoning or model poisoning. For non-security, it is for testing functional correctness, model drift etc.
 3.	**AI security testing** (this section), a part of _AI read teaming_ which tests if the AI model can withstand certain attacks, by simulating these attacks.
