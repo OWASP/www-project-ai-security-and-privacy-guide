@@ -5,14 +5,15 @@ weight: 6
 > Category: discussion  
 > Permalink: https://owaspai.org/goto/testing/
 
+## Introduction
 Testing an AI system’s resilience and security relies on three pillars:
-1.	**Conventional security testing** (i.e. _pentesting_). See the [secure software developmentcontrol](/goto/secdevprogram/).
-2.	**Model performance validation** (see [continuous validation](/goto/continuousvalidation/)): testing if the model behaves according to its specified acceptance criteria isusing a validation set with inputs outputs that represent the intended behaviour of the model. For security,this is to detect if the model behaviour has been altered permanently through data poisoning or model poisoning. For non-security, it is for testing functional correctness, model drift etc.
-3.	**AI security testing** (this section), a part of _AI read teaming_ which tests if the AI model can withstand certain attacks, by simulating these attacks.
+1.	**Conventional security testing** (i.e. _pentesting_). See [secure software development](/goto/secdevprogram/).
+2.	**Model performance validation** (see [continuous validation](/goto/continuousvalidation/)): testing if the model behaves according to its specified acceptance criteria using a validation set with inputs and outputs that represent the intended behaviour of the model. For security,this is to detect if the model behaviour has been altered permanently through data poisoning or model poisoning. For non-security, it is for testing functional correctness, model drift etc.
+3.	**AI security testing** (this section), the part of _AI read teaming_ that tests if the AI model can withstand certain attacks, by simulating these attacks.
 
 AI security tests simulate adversarial behaviors to uncover vulnerabilities, weaknesses, and risks in AI systems. While the focus areas of traditional AI testing are functionality and performance, the focus areas of AI Red Teaming go beyond standard validation and include intentional stress testing, attacks, and attempts to bypass safeguards. While the focus of red teaming can extend beyond Security, in this document, we focus primarily on “AI Red Teaming for AI Security”.
 
-In this document, we differentiate AI Red Teaming for Predictive and Generative AI due to their distinct nature, risks, and applications. While some threats, such as development-time supply chain threats, could be common to both types of AI, the way they manifest in their applications can differ significantly.
+In this section, we differentiate AI Red Teaming for Predictive and Generative AI due to their distinct nature, risks, and applications. While some threats, such as development-time supply chain threats, could be common to both types of AI, the way they manifest in their applications can differ significantly.
 
 A systematic approach to AI Red Teaming involves a few key steps, listed below:
 
@@ -25,6 +26,7 @@ A systematic approach to AI Red Teaming involves a few key steps, listed below:
 - **Prioritization and Risk Mitigation:** Develop an action plan for remediation, implement mitigation measures, and calculate residual risk.
 - **Validation of Fixes:** Retest the system post-remediation.
 
+## Threats to test for
 A comprehensive list of threats and controls coverage based on assets, impact, and attack surfaces is available as a [Periodic Table of AI Security](/goto/periodictable/). In this section, we provide a list of tools for AI Red Teaming Predictive and Generative AI systems, aiding steps such as Attack Scenarios, Test Execution through automated red teaming, and, oftentimes, Risk Assessment through risk scoring.
 
 Each listed tool addresses a subset of the threat landscape of AI systems. Below, we list some key threats to consider:
@@ -49,15 +51,15 @@ While we have mentioned the key threats for each of the AI Paradigm, we strongly
 
 ## **Red Teaming Tools for AI and GenAI**
 
-The mind map provides an overview of open-source tools for AI Red Teaming, categorized into Predictive AI Red Teaming and Generative AI Red Teaming, highlighting examples like ART, Armory, TextAttack, and Promptfoo. These tools represent current capabilities but are not exhaustive or ranked by importance, as additional tools and methods will likely emerge and be integrated into this space in the future.
+The below mind map provides an overview of open-source tools for AI Red Teaming, categorized into Predictive AI Red Teaming and Generative AI Red Teaming, highlighting examples like ART, Armory, TextAttack, and Promptfoo. These tools represent current capabilities but are not exhaustive or ranked by importance, as additional tools and methods will likely emerge and be integrated into this space in the future.
 
 [![](https://owaspai.org/images/testtoolstoattacks.png)](https://owaspai.org/images/testtoolstoattacks.png)
 
-This diagram categorizes threats in AI systems and maps them to relevant open-source tools designed to address these threats.
+The diagram below categorizes threats in AI systems and maps them to relevant open-source tools designed to address these threats.
 
 [![](https://owaspai.org/images/attackstotesttools.jpg)](https://owaspai.org/images/attackstotesttools.jpg)
 
-In this list, you see five predictive AI red teaming tools:
+The below section will cover the tools for predictive AI, followed by the section for generative AI.
 
 ## **Open source Tools for Predictive AI Red Teaming**
 
@@ -996,7 +998,8 @@ Notes:
 - Prompt Injection: Evaluates the robustness of generative AI models by exploiting weaknesses in prompt design, leading to undesired outputs or bypassing model safeguards.
 *[https://owaspai.org/goto/promptinjection/](https://owaspai.org/goto/promptinjection/)*
 
-## Tool Ratings by Popularity, Community Support, Scalability and Integration
+## Tool Ratings
+This section rates the discussed tools by Popularity, Community Support, Scalability and Integration.
 
 [![](https://owaspai.org/images/testtoolrating.png)](https://owaspai.org/images/testtoolrating.png)
 
