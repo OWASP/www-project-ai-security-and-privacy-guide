@@ -1,6 +1,11 @@
-# OWASP Red Teaming | Jan 2025
+---
+title: 5. AI security testing
+weight: 2
+---
+> Category: discussion  
+> Permalink: https://owaspai.org/goto/testing/
 
-# **AI Red Teaming**
+## **AI Red Teaming**
 
 **AI Red Teaming** methodologies simulate adversarial behaviors to uncover vulnerabilities, weaknesses, and risks in AI systems. While the focus areas of traditional AI testing are functionality and performance, the focus areas of AI Red Teaming go beyond standard validation and include intentional stress testing, attacks, and attempts to bypass safeguards. While the focus of red teaming can extend beyond Security, in this document, we focus primarily on “AI Red Teaming for AI Security”.
 
@@ -39,23 +44,23 @@ Each listed tool addresses a subset of the threat landscape of AI systems. Below
 
 While we have mentioned the key threats for each of the AI Paradigm, we strongly encourage the reader to refer to the Threats at the [OWASP AI Exchange Documentation](https://owaspai.org/docs/) , based on the outcome of the Objective and scope definition phase in AI Red Teaming.
 
-# **Red Teaming Tools for AI and GenAI**
+## **Red Teaming Tools for AI and GenAI**
 
 The mind map provides an overview of open-source tools for AI Red Teaming, categorized into Predictive AI Red Teaming and Generative AI Red Teaming, highlighting examples like ART, Armory, TextAttack, and Promptfoo. These tools represent current capabilities but are not exhaustive or ranked by importance, as additional tools and methods will likely emerge and be integrated into this space in the future.
 
-![rdte.JPG](5ddfc4cb-74c0-40b3-98cd-84bca52dfde4.png)
+![](testtoolstoattacks.png)
 
 This diagram categorizes threats in AI systems and maps them to relevant open-source tools designed to address these threats.
 
-![redt2.JPG](redt2.jpg)
+![](attackstotesttools.jpg)
 
 In this list, you see five predictive AI red teaming tools:
 
-# **Open source Tools for Predictive AI Red Teaming**
+## **Open source Tools for Predictive AI Red Teaming**
 
 **Adversarial Robustness Toolbox (ART), Armory, Foolbox**, **DeepSec**, and **TextAttack**.
 
-## **Tool Name: The Adversarial Robustness Toolbox (ART)**
+### **Tool Name: The Adversarial Robustness Toolbox (ART)**
 
 | **Tool Name: The Adversarial Robustness Toolbox (ART)** |  |
 | --- | --- |
@@ -80,7 +85,7 @@ In this list, you see five predictive AI red teaming tools:
 |  | - **Large-Scale Deployment:** Proven to handle large, enterprise-level deployments in industries like healthcare, finance, and defense. |
 | **Integration** | - **Compatibility:** Works with TensorFlow, PyTorch, Keras, MXNet, and Scikit-learn. |
 
-### Tool Rating
+**Tool Rating**
 
 | **Criteria** | **High** | **Medium** | **Low** |
 | --- | --- | --- | --- |
@@ -89,7 +94,7 @@ In this list, you see five predictive AI red teaming tools:
 | **Scalability** | ✅ |  |  |
 | **Ease of Integration** | ✅ |  |  |
 
-### Data Modality
+**Data Modality**
 
 | Data Modality | Supported |
 | --- | --- |
@@ -99,7 +104,7 @@ In this list, you see five predictive AI red teaming tools:
 | Video | ✅ |
 | Tabular data | ✅ |
 
-### **Machine Learning Tasks**
+**Machine Learning Tasks**
 
 | Task Type | Data Modality | Supported |
 | --- | --- | --- |
@@ -107,7 +112,7 @@ In this list, you see five predictive AI red teaming tools:
 | Object Detection | Computer Vision | ✅ |
 | Speech Recognition | Audio | ✅ |
 
-### **Framework Applicability**
+**Framework Applicability**
 
 | Framework / Tool | Category | Supported |
 | --- | --- | --- |
@@ -121,7 +126,7 @@ In this list, you see five predictive AI red teaming tools:
 | CatBoost | ML | ✅ |
 | GPy | ML | ✅ |
 
-### **OWASP AI Exchange Threat Coverage**
+**OWASP AI Exchange Threat Coverage**
 
 | Topic | Coverage |
 | --- | --- |
@@ -149,7 +154,7 @@ Notes:
 - Model inference: *Assesses exposure to membership and inversion attacks*
 *[https://owaspai.org/goto/modelinversionandmembership/](https://owaspai.org/goto/modelinversionandmembership/)*
 
-## **Tool Name: Armory**
+### **Tool Name: Armory**
 
 | **Tool Name: Armory** |  |
 | --- | --- |
@@ -175,7 +180,7 @@ Notes:
 | **Integration** | - **Compatibility:** Works well with TensorFlow and Keras; IBM ART integration for enhanced robustness |
 |  | - **API Availability**: Limited compared to IBM ART, but sufficient for adversarial ML use cases. |
 
-### Tool Rating
+**Tool Rating**
 
 | **Criteria** | **High** | **Medium** | **Low** |
 | --- | --- | --- | --- |
@@ -184,7 +189,7 @@ Notes:
 | **Scalability** |  | ✅ |  |
 | **Ease of Integration** | ✅ |  |  |
 
-### **Data Modality**
+**Data Modality**
 
 | Data Modality | Supported |
 | --- | --- |
@@ -194,7 +199,7 @@ Notes:
 | Video | ✅ |
 | Tabular data | ✅ |
 
-### **Machine Learning Tasks**
+**Machine Learning Tasks**
 
 | Task Type | Data Modality | Supported |
 | --- | --- | --- |
@@ -202,7 +207,7 @@ Notes:
 | Object Detection | Computer Vision | ✅ |
 | Speech Recognition | Audio | ✅ |
 
-### **Framework Applicability**
+**Framework Applicability**
 
 | Framework / Tool | Category | Supported |
 | --- | --- | --- |
@@ -216,7 +221,7 @@ Notes:
 | CatBoost | ML |  |
 | GPy | ML |  |
 
-### **OWASP AI Exchange Threat Coverage**
+**OWASP AI Exchange Threat Coverage**
 
 | Topic | Coverage |
 | --- | --- |
@@ -243,7 +248,7 @@ Notes:
 - Prompt Injection: Evaluates the robustness of generative AI models by exploiting weaknesses in prompt design, leading to undesired outputs or bypassing model safeguards.
 *https://owaspai.org/goto/promptinjection/*
 
-## **Tool Name: Foolbox**
+### **Tool Name: Foolbox**
 
 | **Tool Name: Foolbox** |  |
 | --- | --- |
@@ -268,7 +273,7 @@ Notes:
 |  | - **Large-Scale Deployment:**  Limited scalability for large-scale industry deployments, more focused on research and experimentation. |
 | **Integration** | - **Compatibility:**  Strong integration with TensorFlow, PyTorch, and JAX. |
 
-### Total Rating
+**Total Rating**
 
 | **Criteria** | **High** | **Medium** | **Low** |
 | --- | --- | --- | --- |
@@ -277,7 +282,7 @@ Notes:
 | **Scalability** |  |  | ✅ |
 | **Ease of Integration** |  | ✅ |  |
 
-### Data Modality
+**Data Modality**
 
 | Data Modality | Supported |
 | --- | --- |
@@ -287,7 +292,7 @@ Notes:
 | Video |  |
 | Tabular data |  |
 
-### **Machine Learning Tasks**
+**Machine Learning Tasks**
 
 | Task Type | Data Modality | Supported |
 | --- | --- | --- |
@@ -295,7 +300,7 @@ Notes:
 | Object Detection | Computer Vision | ✅ |
 | Speech Recognition | Audio |  |
 
-### **Framework Applicability**
+**Framework Applicability**
 
 | Framework / Tool | Category | Supported |
 | --- | --- | --- |
@@ -309,7 +314,7 @@ Notes:
 | CatBoost | ML |  |
 | GPy | ML |  |
 
-### **OWASP AI Exchange Threat Coverage**
+**OWASP AI Exchange Threat Coverage**
 
 | Topic | Coverage |
 | --- | --- |
@@ -335,7 +340,7 @@ Evasion:Tests model performance against adversarial inputs
 
 [*https://owaspai.org/goto/evasion/*](https://owaspai.org/goto/evasion/)
 
-## **Tool Name: DeepSec**
+**Tool Name: DeepSec**
 
 | **Tool Name: DeepSec** |  |
 | --- | --- |
@@ -360,7 +365,7 @@ Evasion:Tests model performance against adversarial inputs
 |  | - **Large-Scale Deployment:** Suitable for research and testing environments but may need adjustments for production-grade scaling |
 | **Integration** | - **Compatibility:** Compatible with machine learning libraries in Python. |
 
-### Tool Rating
+**Tool Rating**
 
 | **Criteria** | **High** | **Medium** | **Low** |
 | --- | --- | --- | --- |
@@ -369,7 +374,7 @@ Evasion:Tests model performance against adversarial inputs
 | **Scalability** |  |  | ✅ |
 | **Ease of Integration** |  |  | ✅ |
 
-### Data Modality
+**Data Modality**
 
 | Data Modality | Supported |
 | --- | --- |
@@ -379,7 +384,7 @@ Evasion:Tests model performance against adversarial inputs
 | Video |  |
 | Tabular data |  |
 
-### **Machine Learning Tasks**
+**Machine Learning Tasks**
 
 | Task Type | Data Modality | Supported |
 | --- | --- | --- |
@@ -387,7 +392,7 @@ Evasion:Tests model performance against adversarial inputs
 | Object Detection | Computer Vision |  |
 | Speech Recognition | Audio |  |
 
-### **Framework Applicability**
+**Framework Applicability**
 
 | Framework / Tool | Category | Supported |
 | --- | --- | --- |
@@ -401,7 +406,7 @@ Evasion:Tests model performance against adversarial inputs
 | CatBoost | ML |  |
 | GPy | ML |  |
 
-### **OWASP AI Exchange Threat Coverage**
+**OWASP AI Exchange Threat Coverage**
 
 | Topic | Coverage |
 | --- | --- |
@@ -427,7 +432,7 @@ Evasion:Tests model performance against adversarial inputs
 
 [*https://owaspai.org/goto/evasion/*](https://owaspai.org/goto/evasion/)
 
-## **Tool Name: TextAttack**
+### Tool Name: TextAttack
 
 | **Tool Name: TextAttack** |  |
 | --- | --- |
@@ -452,7 +457,7 @@ Evasion:Tests model performance against adversarial inputs
 |  | - **Large-Scale Deployment:** Primarily designed for research and experimentation; deployment at scale would likely require customization. |
 | **Integration** | - **Compatibility:** Model-agnostic, allowing use with various NLP model architectures as long as they meet the interface requirements. |
 
-### Tool Rating
+**Tool Rating**
 
 | **Criteria** | **High** | **Medium** | **Low** |
 | --- | --- | --- | --- |
@@ -461,7 +466,7 @@ Evasion:Tests model performance against adversarial inputs
 | **Scalability** |  | ✅ |  |
 | **Ease of Integration** | ✅ |  |  |
 
-### Data Modality
+**Data Modality**
 
 | Data Modality | Supported |
 | --- | --- |
@@ -471,7 +476,7 @@ Evasion:Tests model performance against adversarial inputs
 | Video |  |
 | Tabular data |  |
 
-### **Machine Learning Tasks**
+**Machine Learning Tasks**
 
 | Task Type | Data Modality | Supported |
 | --- | --- | --- |
@@ -479,7 +484,7 @@ Evasion:Tests model performance against adversarial inputs
 | Object Detection | Computer Vision |  |
 | Speech Recognition | Audio |  |
 
-### **Framework Applicability**
+**Framework Applicability**
 
 | Framework / Tool | Category | Supported |
 | --- | --- | --- |
@@ -493,7 +498,7 @@ Evasion:Tests model performance against adversarial inputs
 | CatBoost | ML |  |
 | GPy | ML |  |
 
-### **OWASP AI Exchange Threat Coverage**
+**OWASP AI Exchange Threat Coverage**
 
 | Topic | Coverage |
 | --- | --- |
@@ -518,11 +523,10 @@ Notes:
 - Development-time Model poisoning: Simulates attacks during development to evaluate vulnerabilities[*https://owaspai.org/goto/modelpoison/*](https://owaspai.org/goto/modelpoison/)
 - Evasion:Tests model performance against adversarial inputs[*https://owaspai.org/goto/evasion/*](https://owaspai.org/goto/evasion/)
 
-# **Open source Tools for Generative AI Red Teaming**
+## Open source Tools for Generative AI Red Teaming
 
-**PyRIT, Garak, Prompt Fuzzer, Guardrail, Promptfoo**
 
-## **Tool Name: PyRIT**
+### Tool Name: PyRIT
 
 | **Tool Name: PyRIT** |  |
 | --- | --- |
@@ -547,7 +551,7 @@ Notes:
 |  | - **Large-Scale Deployment:** Can be extended to Azure pipeline. |
 | **Integration** | - **Compatibility:** Compatible with majority of LLMs |
 
-### Tool Rating
+**Tool Rating**
 
 | **Criteria** | **High** | **Medium** | **Low** |
 | --- | --- | --- | --- |
@@ -556,7 +560,7 @@ Notes:
 | **Scalability** | ✅ |  |  |
 | **Ease of Integration** |  | ✅ |  |
 
-### Data Modality
+**Data Modality**
 
 | Data Modality | Supported |
 | --- | --- |
@@ -566,7 +570,7 @@ Notes:
 | Video |  |
 | Tabular data |  |
 
-### **Machine Learning Tasks**
+**Machine Learning Tasks**
 
 | Task Type | Data Modality | Supported |
 | --- | --- | --- |
@@ -574,7 +578,7 @@ Notes:
 | Object Detection | Computer Vision | ✅ |
 | Speech Recognition | Audio | ✅ |
 
-### **Framework Applicability**
+**Framework Applicability**
 
 | Framework / Tool | Category | Supported |
 | --- | --- | --- |
@@ -588,7 +592,7 @@ Notes:
 | OpenAI API | GenAI | ✅ |
 | GGUF (Llama.cpp) | GenAI, Lightweight Inference | ✅ |
 
-### **OWASP AI Exchange Threat Coverage**
+**OWASP AI Exchange Threat Coverage**
 
 | Topic | Coverage |
 | --- | --- |
@@ -613,7 +617,7 @@ Notes:
 - Evasion:Tests model performance against adversarial inputs  [*https://owaspai.org/goto/evasion/*](https://owaspai.org/goto/evasion/)
 - Prompt Injection: Evaluates the robustness of generative AI models by exploiting weaknesses in prompt design, leading to undesired outputs or bypassing model safeguards.*https://owaspai.org/goto/promptinjection/*
 
-## **Tool Name: Garak**
+### Tool Name: Garak
 
 | **Tool Name: Garak** |  |
 | --- | --- |
@@ -640,7 +644,7 @@ https://github.com/NVIDIA/garak |
 |  | - **Large-Scale Deployment:** Mostly used in attack LLM, detect LLM failures and assessing LLM security. Can be integrated with NeMo Guardrails |
 | **Integration** | - **Compatibility:**  All LLMs, Nvidia models |
 
-### Tool Rating
+**Tool Rating**
 
 | **Criteria** | **High** | **Medium** | **Low** |
 | --- | --- | --- | --- |
@@ -649,7 +653,7 @@ https://github.com/NVIDIA/garak |
 | **Scalability** |  | ✅ |  |
 | **Ease of Integration** |  | ✅ |  |
 
-### Data Modality
+**Data Modality**
 
 | Data Modality | Supported |
 | --- | --- |
@@ -659,7 +663,7 @@ https://github.com/NVIDIA/garak |
 | Video |  |
 | Tabular data |  |
 
-### **Machine Learning Tasks**
+**Machine Learning Tasks**
 
 | Task Type | Data Modality | Supported |
 | --- | --- | --- |
@@ -667,7 +671,7 @@ https://github.com/NVIDIA/garak |
 | Object Detection | Computer Vision | ✅ |
 | Speech Recognition | Audio |  |
 
-### **Framework Applicability**
+**Framework Applicability**
 
 | Framework / Tool | Category | Supported |
 | --- | --- | --- |
@@ -682,7 +686,7 @@ https://github.com/NVIDIA/garak |
 | GGUF (Llama.cpp) | GenAI, Lightweight Inference | ✅ |
 | OctoAI | GenAI | ✅ |
 
-### **OWASP AI Exchange Threat Coverage**
+**OWASP AI Exchange Threat Coverage**
 
 | Topic | Coverage |
 | --- | --- |
@@ -705,7 +709,7 @@ https://github.com/NVIDIA/garak |
 - Prompt Injection: Evaluates the robustness of generative AI models by exploiting weaknesses in prompt design, leading to undesired outputs or bypassing model safeguards.
 *https://owaspai.org/goto/promptinjection/*
 
-## **Tool Name: Prompt Fuzzer**
+### Tool Name: Prompt Fuzzer
 
 | **Tool Name: Prompt Fuzzer** |  |
 | --- | --- |
@@ -730,7 +734,7 @@ https://github.com/NVIDIA/garak |
 |  | - **Large-Scale Deployment:** It only assesses the security of your GenAI application's system prompt against various dynamic LLM-based attacks, so can be integrated with current env. |
 | **Integration** | - **Compatibility:**  Any device. |
 
-### Tool Rating
+**Tool Rating**
 
 | **Criteria** | **High** | **Medium** | **Low** |
 | --- | --- | --- | --- |
@@ -739,7 +743,7 @@ https://github.com/NVIDIA/garak |
 | **Scalability** |  | ✅ |  |
 | **Ease of Integration** |  | ✅ |  |
 
-### Data Modality
+**Data Modality**
 
 | Data Modality | Supported |
 | --- | --- |
@@ -749,7 +753,7 @@ https://github.com/NVIDIA/garak |
 | Video |  |
 | Tabular data |  |
 
-### **Machine Learning Tasks**
+**Machine Learning Tasks**
 
 | Task Type | Data Modality | Supported |
 | --- | --- | --- |
@@ -757,7 +761,7 @@ https://github.com/NVIDIA/garak |
 | Object Detection | Computer Vision |  |
 | Speech Recognition | Audio |  |
 
-### **Framework Applicability**
+**Framework Applicability**
 
 *(LLM Model agnostic in the API mode of use)*
 
@@ -774,7 +778,7 @@ https://github.com/NVIDIA/garak |
 | GGUF (Llama.cpp) | GenAI, Lightweight Inference |  |
 | OctoAI | GenAI |  |
 
-### **OWASP AI Exchange Threat Coverage**
+**OWASP AI Exchange Threat Coverage**
 
 | Topic | Coverage |
 | --- | --- |
@@ -799,7 +803,7 @@ Notes:
 - Evasion:Tests model performance against adversarial inputs  [*https://owaspai.org/goto/evasion/*](https://owaspai.org/goto/evasion/)
 - Prompt Injection: Evaluates the robustness of generative AI models by exploiting weaknesses in prompt design, leading to undesired outputs or bypassing model safeguards. *https://owaspai.org/goto/promptinjection/*
 
-## **Tool Name: Guardrail**
+### Tool Name: Guardrail
 
 | **Tool Name: Guardrail** |  |
 | --- | --- |
@@ -824,7 +828,7 @@ Notes:
 |  | - **Large-Scale Deployment:** Can be extended to Azure, langchain. |
 | **Integration** | - **Compatibility:**  Compatible with various open source LLMs like OpenAI, Gemini, Anthropic. |
 
-### Tool Rating
+**Tool Rating**
 
 | **Criteria** | **High** | **Medium** | **Low** |
 | --- | --- | --- | --- |
@@ -833,7 +837,7 @@ Notes:
 | **Scalability** |  | ✅ |  |
 | **Ease of Integration** | ✅ |  |  |
 
-### Data Modality
+**Data Modality**
 
 | Data Modality | Supported |
 | --- | --- |
@@ -843,7 +847,7 @@ Notes:
 | Video |  |
 | Tabular data |  |
 
-### **Machine Learning Tasks**
+**Machine Learning Tasks**
 
 | Task Type | Data Modality | Supported |
 | --- | --- | --- |
@@ -851,7 +855,7 @@ Notes:
 | Object Detection | Computer Vision |  |
 | Speech Recognition | Audio |  |
 
-### **Framework Applicability**
+**Framework Applicability**
 
 | Framework / Tool | Category | Supported |
 | --- | --- | --- |
@@ -866,7 +870,7 @@ Notes:
 | GGUF (Llama.cpp) | GenAI, Lightweight Inference |  |
 | OctoAI | GenAI |  |
 
-### **OWASP AI Exchange Threat Coverage**
+**OWASP AI Exchange Threat Coverage**
 
 | Topic | Coverage |
 | --- | --- |
@@ -891,7 +895,7 @@ Notes:
 - Evasion:Tests model performance against adversarial inputs  [*https://owaspai.org/goto/evasion/*](https://owaspai.org/goto/evasion/)
 - Prompt Injection: Evaluates the robustness of generative AI models by exploiting weaknesses in prompt design, leading to undesired outputs or bypassing model safeguards.   *https://owaspai.org/goto/promptinjection/*
 
-## **Tool Name: Promptfoo**
+### Tool Name: Promptfoo
 
 | **Tool Name: Promptfoo** |  |
 | --- | --- |
@@ -921,7 +925,7 @@ Notes:
 |  | - **Large-Scale Deployment:** Enterprise version avaiable, that supports cloud deployment. |
 | **Integration** | - **Compatibility:** Compatible with majoirty of the LLMs |
 
-### Tool Rating
+**Tool Rating**
 
 | **Criteria** | **High** | **Medium** | **Low** |
 | --- | --- | --- | --- |
@@ -930,7 +934,7 @@ Notes:
 | **Scalability** |  | ✅ |  |
 | **Ease of Integration** |  | ✅ |  |
 
-### Data Modality
+**Data Modality**
 
 | Data Modality | Supported |
 | --- | --- |
@@ -940,7 +944,7 @@ Notes:
 | Video |  |
 | Tabular data |  |
 
-### **Machine Learning Tasks**
+**Machine Learning Tasks**
 
 | Task Type | Data Modality | Supported |
 | --- | --- | --- |
@@ -948,7 +952,7 @@ Notes:
 | Object Detection | Computer Vision |  |
 | Speech Recognition | Audio |  |
 
-### **Framework Applicability**
+**Framework Applicability**
 
 | Framework / Tool | Category | Supported |
 | --- | --- | --- |
@@ -963,7 +967,7 @@ Notes:
 | GGUF (Llama.cpp) | GenAI, Lightweight Inference | ✅ |
 | OctoAI | GenAI |  |
 
-### **OWASP AI Exchange Threat Coverage**
+**OWASP AI Exchange Threat Coverage**
 
 | Topic | Coverage |
 | --- | --- |
@@ -989,9 +993,9 @@ Notes:
 - Prompt Injection: Evaluates the robustness of generative AI models by exploiting weaknesses in prompt design, leading to undesired outputs or bypassing model safeguards.
 *[https://owaspai.org/goto/promptinjection/](https://owaspai.org/goto/promptinjection/)*
 
-## Tool Ratings by Popularity, Community Support, Scalability and Integration
+### Tool Ratings by Popularity, Community Support, Scalability and Integration
 
-![redt3.JPG](fbdbf92f-66b7-4c06-b0a2-cf573db020ae.png)
+![](testtoolrating.png)
 
 | **Attribute** | High | Medium | Low |
 | --- | --- | --- | --- |
