@@ -5,9 +5,12 @@ weight: 2
 > Category: discussion  
 > Permalink: https://owaspai.org/goto/testing/
 
-## **AI Red Teaming**
+Testing AI system’s resilience and security relies on three pillars:
+1.	Conventional security testing (i.e. _pentesting_). See the [secure software developmentcontrol](/goto/secdevprogram/).
+2.	Model performance validation (see [continuous validation](/goto/continuusvalidation/)): testing if the model behaves according to its specified acceptance criteria isusing a validation set with inputs outputs that represent the intended behaviour of the model. For security,this is to detect if the model behaviour has been altered permanently through data poisoning or model poisoning. For non-security, it is for testing functional correctness, model drift etc.
+3.	AI security testing (this section), a part of _AI read teaming_ which tests if the AI model can withstand certain attacks, by simulating these attacks.
 
-**AI Red Teaming** methodologies simulate adversarial behaviors to uncover vulnerabilities, weaknesses, and risks in AI systems. While the focus areas of traditional AI testing are functionality and performance, the focus areas of AI Red Teaming go beyond standard validation and include intentional stress testing, attacks, and attempts to bypass safeguards. While the focus of red teaming can extend beyond Security, in this document, we focus primarily on “AI Red Teaming for AI Security”.
+AI security tests simulate adversarial behaviors to uncover vulnerabilities, weaknesses, and risks in AI systems. While the focus areas of traditional AI testing are functionality and performance, the focus areas of AI Red Teaming go beyond standard validation and include intentional stress testing, attacks, and attempts to bypass safeguards. While the focus of red teaming can extend beyond Security, in this document, we focus primarily on “AI Red Teaming for AI Security”.
 
 In this document, we differentiate AI Red Teaming for Predictive and Generative AI due to their distinct nature, risks, and applications. While some threats, such as development-time supply chain threats, could be common to both types of AI, the way they manifest in their applications can differ significantly.
 
@@ -22,7 +25,7 @@ A systematic approach to AI Red Teaming involves a few key steps, listed below:
 - **Prioritization and Risk Mitigation:** Develop an action plan for remediation, implement mitigation measures, and calculate residual risk.
 - **Validation of Fixes:** Retest the system post-remediation.
 
-A comprehensive list of threats and controls coverage based on assets, impact, and attack surfaces is available as a [Periodic Table of AI Security](https://owaspai.org/docs/ai_security_overview/#periodic-table-of-ai-security) at the OWASP AI Exchange. In this document, we provide a list of tools for AI Red Teaming Predictive and Generative AI systems, aiding steps such as Attack Scenarios, Test Execution through automated red teaming, and, oftentimes, Risk Assessment through risk scoring.
+A comprehensive list of threats and controls coverage based on assets, impact, and attack surfaces is available as a [Periodic Table of AI Security](/goto/periodictable/). In this section, we provide a list of tools for AI Red Teaming Predictive and Generative AI systems, aiding steps such as Attack Scenarios, Test Execution through automated red teaming, and, oftentimes, Risk Assessment through risk scoring.
 
 Each listed tool addresses a subset of the threat landscape of AI systems. Below, we list some key threats to consider:
 
@@ -42,7 +45,7 @@ Each listed tool addresses a subset of the threat landscape of AI systems. Below
 - [Direct Runtime Model Theft](https://owaspai.org/goto/runtimemodeltheft/): Attackers target parts of the model or critical components like the system prompt. By doing so, they gain the ability to craft sophisticated inputs that bypass guardrails.
 - [Insecure Output Handling](https://owaspai.org/goto/insecureoutput/): Generative AI systems can be vulnerable to traditional injection attacks, leading to risks if the outputs are improperly handled or processed.
 
-While we have mentioned the key threats for each of the AI Paradigm, we strongly encourage the reader to refer to the Threats at the [OWASP AI Exchange Documentation](https://owaspai.org/docs/) , based on the outcome of the Objective and scope definition phase in AI Red Teaming.
+While we have mentioned the key threats for each of the AI Paradigm, we strongly encourage the reader to refer to all threats at the AI Exchange, based on the outcome of the Objective and scope definition phase in AI Red Teaming.
 
 ## **Red Teaming Tools for AI and GenAI**
 
