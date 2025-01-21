@@ -6,10 +6,10 @@ weight: 6
 > Permalink: https://owaspai.org/goto/testing/
 
 ## Introduction
-Testing an AI system’s resilience and security relies on three pillars:
+Testing an AI system’s security relies on three strategies:
 1.	**Conventional security testing** (i.e. _pentesting_). See [secure software development](/goto/secdevprogram/).
 2.	**Model performance validation** (see [continuous validation](/goto/continuousvalidation/)): testing if the model behaves according to its specified acceptance criteria using a validation set with inputs and outputs that represent the intended behaviour of the model. For security,this is to detect if the model behaviour has been altered permanently through data poisoning or model poisoning. For non-security, it is for testing functional correctness, model drift etc.
-3.	**AI security testing** (this section), the part of _AI read teaming_ that tests if the AI model can withstand certain attacks, by simulating these attacks.
+3.	**AI security testing** (this section), the part of _AI red teaming_ that tests if the AI model can withstand certain attacks, by simulating these attacks.
 
 AI security tests simulate adversarial behaviors to uncover vulnerabilities, weaknesses, and risks in AI systems. While the focus areas of traditional AI testing are functionality and performance, the focus areas of AI Red Teaming go beyond standard validation and include intentional stress testing, attacks, and attempts to bypass safeguards. While the focus of red teaming can extend beyond Security, in this document, we focus primarily on “AI Red Teaming for AI Security”.
 
@@ -63,7 +63,7 @@ The below section will cover the tools for predictive AI, followed by the sectio
 
 ## **Open source Tools for Predictive AI Red Teaming**
 
-**Adversarial Robustness Toolbox (ART), Armory, Foolbox**, **DeepSec**, and **TextAttack**.
+This sub section covers the following tools for security testing Predictive AI: Adversarial Robustness Toolbox (ART), Armory, Foolbox**, DeepSec, and TextAttack.
 
 ### **Tool Name: The Adversarial Robustness Toolbox (ART)**
 
@@ -529,6 +529,10 @@ Notes:
 - Evasion:Tests model performance against adversarial inputs[*https://owaspai.org/goto/evasion/*](https://owaspai.org/goto/evasion/)
 
 ## Open source Tools for Generative AI Red Teaming
+
+This sub section covers the following tools for security testing Generative AI: PyRIT, Garak, Prompt Fuzzer, Guardrail, and Promptfoo.
+
+A list of GenAI test tools can also be found at the [OWASP LLM top 10 solutions page](https://genai.owasp.org/ai-security-solutions-landscape/) (click the category 'Test & Evaluate'.
 
 
 ### Tool Name: PyRIT
