@@ -1,6 +1,6 @@
 ---
 title: 5. AI security testing
-weight: 2
+weight: 6
 ---
 > Category: discussion  
 > Permalink: https://owaspai.org/goto/testing/
