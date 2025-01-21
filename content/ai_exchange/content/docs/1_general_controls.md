@@ -159,7 +159,7 @@ AI-specific elements in the development environment (sometimes referred to as ML
 - Version management/traceability of the combination of code, configuration, training data and models, for troubleshooting and rollback
 - Running AI-specific dynamic tests before deployment:
   - Automated validation of the model, including discrimination bias measurement
-  - Security tests (e.g. data poisoning payloads, prompt injection payloads, adversarial robustness testing)
+  - Security tests (e.g. data poisoning payloads, prompt injection payloads, adversarial robustness testing). See the [testing section](/goto/testing/).
 - Running AI-specific dynamic tests in production:
   - Continual automated validation of the model, including discrimination bias measurement and the detection of staleness: the input space changing over time, causing the training set to get out of date
 - Potential protection measures in deployment of the model (e.g. obfuscation, encryption, or hashing)
