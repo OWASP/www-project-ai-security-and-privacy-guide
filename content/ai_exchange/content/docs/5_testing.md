@@ -63,7 +63,7 @@ The below section will cover the tools for predictive AI, followed by the sectio
 
 ## **Open source Tools for Predictive AI Red Teaming**
 
-This sub section covers the following tools for security testing Predictive AI: Adversarial Robustness Toolbox (ART), Armory, Foolbox**, DeepSec, and TextAttack.
+This sub section covers the following tools for security testing Predictive AI: Adversarial Robustness Toolbox (ART), Armory, Foolbox, DeepSec, and TextAttack.
 
 ### **Tool Name: The Adversarial Robustness Toolbox (ART)**
 
