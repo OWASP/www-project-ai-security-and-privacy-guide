@@ -29,7 +29,7 @@ If contributing interests you, check out our [Contribution Guidelines](/contribu
 
 Project leader of **OWASP AI Exchange**, as well as **AI Privacy and Security Guide**.
 OpenCRE, SAMM-agile.
-Lead author of ISO/IEC 5338 on AI lifecycle, working group member of ISO/IEC 27090/91 on AI security and privacy, and member of CEN/CENELEC JTC21/WG5 for the EU AI Act.  
+Lead author of ISO/IEC 5338 on AI lifecycle, working group member of ISO/IEC 27090/91 on AI security and privacy, and co-editor/expert of CEN/CENELEC JTC21/WG5 for the EU AI Act.  
 Senior principal expert at Software Improvement Group.
 
 - {{< icon "x-twitter" >}} [Twitter](https://twitter.com/robvanderveer "Twitter")
