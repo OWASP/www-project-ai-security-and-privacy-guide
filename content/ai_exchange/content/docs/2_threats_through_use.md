@@ -488,7 +488,7 @@ Prompt input validation: trying to detect/remove malicious instructions by attem
 
 Direct prompt injection: a user tries to fool a Generative AI (eg. a Large Language Model) by presenting prompts that make it behave in unwanted ways. It can be seen as social engineering of a generative AI. This is different from an [evasion attack](/goto/evasion/) which is aimed at manipulating input to make the model perform its task incorrectly.
 
-Impact: Getting information from the AI that is offensive, secret, or leads to certain rights for the attacker.
+Impact: Obtaining information from the AI that is offensive, confidential, or could grant certain legal rights. Note that the person providing the prompt is the one receiving this information. The model itself is not altered, so this attack does not affect anyone else outside of the user (i.e., the attacker).
 
 Many Generative AI systems have been given instructions by their suppliers (so-called _alignment_), for example to prevent offensive language, or dangerous instructions. Direct prompt injection is often aimed at countering this, which is referred to as a *jailbreak attack*.
 
