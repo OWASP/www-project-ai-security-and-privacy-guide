@@ -24,7 +24,7 @@ Technically one could argue that this control is out of scope for cyber security
 
 When doing risk analysis on AI initiatives, consider at least the following:
 - Note that an AI program is not just about risk TO AI, such as security risks - it is also about risks BY AI, such as threats to fairness, safety, etc.
-- Include laws and regulations, as the type of AI apllication may be prohibited (e.g. social scoring under the EU AI Act). See #[CHECKCOMPLIANCE](/goto/checkcompliance/)
+- Include laws and regulations, as the type of AI application may be prohibited (e.g. social scoring under the EU AI Act). See #[CHECKCOMPLIANCE](/goto/checkcompliance/)
 - Can the required transparency be provided into how the AI works?
 - Can the privacy rights be achieved (right to access, erase, correct, update personal data, and the right to object)?
 - Can unwanted bias regarding protected groups of people be sufficiently mitigated?
@@ -64,7 +64,7 @@ Purpose: ensures adequate mitigation of AI security risks through information se
 Make sure to include AI-specific assets and the threats to them. The threats are covered in this resource and the assets are:
 - training data
 - test data
-- the model - often reffered to as _model parameters_ (values that change when a model is trained)
+- the model - often referred to as _model parameters_ (values that change when a model is trained)
 - documentation of models and the process of their development including experiments
 - model input
 - model output, which needs to be regarded as untrusted if the training data or model is untrusted
@@ -140,7 +140,7 @@ The best way to do this is to build on your existing secure software development
 
 Particularities for AI in secure software development:
 - AI teams (e.g. data scientists) need to be taken into scope of your secure development activities, for them to address both conventional security threats and AI-specific threats, applying both conventional security controls and AI-specific ones. Typically, technical teams depend on the AI engineers when it comes to the AI-specific controls as they mostly require deep AI expertise. For example: if training data is confidential and collected in a distributed way, then a federated learning approach may be considered.
-- AI security assets, threats and controls (as covered in this document) need to be considered, effecting requirements, policies, coding guidelines, training, tooling, testing practices and more. Ususally, this is done by adding these elements in the organizations Information Security Management System, as described in [SECPROGRAM](/goto/segprogram/), and align secure software development to that - just like it has been aligned on the conventional assets, threats and controls. 
+- AI security assets, threats and controls (as covered in this document) need to be considered, effecting requirements, policies, coding guidelines, training, tooling, testing practices and more. Usually, this is done by adding these elements in the organizations Information Security Management System, as described in [SECPROGRAM](/goto/segprogram/), and align secure software development to that - just like it has been aligned on the conventional assets, threats and controls. 
 - Apart from software components, the supply chain for AI can also include data and models which may have been poisoned, which is why data provenance and model management are central in [AI supply chain management](/goto/supplychainmanage/).
 - In AI, software components can also run in the development environment instead of in production, for example to train models, which increases the attack surface e.g. malicious development components attacking training data.
 
@@ -221,7 +221,7 @@ Useful standards include:
 > Permalink: https://owaspai.org/goto/checkcompliance/
 
 Check compliance: Make sure that AI-relevant laws and regulations are taken into account in compliance management (including security aspects). If personal data is involved and/or AI is applied to make decisions about individuals, then privacy laws and regulations are also in scope. See the [OWASP AI Guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) for privacy aspects of AI.  
-Compliance as a goal can be a powerful driver for organizations to grow their readiness for AI. While doing this it is important to keep in mind that legislation has a scope that does not necessarily include all the relevant risks for the organization. Many rules are aboutthe potential harm to individuals and society, and don’t cover the impact on business processes per se. For example: the European AI act does not include risks for protecting company secrets. In other words: be mindful of blind spots when using laws and regulations as your guide.
+Compliance as a goal can be a powerful driver for organizations to grow their readiness for AI. While doing this it is important to keep in mind that legislation has a scope that does not necessarily include all the relevant risks for the organization. Many rules are about the potential harm to individuals and society, and don’t cover the impact on business processes per se. For example: the European AI act does not include risks for protecting company secrets. In other words: be mindful of blind spots when using laws and regulations as your guide.
 
 
 Global Jurisdictional considerations (as of end of 2023):
@@ -501,7 +501,7 @@ Useful standards include:
 > Category: runtime data science control  
 > Permalink: https://owaspai.org/goto/continuousvalidation/
 
-Continuous validation: by frequently testing the behaviour of the model against an appropriate test set, it is possible to detect sudden changes caused by a permanent attack (e.g. data poisoning, model poisoning), and also some robustness issues agains for example evasion attacks.
+Continuous validation: by frequently testing the behaviour of the model against an appropriate test set, it is possible to detect sudden changes caused by a permanent attack (e.g. data poisoning, model poisoning), and also some robustness issues against for example evasion attacks.
 
 Continuous validation is a process that is often in place to detect other issues than attacks: system failures, or the model performance going down because of changes in the real world since it was trained.
 
