@@ -908,7 +908,7 @@ Notes:
 
 | **Tool Name: Promptfoo** |  |
 | --- | --- |
-| Developer/ Source | Promptfoo comunity |
+| Developer/ Source | Promptfoo community |
 | Github Reference | [https://github.com/promptfoo/promptfoo](https://github.com/promptfoo/promptfoo) | [Types of LLM vulnerabilities | promptfoo](https://www.promptfoo.dev/docs/red-team/llm-vulnerability-types/) |
 | Language | Python, NodeJS |
 | Licensing | Open-source under the MIT License.  |
@@ -931,8 +931,8 @@ Notes:
 |  | - **Discussion Forums:** Active Github issue and also support available on Discord |
 |  | - **Contributors:** Over 113 contributors. |
 | **Scalability** | - **Framework Support:**  Language: JavaScript |
-|  | - **Large-Scale Deployment:** Enterprise version avaiable, that supports cloud deployment. |
-| **Integration** | - **Compatibility:** Compatible with majoirty of the LLMs |
+|  | - **Large-Scale Deployment:** Enterprise version available, that supports cloud deployment. |
+| **Integration** | - **Compatibility:** Compatible with majority of the LLMs |
 
 **Tool Rating**
 
