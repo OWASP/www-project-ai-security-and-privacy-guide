@@ -63,7 +63,7 @@ In AI we distinguish 6 types of impacts, for three types of attacker goals (disc
 3. disclose: hurt confidentiality of input data
 4. deceive: hurt integrity of model behaviour (the model is manipulated to behave in an unwanted way to deceive)
 5. disrupt: hurt availability of the model (the model either doesn't work or behaves in an unwanted way - not to deceive but to disrupt)
-6. confidentiality, integrity, and availability of non AI-specific assets
+6. disrupt: confidentiality, integrity, and availability of non AI-specific assets
 
 The threats that create these impacts use different attack surfaces. For example: the confidentiality of train data can be compromised by hacking into the database during development-time, but it can also leak by a _membership inference attack_ that can find out whether a certain individual was in the train data, simply by feeding that person's data into the model and looking at the details of the model output.
 
