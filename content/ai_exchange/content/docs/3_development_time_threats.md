@@ -407,7 +407,7 @@ References:
 > Category: development-time threat  
 > Permalink: https://owaspai.org/goto/devmodelpoison/
 
-This threat refers to manipulating behaviour of the model by not poisoning the training data, but instead manipalte elements in the development-environment that lead to the model or represent the model (i.e. model parameters), e.g. by manipulating storage of model parameters. When the model is trained by a supplier in a manipulative way and supplied as-is, then it is [supply-chain model poisoning](goto/supplymodelpoison/).
+This threat refers to manipulating behaviour of the model by not poisoning the training data, but instead manipulate elements in the development-environment that lead to the model or represent the model (i.e. model parameters), e.g. by manipulating storage of model parameters. When the model is trained by a supplier in a manipulative way and supplied as-is, then it is [supply-chain model poisoning](goto/supplymodelpoison/).
 Training data manipulation is referred to as [data poisoning](/goto/datapoison).  See the attack surface diagram in the [broad model poisoning section](/goto/modelpoison/).
 
 **Controls:**
