@@ -45,7 +45,12 @@
       },
       {
         "source": "/goto/about/",
-        "destination": "/docs/ai_security_overview/#about-this-document",
+        "destination": "/docs/ai_security_overview/#about-the-ai-exchange",
+        "type": 301
+      },
+      {
+        "source": "/goto/document/",
+        "destination": "/docs/ai_security_overview/#how-to-use-this-document",
         "type": 301
       },
       {
