@@ -35,6 +35,6 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.3 Limit unwanted behaviour](https://owaspai.org/goto/limitunwanted/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2. Threats through use and controls](/docs/2_threats_through_use/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3. Development-time threats and controls](/docs/3_development_time_threats/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4. Runtime application security threats and controls](4_runtime_application_security_threats/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4. Runtime application security threats and controls](/docs/4_runtime_application_security_threats/)  
 [AI security testing](/docs/5_testing/)  
 [References](/docs/ai_security_references/)  
