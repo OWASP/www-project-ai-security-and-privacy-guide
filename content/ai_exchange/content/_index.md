@@ -18,15 +18,26 @@
 
 ## Our Content
 
-{{< cards >}}
-    {{< small-card link="/docs/ai_security_overview/" title="0. AI Security Overview">}}
-    {{< small-card link="/docs/1_general_controls/" title="1. General controls">}}
-    {{< small-card link="/docs/2_threats_through_use/" title="2. Threats through use">}}
-    {{< small-card link="/docs/3_development_time_threats/" title="3. Development-time threats">}}
-    {{< small-card link="/docs/4_runtime_application_security_threats/" title="4. Runtime application security threats">}}
-    {{< small-card link="/docs/5_testing/" title="5. AI security testing">}}
-    {{< small-card link="/docs/ai_security_references/" title="References">}}
-{{< /cards >}}
+[AI Security Overview](docs/ai_security_overview/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Summary](https://owaspai.org/goto/summary/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[About the Exchange](https://owaspai.org/goto/about/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Threats](https://owaspai.org/goto/threatsoverview/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Threat matrix](https://owaspai.org/goto/aisecuritymatrix/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Controls](https://owaspai.org/goto/controlsoverview/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Periodic table of threats and controls](https://owaspai.org/goto/periodictable/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Risk analysis](https://owaspai.org/goto/riskanalysis/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[How about ...](https://owaspai.org/docs/ai_security_overview/#how-about-)  
+[Deep dive into threats and controls:](https://owaspai.org/goto/navigator/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1. General controls](/docs/1_general_controls)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.1 Governance controls](https://owaspai.org/goto/governancecontrols/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.2 Data limitation](https://owaspai.org/goto/datalimit/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.3 Limit unwanted behaviour](https://owaspai.org/goto/limitunwanted/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2. Threats through use and controls](/docs/2_threats_through_use/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3. Development-time threats and controls](/docs/3_development_time_threats/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4. Runtime application security threats and controls](4_runtime_application_security_threats/)  
+[AI security testing](/docs/5_testing/)  
+[References](/docs/ai_security_references/)  
+
 
 ## Purpose
 
