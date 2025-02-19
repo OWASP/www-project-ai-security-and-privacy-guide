@@ -24,6 +24,7 @@
     .text-with-svg {
       display: flex;
       align-items: center;
+      gap: 0.5em; /* Optional: Add some space between the SVG and text */
     }
 
     .text-with-svg svg {
