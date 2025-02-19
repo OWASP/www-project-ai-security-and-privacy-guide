@@ -8,7 +8,7 @@
 {{< spacer height="40" >}}
 
 {{< cards >}}
-    {{< small-card link="/charter" title="Charter" icon="document-text" >}}
+    {{< small-card link="/goto/about/" title="About" icon="document-text" >}}
     {{< small-card link="/connect" title="Connect with us!" icon="chat" >}}
     {{< small-card link="/contribute" title="Contribute" icon="star" >}}
     {{< small-card link="https://forms.gle/XwEEK52y4iZQChuJ6" title="Register" icon="login" >}}
