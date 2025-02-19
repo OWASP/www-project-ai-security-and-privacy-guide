@@ -5,6 +5,7 @@ weight: 1
 ## About the AI Exchange
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/about/
+
 The OWASP AI Exchange has open sourced the global discussion on the security of AI and data-centric systems. It is an open collaborative project to advance the development of AI security standards and regulations, by providing a comprehensive overview of AI threats, controls and security best practices. This content is feeding into standards for the EU AI Act, ISO/IEC 27090 (AI security), the [OWASP ML top 10](https://mltop10.info/), the [OWASP LLM top 10](https://llmtop10.com/), and [OpenCRE](https://opencre.org) - which we want to use to provide the AI Exchange content through the security chatbot [OpenCRE-Chat](https://opencre.org/chatbot).
 
 Data-centric systems can be divided into AI systems and 'big data' systems that don't have an AI model (e.g. data warehousing, BI, reporting, big data) to which many of the threats and controls in the AI Exchange are relevant: data poisoning, data supply chain management, data pipeline security, etc.
