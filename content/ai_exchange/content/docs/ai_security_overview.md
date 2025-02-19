@@ -2,8 +2,34 @@
 title: 0. AI Security Overview
 weight: 1
 ---
+## About the AI Exchange
+>Category: discussion  
+>Permalink: https://owaspai.org/goto/about/
+The OWASP AI Exchange has open sourced the global discussion on the security of AI and data-centric systems. It is an open collaborative project to advance the development of AI security standards and regulations, by providing a comprehensive overview of AI threats, controls and security best practices. This content is feeding into standards for the EU AI Act, ISO/IEC 27090 (AI security), the [OWASP ML top 10](https://mltop10.info/), the [OWASP LLM top 10](https://llmtop10.com/), and [OpenCRE](https://opencre.org) - which we want to use to provide the AI Exchange content through the security chatbot [OpenCRE-Chat](https://opencre.org/chatbot).
+
+Data-centric systems can be divided into AI systems and 'big data' systems that don't have an AI model (e.g. data warehousing, BI, reporting, big data) to which many of the threats and controls in the AI Exchange are relevant: data poisoning, data supply chain management, data pipeline security, etc.
+
+Our **mission** is to be the go-to resource for AI security practitioners, to foster alignment, and drive collaboration among initiatives. By doing so, we provide a safe, open, and independent place to find and share insights for everyone. Follow [AI Exchange at LinkedIn](https://www.linkedin.com/company/owasp-ai-exchange/).
+
+The AI Exchange is displayed here at [owaspai.org](https://owaspai.org) and edited using a [GitHub repository](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/tree/main/content/ai_exchange/content) (see the links _Edit on Github_). It is is an **open-source living publication** for the worldwide exchange of AI security expertise, and part of the [OWASP AI security & privacy guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) project. It is structured as one coherent resource consisting of several sections under 'content', each represented by a page on this website.
+
+<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://owaspai.org">OWASP AI Exchange</a> by <span property="cc:attributionName">The AI security community</span> is marked with <a href="http://creativecommons.org/publicdomain/zero/1.0?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC0 1.0</a> meaning you can use any part freely without copyright and without attribution. If possible, it would be nice if the OWASP AI Exchange is credited and/or linked to, for readers to find more information.</p>
+
+The AI Exchange was founded by [Rob van der Veer](https://www.linkedin.com/in/robvanderveer/) - bridge builder for security standards, Chief AI Officer at [Software Improvement Group](https://www.softwareimprovementgroup.com), with 33 years of experience in AI & security, lead author of ISO/IEC 5338 on AI lifecycle, founding father of OpenCRE, and currently working on security requirements in ISO/IEC 27090 and the EU AI act in CEN/CENELEC.
+
+This material is evolving constantly through open source continuous delivery. The authors group consists of 65 experts (researchers, practitioners, vendors, data scientists, etc.) and other people in the community are welcome to provide input too. See the [contribute page](/contribute).
+
+Other OWASP AI initiatives:
+
+{{< cards >}}
+    {{< small-card link="https://owaspai.org/" title="OWASP AI Exchange (this)" icon="lock-closed" >}}
+    {{< small-card link="https://owasp.org/www-project-ai-security-and-privacy-guide/" title="AI security & privacy guide" icon="lock-closed" >}}
+    {{< small-card link="https://llmtop10.com/" title="LLM Top 10" icon="brain" >}}
+    {{< small-card link="https://mltop10.info/" title="ML Top 10" icon="machinelearning" >}}
+{{< /cards >}}
+
+
 ## Summary - How to address AI Security?
->See [home](https://owaspai.org/) for more information about this initiative, the OWASP AI Exchange, how to contribute or connect.  
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/summary/
 
@@ -21,9 +47,9 @@ Note that an AI system can for example be a Large Language Model, a linear regre
 
 ---
 
-## About this Document
+## How to use this Document
 >Category: discussion  
->Permalink: https://owaspai.org/goto/about/
+>Permalink: https://owaspai.org/goto/document/
 
 This page contains an overview of AI security and the next pages provide the main content about security threats to AI and controls against them, organized by attack surface:
 1. [General controls, such as AI governance](/goto/generalcontrols/)
@@ -35,10 +61,6 @@ You can navigate through pages at the bottom of every page, or in the left sideb
 
 Security here means preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.
 
-The AI Exchange initiative was taken by OWASP, triggered by [Rob van der Veer](https://www.linkedin.com/in/robvanderveer/) - bridge builder for security standards, senior director at [Software Improvement Group](https://www.softwareimprovementgroup.com), with 31 years of experience in AI & security, lead author of ISO/IEC 5338 on AI lifecycle, founding father of OpenCRE, and currently working on security requirements concerning the EU AI act in CEN/CENELEC.
-
-This material is evolving constantly through open source continuous delivery. The authors group consists of 50 experts (researchers, practitioners, vendors, data scientists, etc.) and other people in the community are welcome to provide input too. See the [contribute page](/contribute).
-It serves as input to ongoing key initiatives such as the EU AI act, ISO/IEC 27090 on AI security, ISO/IEC 27091 on AI privacy, the [OWASP ML top 10](https://mltop10.info/), [OWASP LLM top 10](https://llmtop10.com/), and many more initiatives can benefit from consistent terminology and insights across the globe.
 
 This page will continue about:
 - Threats high-over
