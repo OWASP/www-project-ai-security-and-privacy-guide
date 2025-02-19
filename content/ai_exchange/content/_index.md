@@ -28,6 +28,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Periodic table of threats and controls](https://owaspai.org/goto/periodictable/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Risk analysis](https://owaspai.org/goto/riskanalysis/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[How about ...](https://owaspai.org/docs/ai_security_overview/#how-about-)  
+
 [Deep dive into threats and controls:](https://owaspai.org/goto/navigator/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1. General controls](/docs/1_general_controls)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.1 Governance controls](https://owaspai.org/goto/governancecontrols/)  
@@ -36,5 +37,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2. Threats through use and controls](/docs/2_threats_through_use/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3. Development-time threats and controls](/docs/3_development_time_threats/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4. Runtime application security threats and controls](/docs/4_runtime_application_security_threats/)  
+
 [AI security testing](/docs/5_testing/)  
+
 [References](/docs/ai_security_references/)  
