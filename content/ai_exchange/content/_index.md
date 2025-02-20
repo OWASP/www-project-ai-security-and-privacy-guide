@@ -17,8 +17,7 @@
 {{< /cards >}}
 
 <p align="center">
-<a href="[https://www.youtube.com/watch?v=ABmWHnFrMqI](https://youtu.be/kQC7ouDB_z8)" target="_blank" rel="noopener noreferrer"><img width="120" height="68" src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aixinfomercialthumbnail-small.png?raw=true" border="1"/></br>
-AI Exchange in 3 minutes</a>
+<a href="https://youtu.be/kQC7ouDB_z8" target="_blank" rel="noopener noreferrer"><img width="177" height="123" src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aixinfomercialthumbnail-small2.png?raw=true" border="1"/></a>
 </p>
 
 ## Our Content
