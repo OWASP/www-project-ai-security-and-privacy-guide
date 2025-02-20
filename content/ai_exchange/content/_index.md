@@ -3,7 +3,7 @@
 
 {{< image-centered src="/images/aixlogosml.jpg" alt="OWASP AI Exchange Logo" >}}
 
->Welcome to the go-to source on AI security. 170+ pages of comprehensive guidance on how to protect AI and data-centric systems against security threats - feeding straight into international standards. Made by the community and provided as open source to the community. Part of the [OWASP AI Security & privacy guide](https://owasp.org/www-project-ai-security-and-privacy-guide/).
+>Welcome to the go-to source on AI security. 200+ pages of comprehensive guidance on how to protect AI and data-centric systems against security threats - feeding straight into international standards. Made by the community and provided as open source to the community. Part of the [OWASP AI Security & privacy guide](https://owasp.org/www-project-ai-security-and-privacy-guide/).
 
 {{< spacer height="40" >}}
 
