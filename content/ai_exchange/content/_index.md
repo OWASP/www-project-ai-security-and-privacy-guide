@@ -1,7 +1,9 @@
 ---
 ---
 
-{{< image-centered src="/images/aixlogosml.jpg" alt="OWASP AI Exchange Logo" >}}
+<p align="center">
+<img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aixlogosml2.jpg?raw=true" alt="OWASP AI Exchange Logo"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://youtu.be/kQC7ouDB_z8" target="_blank" rel="noopener noreferrer"><img width="177" height="123" src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aixinfomercialthumbnail-small2.png?raw=true" border="1"/></a>
+</p>
 
 >Welcome to the go-to source on AI security. 200+ pages of comprehensive guidance on how to protect AI and data-centric systems against security threats - feeding straight into international standards. Made by the community and provided as open source to the community. Part of the [OWASP AI Security & privacy guide](https://owasp.org/www-project-ai-security-and-privacy-guide/).
 
@@ -15,10 +17,6 @@
     {{< small-card link="/media" title="Media" icon="speakerphone" >}}
     {{< small-card link="/goto/periodictable/" title="Periodic table" icon="document-text">}}
 {{< /cards >}}
-
-<p align="center">
-<a href="https://youtu.be/kQC7ouDB_z8" target="_blank" rel="noopener noreferrer"><img width="177" height="123" src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aixinfomercialthumbnail-small2.png?raw=true" border="1"/></a>
-</p>
 
 ## Our Content
 
