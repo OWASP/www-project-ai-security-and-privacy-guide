@@ -29,10 +29,12 @@
     {{< small-card link="/goto/periodictable/" title="Periodic table" icon="document-text">}}
 {{< /cards >}}
 
-## Our Content
 
-
-
+<table style="width: 100%; border: 0; margin: 0; padding: 0;">
+  <tr style="border: 0;">
+    <td style="text-align: center; ; border: 0;">
+      <h2>Our Content</h2>
+        
 * [AI Security Overview](docs/ai_security_overview/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [About the AI Exchange](https://owaspai.org/goto/about/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Summary](https://owaspai.org/goto/summary/)  
@@ -56,3 +58,8 @@
 * [AI security testing](/docs/5_testing/)  
 
 * [References](/docs/ai_security_references/)  
+        
+    </td>
+  </tr>
+</table>
+
