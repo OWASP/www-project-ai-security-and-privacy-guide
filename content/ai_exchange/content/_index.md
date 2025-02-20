@@ -30,10 +30,7 @@
 {{< /cards >}}
 
 
-<table style="width: 100%; border: 0; margin: 0; padding: 0;">
-  <tr style="border: 0;">
-    <td style="text-align: center; ; border: 0;">
-      <h2>Our Content</h2>
+<h2>Our Content</h2>
         
 * [AI Security Overview](docs/ai_security_overview/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [About the AI Exchange](https://owaspai.org/goto/about/)  
@@ -58,8 +55,5 @@
 * [AI security testing](/docs/5_testing/)  
 
 * [References](/docs/ai_security_references/)  
-        
-    </td>
-  </tr>
-</table>
+
 
