@@ -16,6 +16,11 @@
     {{< small-card link="/goto/periodictable/" title="Periodic table" icon="document-text">}}
 {{< /cards >}}
 
+<p align="center">
+<a href="[https://www.youtube.com/watch?v=ABmWHnFrMqI](https://youtu.be/kQC7ouDB_z8)" target="_blank" rel="noopener noreferrer"><img width="120" height="68" src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aixinfomercialthumbnail-small.png?raw=true" border="1"/></br>
+AI Exchange in 3 minutes</a>
+</p>
+
 ## Our Content
 
 
