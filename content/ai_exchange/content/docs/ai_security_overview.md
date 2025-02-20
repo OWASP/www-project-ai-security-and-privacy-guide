@@ -177,11 +177,12 @@ Note that [general governance controls](/goto/governancecontrols/) apply to all 
 </tbody></table>
 
 
-### Navigator diagram
+### Structure of threats and controls in the deep dive section
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/navigator/
 
-The navigator diagram below shows all threats, controls and how they relate, including risks and the types of controls.  
+The next big section in this document is an exentsive deep dive in all the AI security threats and their controls.  
+The navigator diagram below shows the structure of the deep dive section, with threats, controls and how they relate, including risks and the types of controls.  
 {{< callout type="info" >}}
   Click on the image to get a PDF with clickable links.
 {{< /callout >}}
