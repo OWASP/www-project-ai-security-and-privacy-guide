@@ -11,7 +11,7 @@ pitch: Guidance on designing, creating, testing, and procuring secure and privac
 <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aisecprivlogosml.jpeg?raw=true" width="600" height ="127"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/humansonly.png?raw=true" align="right"/>
 
 The OWASP AI security & privacy guide consists of two parts:
-1. [How to address AI security](#how-to-address-ai-security): 200+ pages of material presented as the [OWASP AI Exchange website](owaspai.org)
+1. [How to address AI security](#how-to-address-ai-security): 200+ pages of material presented as the [OWASP AI Exchange website](https://owaspai.org)
 2. [How to address AI privacy](#how-to-address-ai-privacy)
 
 Artificial Intelligence (AI) is on the rise and so are the concerns regarding AI security and privacy. This guide is a working document to provide clear and actionable insights on designing, creating, testing, and procuring secure and privacy-preserving AI systems. 
