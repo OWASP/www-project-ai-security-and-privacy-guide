@@ -1,9 +1,9 @@
 # OWASP AI Exchange & OWASP AI security and privacy guide
 
-Welcome to the GitHub repository for two initiatives:
+Welcome to the GitHub repository for two resources:
 
 1. The OWASP AI Exchange, to be found at [owaspai.org](http://owaspai.org/): the living set of documents that collect AI threats and controls from collaboration between experts worldwide.
-2. The OWASP AI Security and Privacy Guide project, which is published automatically at [owasp.org/www-project-ai-security-and-privacy-guide/#](https://owasp.org/www-project-ai-security-and-privacy-guide/#). It has a security part that links directly to the AI Exchange, and a privacy part.
+2. The privacy part of the OWASP AI Security and Privacy Guide, which is published automatically at [owasp.org/www-project-ai-security-and-privacy-guide/#](https://owasp.org/www-project-ai-security-and-privacy-guide/#). It has a security part that links directly to the AI Exchange, and a privacy part.
 
 The goal of these initiatives is to collect and clearly present the state of the art on these topics through community collaboration.
 
