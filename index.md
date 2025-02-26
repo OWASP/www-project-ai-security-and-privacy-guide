@@ -10,8 +10,8 @@ pitch: Guidance on designing, creating, testing, and procuring secure and privac
 ---
 <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aisecprivlogosml.jpeg?raw=true" width="600" height ="127"><img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/humansonly.png?raw=true" align="right"/>
 
-This page is the OWASP AI security & privacy guide. It has two parts:
-1. [How to address AI security](#how-to-address-ai-security)
+The OWASP AI security & privacy guide consists of two parts:
+1. [How to address AI security](#how-to-address-ai-security): 200+ pages of material presented as the [OWASP AI Exchange website](owaspai.org)
 2. [How to address AI privacy](#how-to-address-ai-privacy)
 
 Artificial Intelligence (AI) is on the rise and so are the concerns regarding AI security and privacy. This guide is a working document to provide clear and actionable insights on designing, creating, testing, and procuring secure and privacy-preserving AI systems. 
@@ -23,7 +23,7 @@ See also [this useful recording](https://www.youtube.com/watch?v=ABmWHnFrMqI) or
 Please provide your input through pull requests / submitting issues (see [repo](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/)) or emailing the project lead, and let's make this guide better and better. Many thanks to Engin Bozdag, lead privacy architect at Uber, for his great contributions.
 
 # How to address AI security
-This content is now found at the [OWASP AI exchange](https://owaspai.org)
+This content is now found at the [OWASP AI exchange](https://owaspai.org) and feeds straight into international standards.
 <br />
 <br />
 <br />
