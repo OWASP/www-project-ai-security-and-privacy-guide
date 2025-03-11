@@ -16,7 +16,7 @@
 </table>
 </p>
 
->Welcome to the go-to source on AI security. 200+ coherent pages of comprehensive practical guidance on how to protect AI and data-centric systems against security threats - feeding straight into international standards at ISO/IEC and for the AI Act. Made and maintained by the community and provided as open source to the community. Part of the [OWASP AI Security & privacy guide](https://owasp.org/www-project-ai-security-and-privacy-guide/).
+>Welcome to the ultimate resource for AI security - over 200 pages of practical advice and references on protecting AI and data-centric systems from security threats. This content is contributed actively to international standards such as ISO/IEC and the AI Act through official standard partnerships. Created and maintained by the community, this work is part of the [OWASP AI Security & privacy guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) open source project.
 
 {{< spacer height="40" >}}
 
