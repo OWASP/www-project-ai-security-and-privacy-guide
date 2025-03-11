@@ -49,7 +49,7 @@
         "type": 301
       },
       {
-        "source": "/goto/owaspaiprojects/",
+        "source": "/goto/aiatowasp/",
         "destination": "/docs/ai_security_overview/#relevant-owasp-ai-initiatives",
         "type": 301
       },
