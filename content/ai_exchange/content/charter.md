@@ -24,13 +24,6 @@ Our mission is to establish the OWASP AI Exchange as the place to go for profess
 
 The AI Exchange aims to be primarily a single coherent publication on AI security, containing separate sections. It should not be a set of separate publications, unless we really need to.
 
-## Relation to other OWASP or other organization initiatives
-These are the other OWASP AI initiatives and the relation with the AI Exchange;
-- The OWASP AI security and privacy guide is the official OWASP project under which the AI Exchange was established. The deliverable of this project consists of the AI Exchange content plus guidance on AI privacy.
-- The OWASP LLM top 10 provides a list of the most important LLM security issues, plus deliverables that focus on LLM security, such as the LLM AI Security & Governance Checklist.
-- The OWASP ML top 10 provides a list of the most important machine learning security issues.
-- OpenCRE.org has been established under the OWASP Integration standards project and holds a catalog of common requirements across various security standards inside and outside of OWASP. The plan is to let OpenCRE contain new AI security controls as well.
-
 ## Roadmap
 1. Prep 0.9: Finish all todos in the internal TODO table -> release 0.9
 2. Prep 1.0: Review by community and by ourselves -> release 1.0
