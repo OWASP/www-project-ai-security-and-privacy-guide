@@ -6,7 +6,8 @@ weight: 7
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/references/
 
-See the [Media page](/media) for several webinars and podcast by and about the AI Exchange.
+See the [Media page](/media) for several webinars and podcast by and about the AI Exchange.  
+References on specific topics can be found throught the content of AI Exchange. This references section therefore contains the broader publications.
 
 ## Overviews of AI Security Threats:
 ---
