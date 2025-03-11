@@ -26,7 +26,7 @@ This material is evolving constantly through open source continuous delivery. Th
 
 ## Relevant OWASP AI initiatives
 >Category: discussion  
->Permalink: https://owaspai.org/goto/owaspaiprojects/
+>Permalink: https://owaspai.org/goto/aiatowasp/
 
 - The [OWASP AI security and privacy guide](https://owasp.org/www-project-ai-security-and-privacy-guide/), founded by Rob van der Veer in 2022, is the official OWASP project under which the AI Exchange is established. The deliverable of this project consists of 1) guidance to AI security in the form of a link to the AI Exchange, plus 2) guidance text on AI privacy.
 - The [OWASP LLM top 10](https://llmtop10.com/) provides a list of the most important LLM security issues, plus various separate deliverables that focus on LLM security, such as the LLM AI Security & Governance Checklist.
