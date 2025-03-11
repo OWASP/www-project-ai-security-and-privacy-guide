@@ -32,7 +32,7 @@ This material is evolving constantly through open source continuous delivery. Th
 - The [OWASP LLM top 10](https://llmtop10.com/) provides a list of the most important LLM security issues, plus various separate deliverables that focus on LLM security, such as the LLM AI Security & Governance Checklist.
 - [OpenCRE.org](https://opencre.org) has been established under the OWASP Integration standards project and holds a catalog of common requirements across various security standards inside and outside of OWASP. OpenCRE will link AI security controls soon.
 - [The OWASP AI Exchange(this work)](https://owaspai.org) has open sourced AI security standardization to achieve global consensus and clarity on effective AI security. It serves two goals:
-  1. provide the go-to bookmark for AI security practitioners with actionable guidance in a single comprehensive and coherent resource, instead of a collection of documents.
+  1. provide the go-to bookmark for AI security practitioners with actionable guidance and references in a single comprehensive and coherent resource, instead of a collection of documents. Because of the comprehensive references it serves as a gateway to many of the existing AI initiatives.
   2. a substantial source of content to international standards, including the global standard on AI security ISO/IEC 27090, and the official security standard for the AI Act. This is possible through a unique liaison partnership with international standardization organizations. By doing so, by providing everything free of copyright, and by partnering with key institutes, the AI Exchange presents the global consensus on AI security.
 
 
