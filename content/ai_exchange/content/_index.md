@@ -5,7 +5,7 @@
 <table style="border: none;">
   <tr>
     <td style="border: none;">
-      <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aixlogosml2.jpg?raw=true" alt="OWASP AI Exchange Logo"/>
+      <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aixlogosml3.jpg?raw=true" alt="OWASP AI Exchange Logo"/>
     </td>
     <td style="border: none;">
       <a href="https://youtu.be/kQC7ouDB_z8" target="_blank" rel="noopener noreferrer">
