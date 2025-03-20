@@ -1,4 +1,3 @@
----
 title: 2. Threats through use
 weight: 3
 ---
@@ -61,6 +60,13 @@ Model access control: Securely limit allowing access to use the model to authori
 Purpose: prevent attackers that are not authorized to perform attacks through use.
 
 Remaining risk: attackers may succeed in authenticating as an authorized user, or qualify as an authorized user, or bypass the access control through a vulnerability, or it is easy to become an authorized user (e.g. when the model is publicly available)
+
+Note: this is NOT protection of a strored model. For that, see Model confidentiality in Runtime and Development at the [Periodic table](https://owaspai.org/goto/periodictable/). 
+
+
+Additional benefits of model access control are:
+- Linking users to activity is Opportunity to link certain use or abuse to individuals - of course under privacy obligations
+- Linking activity to a user (or using service) allows more accurate [rate limiting](/goto/ratelimit/) to user-accounts, and detection suspect series of actions - since activity can be linked to paterns of individual users
 
 Useful standards include:
 
