@@ -57,7 +57,9 @@ See the [overview of AI projects at OWASP](/goto/aiatowasp/).
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [3. Development-time threats and controls](/docs/3_development_time_threats/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [4. Runtime application security threats and controls](/docs/4_runtime_application_security_threats/)  
 
-* [AI security testing](/docs/5_testing/)  
+* [AI security testing](/docs/5_testing/)
+
+* [AI privacy](/docs/5_privacy/)  
 
 * [References](/docs/ai_security_references/)
 
