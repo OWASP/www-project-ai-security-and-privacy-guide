@@ -6,33 +6,44 @@ weight: 1
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/about/
 
-The OWASP AI Exchange has open sourced the global discussion on the security of AI and data-centric systems. It is an open collaborative project to advance the development of AI security standards and regulations, by providing a comprehensive overview of AI threats, controls and security best practices. This content is feeding into standards for the EU AI Act, ISO/IEC 27090 (AI security), the [OWASP ML top 10](https://mltop10.info/), the [OWASP LLM top 10](https://llmtop10.com/), and [OpenCRE](https://opencre.org) - which we want to use to provide the AI Exchange content through the security chatbot [OpenCRE-Chat](https://opencre.org/chatbot).
+**Summary**  
+Welcome to the go-to single resource for AI security & privacy - over 200 pages of practical advice and references on protecting AI, and data-centric systems from threats - where AI consists of Analytical AI, Discriminative AI, Generative AI and heuristic systems. This content serves as key bookmark for practitioners, and is contributed actively and substantially to international standards such as ISO/IEC and the AI Act through official standard partnerships.
 
-<p align="center">
-<a href="https://youtu.be/kQC7ouDB_z8" target="_blank" rel="noopener noreferrer"><img width="177" height="123" src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aixinfomercialthumbnail-small2.png?raw=true" border="1"/></a>
-</p>
+**Details**  
+The OWASP AI Exchange has open sourced the global discussion on the security and privacy of AI and data-centric systems. It is an open collaborative OWASP project to advance the development of AI security & privacy standards, by providing a comprehensive framework of AI threats, controls, and related best practices. Through a unique official liaison partnership, this content is feeding into standards for the EU AI Act (50 pages contributed), ISO/IEC 27090 (AI security, 70 pages contributed), ISO/IEC 27091 (AI privacy), and [OpenCRE](https://opencre.org) - which we are currently preparing to provide the AI Exchange content through the security chatbot [OpenCRE-Chat](https://opencre.org/chatbot).
 
 Data-centric systems can be divided into AI systems and 'big data' systems that don't have an AI model (e.g. data warehousing, BI, reporting, big data) to which many of the threats and controls in the AI Exchange are relevant: data poisoning, data supply chain management, data pipeline security, etc.
 
-Our **mission** is to be the go-to resource for AI security practitioners, to foster alignment, and drive collaboration among initiatives. By doing so, we provide a safe, open, and independent place to find and share insights for everyone. Follow [AI Exchange at LinkedIn](https://www.linkedin.com/company/owasp-ai-exchange/).
+Our **mission** is to be the go-to resource for security & privacy practitioners for AI and data-centric systems, to foster alignment, and drive collaboration among initiatives. By doing so, we provide a safe, open, and independent place to find and share insights for everyone. Follow [AI Exchange at LinkedIn](https://www.linkedin.com/company/owasp-ai-exchange/).
 
-The AI Exchange is displayed here at [owaspai.org](https://owaspai.org) and edited using a [GitHub repository](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/tree/main/content/ai_exchange/content) (see the links _Edit on Github_). It is is an **open-source living publication** for the worldwide exchange of AI security expertise, and part of the [OWASP AI security & privacy guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) project. It is structured as one coherent resource consisting of several sections under 'content', each represented by a page on this website.
+**How it works**  
+The AI Exchange is displayed here at [owaspai.org](https://owaspai.org) and edited using a [GitHub repository](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/tree/main/content/ai_exchange/content) (see the links _Edit on Github_). It is is an **open-source living publication** for the worldwide exchange of AI security & privacy expertise. It is structured as one coherent resource consisting of several sections under 'content', each represented by a page on this website.
+
+This material is evolving constantly through open source continuous delivery. The authors group consists of over 70 carefully selected experts (researchers, practitioners, vendors, data scientists, etc.) and other people in the community are welcome to provide input too. See the [contribute page](/contribute).
 
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://owaspai.org">OWASP AI Exchange</a> by <span property="cc:attributionName">The AI security community</span> is marked with <a href="http://creativecommons.org/publicdomain/zero/1.0?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC0 1.0</a> meaning you can use any part freely without copyright and without attribution. If possible, it would be nice if the OWASP AI Exchange is credited and/or linked to, for readers to find more information.</p>
 
-The AI Exchange was founded by [Rob van der Veer](https://www.linkedin.com/in/robvanderveer/) - bridge builder for security standards, Chief AI Officer at [Software Improvement Group](https://www.softwareimprovementgroup.com), with 33 years of experience in AI & security, lead author of ISO/IEC 5338 on AI lifecycle, founding father of OpenCRE, and currently working on security requirements in ISO/IEC 27090 and the EU AI act in CEN/CENELEC.
+**History**  
+The AI Exchange was founded by [Rob van der Veer](https://www.linkedin.com/in/robvanderveer/) - bridge builder for security standards, Chief AI Officer at [Software Improvement Group](https://www.softwareimprovementgroup.com), with 33 years of experience in AI & security, lead author of ISO/IEC 5338 on AI lifecycle, founding father of OpenCRE, and currently working in ISO/IEC 27090, ISO/IEC 27091 and the EU AI act in CEN/CENELEC, where he was elected co-editor by the EU member states.
 
-This material is evolving constantly through open source continuous delivery. The authors group consists of 65 experts (researchers, practitioners, vendors, data scientists, etc.) and other people in the community are welcome to provide input too. See the [contribute page](/contribute).
+The project started out as the 'AI security and privacy guide' in October 22 and was rebranded a year later as 'AI Exchange' to highlight the element of global collaboration. In March 2025 the AI Exchange was awarded the status of 'OWASP Flagship project' because of its critical importance, together with the ['GenAI Project'](https://genai.owasp.org/).
+
 
 ## Relevant OWASP AI initiatives
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/aiatowasp/
 
-- [The OWASP AI Exchange(this work)](https://owaspai.org) provides one comprehensive core framework of AI threats and controls, covering all kinds of AI, including generative AI. It serves two goals:
-  1. provide the go-to bookmark for AI security practitioners with actionable guidance. Because of the comprehensive references it serves as a gateway to many of the existing AI initiatives.
-  2. serve as a substantial source of content to international standards, including the global standard on AI security ISO/IEC 27090, and the official security standard for the AI Act. This is possible through a unique liaison partnership with international standardization organizations. By doing so, by providing everything free of copyright, and by partnering with key institutes, the AI Exchange presents the global consensus on AI security.
-- The [OWASP GenAI security project](https://genai.owasp.org/) offers a number of documents (such as the LLM AI Security & Governance Checklist) on Generative AI security including the LLM top 10, featuring the most severe security risks of Large Language Models.
-- [OpenCRE.org](https://opencre.org) has been established under the OWASP Integration standards project and holds a catalog of common requirements across various security standards inside and outside of OWASP. OpenCRE will link AI security controls soon.
+- [The OWASP AI Exchange(this work)](goto/about/) is the go-to single resource for AI security & privacy - over 200 pages of practical advice and references on protecting AI, and data-centric systems from threats - where AI consists of Analytical AI, Discriminative AI, Generative AI and heuristic systems. This content serves as key bookmark for practitioners, and is contributed actively and substantially to international standards such as ISO/IEC and the AI Act through official standard partnerships.
+- The [OWASP GenAI security project](https://genai.owasp.org/) is an umbrella project of various initiatives that publish documents on Generative AI security, including the LLM AI Security & Governance Checklist and the LLM top 10 - featuring the most severe security risks of Large Language Models.
+- [OpenCRE.org](https://opencre.org) has been established under the OWASP Integration standards project(from the _Project wayfinder_) and holds a catalog of common requirements across various security standards inside and outside of OWASP. OpenCRE will link AI security controls soon.
+
+When comparing the AI Exchange with the GenAI project, the Exchange:
+- feeds straight into international standards
+- is about all AI and data centric systems instead of just Generative AI
+- is delivered as a single comprehensive resource instead of a collection of documents
+- is updated continuously instead of released occasionally
+- is focusing on a framework of threats, controls, and related practices, so more technical-oriented
+
 
 ## Summary - How to address AI Security?
 >Category: discussion  
