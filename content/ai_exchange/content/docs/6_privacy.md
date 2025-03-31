@@ -5,6 +5,24 @@ weight: 7
 > Category: discussion  
 > Permalink: https://owaspai.org/goto/privacy/
 
+Just like any system that processes data, AI systems can have privacy risks. There are some particualar privacy aspects to AI:
+- AI systems are data-intensive and typically present additional risks regarding data collection and retention. Personal data may be collected from various sources, each subject to different levels of **sensitivity and regulatory constraints**. Legislation often requires a **legal basis and/or consent** for the collection and use of personal data, and specifies **rights to individuals** to correct, request, and remove their own data.
+- **Protecting training data** is a challenge, especially because it typically needs to be retained for long periods - as many models need to be retrained. Often, the actual identities of people involved are irrelevant for the model, but privacy risks still remain even if identity data is removed because it might be possible to deduce individual identities from the remaining data. This is where differential privacy becomes crucial: by altering the data to make it sufficiently unrecognizable, it ensures individual privacy while still allowing for valuable insights to be derived from the data. Alteration can be done by for example adding noise or aggregating.
+- An additional complication in the protection of training data is that the **training data is accessible in the engineering environment**, which therefore needs more protection than it usually does - since conventional systems normally don't have personal data available to technical teams.
+- The nature of machine learning allows for certain **unique strategies** to improve privacy, such as federated learning: splitting up the training set in different separated systems - typically aligning with separated data collection.
+- AI systems **make decisions** and if these decisions are about people they may be discriminating regarding certain protected attributes (e.g. gender, race), plus the decisions may result in actions that invade privacy, which may be an ethical or legal concern. Furthermore, legislation may prohibit some types of decisions and sets rules regarding transparency about how these decisions are made, and about how individuals have the right to object.
+- Last but not least: AI models suffer from **model attack risks** that allow attackers to extract training data from the model, e.g. model inversion, membership inference, and disclosing sensitive data in large language models
+
+
+AI Privacy can be divided into two parts:
+
+1. The threats to AI security and their controls (see the other sections of the AI Exchange), including:
+  - Confidentiality and integrity protection of personal data in train/test data, model input or output - which consists of:
+    - 'Conventional' security of personal data in transit and in rest
+    - Protecting against model attacks that try to retrieve personal data (e.g. model inversion)
+    - personal data minimization / differential privacy, including minimized retention
+  - Integrity protection of the model behaviour if that behaviour can hurt privacy of individuals. This happens for example when individuals are unlawfully discriminated or when the model output leads to actions that invade privacy (e.g. undergoing a fraud investigation).
+2. Threats and controls that are not about security, but about further rights of the individual, as covered by privacy regulations such as the GDPR, including use limitation, consent, fairness, transparency, data accuracy, right of correction/objection/erasure/request. 
 
 Privacy principles and requirements come from different legislations (e.g. GDPR, LGPD, PIPEDA, etc.) and privacy standards (e.g. ISO 31700, ISO 29100, ISO 27701, FIPS, NIST Privacy Framework, etc.). This guideline does not guarantee compliance with privacy legislation and it is also not a guide on privacy engineering of systems in general. For that purpose, please consider work from [ENISA](https://www.enisa.europa.eu/publications/data-protection-engineering), [NIST](https://nvlpubs.nist.gov/nistpubs/ir/2017/NIST.IR.8062.pdf), [mplsplunk](https://github.com/mplspunk/awesome-privacy-engineering), [OWASP](https://owasp.org/www-project-top-10-privacy-risks/) and [OpenCRE](https://www.opencre.org/cre/362-550). The general principle for engineers is to regard personal data as 'radioactive gold'. It's valuable, but it's also something to minimize, carefully store, carefully handle, limit its usage, limit sharing, keep track of where it is, etc.
 
