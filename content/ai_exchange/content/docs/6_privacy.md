@@ -142,7 +142,7 @@ The [EU AI act](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:5
 
 **The EU AI Act in a nutshell:**
 
-Human rights are at the core of the AI Act, so risks are analyzed from a perspective of harmfulness to people.
+Safety, health and fundamental rights are at the core of the AI Act, so risks are analyzed from a perspective of harmfulness to people.
 
 The Act identifies four risk levels for AI systems:
   * **Unacceptable risk**: will be banned. Includes: Manipulation of people, social scoring, and real-time remote biometric identification (e.g. face recognition with cameras in public space).
@@ -157,9 +157,9 @@ AI is broadly defined here and includes wider statistical approaches and optimiz
 Generative AI needs to disclose what copyrighted sources were used, and prevent illegal content. To illustrate: if OpenAI for example would violate this rule, they could face a 10 billion dollar fine.
 
 Links:
-* [Original draft AI Act](https://www.europarl.europa.eu/RegData/docs_autres_institutions/commission_europeenne/com/2021/0206/COM_COM(2021)0206_EN.pdf)
-* [Amendments](https://www.europarl.europa.eu/doceo/document/CJ40-PR-731563_EN.pdf)
-* [More information](https://www.europarl.europa.eu/legislative-train/theme-a-europe-fit-for-the-digital-age/file-regulation-on-artificial-intelligence)
+* [AI Act](https://www.europarl.europa.eu/topics/en/article/20230601STO93804/eu-ai-act-first-regulation-on-artificial-intelligence)
+* [Guidelines on prohibted AI](https://digital-strategy.ec.europa.eu/en/library/commission-publishes-guidelines-prohibited-artificial-intelligence-ai-practices-defined-ai-act)
+* [AI Act page of te EU](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai)
 
 ## Further reading on AI privacy
 
