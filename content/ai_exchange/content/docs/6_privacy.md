@@ -3,7 +3,7 @@ title: 6. AI privacy
 weight: 7
 ---
 > Category: discussion  
-> Permalink: https://owaspai.org/goto/privacy/
+> Permalink: https://owaspai.org/goto/aiprivacy/
 
 Just like any system that processes data, AI systems can have privacy risks. There are some particualar privacy aspects to AI:
 - AI systems are data-intensive and typically present additional risks regarding data collection and retention. Personal data may be collected from various sources, each subject to different levels of **sensitivity and regulatory constraints**. Legislation often requires a **legal basis and/or consent** for the collection and use of personal data, and specifies **rights to individuals** to correct, request, and remove their own data.
