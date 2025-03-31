@@ -16,7 +16,7 @@
 </table>
 </p>
 
->Welcome to the ultimate resource for AI security - over 200 pages of practical advice and references on protecting AI and data-centric systems from security threats. This content is contributed actively to international standards such as ISO/IEC and the AI Act through official standard partnerships.<br>
+>Welcome to the go-to single resource for AI security & privacy - over 200 pages of practical advice and references on protecting AI, and data-centric systems from threats - where AI consists of Analytical AI, Discriminative AI, Generative AI and heuristic systems. This content serves as key bookmark for practitioners, and is contributed actively and substantially to international standards such as ISO/IEC and the AI Act through official standard partnerships. Through broad collaboration with key institutes and SDOs, the _Exchange_ represents the consensus on AI security and privacy.<br>
 See the [overview of AI projects at OWASP](/goto/aiatowasp/).
 
 {{< spacer height="40" >}}
