@@ -1,5 +1,5 @@
 ---
-title: 6. AI security testing
+title: 6. AI privacy
 weight: 7
 ---
 > Category: discussion  
