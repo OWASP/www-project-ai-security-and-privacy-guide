@@ -523,6 +523,11 @@
         "destination": "/docs/5_testing",
         "type": 301
       }
+      {
+        "source": "/goto/privacy/",
+        "destination": "/docs/6_privacy",
+        "type": 301
+      }
     ]
   }
 }
