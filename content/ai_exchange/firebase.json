@@ -519,7 +519,7 @@
         "type": 301
       },
       {
-        "source": "/goto/privacy/",
+        "source": "/goto/aiprivacy/",
         "destination": "/docs/6_privacy",
         "type": 301
       }
