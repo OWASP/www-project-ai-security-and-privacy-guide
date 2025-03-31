@@ -59,7 +59,7 @@ See the [overview of AI projects at OWASP](/goto/aiatowasp/).
 
 * [AI security testing](/docs/5_testing/)
 
-* [AI privacy](/goto/privacy/)  
+* [AI privacy](/goto/aiprivacy/)  
 
 * [References](/docs/ai_security_references/)
 
