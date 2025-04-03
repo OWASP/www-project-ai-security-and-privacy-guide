@@ -25,12 +25,11 @@ If contributing interests you, check out our [Contribution Guidelines](/contribu
 
 {{< image-left src="/images/rob_van_der_veer.jpeg" alt="Image description" width="auto" height="150px" >}}
 
-### Rob van der Veer
+### [Rob van der Veer](https://robvanderveer.com)
 
-Project leader of **OWASP AI Exchange**, as well as **AI Privacy and Security Guide**.
-OpenCRE, SAMM-agile.
+Project leader of **OWASP AI Exchange**, OpenCRE, and author of the Agile guide at SAMM.
 Lead author of ISO/IEC 5338 on AI lifecycle, working group member of ISO/IEC 27090/91 on AI security and privacy, and co-editor/expert of CEN/CENELEC JTC21/WG5 for the EU AI Act.  
-Senior principal expert at Software Improvement Group.
+Chief AI Officer at Software Improvement Group, the company that donated the initial framework of AI threats and controls to the Exchange.
 
 - {{< icon "x-twitter" >}} [Twitter](https://twitter.com/robvanderveer "Twitter")
 - {{< icon "slack" >}} [Slack](https://owasp.org/slack/invite "Slack")
