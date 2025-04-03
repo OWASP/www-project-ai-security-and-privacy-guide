@@ -51,12 +51,15 @@ menu:
     - name: Connect
       pageRef: /connect
       weight: 6
-    - name: Search
+    - name: Sponsor
+      pageRef: /sponsor
       weight: 7
+    - name: Search
+      weight: 8
       params:
         type: search
     - name: GitHub
-      weight: 8
+      weight: 9
       url: "https://github.com/OWASP/www-project-ai-security-and-privacy-guide"
       params:
         icon: github
