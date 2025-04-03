@@ -67,5 +67,5 @@ See the [overview of AI projects at OWASP](/goto/aiatowasp/).
     </td>
   </tr>
 </table>
-
+<img src="/images/sp_straiker.jpg" style="display: block; margin: auto;" alt="Straiker spponsor">
 
