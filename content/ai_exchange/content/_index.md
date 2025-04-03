@@ -25,7 +25,7 @@ See the [overview of AI projects at OWASP](/goto/aiatowasp/).
     {{< small-card link="/goto/about/" title="About" icon="document-text" >}}
     {{< small-card link="/connect" title="Connect with us!" icon="chat" >}}
     {{< small-card link="/contribute" title="Contribute" icon="star" >}}
-    {{< small-card link="https://forms.gle/XwEEK52y4iZQChuJ6" title="Register" icon="login" >}}
+    {{< small-card link="/sponsor" title="Sponsor" icon="star" >}}
     {{< small-card link="/media" title="Media" icon="speakerphone" >}}
     {{< small-card link="/goto/periodictable/" title="Periodic table" icon="document-text">}}
 {{< /cards >}}
