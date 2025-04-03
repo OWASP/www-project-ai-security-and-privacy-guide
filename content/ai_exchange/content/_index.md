@@ -69,5 +69,5 @@ See the [overview of AI projects at OWASP](/goto/aiatowasp/).
 </table>
 <hr>
 <center>Sponsors</center><br>
-<img src="/images/sp_straiker.jpg" style="display: block; margin: auto;" alt="Straiker sponsor">
+<a href="https://www.straiker.ai/" rel="noopener noreferrer" target="_blank"><img src="/images/sp_straiker.jpg" style="display: block; margin: auto;" alt="Straiker sponsor"></a>
 
