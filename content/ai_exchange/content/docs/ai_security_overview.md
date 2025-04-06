@@ -38,7 +38,7 @@ The project started out as the 'AI security and privacy guide' in October 22 and
 >Permalink: https://owaspai.org/goto/aiatowasp/
 
 In short, the two flagship OWASP AI projects:
-- The **OWASP AI Exchange** is a comprehensive core framework of threats and controls for all AI, actively aligned with international standards and feeding into them. It covers all types of AI, and next to security it discusses privacy as well.
+- The **OWASP AI Exchange** is a comprehensive core framework of threats, controls and related best practices for all AI, actively aligned with international standards and feeding into them. It covers all types of AI, and next to security it discusses privacy as well.
 - The **OWASP GenAI project** is a growing collection of documents on the security of Generative AI, covering a wide range of topics including the LLM top 10.
 
 if you're looking for information on AI at OWASP: 
