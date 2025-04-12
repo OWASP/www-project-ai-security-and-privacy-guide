@@ -18,6 +18,8 @@ The OWASP AI Exchange has open sourced the global discussion on the security and
 
 Data-centric systems can be divided into AI systems and 'big data' systems that don't have an AI model (e.g. data warehousing, BI, reporting, big data) to which many of the threats and controls in the AI Exchange are relevant: data poisoning, data supply chain management, data pipeline security, etc.
 
+Security here means preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.
+
 Our **mission** is to be the go-to resource for security & privacy practitioners for AI and data-centric systems, to foster alignment, and drive collaboration among initiatives. By doing so, we provide a safe, open, and independent place to find and share insights for everyone. Follow [AI Exchange at LinkedIn](https://www.linkedin.com/company/owasp-ai-exchange/).
 
 **How it works**  
@@ -83,22 +85,35 @@ Note that an AI system can for example be a Large Language Model, a linear regre
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/document/
 
-This page contains an overview of AI security and the next pages provide the main content about security threats to AI and controls against them, organized by attack surface:
+The AI Exchange is a single coherent resource on how to protect AI systems, presented on this website, divided over several pages.
+
+**Ways to start**
+- If you want to **protect your AI system**, start with [risk analysis](/goto/riskanalysis/) which will guide you through a number of questions, resulting in the  attacks that apply. And when you click on those attacks you'll find the controls to select and implement.
+- If you want to get an idea of the **attacks** from different angles, check the [AI threat model](/goto/threatsoverview/) or the [AI security matrix](/goto/aisecuritymatrix.
+- To understand how **controls** link to the attacks, check the [controls overview](/goto/controlsoverview/) or the [periodic table](/goto/periodictable/).
+- If you want to **test** the security of AI systems with tools, gogo [the testing page](/goto/testing/)
+- To learn about **privacy** of AI systems, check [the privacy section](/goto/aiprivacy/).
+- Looking for more information, or training material: see the [/goto/references/).
+
+**The structure**  
+You can see the high-level structure on the [main page](https://owaspai.org). On larger screens you can see the structure of pages on the left sidebar and the structure within the current page on the right. On smaller screens you can view these structures through the menu.
+
+In short the structure is:  
+0. [AI security overview - this page](/docs/ai_security_overview), contais an overview of AI security and discussions of various topics.
 1. [General controls, such as AI governance](/goto/generalcontrols/)
-2. [Threats through use, such as Evasion attacks](/goto/threatsuse/)
+2. [Threats through use, such as evasion attacks](/goto/threatsuse/)
 3. [Development-time threats, such as data poisoning](/goto/developmenttime/)
 4. [Runtime security threats, such as insecure output](/goto/runtimeappsec/)
-
-You can navigate through pages at the bottom of every page, or in the left sidebar. The right sidebar shows the different sections on a page. On small screens you can navigate through the menu.  
-
-Security here means preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.
-
+5. [AI security testing](/goto/testing/)
+6. [AI privacy](/goto/aiprivacy)
+7. [References](/goto/references/)
 
 This page will continue about:
 - Threats high-over
 - Various overviews of threats and controls: the matrix, the periodic table, and the navigator
 - Risk analysis to select relevant threats and controls
-- Discussion (how about ...) of various topics: heuristic systems, responsible AI, privacy, generative AI, the NCSC/CISA guidelines,and copyright
+- Discussion (how about ...) of various topics: heuristic systems, responsible AI, generative AI, the NCSC/CISA guidelines,and copyright
+
 ---
 
 ## Threats overview
