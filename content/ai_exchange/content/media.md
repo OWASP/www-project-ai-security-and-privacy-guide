@@ -7,6 +7,7 @@ excludeSearch: true
 
 | Date | Event | Title | Video |
 | - | - | - | - |
+| 23 Apr 2025 | Dubai AI week | Optimizing AI w/ Rob van der Veer | [Youtube](https://www.youtube.com/watch?v=HbtIccHgrNA) | 
 | 28 Nov 2024 | OWASP Benelux | AI: The New Beginning w/ Rob van der Veer | [Youtube](https://www.youtube.com/watch?v=UrzIHmecXnk) |
 | 14 Nov 2024 | Thread Modeling Connect | Threat modeling in the Age of AI w/ Susanna Cox | [Youtube](https://www.youtube.com/watch?v=cTbAD9K_FqA&t=1788s) |
 | 13 Nov 2024 | German OWASP day | Overview of OWASP AI Exchange w/ Behnaz Karimi | [Youtube](https://www.youtube.com/watch?v=WLIx5jMyJ_A) |
