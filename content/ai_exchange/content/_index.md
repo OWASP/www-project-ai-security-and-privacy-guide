@@ -19,7 +19,7 @@
 >Welcome to the go-to resource for broad AI security & privacy - over 200 pages of practical advice and references on protecting AI and data-centric systems from threats. This content serves as key bookmark for practitioners, and is contributing actively and substantially to international standards such as ISO/IEC and the AI Act through official standard partnerships. Through broad collaboration with key institutes and SDOs, the _Exchange_ represents the consensus on AI security and privacy.<br>
 See the [overview of AI projects at OWASP](/goto/aiatowasp/).
 
-{{< spacer height="40" >}}
+{{< spacer height="10" >}}
 
 {{< cards >}}
     {{< small-card link="/goto/about/" title="About" icon="document-text" >}}
@@ -67,6 +67,14 @@ See the [overview of AI projects at OWASP](/goto/aiatowasp/).
     </td>
   </tr>
 </table>
+<hr>
+<b>Dimitri van Zantvliet, Director Cybersecurity, Dutch Railways:</b><br>
+"A risk-based, context-aware approach—like the one OWASP Exchange champions—not only supports the responsible use of AI, but ensures that real threats are mitigated without burdening engineers with irrelevant checklists. We need standards written by those who build and defend these systems every day."<br><br>
+
+<b>Sri Manda, Chief Security & Trust Officer at Peloton Interactive:</b><br>
+"AI regulation is critical for protecting safety and security, and for creating a level playing field for vendors. The challenge is to remove legal uncertainty by making standards really clear, and to avoid unnecessary requirements by building in flexible compliance. I’m very happy to see that OWASP Exchgange has taken on these challenges by bringing the security community to the table to ensure we get standards that work.”<br>
+
+
 <hr>
 <center>Sponsors</center><br>
 <a href="https://www.straiker.ai/" rel="noopener noreferrer" target="_blank"><img src="/images/sp_straiker.jpg" style="display: block; margin: auto;" alt="Straiker sponsor"></a>
