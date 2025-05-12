@@ -73,6 +73,7 @@ See the [overview of AI projects at OWASP](/goto/aiatowasp/).
 <a href="https://www.straiker.ai/" rel="noopener noreferrer" target="_blank"><img src="/images/sp_straiker.jpg" style="display: block; margin: auto;" alt="Straiker sponsor"></a>
 
 <hr>
+<br>
 <b>Dimitri van Zantvliet, Director Cybersecurity, Dutch Railways:</b><br>
 "A risk-based, context-aware approach—like the one OWASP Exchange champions—not only supports the responsible use of AI, but ensures that real threats are mitigated without burdening engineers with irrelevant checklists. We need standards written by those who build and defend these systems every day."<br>
 
