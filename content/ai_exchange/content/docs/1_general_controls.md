@@ -479,7 +479,10 @@ Useful standards include:
 > Category: runtime information security control    
 > Permalink: https://owaspai.org/goto/leastmodelprivilege/
 
-Least model privilege: Minimize privileges of a model to autonomously take actions.
+Least model privilege: Minimize privileges of a model to autonomously take actions:
+- Reduce actions that the model can potentially trigger to the minimum set of actions necessary for the use cases. This can also be done dynamically, depending on the request (e.g., some actions can be disabled for requests containing untrusted inputs).
+- Execute the actions with appropriate rights and privileges. This includes performing actions for a specific user within this user’s security context, thus inheriting their rights and privileges. This ensures that no actions are invoked and no data is retrieved outside the user's authoritization.
+- Avoid implementing authorization in Generative AI instructions, as these are vulnerable to hallunications and manipulation (e.g., prompt injection). This is especially applicable in Agentic AI.
 
 For example: avoid connecting a model to an email facility to prevent it from sending incorrect or sensitive information to others.
 
