@@ -482,14 +482,15 @@ Useful standards include:
 Least model privilege: Minimize privileges of a model to autonomously take actions:
 - Reduce actions that the model can potentially trigger to the minimum set of actions necessary for the use cases. This can also be done dynamically, depending on the request (e.g., some actions can be disabled for requests containing untrusted inputs).
 - Execute the actions with appropriate rights and privileges. This includes performing actions for a specific user within this user’s security context, thus inheriting their rights and privileges. This ensures that no actions are invoked and no data is retrieved outside the user's authoritization.
-- Avoid implementing authorization in Generative AI instructions, as these are vulnerable to hallunications and manipulation (e.g., prompt injection). This is especially applicable in Agentic AI.
+- Avoid implementing authorization in Generative AI instructions, as these are vulnerable to hallunications and manipulation (e.g., prompt injection). This is especially applicable in Agentic AI. This includes the prevention of Generative AI outputing commands that include references to the user context as it would open up the opportunity to escalate privileges by manipulating that output.
 
 For example: avoid connecting a model to an email facility to prevent it from sending incorrect or sensitive information to others.
 
-Useful standards include:
+Useful references include:
 
   - ISO 27002 control 8.2 Privileged access rights. Gap: covers this control fully, with the particularity that privileges assigned to autonomous model decisions need to be assigned with the risk of unwanted model behaviour in mind.
   - [OpenCRE on least privilege](https://www.opencre.org/cre/368-633) Gap: idem
+  - [A Novel Zero-Trust Identity Framework for Agentic AI: Decentralized Authentication and Fine-Grained Access Control](https://arxiv.org/pdf/)
 
 #### #AITRANSPARENCY
 > Category: runtime control    
