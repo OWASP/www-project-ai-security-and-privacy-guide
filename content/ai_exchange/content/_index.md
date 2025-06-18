@@ -71,13 +71,18 @@ See the [overview of AI projects at OWASP](/goto/aiatowasp/).
 <hr>
 <center>Sponsors</center><br>
 <a href="https://www.straiker.ai/" rel="noopener noreferrer" target="_blank"><img src="/images/sp_straiker.jpg" style="display: block; margin: auto;" alt="Straiker sponsor"></a>
-
+<br>
 <hr>
+<center>AI Exchange is trusted by industry giants</center><br>
 <br>
 <b>Dimitri van Zantvliet, Director Cybersecurity, Dutch Railways:</b><br>
 "A risk-based, context-aware approach—like the one OWASP Exchange champions—not only supports the responsible use of AI, but ensures that real threats are mitigated without burdening engineers with irrelevant checklists. We need standards written by those who build and defend these systems every day."<br>
 
 <b>Sri Manda, Chief Security & Trust Officer at Peloton Interactive:</b><br>
 "AI regulation is critical for protecting safety and security, and for creating a level playing field for vendors. The challenge is to remove legal uncertainty by making standards really clear, and to avoid unnecessary requirements by building in flexible compliance. I’m very happy to see that OWASP Exchange has taken on these challenges by bringing the security community to the table to ensure we get standards that work.”<br>
+
+<b>Prateek Kalasannavar, Staff AI Security Engineer, Lenovo</b><br>
+“At Lenovo, we’re operationalizing AI product security at scale, from embedded inference on devices to large-scale cloud-hosted models. OWASP AI Exchange serves as a vital anchor for mapping evolving attack surfaces, codifying AI-specific testing methodologies, and driving community-aligned standards for AI risk mitigation. It bridges the gap between theory and engineering.”
+
 
 
