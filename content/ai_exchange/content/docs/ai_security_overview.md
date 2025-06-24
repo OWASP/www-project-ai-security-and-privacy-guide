@@ -91,7 +91,7 @@ The AI Exchange is a single coherent resource on how to protect AI systems, pres
 - If you want to **protect your AI system**, start with [risk analysis](/goto/riskanalysis/) which will guide you through a number of questions, resulting in the  attacks that apply. And when you click on those attacks you'll find the controls to select and implement.
 - If you want to get an overview of the **attacks** from different angles, check the [AI threat model](/goto/threatsoverview/) or the [AI security matrix](/goto/aisecuritymatrix). In case you know the attack you need to protect against, find it in the overview of your choice and click to get more information and how to protect against it.
 - To understand how **controls** link to the attacks, check the [controls overview](/goto/controlsoverview/) or the [periodic table](/goto/periodictable/).
-- If you want to **test** the security of AI systems with tools, gogo [the testing page](/goto/testing/).
+- If you want to **test** the security of AI systems with tools, go to [the testing page](/goto/testing/).
 - To learn about **privacy** of AI systems, check [the privacy section](/goto/aiprivacy/).
 - Looking for more information, or training material: see the [references](/goto/references/).
 
