@@ -58,7 +58,7 @@ When comparing the AI Exchange with the GenAI Security Project, the Exchange:
 - is about all AI and data centric systems instead of just Generative AI
 - is delivered as a single resource instead of a collection of documents
 - is updated continuously instead of published at specific times
-- is focusing on a framework of threats, controls, and related practices, so more technical-oriented, whereas the GenAI project covers a broader range of aspects
+- is focusing on a framework of threats, controls, and related practices, making it more technical-oriented, whereas the GenAI project covers a broader range of aspects
 - also covers AI privacy
 - is offered completely free of copyright and attribution
 
