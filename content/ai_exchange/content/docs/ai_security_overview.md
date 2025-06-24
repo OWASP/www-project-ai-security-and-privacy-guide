@@ -108,11 +108,11 @@ In short the structure is:
 6. [AI privacy](/goto/aiprivacy)
 7. [References](/goto/references/)
 
-This page will continue about:
-- Threats high-over
+This page will continue with discussions about:
+- A high-level overview of threats
 - Various overviews of threats and controls: the matrix, the periodic table, and the navigator
 - Risk analysis to select relevant threats and controls
-- Discussion (how about ...) of various topics: heuristic systems, responsible AI, generative AI, the NCSC/CISA guidelines,and copyright
+- Various other topics: heuristic systems, responsible AI, generative AI, the NCSC/CISA guidelines,and copyright
 
 ---
 
