@@ -17,7 +17,7 @@ The OWASP projects are an open source effort, and we enthusiastically welcome al
 
 In any case, if you are interested in AI security, [join OWASP Slack](https://join.slack.com/t/owasp/shared_invite/zt-36ppepxs2-ncLn77RK_Ybg_wX5CJsGig) and come to #project-ai-community to learn and discuss.
 
-## Participate in Content Development
+## Participate in development of the content at [owaspai.org](https://owaspai.org)
 
 - 📥 Send your suggestion to the [project leader](/connect/#owasp-ai-project-leader).
 - 📄 or [apply to join the Authors group](https://forms.gle/XwEEK52y4iZQChuJ6)
