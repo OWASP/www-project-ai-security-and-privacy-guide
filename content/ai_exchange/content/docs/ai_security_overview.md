@@ -7,7 +7,7 @@ weight: 1
 >Permalink: https://owaspai.org/goto/about/
 
 **Summary**  
-Welcome to the go-to single resource for AI security & privacy - over 200 pages of practical advice and references on protecting AI, and data-centric systems from threats - where AI consists of Analytical AI, Discriminative AI, Generative AI and heuristic systems. This content serves as key bookmark for practitioners, and is contributed actively and substantially to international standards such as ISO/IEC and the AI Act through official standard partnerships. Through broad collaboration with key institutes and SDOs the _Exchange_ represents the consensus on AI security and privacy.
+Welcome to the go-to single resource for AI security & privacy - over 200 pages of practical advice and references on protecting AI, and data-centric systems from threats - where AI consists of Analytical AI, Discriminative AI, Generative AI and heuristic systems. This content serves as key bookmark for practitioners, and is contributed actively and substantially to international standards such as ISO/IEC and the AI Act through official standard partnerships. Through broad collaboration with key institutes and SDOs, the _Exchange_ represents the consensus on AI security and privacy.
 
  <p align="center">
  <a href="https://youtu.be/kQC7ouDB_z8" target="_blank" rel="noopener noreferrer"><img width="177" height="123" src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aixinfomercialthumbnail-small2.png?raw=true" border="1"/></a>
@@ -43,7 +43,7 @@ In short, the two flagship OWASP AI projects:
 - The **OWASP AI Exchange** is a comprehensive core framework of threats, controls and related best practices for all AI, actively aligned with international standards and feeding into them. It covers all types of AI, and next to security it discusses privacy as well.
 - The **OWASP GenAI Security Project** is a growing collection of documents on the security of Generative AI, covering a wide range of topics including the LLM top 10.
 
-if you're looking for information on AI at OWASP: 
+Here's more information on AI at OWASP: 
 - If you want to **ensure security or privacy of your AI or data-centric system** (GenAI or not), or want to know where AI security standardisation is going, you can use the [AI Exchange](https://owaspai.org), and from there you will be referred to relevant further material (including GenAI security project material) where necessary. 
 - If you want to get a **quick overview** of key security concerns for Large Language Models, check out the [LLM top 10 of the GenAI project](https://genai.owasp.org/llm-top-10/). Please know that it is not complete, intentionally - for example it does not include the security of prompts.
 - For **any specific topic** around Generative AI security, check the [GenAI security project](https://genai.owasp.org/) or the [AI Exchange references](/goto/references/).
@@ -58,7 +58,7 @@ When comparing the AI Exchange with the GenAI Security Project, the Exchange:
 - is about all AI and data centric systems instead of just Generative AI
 - is delivered as a single resource instead of a collection of documents
 - is updated continuously instead of published at specific times
-- is focusing on a framework of threats, controls, and related practices, so more technical-oriented, whereas the GenAI project covers a broader range of aspects
+- is focusing on a framework of threats, controls, and related practices, making it more technical-oriented, whereas the GenAI project covers a broader range of aspects
 - also covers AI privacy
 - is offered completely free of copyright and attribution
 
@@ -74,7 +74,7 @@ While AI offers tremendous opportunities, it also brings new risks including sec
 - If you develop AI systems (even if you don't train your own models):
   - Involve your data and AI engineering into your traditional **(secure) software development practices**.
   - Apply appropriate process **controls** and technical controls through understanding of the threats as discussed in this document.
-- Make sure your AI **suppliers** applied the appropriate controls.
+- Make sure your AI **suppliers** apply the appropriate controls.
 - **Limit the impact** of AI by minimizing data and privileges, and by adding oversight, e.g. guardrails, human oversight.
 
 Note that an AI system can for example be a Large Language Model, a linear regression function, a rule-based system,or a lookup table based on statistics. Throughout this document it is made clear when which threats and controls play a role.
@@ -91,7 +91,7 @@ The AI Exchange is a single coherent resource on how to protect AI systems, pres
 - If you want to **protect your AI system**, start with [risk analysis](/goto/riskanalysis/) which will guide you through a number of questions, resulting in the  attacks that apply. And when you click on those attacks you'll find the controls to select and implement.
 - If you want to get an overview of the **attacks** from different angles, check the [AI threat model](/goto/threatsoverview/) or the [AI security matrix](/goto/aisecuritymatrix). In case you know the attack you need to protect against, find it in the overview of your choice and click to get more information and how to protect against it.
 - To understand how **controls** link to the attacks, check the [controls overview](/goto/controlsoverview/) or the [periodic table](/goto/periodictable/).
-- If you want to **test** the security of AI systems with tools, gogo [the testing page](/goto/testing/).
+- If you want to **test** the security of AI systems with tools, go to [the testing page](/goto/testing/).
 - To learn about **privacy** of AI systems, check [the privacy section](/goto/aiprivacy/).
 - Looking for more information, or training material: see the [references](/goto/references/).
 
@@ -108,11 +108,11 @@ In short the structure is:
 6. [AI privacy](/goto/aiprivacy)
 7. [References](/goto/references/)
 
-This page will continue about:
-- Threats high-over
+This page will continue with discussions about:
+- A high-level overview of threats
 - Various overviews of threats and controls: the matrix, the periodic table, and the navigator
 - Risk analysis to select relevant threats and controls
-- Discussion (how about ...) of various topics: heuristic systems, responsible AI, generative AI, the NCSC/CISA guidelines,and copyright
+- Various other topics: heuristic systems, responsible AI, generative AI, the NCSC/CISA guidelines,and copyright
 
 ---
 
@@ -126,12 +126,12 @@ We distinguish three types of threats:
 2. through using the model (providing input and reading the output), and
 3. by attacking the system during runtime (in production).
 
-In AI we distinguish 6 types of impacts, for three types of attacker goals (disclose, deceive and disrupt):
+In AI, we outline 6 types of impacts that align with three types of attacker goals (disclose, deceive and disrupt):
 1. disclose: hurt confidentiality of train/test data
 2. disclose: hurt confidentiality of model Intellectual property (the _model parameters_ or the process and data that led to them)
 3. disclose: hurt confidentiality of input data
-4. deceive: hurt integrity of model behaviour (the model is manipulated to behave in an unwanted way to deceive)
-5. disrupt: hurt availability of the model (the model either doesn't work or behaves in an unwanted way - not to deceive but to disrupt)
+4. deceive: hurt integrity of model behaviour (the model is manipulated to behave in an unwanted way and consequentially, deceive users)
+5. disrupt: hurt availability of the model (the model either doesn't work or behaves in an unwanted way - not to deceive users but to disrupt normal operations)
 6. disrupt/disclose: confidentiality, integrity, and availability of non AI-specific assets
 
 The threats that create these impacts use different attack surfaces. For example: the confidentiality of train data can be compromised by hacking into the database during development-time, but it can also leak by a _membership inference attack_ that can find out whether a certain individual was in the train data, simply by feeding that person's data into the model and looking at the details of the model output.
