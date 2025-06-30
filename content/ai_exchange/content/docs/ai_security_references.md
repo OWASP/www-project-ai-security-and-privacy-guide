@@ -6,10 +6,10 @@ weight: 8
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/references/
 
-See the [Media page](/media) for several webinars and podcast by and about the AI Exchange.  
-References on specific topics can be found throught the content of AI Exchange. This references section therefore contains the broader publications.
+See the [Media page](/media) for webinars and podcasts by and about the AI Exchange.  
+References on specific topics are provided throughout the AI Exchange content. This section, however, includes broader and more general publications.
 
-## Overviews of AI Security Threats:
+## Overview of AI Security Threats:
 ---
 - [OWASP LLM top 10](https://genai.owasp.org/)
 - [ENISA Cybersecurity threat landscape](https://www.enisa.europa.eu/publications/artificial-intelligence-cybersecurity-challenges)
@@ -27,7 +27,7 @@ References on specific topics can be found throught the content of AI Exchange. 
 - [BSI AI recommendations including security aspects (Germany) - in English](https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/kuenstliche-intelligenz_node.html#doc916902bodyText8)
 - [NCSC UK / CISA Joint Guidelines](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development) - see [its mapping with the AI Exchange](/goto/jointguidelines/)
 
-## Overviews of AI Security/Privacy Incidents:
+## Overview of AI Security/Privacy Incidents:
 ---
 - [AVID AI Vulnerability database](https://avidml.org/)
 - [Sightline - AI/ML Supply Chain Vulnerability Database](https://sightline.protectai.com/)
