@@ -175,7 +175,7 @@ The AI security matrix below (click to enlarge) shows all threats and risks, ord
 The below diagram puts the controls in the AI Exchange into groups and places these groups in the right lifecycle with the corresponding threats.
 [![](/images/threatscontrols.png)](/images/threatscontrols.png)
 The groups of controls form a summary of how to address AI security (controls are in capitals):
-1. **AI Governance**: implement governance processes for AI risk, and include them in your information security and software lifecycle processes:  
+1. **AI Governance**: integrate AI comprehensively into your information security and software development lifecycle processes, not just by addressing AI risks, but by embedding AI considerations across the entire lifecycle:  
    >( [AIPROGRAM](/goto/aiprogram/ ), [SECPROGRAM](/goto/secprogram/), [DEVPROGRAM](/goto/devprogram/), [SECDEVPROGRAM](/goto/secdevprogram/), [CHECKCOMPLIANCE](/goto/checkcompliance/), [SECEDUCATE](/goto/seceducate/))
 2. Apply conventional **technical IT security controls** in a risk-based manner, since an AI system is an IT system:
     - 2a Apply **standard** conventional IT security controls (e.g. 15408, ASVS, OpenCRE, ISO 27001 Annex A, NIST SP800-53) to the complete AI system and don't forget the new AI-specific assets :
@@ -276,9 +276,9 @@ General risk management for AI systems is typically driven by AI governance - se
 Organizations often adopt a Risk Management framework, commonly based on ISO 31000 or similar standards such as ISO 23894. These frameworks guide the process of managing risks through four key steps as outlined below:
 
 1. **Identifying  Risks**: Recognizing potential risks that could impact the organization.  See “Threat through use” section to identify potential risks.
-2. **Evaluating Risks by Estimating Likelihood and Impact**: To determine the severity of a risk, it is necessary to assess the probability of the risk occurring and evaluating the potential consequences should the risk materialize. Combining likelihood and impact to gauge the risk's overall severity.  This is typically presented in the form of a heatmap. This is discuused in more detail in the sections that follow.  
+2. **Evaluating Risks by Estimating Likelihood and Impact**: To determine the severity of a risk, it is necessary to assess the probability of the risk occurring and evaluating the potential consequences should the risk materialize. Combining likelihood and impact to gauge the risk's overall severity.  This is typically presented in the form of a heatmap. This is discussed in more detail in the sections that follow.  
 3. **Deciding What to Do (Risk Treatment)**: Choosing an appropriate strategy to address the risk. These strategies include: Risk Mitigation, Transfer, Avoidance, or Acceptance. See below for further details.
-4. **Risk Communication and Monitoring**: Regularly sharing risk information with stakeholders to ensure awareness and continuous support for risk management activities. Ensuring effective Risk Treatments are applied. This requires a Risk Register, a comprehensive list of risks and their attributes (e.g. severity, treatment plan, ownership, status, etc). This is discuused in more detail in the sections that follow.  
+4. **Risk Communication and Monitoring**: Regularly sharing risk information with stakeholders to ensure awareness and continuous support for risk management activities. Ensuring effective Risk Treatments are applied. This requires a Risk Register, a comprehensive list of risks and their attributes (e.g. severity, treatment plan, ownership, status, etc). This is discussed in more detail in the sections that follow.  
 
 Let's go through the risk management steps one by one.
 
@@ -299,7 +299,7 @@ Discovering potential risks that could impact the organization requires technica
   - Prevent [prompt injection](/goto/directpromptinjection/) (mostly done by the model supplier). When untrusted input goes directly into a model, and there's a possibility that the model's output could be harmful (for example, by offending, providing dangerous information, or spreading misinformation, or output that triggers harmful functions (Agentic AI) )- it's a significant concern. This is particularly the case if model input comes from end-users and output goes straight to them, or can trigger functions.
   - Prevent [indirect prompt injection](/goto/indirectpromptinjection/), in case untrusted data is a part of the prompt e.g. you retrieve somebody's resume and include it in a prompt.
 
-  Sometimes model training and running the model is deferred to a supplier. For generative AI, training is mostly performed by an external supplier typically costs millions of dollars. Finetuning of generative AI is also not often performed by organizations given the cost of compute and the complexity involved. Some GenAI models can be obtained and run on your own infrastructure. The reasons for this could be lower cost (if is is an open source model), and the fact that sensitive input information does not have to be sent externally. A reason to use an externally hosted GenAI model can be the quality of the model.
+  Sometimes model training and running the model is deferred to a supplier. For generative AI, training is mostly performed by an external supplier because it is expensive and usually costs millions of dollars. Finetuning of generative AI is also not often performed by organizations given the cost of compute and the complexity involved. Some GenAI models can be obtained and run on your own infrastructure. The reasons for this could be lower cost (if is is an open source model), and the fact that sensitive input information does not have to be sent externally. A reason to use an externally hosted GenAI model can be the quality of the model.
     
   Who trains/finetunes the model?
   - The supplier: you need to avoid [obtaining a poisoned model](/goto/transferlearningattack/) through proper supply chain management (by selecting a trustworthy supplier and verifying the authenticity of the model). This involves ensuring that the supplier prevents model poisoning during development, including data poisoning, and uses uncompromised data. If the risk of data poisoning remains unacceptable, implementing post-training countermeasures can be a viable option. See [POISONROBUSTMODEL](/goto/poisonrobustmodel/).
@@ -326,7 +326,7 @@ Discovering potential risks that could impact the organization requires technica
     - [training data leaking from your engineering environment](/goto/devdataleak/).
     - [membership inference]((/goto/modelinversionandmembership/)) - but only in the event where something or someone that was part of the training data constitutes sensitive information. For example, when the training set consists of criminals and their history to predict criminal careers. Membership of that set gives away the person is a convicted or alleged criminal.
     
-   If you use RAG: apply the above measures to your repository data because it feeds into the model and can therefore be part of the output as well.
+   If you use RAG: If you use RAG: apply the above to your repository data, as if it was part of the training set: as the repository data feeds into the model and can therefore be part of the output as well.
 
   If you don't train/finetune the model, then the supplier of the model is responsible for unwanted content in the training data. This can be poisoned data (see above), data that is confidential, or data that is copyrighted. It is important to check licenses, warranties and contracts for these matters, or accept the risk based on your circumstances.
 
@@ -343,7 +343,7 @@ Discovering potential risks that could impact the organization requires technica
  **Leaking input data**
  
   Is your input data sensitive?
-  - Prevent [leaking input data](/goto/leakinput/). If the model is run by a supplier, proper care needs to be taken to ensure that this data is minimized and transferred or stored securely. Review the security measures provided by the supplier, including any options to disable logging or monitoring on their end. If you're using a RAG system, remember that the data you retrieve and inject into the prompt also counts as input data. This often includes sensitive company information or personal data.
+  - Prevent [leaking input data](/goto/leakinput/). Especially if the model is run by a supplier, proper care needs to be taken to ensure that this data is minimized and transferred or stored securely. Review the security measures provided by the supplier, including any options to disable logging or monitoring on their end. If you're using a RAG system, remember that the data you retrieve and inject into the prompt also counts as input data. This often includes sensitive company information or personal data.
 
 
  **Misc.**
