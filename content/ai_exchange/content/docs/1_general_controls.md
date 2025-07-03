@@ -61,7 +61,7 @@ References:
 
 Security program: Make sure the organization has a security program (also referred to as _information security management system_) and that it includes the whole AI lifecycle and AI specific aspects.
 
-Purpose: ensures adequate mitigation of AI security risks through information security management, as the security program takes responsibility for the AI-specific threats and corresponding. For more details on using this document in risk analysis, see the [risk analysis section](/goto/riskanalysis/).
+Purpose: ensures adequate mitigation of AI security risks through information security management, as the security program takes responsibility for the AI-specific threats and corresponding risks. For more details on using this document in risk analysis, see the [risk analysis section](/goto/riskanalysis/).
 
 Make sure to include AI-specific assets and the threats to them. The threats are covered in this resource and the assets are:
 - training data
@@ -143,21 +143,21 @@ The best way to do this is to build on your existing secure software development
 
 Particularities for AI in secure software development:
 - AI teams (e.g. data scientists) need to be taken into scope of your secure development activities, for them to address both conventional security threats and AI-specific threats, applying both conventional security controls and AI-specific ones. Typically, technical teams depend on the AI engineers when it comes to the AI-specific controls as they mostly require deep AI expertise. For example: if training data is confidential and collected in a distributed way, then a federated learning approach may be considered.
-- AI security assets, threats and controls (as covered in this document) need to be considered, effecting requirements, policies, coding guidelines, training, tooling, testing practices and more. Usually, this is done by adding these elements in the organizations Information Security Management System, as described in [SECPROGRAM](/goto/segprogram/), and align secure software development to that - just like it has been aligned on the conventional assets, threats and controls. 
+- AI security assets, threats and controls (as covered in this document) need to be considered, effecting requirements, policies, coding guidelines, training, tooling, testing practices and more. Usually, this is done by adding these elements in the organization's Information Security Management System, as described in [SECPROGRAM](/goto/segprogram/), and align secure software development to that - just like it has been aligned on the conventional assets, threats and controls. 
 - Apart from software components, the supply chain for AI can also include data and models which may have been poisoned, which is why data provenance and model management are central in [AI supply chain management](/goto/supplychainmanage/).
-- In AI, software components can also run in the development environment instead of in production, for example to train models, which increases the attack surface e.g. malicious development components attacking training data.
+- In AI, software components can also run in the development environment instead of in production, for example, to train models, which increases the attack surface e.g. malicious development components attacking training data.
 
 AI-specific elements in the development environment (sometimes referred to as MLops):
 - Supply chain management of data and models, including provenance of the internal processes (for data this effectively means data governance)
-- In addition supply chain management: integrity checks on elements that can have been poisoned (data, models), using an internal or external signed registry for example
+- In addition to supply chain management: integrity checks on elements that can be poisoned (data, models), using an internal or external signed registry for example
 - Static code analysis
   - Running big data/AI technology-specific static analysis rules (e.g the typical mistake of creating a new dataframe in Python without assigning it to a new one)
   - Running maintainability analysis on code, as data and model engineering code is typically hindered by code quality issues
-  - Evaluating code for the percentage of code for automated testing. Industry average is 43% (SIG benchmark report 2023). An often cited recommendation is 80%. Research shows that automated testing in AI engineering is often neglected (SIG benchmark report 2023), as the performance of the AI model is mistakenly regarded as the ground truth of correctness.
+  - Evaluating the proportion of code covered by automated tests is essential for understanding software quality. Industry average is 43% (SIG benchmark report 2023). An often cited recommendation is 80%. Research shows that automated testing in AI engineering is often neglected (SIG benchmark report 2023), as the performance of the AI model is mistakenly regarded as the ground truth of correctness.
 - Training (if required)
   - Automated training of the model when necessary
   - Automated detection of training set issues (standard data quality control plus checking for potential poisoning using pattern recognition or anomaly detection)
-  - Any pre-training controls to mitigate poisoning risks, especially if the deployment process is segregated from the rest of the engineering environment in which poisoning an have taken place, e.g. fine pruning (reducing the size of the model and doing extra training with a ground truth training set)
+  - Any pre-training controls to mitigate poisoning risks, especially if the deployment process is segregated from the rest of the engineering environment in which poisoning may have taken place, e.g. fine pruning (reducing the size of the model and doing extra training with a ground truth training set)
   - Automated data collection and transformation to prepare the train set, when required
 - Version management/traceability of the combination of code, configuration, training data and models, for troubleshooting and rollback
 - Running AI-specific dynamic tests before deployment:
@@ -225,7 +225,7 @@ Useful standards include:
 > Permalink: https://owaspai.org/goto/checkcompliance/
 
 Check compliance: Make sure that AI-relevant laws and regulations are taken into account in compliance management (including security aspects). If personal data is involved and/or AI is applied to make decisions about individuals, then privacy laws and regulations are also in scope. See the [OWASP AI Guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) for privacy aspects of AI.  
-Compliance as a goal can be a powerful driver for organizations to grow their readiness for AI. While doing this it is important to keep in mind that legislation has a scope that does not necessarily include all the relevant risks for the organization. Many rules are about the potential harm to individuals and society, and don’t cover the impact on business processes per se. For example: the European AI act does not include risks for protecting company secrets. In other words: be mindful of blind spots when using laws and regulations as your guide.
+Compliance as a goal can be a powerful driver for organizations to grow their readiness for AI. While doing this, it is important to keep in mind that legislation has a scope that does not necessarily include all the relevant risks for the organization. Many rules are about the potential harm to individuals and society, and don’t cover the impact on business processes per se. For example: the European AI act does not include risks for protecting company secrets. In other words: be mindful of blind spots when using laws and regulations as your guide.
 
 
 Global Jurisdictional considerations (as of end of 2023):
@@ -242,7 +242,7 @@ General Legal Considerations on AI/Security:
 - Data Breaches: any 3rd party supplier must answer as to how they store their data and security frameworks around it, which may include personal data or IP of end-users
 
 Non-Security Compliance Considerations: 
-- Ethics: Deep fake weaponization and how system addresses and deals with it, protects against it and mitigates it
+- Ethics: Deep fake weaponization and how the system addresses and deals with it, protects against it and mitigates it
 - Human Control: any and all AI systems should be deployed with appropriate level of human control and oversight, based on ascertained risks to individuals. AI systems should be designed and utilized with the concept that the use of AI respects dignity and rights of individuals; “Keep the human in the loop” concept. See [Oversight](/goto/oversight/).
 - Discrimination: a process must be included to review datasets to avoid and prevent any bias. See [Unwanted bias testing](/goto/unwantedbiastesting/).
 - Transparency: ensure transparency in the AI system deployment, usage and proactive compliance with regulatory requirements; “Trust by Design”
@@ -282,7 +282,7 @@ Data minimize: remove data fields or records (e.g. from a training set) that are
 
 Purpose: minimize the impact of data leakage or manipulation
 
-A typical opportunity to remove unnecessary data in machine learning is to clean up data that has just been for experimental use.
+A typical opportunity to remove unnecessary data in machine learning is to clean up data that is used solely for experimental purposes.
 
 A method to determine which fields or records can be removed is to statistically analyze which data elements do not play a role in model performance. 
 
@@ -403,7 +403,7 @@ Minimize access to technical details that could help attackers.
 
 Purpose: reduce the information available to attackers, which can assist them in selecting and tailoring their attacks, thereby lowering the probability of a successful attack.
 
-Miminizing and protecting technical details can be achieved by incorporating such details as an asset into information security management. This will ensure proper asset management, data classification, awareness education, policy, and inclusion in risk analysis.
+Minimizing and protecting technical details can be achieved by incorporating such details as an asset into information security management. This will ensure proper asset management, data classification, awareness education, policy, and inclusion in risk analysis.
 
 Note: this control needs to be weighed against the [AITRANSPARENCY](#aitransparency) control that requires to be more open about technical aspects of the model. The key is to minimize information that can help attackers while being transparent.
 
@@ -411,7 +411,7 @@ For example:
 
   - Consider this risk when publishing technical articles on the AI system
   - When choosing a model type or model implementation, take into account that there is an advantage of having technology with which attackers are less familiar
-  - Minimize model output regarding technical details
+  - Minimize technical details in model output
 
 
 Useful standards include:
@@ -442,7 +442,7 @@ Successfully mitigating unwanted model behaviour has its own threats:
 
 Example: The typical use of plug-ins in Large Language Models (GenAI) presents specific risks concerning the protection and privileges of these plug-ins. This is because they enable Large Language Models (LLMs, a GenAI) to perform actions beyond their normal interactions with users. ([OWASP for LLM 07](https://llmtop10.com/llm07/))
 
-Example: LLMs (GenAI), just like most AI models, induce their results based on training data, meaning that they can make up things that are false. In addition, the training data can contain false or outdated information. At the same time, LLMs (GenAI) can come across very confident about their output. These aspects make overreliance of LLM (GenAI) ([OWASP for LLM 09](https://llmtop10.com/llm09/)) a real risk, plus excessive agency as a result of that ([OWASP for LLM 08](https://llmtop10.com/llm08/)). Note that all AI models in principle can suffer from overreliance - not just Large Language Models.
+Example: LLMs (GenAI), just like most AI models, induce their results based on training data, meaning that they can make up things that are false because the training data can contain false or outdated information. At the same time, LLMs (GenAI) can come across very confident about their output. These aspects make overreliance of LLM (GenAI) ([OWASP for LLM 09](https://llmtop10.com/llm09/)) a real risk, plus excessive agency as a result of that ([OWASP for LLM 08](https://llmtop10.com/llm08/)). Note that all AI models in principle can suffer from overreliance - not just Large Language Models.
 
 **Controls to limit the effects of unwanted model behaviour:**
 
@@ -502,7 +502,7 @@ See the [DISCRETE](#discrete) control for the balance between being transparent 
 
 Useful standards include:
 
-  - ISO/IEC 42001 B.7.2 describes data management to support transparency. Gap: covers this control minimally, as it only covers the data mnanagement part.
+  - ISO/IEC 42001 B.7.2 describes data management to support transparency. Gap: covers this control minimally, as it only covers the data management part.
   - Not covered further in ISO/IEC standards.
 
 #### #CONTINUOUSVALIDATION
@@ -529,4 +529,4 @@ Explainability: Explaining how individual model decisions are made, a field refe
 > Category: runtime data science control  
 > Permalink: https://owaspai.org/goto/unwantedbiastesting/
 
-Unwanted bias testing: by doing test runs of the model to measure unwanted bias, unwanted behaviour caused by an attack can be detected. The details of bias detection fall outside the scope of this document as it is not a security concern - other than that an attack on model behaviour can cause bias.
+Unwanted bias testing: By doing test runs of the model to measure unwanted bias, unwanted behaviour caused by an attack can be detected. The details of bias detection fall outside the scope of this document as it is not a security concern - other than that, an attack on model behaviour can cause bias.
