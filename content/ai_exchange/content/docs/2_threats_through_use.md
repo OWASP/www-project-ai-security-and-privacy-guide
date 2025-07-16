@@ -13,7 +13,7 @@ Threats through use take place through normal interaction with an AI model: prov
 - See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/) and [Sensitive data limitation](/goto/dataminimize/)
 - The below control(s), each marked with a # and a short name in capitals
 
-#### #MONITOR USE 
+#### #MONITORUSE 
 >Category: runtime information security control for threats through use  
 >Permalink: https://owaspai.org/goto/monitoruse/
 
@@ -31,7 +31,7 @@ Useful standards include:
   - ISO/IEC 42001 B.6.2.6 discusses AI system operation and monitoring. Gap: covers this control fully, but on a high abstraction level.
   - See [OpenCRE](https://www.opencre.org/cre/058-083). Idem
 
-#### #RATE LIMIT
+#### #RATELIMIT
 >Category: runtime information security control for threats through use  
 >Permalink: https://owaspai.org/goto/ratelimit/
 
@@ -52,7 +52,7 @@ Useful standards include:
   - ISO 27002 has no control for this
   - See [OpenCRE](https://www.opencre.org/cre/630-573)
 
-#### #MODEL ACCESS CONTROL
+#### #MODELACCESSCONTROL
 >Category: runtime information security control for threats through use  
 >Permalink: https://owaspai.org/goto/modelaccesscontrol/
 
@@ -113,7 +113,7 @@ An Evasion attack typically consists of first searching for the inputs that misl
   - See [controls for threats through use](/goto/threatsuse/)
   - The below control(s), each marked with a # and a short name in capitals
 
-#### #DETECT ODD INPUT 
+#### #DETECTODDINPUT 
 >Category: runtime datascience control for threats through use  
 >Permalink: https://owaspai.org/goto/detectoddinput/
 
@@ -171,7 +171,7 @@ References:
   - Sehwag, Vikash, et al. "Analyzing the robustness of open-world machine learning." Proceedings of the 12th ACM Workshop on Artificial Intelligence and Security. 2019.
 
 
-#### #DETECT ADVERSARIAL INPUT
+#### #DETECTADVERSARIALINPUT
 >Category: runtime data science control for threats through use  
 >Permalink: https://owaspai.org/goto/detectadversarialinput/
 
@@ -258,7 +258,7 @@ images." arXiv preprint arXiv:1608.00530 (2016).
   - Feinman, Reuben, et al. "Detecting adversarial samples from artifacts."
 arXiv preprint arXiv:1703.00410 (2017).
 
-#### #EVASION ROBUST MODEL
+#### #EVASIONROBUSTMODEL
 >Category: development-time data science control for threats through use  
 >Permalink: https://owaspai.org/goto/evasionrobustmodel/
 
@@ -307,7 +307,7 @@ gradients give a false sense of security: Circumventing defenses to
 adversarial examples." International conference on machine learning.
 PMLR, 2018.
 
-#### #TRAIN ADVERSARIAL
+#### #TRAINADVERSARIAL
 >Category: development-time data science control for threats through use  
 >Permalink: https://owaspai.org/goto/trainadversarial/
 
@@ -360,7 +360,7 @@ References:
   - Athalye, Anish, Nicholas Carlini, and David Wagner. "Obfuscated gradients give a false sense of security: Circumventing defenses to adversarial examples." International conference on machine learning. PMLR, 2018.
 
   
-#### #ADVERSARIAL ROBUST DISTILLATION
+#### #ADVERSARIALROBUSTDISTILLATION
 >Category: development-time data science control for threats through use  
 >Permalink: https://owaspai.org/goto/adversarialrobustdistillation/
 
@@ -483,7 +483,7 @@ Prompt injection attacks involve maliciously crafting or manipulating input prom
 - See [controls for threats through use](/goto/threatsuse/)
 - The below control(s), each marked with a # and a short name in capitals
 
-#### #PROMPT INPUT VALIDATION
+#### #PROMPTINPUTVALIDATION
 > Category: runtime information security control against application security threats  
 > Permalink: https://owaspai.org/goto/promptinputvalidation/
 
@@ -549,7 +549,7 @@ References
 - See [controls for prompt injection](/goto/promptinjection/)
 - The below control(s), each marked with a # and a short name in capitals
 
-#### #INPUT SEGREGATION
+#### #INPUTSEGREGATION
 > Category: runtime information security control against application security threats  
 > Permalink: https://owaspai.org/goto/inputsegregation/
 
@@ -586,7 +586,7 @@ The disclosure is caused by an unintentional fault involving the inclusion of th
 - See [controls for threats through use](/goto/threatsuse/), to limit the model user group, the amount of access and to detect disclosure attempts
 - The below control(s), each marked with a # and a short name in capitals
 
-#### #FILTER SENSITIVE MODEL OUTPUT 
+#### #FILTERSENSITIVEMODELOUTPUT 
 >Category: runtime information security control for threats through use  
 >Permalink: https://owaspai.org/goto/filtersensitivemodeloutput/
 
@@ -622,7 +622,7 @@ Controls for Model inversion and membership inference:
 - See [controls for threats through use](/goto/threatsuse/)
 - The below control(s), each marked with a # and a short name in capitals
 
-#### #OBSCURE CONFIDENCE 
+#### #OBSCURECONFIDENCE 
 >Category: runtime data science control for threats through use  
 >Permalink: https://owaspai.org/goto/obscureconfidence/
 
@@ -632,7 +632,7 @@ Useful standards include:
 
   - Not covered yet in ISO/IEC standards
 
-#### #SMALL MODEL 
+#### #SMALLMODEL 
 >Category: development-time data science control for threats through use  
 >Permalink: https://owaspai.org/goto/smallmodel/
 
@@ -683,7 +683,7 @@ For example: A _sponge attack_ or _energy latency attack_ provides input that is
 - The below control(s), each marked with a # and a short name in capitals
 
   
-#### #DOS INPUT VALIDATION
+#### #DOSINPUTVALIDATION
 >Category: runtime information security control for threats through use  
 >Permalink: https://owaspai.org/goto/dosinputvalidation/
 
@@ -696,7 +696,7 @@ Useful standards include:
   - [OpenCRE on input validation](https://www.opencre.org/cre/010-308)
 
 
-#### #LIMIT RESOURCES
+#### #LIMITRESOURCES
 >Category: runtime information security control for threats through use  
 >Permalink: https://owaspai.org/goto/limitresources/
 
