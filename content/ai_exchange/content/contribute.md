@@ -45,6 +45,8 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
     <tr><td><b>Behnaz Karimi</b></td><td>Accenture</td><td>Germany</td><td>Misc. contributions including model obfuscation and explanation, leadership team</td></tr>
     <tr><td><b>Chris Ancharski</b></td><td>Global community builder</td><td>US</td><td>Engagement specialist, leadership team</td></tr>
     <tr><td>Adelin Travers</td><td>Trail of Bits</td><td></td><td></td></tr>
+    <tr><td>Alan Hau</td><td>AIFT (Vulcan)</td><td>Singapore</td><td>Cultural sensitivity and global comparison</td></tr>
+    <tr><td>Alex Leung</td><td>AIFT (Vulcan)</td><td>Singapore</td><td>Cultural sensitivity and global comparison</td></tr>
     <tr><td>Alon Tron</td><td>Stealth</td><td>Israel</td><td>Improved supply chain management</td></tr>
     <tr><td>Angie Qarry</td><td>QDeepTech</td><td>Austria</td><td>several elaborations and references on data science defence mechanisms</td></tr>
     <tr><td>Annegrit Seyerlein-Klug</td><td>TH Brandenburg</td><td>Germany</td><td>mapping with misc. standards</td></tr>
