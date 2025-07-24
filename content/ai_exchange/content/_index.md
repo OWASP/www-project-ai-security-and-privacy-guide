@@ -63,6 +63,8 @@ See the [overview of AI projects at OWASP](/goto/aiatowasp/).
 
 * [References](/docs/ai_security_references/)
 
+Content also available in [pdf](OWASP-AI-Exchange.pdf)
+
 </div>
     </td>
   </tr>
