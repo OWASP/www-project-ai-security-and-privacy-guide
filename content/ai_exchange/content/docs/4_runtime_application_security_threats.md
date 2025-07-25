@@ -21,7 +21,7 @@ Note: some controls in this document are application security controls that are 
   Useful standards include:
   - See [OpenCRE on technical application security controls](https://www.opencre.org/cre/636-660)
   - The ISO 27002 controls only partly cover technical application security controls, and on a high abstraction level
-  - More detailed and comprehensive control overviews can be found in for example Common criteria protection profiles (ISO/IEC 15408 with evaluation described in ISO 18045),
+  - More detailed and comprehensive control overviews can be found in for example, Common criteria protection profiles (ISO/IEC 15408 with evaluation described in ISO 18045),
   - or in [OWASP ASVS](https://owasp.org/www-project-application-security-verification-standard/)
 - Operational security  
   When models are hosted by third parties then security configuration of those services deserves special attention. Part of this configuration is [model access control](/goto/modelaccesscontrol/):  an important mitigation for security risks. Cloud AI configuration options deserve scrutiny, like for example opting out when necessary of monitoring by the third party - which could increase the risk of exposing sensitive data.
@@ -82,8 +82,7 @@ Run-time model confidentiality: see [SECDEVPROGRAM](/goto/secdevprogram/) to att
 A Trusted Execution Environment can be highly effective in safeguarding the runtime environment, isolating model operations from potential threats, including side-channel hardware attacks like [DeepSniffer](https://sites.cs.ucsb.edu/~sherwood/pubs/ASPLOS-20-deepsniff.pdf). By ensuring that sensitive computations occur within this secure enclave,the TEE reduces the risk of attackers gaining useful information through side-channel methods.
 
 Side-Channel Mitigation Techniques:
-- Masking: Introducing random delays or noise during inference can help obscure the relationship between input data and the model’s response times, thereby
-complicating timing-based side-channel attacks. See [Masking against Side-Channel Attacks: A Formal Security Proof](https://www.iacr.org/archive/eurocrypt2013/78810139/78810139.pdf)
+- Masking: Introducing random delays or noise during inference can help obscure the relationship between input data and the model’s response times, thereby complicating timing-based side-channel attacks. See [Masking against Side-Channel Attacks: A Formal Security Proof](https://www.iacr.org/archive/eurocrypt2013/78810139/78810139.pdf)
 
 - Shielding: Employing hardware-based shielding could help prevent electromagnetic
 or acoustic leakage that might be exploited for side-channel attacks. See [Electromagnetic Shielding for Side-Channel Attack Countermeasures](https://ieeexplore.ieee.org/document/8015660)
