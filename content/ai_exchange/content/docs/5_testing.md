@@ -26,6 +26,9 @@ A systematic approach to AI Red Teaming involves a few key steps, listed below:
 - **Prioritization and Risk Mitigation:** Develop an action plan for remediation, implement mitigation measures, and calculate residual risk.
 - **Validation of Fixes:** Retest the system post-remediation.
 
+For more information on AI security testing, see the [OWASP AI Testing guide](https://github.com/OWASP/www-project-ai-testing-guide).
+
+
 ## Threats to test for
 A comprehensive list of threats and controls coverage based on assets, impact, and attack surfaces is available as a [Periodic Table of AI Security](/goto/periodictable/). In this section, we provide a list of tools for AI Red Teaming Predictive and Generative AI systems, aiding steps such as Attack Scenarios, Test Execution through automated red teaming, and, oftentimes, Risk Assessment through risk scoring.
 
