@@ -153,7 +153,7 @@ AI-specific elements in the development environment (sometimes referred to as ML
 - Static code analysis
   - Running big data/AI technology-specific static analysis rules (e.g the typical mistake of creating a new dataframe in Python without assigning it to a new one)
   - Running maintainability analysis on code, as data and model engineering code is typically hindered by code quality issues
-  - Evaluating code for the percentage of code for automated testing. Industry average is 43% (SIG benchmark report 2023). An often cited recommendation is 80%. Research shows that automated testing in AI engineering is often neglected (SIG benchmark report 2023), as the performance of the AI model is mistakenly regarded as the ground truth of correctness.
+  - Evaluating the proportion of code covered by automated tests is essential for understanding software quality. Industry average is 43% (SIG benchmark report 2023). An often cited recommendation is 80%. Research shows that automated testing in AI engineering is often neglected (SIG benchmark report 2023), as the performance of the AI model is mistakenly regarded as the ground truth of correctness.
 - Training (if required)
   - Automated training of the model when necessary
   - Automated detection of training set issues (standard data quality control plus checking for potential poisoning using pattern recognition or anomaly detection)
@@ -442,7 +442,7 @@ Successfully mitigating unwanted model behaviour has its own threats:
 
 Example: The typical use of plug-ins in Large Language Models (GenAI) presents specific risks concerning the protection and privileges of these plug-ins. This is because they enable Large Language Models (LLMs, a GenAI) to perform actions beyond their normal interactions with users. ([OWASP for LLM 07](https://llmtop10.com/llm07/))
 
-Example: LLMs (GenAI), just like most AI models, induce their results based on training data, meaning that they can make up things that are false. In addition, the training data can contain false or outdated information. At the same time, LLMs (GenAI) can come across very confident about their output. These aspects make overreliance of LLM (GenAI) ([OWASP for LLM 09](https://llmtop10.com/llm09/)) a real risk, plus excessive agency as a result of that ([OWASP for LLM 08](https://llmtop10.com/llm08/)). Note that all AI models in principle can suffer from overreliance - not just Large Language Models.
+Example: LLMs (GenAI), just like most AI models, induce their results based on training data, meaning that they can make up things that are false because the training data can contain false or outdated information. At the same time, LLMs (GenAI) can come across very confident about their output. These aspects make overreliance of LLM (GenAI) ([OWASP for LLM 09](https://llmtop10.com/llm09/)) a real risk, plus excessive agency as a result of that ([OWASP for LLM 08](https://llmtop10.com/llm08/)). Note that all AI models in principle can suffer from overreliance - not just Large Language Models.
 
 **Controls to limit the effects of unwanted model behaviour:**
 
