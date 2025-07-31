@@ -39,16 +39,16 @@ This control has been integrated with [#DEVSECURITY](/goto/devsecurity/).
  
 Development security: appropriate security of the AI development infrastructure, also taking into account the sensitive information that is typical to AI: training data, test data, model parameters and technical documentation. 
 
-**How:** This can be achieved by adding said assets to the existing security management system. Security involves for example encryption, screening of development personnel, protection of source code/configuration, virus scanning on engineering machines.
+**How:** This can be achieved by adding the said assets to the existing security management system. Security involves for example encryption, screening of development personnel, protection of source code/configuration, virus scanning on engineering machines.
 
-**Importance**: In case said assets leak, it hurts confidentiality of intellectual property and/or the confidentiality of train/test data which may contain company secrets, or personal data for example. Also the integrity of this data is important to protect, to prevent data or model poisoning.
+**Importance**: In case the said assets leak, it hurts the confidentiality of intellectual property and/or the confidentiality of train/test data which may contain company secrets, or personal data for example. Also the integrity of this data is important to protect, to prevent data or model poisoning.
 
 **Risks external to the development environment**
 
 Data and models may have been obtained externally, just like software components. Furthermore, software components often run within the AI development environment, introducing new risks, especially given that sensitive data is present in this environment. For details, see [SUPPLYCHAINMANAGE](/goto/supplychainmanage/).
 
 Training data is in most cases only present during development-time, but there are exceptions:
-  - A machine learning model may be continuously trained with data collected runtime, which puts (part of the) train data in the runtime environment, where it also needs protection - as covered in this control section
+  - A machine learning model may be continuously trained with data collected at runtime, which puts (part of the) training data in the runtime environment, where it also needs protection - as covered in this control section
   - For GenAI, information can be retrieved from a repository to be added to a prompt, for example to inform a large language model about the context to take into account for an instruction or question. This principle is called _in-context learning_. For example [OpenCRE-chat](https://opencre.org/chatbot) uses a repository of requirements from security standards to add to a user question so that the large language model is more informed with background information. In the case of OpenCRE-chat this information is public, but in many cases the application of this so-called Retrieval Augmented Generation (RAG) will have a repository with company secrets or otherwise sensitive data. Organizations can benefit from unlocking their unique data, to be used by themselves, or to be provided as service or product. This is an attractive architecture because the alternative would be to train an LLM or to finetune it, which is expensive and difficult. A RAG approach may suffice. Effectively, this puts the repository data to the same use as training data is used: control the behaviour of the model. Therefore, the security controls that apply to train data, also apply to this run-time repository data.
 
 **Details on the how: protection strategies:**
@@ -157,7 +157,7 @@ Useful standards include:
 > Category: development-time data science control  
 > Permalink: https://owaspai.org/goto/federatedlearning/
  
-Federated learning can be applied when a training set is distributed over different organizations, preventing that the data needs to be collected in a central place - increasing the risk of leaking.  
+Federated learning can be applied when a training set is distributed over different organizations, preventing the data from needing to be collected in a central place - increasing the risk of leaking.  
 
 Federated Learning is a decentralized Machine Learning architecture wherein a number of clients (e.g. sensor or mobile devices) participate in collaborative, decentralized, asynchronous training, which is orchestrated and aggregated by a controlling central server. Advantages of Federated Learning include reduced central compute, and the potential for preservation of privacy, since training data may remain local to the client.
 
@@ -275,7 +275,7 @@ An attacker manipulates data that the model uses to learn, in order to affect th
 - Changing the data while in transit to the storage (e.g. by hacking into a data transfer)
 - Changing the data while at the supplier, before the data is obtained from the supplier
 - Changing the data while at the supplier, where a model is trained and then that model is obtained from the supplier
-- Manipulating data entry in operation, feeding into training data, for example by creating fake accounts to enter positieve reviews for products, making these products get recommended more often
+- Manipulating data entry in operation, feeding into training data, for example by creating fake accounts to enter positive reviews for products, making these products get recommended more often
 
 The manipulated data can be training data, but also in-context-learning data that is used to augment the input (e.g. a prompt) to a model with information to use.
 
@@ -352,7 +352,7 @@ Useful standards include:
 
 Train data distortion: distorting untrusted training data by smoothing or adding noise, to make poisoned 'triggers' ineffective. Such a trigger has been inserted by an attacker in the training data, together with an unwanted output. Whenever input data is presented that contains a similar 'trigger', the model can recognize it and output the unwanted value. The idea is to distort the triggers so that they are not recognized anymore by the model.  
 
-A special form of traindata distortion is complete removal of certain input fields. Technically, this is data minimization (see [DATAMINIMIZE](goto/dataminimize/)), but its purpose is not protecting the confidentiality of that data per se, but reducing the ability to memorize poisoned samples.
+A special form of train data distortion is complete removal of certain input fields. Technically, this is data minimization (see [DATAMINIMIZE](goto/dataminimize/)), but its purpose is not protecting the confidentiality of that data per se, but reducing the ability to memorize poisoned samples.
 
 Data distortion can also be part of differential privacy: to make personal data less recognizable. This means that applying differential privacy can be a countermeasure to data poisoning as well.
 
@@ -383,7 +383,7 @@ Link to standards:
 
 Poison robust model: select a model type and creation approach to reduce sensitivity to poisoned training data.
 
-This control can be applied to a model that has already been trained, so including models that have been obtained from an external source. 
+This control can be applied to a model that has already been trained, including models that have been obtained from an external source. 
 
 The general principle of reducing sensitivity to poisoned training data is to make sure that the model does not memorize the specific malicious input pattern (or _backdoor trigger_). The following two examples represent different strategies, which can also complement each other in an approach called **fine pruning** (See [paper on fine-pruning](https://arxiv.org/pdf/1805.12185.pdf)):
 1. Reduce memorization by removing elements of memory using **pruning**. Pruning in essence reduces the size of the model so it does not have the capacity to trigger on backdoor-examples while retaining sufficient accuracy for the intended use case. The approach removes neurons in a neural network that have been identified as non-essential for sufficient accuracy.
@@ -393,7 +393,7 @@ Useful standards include:
 - Not covered yet in ISO/IEC standards
 
 #### #TRAINADVERSARIAL
-Training with adversarial examples is used as a control against evasion attacks, but can also be helpful against datapoison trigger attacks that are based on slight alterations of training data, since these triggers are like adversarial samples.
+Training with adversarial examples is used as a control against evasion attacks, but can also be helpful against data poison trigger attacks that are based on slight alterations of training data, since these triggers are like adversarial samples.
 
 For example: adding images of stop signs in a training database for a self driving car, labeled as 35 miles an hour, where the stop sign is slightly altered. What this effectively does is to force the model to make a mistake with traffic signs that have been altered in a similar way. This type of data poisoning aims to prevent anomaly detection of the poisoned samples.  
 
@@ -421,7 +421,7 @@ Training data manipulation is referred to as [data poisoning](/goto/datapoison).
 >Category: development-time threat  
 >Permalink: https://owaspai.org/goto/supplymodelpoison/
 
-An attacker manipulates a third-party (pre-)trained model which is then supplied, obtained and unknowingly further used and/or trained/fine tuned, with still having the unwanted behaviour (see the attack surface diagram in the [broad model poisoning section](/goto/modelpoison/)). If the supplied model is used for urther training, then the attack is called a _transfer learning attack_.
+An attacker manipulates a third-party (pre-)trained model which is then supplied, obtained and unknowingly further used and/or trained/fine tuned, with still having the unwanted behaviour (see the attack surface diagram in the [broad model poisoning section](/goto/modelpoison/)). If the supplied model is used for further training, then the attack is called a _transfer learning attack_.
 
 AI models are sometimes obtained elsewhere (e.g. open source) and then further trained or fine-tuned. These models may have been manipulated(poisoned) at the source, or in transit. See [OWASP for LLM 03: Supply Chain](https://genai.owasp.org/llmrisk/llm03/).
 
@@ -481,7 +481,7 @@ Alternative ways of model theft are [model theft through use](/goto/modeltheftus
 >Category: development-time threat  
 >Permalink: https://owaspai.org/goto/devcodeleak/
 
-Unauthorized access to code or configuration that leads to the model, through a data leak of the development environment. SUch code or configuration is used to preprocess the training/test data and train the model.
+Unauthorized access to code or configuration that leads to the model, through a data leak of the development environment. Such code or configuration is used to preprocess the training/test data and train the model.
 
 Impact: Confidentiality breach of model intellectual property.
 
