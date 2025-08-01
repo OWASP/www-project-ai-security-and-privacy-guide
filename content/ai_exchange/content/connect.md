@@ -3,10 +3,11 @@ title: 'Connect with us'
 excludeSearch: true
 ---
 
+
 ## Platforms
 {{< cards >}}
     {{< small-card link="https://forms.gle/XwEEK52y4iZQChuJ6" title="Apply to join authors" icon="login" >}}
-    {{< small-card link="https://join.slack.com/t/owasp/shared_invite/zt-36ppepxs2-ncLn77RK_Ybg_wX5CJsGig" title="Slack" icon="slack-big" >}}
+    {{< small-card link="https://owasp.slack.com/join/shared_invite/zt-3a46jwqqa-AXyy3Eq33ie5~ZtIy_Bs_Q#/shared-invite/email" title="Slack" icon="slack-big" >}}
     {{< small-card link="https://www.linkedin.com/company/owasp-ai-exchange/" title="LinkedIn" icon="linkedin" >}}
     {{< small-card link="mailto:rob.vanderveer@owasp.org" title="E-mail" icon="mail">}}
     {{< small-card link="https://twitter.com/owasp" title="Twitter" icon="x-twitter" >}}
