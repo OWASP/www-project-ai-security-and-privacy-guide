@@ -496,8 +496,20 @@ To address the flexibility of natural language in prompt inputs, one possible ap
 
 In the context of large language models (LLMs), alignment refers to the process of ensuring that the model's behavior and outputs are consistent with human values, intentions, and ethical standards.
 
-To avoid making judgments or creating the appearance of doing so, the model’s output should explicitly inform the user of its refusal to interpret the given input. 
+Achieving the goal of model alignment involves multiple layers:  
 
+1. Training-Time Alignment, shaping the core behaviour of the model  
+This is often what people mean by "model alignment" in the strict sense:
+- Training data choices
+- Fine-tuning (on aligned examples: helpful, harmless, honest)
+- Reinforcement learning from human feedback (RLHF) or other reward modeling
+
+2. Deployment-Time Alignment (Including System Prompts)  
+Even if the model is aligned during training, its actual behavior during use is also influenced by:  
+- System prompts / instruction prompts
+- Guardrails built into the AI system and external tools that oversee or control responses (like content filters or output constraints) - see [#OVERSIGHT](/goto/oversight/)
+
+To avoid making judgments or creating the appearance of doing so, the model’s output should explicitly inform the user of its refusal to interpret the given input. 
 
 See [the appendix on culture-sensitive alignment](/goto/culturesensitivealignment/).
 
