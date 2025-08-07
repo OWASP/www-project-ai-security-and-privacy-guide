@@ -499,7 +499,7 @@ In the context of large language models (LLMs), alignment refers to the process 
 To avoid making judgments or creating the appearance of doing so, the model’s output should explicitly inform the user of its refusal to interpret the given input. 
 
 
-See [the appendix on cultural variation alignment](/goto/modelalignment/).
+See [the appendix on culture-sensitive alignment](/goto/culturesensitivealignment/).
 
 
 ### 2.2.1. Direct prompt injection
@@ -722,9 +722,9 @@ Useful standards include:
 ---
 
 
-## Appendix: Variations in Alignment from Different Cultures and Regions
+## Appendix: Culture-sensitive alignment
 >Category: control details  
->Permalink: https://owaspai.org/goto/culturalvariationalignment/
+>Permalink: https://owaspai.org/goto/culturesensitivealignment/
 
 In the context of large language models (LLMs), alignment refers to the process of ensuring that the model's behavior and outputs are consistent with human values, intentions, and ethical standards. See [#MODEL ALIGNMENT](/goto/modelalignment/).
 
