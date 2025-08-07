@@ -43,7 +43,6 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
     <tr><td><b>Rob van der Veer</b></td><td>Software Improvement Group (SIG)</td><td>Netherlands</td><td>Project founder and lead, content, leadership team</td></tr>
     <tr><td><b>Aruneesh Salhotra</b></td><td>SNM Consulting Inc</td><td>US</td><td>Outreach, management, content, leadership team</td></tr>
     <tr><td><b>Behnaz Karimi</b></td><td>Accenture</td><td>Germany</td><td>Misc. contributions including model obfuscation and explanation, leadership team</td></tr>
-    <tr><td><b>Chris Ancharski</b></td><td>Global community builder</td><td>US</td><td>Engagement specialist, leadership team</td></tr>
     <tr><td>Adelin Travers</td><td>Trail of Bits</td><td></td><td></td></tr>
     <tr><td>Alan Hau</td><td>AIFT (Vulcan)</td><td>Singapore</td><td>Cultural sensitivity and global comparison</td></tr>
     <tr><td>Alex Leung</td><td>AIFT (Vulcan)</td><td>Singapore</td><td>Cultural sensitivity and global comparison</td></tr>
@@ -51,9 +50,10 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
     <tr><td>Angie Qarry</td><td>QDeepTech</td><td>Austria</td><td>several elaborations and references on data science defence mechanisms</td></tr>
     <tr><td>Annegrit Seyerlein-Klug</td><td>TH Brandenburg</td><td>Germany</td><td>mapping with misc. standards</td></tr>
     <tr><td>Anthony Glynn</td><td>CapitalOne</td><td>US</td><td>many textual improvements & link to LLM top 10</td></tr>
+     <tr><td>Chris Ancharski</td><td>Global community builder</td><td>US</td><td>Leadership team during part of 2024 </td></tr>
     <tr><td>Dan Sorensen</td><td>Centil</td><td>US</td><td>Misc. additions including development security</td></tr>
     <tr><td>Dennis Charolle</td><td>MilliporeSigma</td><td>US</td><td>Compliance overview and copyright</td></tr>
-    <tr><td>Disesdi Susanna Cox</td><td>OTW</td><td>US</td><td>Federated learning</td></tr>
+    <tr><td>Disesdi Susanna Cox</td><td>OTW</td><td>US</td><td>Federated learning and many more</td></tr>
     <tr><td>Eoin Wickens</td><td>HiddenLayer</td><td>Ireland</td><td>Additions to development security</td></tr>
     <tr><td>Feiyang Tang</td><td>Software Improvement Group (SIG)</td><td></td><td></td></tr>
     <tr><td><b>John Sotiropoulos</b></td><td>Kainos</td><td>UK</td><td>Liaison to several institutes</td></tr>
