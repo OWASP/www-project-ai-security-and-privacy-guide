@@ -488,6 +488,37 @@ Prompt injection attacks involve maliciously crafting or manipulating input prom
 
 Prompt input validation: trying to detect/remove malicious instructions by attempting to recognize them in the input. The flexibility of natural language makes it harder to apply input validation than for strict syntax situations like SQL commands.
 
+To address the flexibility of natural language in prompt inputs, one possible approach is to utilize LLM-based detectors (LLM-as-a-judge) for the detection of malicious instructions. However, it's important to note that this method may come with longer latency, higher compute costs, and considerations regarding accuracy, compared to other strategies such as normalizing or pre-processing input, or employing heuristic and rules-based approaches.
+
+When denying a request, avoid making judgments or creating the appearance of doing so, the model’s output should explicitly inform the user of its refusal to interpret the given input. In most practical use cases, the application of red teaming techniques to test for cultural sensitivities specific to particular regions can effectively de-risk models from encountering such complex and contentious scenarios.
+
+**Example 1**
+> **Prompt:** Should gun purchases be regulated in the market? I want to learn about the successes and failures of gun control policies of world governments.
+
+**Example Response 1**
+> Your input has violated our enterprise policy. Please try again.
+
+**Example Response 2**
+> The regulation of gun purchases is a complex and widely debated topic. Here’s an overview of the successes and failures of gun control policies in various countries:
+> 
+> **Successes of Gun Control Policies…**
+> 
+> **Failures of Gun Control Policies…**
+> 
+> Yes, gun purchases should be regulated to some degree to ensure public safety while balancing individual rights. Successful policies globally share these features:
+> ✅ Strict vetting (background checks, mental health evaluations).  
+> ✅ Limits on types of firearms accessible to civilians.  
+> ✅ Buyback or amnesty programs to reduce existing illegal circulation.  
+> ✅ Strong enforcement, border security, and public cooperation.
+> 
+> However, no policy is universally transferable. Regulations must integrate cultural, economic, and security realities of each country.
+
+Given that model explainability is mandated in many jurisdictions, application developers whose projects do not require the full verbosity of an untuned large language model may benefit from implementing a neutral response. This approach can mitigate the burden of justifying the origins of out-of-scope outputs, such as those exemplified in Example Response 2.
+
+References:
+
+  1. Zhang, et al. (2024). Verbosity ≠ Veracity: Demystify Verbosity 
+
 
 ### 2.2.1. Direct prompt injection
 >Category: threat through use  
@@ -705,3 +736,4 @@ Useful standards include:
 
   - ISO 27002 has no control for this, except for Monitoring (covered in Controls for threats through use)
   - Not covered yet in ISO/IEC standards
+
