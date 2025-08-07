@@ -200,17 +200,17 @@
       },
       {
         "source": "/goto/monitoruse/",
-        "destination": "/docs/2_threats_through_use/#monitoruse",
+        "destination": "/docs/2_threats_through_use/#monitor-use",
         "type": 301
       },
       {
         "source": "/goto/ratelimit/",
-        "destination": "/docs/2_threats_through_use/#ratelimit",
+        "destination": "/docs/2_threats_through_use/#rate-limit",
         "type": 301
       },
       {
         "source": "/goto/modelaccesscontrol/",
-        "destination": "/docs/2_threats_through_use/#modelaccesscontrol",
+        "destination": "/docs/2_threats_through_use/#model-access-control",
         "type": 301
       },
       {
@@ -220,32 +220,32 @@
       },
       {
         "source": "/goto/detectoddinput/",
-        "destination": "/docs/2_threats_through_use/#detectoddinput",
+        "destination": "/docs/2_threats_through_use/#detect-oddinput",
         "type": 301
       },
       {
         "source": "/goto/detectadversarialinput/",
-        "destination": "/docs/2_threats_through_use/#detectadversarialinput",
+        "destination": "/docs/2_threats_through_use/#detect-adversarial-input",
         "type": 301
       },
       {
         "source": "/goto/evasionrobustmodel/",
-        "destination": "/docs/2_threats_through_use/#evasionrobustmodel",
+        "destination": "/docs/2_threats_through_use/#evasion-robust-model",
         "type": 301
       },
       {
         "source": "/goto/trainadversarial/",
-        "destination": "/docs/2_threats_through_use/#trainadversarial",
+        "destination": "/docs/2_threats_through_use/#train-adversarial",
         "type": 301
       },
       {
         "source": "/goto/inputdistortion/",
-        "destination": "/docs/2_threats_through_use/#inputdistortion",
+        "destination": "/docs/2_threats_through_use/#input-distortion",
         "type": 301
       },
       {
         "source": "/goto/adversarialrobustdistillation/",
-        "destination": "/docs/2_threats_through_use/#adversarialrobustdistillation",
+        "destination": "/docs/2_threats_through_use/#adversarial-robust-distillation",
         "type": 301
       },
       {
@@ -285,7 +285,7 @@
       },
       {
         "source": "/goto/inputsegregation/",
-        "destination": "/docs/2_threats_through_use/#inputsegregation",
+        "destination": "/docs/2_threats_through_use/#input-segregation",
         "type": 301
       },
       {
@@ -300,7 +300,7 @@
       },
       {
         "source": "/goto/filtersensitivemodeloutput/",
-        "destination": "/docs/2_threats_through_use/#filtersensitivemodeloutput",
+        "destination": "/docs/2_threats_through_use/#filter-sensitive-model-output",
         "type": 301
       },
       {
@@ -310,12 +310,12 @@
       },
       {
         "source": "/goto/obscureconfidence/",
-        "destination": "/docs/2_threats_through_use/#obscureconfidence",
+        "destination": "/docs/2_threats_through_use/#obscure-confidence",
         "type": 301
       },
       {
         "source": "/goto/smallmodel/",
-        "destination": "/docs/2_threats_through_use/#smallmodel",
+        "destination": "/docs/2_threats_through_use/#small-model",
         "type": 301
       },
       {
@@ -329,23 +329,23 @@
         "type": 301
       },
       {
-        "source": "goto/culturalvariationalignment/",
-        "destination": "/docs/2_threats_through_use/#26-Variations-in-Alignment-from-Different-Cultures-and-Regions",
+        "source": "goto/culturesensitivealignment/",
+        "destination": "/docs/2_threats_through_use/#culture-sensitive-alignment",
         "type": 301
       },
       {
-        "source": "/goto/explicitoutputrefusal/",
-        "destination": "/docs/2_threats_through_use/#explicitoutputrefusal",
+        "source": "/goto/modelalignment/",
+        "destination": "/docs/2_threats_through_use/#model-alignment",
         "type": 301
       },
       {
         "source": "/goto/dosinputvalidation/",
-        "destination": "/docs/2_threats_through_use/#dosinputvalidation",
+        "destination": "/docs/2_threats_through_use/#dos-input-validation",
         "type": 301
       },
       {
         "source": "/goto/limitresources/",
-        "destination": "/docs/2_threats_through_use/#limitresources",
+        "destination": "/docs/2_threats_through_use/#limit-resources",
         "type": 301
       },
       {
