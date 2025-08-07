@@ -329,16 +329,6 @@
         "type": 301
       },
       {
-        "source": "goto/culturalvariationalignment/",
-        "destination": "/docs/2_threats_through_use/#26-Variations-in-Alignment-from-Different-Cultures-and-Regions",
-        "type": 301
-      },
-      {
-        "source": "/goto/explicitoutputrefusal/",
-        "destination": "/docs/2_threats_through_use/#explicitoutputrefusal",
-        "type": 301
-      },
-      {
         "source": "/goto/dosinputvalidation/",
         "destination": "/docs/2_threats_through_use/#dosinputvalidation",
         "type": 301
