@@ -159,7 +159,7 @@ Notes:
 
 - Development-time Model poisoning: Simulates attacks during development to evaluate vulnerabilities[*https://owaspai.org/goto/modelpoison/*](https://owaspai.org/goto/modelpoison/)
 - Evasion:Tests model performance against adversarial inputs  [*https://owaspai.org/goto/evasion/*](https://owaspai.org/goto/evasion/)
-- Model theft through use:Evaluates risks of model exploitation during usage  [*https://owaspai.org/goto/modeltheftuse*](https://owaspai.org/goto/modeltheftuse/)
+- Model theft through use: Evaluates risks of model exploitation during usage  [*https://owaspai.org/goto/modeltheftuse*](https://owaspai.org/goto/modeltheftuse/)
 - Model inference: *Assesses exposure to membership and inversion attacks*
 *[https://owaspai.org/goto/modelinversionandmembership/](https://owaspai.org/goto/modelinversionandmembership/)*
 
@@ -649,7 +649,7 @@ https://github.com/NVIDIA/garak |
 |  | - **GitHub Forks:** ~306forks |
 |  | - **Number of Issues:** ~303 open issues, 299 closed issues |
 |  | - **Trend:** Growing, particularly with in attack generation, and LLM vulnerability scanning. |
-| **Community Support** | - **Active Issues:** Actively responds to the issues and try to close it within a week |
+| **Community Support** | - **Active Issues:** Actively responds to the issues and tries to close it within a week |
 |  | - **Documentation:** Detailed documentation with guidance and example experiments. |
 |  | - **Discussion Forums:**  Active GitHub discussions, as well as discord. |
 |  | - **Contributors:** Over 27 contributors. |
@@ -739,12 +739,12 @@ https://github.com/NVIDIA/garak |
 |  | - **GitHub Forks:** ~56 forks |
 |  | - **Number of Issues:**  ~10 open issues, 6 closed issues |
 |  | - **Trend:** Not updating since Aug |
-| **Community Support** | - **Active Issues:** Not updated or solved bugs since July. |
+| **Community Support** | - **Active Issues:** Not updated nor solved any bugs since July. |
 |  | - **Documentation:** Moderate documentation with few examples |
 |  | - **Discussion Forums:**  GitHub issue forums |
 |  | - **Contributors:** Over 10 contributors. |
 | **Scalability** | - **Framework Support:** Python and docker image. |
-|  | - **Large-Scale Deployment:** It only assesses the security of your GenAI application's system prompt against various dynamic LLM-based attacks, so can be integrated with current env. |
+|  | - **Large-Scale Deployment:** It only assesses the security of your GenAI application's system prompt against various dynamic LLM-based attacks, so it can be integrated with current env. |
 | **Integration** | - **Compatibility:**  Any device. |
 
 **Tool Rating**
@@ -835,7 +835,7 @@ Notes:
 |  | - **Trend:** Steady growth with consistent and timely updates. |
 | **Community Support** | - **Active Issues:** Issues are mostly solved within weeks. |
 |  | - **Documentation:** Detailed documentation with examples and user guide |
-|  | - **Discussion Forums:**  Primarily github issue and also support available on discord Server and twitter. |
+|  | - **Discussion Forums:**  Primarily github issues and also, support is available on discord Server and twitter. |
 |  | - **Contributors:** Over 60 contributors |
 | **Scalability** | - **Framework Support:** Supports Pytorch. Language: Python and Javascript. Working to add more support |
 |  | - **Large-Scale Deployment:** Can be extended to Azure, langchain. |
