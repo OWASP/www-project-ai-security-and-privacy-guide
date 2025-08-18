@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PromptDLP.Prompt",
+  "type": "object",
+  "required": [
+    "id",
+    "category",
+    "surface",
+    "prompt",
+    "sensitivity"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "category": {
+      "enum": [
+        "pii",
+        "secret",
+        "proprietary",
+        "contractual"
+      ]
+    },
+    "surface": {
+      "enum": [
+        "chat",
+        "rag",
+        "agent",
+        "code-assist"
+      ]
+    },
+    "prompt": {
+      "type": "string"
+    },
+    "context_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "sensitivity": {
+      "type": "object",
+      "required": [
+        "policy_label"
+      ],
+      "properties": {
+        "policy_label": {
+          "enum": [
+            "personal",
+            "confidential",
+            "restricted",
+            "internal"
+          ]
+        },
+        "match_patterns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "examples": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "expected_behavior": {
+      "type": "string",
+      "enum": [
+        "refuse",
+        "mask",
+        "route_to_human"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}
