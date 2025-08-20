@@ -7,7 +7,7 @@ excludeSearch: true
 
 | Date | Event | Title | Video |
 | - | - | - | - |
-| 14 May 2025 | SANS Emrging threats summit | AI security demystified w/ Rob van der Veer | [Youtube](https://youtu.be/P3zVhR4O7nY?si=IxZUuTeV4yRoZ6So) | 
+| 14 May 2025 | SANS Emerging threats summit | AI security demystified w/ Rob van der Veer | [Youtube](https://youtu.be/P3zVhR4O7nY?si=IxZUuTeV4yRoZ6So) | 
 | 23 Apr 2025 | Dubai AI week | Optimizing AI w/ Rob van der Veer | [Youtube](https://www.youtube.com/watch?v=HbtIccHgrNA) | 
 | 1 Apr 2025 | SANS AI security summit | AI security made easy w/ Rob van der Veer | [Youtube](https://www.youtube.com/watch?v=iWnYSdj9rxE) | 
 | 28 Nov 2024 | OWASP Benelux | AI: The New Beginning w/ Rob van der Veer | [Youtube](https://www.youtube.com/watch?v=UrzIHmecXnk) |
