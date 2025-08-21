@@ -1,0 +1,7 @@
+version: 1
+rules:
+  - id: hash-secret
+    description: Hash likely API tokens
+    pattern: '(?i)\b(sk|api|token)[A-Za-z0-9-_]{12,}\b'
+    action: hash256
+    salt: 'static-or-kms-ref'
