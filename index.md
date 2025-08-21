@@ -38,9 +38,9 @@ In this section, we will discuss how privacy principles apply to AI systems:
 Essentially, you should not simply use data collected for one purpose (e.g. safety or security) as a training dataset to train your model for other purposes (e.g. profiling, personalized marketing, etc.) For example, if you collect phone numbers and other identifiers as part of your MFA flow (to improve security ), that doesn't mean you can also use it for user targeting and other unrelated purposes. Similarly, you may need to collect sensitive data under KYC requirements, but such data should not be used for ML models used for business analytics without proper controls.
 
 Some privacy laws require a lawful basis (or bases if for more than one purpose) for processing personal data (See GDPR's Art 6 and 9). 
-Here is a link with certain restrictions on the purpose of an AI application, like for example the [prohibited practices in the European AI Act](https://artificialintelligenceact.eu/article/5) such as using machine learning for individual criminal profiling. Some practices are regarded as too riskful when it comes to potential harm and unfairness towards individuals and society.
+Here is a link with certain restrictions on the purpose of an AI application, like for example the [prohibited practices in the European AI Act](https://artificialintelligenceact.eu/article/5) such as using machine learning for individual criminal profiling. Some practices are regarded as too risky when it comes to potential harm and unfairness towards individuals and society.
 
-Note that a use case may not even involve personal data, but can still be potentially harmful or unfair to indiduals. For example: an algorithm that decides who may join the army, based on the amount of weight a person can lift and how fast the person can run. This data can not be used to reidentify individuals (with some exceptions), but still the use case may be unrightfully unfair towards gender (if the algorithm for example is based on an unfair training set).
+Note that a use case may not even involve personal data, but can still be potentially harmful or unfair to individuals. For example: an algorithm that decides who may join the army, based on the amount of weight a person can lift and how fast the person can run. This data cannot be used to reidentify individuals (with some exceptions), but still the use case may be unrightfully unfair towards gender (if the algorithm for example is based on an unfair training set).
 
 In practical terms, you should reduce access to sensitive data and create anonymized copies for incompatible purposes (e.g. analytics). You should also document a purpose/lawful basis before collecting the data and communicate that purpose to the user in an appropriate way. 
 
@@ -53,7 +53,7 @@ New techniques that enable use limitation include:
 
 ## 2. Fairness
 
-Fairness means handling personal data in a way individuals expect and not using it in ways that lead to unjustified adverse effects. The algorithm should not behave in a discriminating way. (See also [this article](https://iapp.org/news/a/what-is-the-role-of-privacy-professionals-in-preventing-discrimination-and-ensuring-equal-treatment/)). Furthermore: accuracy issues of a model becomes a privacy problem if the model output leads to actions that invade privacy (e.g. undergoing fraud investigation). Accuracy issues can be caused by a complex problem, insufficient data, mistakes in data and model engineering, and manipulation by attackers. The latter example shows that there can be a relation between model security and privacy.
+Fairness means handling personal data in a way individuals expect and not using it in ways that lead to unjustified adverse effects. The algorithm should not behave in a discriminating way. (See also [this article](https://iapp.org/news/a/what-is-the-role-of-privacy-professionals-in-preventing-discrimination-and-ensuring-equal-treatment/)). Furthermore: accuracy issues of a model become a privacy problem if the model output leads to actions that invade privacy (e.g. undergoing fraud investigation). Accuracy issues can be caused by a complex problem, insufficient data, mistakes in data and model engineering, and manipulation by attackers. The latter example shows that there can be a relation between model security and privacy.
  
 GDPR's Article 5 refers to "fair processing" and EDPS' [guideline](https://edpb.europa.eu/sites/default/files/files/file1/edpb_guidelines_201904_dataprotection_by_design_and_by_default_v2.0_en.pdf) defines fairness as the prevention of "unjustifiably detrimental, unlawfully discriminatory, unexpected or misleading" processing of personal data. GDPR does not specify how fairness can be measured, but the EDPS recommends the right to information (transparency), the right to intervene (access, erasure, data portability, rectify), and the right to limit the processing (right not to be subject to automated decision-making and non-discrimination) as measures and safeguard to implement the principle of fairness. 
 
@@ -64,7 +64,7 @@ Therefore, if we want to be completely fair across groups, we need to accept tha
 
 A machine learning use case may have unsolvable bias issues, that are critical to recognize before you even start. Before you do any data analysis, you need to think if any of the key data elements involved have a skewed representation of protected groups (e.g. more men than women for certain types of education). I mean, not skewed in your training data, but in the real world. If so, bias is probably impossible to avoid - unless you can correct for the protected attributes. If you don't have those attributes (e.g. racial data) or proxies, there is no way. Then you have a dilemma between the benefit of an accurate model and a certain level of discrimination. This dilemma can be decided on before you even start, and save you a lot of trouble.
 
-Even with a diverse team, with an equally distributed dataset, and without any historical bias, your AI may still discriminate. And there may be nothing you can do about it.  
+Even with a diverse team, with an equally distributed dataset, and without any historical bias, your AI may still discriminate, and there may be nothing you can do about it.  
 For example: take a dataset of students with two variables: study program and  score on a math test. The goal is to let the model select students good at math for a special math program. Let's say that the study program 'computer science' has the best scoring students. And let's say that much more males then females are studying computer science. The result is that the model will select more males than females. Without having gender data in the dataset, this bias is impossible to counter.
 
 ## 3. Data Minimization and Storage Limitation
@@ -90,7 +90,7 @@ Further reading:
 
 
 ## 4. Transparency
-Privacy standards such as FIPP or ISO29100 refer to maintaining privacy notices, providing a copy of user's data upon request, giving notice when major changes in personal data processing occur, etc.
+Privacy standards such as FIPP or ISO29100 refer to maintaining privacy notices, providing a copy of users data upon request, giving notice when major changes in personal data processing occur, etc.
 
 GDPR also refers to such practices but also has a specific clause related to algorithmic-decision making. 
 GDPR's [Article 22](https://ec.europa.eu/newsroom/article29/items/612053) allows individuals specific rights under specific conditions. This includes getting a human intervention to an algorithmic decision, an ability to contest the decision, and get a meaningful information about the logic involved. For examples of "meaningful information", see EDPS's [guideline](https://ec.europa.eu/newsroom/article29/items/612053).  The US [Equal Credit Opportunity Act](https://www.consumerfinance.gov/about-us/newsroom/cfpb-acts-to-protect-the-public-from-black-box-credit-models-using-complex-algorithms/) requires detailed explanations on individual decisions by algorithms that deny credit. 
@@ -113,7 +113,7 @@ Also known as "individual participation" under privacy standards, this principle
 ## 6. Data accuracy
 You should ensure that your data is correct as the output of an algorithmic decision with incorrect data may lead to severe consequences for the individual. For example, if the user's phone number is incorrectly added to the system and if such number is associated with fraud, the user might be banned from a service/system in an unjust manner. You should have processes/tools in place to fix such accuracy issues as soon as possible when a proper request is made by the individual. 
 
-To satisfy the accuracy principle, you should also have tools and processes in place to ensure that the data is obtained from reliable sources, its validity and correctness claims are validated and data quality and accuracy are periodically assessed.
+To satisfy the accuracy principle, you should also have tools and processes in place to ensure that the data is obtained from reliable sources, its validity and correctness claims are validated, and data quality and accuracy are periodically assessed.
 
 ## 7. Consent
 Consent may be used or required in specific circumstances. In such cases, consent must satisfy the following:
@@ -127,11 +127,11 @@ Consent may be used or required in specific circumstances. In such cases, consen
   7. Consent withdrawal should be as easy as giving consent
   8. If consent is withdrawn, then all associated data with the consent should be deleted and the model should be re-trained.
   
-Please note that consent will not be possible in specific circumstances (e.g. you cannot collect consent from a fraudster and an employer cannot collect consent from an employee as there is a power imbalance). If you must collect consent, then ensure that it is properly obtained, recorded and proper actions are taken if it is withdrawn. 
+Please note that consent will not be possible in specific circumstances (e.g. you cannot collect consent from a fraudster, and an employer cannot collect consent from an employee as there is a power imbalance). If you must collect consent, then ensure that it is properly obtained, recorded and proper actions are taken if it is withdrawn. 
 
 
 ## 8. Model attacks
-See the security section for security threats to data confidentiality, as they of course represent a privacy risk if that data is personal data. Notable: membership inference, model inversion, and training data leaking from the engineering process. In addition, models can disclose sensitive data that was unintendedly stored during training.
+See the security section for security threats to data confidentiality, as they of course represent a privacy risk if that data is personal data. Notable: membership inference, model inversion, and training data leaking from the engineering process. In addition, models can disclose sensitive data that was unintentionally stored during training.
 
 
 ## Scope boundaries of AI privacy
@@ -154,7 +154,7 @@ Human rights are at the core of the AI Act, so risks are analyzed from a perspec
 
 The Act identifies four risk levels for AI systems:
   * **Unacceptable risk**: will be banned. Includes: Manipulation of people, social scoring, and real-time remote biometric identification (e.g. face recognition with cameras in public space).
-  * **High risk**: products already under safety legislation, plus eight areas (including critical infrastructure and law enforcement). These systems need to comply with a number of rules including the a security risk assessment and conformity with harmonized (adapted) AI security standards OR the essential requirements of the Cyber Resilience Act (when applicable). 
+  * **High risk**: products already under safety legislation, plus eight areas (including critical infrastructure and law enforcement). These systems need to comply with a number of rules including the security risk assessment and conformity with harmonized (adapted) AI security standards OR the essential requirements of the Cyber Resilience Act (when applicable). 
   * **Limited risk**: has limited potential for manipulation. Should comply with minimal transparency requirements to users that would allow users to make informed decisions. After interacting with the applications, the user can then decide whether they want to continue using it.
   * **Minimal/non risk**: the remaining systems.
 

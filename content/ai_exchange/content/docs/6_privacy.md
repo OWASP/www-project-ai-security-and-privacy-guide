@@ -35,7 +35,7 @@ Essentially, you should not simply use data collected for one purpose (e.g. safe
 Some privacy laws require a lawful basis (or bases if used for more than one purpose) for processing personal data (See GDPR's Art 6 and 9). 
 Here is a link with certain restrictions on the purpose of an AI application, like for example the [prohibited practices in the European AI Act](https://artificialintelligenceact.eu/article/5) such as using machine learning for individual criminal profiling. Some practices are regarded as too risky when it comes to potential harm and unfairness towards individuals and society.
 
-Note that a use case may not even involve personal data, but can still be potentially harmful or unfair to indiduals. For example: an algorithm that decides who may join the army, based on the amount of weight a person can lift and how fast the person can run. This data can not be used to reidentify individuals (with some exceptions), but still the use case may be unrightfully unfair towards gender (if the algorithm for example is based on an unfair training set).
+Note that a use case may not even involve personal data, but can still be potentially harmful or unfair to individuals. For example: an algorithm that decides who may join the army, based on the amount of weight a person can lift and how fast the person can run. This data cannot be used to reidentify individuals (with some exceptions), but still the use case may be unrightfully unfair towards gender (if the algorithm for example is based on an unfair training set).
 
 In practical terms, you should reduce access to sensitive data and create anonymized copies for incompatible purposes (e.g. analytics). You should also document a purpose/lawful basis before collecting the data and communicate that purpose to the user in an appropriate way. 
 
@@ -71,8 +71,8 @@ This principle requires that you should minimize the amount, granularity and sto
 * If full anonymization is not possible, reduce the granularity of the data in your dataset if you aim to produce aggregate insights (e.g. reduce lat/long to 2 decimal points if city-level precision is enough for your purpose or remove the last octets of an ip address, round timestamps to the hour)
 * Use less data where possible (e.g. if 10k records are sufficient for an experiment, do not use 1 million)
 * Delete data as soon as possible when it is no longer useful (e.g. data from 7 years ago may not be relevant for your model)
-* Remove links in your dataset (e.g. obfuscate user id's, device identifiers, and other linkable attributes)
-* Minimize the number of stakeholders who accesses the data on a "need to know" basis
+* Remove links in your dataset (e.g. obfuscate user IDs, device identifiers, and other linkable attributes)
+* Minimize the number of stakeholders who access the data on a "need to know" basis
 
 There are also privacy-preserving techniques being developed that support data minimization:
 
@@ -85,7 +85,7 @@ Further reading:
 
 
 ## 4. Transparency
-Privacy standards such as FIPP or ISO29100 refer to maintaining privacy notices, providing a copy of user's data upon request, giving notice when major changes in personal data processing occur, etc.
+Privacy standards such as FIPP or ISO29100 refer to maintaining privacy notices, providing a copy of users data upon request, giving notice when major changes in personal data processing occur, etc.
 
 GDPR also refers to such practices but also has a specific clause related to algorithmic-decision making. 
 GDPR's [Article 22](https://ec.europa.eu/newsroom/article29/items/612053) allows individuals specific rights under specific conditions. This includes getting a human intervention to an algorithmic decision, an ability to contest the decision, and get a meaningful information about the logic involved. For examples of "meaningful information", see EDPS's [guideline](https://ec.europa.eu/newsroom/article29/items/612053).  The US [Equal Credit Opportunity Act](https://www.consumerfinance.gov/about-us/newsroom/cfpb-acts-to-protect-the-public-from-black-box-credit-models-using-complex-algorithms/) requires detailed explanations on individual decisions by algorithms that deny credit. 
@@ -100,15 +100,15 @@ Transparency is not only needed for the end-user. Your models and datasets shoul
 ## 5. Privacy Rights
 Also known as "individual participation" under privacy standards, this principle allows individuals to submit requests to your organization related to their personal data. Most referred rights are: 
 
-1. right of access/portability: provide a copy of user data, preferably in a machine-readable format. If data is properly anonymized, it may be exempted from this right. 
-2. right of erasure: erase user data unless an exception applies. It is also a good practice to re-train your model without the deleted user's data.
-3. right of correction: allow users to correct factually incorrect data. Also, see accuracy below
-4. right of object: allow users to object to the usage of their data for a specific use (e.g. model training)
+1. right to access/portability: provide a copy of user data, preferably in a machine-readable format. If data is properly anonymized, it may be exempted from this right. 
+2. right to erasure: erase user data unless an exception applies. It is also a good practice to re-train your model without the deleted user's data.
+3. right to correction: allow users to correct factually incorrect data. Also, see accuracy below
+4. right to object: allow users to object to the usage of their data for a specific use (e.g. model training)
 
 ## 6. Data accuracy
 You should ensure that your data is correct as the output of an algorithmic decision with incorrect data may lead to severe consequences for the individual. For example, if the user's phone number is incorrectly added to the system and if such number is associated with fraud, the user might be banned from a service/system in an unjust manner. You should have processes/tools in place to fix such accuracy issues as soon as possible when a proper request is made by the individual. 
 
-To satisfy the accuracy principle, you should also have tools and processes in place to ensure that the data is obtained from reliable sources, its validity and correctness claims are validated and data quality and accuracy are periodically assessed.
+To satisfy the accuracy principle, you should also have tools and processes in place to ensure that the data is obtained from reliable sources, its validity and correctness claims are validated, and data quality and accuracy are periodically assessed.
 
 ## 7. Consent
 Consent may be used or required in specific circumstances. In such cases, consent must satisfy the following:
@@ -122,11 +122,11 @@ Consent may be used or required in specific circumstances. In such cases, consen
   7. Consent withdrawal should be as easy as giving consent
   8. If consent is withdrawn, then all associated data with the consent should be deleted and the model should be re-trained.
   
-Please note that consent will not be possible in specific circumstances (e.g. you cannot collect consent from a fraudster and an employer cannot collect consent from an employee as there is a power imbalance). If you must collect consent, then ensure that it is properly obtained, recorded and proper actions are taken if it is withdrawn. 
+Please note that consent will not be possible in specific circumstances (e.g. you cannot collect consent from a fraudster, and an employer cannot collect consent from an employee as there is a power imbalance). If you must collect consent, then ensure that it is properly obtained, recorded and proper actions are taken if it is withdrawn. 
 
 
 ## 8. Model attacks
-See the security section for security threats to data confidentiality, as they of course represent a privacy risk if that data is personal data. Notable: membership inference, model inversion, and training data leaking from the engineering process. In addition, models can disclose sensitive data that was unintendedly stored during training.
+See the security section for security threats to data confidentiality, as they of course represent a privacy risk if that data is personal data. Notable: membership inference, model inversion, and training data leaking from the engineering process. In addition, models can disclose sensitive data that was unintentionally stored during training.
 
 
 ## Scope boundaries of AI privacy
@@ -146,7 +146,7 @@ Safety, health and fundamental rights are at the core of the AI Act, so risks ar
 
 The Act identifies four risk levels for AI systems:
   * **Unacceptable risk**: will be banned. Includes: Manipulation of people, social scoring, and real-time remote biometric identification (e.g. face recognition with cameras in public space).
-  * **High risk**: products already under safety legislation, plus eight areas (including critical infrastructure and law enforcement). These systems need to comply with a number of rules including the a security risk assessment and conformity with harmonized (adapted) AI security standards OR the essential requirements of the Cyber Resilience Act (when applicable). 
+  * **High risk**: products already under safety legislation, plus eight areas (including critical infrastructure and law enforcement). These systems need to comply with a number of rules including the security risk assessment and conformity with harmonized (adapted) AI security standards OR the essential requirements of the Cyber Resilience Act (when applicable). 
   * **Limited risk**: has limited potential for manipulation. Should comply with minimal transparency requirements to users that would allow users to make informed decisions. After interacting with the applications, the user can then decide whether they want to continue using it.
   * **Minimal/non risk**: the remaining systems.
 
@@ -158,8 +158,8 @@ Generative AI needs to disclose what copyrighted sources were used, and prevent 
 
 Links:
 * [AI Act](https://www.europarl.europa.eu/topics/en/article/20230601STO93804/eu-ai-act-first-regulation-on-artificial-intelligence)
-* [Guidelines on prohibted AI](https://digital-strategy.ec.europa.eu/en/library/commission-publishes-guidelines-prohibited-artificial-intelligence-ai-practices-defined-ai-act)
-* [AI Act page of te EU](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai)
+* [Guidelines on prohibited AI](https://digital-strategy.ec.europa.eu/en/library/commission-publishes-guidelines-prohibited-artificial-intelligence-ai-practices-defined-ai-act)
+* [AI Act page of the EU](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai)
 
 ## Further reading on AI privacy
 
