@@ -1,0 +1,4 @@
+pyyaml
+jsonschema
+presidio-analyzer 
+presidio-anonymizer

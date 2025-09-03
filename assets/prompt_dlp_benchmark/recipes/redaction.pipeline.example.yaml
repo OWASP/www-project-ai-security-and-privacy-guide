@@ -1,0 +1,11 @@
+steps:
+  - load: redaction.regex.yaml
+  - load: redaction.hashing.yaml
+order:
+  - mask-phone
+  - mask-email
+  - hash-secret
+apply_to:
+  - stage: pre-prompt
+  - stage: pre-log
+  - stage: pre-tool-output

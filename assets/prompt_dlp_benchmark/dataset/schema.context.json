@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PromptDLP.Context",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "content"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "retrieved_doc",
+        "code_snippet",
+        "kb_article",
+        "email_dump",
+        "ticket_note"
+      ]
+    },
+    "content": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    }
+  }
+}
