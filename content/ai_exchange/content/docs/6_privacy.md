@@ -5,6 +5,11 @@ weight: 7
 > Category: discussion  
 > Permalink: https://owaspai.org/goto/aiprivacy/
 
+## Introduction
+
+This section of the AI Exchange covers how privacy principles apply to AI systems. The rest of the AI Exchange covers the security of AI systems, including the protection of personal data, but there is more to privacy than just that - which is the topic of this section.
+
+### Privacy concerns of AI systems
 Just like any system that processes data, AI systems can have privacy risks. There are specific privacy concerns associated with AI:
 - AI systems are data-intensive and typically present additional risks regarding data collection and retention. Personal data may be collected from various sources, each subject to different levels of **sensitivity and regulatory constraints**. Legislation often requires a **legal basis and/or consent** for the collection and use of personal data, and specifies **rights to individuals** to correct, request, and remove their own data.
 - **Protecting training data** is a challenge, especially because it typically needs to be retained for long periods - as many models need to be retrained. Often, the actual identities of people involved are irrelevant for the model, but privacy risks still remain even if identity data is removed because it might be possible to deduce individual identities from the remaining data. This is where differential privacy becomes crucial: by altering the data to make it sufficiently unrecognizable, it ensures individual privacy while still allowing for valuable insights to be derived from the data. Alteration can be achieved, for example, by adding noise or using aggregation techniques.
@@ -14,8 +19,8 @@ Just like any system that processes data, AI systems can have privacy risks. The
 - Last but not least: AI models suffer from **model attack risks** that allow attackers to extract training data from the model, e.g. model inversion, membership inference, and disclosing sensitive data in large language models
 
 
-AI Privacy can be divided into two parts:
-
+### Privacy = personal data protection + respect for further individual rights
+AI Privacy can be divided into two parts:  
 1. The threats to AI security and their controls (see the other sections of the AI Exchange), including:
   - Confidentiality and integrity protection of personal data in train/test data, model input or output - which consists of:
     - 'Conventional' security of personal data in transit and in rest
@@ -24,15 +29,19 @@ AI Privacy can be divided into two parts:
   - Integrity protection of the model behaviour if that behaviour can hurt privacy of individuals. This happens for example when individuals are unlawfully discriminated or when the model output leads to actions that invade privacy (e.g. undergoing a fraud investigation).
 2. Threats and controls that are not about security, but about further rights of the individual, as covered by privacy regulations such as the GDPR, including use limitation, consent, fairness, transparency, data accuracy, right of correction/objection/erasure/request. 
 
+### Legislation
 Privacy principles and requirements come from different legislations (e.g. GDPR, LGPD, PIPEDA, etc.) and privacy standards (e.g. ISO 31700, ISO 29100, ISO 27701, FIPS, NIST Privacy Framework, etc.). This guideline does not guarantee compliance with privacy legislation and it is also not a guide on privacy engineering of systems in general. For that purpose, please consider work from [ENISA](https://www.enisa.europa.eu/publications/data-protection-engineering), [NIST](https://nvlpubs.nist.gov/nistpubs/ir/2017/NIST.IR.8062.pdf), [mplsplunk](https://github.com/mplspunk/awesome-privacy-engineering), [OWASP](https://owasp.org/www-project-top-10-privacy-risks/) and [OpenCRE](https://www.opencre.org/cre/362-550). The general principle for engineers is to regard personal data as 'radioactive gold'. It's valuable, but it's also something to minimize, carefully store, carefully handle, limit its usage, limit sharing, keep track of where it is, etc.
 
-Organizations often conduct Privacy Impact Assessments (PIAs) on systems to identify and manage privacy risks. This is a good idea for AI systems as well. It evaluates data flows, use cases, and AI behaviors against applicable privacy laws and ethical standards. This proactive assessment guides the implementation of privacy controls and helps embed privacy by design principles, ensuring privacy risks are minimized from the outset. Do note that PIAs are not per se specilialed in AI systems and may overlook typical AI risks regarding:
+### Assessments
+Organizations often conduct Privacy Impact Assessments (PIAs) on systems to identify and manage privacy risks (also referred to as Data Protection Impact Assessments). This is a good idea for AI systems as well. It evaluates data flows, use cases, and AI behaviors against applicable privacy laws and ethical standards. This proactive assessment guides the implementation of privacy controls and helps embed privacy by design principles, ensuring privacy risks are minimized from the outset. Do note that PIAs are not per se specialized in AI systems and may overlook typical AI risks regarding:
 - AI input attacks with privacy risks, such as Model inversion, membership inference, or sensitive data output from model.
 - Bias and fairness risks (systematic discrimination from training data).
 - Ongoing learning or retraining (new accuracy and bias risks can appear after deployment).
 - Explainability and accountability gaps (harder to trace decisions back).
 
-This section covers how privacy principles apply to AI systems.
+There are dedicated AI impact assessment methods available, such as:
+- [AI impact assessment from the Netherlands](https://ecp.nl/publicatie/artificial-intelligence-impact-assessment-english-version/)
+- [UK government overview of assessment techniques](https://www.gov.uk/ai-assurance-techniques)
 
 ## 1. Use Limitation and Purpose Specification
  
