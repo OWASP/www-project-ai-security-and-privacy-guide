@@ -69,7 +69,8 @@ Content also available in [pdf](OWASP-AI-Exchange.pdf)
     </td>
   </tr>
 </table>
-
+</div>
+<br>
 <hr>
 <b>Sponsors</b>
 <table style="border: none;">
@@ -80,7 +81,7 @@ Content also available in [pdf](OWASP-AI-Exchange.pdf)
 </table>
 <hr>
 <br>
-<b>AI Exchange is trusted by industry giants</b><br>
+<b>AI Exchange is trusted by industry giants</b><br><br>
 <b>Dimitri van Zantvliet, Director Cybersecurity, Dutch Railways:</b><br>
 "A risk-based, context-aware approach—like the one OWASP Exchange champions—not only supports the responsible use of AI, but ensures that real threats are mitigated without burdening engineers with irrelevant checklists. We need standards written by those who build and defend these systems every day."<br>
 
