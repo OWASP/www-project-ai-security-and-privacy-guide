@@ -73,6 +73,7 @@ Content also available in [pdf](OWASP-AI-Exchange.pdf)
 <hr>
 <center>Sponsors</center><br>
 <a href="https://www.straiker.ai/" rel="noopener noreferrer" target="_blank"><img src="/images/sp_straiker.jpg" style="display: block; margin: auto;" alt="Straiker sponsor"></a>
+<a href="https://www.casco.com/" rel="noopener noreferrer" target="_blank"><img src="/images/sp_casco.png" style="display: block; margin: auto;" alt="Casco sponsor"></a>
 <br>
 <hr>
 <center>AI Exchange is trusted by industry giants</center><br>
