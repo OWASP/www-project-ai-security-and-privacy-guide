@@ -71,18 +71,16 @@ Content also available in [pdf](OWASP-AI-Exchange.pdf)
 </table>
 
 <hr>
-<center>Sponsors</center>
-<div style="text-align:center;">
+<b>Sponsors</b>
 <table style="border: none;">
-<tr style="border: none;">>
+<tr style="border: none;">
   <td style="border: none;"><a href="https://www.straiker.ai/" rel="noopener noreferrer" target="_blank"><img src="/images/sp_straiker.jpg" style="display: block; margin: auto;" alt="Straiker sponsor"></a></td>
   <td style="border: none;"><a href="https://www.casco.com/" rel="noopener noreferrer" target="_blank"><img src="/images/sp_casco.png" style="display: block; margin: auto;" alt="Casco sponsor"></a></td>
 </tr>
 </table>
-</div>
 <hr>
 <br>
-<center>AI Exchange is trusted by industry giants</center><br>
+<b>AI Exchange is trusted by industry giants</b><br>
 <b>Dimitri van Zantvliet, Director Cybersecurity, Dutch Railways:</b><br>
 "A risk-based, context-aware approach—like the one OWASP Exchange champions—not only supports the responsible use of AI, but ensures that real threats are mitigated without burdening engineers with irrelevant checklists. We need standards written by those who build and defend these systems every day."<br>
 
