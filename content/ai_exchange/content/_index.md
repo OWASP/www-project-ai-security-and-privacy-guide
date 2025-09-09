@@ -72,10 +72,15 @@ Content also available in [pdf](OWASP-AI-Exchange.pdf)
 
 <hr>
 <center>Sponsors</center><br>
-<a href="https://www.straiker.ai/" rel="noopener noreferrer" target="_blank"><img src="/images/sp_straiker.jpg" style="display: block; margin: auto;" alt="Straiker sponsor"></a>
-<a href="https://www.casco.com/" rel="noopener noreferrer" target="_blank"><img src="/images/sp_casco.png" style="display: block; margin: auto;" alt="Casco sponsor"></a>
+<table>
+<tr>
+  <td><a href="https://www.straiker.ai/" rel="noopener noreferrer" target="_blank"><img src="/images/sp_straiker.jpg" style="display: block; margin: auto;" alt="Straiker sponsor"></a></td>
+  <td><a href="https://www.casco.com/" rel="noopener noreferrer" target="_blank"><img src="/images/sp_casco.png" style="display: block; margin: auto;" alt="Casco sponsor"></a></td>
+</tr>
+</table>
 <br>
 <hr>
+<br>
 <center>AI Exchange is trusted by industry giants</center><br>
 <br>
 <b>Dimitri van Zantvliet, Director Cybersecurity, Dutch Railways:</b><br>
