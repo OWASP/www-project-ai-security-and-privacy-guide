@@ -1,6 +1,6 @@
 ### Leaders
 * [Rob van der Veer](mailto:rob.vanderveer@owasp.org)
-* [Aruneesh Salhotra](mailto:aruneesh.salhotra@gmail.com)
+* [Aruneesh Salhotra](mailto:aruneesh.salhotra@owasp.org)
 * [Chris Ancharski](mailto:ancharskiadvisory@gmail.com)
 * [Behnaz Karimi](mailto:Behnazkarimi91.bk67@gmail.com)
 * 
