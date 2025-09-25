@@ -1,7 +1,4 @@
----
-sidebar:
-  exclude: true
----
+{{ define "main" }}
 <!-- Hero Section -->
 <div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 80px 20px; text-align: center; position: relative; overflow: hidden;">
   <!-- Starry background effect -->
@@ -24,7 +21,7 @@ sidebar:
 </div>
 
 <!-- Discover, Connect, and Contribute Section -->
-<div style="background: white; padding: 80px 20px; text-align: center;">
+<div class="container">
   <div style="width: 100%;">
     <h3 style="color: #10b981; font-size: 1rem; font-weight: 600; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">AI Security</h3>
     <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 60px; color: #1a1a2e;">Discover, Connect, and Contribute</h2>
@@ -83,7 +80,7 @@ sidebar:
 
 <!-- Contribute CTA Section -->
 <div style="background: linear-gradient(135deg, #059669 0%, #10b981 100%); padding: 80px 20px; text-align: center;">
-  <div style="width: 100%;">
+  <div class="container">
     <h3 style="color: white; font-size: 1rem; font-weight: 600; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Learn, Connect, and Innovate</h3>
     <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 40px; color: white;">Contribute to the future of AI security</h2>
     <a href="/contribute" style="background: white; color: #10b981; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; border: 2px solid white; transition: all 0.3s;">Become A Contributor</a>
@@ -91,7 +88,7 @@ sidebar:
 </div>
 
 <!-- Media Section -->
-<div style="background: white; padding: 80px 20px; text-align: center;">
+<div class="container">
   <div style="width: 100%;">
     <h3 style="color: #1a1a2e; font-size: 1rem; font-weight: 600; margin-bottom: 10px;">Media Conference talks, webinars by the AI Exchange</h3>
     <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 60px; color: #1a1a2e;">Media</h2>
@@ -138,7 +135,7 @@ sidebar:
 </div>
 
 <!-- Support the Future of AI Security Section -->
-<div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 80px 20px; text-align: center; position: relative;">
+<div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 60px 20px; text-align: center; position: relative;">
   <!-- Subtle globe/network graphic -->
   <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(circle at 20% 20%, rgba(0,255,150,0.1) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(0,255,150,0.1) 0%, transparent 50%); opacity: 0.3;"></div>
   
@@ -161,7 +158,7 @@ sidebar:
 </div>
 
 <!-- Sponsorship Benefits Section -->
-<div style="background: white; padding: 80px 20px; text-align: center;">
+<div class="container">
   <div style="width: 100%;">
     <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 60px; color: #1a1a2e;">Sponsorship benefits include</h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
@@ -191,7 +188,7 @@ sidebar:
 </div>
 
 <!-- Contact Section -->
-<div style="background: white; padding: 80px 20px;">
+<div class="container">
   <div style="width: 100%;">
     <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 60px; color: #1a1a2e; text-align: center;">We are always happy to assist you!</h2>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
@@ -227,6 +224,5 @@ sidebar:
     </div>
 </div>
 </div>
-
-
+{{ end }}
 
