@@ -1,231 +1,696 @@
 {{ define "main" }}
+
 <!-- Hero Section -->
-<div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; text-align: center; position: relative; overflow: hidden;">
-  <!-- Starry background effect -->
-  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(2px 2px at 20px 30px, #eee, transparent), radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent), radial-gradient(1px 1px at 90px 40px, #fff, transparent), radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent), radial-gradient(2px 2px at 160px 30px, #fff, transparent); background-repeat: repeat; background-size: 200px 100px; opacity: 0.3;"></div>
-  <div class="max-w-[90rem] mx-auto flex">
-    <div style="position: relative; z-index: 2; width: 100%; text-align: left;">
-      <!-- Circuit-board Earth graphic placeholder -->
-      <div class="globe-graphic"></div>
-      <!-- Circuit-board Earth graphic placeholder -->
-       <div class="hero-content">
-        <h1 style="font-size: 2.5rem; font-weight: 300; margin-bottom: 0px; color: white;">The Go-To Source for AI Security</h1>
-        <h2 style="font-size: 3.5rem; font-weight: bold; margin-bottom: 10px; color: white;">The Ultimate AI Security Guide</h2>
-        <div style="font-size: 1.2rem; margin-bottom: 40px; color: white; line-height: 1.6;">
-          Get access to <strong>200+ pages</strong> of practical guidance on protecting AI and data-centric systems. Official liaison partner for the AI Act and ISO.
-        </div>
-        <div style="display: flex; gap: 20px; justify-content: flex-start; flex-wrap: wrap;">
-          <a href="/docs/ai_security_overview" style="background: #2563eb; color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: background 0.3s;">Explore the Content</a>
-          <a href="/contribute" style="background: #10b981; color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: background 0.3s;">Contribute Now</a>
-        </div>
+<div
+  class="bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460] text-white relative overflow-hidden"
+>
+  <!-- Starry background -->
+  <div
+    class="absolute inset-0 opacity-30 bg-[radial-gradient(2px_2px_at_20px_30px,#eee,transparent),radial-gradient(2px_2px_at_40px_70px,rgba(255,255,255,0.8),transparent),radial-gradient(1px_1px_at_90px_40px,#fff,transparent),radial-gradient(1px_1px_at_130px_80px,rgba(255,255,255,0.6),transparent),radial-gradient(2px_2px_at_160px_30px,#fff,transparent)] bg-repeat bg-[length:200px_100px]"
+  ></div>
+
+  <div
+    class="max-w-7xl mx-auto px-4 md:px-8 relative z-10 flex flex-col md:flex-row items-center py-20"
+  >
+    <!-- Graphic placeholder -->
+    <div class="globe-graphic w-full md:w-1/2 mb-10 md:mb-0"></div>
+
+    <div class="hero-content w-full md:w-1/2 text-left">
+      <h1 class="text-3xl md:text-4xl font-light mb-2">
+        The Go-To Source for AI Security
+      </h1>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">
+        The Ultimate AI Security Guide
+      </h2>
+      <p class="text-lg md:text-xl mb-8 leading-relaxed">
+        Get access to <strong>200+ pages</strong> of practical guidance on
+        protecting AI and data-centric systems. Official liaison partner for the
+        AI Act and ISO.
+      </p>
+      <div class="flex gap-4 flex-wrap">
+        <a
+          href="/docs/ai_security_overview"
+          class="bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition"
+          >Explore the Content</a
+        >
+        <a
+          href="/contribute"
+          class="bg-green-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-600 transition"
+          >Contribute Now</a
+        >
       </div>
     </div>
   </div>
 </div>
 
-<!-- Discover, Connect, and Contribute Section -->
-<div class="container">
-  <div style="width: 100%;">
-    <h3 style="color: #10b981; font-size: 1rem; font-weight: 600; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">AI Security</h3>
-    <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 60px; color: #1a1a2e;">Discover, Connect, and Contribute</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 40px;">
-      <div style="text-align: left; padding: 30px; border: 1px solid #e5e7eb; border-radius: 12px; transition: box-shadow 0.3s;">
-        <div style="width: 50px; height: 50px; background: #10b981; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-          <span style="color: white; font-size: 24px;">👤</span>
-        </div>
-        <h4 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 15px; color: #1a1a2e;">About</h4>
-        <p style="color: #6b7280; margin-bottom: 20px; line-height: 1.6;">Learn about our mission to provide comprehensive AI security guidance and standards.</p>
-        <a href="/goto/about/" style="color: #10b981; text-decoration: none; font-weight: 600;">Learn more ></a>
+<!-- Discover, Connect, Contribute Section -->
+<div class="max-w-7xl mx-auto px-4 md:px-8 py-16">
+  <div class="text-center mb-12">
+    <div class="font-semibold uppercase tracking-wide text-green-500 mb-1">
+      AI Security
+    </div>
+    <h2 class="text-4xl md:text-[42px] font-bold text-gray-900">
+      Discover, Connect, and Contribute
+    </h2>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Card Example -->
+    <div
+      class="h-[130px] p-4 border border-gray-200 rounded-xl flex flex-col justify-between hover:shadow-lg transition-shadow"
+    >
+      <div class="flex items-center mb-2">
+        <img src="/images/user.png" alt="User" class="mr-2" />
+        <h4 class="text-lg font-bold text-gray-900">About</h4>
       </div>
-      <div style="text-align: left; padding: 30px; border: 1px solid #e5e7eb; border-radius: 12px; transition: box-shadow 0.3s;">
-        <div style="width: 50px; height: 50px; background: #10b981; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-          <span style="color: white; font-size: 24px;">👥</span>
-        </div>
-        <h4 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 15px; color: #1a1a2e;">Connect with us</h4>
-        <p style="color: #6b7280; margin-bottom: 20px; line-height: 1.6;">Join our community and connect with AI security professionals worldwide.</p>
-        <a href="/connect" style="color: #10b981; text-decoration: none; font-weight: 600;">Learn more ></a>
+      <p class="text-gray-500 text-sm leading-snug mb-1">
+        OWASP AI Exchange is an open-source platform driving global AI security
+        standards...
+      </p>
+      <a
+        href="/goto/about/"
+        class="text-green-500 font-semibold hover:underline text-sm"
+        >Learn more &gt;</a
+      >
+    </div>
+    <!-- Card 2 -->
+    <div
+      class="h-[130px] p-4 border border-gray-200 rounded-xl flex flex-col justify-between hover:shadow-lg transition-shadow w-full"
+    >
+      <div class="flex items-center mb-2">
+        <img
+          src="/images/Network-Users--Streamline-Ultimate.png"
+          alt="User"
+          class="mr-2"
+        />
+        <h4 class="text-lg font-bold text-gray-900">Connect with us</h4>
       </div>
-      <div style="text-align: left; padding: 30px; border: 1px solid #e5e7eb; border-radius: 12px; transition: box-shadow 0.3s;">
-        <div style="width: 50px; height: 50px; background: #10b981; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-          <span style="color: white; font-size: 24px;">⚙️</span>
-        </div>
-        <h4 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 15px; color: #1a1a2e;">Contribute</h4>
-        <p style="color: #6b7280; margin-bottom: 20px; line-height: 1.6;">Help shape the future of AI security by contributing to our resources and standards.</p>
-        <a href="/contribute" style="color: #10b981; text-decoration: none; font-weight: 600;">Learn more ></a>
+      <p class="text-gray-500 text-sm leading-snug mb-1">
+        Connect with us on the OWASP Slack workspace in
+        the #project-ai-community channel...
+      </p>
+      <a
+        href="/connect"
+        class="text-green-500 font-semibold hover:underline text-sm"
+      >
+        Learn more &gt;
+      </a>
+    </div>
+
+    <!-- Card 3 -->
+    <div
+      class="h-[130px] p-4 border border-gray-200 rounded-xl flex flex-col justify-between hover:shadow-lg transition-shadow w-full"
+    >
+      <div class="flex items-center mb-2">
+        <img
+          src="/images/Multiple-Neutral-2--Streamline-Ultimate.svg.png"
+          alt="User"
+          class="mr-2"
+        />
+        <h4 class="text-lg font-bold text-gray-900">Contribute</h4>
       </div>
-      <div style="text-align: left; padding: 30px; border: 1px solid #e5e7eb; border-radius: 12px; transition: box-shadow 0.3s;">
-        <div style="width: 50px; height: 50px; background: #10b981; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-          <span style="color: white; font-size: 24px;">🤝</span>
-        </div>
-        <h4 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 15px; color: #1a1a2e;">Sponsor</h4>
-        <p style="color: #6b7280; margin-bottom: 20px; line-height: 1.6;">Support our mission and gain visibility in the AI security community.</p>
-        <a href="/sponsor" style="color: #10b981; text-decoration: none; font-weight: 600;">Learn more ></a>
+      <p class="text-gray-500 text-sm leading-snug mb-1">
+        Help shape the future of AI security by contributing to our resources
+        and standards.
+      </p>
+      <a
+        href="/contribute"
+        class="text-green-500 font-semibold hover:underline text-sm"
+      >
+        Learn more &gt;
+      </a>
+    </div>
+
+    <!-- Card 4 -->
+    <div
+      class="h-[130px] p-4 border border-gray-200 rounded-xl flex flex-col justify-between hover:shadow-lg transition-shadow w-full"
+    >
+      <div class="flex items-center mb-2">
+        <img src="/images/Group 1597883587.png" alt="User" class="mr-2" />
+        <h4 class="text-lg font-bold text-gray-900">Sponsor</h4>
       </div>
-      <div style="text-align: left; padding: 30px; border: 1px solid #e5e7eb; border-radius: 12px; transition: box-shadow 0.3s;">
-        <div style="width: 50px; height: 50px; background: #10b981; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-          <span style="color: white; font-size: 24px;">📺</span>
-        </div>
-        <h4 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 15px; color: #1a1a2e;">Media</h4>
-        <p style="color: #6b7280; margin-bottom: 20px; line-height: 1.6;">Watch conference talks, webinars, and educational content from our experts.</p>
-        <a href="/media" style="color: #10b981; text-decoration: none; font-weight: 600;">Learn more ></a>
+      <p class="text-gray-500 text-sm leading-snug mb-1">
+        Support our mission and gain visibility in the AI security community.
+      </p>
+      <a
+        href="/sponsor"
+        class="text-green-500 font-semibold hover:underline text-sm"
+      >
+        Learn more &gt;
+      </a>
+    </div>
+
+    <!-- Card 5 -->
+    <div
+      class="h-[130px] p-4 border border-gray-200 rounded-xl flex flex-col justify-between hover:shadow-lg transition-shadow w-full"
+    >
+      <div class="flex items-center mb-2">
+        <img src="/images/Group 1597883588.png" alt="User" class="mr-2" />
+        <h4 class="text-lg font-bold text-gray-900">Media</h4>
       </div>
-      <div style="text-align: left; padding: 30px; border: 1px solid #e5e7eb; border-radius: 12px; transition: box-shadow 0.3s;">
-        <div style="width: 50px; height: 50px; background: #10b981; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-          <span style="color: white; font-size: 24px;">🧪</span>
-        </div>
-        <h4 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 15px; color: #1a1a2e;">Periodic table</h4>
-        <p style="color: #6b7280; margin-bottom: 20px; line-height: 1.6;">Explore our comprehensive periodic table of AI threats and controls.</p>
-        <a href="/goto/periodictable/" style="color: #10b981; text-decoration: none; font-weight: 600;">Learn more ></a>
+      <p class="text-gray-500 text-sm leading-snug mb-1">
+        Watch conference talks, webinars, and educational content from our
+        experts.
+      </p>
+      <a
+        href="/media"
+        class="text-green-500 font-semibold hover:underline text-sm"
+      >
+        Learn more &gt;
+      </a>
+    </div>
+
+    <!-- Card 6 -->
+    <div
+      class="h-[130px] p-4 border border-gray-200 rounded-xl flex flex-col justify-between hover:shadow-lg transition-shadow w-full"
+    >
+      <div class="flex items-center mb-2">
+        <img src="/images/Frame 1686557231.png" alt="User" class="mr-2" />
+        <h4 class="text-lg font-bold text-gray-900">Periodic table</h4>
       </div>
+      <p class="text-gray-500 text-sm leading-snug mb-1">
+        Explore our comprehensive periodic table of AI threats and controls.
+      </p>
+      <a
+        href="/goto/periodictable/"
+        class="text-green-500 font-semibold hover:underline text-sm"
+      >
+        Learn more &gt;
+      </a>
     </div>
   </div>
 </div>
+
+<!-- Content Overview Section -->
+<section class="py-12" style="background-color: #F1F1F1;">
+
+  <div class="max-w-7xl mx-auto px-4 md:px-8">
+    <div class="text-center mb-10">
+      <p class="text-green-600 font-semibold">Your Guide to What's Inside</p>
+      <h2 class="text-3xl font-bold text-gray-900">Content Overview</h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+      <!-- Card Example -->
+      <div
+        class="bg-white rounded-xl shadow border border-gray-200 hover:shadow-lg transition-shadow p-4 flex gap-6"
+      >
+        <div class="w-32 flex-shrink-0">
+          <img
+            src="/images/r1.png"
+            alt="AI Security Overview"
+            class="rounded-md"
+          />
+        </div>
+        <div class="flex flex-col justify-between flex-1">
+          <div>
+            <h3 class="text-xl font-bold mb-2">AI Security Overview</h3>
+            <p class="text-gray-600 text-sm mb-3">
+              This section provides overviews of threats, controls, risk
+              analysis...
+            </p>
+            <div
+              class="grid grid-cols-2 gap-x-6 text-sm font-medium text-green-600 mb-4"
+            >
+              <a href="#">› About the AI exchange</a>
+              <a href="#">› Controls</a>
+              <!-- more links -->
+            </div>
+          </div>
+          <button
+            class="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-green-600 self-start"
+          >
+            Learn more
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 1 -->
+      <div
+        class="bg-white rounded-xl shadow border border-gray-200 p-4 flex gap-4 hover:shadow-lg transition-shadow"
+      >
+        <!-- Left: Image with number -->
+        <div class="w-32 flex-shrink-0 relative">
+          <img
+            src="/images/r3.png"
+            alt="AI Security Overview"
+            class="rounded-md"
+          />
+        </div>
+
+        <!-- Right: Content -->
+        <div class="flex flex-col justify-between">
+          <div>
+            <h3 class="text-lg font-bold mb-1">
+              Threats through use and controls
+            </h3>
+            <p class="text-gray-600 text-sm mb-3">
+              Attacks to the development environment and supply chain of AI
+              systems, and what you can do about it...
+            </p>
+            <div class="grid grid-cols-2 text-sm font-medium text-green-600">
+              <a href="#">› Evasion</a>
+              <a href="#">› Malfunctioning</a>
+              <a href="#">› Prompt injection </a>
+              <a href="#">› Culture-sensitivity</a>
+              <a href="#">› Sensitive data disclosure</a>
+              <a href="#">› Model theft</a>
+            </div>
+          </div>
+          <button
+            class="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-green-600 self-start"
+          >
+            Learn more
+          </button>
+        </div>
+      </div>
+      <div
+        class="bg-white rounded-xl shadow border border-gray-200 hover:shadow-lg transition-shadow p-4 flex gap-6"
+      >
+        <!-- Left: Image -->
+        <div class="w-32 flex-shrink-0 relative">
+          <img
+            src="/images/r4.png"
+            alt="AI Security Overview"
+            class="rounded-md"
+          />
+        </div>
+
+        <!-- Right: Content -->
+        <div class="flex flex-col justify-between flex-1">
+          <div>
+            <h3 class="text-xl font-bold mb-2">
+              Development-time threats and controls
+            </h3>
+            <p class="text-gray-600 text-sm mb-3">
+              Attacks to the development environment and supply chain of AI
+              systems, and what you can do about it...
+            </p>
+
+            <!-- Links in 2 columns -->
+            <div
+              class="grid grid-cols-2 gap-x-6 text-sm font-medium text-green-600 mb-4"
+            >
+              <a href="#">› Introduction</a>
+              <a href="#">› Development poisoning</a>
+              <a href="#">› Data leak</a>
+            </div>
+          </div>
+
+          <!-- Button -->
+          <button
+            class="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-green-600 self-start"
+          >
+            Learn more
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 1 -->
+      <div
+        class="bg-white rounded-xl shadow border border-gray-200 p-4 flex gap-4 hover:shadow-lg transition-shadow"
+      >
+        <!-- Left: Image with number -->
+        <div class="w-32 flex-shrink-0 relative">
+          <img
+            src="/images/r5.png"
+            alt="AI Security Overview"
+            class="rounded-md"
+          />
+        </div>
+
+        <!-- Right: Content -->
+        <div class="flex flex-col justify-between">
+          <div>
+            <h3 class="text-lg font-bold mb-1">
+              Runtime application security threats
+            </h3>
+            <p class="text-gray-600 text-sm mb-3">
+              Attacks to the AI system in operation apart from the input
+              attacks, and protective controls...
+            </p>
+            <div class="grid grid-cols-2 text-sm font-medium text-green-600">
+              <a href="#">› Non AI-specific application security threats</a>
+              <a href="#">› Runtime model poisoning</a>
+              <a href="#">› Direct runtime model theft</a>
+              <a href="#">› Periodic Table</a>
+              <a href="#">› Insecure output handling</a>
+              <a href="#">› Leak sensitive input data</a>
+            </div>
+          </div>
+          <button
+            class="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-green-600 self-start"
+          >
+            Learn more
+          </button>
+        </div>
+      </div>
+      <div
+        class="bg-white rounded-xl shadow border border-gray-200 hover:shadow-lg transition-shadow p-4 flex gap-6"
+      >
+        <!-- Left: Image -->
+        <div class="w-32 flex-shrink-0 relative">
+          <img
+            src="/images/r6.png"
+            alt="AI Security Overview"
+            class="rounded-md"
+          />
+        </div>
+
+        <!-- Right: Content -->
+        <div class="flex flex-col justify-between flex-1">
+          <div>
+            <h3 class="text-xl font-bold mb-2">AI Security Testing</h3>
+            <p class="text-gray-600 text-sm mb-3">
+              Attacks to the AI system in operation apart from the input
+              attacks, and protective controls...
+            </p>
+
+            <!-- Links in 2 columns -->
+            <div
+              class="grid grid-cols-2 gap-x-6 text-sm font-medium text-green-600 mb-4"
+            >
+              <a href="#">› Non AI-specific application security threats</a>
+              <a href="#">› Runtime model poisoning</a>
+              <a href="#">› Direct runtime model theft</a>
+              <a href="#">› Insecure output handling</a>
+              <a href="#">›Leak sensitive input data</a>
+            </div>
+          </div>
+
+          <!-- Button -->
+          <button
+            class="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-green-600 self-start"
+          >
+            Learn more
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 1 -->
+      <div
+        class="bg-white rounded-xl shadow border border-gray-200 p-4 flex gap-4 hover:shadow-lg transition-shadow"
+      >
+        <!-- Left: Image with number -->
+        <div class="w-32 flex-shrink-0 relative">
+          <img
+            src="/images/r2.png"
+            alt="AI Security Overview"
+            class="rounded-md"
+          />
+        </div>
+
+        <!-- Right: Content -->
+        <div class="flex flex-col justify-between">
+          <div>
+            <h3 class="text-lg font-bold mb-1">AI Privacy</h3>
+            <p class="text-gray-600 text-sm mb-3">
+              Apart from protecting personal data, AI systems have several
+              responsibilities when it comes to privacy...
+            </p>
+            <div class="grid grid-cols-2 text-sm font-medium text-green-600">
+              <a href="#">› Use Limitation and Purpose Specification </a>
+              <a href="#">› Fairness</a>
+              <a href="#">› Data Minimisation and Storage Limitation</a>
+              <a href="#">› Privacy Rights</a>
+              <a href="#">› Data accuracy</a>
+              <a href="#">› Consent</a>
+              <a href="#">› Model attacks</a>
+              <a href="#">› Transparency</a>
+            </div>
+          </div>
+          <button
+            class="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-green-600 self-start"
+          >
+            Learn more
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Contribute CTA Section -->
-<div style="background: linear-gradient(135deg, #059669 0%, #10b981 100%); padding: 80px 20px; text-align: center;">
-  <div class="container">
-    <h3 style="color: white; font-size: 1rem; font-weight: 600; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Learn, Connect, and Innovate</h3>
-    <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 40px; color: white;">Contribute to the future of AI security</h2>
-    <a href="/contribute" style="background: white; color: #10b981; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; border: 2px solid white; transition: all 0.3s;">Become A Contributor</a>
+<div class="max-w-7xl mx-auto px-4 md:px-8 py-10">
+  <div
+    class="rounded-xl text-center w-full flex flex-col items-center justify-center shadow-lg px-6 py-12 bg-gradient-to-br from-[#43A557] via-[#2C8E66] to-[#006284]"
+  >
+    <div class="text-white text-sm font-semibold uppercase tracking-wider mb-2">
+      Learn, Connect, and Innovate
+    </div>
+    <h2 class="text-3xl font-bold text-white mb-6">
+      Contribute to the future of AI security
+    </h2>
+    <a
+      href="/contribute"
+      class="inline-block bg-white text-green-500 font-bold border-2 border-white rounded-lg px-6 py-3 hover:bg-green-50 transition"
+      >Become A Contributor</a
+    >
   </div>
 </div>
 
 <!-- Media Section -->
-<div class="container">
-  <div style="width: 100%;">
-    <h3 style="color: #1a1a2e; font-size: 1rem; font-weight: 600; margin-bottom: 10px;">Media Conference talks, webinars by the AI Exchange</h3>
-    <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 60px; color: #1a1a2e;">Media</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 40px;">
-      <div style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-        <div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); height: 200px; display: flex; align-items: center; justify-content: center;">
-          <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-            <span style="color: white; font-size: 24px;">▶</span>
-          </div>
-        </div>
-        <div style="padding: 20px;">
-          <div style="color: #10b981; font-size: 0.875rem; font-weight: 600; margin-bottom: 10px;">2:30 min</div>
-          <h4 style="font-size: 1.125rem; font-weight: bold; margin-bottom: 10px; color: #1a1a2e;">Event: OWASP Benelux AI: The New Beginning w/ Rob van der Veer</h4>
-          <div style="color: #6b7280; font-size: 0.875rem;">28 Nov 2024</div>
-        </div>
-      </div>
-      <div style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-        <div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); height: 200px; display: flex; align-items: center; justify-content: center;">
-          <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-            <span style="color: white; font-size: 24px;">▶</span>
-          </div>
-        </div>
-        <div style="padding: 20px;">
-          <div style="color: #10b981; font-size: 0.875rem; font-weight: 600; margin-bottom: 10px;">3:15 min</div>
-          <h4 style="font-size: 1.125rem; font-weight: bold; margin-bottom: 10px; color: #1a1a2e;">AI Security Testing Best Practices</h4>
-          <div style="color: #6b7280; font-size: 0.875rem;">15 Dec 2024</div>
-        </div>
-      </div>
-      <div style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-        <div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); height: 200px; display: flex; align-items: center; justify-content: center;">
-          <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-            <span style="color: white; font-size: 24px;">▶</span>
-          </div>
-        </div>
-        <div style="padding: 20px;">
-          <div style="color: #10b981; font-size: 0.875rem; font-weight: 600; margin-bottom: 10px;">4:20 min</div>
-          <h4 style="font-size: 1.125rem; font-weight: bold; margin-bottom: 10px; color: #1a1a2e;">Privacy-Preserving AI Techniques</h4>
-          <div style="color: #6b7280; font-size: 0.875rem;">02 Jan 2025</div>
-        </div>
+<div class="max-w-7xl mx-auto px-4 md:px-8 py-16">
+  <div class="text-center mb-10">
+    <h3 class="text-green-500 text-base font-semibold mb-2">
+      Media Conference talks, webinars by the AI Exchange
+    </h3>
+    <h2 class="text-[#1a1a2e] text-4xl font-bold mb-12">Media</h2>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
+    <!-- Media Card Example -->
+    <div class="rounded-xl overflow-hidden shadow-lg">
+      <img
+        src="/images/Sub Container.png"
+        alt="Media thumbnail"
+        class="w-full h-52 object-cover"
+      />
+      <div class="p-5">
+        <h4 class="text-lg font-bold text-[#1a1a2e] mb-2">
+          Event: OWASP Benelux AI: The New Beginning w/ Rob van der Veer
+        </h4>
+        <div class="text-gray-500 text-sm">28 Nov 2024</div>
       </div>
     </div>
-    <a href="/media" style="background: #10b981; color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 10px;">View All <span>→</span></a>
-  </div>
-</div>
+    <!-- Card 2 -->
+    <div class="rounded-xl overflow-hidden shadow-lg">
+      <!-- Image on top -->
+      <div class="h-51">
+        <img
+          src="/images/Sub Container1.png"
+          alt="Media thumbnail"
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <!-- Text below the image -->
+      <div class="p-5">
+        <h4 class="text-lg font-bold text-[#1a1a2e] mb-2">
+          Event: OWASP Benelux AI: The New Beginning w/ Rob van der Veer
+        </h4>
+        <div class="text-gray-500 text-sm">28 Nov 2024</div>
+      </div>
+    </div>
 
-<!-- Support the Future of AI Security Section -->
-<div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 60px 20px; text-align: center; position: relative;">
-  <!-- Subtle globe/network graphic -->
-  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(circle at 20% 20%, rgba(0,255,150,0.1) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(0,255,150,0.1) 0%, transparent 50%); opacity: 0.3;"></div>
-  
-  <div style="position: relative; z-index: 2; width: 100%;">
-    <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 20px; color: white;">Support the Future of AI Security</h2>
-    <p style="font-size: 1.2rem; margin-bottom: 40px; color: white;">Get involved: aruneesh.salhotra@owasp.org</p>
-    <a href="/sponsor" style="background: white; color: #10b981; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; border: 2px solid white; transition: all 0.3s; display: inline-block; margin-bottom: 60px;">Sponsor Now</a>
-    <div style="margin-bottom: 40px;">
-      <h3 style="color: white; font-size: 1.5rem; font-weight: bold; margin-bottom: 30px;">Our Sponsors</h3>
-      <div style="display: flex; justify-content: center; gap: 40px; align-items: center; flex-wrap: wrap;">
-        <a href="https://www.straiker.ai/" rel="noopener noreferrer" target="_blank" style="background: white; padding: 20px; border-radius: 12px; text-decoration: none;">
-          <img src="/images/sp_straiker.jpg" style="height: 60px; width: auto;" alt="Straiker sponsor">
-        </a>
-        <a href="https://www.casco.com/" rel="noopener noreferrer" target="_blank" style="background: white; padding: 20px; border-radius: 12px; text-decoration: none;">
-          <img src="/images/sp_casco.png" style="height: 60px; width: auto;" alt="Casco sponsor">
-        </a>
+    <!-- Card 3 -->
+    <div class="rounded-xl overflow-hidden shadow-lg">
+      <!-- Image on top -->
+      <div class="h-51">
+        <img
+          src="/images/Sub Container2.png"
+          alt="Media thumbnail"
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <!-- Text below the image -->
+      <div class="p-5">
+        <h4 class="text-lg font-bold text-[#1a1a2e] mb-2">
+          Event: OWASP Benelux AI: The New Beginning w/ Rob van der Veer
+        </h4>
+        <div class="text-gray-500 text-sm">28 Nov 2024</div>
       </div>
     </div>
   </div>
+  <div class="text-center">
+    <a
+      href="/media"
+      class="inline-flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-600 transition-colors"
+      >View All <span>→</span></a
+    >
+  </div>
 </div>
 
-<!-- Sponsorship Benefits Section -->
-<div class="container">
-  <div style="width: 100%;">
-    <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 60px; color: #1a1a2e;">Sponsorship benefits include</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
-      <div style="text-align: center;">
-        <div style="width: 80px; height: 80px; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 30px;">
-          <span style="color: white; font-size: 32px;">👥</span>
-        </div>
-        <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 20px; color: #1a1a2e;">Visibility</h3>
-        <p style="color: #6b7280; line-height: 1.6;">Gain prominent visibility in the AI security community through logo placement, mentions in publications, and recognition at events.</p>
+<!-- Sponsor Section -->
+<div
+  class="max-w-7xl mx-auto px-4 md:px-8 my-10 rounded-2xl shadow-lg overflow-hidden"
+>
+  <div class="relative w-full">
+    <!-- Image -->
+    <img
+      src="/images/sponcersection.png"
+      alt="Sponsor Graphic"
+      class="w-full h-80 object-cover rounded-t-xl"
+    />
+
+    <!-- Black overlay with opacity -->
+    <div class="absolute inset-0 bg-black bg-opacity-70 rounded-t-xl"></div>
+
+    <!-- Content above overlay -->
+    <div
+      class="absolute inset-0 flex flex-col justify-center items-center p-8 text-center rounded-t-xl"
+    >
+      <h2 class="text-3xl font-bold mb-4 text-white">
+        Support the Future of AI Security
+      </h2>
+      <p class="text-lg mb-6 text-white">
+        Get involved: aruneesh.salhotra@owasp.org
+      </p>
+      <a
+        href="/sponsor"
+        class="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition mb-8"
+        >Sponsor Now</a
+      >
+      <h3 class="text-2xl font-bold mb-6 text-white">Our Sponsors</h3>
+      <div class="flex justify-center items-center flex-wrap gap-8">
+        <a
+          href="https://www.straiker.ai/"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><img
+            src="/images/sp_straiker-removebg-preview.png"
+            alt="Straiker sponsor"
+            class="h-16 w-auto"
+        /></a>
+        <a
+          href="https://www.casco.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><img
+            src="/images/sp_casco-removebg-preview.png"
+            alt="Casco sponsor"
+            class="h-16 w-auto"
+        /></a>
       </div>
-      <div style="text-align: center;">
-        <div style="width: 80px; height: 80px; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 30px;">
-          <span style="color: white; font-size: 32px;">🤝</span>
+    </div>
+  </div>
+
+  <div class="p-8 bg-[#006284] rounded-b-2xl">
+    <h2 class="text-3xl font-bold mb-12 text-white text-center">
+      Sponsorship benefits include
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
+      <!-- Columns 1–3 -->
+      <div
+        class="flex flex-col items-center md:items-start text-center md:text-left"
+      >
+        <div class="flex items-center mb-4">
+          <img src="/images/Vector1.png" alt="Icon 1" class="h-8 w-8 mr-3" />
+          <h4 class="text-xl font-bold text-white">Visibility</h4>
         </div>
-        <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 20px; color: #1a1a2e;">Collaboration</h3>
-        <p style="color: #6b7280; line-height: 1.6;">Collaborate directly with industry leaders and contribute to shaping AI security standards and best practices.</p>
+        <p class="text-white leading-relaxed">
+          Showcase your organization’s commitment to AI security within a
+          network of industry leaders and experts.
+        </p>
       </div>
-      <div style="text-align: center;">
-        <div style="width: 80px; height: 80px; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 30px;">
-          <span style="color: white; font-size: 32px;">💡</span>
+      <div
+        class="flex flex-col items-center md:items-start text-center md:text-left"
+      >
+        <div class="flex items-center mb-4">
+          <img src="/images/Vector2.png" alt="Icon 2" class="h-8 w-8 mr-3" />
+          <h4 class="text-xl font-bold text-white">Collaboration</h4>
         </div>
-        <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 20px; color: #1a1a2e;">Thought Leadership</h3>
-        <p style="color: #6b7280; line-height: 1.6;">Position your organization as a thought leader in AI security through speaking opportunities and content contributions.</p>
+        <p class="text-white leading-relaxed">
+          Participate in the development of global AI security guidelines,
+          standards, and regulations.
+        </p>
+      </div>
+      <div
+        class="flex flex-col items-center md:items-start text-center md:text-left"
+      >
+        <div class="flex items-center mb-4">
+          <img src="/images/Vector1.png" alt="Icon 3" class="h-8 w-8 mr-3" />
+          <h4 class="text-xl font-bold text-white">Thought Leadership</h4>
+        </div>
+        <p class="text-white leading-relaxed">
+          Contribute to key insights on AI threats, risks, and controls,
+          positioning your organization as a leader in AI security.
+        </p>
       </div>
     </div>
   </div>
 </div>
 
 <!-- Contact Section -->
-<div class="container">
-  <div style="width: 100%;">
-    <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 60px; color: #1a1a2e; text-align: center;">We are always happy to assist you!</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
-      <div>
-        <div style="display: flex; gap: 20px; margin-bottom: 30px;">
-          <a href="#" style="width: 50px; height: 50px; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none;">
-            <span style="color: white; font-size: 20px;">💼</span>
-          </a>
-          <a href="#" style="width: 50px; height: 50px; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none;">
-            <span style="color: white; font-size: 20px;">📺</span>
-          </a>
-          <a href="#" style="width: 50px; height: 50px; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none;">
-            <span style="color: white; font-size: 20px;">💬</span>
-          </a>
-          <a href="#" style="width: 50px; height: 50px; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none;">
-            <span style="color: white; font-size: 20px;">🐙</span>
-          </a>
-        </div>
-        <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 20px; color: #1a1a2e;">Send us a message</h3>
-        <p style="color: #6b7280; line-height: 1.6;">Have questions about AI security? Want to contribute to our mission? We'd love to hear from you. Reach out through any of our channels or use the contact form.</p>
+<div class="max-w-7xl mx-auto px-4 md:px-8 py-16 bg-[#EDF7ED] rounded-2xl">
+  <h2 class="text-3xl md:text-4xl font-bold text-center text-[#1a1a2e] mb-16">
+    We are always happy to assist you!
+  </h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+    <!-- Left Column -->
+    <div>
+      <div class="flex flex-wrap gap-4 mb-8">
+        <a
+          href="#"
+          class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow"
+          ><img src="/images/github.png" alt="GitHub" class="w-6 h-6"
+        /></a>
+        <a
+          href="#"
+          class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow"
+          ><img src="/images/youtube.png" alt="YouTube" class="w-6 h-6"
+        /></a>
+        <a
+          href="#"
+          class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow"
+          ><img src="/images/linkedin.png" alt="LinkedIn" class="w-6 h-6"
+        /></a>
+        <a
+          href="#"
+          class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow"
+          ><img src="/images/slack.png" alt="Slack" class="w-6 h-6"
+        /></a>
       </div>
-      <div>
-        <form style="display: flex; flex-direction: column; gap: 20px;">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            <input type="text" placeholder="First Name*" style="padding: 15px; border: 1px solid #e5e7eb; border-radius: 8px; font-size: 1rem;">
-            <input type="text" placeholder="Last Name*" style="padding: 15px; border: 1px solid #e5e7eb; border-radius: 8px; font-size: 1rem;">
-          </div>
-          <input type="email" placeholder="Email Address*" style="padding: 15px; border: 1px solid #e5e7eb; border-radius: 8px; font-size: 1rem;">
-          <textarea placeholder="Message" rows="4" style="padding: 15px; border: 1px solid #e5e7eb; border-radius: 8px; font-size: 1rem; resize: vertical;"></textarea>
-          <button type="submit" style="background: #10b981; color: white; padding: 15px 30px; border: none; border-radius: 8px; font-size: 1rem; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 10px; align-self: flex-start;">Submit <span>→</span></button>
-        </form>
-      </div>
+      <h3 class="text-2xl font-bold text-[#1a1a2e] mb-4">Send us a message</h3>
+      <p class="text-gray-500 leading-relaxed">
+        Have questions about AI security? Want to contribute to our mission?
+        We'd love to hear from you. Reach out through any of our channels or use
+        the contact form.
+      </p>
     </div>
-</div>
-</div>
-{{ end }}
 
+    <!-- Right Column (Form) -->
+    <div>
+      <form class="flex flex-col gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input
+            type="text"
+            placeholder="First Name*"
+            class="p-4 border border-gray-300 rounded-lg text-base"
+          />
+          <input
+            type="text"
+            placeholder="Last Name*"
+            class="p-4 border border-gray-300 rounded-lg text-base"
+          />
+        </div>
+        <input
+          type="email"
+          placeholder="Email Address*"
+          class="p-4 border border-gray-300 rounded-lg text-base"
+        />
+        <textarea
+          placeholder="Message"
+          rows="4"
+          class="p-4 border border-gray-300 rounded-lg text-base resize-vertical"
+        ></textarea>
+        <button
+          type="submit"
+          class="bg-green-500 text-white px-6 py-3 rounded-lg font-bold flex items-center justify-center gap-2 w-max hover:bg-green-600 transition"
+        >
+          Submit <span>→</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{{ end }}

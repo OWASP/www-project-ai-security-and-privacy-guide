@@ -1,4 +1,5 @@
   <meta charset="utf-8" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ site.Title }}</title>
   <meta name="description" content="{{ with site.Params.description }}{{ . }}{{ end }}" />
@@ -7,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/site.css" />
   <link rel="stylesheet" href="/css/custom-style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
   {{- range .AlternativeOutputFormats -}}
   <link rel="alternate" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $.Site.Title }}" />
   {{- end -}}
