@@ -1,0 +1,13 @@
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">OWASP AI Exchange</a>
+    <nav class="main-nav">
+      <ul>
+        {{ range site.Menus.main }}
+          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+    </nav>
+  </div>
+</header>
+
