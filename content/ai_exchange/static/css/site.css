@@ -1,26 +1,3 @@
-:root{--bg:#0b1220;--fg:#e8eef7;--muted:#9db0c9;--accent:#2ecc71;--accent-2:#1b8f4d;--card:#101a2f;--border:#1d2a44}
-*{box-sizing:border-box}
-body{margin:0;font-family:"Roboto",system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:#111;background:#fff}
-.container{max-width:1160px;margin:0 auto;padding:0 20px}
-.site-header{background:#0b1220;color:var(--fg);position:sticky;top:0;z-index:10}
-.site-header .brand{color:#fff;text-decoration:none;font-weight:700}
-.site-header .container{display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
-.main-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:18px}
-.main-nav a{color:#cfe2ff;text-decoration:none;padding:8px 10px;border-radius:6px}
-.main-nav a:hover{background:#0f1a30}
-.hero{background:radial-gradient(1000px 500px at 90% -10%, #11306a 0%, #061125 60%, #030917 100%), url('/images/hero-stars.svg');color:#fff;padding:64px 0}
-.hero .btn{background:var(--accent);color:#fff;text-decoration:none;padding:10px 16px;border-radius:8px;margin-right:12px;display:inline-block}
-.hero .btn.btn-alt{background:transparent;border:1px solid #5fa57b}
-.feature-grid{padding:36px 0}
-.feature-grid h2{margin:0 0 16px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-.card{background:#f7f9fc;border:1px solid #e7edf7;border-radius:12px;padding:20px;color:#0b1220;text-decoration:none;display:block}
-.card h3{margin:0 0 8px}
-.contact-cta{background:linear-gradient(90deg,#1c8c4b,#2ecc71);color:#fff;padding:28px 0;text-align:center}
-.site-footer{background:#0b1220;color:#9db0c9;margin-top:40px}
-.site-footer a{color:#cfe2ff}
-.site-footer .container{padding:24px 20px}
-.content p{line-height:1.7;color:#222}
 /* Hextra theme css */
 *,::before,::after {
     box-sizing: border-box;

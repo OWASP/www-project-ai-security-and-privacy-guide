@@ -12,14 +12,14 @@ params:
   og_image: https://owaspai.org/images/aix-og-logo.jpg
   og_description: Comprehensive guidance and alignment on how to protect AI against security threats - by professionals, for professionals.
   navbar:
-    displayTitle: true
+    displayTitle: false
     displayLogo: true
     logo:
-      path: images/owasp-logo.svg
-      dark: images/owasp-logo-dark.svg
+      path: images/Owasp-AI-Exchange-Logo.png
+      dark: images/Owasp-AI-Exchange-Logo.png
       link: /
-      width: 30
-      height: 30
+      width: "Auto"
+      height: 48
   editURL:
     enable: true
     base: "https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/content/ai_exchange/content"
@@ -63,6 +63,21 @@ menu:
       url: "https://github.com/OWASP/www-project-ai-security-and-privacy-guide"
       params:
         icon: github
+    - name: Slack
+      weight: 10
+      url: "https://github.com/OWASP/www-project-ai-security-and-privacy-guide"
+      params:
+        icon: slack
+    - name: LinkedIn
+      weight: 11
+      url: "https://github.com/OWASP/www-project-ai-security-and-privacy-guide"
+      params:
+        icon: linkedin
+    - name: Youtube
+      weight: 11
+      url: "https://github.com/OWASP/www-project-ai-security-and-privacy-guide"
+      params:
+        icon: youtube
 
   sidebar:
     - name: More
