@@ -54,6 +54,7 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
     <tr><td>Dan Sorensen</td><td>Centil</td><td>US</td><td>Misc. additions including development security</td></tr>
     <tr><td>Dennis Charolle</td><td>MilliporeSigma</td><td>US</td><td>Compliance overview and copyright</td></tr>
     <tr><td>Disesdi Susanna Cox</td><td>OTW</td><td>US</td><td>Federated learning and many more</td></tr>
+    <tr><td>Engin Bozdag</td><td>Uber</td><td>US</td><td>Substantial input on the privacy section</td></tr>
     <tr><td>Eoin Wickens</td><td>HiddenLayer</td><td>Ireland</td><td>Additions to development security</td></tr>
     <tr><td>Feiyang Tang</td><td>Software Improvement Group (SIG)</td><td></td><td></td></tr>
     <tr><td><b>John Sotiropoulos</b></td><td>Kainos</td><td>UK</td><td>Liaison to several institutes</td></tr>
