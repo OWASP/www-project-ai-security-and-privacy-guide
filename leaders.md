@@ -1,7 +1,6 @@
 ### Leaders
 * [Rob van der Veer](mailto:rob.vanderveer@owasp.org)
 * [Aruneesh Salhotra](mailto:aruneesh.salhotra@owasp.org)
-* [Chris Ancharski](mailto:chris.ancharski@owasp.org)
 * [Behnaz Karimi](mailto:behnaz.karimi@owasp.org)
   
 ### About founder [Rob van der Veer](https://www.linkedin.com/in/robvanderveer/)
