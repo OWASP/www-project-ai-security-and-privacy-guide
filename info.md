@@ -1,5 +1,5 @@
-### AI Security and Privacy Guide Information
-* Incubator Project
+### AI Exchange Information
+* Flagship Project
 * Project type: Documentation
 * Version 1.0
 * For Builders, Breakers, Buyers
@@ -13,7 +13,3 @@
 
 ### Change Log
 * [Changes](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/commits/)
-
-### FEATURED EVENT
-* [Global AppSec talk](https://sched.co/1F9DT)
-
