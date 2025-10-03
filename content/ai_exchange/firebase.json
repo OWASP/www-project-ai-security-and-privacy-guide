@@ -24,6 +24,11 @@
         "type": 301
       },
       {
+        "source": "/goto/agenticaithreats/",
+        "destination": "/docs/ai_security_overview/#threats-to-agentic-ai",
+        "type": 301
+      },  
+      {
         "source": "/goto/aisecuritymatrix/",
         "destination": "/docs/ai_security_overview/#ai-security-matrix",
         "type": 301
