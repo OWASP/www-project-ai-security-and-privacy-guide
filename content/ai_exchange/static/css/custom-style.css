@@ -1,11 +1,23 @@
 :root{--bg:#0b1220;--fg:#e8eef7;--muted:#9db0c9;--accent:#2ecc71;--accent-2:#1b8f4d;--card:#101a2f;--border:#1d2a44}
 *{box-sizing:border-box}
 body{margin:0;font-family:"Roboto",system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:#111;background:#fff}
-.container{max-width:90rem;margin:0 auto;padding:60px 0px}
+.theme-blue-bg {background-color: #006284;}
+.theme-green-bg {background-color: #4CAF50;}
+.container{max-width:1280px;margin:0 auto;padding:60px 0px}
 .nav-container.sticky {
     position: fixed;
     height: 85px;
     align-items: center;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    color: #0b1220;
+    margin: 0 0 10px 0;
+}
+h1 {
+    font-size: 3rem !important;
+    font-weight: 700 !important;
+    line-height: 1.2;
 }
 .nav-container .nav-container-blur {
     /* backdrop-filter: blur(10px); */
@@ -51,8 +63,8 @@ body{margin:0;font-family:"Roboto",system-ui,-apple-system,Segoe UI,Arial,sans-s
     position:absolute;
     bottom:0;
     right:0;
-    width:650px;
-    height:650px;
+    width:500px;
+    height:500px;
     background:url('../images/globe.webp') no-repeat bottom/contain;
     pointer-events:none;
     z-index:1;
@@ -62,3 +74,75 @@ body{margin:0;font-family:"Roboto",system-ui,-apple-system,Segoe UI,Arial,sans-s
     padding: 150px 0px 80px;
     width: 55%;
 }
+.intro-banner {
+    background: radial-gradient(1000px 500px at 90% -10%, #11306a 0%, #061125 60%, #030917 100%), url('/images/hero-stars.svg');
+    color: #fff;
+    padding: 64px 0px 20px 0px;
+    margin-bottom: 40px;
+    position: relative;
+    /* media_banner.jpg */
+}
+.intro-banner.media {
+    background: url('/images/media_banner.jpg') no-repeat center/cover;
+}
+.intro-banner h1 {
+    font-size: 3rem !important;
+    color: #fff;
+    font-weight: 700 !important;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+  /* TWINKLE: fade layer for “scaling” illusion */
+  /* Smooth drift (kept from earlier) */
+  @keyframes starDrift {
+    from {
+      background-position:
+        0 0,
+        0 0,
+        0 0;
+    }
+    to {
+      /* each layer drifts in a different direction */
+      background-position:
+        240px 120px,      /* tiny stars */
+        -150px 120px,     /* small stars */
+        180px -90px;      /* medium stars */
+    }
+  }
+
+  .stars-wide {
+    position: absolute; inset: 0;
+    pointer-events: none;
+    background-repeat: repeat;
+    background-size: 480px 240px; /* bigger tile -> wider spacing */
+    opacity: 0.6;                /* overall pass-through; tweak as you like */
+    animation: starDrift 10s linear infinite;
+    /* three layers: tiny, small, medium */
+    background-image:
+      /* Layer 1: tiny, many = subtle texture */
+      radial-gradient(1.2px 1.2px at 40px 30px,  rgba(255,255,255,0.9), transparent),
+      radial-gradient(1.2px 1.2px at 160px 110px, rgba(255,255,255,0.85), transparent),
+      radial-gradient(1.2px 1.2px at 260px 60px,  rgba(255,255,255,0.8),  transparent),
+      radial-gradient(1.2px 1.2px at 360px 180px, rgba(255,255,255,0.9),  transparent),
+      radial-gradient(1.2px 1.2px at 430px 40px,  rgba(255,255,255,0.85), transparent),
+      radial-gradient(1.2px 1.2px at 230px 80px,  rgba(255,255,255,1), transparent),
+      radial-gradient(1.2px 1.2px at 530px 40px,  rgba(255,255,255,1), transparent),
+
+      /* Layer 2: small, fewer & brighter */
+      radial-gradient(1.6px 1.6px at 100px 180px, rgba(255,255,255,0.95), transparent),
+      radial-gradient(1.6px 1.6px at 220px 130px, rgba(255,255,255,0.95), transparent),
+      radial-gradient(1.6px 1.6px at 340px 50px,  rgba(255,255,255,0.95), transparent),
+      radial-gradient(1.6px 1.6px at 440px 150px,  rgba(255,255,255,0.95), transparent),
+      radial-gradient(1.6px 1.6px at 540px 60px,  rgba(255,255,255,0.95), transparent),
+      radial-gradient(1.6px 1.6px at 640px 250px,  rgba(255,255,255,0.95), transparent),
+
+      radial-gradient(2.5px 2.5px at 100px 180px, rgba(255,255,255,0.95), transparent),
+      radial-gradient(2.5px 2.5px at 220px 130px, rgba(255,255,255,0.95), transparent),
+      radial-gradient(2.5px 2.5px at 340px 50px,  rgba(255,255,255,0.95), transparent),
+      radial-gradient(2.5px 2.5px at 140px 150px,  rgba(255,255,255,0.95), transparent),
+      radial-gradient(2.5px 2.5px at 240px 80px,  rgba(255,255,255,0.95), transparent),
+
+      /* Layer 3: medium, rare = “hero” stars */
+      radial-gradient(3px 3px at 70px 90px,   rgba(255,255,255,0.95), transparent),
+      radial-gradient(4px 4px at 300px 200px, rgba(255,255,255,0.95), transparent);
+  }

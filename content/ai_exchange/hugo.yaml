@@ -54,6 +54,7 @@ menu:
     - name: Sponsor
       pageRef: /sponsor
       weight: 7
+  social:
     - name: Search
       weight: 8
       params:
