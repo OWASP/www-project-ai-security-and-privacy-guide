@@ -156,11 +156,11 @@ There are four typical properties of agentic AI:
 What does this mean for security?
 - Hallucinations and prompt injections can change commands — or even escalate privileges. Don’t give GenAI models/agents direct access control. Build that into your architecture.
 - The attack surface is wide, and the potential impact should not be underestimated.
-- Because of that, the known controls become even more important — such as traceability, protecting memory integrity, prompt injection defenses, rule-based guardrails, least model privilege, and human oversight. See the [controls overview section](/goto/controlsoverview/).
+- Because of that, the known controls become even more important — such as security of inter-model communication (e.g. MCP), traceability, protecting memory integrity, prompt injection defenses, rule-based guardrails, least model privilege, and human oversight. See the [controls overview section](/goto/controlsoverview/).
 
 For more details on the agentic AI threats, see the [Agentic AI threats and mitigations, from the GenAI security project](https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/). For a more general discussion of Agentic AI, see [this article from Chip Huyen](https://huyenchip.com/2025/01/07/agents.html).
 
-The [testing section](/goto/testing/) discusses more about agentic AI red teaming.
+The [testing section](/goto/testing/) discusses more about agentic AI red teaming and links to the collaboration between CSA and the Exchange: the Agentic AI red teaming guide.
 
 
 
