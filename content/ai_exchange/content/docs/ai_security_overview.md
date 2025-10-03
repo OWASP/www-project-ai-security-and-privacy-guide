@@ -143,7 +143,7 @@ The diagram shows the threats as arrows. Each threat has a specific impact, indi
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/agenticaithreats/
 
-In Agentic AI. AI systems can take action instead of just talk and sometimes act pro-actively or communicate with other agents. Important note: we're still dealing with software systems and AI systems, so everything in the AI Exchange applies, but there are a few attention points. 
+In Agentic AI, AI systems can take action instead of just present output, and sometimes act pro-actively or communicate with other agents. Important note: these are still software systems and AI systems, so everything in the AI Exchange applies, but there are a few attention points. 
 
 An example of Agentic AI is a set of voice assistants that can control your heating, send emails, and even invite more assistants into the conversation. That’s powerful—but you’d probably want it to check with you first before sending a thousand emails.  
 
