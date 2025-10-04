@@ -2,8 +2,6 @@
 title: Glossary
 weight: 9
 ---
-## Glossay
->Category: discussion  
 >Permalink: https://owaspai.org/goto/glossary/
 
 A  
