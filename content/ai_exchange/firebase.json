@@ -94,6 +94,11 @@
         "type": 301
       },
       {
+        "source": "/goto/glossay/",
+        "destination": "/docs/ai_security_glossary/",
+        "type": 301
+      },
+      {
         "source": "/goto/generalcontrols/",
         "destination": "/docs/1_general_controls/",
         "type": 301
