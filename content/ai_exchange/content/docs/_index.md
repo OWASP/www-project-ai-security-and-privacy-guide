@@ -10,4 +10,5 @@ title: Content
     {{< small-card link="/docs/4_runtime_application_security_threats/" title="4. Runtime application security threats">}}
     {{< small-card link="/docs/5_testing/" title="5. AI security testing">}}
     {{< small-card link="/docs/ai_security_references/" title="References">}}
+    {{< small-card link="/docs/ai_security_glossary/" title="Glossary">}}
 {{< /cards >}}
