@@ -94,8 +94,8 @@
         "type": 301
       },
       {
-        "source": "/goto/glossary/",
-        "destination": "/docs/ai_security_glossary/",
+        "source": "/goto/index/",
+        "destination": "/docs/ai_security_index/",
         "type": 301
       },
       {
