@@ -27,7 +27,7 @@ See the [overview of AI projects at OWASP](/goto/aiatowasp/).
     {{< small-card link="/contribute" title="Contribute" icon="star" >}}
     {{< small-card link="/sponsor" title="Sponsor" icon="star" >}}
     {{< small-card link="/media" title="Media" icon="speakerphone" >}}
-    {{< small-card link="/goto/glossary/" title="Glossary" icon="document-text">}}
+    {{< small-card link="/goto/index/" title="Index" icon="document-text">}}
 {{< /cards >}}
 
 <table style="width: 100%;  border: 0; margin: 0; padding: 0;">
@@ -62,6 +62,8 @@ See the [overview of AI projects at OWASP](/goto/aiatowasp/).
 * [AI privacy](/goto/aiprivacy/)  
 
 * [References](/docs/ai_security_references/)
+
+* [Index](/docs/ai_security_index/)
 
 Content also available in [pdf](OWASP-AI-Exchange.pdf)
 
