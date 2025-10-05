@@ -1,8 +1,10 @@
 ---
-title: Glossary
+title: Index
 weight: 9
 ---
->Permalink: https://owaspai.org/goto/glossary/
+>Permalink: https://owaspai.org/goto/index/
+
+Find clickable topics in alphabetetical order below. For an overview of threats and their controls, see the [Periodic table of AI security](/goto/periodictable/).
 
 A  
 [Adversarial attacks](/goto/evasion/)  
