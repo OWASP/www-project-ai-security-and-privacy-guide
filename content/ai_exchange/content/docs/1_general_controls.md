@@ -224,8 +224,8 @@ Useful standards include:
 > Category: governance control  
 > Permalink: https://owaspai.org/goto/checkcompliance/
 
-Check compliance: Make sure that AI-relevant laws and regulations are taken into account in compliance management (including security aspects). If personal data is involved and/or AI is applied to make decisions about individuals, then privacy laws and regulations are also in scope. See the [OWASP AI Guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) for privacy aspects of AI.  
-Compliance as a goal can be a powerful driver for organizations to grow their readiness for AI. While doing this, it is important to keep in mind that legislation has a scope that does not necessarily include all the relevant risks for the organization. Many rules are about the potential harm to individuals and society, and don’t cover the impact on business processes per se. For example: the European AI act does not include risks for protecting company secrets. In other words: be mindful of blind spots when using laws and regulations as your guide.
+Check compliance: Make sure that AI-relevant laws and regulations are taken into account in compliance management (including security aspects). If personal data is involved and/or AI is applied to make decisions about individuals, then privacy laws and regulations are also in scope. See the [Privacy section](/goto/privacy/) for details.  
+Compliance as a goal can be a powerful driver for organizations to grow their readiness for AI. While doing this, it is important to keep in mind that legislation has a scope that does not necessarily include all the relevant risks for the organization. Many rules are about the potential harm to individuals and society, and don’t cover the impact on business stakes per se. For example: the European AI act does not include risks for protecting company secrets. In other words: be mindful of blind spots when using laws and regulations as your guide.
 
 
 Global Jurisdictional considerations (as of end of 2023):
@@ -250,11 +250,15 @@ Non-Security Compliance Considerations:
 
 References
   - [Vischer on legal aspects of AI](https://www.vischer.com/en/artificial-intelligence/)
+  - [Summary of AI Act by SIG](https://www.softwareimprovementgroup.com/eu-ai-act-summary/)
+  - [Summary of US AI legislation by SIG](https://www.softwareimprovementgroup.com/us-ai-legislation-overview/)
 
 Useful standards include:
 
   - [OpenCRE on Compliance](https://www.opencre.org/cre/510-324)
   - ISO 27002 Control 5.36 Compliance with policies, rules and standards. Gap: covers this control fully, with the particularity that AI regulation needs to be taken into account.
+  - ISO/IEC 27090 (AI security) and 27091 (AI privacy) are both in development at the moment of writing (Oct 2025), and likely come out in 2026. The AI Exchange has contributed substantial content to the 27090.
+  - prEN 18282 is the European standard for AI Security - brought forward by CEN/CENELEC and with a substantial part contributed by the AI Exchange. Exchange founder Rob van der Veer is liaison officer for the official partnership between the AI Exchange and CEN/CENELEC/ISO, as well as co-editor for 18282. The standard is has been in development for almost two years at the moment of writing (Oct 2025) and expected to go into public enquiry in October, and be published in 2026.
 
 #### #SECEDUCATE
 > Category: governance control  
