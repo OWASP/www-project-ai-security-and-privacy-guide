@@ -146,3 +146,71 @@ h1 {
       radial-gradient(3px 3px at 70px 90px,   rgba(255,255,255,0.95), transparent),
       radial-gradient(4px 4px at 300px 200px, rgba(255,255,255,0.95), transparent);
   }
+/* Target the actual content inside the TOC */
+
+.hextra-toc ul {
+  background: #CCF6CE;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin: 0 0 12px 0;  /* small spacing after the green box */
+  color: #000;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Make sure the green box covers title + list together */
+
+.hextra-toc p {
+  font-size: 16px;        /* increase font size */
+  margin: 0 0 10px 0;
+  /* border-bottom: 1px solid #666; */
+  /* padding-bottom: 4px; */
+}
+
+/* Sidebar container card */
+.sidebar-container ul.flex.flex-col {
+  background: #ffffff;           /* White background */
+  border: 1px solid #e5e7eb;     /* Light gray border */
+  border-radius: 0.5rem;         /* Rounded corners */
+  padding: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Sidebar links */
+.sidebar-container ul.flex.flex-col a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151; /* gray-700 */
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+/* Hover state */
+.sidebar-container ul.flex.flex-col a:hover {
+  background: #f3f4f6; /* gray-100 */
+}
+
+/* Active link */
+.sidebar-container ul.flex.flex-col a.sidebar-active-item {
+  background: #22c55e;  /* green-500 */
+  color: #ffffff;       /* white text */
+  font-weight: 600;
+}
+
+/* Active link icons */
+.sidebar-container ul.flex.flex-col a.sidebar-active-item svg {
+  color: #ffffff;
+}
+
+/* Non-active icons */
+.sidebar-container ul.flex.flex-col a svg {
+  color: #6b7280; /* gray-500 */
+  width: 14px;
+  height: 14px;
+}
