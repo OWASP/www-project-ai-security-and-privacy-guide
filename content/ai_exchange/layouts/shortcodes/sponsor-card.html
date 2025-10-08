@@ -1,0 +1,50 @@
+{{/* Sponsor Card Shortcode
+Usage: {{< sponsor-card name="Straker" tier="Gold" logo="/images/straker.svg" description="Transform cybersecurity..." link="https://straker.com" >}}
+
+Parameters:
+- name: Sponsor name
+- tier: Sponsorship level (e.g., "Gold", "Silver")
+- logo: Path to the sponsor's logo image
+- description: Brief description of the sponsor
+- link: URL for the "Learn more" button
+*/}}
+
+{{ $name := .Get "name" }}
+{{ $tier := .Get "tier" | default "Bronze" }}
+{{ $logo := .Get "logo" }}
+{{ $description := .Get "description" }}
+{{ $link := .Get "link" | default "#" }}
+
+{{/* The Card HTML Structure (using Tailwind CSS) */}}
+<div class="relative bg-white rounded-lg shadow-md overflow-hidden p-6 border border-gray-100 min-h-[341px] flex flex-col justify-between">
+    
+    {{/* Tier Badge */}}
+    <span class="absolute top-0 right-0 px-4 py-2 text-base font-bold uppercase rounded-bl-lg
+        {{ if eq $tier "Gold" }} bg-yellow-400 text-yellow-900
+        {{ else if eq $tier "Silver" }} bg-gray-300 text-gray-700
+        {{ else }} bg-blue-500 text-white {{ end }}">
+        {{ $tier }}
+    </span>
+
+    {{/* Logo */}}
+    <div class="mb-4 flex-shrink-0">
+        <img src="{{ $logo }}" alt="{{ $name }} Logo" class="h-16 object-contain mt-9 mx-auto">
+    </div>
+   <hr class="border-t border-gray-300 mb-[15px]">
+    {{/* Description */}}
+    <div class="flex-grow">
+        <p class="text-base leading-relaxed mb-4">{{ $description }}</p>
+    </div>
+
+    {{/* Link Button */}}
+    <a 
+  href="{{ $link }}" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  class="text-[#4CAF50] hover:text-emerald-800 text-sm font-semibold flex items-center mt-auto cursor-pointer transition-colors duration-200"
+>
+  Learn more &gt;
+</a>
+
+
+</div>
