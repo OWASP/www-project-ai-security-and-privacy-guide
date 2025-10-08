@@ -1,4 +1,4 @@
----
+<!-- ---
 title: 'Sponsor the OWASP AI Exchange'
 excludeSearch: false
 ---
@@ -26,4 +26,185 @@ Join us in our mission to protect society from AI security issues by harnessing 
   <td style="border: none;"><a href="https://www.straiker.ai/" rel="noopener noreferrer" target="_blank"><img src="/images/sp_straiker.jpg" style="display: block; margin: auto;" alt="Straiker sponsor"></a></td>
   <td style="border: none;"><a href="https://www.casco.com/" rel="noopener noreferrer" target="_blank"><img src="/images/sp_casco.png" style="display: block; margin: auto;" alt="Casco sponsor"></a></td>
 </tr>
-</table>
+</table> -->
+
+<div>
+
+  <!-- Hero Banner (Full Width) -->
+  <div class="relative bg-cover bg-center bg-no-repeat h-[500px]" style="background-image: url('/images/herosponser.png')">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="container relative mx-auto px-4 md:px-8 h-full flex flex-col justify-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        Sponsor the OWASP AI Exchange
+      </h1>
+      <p class="text-lg md:text-2xl text-gray-300 mb-6 leading-relaxed">
+        Join us in our mission to protect society from AI security issues by harnessing the<br>
+        collective wisdom of global experts. Together, we can drive the development of secure<br>
+        and trustworthy AI systems.
+      </p>
+      <a href="/sponsor" class="bg-green-600 hover:bg-emerald-700 text-white text-lg font-medium py-3 px-10 rounded-lg w-max">
+        Sponsor Now
+      </a>
+    </div>
+  </div>
+
+  <!-- Description Section (Centered Content) -->
+ <div class="container mx-auto px-4 md:px-8 max-w-8xl">
+    <p class="text-lg text-gray-800 mb-6 leading-relaxed">
+      The <span class="font-bold">OWASP AI Exchange</span> is at the global center of AI security standards and guidelines, serving as the ultimate resource for AI security practitioners and standard makers. The Exchange offers over 200 pages of practical advice and references on protecting AI and data-centric systems from security threats.
+    </p>
+    <p class="text-lg text-gray-800 leading-relaxed">
+      By sponsoring the <span class="font-bold">OWASP AI Exchange</span>, organizations have a unique opportunity to support and engage with a global community dedicated to advancing AI security understanding and practices.
+    </p>
+  </div>
+
+  <!-- Sponsorship Section (Full Width Image + Overlay) -->
+  <div class="container mx-auto px-4 md:px-8 overflow-hidden">
+    <div class="relative w-full">
+      <!-- Image -->
+      <img
+        src="/images/sponserbg.webp"
+        alt="Sponsor Graphic"
+        class="w-full h-90 object-cover rounded-t-xl"
+      />
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-black bg-opacity-20 rounded-t-xl"></div>
+      <!-- Overlay Content -->
+      <div class="absolute inset-0 flex flex-col justify-center items-center  text-center rounded-t-xl">
+        <h2 class="text-3xl font-bold mb-4 text-white ">Support the Future of AI Security</h2>
+        <p class="text-lg mb-6 text-white">Get involved: aruneesh.salhotra@owasp.org</p>
+        <a
+          href="/sponsor"
+          class="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition mb-8"
+        >
+          Sponsor Now
+        </a>
+        <h3 class="text-2xl font-bold mb-6 text-white ">Our Sponsors</h3>
+        <div class="flex justify-center items-center flex-wrap gap-8 ">
+          <a href="https://www.straiker.ai/" target="_blank" rel="noopener noreferrer">
+            <img
+              src="/images/straikerlogo.png"
+              alt="Straiker sponsor"
+              class="h-12 w-auto text-white"
+            />
+          </a>
+          <a href="https://www.casco.com/" target="_blank" rel="noopener noreferrer">
+            <img
+              src="/images/cascologo.png"
+              alt="Casco sponsor"
+              class="h-16 w-auto"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Sponsorship Benefits -->
+    <div class=" container p-8 bg-[#006284] rounded-b-2xl">
+      <h2 class="text-3xl font-bold mb-12 text-white text-center">
+        Sponsorship benefits include
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
+        <!-- Visibility -->
+        <div class="flex flex-col items-center md:items-start text-center md:text-left">
+          <div class="flex items-center mb-4">
+            <img src="/images/Vector1.png" alt="Icon 1" class="h-8 w-8 mr-3" />
+            <h4 class="text-xl font-bold text-white">Visibility</h4>
+          </div>
+          <p class="text-white leading-relaxed">
+            Showcase your organization’s commitment to AI security within a network of industry
+            leaders and experts.
+          </p>
+        </div>
+        <!-- Collaboration -->
+        <div class="flex flex-col items-center md:items-start text-center md:text-left">
+          <div class="flex items-center mb-4">
+            <img src="/images/Vector2.png" alt="Icon 2" class="h-8 w-8 mr-3" />
+            <h4 class="text-xl font-bold text-white">Collaboration</h4>
+          </div>
+          <p class="text-white leading-relaxed">
+            Participate in the development of global AI security guidelines, standards, and
+            regulations.
+          </p>
+        </div>
+        <!-- Thought Leadership -->
+        <div class="flex flex-col items-center md:items-start text-center md:text-left">
+          <div class="flex items-center mb-4">
+            <img src="/images/Vector1.png" alt="Icon 3" class="h-8 w-8 mr-3" />
+            <h4 class="text-xl font-bold text-white">Thought Leadership</h4>
+          </div>
+          <p class="text-white leading-relaxed">
+            Contribute to key insights on AI threats, risks, and controls, positioning your
+            organization as a leader in AI security.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Project Sponsors Section -->
+  <div class="container mx-auto px-4 md:px-8  max-w-6xl">
+    <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-12">
+      Project Sponsors
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
+      {{< sponsor-card 
+          name="Straker" 
+          tier="Gold" 
+          logo="/images/sp_straiker-removebg-preview.png" 
+          description="Transform cybersecurity by building AI-native security solutions to protect our customers from a spectrum of security & safety risks with AI applications & agents." 
+          link="https://www.straiker.ai/" 
+      >}}
+      {{< sponsor-card 
+          name="Casco" 
+          tier="Silver" 
+          logo="/images/sp_casco-removebg-preview.png"
+          description="Casco validates security, safety, and accuracy of AI apps and agents. Continuously." 
+          link="https://www.casco.com/"
+      >}}
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <div class="container mx-auto px-4 md:px-8 py-16 bg-[#EDF7ED] rounded-2xl">
+    <h2 class="text-3xl md:text-4xl font-bold text-center text-[#1A1A2E] mb-16">
+      We are always happy to assist you!
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+      <!-- Social + Info -->
+      <div>
+        <div class="flex flex-wrap gap-4 mb-8">
+          <a href="#" class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow">
+            <img src="/images/github.png" alt="GitHub" class="w-6 h-6" />
+          </a>
+          <a href="#" class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow">
+            <img src="/images/youtube.png" alt="YouTube" class="w-6 h-6" />
+          </a>
+          <a href="#" class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow">
+            <img src="/images/linkedin.png" alt="LinkedIn" class="w-6 h-6" />
+          </a>
+          <a href="#" class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow">
+            <img src="/images/slack.png" alt="Slack" class="w-6 h-6" />
+          </a>
+        </div>
+        <h3 class="text-2xl font-bold text-[#1A1A2E] mb-4">Send us a message</h3>
+        <p class="text-gray-500 leading-relaxed">
+          Have questions about AI security? Want to contribute to our mission? We'd love to hear from you. Reach out through any of our channels or use the contact form.
+        </p>
+      </div>
+      <!-- Contact Form -->
+      <div>
+        <form class="flex flex-col gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input type="text" placeholder="First Name*" class="p-4 border border-gray-300 rounded-lg text-base" />
+            <input type="text" placeholder="Last Name*" class="p-4 border border-gray-300 rounded-lg text-base" />
+          </div>
+          <input type="email" placeholder="Email Address*" class="p-4 border border-gray-300 rounded-lg text-base" />
+          <textarea placeholder="Message" rows="4" class="p-4 border border-gray-300 rounded-lg text-base resize-vertical"></textarea>
+          <button type="submit" class="bg-green-500 text-white px-6 py-3 rounded-lg font-bold flex items-center justify-center gap-2 w-max hover:bg-green-600 transition">
+            Submit <span>→</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
