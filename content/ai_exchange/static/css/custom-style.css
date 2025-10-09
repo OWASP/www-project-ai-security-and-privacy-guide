@@ -496,8 +496,8 @@ h1 {
     font-size: 2rem;
   }
 }
-/* General table styling */
-table {
+/* General .docs-content tablestyling */
+.docs-content table{
   width: 100%;
   border-collapse: collapse;
   margin: 1.5rem 0;
@@ -505,8 +505,8 @@ table {
   line-height: 1.5;
 }
 
-/* Table header */
-table thead th {
+/* .docs-content tableheader */
+.docs-content tablethead th {
   background-color: #f3f4f6; /* light grey */
   color: #111827;           /* dark text */
   font-weight: 600;
@@ -515,15 +515,15 @@ table thead th {
   border: 1px solid #e5e7eb;
 }
 
-/* Table body cells */
-table tbody td {
+/* .docs-content tablebody cells */
+.docs-content tabletbody td {
   padding: 0.75rem;
   border: 1px solid #e5e7eb;
   vertical-align: top;
 }
 
 /* Zebra striping */
-table tbody tr:nth-child(even) {
+.docs-content tabletbody tr:nth-child(even) {
   background-color: #fafafa;
 }
   /* Custom class for truly full-width contact section */
@@ -564,7 +564,7 @@ table tbody tr:nth-child(even) {
   z-index: 1000;
   overflow: hidden;
   padding: 1rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgb(83, 83, 83);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -669,7 +669,7 @@ table tbody tr:nth-child(even) {
 }
 
 .nav-link:hover {
-  color: #93c5fd;
+  color: #ffffff90;
 }
 
 .nav-link.active {
@@ -680,11 +680,11 @@ table tbody tr:nth-child(even) {
 .nav-link.active::after {
   content: '';
   position: absolute;
-  bottom: -0.5rem;
+  bottom: 0;
   left: 0;
   right: 0;
   height: 2px;
-  background: #60a5fa;
+  background: #4CAF50;
 }
 
 /* Header actions */

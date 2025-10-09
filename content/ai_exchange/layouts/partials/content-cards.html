@@ -1,5 +1,5 @@
 <section class="w-full bg-[#F1F1F1] py-12">
-  <div class="container mx-auto px-4 md:px-8">
+  <div class="container mx-auto">
     <!-- Heading -->
     <div class="text-center mb-10">
       <p class="text-green-600 font-semibold">Your Guide to What's Inside</p>
@@ -19,9 +19,9 @@
     }}
 
     <!-- Loop Cards -->
-    <div class="flex flex-wrap gap-5 justify-center">
+    <div class="flex flex-wrap gap-10 justify-center">
       {{ range $cards }}
-      <div class="bg-white rounded-xl shadow border border-gray-200 hover:shadow-lg transition-shadow p-4 w-[621px] h-[330px] flex gap-4">
+      <div class="bg-white rounded-xl shadow border border-gray-200 hover:shadow-lg transition-shadow p-4 w-[640px] h-[330px] flex gap-4">
         <!-- Left Image -->
         <div class="flex-shrink-0 w-35 h-full relative">
           <img src="{{ .img }}" alt="{{ .title }}" class="rounded-md w-full h-full object-cover" />
@@ -32,7 +32,7 @@
         <div class="flex flex-col justify-between flex-1">
           <div>
             <h3 class="text-xl font-bold mb-2">{{ .title }}</h3>
-            <p class="text-gray-600 text-sm mb-3 leading-relaxed">{{ .text }}</p>
+            <p class="text-gray-600 text-md mb-3 leading-snug">{{ .text }}</p>
             <div class="grid grid-cols-2 gap-x-6 gap-y-2 text-sm font-medium text-green-600">
               {{ range .links }}
               <a href="#" class="block">{{ . }}</a>
