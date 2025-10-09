@@ -1,0 +1,50 @@
+<section class="w-full bg-[#F1F1F1] py-12">
+  <div class="container mx-auto">
+    <!-- Heading -->
+    <div class="text-center mb-10">
+      <p class="text-green-600 font-semibold">Your Guide to What's Inside</p>
+      <h2 class="text-3xl font-bold text-gray-900">Content Overview</h2>
+    </div>
+
+    <!-- Grid of Cards -->
+    {{ $cards := slice
+      (dict "img" "/images/r1.png" "num" "00" "title" "AI Security Overview" "text" `This section provides an overview of AI security — including threats, controls, and risk analysis to help understand the structure of the AI Exchange.` "links" (slice "› About the AI Exchange" "› Summary" "› How to Use This Document" "› Threat Matrix" "› Controls" "› Periodic Table" "› Risk Analysis" "› How About..."))
+      (dict "img" "/images/r2.png" "num" "01" "title" "General controls" "text" `These are the controls every organisation should have in place...` "links" (slice "› Governance controls" "› Data Limitation" "› Limit unwanted behaviour"))
+      (dict "img" "/images/r3.png" "num" "02" "title" "Threats through use and controls" "text" `Attacks by crafting inputs to AI, and their countermeasures...` "links" (slice "› Evasion" "› Prompt injection" "› Sensitive data disclosure" "› Model theft" "› Malfunctioning" "› Culture-sensitivity"))
+      (dict "img" "/images/r4.png" "num" "03" "title" "Development-time threats and controls" "text" `Attacks to the AI system in operation apart from input attacks...` "links" (slice "› Introduction" "› Development poisoning" "› Data leak"))
+      (dict "img" "/images/r5.png" "num" "04" "title" "Runtime application security threats" "text" `Attacks to the AI system in operation apart from the input attacks, and protective controls...` "links" (slice "› Non AI-specific threats" "› Runtime model poisoning" "› Direct runtime model theft" "› Insecure output handling" "› Leak sensitive input data"))
+      (dict "img" "/images/r6.png" "num" "05" "title" "AI Privacy" "text" `Apart from protecting personal data, AI systems have several responsibilities when it comes to privacy...` "links" (slice "› Use Limitation" "› Fairness" "› Data Minimisation" "› Privacy Rights" "› Data accuracy" "› Consent" "› Model attacks" "› Transparency"))
+      (dict "img" "/images/r7.png" "num" "06" "title" "AI Privacy" "text" `Apart from protecting personal data, AI systems have several responsibilities when it comes to privacy...` "links" (slice "› Use Limitation and Purpose Specification" "› Fairness" "› Data Minimisation and Storage Limitation" "› Privacy Rights" "› Data accuracy" "› Consent" "› Model attacks" "› Transparency"))
+      (dict "img" "/images/r8.png" "num" "07" "title" "References" "text" `References on specific topics can be found throughout the AI Exchange content. This section contains an overview...` "links" (slice "› Overview of AI Security" "› Overview of AI Security / Privacy Incidents" "› Misc." "› Learning and Training"))
+    }}
+
+    <!-- Loop Cards -->
+    <div class="flex flex-wrap gap-10 justify-center">
+      {{ range $cards }}
+      <div class="bg-white rounded-xl shadow border border-gray-200 hover:shadow-lg transition-shadow p-4 w-[640px] h-[330px] flex gap-4">
+        <!-- Left Image -->
+        <div class="flex-shrink-0 w-35 h-full relative">
+          <img src="{{ .img }}" alt="{{ .title }}" class="rounded-md w-full h-full object-cover" />
+          <span class="absolute top-2 left-2 text-6xl font-extrabold text-white opacity-70 drop-shadow-md">{{ .num }}</span>
+        </div>
+
+        <!-- Right Content -->
+        <div class="flex flex-col justify-between flex-1">
+          <div>
+            <h3 class="text-xl font-bold mb-2">{{ .title }}</h3>
+            <p class="text-gray-600 text-md mb-3 leading-snug">{{ .text }}</p>
+            <div class="grid grid-cols-2 gap-x-6 gap-y-2 text-sm font-medium text-green-600">
+              {{ range .links }}
+              <a href="#" class="block">{{ . }}</a>
+              {{ end }}
+            </div>
+          </div>
+          <button class="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-green-600 self-start mt-4">
+            Learn more
+          </button>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>

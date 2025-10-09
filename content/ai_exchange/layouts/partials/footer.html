@@ -1,43 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OWASP Footer Clone</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Manrope:wght@600&family=Roboto:wght@500&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            inter: ['Inter', 'sans-serif'],
-            manrope: ['Manrope', 'sans-serif'],
-            roboto: ['Roboto', 'sans-serif'],
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Manrope:wght@600&family=Roboto:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              inter: ["Inter", "sans-serif"],
+              manrope: ["Manrope", "sans-serif"],
+              roboto: ["Roboto", "sans-serif"],
+            },
           },
-        }
-      }
-    }
-  </script>
-</head>
-<body class="bg-white text-gray-900">
+        },
+      };
+    </script>
 
-  <!-- Footer -->
-  <footer class="bg-black text-white w-full h-[259px] flex flex-col justify-between py-12">
-
+    <!-- Footer -->
+   <!-- Footer -->
+<footer class="bg-black text-white w-full py-6">
+  <div class="container flex flex-col p-2 px-10">
     <!-- Top: Logo + Links + Social -->
-    <div class="flex justify-between items-start px-[120px]">
-
+    <div class="flex justify-between items-start">
       <!-- Left Section -->
-      <div class="flex flex-col">
+      <div class="flex flex-col logo-section">
         <!-- Logo -->
-        <img src="/images/aiexchange.png" alt="OWASP AI Exchange" class="h-10 w-40">
+        <a href="/" class="logo-link">
+          <img
+            src="/images/Owasp-AI-Exchange-Logo.png"
+            alt="OWASP AI Exchange"
+            class="site-logo h-[39px] w-auto"
+          />
+        </a>
 
         <!-- Nav Links -->
-        <ul class="flex space-x-8 mt-2 font-inter text-[15.89px]">
+        <ul class="flex space-x-8 mt-4 font-roboto text-[16px]">
           <li><a href="/" class="hover:text-white">Home</a></li>
           <li><a href="/docs/ai_security_overview/" class="hover:text-white">Overview</a></li>
           <li><a href="/media/" class="hover:text-white">Media</a></li>
@@ -46,40 +50,39 @@
           <li><a href="/connect/" class="hover:text-white">Connect</a></li>
         </ul>
       </div>
+
       <!-- Social Icons -->
       <div class="flex space-x-4 mt-10">
+        <a href="#" class="w-9 h-9 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="#" class="w-9 h-9 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
+          <i class="fab fa-slack"></i>
+        </a>
         <a href="#" class="w-9 h-9 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
           <i class="fab fa-linkedin-in"></i>
         </a>
         <a href="#" class="w-9 h-9 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
           <i class="fab fa-youtube"></i>
         </a>
-        <a href="#" class="w-9 h-9 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
-          <i class="fab fa-slack"></i>
-        </a>
-        <a href="#" class="w-9 h-9 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
-          <i class="fab fa-github"></i>
-        </a>
       </div>
     </div>
 
     <!-- Divider -->
-    <div class="border-t border-white mx-[120px] mt-2"></div>
+    <div class="border-t border-gray-600 mt-4"></div>
 
     <!-- Bottom Section -->
-    <div class="flex flex-col items-end px-[120px] space-y-6">
-      <!-- Proudly Designed -->
-      <p class="flex items-center gap-2 font-manrope text-[12px]">
-        PROUDLY DESIGNED AND DEVELOPED BY:
-        <img src="/images/usability.png" alt="Usability Icon" class="h-5 w-5 inline-block">
-        <span class="text-[#FFAE3C]">USABILITY DESIGNS</span>
-      </p>
+    <div class="flex w-full flex-row justify-between space-between pt-6">
       <!-- Copyright -->
-      <p class="font-roboto  text-[16px]">
-        Copyright @ owasp.org 2025. All Rights Reserved.
+      <p class="font-roboto text-[16px]">
+        Copyright © owasp.org 2025. All Rights Reserved.
+      </p>
+      <!-- Proudly Designed -->
+      <p class="flex gap-2 text-[12px]">
+        PROUDLY DESIGNED AND DEVELOPED BY:
+        <img src="/images/usability.png" alt="Usability Icon" class="h-5 inline-block" />
+        <a href="https://usabilitydesigns.com/" class="text-[#FFAE3C]">USABILITY DESIGNS</a>
       </p>
     </div>
-  </footer>
-</body>
-
-</html>
+  </div>
+</footer>

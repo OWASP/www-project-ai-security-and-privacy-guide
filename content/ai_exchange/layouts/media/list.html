@@ -1,19 +1,22 @@
 {{ define "main" }}
 <!-- Hero Section -->
-<div
-  class="intro-banner text-white py-12 bg-cover bg-center bg-no-repeat"
+<section
+  class="intro-banner text-white py-12 mb-0 bg-cover bg-center bg-no-repeat"
   style="background-image: url('/images/media.png')"
 >
-  <div
-    class="container text-left bg-opacity-50 p-8 rounded-lg "
-  >
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">{{ .Title }}</h1>
+  <div class="container text-left bg-opacity-50 p-8 rounded-lg">
+    <h1 class="text-[46px] md:text-5xl font-bold mb-4">{{ .Title }}</h1>
     <p class="text-lg text-gray-300">
-      Protect AI systems from threats with encryption, access controls, and
-      monitoring.
+      Protect AI systems from threats with encryption, access controls, and monitoring.
     </p>
+    <button
+      class="inline-block bg-[#4CAF50] hover:bg-emerald-700 text-white text-xl font-medium py-3 px-10 rounded-lg mt-[22px]"
+    >
+      Explore Media
+    </button>
   </div>
-</div>
+</section>
+
 
 <!-- Media Grid -->
 <div class="container mx-auto px-4 py-12">

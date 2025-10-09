@@ -11,9 +11,18 @@ weight: 1
 **Summary**  
 Welcome to the go-to single resource for AI security & privacy - over 200 pages of practical advice and references on protecting AI, and data-centric systems from threats - where AI consists of Analytical AI, Discriminative AI, Generative AI and heuristic systems. This content serves as key bookmark for practitioners, and is contributed actively and substantially to international standards such as ISO/IEC and the AI Act through official standard partnerships. Through broad collaboration with key institutes and SDOs, the _Exchange_ represents the consensus on AI security and privacy.
 
- <p align="center">
- <a href="https://youtu.be/kQC7ouDB_z8" target="_blank" rel="noopener noreferrer"><img width="177" height="123" src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aixinfomercialthumbnail-small2.png?raw=true" border="1"/></a>
- </p>
+ <p class="text-center">
+  <a href="https://youtu.be/kQC7ouDB_z8" target="_blank" rel="noopener noreferrer">
+    <img
+      src="/images/ai-overview.png"
+      alt="AI Overview Video"
+      width="950"
+      height="200"
+      class="mx-auto"
+    />
+  </a>
+</p>
+
 
 **Details**  
 The OWASP AI Exchange has open sourced the global discussion on the security and privacy of AI and data-centric systems. It is an open collaborative OWASP project to advance the development of AI security & privacy standards, by providing a comprehensive framework of AI threats, controls, and related best practices. Through a unique official liaison partnership, this content is feeding into standards for the EU AI Act (50 pages contributed), ISO/IEC 27090 (AI security, 70 pages contributed), ISO/IEC 27091 (AI privacy), and [OpenCRE](https://opencre.org) - which we are currently preparing to provide the AI Exchange content through the security chatbot [OpenCRE-Chat](https://opencre.org/chatbot).
@@ -40,6 +49,14 @@ The project started out as the 'AI security and privacy guide' in October 22 and
 ## Relevant OWASP AI initiatives
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/aiatowasp/
+<img 
+  src="/images/overview1.png" 
+  alt="AI Overview" 
+  width="950"
+  height="200"
+  class="mx-auto"
+/>
+
 
 In short, the two flagship OWASP AI projects:
 - The **OWASP AI Exchange** is a comprehensive core framework of threats, controls and related best practices for all AI, actively aligned with international standards and feeding into them. It covers all types of AI, and next to security it discusses privacy as well.
