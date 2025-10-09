@@ -1,0 +1,368 @@
+{{ define "main" }}
+
+<section
+  class="intro-banner text-white py-12 mb-0 bg-cover bg-center bg-no-repeat"
+  style="background-image: url('/images/background.png')"
+>
+  <div class="container text-left bg-opacity-50 p-8 rounded-lg">
+    <h1 class="text-[46px] md:text-5xl font-bold mb-4">Connect with us</h1>
+    <p class="text-lg text-gray-300">
+      Engage with the OWASP AI team through various platforms.
+    </p>
+    <button
+      class="inline-block bg-[#4CAF50] hover:bg-emerald-700 text-white text-xl font-medium py-3 px-10 rounded-lg mt-[22px]"
+    >
+      Let's connect
+    </button>
+  </div>
+</section>
+<div class="docs-layout">
+  <!-- Left Sidebar Menu -->
+  <aside class="docs-sidebar">
+    <div class="sidebar-container">
+      <nav class="sidebar-nav">
+        <h3 class="sidebar-title">Navigation</h3>
+        <ul class="flex flex-col">
+          <li>
+            <a href="/docs/ai_security_overview/" class="sidebar-nav-link">
+              <span>0. AI Security Overview</span>
+            </a>
+          </li>
+          <li>
+            <a href="/docs/1_general_controls/" class="sidebar-nav-link">
+              <span>1. General controls</span>
+            </a>
+          </li>
+          <li>
+            <a href="/docs/2_threats_through_use/" class="sidebar-nav-link">
+              <span>2. Threats through use</span>
+            </a>
+          </li>
+          <li>
+            <a href="/docs/3_development_time_threats/" class="sidebar-nav-link">
+              <span>3. Development-time threats</span>
+            </a>
+          </li>
+          <li>
+            <a href="/docs/4_runtime_application_security_threats/" class="sidebar-nav-link">
+              <span>4. Runtime application security threats</span>
+            </a>
+          </li>
+          <li>
+            <a href="/docs/5_testing/" class="sidebar-nav-link">
+              <span>5. AI security testing</span>
+            </a>
+          </li>
+          <li>
+            <a href="/docs/6_privacy/" class="sidebar-nav-link">
+              <span>6. AI privacy</span>
+            </a>
+          </li>
+          <li>
+            <a href="/docs/ai_security_references/" class="sidebar-nav-link">
+              <span>AI Security References</span>
+            </a>
+          </li>
+          <li>
+            <a href="/docs/" class="sidebar-nav-link">
+              <span>Index</span>
+            </a>
+          </li>
+        </ul>
+        
+        <!-- Additional navigation from site menu -->
+        <h3 class="sidebar-title">More</h3>
+        <ul class="flex flex-col">
+          {{ range .Site.Menus.sidebar }}
+            {{ if eq .Params.type "separator" }}
+              <!-- Separator handled by h3 above -->
+            {{ else }}
+              <li>
+                <span class="sidebar-menu-item">{{ .Name }}</span>
+              </li>
+            {{ end }}
+          {{ end }}
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="docs-main">
+    <div class="docs-content">
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumbs">
+        <a href="/">Home</a>
+        <span class="breadcrumb-separator">></span>
+        <span class="current-page">{{ .Title }}</span>
+      </nav>
+
+      <!-- Page Title -->
+      <h1 class="docs-title">{{ .Title }}</h1>
+
+      <!-- Page Content -->
+      <div class="docs-body">
+        {{ .Content }}
+      </div>
+    </div>
+  </main>
+
+  <!-- Right Table of Contents -->
+  <aside class="docs-toc">
+    <div class="toc-container">
+      <h3 class="toc-title">On this page</h3>
+      <div class="toc-content">
+        {{ .TableOfContents }}
+      </div>
+    </div>
+  </aside>
+</div>
+
+<style>
+.docs-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr 280px;
+  min-height: calc(100vh - 120px);
+  max-width: 1600px;
+  margin: 0 auto;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+/* Left Sidebar */
+.docs-sidebar {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  height: fit-content;
+  position: sticky;
+  top: 2rem;
+}
+
+.sidebar-container {
+  width: 100%;
+}
+
+.sidebar-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 0.75rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 0.25rem;
+}
+
+.sidebar-nav a,
+.sidebar-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav-link:hover {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.sidebar-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #6b7280;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+}
+
+/* Main Content */
+.docs-main {
+  min-width: 0; /* Prevent grid blowout */
+}
+
+.docs-content {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.breadcrumbs {
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.breadcrumbs a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  margin: 0 0.5rem;
+}
+
+.current-page {
+  color: #374151;
+  font-weight: 500;
+}
+
+.docs-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+}
+
+.docs-body {
+  line-height: 1.7;
+  color: #374151;
+}
+
+.docs-body h1,
+.docs-body h2,
+.docs-body h3,
+.docs-body h4,
+.docs-body h5,
+.docs-body h6 {
+  color: #111827;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.docs-body h2 {
+  font-size: 1.875rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+
+.docs-body h3 {
+  font-size: 1.5rem;
+}
+
+.docs-body p {
+  margin-bottom: 1rem;
+}
+
+/* Right Table of Contents */
+.docs-toc {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  height: fit-content;
+  position: sticky;
+  top: 2rem;
+}
+
+.toc-container {
+  width: 100%;
+}
+
+.toc-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.toc-content {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.toc-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-content li {
+  margin-bottom: 0.5rem;
+}
+
+.toc-content a {
+  color: #374151;
+  text-decoration: none;
+  display: block;
+  padding: 0.25rem 0;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.toc-content a:hover {
+  color: #2563eb;
+  background: #eff6ff;
+  padding-left: 0.5rem;
+}
+
+.toc-content ul ul {
+  margin-left: 1rem;
+  margin-top: 0.25rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .docs-layout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .docs-sidebar,
+  .docs-toc {
+    position: static;
+    order: 2;
+  }
+  
+  .docs-main {
+    order: 1;
+  }
+  
+  .docs-content {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .docs-layout {
+    padding: 0.5rem;
+  }
+  
+  .docs-content {
+    padding: 1rem;
+  }
+  
+  .docs-title {
+    font-size: 2rem;
+  }
+}
+</style>
+{{ end }}

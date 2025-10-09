@@ -42,9 +42,9 @@ menu:
     - name: Media
       pageRef: /media
       weight: 3
-    - name: Meetings
-      pageRef: /meetings
-      weight: 4
+    # - name: Meetings
+    #   pageRef: /meetings
+    #   weight: 4
     - name: Contribute
       pageRef: /contribute
       weight: 5
@@ -54,6 +54,7 @@ menu:
     - name: Sponsor
       pageRef: /sponsor
       weight: 7
+  social:
     - name: Search
       weight: 8
       params:
@@ -79,13 +80,41 @@ menu:
       params:
         icon: youtube
 
+  docs:
+    - name: "0. AI Security Overview"
+      pageRef: /docs/ai_security_overview
+      weight: 1
+    - name: "1. General controls"
+      pageRef: /docs/1_general_controls
+      weight: 2
+    - name: "2. Threats through use"
+      pageRef: /docs/2_threats_through_use
+      weight: 3
+    - name: "3. Development-time threats"
+      pageRef: /docs/3_development_time_threats
+      weight: 4
+    - name: "4. Runtime application security threats"
+      pageRef: /docs/4_runtime_application_security_threats
+      weight: 5
+    - name: "5. AI security testing"
+      pageRef: /docs/5_testing
+      weight: 6
+    - name: "6. AI privacy"
+      pageRef: /docs/6_privacy
+      weight: 7
+    - name: "AI Security References"
+      pageRef: /docs/ai_security_references
+      weight: 8
+    - name: "Index"
+      pageRef: /docs/
+      weight: 9
   sidebar:
     - name: More
       params:
         type: separator
       weight: 1
     - name: Home
-      pageRef: /
+      pageRef: / 
       weight: 2
     - name: Connect with us
       pageRef: /connect
@@ -117,3 +146,7 @@ markup:
       hardWraps: false
       unsafe: true
       xhtml: false
+  tableOfContents:
+    startLevel: 2
+    endLevel: 4
+    ordered: false
