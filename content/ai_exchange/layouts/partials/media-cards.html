@@ -1,0 +1,71 @@
+<div class="container mx-auto px-4 py-12">
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 pb-6 justify-items-center"
+  >
+    {{ $media := slice
+      (dict "thumbnail" "/images/media1.png" "title" "Event: OWASP Benelux AI: The New Beginning w/ Rob van der Veer" "url" "#" "date" "2024-11-28")
+      (dict "thumbnail" "/images/media2.png" "title" "Event: OWASP Benelux AI: The New Beginning w/ Rob van der Veer" "url" "#" "date" "2024-11-28")
+      (dict "thumbnail" "/images/media3.png" "title" "Event: OWASP Benelux AI: The New Beginning w/ Rob van der Veer" "url" "#" "date" "2024-11-28")
+    }}
+
+    {{ range $media }}
+    <div class="w-[450px]">
+      <!-- Clickable Thumbnail -->
+      <a
+        href="{{ .url }}"
+        target="_blank"
+        rel="noopener"
+        class="group block rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
+      >
+        <div class="relative w-full h-[253px] overflow-hidden rounded-lg">
+          <img
+            src="{{ .thumbnail }}"
+            alt="{{ .title }}"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+
+          <!-- Always-visible overlay with centered play icon -->
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div
+              class="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full backdrop-blur-sm transition-transform duration-300 group-hover:scale-110 group-hover:bg-white/30"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-8 h-8 text-white transition-transform duration-300 group-hover:scale-125"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Title + Date -->
+      <div class="p-4">
+        <a href="{{ .url }}" target="_blank" rel="noopener">
+          <h3
+            class="text-xl font-bold text-black mt-1 hover:text-[#00B7BA] transition-colors cursor-pointer"
+          >
+            {{ .title }}
+          </h3>
+        </a>
+
+        <p class="text-sm text-gray-500 mt-1">
+          {{ .date }}
+        </p>
+      </div>
+    </div>
+   
+    {{ end }}
+  </div>
+   <div class="flex justify-center mt-8">
+    <a
+      href="/media"
+      class="inline-block bg-green-500 text-white font-bold rounded-lg px-10 py-3"
+    >
+      View All
+    </a>
+  </div>
+</div>

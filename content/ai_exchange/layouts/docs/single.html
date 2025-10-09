@@ -2,7 +2,7 @@
 
 <section
   class="intro-banner text-white py-12 mb-0 bg-cover bg-center bg-no-repeat"
-  style="background-image: url('/images/background.png')"
+  style="background-image: url('/images/overview-hero.png')"
 >
   <div class="container text-left bg-opacity-50 p-8 rounded-lg">
     <h1 class="text-[46px] md:text-5xl font-bold mb-4">{{ .Params.heroTitle | default .Title }}</h1>
@@ -16,139 +16,105 @@
     </button>
   </div>
 </section>
+
 <div class="docs-layout">
-  <!-- Left Sidebar Menu -->
-  <aside class="docs-sidebar">
-    <div class="sidebar-container">
-      <nav class="sidebar-nav">
-        <!-- <h3 class="sidebar-title">Navigation</h3> -->
-        <ul class="flex flex-col">
-          <li>
-            <a href="/docs/ai_security_overview/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/ai_security_overview/" }}active{{ end }}">
-              <span>0. AI Security Overview</span>
-              {{ if eq $.RelPermalink "/docs/ai_security_overview/" }}
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-              {{ end }}
-            </a>
-          </li>
-          <li>
-            <a href="/docs/1_general_controls/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/1_general_controls/" }}active{{ end }}">
-              <span>1. General controls</span>
-              {{ if eq $.RelPermalink "/docs/1_general_controls/" }}
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-              {{ end }}
-            </a>
-          </li>
-          <li>
-            <a href="/docs/2_threats_through_use/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/2_threats_through_use/" }}active{{ end }}">
-              <span>2. Threats through use</span>
-              {{ if eq $.RelPermalink "/docs/2_threats_through_use/" }}
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-              {{ end }}
-            </a>
-          </li>
-          <li>
-            <a href="/docs/3_development_time_threats/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/3_development_time_threats/" }}active{{ end }}">
-              <span>3. Development-time threats</span>
-              {{ if eq $.RelPermalink "/docs/3_development_time_threats/" }}
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-              {{ end }}
-            </a>
-          </li>
-          <li>
-            <a href="/docs/4_runtime_application_security_threats/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/4_runtime_application_security_threats/" }}active{{ end }}">
-              <span>4. Runtime application security threats</span>
-              {{ if eq $.RelPermalink "/docs/4_runtime_application_security_threats/" }}
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-              {{ end }}
-            </a>
-          </li>
-          <li>
-            <a href="/docs/5_testing/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/5_testing/" }}active{{ end }}">
-              <span>5. AI security testing</span>
-              {{ if eq $.RelPermalink "/docs/5_testing/" }}
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-              {{ end }}
-            </a>
-          </li>
-          <li>
-            <a href="/docs/6_privacy/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/6_privacy/" }}active{{ end }}">
-              <span>6. AI privacy</span>
-              {{ if eq $.RelPermalink "/docs/6_privacy/" }}
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-              {{ end }}
-            </a>
-          </li>
-          <li>
-            <a href="/docs/ai_security_references/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/ai_security_references/" }}active{{ end }}">
-              <span>AI Security References</span>
-              {{ if eq $.RelPermalink "/docs/ai_security_references/" }}
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-              {{ end }}
-            </a>
-          </li>
-          <li>
-            <a href="/docs/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/" }}active{{ end }}">
-              <span>Index</span>
-              {{ if eq $.RelPermalink "/docs/" }}
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-              {{ end }}
-            </a>
-          </li>
-        </ul>
-        
-        <!-- Additional navigation from site menu -->
-        <h3 class="sidebar-title">More</h3>
-        <ul class="flex flex-col">
-          {{ range .Site.Menus.sidebar }}
-            {{ if eq .Params.type "separator" }}
-              <!-- Separator handled by h3 above -->
-            {{ else }}
-              <li>
-                <span class="sidebar-menu-item">{{ .Name }}</span>
-              </li>
-            {{ end }}
-          {{ end }}
-        </ul>
-      </nav>
-    </div>
-  </aside>
+
+  <!-- Left Sidebar Column (card + More) -->
+  <div class="docs-sidebar-column">
+
+    <!-- Sidebar card -->
+    <aside class="docs-sidebar p-4">
+      <div class="sidebar-container">
+        <nav class="sidebar-nav">
+          <ul class="flex flex-col">
+            <li>
+              <a href="/docs/ai_security_overview/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/ai_security_overview/" }}active{{ end }}">
+                <span>0. AI Security Overview</span>
+                {{ if eq $.RelPermalink "/docs/ai_security_overview/" }}
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                {{ end }}
+              </a>
+            </li>
+            <li>
+              <a href="/docs/1_general_controls/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/1_general_controls/" }}active{{ end }}">
+                <span>1. General controls</span>
+              </a>
+            </li>
+            <li>
+              <a href="/docs/2_threats_through_use/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/2_threats_through_use/" }}active{{ end }}">
+                <span>2. Threats through use</span>
+              </a>
+            </li>
+            <li>
+              <a href="/docs/3_development_time_threats/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/3_development_time_threats/" }}active{{ end }}">
+                <span>3. Development-time threats</span>
+              </a>
+            </li>
+            <li>
+              <a href="/docs/4_runtime_application_security_threats/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/4_runtime_application_security_threats/" }}active{{ end }}">
+                <span>4. Runtime application security threats</span>
+              </a>
+            </li>
+            <li>
+              <a href="/docs/5_testing/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/5_testing/" }}active{{ end }}">
+                <span>5. AI security testing</span>
+              </a>
+            </li>
+            <li>
+              <a href="/docs/6_privacy/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/6_privacy/" }}active{{ end }}">
+                <span>6. AI privacy</span>
+              </a>
+            </li>
+            <li>
+              <a href="/docs/ai_security_references/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/ai_security_references/" }}active{{ end }}">
+                <span>AI Security References</span>
+              </a>
+            </li>
+            <li>
+              <a href="/docs/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/" }}active{{ end }}">
+                <span>Index</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- More section OUTSIDE card -->
+  <!-- More section OUTSIDE card -->
+<div class="sidebar-more">
+  <h3 class="sidebar-title">More</h3>
+  <ul class="flex flex-col">
+    {{ range .Site.Menus.sidebar }}
+      {{ if eq .Params.type "separator" }}
+        <!-- skip separators -->
+      {{ else }}
+        <li>
+          <a href="{{ .URL }}" class="sidebar-menu-item">
+            {{ .Name }}
+          </a>
+        </li>
+      {{ end }}
+    {{ end }}
+  </ul>
+</div>
+
+  </div>
 
   <!-- Main Content Area -->
   <main class="docs-main">
     <div class="docs-content">
-      <!-- Breadcrumbs -->
       <nav class="breadcrumbs">
         <a href="/">Home</a>
         <span class="breadcrumb-separator">></span>
         <span class="current-page">{{ .Title }}</span>
       </nav>
-
-      <!-- Page Title -->
       <h1 class="docs-title">{{ .Title }}</h1>
-
-      <!-- Page Content -->
       <div class="docs-body">
-  {{ .Content }}
-</div>
+        {{ .Content }}
+      </div>
     </div>
   </main>
 
@@ -156,278 +122,14 @@
   <aside class="docs-toc">
     <div class="toc-container">
       <h3 class="toc-title">On this page</h3>
-      <div class="toc-content">
+      <div class="toc-content bg-gradient-to-b from-[#CCF6CE] to-[#FDFBFB] border border-gray-300 rounded-lg p-4">
         {{ .TableOfContents }}
       </div>
     </div>
   </aside>
+
 </div>
 
-<style>
-.docs-layout {
-  display: grid;
-  grid-template-columns: 250px 1fr 280px;
-  min-height: calc(100vh - 120px);
-  max-width: 1600px;
-  margin: 0 auto;
-  gap: 2rem;
-  padding: 2rem;
-}
+{{ partial "contact-section.html" . }}
 
-/* Left Sidebar */
-.docs-sidebar {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 0rem;
-  height: fit-content;
-  position: sticky;
-  top: 2rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.sidebar-container {
-  width: 100%;
-}
-
-.sidebar-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #111827;
-  margin: 0 0 1rem 0;
-  padding-bottom: 0.75rem;
-  border-bottom: 2px solid #e5e7eb;
-}
-
-.sidebar-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1.5rem 0;
-}
-
-.sidebar-nav li {
-  margin-bottom: 0.25rem;
-}
-
-.sidebar-nav a,
-.sidebar-nav-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #374151;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  margin-bottom: 0.25rem;
-}
-
-.sidebar-nav a:hover,
-.sidebar-nav-link:hover {
-  background: #f3f4f6;
-  color: #111827;
-}
-
-/* Active state for current page */
-.sidebar-nav a.active,
-.sidebar-nav-link.active {
-  background: #22c55e;
-  color: #ffffff;
-  font-weight: 600;
-}
-
-.sidebar-nav a.active:hover,
-.sidebar-nav-link.active:hover {
-  background: #16a34a;
-  color: #ffffff;
-}
-
-.sidebar-menu-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 0.75rem;
-  border-radius: 6px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #6b7280;
-  background: #f3f4f6;
-  border: 1px solid #e5e7eb;
-}
-
-/* Main Content */
-.docs-main {
-  min-width: 0; /* Prevent grid blowout */
-}
-
-.docs-content {
-  background: #ffffff;
-  border-radius: 8px;
-  padding: 2rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.breadcrumbs {
-  margin-bottom: 1rem;
-  font-size: 0.875rem;
-  color: #6b7280;
-}
-
-.breadcrumbs a {
-  color: #2563eb;
-  text-decoration: none;
-}
-
-.breadcrumbs a:hover {
-  text-decoration: underline;
-}
-
-.breadcrumb-separator {
-  margin: 0 0.5rem;
-}
-
-.current-page {
-  color: #374151;
-  font-weight: 500;
-}
-
-.docs-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #111827;
-  margin: 0 0 1.5rem 0;
-  line-height: 1.2;
-}
-
-.docs-body {
-  line-height: 1.7;
-  color: #374151;
-}
-
-.docs-body h1,
-.docs-body h2,
-.docs-body h3,
-.docs-body h4,
-.docs-body h5,
-.docs-body h6 {
-  color: #111827;
-  font-weight: 600;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
-
-.docs-body h2 {
-  font-size: 1.875rem;
-  border-bottom: 1px solid #e5e7eb;
-  padding-bottom: 0.5rem;
-}
-
-.docs-body h3 {
-  font-size: 1.5rem;
-}
-
-.docs-body p {
-  margin-bottom: 1rem;
-}
-
-/* Right Table of Contents */
-.docs-toc {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 1.5rem;
-  height: fit-content;
-  position: sticky;
-  top: 2rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.toc-container {
-  width: 100%;
-}
-
-.toc-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #111827;
-  margin: 0 0 1rem 0;
-  padding-bottom: 0.75rem;
-  border-bottom: 2px solid #e5e7eb;
-}
-
-.toc-content {
-  font-size: 0.875rem;
-  line-height: 1.6;
-}
-
-.toc-content ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.toc-content li {
-  margin-bottom: 0.5rem;
-}
-
-.toc-content a {
-  color: #374151;
-  text-decoration: none;
-  display: block;
-  padding: 0.375rem 0;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-  font-weight: 500;
-}
-
-.toc-content a:hover {
-  color: #2563eb;
-  background: #f3f4f6;
-  padding-left: 0.5rem;
-}
-
-.toc-content ul ul {
-  margin-left: 1rem;
-  margin-top: 0.25rem;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .docs-layout {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 1rem;
-  }
-  
-  .docs-sidebar,
-  .docs-toc {
-    position: static;
-    order: 2;
-  }
-  
-  .docs-main {
-    order: 1;
-  }
-  
-  .docs-content {
-    padding: 1.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .docs-layout {
-    padding: 0.5rem;
-  }
-  
-  .docs-content {
-    padding: 1rem;
-  }
-  
-  .docs-title {
-    font-size: 2rem;
-  }
-}
-</style>
 {{ end }}

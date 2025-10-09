@@ -30,23 +30,29 @@ Join us in our mission to protect society from AI security issues by harnessing 
 
 <div>
 
-  <!-- Hero Banner (Full Width) -->
-  <div class="relative bg-cover bg-center bg-no-repeat h-[500px]" style="background-image: url('/images/herosponser.png')">
-    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-    <div class="container relative mx-auto px-4 md:px-8 h-full flex flex-col justify-center">
-      <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
-        Sponsor the OWASP AI Exchange
-      </h1>
-      <p class="text-lg md:text-2xl text-gray-300 mb-6 leading-relaxed">
-        Join us in our mission to protect society from AI security issues by harnessing the<br>
-        collective wisdom of global experts. Together, we can drive the development of secure<br>
-        and trustworthy AI systems.
-      </p>
-      <a href="/sponsor" class="bg-green-600 hover:bg-emerald-700 text-white text-lg font-medium py-3 px-10 rounded-lg w-max">
+<section
+  class="intro-banner text-white py-12 mb-0 bg-cover bg-center bg-no-repeat"
+  style="background-image: url('/images/herosponser.png')"
+>
+  <div class="container text-left bg-opacity-50 p-8 rounded-lg">
+    <h1 class="text-[46px] md:text-5xl font-bold mb-4">
+      Sponsor the OWASP AI Exchange
+    </h1>
+    <p class="text-lg text-gray-300">
+      Join us in our mission to protect society from AI security issues by harnessing the
+      collective wisdom of global experts. Together, we can drive the development of secure
+      and trustworthy AI systems.
+    </p>
+    <a href="/sponsor">
+      <button
+        class="inline-block bg-[#4CAF50] hover:bg-emerald-700 text-white text-xl font-medium py-3 px-10 rounded-lg mt-[22px]"
+      >
         Sponsor Now
-      </a>
-    </div>
+      </button>
+    </a>
   </div>
+</section>
+
 
   <!-- Description Section (Centered Content) -->
  <div class="container mx-auto px-4 md:px-8 max-w-8xl">
@@ -164,47 +170,5 @@ Join us in our mission to protect society from AI security issues by harnessing 
   </div>
 
   <!-- Contact Section -->
-  <div class="container mx-auto px-4 md:px-8 py-16 bg-[#EDF7ED] rounded-2xl">
-    <h2 class="text-3xl md:text-4xl font-bold text-center text-[#1A1A2E] mb-16">
-      We are always happy to assist you!
-    </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-      <!-- Social + Info -->
-      <div>
-        <div class="flex flex-wrap gap-4 mb-8">
-          <a href="#" class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow">
-            <img src="/images/github.png" alt="GitHub" class="w-6 h-6" />
-          </a>
-          <a href="#" class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow">
-            <img src="/images/youtube.png" alt="YouTube" class="w-6 h-6" />
-          </a>
-          <a href="#" class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow">
-            <img src="/images/linkedin.png" alt="LinkedIn" class="w-6 h-6" />
-          </a>
-          <a href="#" class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow">
-            <img src="/images/slack.png" alt="Slack" class="w-6 h-6" />
-          </a>
-        </div>
-        <h3 class="text-2xl font-bold text-[#1A1A2E] mb-4">Send us a message</h3>
-        <p class="text-gray-500 leading-relaxed">
-          Have questions about AI security? Want to contribute to our mission? We'd love to hear from you. Reach out through any of our channels or use the contact form.
-        </p>
-      </div>
-      <!-- Contact Form -->
-      <div>
-        <form class="flex flex-col gap-6">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input type="text" placeholder="First Name*" class="p-4 border border-gray-300 rounded-lg text-base" />
-            <input type="text" placeholder="Last Name*" class="p-4 border border-gray-300 rounded-lg text-base" />
-          </div>
-          <input type="email" placeholder="Email Address*" class="p-4 border border-gray-300 rounded-lg text-base" />
-          <textarea placeholder="Message" rows="4" class="p-4 border border-gray-300 rounded-lg text-base resize-vertical"></textarea>
-          <button type="submit" class="bg-green-500 text-white px-6 py-3 rounded-lg font-bold flex items-center justify-center gap-2 w-max hover:bg-green-600 transition">
-            Submit <span>→</span>
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-
+  {{< contact >}}
 </div>

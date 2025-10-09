@@ -1,24 +1,40 @@
 ---
-title: "Contribute to the OWASP AI Exchange"
-excludeSearch: true
+title: Contribute to the OWASP AI Exchange
+heroTitle: "Contribute to the OWASP AI Exchange"
+heroText: "The OWASP projects are an open source effort, and we enthusiastically welcome all forms of<br> contributions and feedback."
+weight: 1
 ---
 
-<div
-  class="intro-banner text-white py-12 bg-cover bg-center bg-no-repeat"
+<section
+  class="intro-banner text-white py-12 mb-0 bg-cover bg-center bg-no-repeat relative"
   style="background-image: url('/images/Contributeimage.png')"
 >
- <div class="container text-left bg-opacity-50 p-6 sm:px-8 md:px-16 lg:px-28 rounded-lg">
-    <h1 class="text-[46px] md:text-5xl font-bold mb-4">Contribute to the OWASP AI Exchange</h1>
+  <!-- Dark overlay -->
+  <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+
+  <div class="container relative text-left bg-opacity-70 p-8 rounded-lg">
+    <h1 class="text-[46px] md:text-5xl font-bold mb-4">
+      Contribute to the OWASP AI Exchange
+    </h1>
     <p class="text-lg text-gray-300">
-      The OWASP projects are an open source effort, and we enthusiastically welcome all forms of<br> contributions and feedback.
+      The OWASP projects are an open source effort, and we enthusiastically welcome all forms of
+      contributions and feedback.
     </p>
-    <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide" target="_blank" rel="noopener noreferrer">
-  <button class="inline-block bg-[#4CAF50] hover:bg-emerald-700 text-white text-xl font-medium py-3 px-10 rounded-lg mt-[22px]">
-    Become A Contributor
-  </button>
+    <a
+      href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <button
+        class="inline-block bg-[#4CAF50] hover:bg-emerald-700 text-white text-xl font-medium py-3 px-10 rounded-lg mt-[22px]"
+      >
+        Become A Contributor
+      </button>
     </a>
   </div>
-</div>
+</section>
+
+
 
  <div class="py-1 px-2 sm:px-6 lg:px-8 shadow-md bg-white ">
   <div class="max-w-7xl mx-auto text-center">
@@ -344,79 +360,7 @@ excludeSearch: true
     </div>
 </div>
 
-<!-- Contact CTA Section -->
-<div
-  class="w-full px-4 pt-6 md:px-8 py-16"
-  style="background-color: rgba(76, 175, 80, 0.1)"
->
-  <h2 class="text-3xl md:text-4xl font-bold text-center text-[#1a1a2e] mb-16">
-    We are always happy to assist you!
-  </h2>
-  <div
-    class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start max-w-6xl mx-auto"
-  >
-    <!-- Left Column -->
-    <div>
-      <div class="flex flex-wrap gap-4 mb-8">
-        <a
-          href="#"
-          class="w-12 h-10 bg-white rounded-md flex items-center justify-center shadow"
-          ><img src="/images/github.png" alt="GitHub" class="w-6 h-6"
-        /></a>
-        <a
-          href="#"
-          class="w-12 h-10 bg-white rounded-md flex items-center justify-center shadow"
-          ><img src="/images/youtube.png" alt="YouTube" class="w-8 h-6"
-        /></a>
-        <a
-          href="#"
-          class="w-12 h-10 bg-white rounded-md flex items-center justify-center shadow"
-          ><img src="/images/linkedin.png" alt="LinkedIn" class="w-9 h-6"
-        /></a>
-        <a
-          href="#"
-          class="w-12 h-10 bg-white rounded-md flex items-center justify-center shadow"
-          ><img src="/images/slack.png" alt="Slack" class="w-6 h-6"
-        /></a>
-      </div>
-      <h3 class="text-2xl font-bold text-[#1a1a2e] mb-4">Send us a message</h3>
-      <p class="text-gray-500 leading-relaxed">
-        Have questions about AI security? Want to contribute to our mission?
-        We'd love to hear from you. Reach out through any of our channels or use
-        the contact form.
-      </p>
-    </div>
-    <div>
-      <form class="flex flex-col gap-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <input
-            type="text"
-            placeholder="First Name*"
-            class="p-4 border border-gray-300 rounded-lg text-base"
-          />
-          <input
-            type="text"
-            placeholder="Last Name*"
-            class="p-4 border border-gray-300 rounded-lg text-base"
-          />
-        </div>
-        <input
-          type="email"
-          placeholder="Email Address*"
-          class="p-4 border border-gray-300 rounded-lg text-base"
-        />
-        <textarea
-          placeholder="Message"
-          rows="4"
-          class="p-4 border border-gray-300 rounded-lg text-base resize-vertical"
-        ></textarea>
-        <button
-          type="submit"
-          class="bg-green-500 text-white px-6 py-3 rounded-lg font-bold flex items-center justify-center gap-2 w-max hover:bg-green-600 transition"
-        >
-          Submit <span>→</span>
-        </button>
-      </form>
-    </div>
-  </div>
-</div>
+<!-- Contact Section -->
+{{< contact >}}
+
+
