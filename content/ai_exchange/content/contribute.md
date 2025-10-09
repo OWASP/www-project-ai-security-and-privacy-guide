@@ -10,9 +10,9 @@ weight: 1
   style="background-image: url('/images/Contributeimage.png')"
 >
   <!-- Dark overlay -->
-  <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+  <div class="absolute inset-0 bg-black bg-opacity-80"></div>
 
-  <div class="container relative text-left bg-opacity-70 p-8 rounded-lg">
+  <div class="container relative text-left p-8 rounded-lg">
     <h1 class="text-[46px] md:text-5xl font-bold mb-6">
       Contribute to the OWASP AI Exchange
     </h1>
