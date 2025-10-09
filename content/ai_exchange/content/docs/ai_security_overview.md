@@ -1,5 +1,7 @@
 ---
 title: 0. AI Security Overview
+heroTitle: "AI Security Overview"
+heroText: "This section provides various overviews of threats and control, step-by-step risk analysis, and discussion of cross-cutting concerns."
 weight: 1
 ---
 ## About the AI Exchange
