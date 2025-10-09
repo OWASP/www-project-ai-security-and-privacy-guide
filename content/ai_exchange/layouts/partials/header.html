@@ -4,8 +4,8 @@
 <!-- Main header -->
 <header class="main-header">
   <div class="header-background">
-    <div class="circuit-pattern"></div>
-    <div class="padlock-icon"></div>
+    <!-- <div class="circuit-pattern"></div>
+    <div class="padlock-icon"></div> -->
   </div>
   
   <div class="container header-container">
@@ -106,7 +106,7 @@
 
 /* Main header */
 .main-header {
-  background: linear-gradient(135deg, rgba(0, 40, 67, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%);
+  background: linear-gradient(180deg, rgba(0, 40, 67, 0.6) 0%, rgba(0, 0, 0, 1) 100%);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   position: sticky;
@@ -124,7 +124,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 0.05;
+  opacity: 0.2;
+  background-color: #000000;
 }
 
 .circuit-pattern {
@@ -133,11 +134,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: 
-    radial-gradient(circle at 25% 25%, #60a5fa 2px, transparent 2px),
-    radial-gradient(circle at 75% 75%, #93c5fd 1px, transparent 1px);
-  background-size: 50px 50px;
-  background-position: 0 0, 25px 25px;
+  /* background-color: #000000; */
 }
 
 .padlock-icon {

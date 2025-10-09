@@ -1,5 +1,7 @@
 ---
 title: 1. General controls
+heroTitle: "General controls"
+heroText: "These are the controls every organisation should have in place..."
 weight: 2
 ---
 > Category: group of controls  

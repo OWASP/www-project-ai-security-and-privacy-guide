@@ -5,9 +5,9 @@
   style="background-image: url('/images/background.png')"
 >
   <div class="container text-left bg-opacity-50 p-8 rounded-lg">
-    <h1 class="text-[46px] md:text-5xl font-bold mb-4">Connect with us</h1>
+    <h1 class="text-[46px] md:text-5xl font-bold mb-4">{{ .Params.heroTitle | default .Title }}</h1>
     <p class="text-lg text-gray-300">
-      Engage with the OWASP AI team through various platforms.
+      {{ .Params.heroText | default "Engage with the OWASP AI team through various platforms." }}
     </p>
     <button
       class="inline-block bg-[#4CAF50] hover:bg-emerald-700 text-white text-xl font-medium py-3 px-10 rounded-lg mt-[22px]"
@@ -21,51 +21,96 @@
   <aside class="docs-sidebar">
     <div class="sidebar-container">
       <nav class="sidebar-nav">
-        <h3 class="sidebar-title">Navigation</h3>
+        <!-- <h3 class="sidebar-title">Navigation</h3> -->
         <ul class="flex flex-col">
           <li>
-            <a href="/docs/ai_security_overview/" class="sidebar-nav-link">
+            <a href="/docs/ai_security_overview/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/ai_security_overview/" }}active{{ end }}">
               <span>0. AI Security Overview</span>
+              {{ if eq $.RelPermalink "/docs/ai_security_overview/" }}
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              {{ end }}
             </a>
           </li>
           <li>
-            <a href="/docs/1_general_controls/" class="sidebar-nav-link">
+            <a href="/docs/1_general_controls/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/1_general_controls/" }}active{{ end }}">
               <span>1. General controls</span>
+              {{ if eq $.RelPermalink "/docs/1_general_controls/" }}
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              {{ end }}
             </a>
           </li>
           <li>
-            <a href="/docs/2_threats_through_use/" class="sidebar-nav-link">
+            <a href="/docs/2_threats_through_use/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/2_threats_through_use/" }}active{{ end }}">
               <span>2. Threats through use</span>
+              {{ if eq $.RelPermalink "/docs/2_threats_through_use/" }}
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              {{ end }}
             </a>
           </li>
           <li>
-            <a href="/docs/3_development_time_threats/" class="sidebar-nav-link">
+            <a href="/docs/3_development_time_threats/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/3_development_time_threats/" }}active{{ end }}">
               <span>3. Development-time threats</span>
+              {{ if eq $.RelPermalink "/docs/3_development_time_threats/" }}
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              {{ end }}
             </a>
           </li>
           <li>
-            <a href="/docs/4_runtime_application_security_threats/" class="sidebar-nav-link">
+            <a href="/docs/4_runtime_application_security_threats/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/4_runtime_application_security_threats/" }}active{{ end }}">
               <span>4. Runtime application security threats</span>
+              {{ if eq $.RelPermalink "/docs/4_runtime_application_security_threats/" }}
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              {{ end }}
             </a>
           </li>
           <li>
-            <a href="/docs/5_testing/" class="sidebar-nav-link">
+            <a href="/docs/5_testing/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/5_testing/" }}active{{ end }}">
               <span>5. AI security testing</span>
+              {{ if eq $.RelPermalink "/docs/5_testing/" }}
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              {{ end }}
             </a>
           </li>
           <li>
-            <a href="/docs/6_privacy/" class="sidebar-nav-link">
+            <a href="/docs/6_privacy/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/6_privacy/" }}active{{ end }}">
               <span>6. AI privacy</span>
+              {{ if eq $.RelPermalink "/docs/6_privacy/" }}
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              {{ end }}
             </a>
           </li>
           <li>
-            <a href="/docs/ai_security_references/" class="sidebar-nav-link">
+            <a href="/docs/ai_security_references/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/ai_security_references/" }}active{{ end }}">
               <span>AI Security References</span>
+              {{ if eq $.RelPermalink "/docs/ai_security_references/" }}
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              {{ end }}
             </a>
           </li>
           <li>
-            <a href="/docs/" class="sidebar-nav-link">
+            <a href="/docs/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/" }}active{{ end }}">
               <span>Index</span>
+              {{ if eq $.RelPermalink "/docs/" }}
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              {{ end }}
             </a>
           </li>
         </ul>
@@ -102,8 +147,8 @@
 
       <!-- Page Content -->
       <div class="docs-body">
-        {{ .Content }}
-      </div>
+  {{ .Content }}
+</div>
     </div>
   </main>
 
@@ -131,12 +176,14 @@
 
 /* Left Sidebar */
 .docs-sidebar {
-  background: #f8f9fa;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 0rem;
   height: fit-content;
   position: sticky;
   top: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar-container {
@@ -145,11 +192,11 @@
 
 .sidebar-title {
   font-size: 1rem;
-  font-weight: 600;
-  color: #374151;
-  margin: 0 0 0.75rem 0;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #e5e7eb;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #e5e7eb;
 }
 
 .sidebar-nav ul {
@@ -167,19 +214,34 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 0.75rem;
-  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
   font-size: 0.875rem;
   font-weight: 500;
   color: #374151;
   text-decoration: none;
   transition: all 0.2s ease;
+  margin-bottom: 0.25rem;
 }
 
 .sidebar-nav a:hover,
 .sidebar-nav-link:hover {
-  background: #e5e7eb;
+  background: #f3f4f6;
   color: #111827;
+}
+
+/* Active state for current page */
+.sidebar-nav a.active,
+.sidebar-nav-link.active {
+  background: #22c55e;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.sidebar-nav a.active:hover,
+.sidebar-nav-link.active:hover {
+  background: #16a34a;
+  color: #ffffff;
 }
 
 .sidebar-menu-item {
@@ -272,12 +334,14 @@
 
 /* Right Table of Contents */
 .docs-toc {
-  background: #f8f9fa;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 1.5rem;
   height: fit-content;
   position: sticky;
   top: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .toc-container {
@@ -286,11 +350,11 @@
 
 .toc-title {
   font-size: 1rem;
-  font-weight: 600;
-  color: #374151;
+  font-weight: 700;
+  color: #111827;
   margin: 0 0 1rem 0;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #e5e7eb;
 }
 
 .toc-content {
@@ -312,14 +376,15 @@
   color: #374151;
   text-decoration: none;
   display: block;
-  padding: 0.25rem 0;
+  padding: 0.375rem 0;
   border-radius: 4px;
   transition: all 0.2s ease;
+  font-weight: 500;
 }
 
 .toc-content a:hover {
   color: #2563eb;
-  background: #eff6ff;
+  background: #f3f4f6;
   padding-left: 0.5rem;
 }
 
