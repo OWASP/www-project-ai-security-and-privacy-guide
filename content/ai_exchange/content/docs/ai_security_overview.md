@@ -23,7 +23,7 @@ Security here means preventing unauthorized access, use, disclosure, disruption,
 Our **mission** is to be the go-to resource for security & privacy practitioners for AI and data-centric systems, to foster alignment, and drive collaboration among initiatives. By doing so, we provide a safe, open, and independent place to find and share insights for everyone. Follow [AI Exchange at LinkedIn](https://www.linkedin.com/company/owasp-ai-exchange/).
 
 **How it works**  
-The AI Exchange is displayed here at [owaspai.org](https://owaspai.org) and edited using a [GitHub repository](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/tree/main/content/ai_exchange/content) (see the links _Edit on Github_). It is is an **open-source living publication** for the worldwide exchange of AI security & privacy expertise. It is structured as one coherent resource consisting of several sections under 'content', each represented by a page on this website.
+The AI Exchange is displayed here at [owaspai.org](https://owaspai.org) and edited using a [GitHub repository](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/tree/main/content/ai_exchange/content) (see the links _Edit on Github_). It is an **open-source living publication** for the worldwide exchange of AI security & privacy expertise. It is structured as one coherent resource consisting of several sections under 'content', each represented by a page on this website.
 
 This material is evolving constantly through open source continuous delivery. The authors group consists of over 70 carefully selected experts (researchers, practitioners, vendors, data scientists, etc.) and other people in the community are welcome to provide input too. See the [contribute page](/contribute).
 
@@ -67,7 +67,7 @@ When comparing the AI Exchange with the GenAI Security Project, the Exchange:
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/summary/
 
-While AI offers tremendous opportunities, it also brings new risks including security threats. It is therefore imperative to approach AI applications with a clear understanding of potential threats and the controls against them. In a nutshell, the main steps to address AI security are: 
+While Artificial Intelligence (AI) offers tremendous opportunities, it also brings new risks including security threats. It is therefore imperative to approach AI applications with a clear understanding of potential threats and the controls against them. In a nutshell, the main steps to address AI security are: 
 
 - Implement **AI governance**.
 - **Extend your security practices** with the AI security assets, threats and controls from this document.
@@ -77,7 +77,7 @@ While AI offers tremendous opportunities, it also brings new risks including sec
 - Make sure your AI **suppliers** apply the appropriate controls.
 - **Limit the impact** of AI by minimizing data and privileges, and by adding oversight, e.g. guardrails, human oversight.
 
-Note that an AI system can for example be a Large Language Model, a linear regression function, a rule-based system,or a lookup table based on statistics. Throughout this document it is made clear when which threats and controls play a role.
+The AI exchange covers both heuristic artificial intelligence and machine learning. This means that when we talk about an AI system, it can for example be a Large Language Model, a linear regression function, a rule-based system, or a lookup table based on statistics. Throughout this document it is made clear when which threats and controls play a role.
 
 ---
 
@@ -121,10 +121,10 @@ This page will continue with discussions about:
 >Permalink: https://owaspai.org/goto/threatsoverview/
 
 ### Threat model
-We distinguish three types of threats:
-1. during development-time (when data is obtained and prepared, and the model is trained/obtained),
-2. through using the model (providing input and reading the output), and
-3. by attacking the system during runtime (in production).
+We distinguish between three types of threats:
+1. attacks during development-time (when data is obtained and prepared, and the model is trained/obtained),
+2. attacks through using the model (providing input and reading the output), and
+3. attacks on the system during runtime (in operation).
 
 In AI, we outline 6 types of impacts that align with three types of attacker goals (disclose, deceive and disrupt):
 1. disclose: hurt confidentiality of train/test data
@@ -305,7 +305,7 @@ Discovering potential risks that could impact the organization requires technica
   - Prevent [prompt injection](/goto/directpromptinjection/) (mostly done by the model supplier). When untrusted input goes directly into a model, and there's a possibility that the model's output could be harmful (for example, by offending, providing dangerous information, or spreading misinformation, or output that triggers harmful functions (Agentic AI) )- it's a significant concern. This is particularly the case if model input comes from end-users and output goes straight to them, or can trigger functions. The question becomes: has the model supplier done enough according to your risk appetite. For this, you can check tests that the supplier or others hav performed and when not available: do these tests yourself. What you accept depends on your context. If a user wants the AI to say something offensive: do you regard it as a problem if that user succeeds in getting offended? Do you regard it as a problem if users can get a recipe to make poison - given that they can get this from many AI's out there. See the linked threat section for more details.
   - Prevent [indirect prompt injection](/goto/indirectpromptinjection/), in case your system inserts untrusted data in a prompt e.g. you retrieve somebody's resume and include it in a prompt.
 
-  Sometimes model training and running the model is deferred to a supplier. For generative AI, training is mostly performed by an external supplier because it is expensive and often costs millions of dollars. Finetuning of generative AI is also not often performed by organizations given the cost of compute and the complexity involved. Some GenAI models can be obtained and run on your own infrastructure. The reasons for this could be lower cost (if is is an open source model), and the fact that sensitive input information does not have to be sent externally. A reason to use an externally hosted GenAI model can be the quality of the model.
+  Sometimes model training and running the model is deferred to a supplier. For generative AI, training is mostly performed by an external supplier because it is expensive and often costs millions of dollars. Finetuning of generative AI is also not often performed by organizations given the cost of compute and the complexity involved. Some GenAI models can be obtained and run on your own infrastructure. The reasons for this could be lower cost (if it is an open source model), and the fact that sensitive input information does not have to be sent externally. A reason to use an externally hosted GenAI model can be the quality of the model.
     
   Who trains/finetunes the model?
   - The supplier: you need to avoid [obtaining a poisoned model](/goto/transferlearningattack/) through proper supply chain management (by selecting a trustworthy supplier and verifying the authenticity of the model). This involves ensuring that the supplier prevents model poisoning during development, including data poisoning, and uses uncompromised data. If the risk of data poisoning remains unacceptable, implementing post-training countermeasures can be a viable option. See [POISONROBUSTMODEL](/goto/poisonrobustmodel/).
