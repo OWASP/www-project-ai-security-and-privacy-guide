@@ -261,7 +261,7 @@ arXiv preprint arXiv:1703.00410 (2017).
 >Category: development-time datascience control for threats through use  
 >Permalink: https://owaspai.org/goto/evasionrobustmodel/
 
-Evastion-robust model: choose an evasion-robust model design, configuration and/or training approach to maximize resilience against evasion (Data science).
+Evasion-robust model: choose an evasion-robust model design, configuration and/or training approach to maximize resilience against evasion.
 
 A robust model in the light of evasion is a model that does not display significant changes in output for minor changes in input. Adversarial examples are the name for inputs that represent input with an unwanted result, where the input is a minor change of an input that leads to a wanted result.
 
@@ -276,8 +276,13 @@ Robustness issues can be addressed by:
 - Tuning/optimising the model for variance
 - _Randomisation_ by injecting noise during training, causing the input space for correct classifications to grow. See also [TRAINDATADISTORTION](/goto/traindatadistortion/) against data poisoning and [OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/) to minimize sensitive data through randomisation.
 - _gradient masking_: a technique employed to make training more efficient and defend machine learning models against adversarial attacks. This involves altering the gradients of a model during training to increase the difficulty of generating adversarial examples for  attackers. Methods like adversarial training and ensemble approaches are utilized for gradient masking, but it comes with limitations, including computational expenses and potential in effectiveness against all types of attacks. See [Article in which this was introduced](https://arxiv.org/abs/1602.02697).
+- Model Regularization may “flatten” the gradient to a degree sufficient to reduce the model's overfitting tendencies. 
+- Quantization or Thresholding may “break” the gradient function’s smoothness by disrupting its continuity.
 
-Care must be taken when considering robust model designs, as security concerns have arisen about their effectiveness.
+
+Regarding the defensive approaches which focus on model architecture and design we may collectively describe them as  part of a broader evasion-robust model design strategy. Some of the most commonly used methods are kTWA, gated batch norm layers and ensembles to name a few, yet they are still prone to attacks by highly determined threat actors.
+Not to mention that the combination of different defensive strategies : combining gradient masking with ensembles may result in better robustness. 
+
 
   Useful standards include:
 
@@ -314,6 +319,8 @@ Train adversarial: Add adversarial examples to the training set to make the mode
 
 It is important to note that generating the adversarial examples creates significant training overhead, does not scale well with model complexity / input dimension, can lead to overfitting, and may not generalize well to new attack methods.
 
+Note that adversarial samples may also be used as  poisoned data, in which cases training with adversarial samples also mitigates data poisoning risk.
+
   Useful standards include:
 
   - Not covered yet in ISO/IEC standards
@@ -331,16 +338,21 @@ It is important to note that generating the adversarial examples creates signifi
 >Category: runtime datasciuence control for threats through use  
 >Permalink: https://owaspai.org/goto/inputdistortion/
 
-Input distortion: Lightly modify the input with the intention to distort the adversarial attack causing it to fail, while maintaining sufficient model correctness. Modification can be done by e.g. adding noise (randomization), smoothing or JPEG compression.
+Input distortion: Lightly modify the input to make attacks fail, while maintaining sufficient model correctness. Modification can be done by e.g. adding noise (randomization), smoothing or JPEG compression.
 
-Maintaining model correctness can be improved by performing multiple random modifications (e.g. randomized smoothing) to the input and then comparing the model output (e.g. best of three).  
+Maintaining model correctness can be supported by performing multiple random modifications (e.g. randomized smoothing) to the input and then comparing the model output (e.g. best of three).  
 
-The security of these defenses often relies on gradient masking (sometimes called gradient obfuscation) when the functions are non-differentiable (shattered gradients). These defenses can be attacked by approximating the gradients, e.g., using BPDA. Systems that use defenses based on randomness to mask the gradients (stochastic gradients) can be attacked by combining the attack with EOT.
+Input distrortion can stop both evasion attacks and targeted data poisoning
+
+**Evasion attacks**
+
+Constructing adversarial samples relies on analysing how output changes when changing the input. If the input is distorted, the output will change more erratically, making this process more difficult. The way that output changes is often referred to as the _gradient_. In a way, input distortion serves as gradient masking or _gradient shattering_.
+
+A counter attack against input distortion is approximating the gradients, e.g., using BPDA, or creating adversarial samples that are more robust to distrortion, e.g., using EOT.  
 A set of defense techniques called Random Transformations (RT) defends neural networks by implementing enough randomness that computing adversarial examples using EOT is computationally inefficient. This randomness is typically achieved by using a random subset of input transformations with random parameters. Since multiple transformations are applied to each input sample, the benign accuracy drops significantly, thus the network must be trained with the RT in place.
 
-Note that black-box or closed-box attacks do not rely on the gradients and are therefore not affected by shattered gradients, as they do not use the gradients to calculate the attack. Black box attacks use only the input and the output of the model or whole AI system to calculate the adversarial input. For a more detailed discussion of these attacks see Closed-box evasion.
-  
-See [DETECTADVERSARIALINPUT](#detectadversarialinput) for an approach where the distorted input is used for detecting an adversarial attack.
+**Targeted data poisoning**
+Distorted inputs can hinder attempts by attackers to trigger unintended behaviour which was created by targeted data poisoning, e.g. inserting _trigger samples_ in the training set that make the model provide specific output for specific inputs. Distortion in essence intends to make the trigger unrecognizable.
 
 Useful standards include:
 
