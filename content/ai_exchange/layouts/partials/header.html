@@ -79,7 +79,68 @@
           <path d="m21 21-4.35-4.35"></path>
         </svg>
       </div>
+
+      <!-- Hamburger Icon (only on mobile) -->
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </div>
 </header>
 
+<style>
+/* Default hide nav on mobile */
+.main-navigation {
+  display: flex;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #fff;
+  border-radius: 2px;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .main-navigation {
+    display: none;
+    flex-direction: column;
+    background: #111;
+    padding: 1rem;
+  }
+  .main-navigation.active {
+    display: flex;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .nav-list {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.querySelector(".hamburger");
+  const nav = document.querySelector(".main-navigation");
+
+  hamburger.addEventListener("click", () => {
+    nav.classList.toggle("active");
+  });
+});
+</script>

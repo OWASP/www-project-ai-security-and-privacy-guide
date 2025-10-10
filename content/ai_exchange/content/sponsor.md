@@ -65,87 +65,91 @@ Join us in our mission to protect society from AI security issues by harnessing 
   </div>
 
   <!-- Sponsorship Section (Full Width Image + Overlay) -->
-  <div class="container mx-auto px-4 md:px-8 overflow-hidden">
-    <div class="relative w-full">
-      <!-- Image -->
-      <img
-        src="/images/sponserbg.webp"
-        alt="Sponsor Graphic"
-        class="w-full h-90 object-cover rounded-t-xl"
-      />
-      <!-- Overlay -->
-      <div class="absolute inset-0 bg-black bg-opacity-20 rounded-t-xl"></div>
-      <!-- Overlay Content -->
-      <div class="absolute inset-0 flex flex-col justify-center items-center  text-center rounded-t-xl">
-        <h2 class="text-3xl font-bold mb-4 text-white ">Support the Future of AI Security</h2>
-        <p class="text-lg mb-6 text-white">Get involved: aruneesh.salhotra@owasp.org</p>
-        <a
-          href="/sponsor"
-          class="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition mb-8"
-        >
-          Sponsor Now
-        </a>
-        <h3 class="text-2xl font-bold mb-6 text-white ">Our Sponsors</h3>
-        <div class="flex justify-center items-center flex-wrap gap-8 ">
-          <a href="https://www.straiker.ai/" target="_blank" rel="noopener noreferrer">
-            <img
-              src="/images/straikerlogo.png"
-              alt="Straiker sponsor"
-              class="h-12 w-auto text-white"
-            />
-          </a>
-          <a href="https://www.casco.com/" target="_blank" rel="noopener noreferrer">
-            <img
-              src="/images/cascologo.png"
-              alt="Casco sponsor"
-              class="h-16 w-auto"
-            />
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- Sponsorship Benefits -->
-    <div class=" container p-8 bg-[#006284] rounded-b-2xl">
-      <h2 class="text-3xl font-bold mb-12 text-white text-center">
-        Sponsorship benefits include
+ <div class="container mx-auto px-4 sm:px-8 my-8 md:my-10 rounded-2xl">
+  <div class="relative w-full">
+    <!-- Background Image -->
+    <img
+      src="/images/sponserbg.webp"
+      alt="Sponsor Graphic"
+      class="w-full h-64 sm:h-80 md:h-96 object-cover rounded-t-xl"
+    />
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-30 rounded-t-xl"></div>
+    <!-- Overlay Content -->
+    <div class="absolute inset-0 flex flex-col justify-center items-center text-center rounded-t-xl p-4 sm:p-6">
+      <h2 class="text-lg sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 text-white">
+        Support the Future of AI Security
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
-        <!-- Visibility -->
-        <div class="flex flex-col items-center md:items-start text-center md:text-left">
-          <div class="flex items-center mb-4">
-            <img src="/images/Vector1.png" alt="Icon 1" class="h-8 w-8 mr-3" />
-            <h4 class="text-xl font-bold text-white">Visibility</h4>
-          </div>
-          <p class="text-white leading-relaxed">
-            Showcase your organization’s commitment to AI security within a network of industry
-            leaders and experts.
-          </p>
-        </div>
-        <!-- Collaboration -->
-        <div class="flex flex-col items-center md:items-start text-center md:text-left">
-          <div class="flex items-center mb-4">
-            <img src="/images/Vector2.png" alt="Icon 2" class="h-8 w-8 mr-3" />
-            <h4 class="text-xl font-bold text-white">Collaboration</h4>
-          </div>
-          <p class="text-white leading-relaxed">
-            Participate in the development of global AI security guidelines, standards, and
-            regulations.
-          </p>
-        </div>
-        <!-- Thought Leadership -->
-        <div class="flex flex-col items-center md:items-start text-center md:text-left">
-          <div class="flex items-center mb-4">
-            <img src="/images/Vector1.png" alt="Icon 3" class="h-8 w-8 mr-3" />
-            <h4 class="text-xl font-bold text-white">Thought Leadership</h4>
-          </div>
-          <p class="text-white leading-relaxed">
-            Contribute to key insights on AI threats, risks, and controls, positioning your
-            organization as a leader in AI security.
-          </p>
-        </div>
+      <p class="text-xs sm:text-sm md:text-lg mb-4 sm:mb-6 text-white">
+        Get involved: aruneesh.salhotra@owasp.org
+      </p>
+      <a
+        href="/sponsor"
+        class="inline-block bg-green-600 text-white px-5 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-green-700 transition mb-4 sm:mb-6 text-sm sm:text-base"
+      >
+        Sponsor Now
+      </a>
+      <h3 class="text-base sm:text-xl md:text-2xl font-bold mb-3 sm:mb-6 text-white">
+        Our Sponsors
+      </h3>
+      <div class="flex justify-center items-center flex-wrap gap-4 sm:gap-8">
+        <a href="https://www.straiker.ai/" target="_blank" rel="noopener noreferrer">
+          <img
+            src="/images/straikerlogo.png"
+            alt="Straiker sponsor"
+            class="h-8 sm:h-10 md:h-12 w-auto"
+          />
+        </a>
+        <a href="https://www.casco.com/" target="_blank" rel="noopener noreferrer">
+          <img
+            src="/images/cascologo.png"
+            alt="Casco sponsor"
+            class="h-10 sm:h-12 md:h-16 w-auto"
+          />
+        </a>
       </div>
     </div>
   </div>
+
+  <!-- Sponsorship Benefits -->
+  <div class="p-5 sm:p-8 bg-[#006284] rounded-b-2xl">
+    <h2 class="text-lg sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-10 text-white text-center">
+      Sponsorship benefits include
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-10 text-center md:text-left">
+      <!-- Visibility -->
+      <div>
+        <div class="flex flex-col md:flex-row items-center md:items-start mb-3">
+          <img src="/images/Vector1.png" alt="Icon 1" class="h-6 sm:h-8 w-6 sm:w-8 mb-2 md:mb-0 md:mr-3" />
+          <h4 class="text-base sm:text-lg md:text-xl font-bold text-white">Visibility</h4>
+        </div>
+        <p class="text-white text-sm sm:text-base leading-relaxed">
+          Showcase your organization’s commitment to AI security within a network of industry leaders and experts.
+        </p>
+      </div>
+      <!-- Collaboration -->
+      <div>
+        <div class="flex flex-col md:flex-row items-center md:items-start mb-3">
+          <img src="/images/Vector2.png" alt="Icon 2" class="h-6 sm:h-8 w-6 sm:w-8 mb-2 md:mb-0 md:mr-3" />
+          <h4 class="text-base sm:text-lg md:text-xl font-bold text-white">Collaboration</h4>
+        </div>
+        <p class="text-white text-sm sm:text-base leading-relaxed">
+          Participate in the development of global AI security guidelines, standards, and regulations.
+        </p>
+      </div>
+      <!-- Thought Leadership -->
+      <div>
+        <div class="flex flex-col md:flex-row items-center md:items-start mb-3">
+          <img src="/images/Vector1.png" alt="Icon 3" class="h-6 sm:h-8 w-6 sm:w-8 mb-2 md:mb-0 md:mr-3" />
+          <h4 class="text-base sm:text-lg md:text-xl font-bold text-white">Thought Leadership</h4>
+        </div>
+        <p class="text-white text-sm sm:text-base leading-relaxed">
+          Contribute to key insights on AI threats, risks, and controls, positioning your organization as a leader in AI security.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
   <!-- Project Sponsors Section -->
   <div class="container mx-auto px-4 md:px-8  max-w-6xl">
     <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-12">

@@ -530,6 +530,66 @@ h1 {
 .docs-content table tr:nth-child(even) td {
   background-color: #fafafa;
 }
+
+/* Responsive: tables become card-like on small screens */
+@media (max-width: 640px) {
+  /* opt-in class responsive-table added via JS or markdown shortcode */
+  .docs-content table.responsive-table {
+    display: block;
+    border: 0;
+  }
+  .docs-content table.responsive-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+  }
+  .docs-content table.responsive-table tbody,
+  .docs-content table.responsive-table tr,
+  .docs-content table.responsive-table td {
+    display: block;
+    width: 100%;
+  }
+  .docs-content table.responsive-table tr {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .docs-content table.responsive-table tr:nth-child(even) td {
+    background: transparent; /* avoid zebra inside cards */
+  }
+  .docs-content table.responsive-table td {
+    border: 0;
+    border-bottom: 1px solid #f1f5f9;
+    position: relative;
+    padding-left: 9rem; /* room for label */
+    min-height: 44px;
+  }
+  .docs-content table.responsive-table td:last-child {
+    border-bottom: 0;
+  }
+  .docs-content table.responsive-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 8.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.75rem;
+    font-weight: 600;
+    color: #111827;
+    background: #f8fafc;
+    border-right: 1px solid #e5e7eb;
+  }
+}
   /* Custom class for truly full-width contact section */
   .fullwidth-contact {
     width: 100vw;              /* take full viewport width */

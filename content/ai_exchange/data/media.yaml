@@ -1,51 +1,51 @@
 items:
   - title: AI security demystified w/ Rob van der Veer
-    date: 2024-05-14
+    date: 2025-05-14
     url: https://youtu.be/P3zVhR4O7nY?si=IxZUuTeV4yRoZ6So
     thumbnail: /images/AI-security1.png
 
   - title: Optimizing AI w/ Rob van der Veer
-    date: 2024-04-23
+    date: 2025-04-23
     url: https://www.youtube.com/watch?v=HbtIccHgrNA
     thumbnail: /images/AI-security2.png
 
   - title:  AI security made easy w/ Rob van der Veer
-    date: 2024-04-23
+    date: 2025-04-01
     url: https://www.youtube.com/watch?v=iWnYSdj9rxE
     thumbnail: /images/AI-security3.png
 
   - title: The New Beginning w/ Rob van der Veer
-    date: 2024-04-23
+    date: 2024-11-28
     url: https://www.youtube.com/watch?v=UrzIHmecXnk
     thumbnail: /images/AI-security4.png
 
   - title: Threat modeling in the Age of AI w/ Susanna Cox 
-    date: 2024-04-23
+    date: 2024-11-14
     url: https://www.youtube.com/watch?v=cTbAD9K_FqA&t=1788s
     thumbnail: /images/AI-security5.png
 
   - title: Overview of OWASP AI Exchange w/ Behnaz Karimi
-    date: 2024-04-23
+    date: 2024-11-13
     url: https://www.youtube.com/watch?v=WLIx5jMyJ_A
     thumbnail: /images/AI-security6.png
 
   - title: AI is just software, what could possible go wrong w/ Rob van der Veer
-    date: 2024-04-23
+    date: 2024-06-28
     url: https://www.youtube.com/watch?v=43cv4f--UU4
     thumbnail: /images/AI-security7.png
 
   - title: AI for CISOs w/ Rob van der Veer
-    date: 2024-04-23
+    date: 2024-01-29
     url: https://www.youtube.com/watch?v=wSSGK2HJPoo/
     thumbnail: /images/AI-security8.png
 
   - title: Understanding the AI threat Landscape w/ NIST, MITRE & OWASP
-    date: 2024-04-23
+    date: 2024-01-05
     url: https://www.robustintelligence.com/resource-center/ai-security-understanding-the-threat-landscape
     thumbnail: /images/AI-security9.png
 
   - title: Navigating the AI Security Landscape w/ Rob van der Veer 
-    date: 2024-04-23
+    date: 2023-09-06
     url: https://www.linkedin.com/posts/robvanderveer_in-this-episode-i-sit-down-with-ai-and-software-activity-7147942906060800001-b8RO/
     thumbnail: /images/AI-security10.png
 
@@ -55,16 +55,16 @@ items:
     thumbnail: /images/AI-security11.png
 
   - title:  AI Security in 13 minutes 
-    date: 2024-04-23
+    date: 2023-07-04
     url: https://www.brighttalk.com/webcast/19697/586526
     thumbnail: /images/AI-security12.png
 
   - title: The Application Security Podcast w/ Chris Romeo and Robert Hurlbut | OWASP AI Security & Privacy Guide w/ Rob van der Veer
-    date: 2024-04-23
+    date: 2023-02-23
     url: https://www.youtube.com/watch?v=SLdn3AwlCAk&) [Podcast](https://www.buzzsprout.com/1730684/12313155-rob-van-der-veer-owasp-ai-security-privacy-guide
     thumbnail: /images/AI-security11.png
 
   - title:  Attacking And Protecting Artificial Intelligence w/ Rob Van Der Veer
-    date: 2024-04-23
+    date: 2023-02-15
     url: https://www.youtube.com/watch?v=ABmWHnFrMqI
     thumbnail: /images/AI-security13.png

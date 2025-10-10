@@ -12,11 +12,11 @@ weight: 1
   <!-- Dark overlay -->
   <div class="absolute inset-0 bg-black bg-opacity-80"></div>
 
-  <div class="container relative text-left p-8 rounded-lg">
-    <h1 class="text-[46px] md:text-5xl font-bold mb-6">
+  <div class="container relative text-left p-6 sm:p-8 rounded-lg">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight">
       Contribute to the OWASP AI Exchange
     </h1>
-    <div class="text-lg text-gray-300 w-[50%]">
+    <div class="text-base sm:text-lg text-gray-300 max-w-full md:max-w-[50%]">
       The OWASP projects are an open source effort, and we enthusiastically welcome all forms of
       contributions and feedback.
     </div>
@@ -26,7 +26,7 @@ weight: 1
       rel="noopener noreferrer"
     >
       <button
-        class="inline-block bg-[#4CAF50] hover:bg-emerald-700 text-white text-xl font-medium py-3 px-10 rounded-lg mt-[22px]"
+        class="inline-block bg-[#4CAF50] hover:bg-emerald-700 text-white text-base sm:text-lg md:text-xl font-medium py-2 sm:py-3 px-6 sm:px-8 md:px-10 rounded-lg mt-6"
       >
         Become A Contributor
       </button>
@@ -34,131 +34,152 @@ weight: 1
   </div>
 </section>
 
-<div class="py-16 px-2 sm:px-6 lg:px-8 shadow-md bg-white ">
-    <div class="container mx-auto text-center p-0">
-        <div class="mb-6 px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900  opacity-100">
-                Contribute to the OWASP AI Exchange
-            </h2>
+<div class="py-16 px-2 sm:px-6 lg:px-8 shadow-md bg-white">
+  <div class="container mx-auto p-0">
+    <!-- Heading -->
+    <div class="mb-6 px-4 sm:px-6 lg:px-8 text-left">
+     <div class="mb-6 px-4 sm:px-6 lg:px-8 text-left md:text-center">
+  <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 opacity-100">
+    Contribute to the OWASP AI Exchange
+  </h2>
+</div>
+
+<!-- Paragraph -->
+<p class="text-gray-600 font-roboto font-normal text-base sm:text-lg md:text-[20px] leading-relaxed 
+           text-left -md:textcenter mb-10 max-w-full md:max-w-3xl md:mx-auto">
+  The <span class="font-semibold">OWASP projects</span> are an open source effort, and we enthusiastically
+  welcome all forms of contributions and feedback.
+  In any case, if you are interested in AI security,
+  <a href="https://owasp.org/slack/invite" class="text-green-600 font-semibold hover:underline">join OWASP
+    Slack</a> and come to
+  <a href="https://owaspai.org" class="text-green-600 font-semibold hover:underline">#project-ai-community</a>
+  to learn and discuss.
+</p>
+    <!-- Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-12 md:gap-y-6 items-stretch text-left">
+      <!-- Card 1 -->
+      <div class="relative flex flex-col h-full">
+        <div class="flex flex-col flex-1 bg-white border border-gray-200 rounded-xl shadow-md p-6">
+          <img src="/images/suggest.png" alt="Suggest icon" class="w-7 h-8 mb-4" />
+          <h4 class="text-gray-900 mb-2 text-xl font-medium">Suggest</h4>
+          <p class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px]">
+            Send your suggestion to the
+            <a href="https://owaspai.org/connect/#owasp-ai-project-leader" class="text-green-600 underline">leadership team</a>.
+          </p>
         </div>
-        <p class="text-gray-600 font-roboto font-normal text-[24px] leading-relaxed text-center mb-10">
-            The <span class="font-semibold">OWASP projects</span> are an open source effort, and we enthusiastically
-            welcome all forms of contributions and feedback.
-            In any case, if you are interested in AI security,
-            <a href="https://owasp.org/slack/invite" class="text-green-600 font-semibold hover:underline">join OWASP
-                Slack</a> and come to
-            <a href="https://owaspai.org" class="text-green-600 font-semibold hover:underline">#project-ai-community</a>
-            to learn and discuss.
-        </p>
+        <!-- OR -->
         <div
-            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-12 md:gap-y-6 items-stretch">
-            <div class="relative overflow-visible flex flex-col h-full">
-                <div
-                    class="flex flex-col flex-1 bg-white border border-gray-200 rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.2)] p-6 text-left transition hover:shadow-[0_0_20px_rgba(0,0,0,0.15)]">
-                    <div class="flex items-left justify-left mb-4">
-                        <img src="/images/suggest.png" alt="Suggest icon" class="w-7 h-8" />
-                    </div>
-                    <h4 class="text-gray-900 mb-2 text-[24px] font-roboto font-medium leading-[100%] align-middle">
-                        Suggest</h4>
-                    <p
-                        class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px] decoration-solid align-middle flex-1">
-                        Send your suggestion to the <a href="https://owaspai.org/connect/#owasp-ai-project-leader"
-                            class="text-green-600 underline">leadership team</a>.
-                    </p>
-                </div>
-                <div
-                    class="absolute bottom-0 left-1/2 -translate-x-1/2 h-8 w-8 rounded-full bg-[#4D92AA] text-white text-[18px] font-semibold flex items-center justify-center shadow z-10 md:hidden">
-                    OR</div>
-                <div
-                    class="hidden md:flex absolute top-1/2 md:-right-8 -translate-y-1/2 h-10 w-10 rounded-full bg-[#4D92AA] text-white text-[18px] font-semibold items-center justify-center shadow z-10">
-                    OR</div>
-            </div>
-            <!-- <> -->
-            <div class="relative overflow-visible flex flex-col h-full">
-                <div
-                    class="flex flex-col flex-1 bg-white border border-gray-200 rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.2)] p-6 text-left transition hover:shadow-[0_0_20px_rgba(0,0,0,0.15)]">
-                    <div class="flex items-left justify-left mb-4">
-                        <img src="/images/join.png" alt="Join icon" class="w-7 h-8" />
-                    </div>
-                    <h4 class="text-gray-900 mb-2 text-[24px] font-roboto font-medium leading-[100%] align-middle">Join
-                    </h4>
-                    <p
-                        class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px] decoration-solid align-middle flex-1">
-                        <a href="https://forms.gle/XwEEK52y4iZQChuJ6" class="text-green-600 underline">Apply</a> to join
-                        the Authors group.
-                    </p>
-                </div>
-                <div
-                    class="absolute -bottom-10 left-1/2 -translate-x-1/2 h-8 w-8 rounded-full bg-[#4D92AA] text-white text-[18px] font-semibold flex items-center justify-center shadow z-10 md:hidden">
-                    OR</div>
-                <div
-                    class="hidden md:flex absolute top-1/2 md:-right-8 -translate-y-1/2 h-10 w-10 rounded-full bg-[#4D92AA] text-white text-[18px] font-semibold items-center justify-center shadow z-10">
-                    OR</div>
-            </div>
-            <div class="relative overflow-visible flex flex-col h-full">
-                <div
-                    class="flex flex-col flex-1 bg-white border border-gray-200 rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.2)] p-6 text-left transition hover:shadow-[0_0_20px_rgba(0,0,0,0.15)]">
-                    <div class="flex items-left justify-left mb-4">
-                        <img src="/images/ideas.png" alt="Ideas icon" class="w-6 h-8" />
-                    </div>
-                    <h4 class="text-gray-900 mb-2 text-[24px] font-roboto font-medium leading-[100%] align-middle">Ideas
-                    </h4>
-                    <p
-                        class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px] decoration-solid align-middle flex-1">
-                        Propose your <a
-                            href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions/categories/ideas"
-                            class="text-green-600 underline">ideas</a>, or submit an <a
-                            href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues"
-                            class="text-green-600 underline">issue</a>.
-                    </p>
-                </div>
-                <div
-                    class="absolute -bottom-10 left-1/2 -translate-x-1/2 h-8 w-8 rounded-full bg-[#4D92AA] text-white text-[18px] font-semibold flex items-center justify-center shadow z-10 md:hidden">
-                    OR</div>
-                <div
-                    class="hidden md:flex absolute top-1/2 md:-right-8 -translate-y-1/2 h-10 w-10 rounded-full bg-[#4D92AA] text-white text-[18px] font-semibold items-center justify-center shadow z-10">
-                    OR</div>
-            </div>
-            <div class="relative overflow-visible flex flex-col h-full">
-                <div
-                    class="flex flex-col flex-1 bg-white border border-gray-200 rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.2)] p-6 text-left transition hover:shadow-[0_0_20px_rgba(0,0,0,0.15)]">
-                    <div class="flex items-left justify-left mb-4">
-                        <img src="/images/submit.png" alt="Submit icon" class="w-8 h-8" />
-                    </div>
-                    <h4 class="text-gray-900 mb-2 text-[24px] font-roboto font-medium leading-[100%] align-middle">
-                        Submit</h4>
-                    <p
-                        class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px] decoration-solid align-middle flex-1">
-                        Fork our repo and submit a <a
-                            href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/pulls"
-                            class="text-green-600 underline">Pull Request</a> for fixes or suggestions.
-                    </p>
-                </div>
-                <div
-                    class="absolute -bottom-10 left-1/2 -translate-x-1/2 h-8 w-8 rounded-full bg-[#4D92AA] text-white text-[18px] font-semibold flex items-center justify-center shadow z-10 md:hidden">
-                    OR</div>
-                <div
-                    class="hidden md:flex absolute top-1/2 md:-right-8 -translate-y-1/2 h-10 w-10 rounded-full bg-[#4D92AA] text-white text-[18px] font-semibold items-center justify-center shadow z-10">
-                    OR</div>
-            </div>
-            <div class="relative overflow-visible flex flex-col h-full">
-                <div
-                    class="flex flex-col flex-1 bg-white border border-gray-200 rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.2)] p-6 text-left transition hover:shadow-[0_0_20px_rgba(0,0,0,0.15)]">
-                    <div class="flex items-left justify-left mb-4">
-                        <img src="/images/engage.png" alt="Engage icon" class="w-8 h-8" />
-                    </div>
-                    <h4 class="text-gray-900 mb-2 text-[24px] font-roboto font-medium leading-[100%] align-middle">
-                        Engage</h4>
-                    <p
-                        class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px] decoration-solid align-middle flex-1">
-                        Pose your questions on <a
-                            href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions/categories/q-a"
-                            class="text-green-600 underline">GitHub</a> or in #project-ai-community.
-                    </p>
-                </div>
-            </div>
+          class="absolute -bottom-10 left-1/2 -translate-x-1/2 h-8 w-8 rounded-full bg-[#4D92AA] 
+          text-white text-[14px] font-semibold flex items-center justify-center shadow z-10 sm:hidden">
+          OR
         </div>
+        <div
+          class="hidden sm:flex lg:hidden absolute -right-5 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-[#4D92AA] 
+          text-white text-[14px] font-semibold items-center justify-center shadow z-10">
+          OR
+        </div>
+        <div
+          class="hidden lg:flex absolute top-1/2 lg:-right-8 -translate-y-1/2 h-10 w-10 rounded-full bg-[#4D92AA] 
+          text-white text-[18px] font-semibold items-center justify-center shadow z-10">
+          OR
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="relative flex flex-col h-full">
+        <div class="flex flex-col flex-1 bg-white border border-gray-200 rounded-xl shadow-md p-6">
+          <img src="/images/join.png" alt="Join icon" class="w-7 h-8 mb-4" />
+          <h4 class="text-gray-900 mb-2 text-xl font-medium">Join</h4>
+          <p class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px]">
+            <a href="https://forms.gle/XwEEK52y4iZQChuJ6" class="text-green-600 underline">Apply</a> to join the Authors group.
+          </p>
+        </div>
+        <!-- OR -->
+        <div
+          class="absolute -bottom-10 left-1/2 -translate-x-1/2 h-8 w-8 rounded-full bg-[#4D92AA] 
+          text-white text-[14px] font-semibold flex items-center justify-center shadow z-10 sm:hidden">
+          OR
+        </div>
+        <div
+          class="hidden sm:flex lg:hidden absolute -right-5 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-[#4D92AA] 
+          text-white text-[14px] font-semibold items-center justify-center shadow z-10">
+          OR
+        </div>
+        <div
+          class="hidden lg:flex absolute top-1/2 lg:-right-8 -translate-y-1/2 h-10 w-10 rounded-full bg-[#4D92AA] 
+          text-white text-[18px] font-semibold items-center justify-center shadow z-10">
+          OR
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="relative flex flex-col h-full">
+        <div class="flex flex-col flex-1 bg-white border border-gray-200 rounded-xl shadow-md p-6">
+          <img src="/images/ideas.png" alt="Ideas icon" class="w-6 h-8 mb-4" />
+          <h4 class="text-gray-900 mb-2 text-xl font-medium">Ideas</h4>
+          <p class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px]">
+            Propose your
+            <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions/categories/ideas" class="text-green-600 underline">ideas</a>, or submit an
+            <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues" class="text-green-600 underline">issue</a>.
+          </p>
+        </div>
+        <!-- OR -->
+        <div
+          class="absolute -bottom-10 left-1/2 -translate-x-1/2 h-8 w-8 rounded-full bg-[#4D92AA] 
+          text-white text-[14px] font-semibold flex items-center justify-center shadow z-10 sm:hidden">
+          OR
+        </div>
+        <div
+          class="hidden sm:flex lg:hidden absolute -right-5 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-[#4D92AA] 
+          text-white text-[14px] font-semibold items-center justify-center shadow z-10">
+          OR
+        </div>
+        <div
+          class="hidden lg:flex absolute top-1/2 lg:-right-8 -translate-y-1/2 h-10 w-10 rounded-full bg-[#4D92AA] 
+          text-white text-[18px] font-semibold items-center justify-center shadow z-10">
+          OR
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="relative flex flex-col h-full">
+        <div class="flex flex-col flex-1 bg-white border border-gray-200 rounded-xl shadow-md p-6">
+          <img src="/images/submit.png" alt="Submit icon" class="w-8 h-8 mb-4" />
+          <h4 class="text-gray-900 mb-2 text-xl font-medium">Submit</h4>
+          <p class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px]">
+            Fork our repo and submit a
+            <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/pulls" class="text-green-600 underline">Pull Request</a>
+            for fixes or suggestions.
+          </p>
+        </div>
+        <!-- OR -->
+        <div
+          class="absolute -bottom-10 left-1/2 -translate-x-1/2 h-8 w-8 rounded-full bg-[#4D92AA] 
+          text-white text-[14px] font-semibold flex items-center justify-center shadow z-10 sm:hidden">
+          OR
+        </div>
+        <div
+          class="hidden sm:flex lg:hidden absolute -right-5 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-[#4D92AA] 
+          text-white text-[14px] font-semibold items-center justify-center shadow z-10">
+          OR
+        </div>
+        <div
+          class="hidden lg:flex absolute top-1/2 lg:-right-8 -translate-y-1/2 h-10 w-10 rounded-full bg-[#4D92AA] 
+          text-white text-[18px] font-semibold items-center justify-center shadow z-10">
+          OR
+        </div>
+      </div>
+      <!-- Card 5 (last one, no OR after it) -->
+      <div class="relative flex flex-col h-full sm:col-span-2 lg:col-span-1">
+        <div class="flex flex-col flex-1 bg-white border border-gray-200 rounded-xl shadow-md p-6">
+          <img src="/images/engage.png" alt="Engage icon" class="w-8 h-8 mb-4" />
+          <h4 class="text-gray-900 mb-2 text-xl font-medium">Engage</h4>
+          <p class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px]">
+            Pose your questions on
+            <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions/categories/q-a" class="text-green-600 underline">GitHub</a>
+            or in #project-ai-community.
+          </p>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 
 <div class="py-16 px-6 sm:px-8 lg:px-12 bg-[#F1F1F1]">
@@ -473,5 +494,3 @@ weight: 1
 </div>
 <!-- Contact Section -->
 {{< contact >}}
-
-
