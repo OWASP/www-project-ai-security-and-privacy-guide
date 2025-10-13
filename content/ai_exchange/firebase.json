@@ -290,7 +290,7 @@
       },
       {
         "source": "/goto/promptinputvalidation/",
-        "destination": "/docs/2_threats_through_use/#promptinputvalidation",
+        "destination": "/docs/2_threats_through_use/#prompt-input-validation",
         "type": 301
       },
       {
