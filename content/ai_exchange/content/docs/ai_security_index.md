@@ -25,7 +25,7 @@ C
 D  
 [Data and model governance](/goto/supplychainmanage/)  
 [Data disclosure in model output](/goto/disclosureuseoutput/)  
-[Data poisoning of train/finetune data](/goto/datapoison/)
+[Data poisoning of train/finetune data](/goto/datapoison/)  
 [Denial of model service](/goto/denialmodelservice/)  
 [Direct prompt injection](/goto/directpromptinjection)  
 
