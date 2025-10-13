@@ -23,66 +23,153 @@
       };
     </script>
 
-    <!-- Footer -->
-   <!-- Footer -->
-<footer class="bg-black text-white w-full py-6">
-  <div class="container flex flex-col p-2 px-10">
-    <!-- Top: Logo + Links + Social -->
-    <div class="flex justify-between items-start">
-      <!-- Left Section -->
-      <div class="flex flex-col logo-section">
-        <!-- Logo -->
-        <a href="/" class="logo-link">
-          <img
-            src="/images/Owasp-AI-Exchange-Logo.png"
-            alt="OWASP AI Exchange"
-            class="site-logo h-[39px] w-auto"
-          />
-        </a>
+<!-- Footer -->
+<footer class="bg-black text-white w-full py-8">
+  <div class="container mx-auto px-4 md:px-10">
+    <!-- Mobile Layout -->
+    <div class="md:hidden">
+      <!-- Logo Section -->
+      <div class="text-center mb-8">
+        {{ if .Site.Params.navbar.displayLogo }}
+          <a href="{{ .Site.Params.navbar.logo.link | default "/" }}" class="inline-block">
+            <img
+              src="{{ .Site.Params.navbar.logo.path | relURL }}"
+              alt="{{ .Site.Title }}"
+              class="h-16 w-auto mx-auto mb-4 filter brightness-0 invert"
+            />
+          </a>
+        {{ else if .Site.Params.navbar.displayTitle }}
+          <a href="/" class="inline-block">
+            <div class="flex items-center justify-center mb-4">
+              <!-- AI Icon -->
+              <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center mr-3">
+                <span class="text-black font-bold text-xl">AI</span>
+              </div>
+              <!-- Text -->
+              <div class="text-left">
+                <div class="text-sm font-medium opacity-90">OWASP</div>
+                <div class="text-lg font-bold">{{ .Site.Title }}</div>
+              </div>
+            </div>
+          </a>
+        {{ end }}
+        <p class="text-sm opacity-90 max-w-md mx-auto">
+          Advancing AI security through community collaboration and open-source resources.
+        </p>
+      </div>
 
-        <!-- Nav Links -->
-        <ul class="flex space-x-8 mt-4 font-roboto text-[16px]">
-          <li><a href="/" class="hover:text-white">Home</a></li>
-          <li><a href="/docs/ai_security_overview/" class="hover:text-white">Overview</a></li>
-          <li><a href="/media/" class="hover:text-white">Media</a></li>
-          <li><a href="/sponsor/" class="hover:text-white">Sponsor</a></li>
-          <li><a href="/contribute/" class="hover:text-white">Contribute</a></li>
-          <li><a href="/connect/" class="hover:text-white">Connect</a></li>
+      <!-- Navigation Links -->
+      <div class="text-center mb-8">
+        <ul class="space-y-3">
+          <li><a href="/" class="block text-base hover:text-gray-300 transition">Home</a></li>
+          <li><a href="/docs/ai_security_overview/" class="block text-base hover:text-gray-300 transition">Overview</a></li>
+          <li><a href="/media/" class="block text-base hover:text-gray-300 transition">Media</a></li>
+          <li><a href="/sponsor/" class="block text-base hover:text-gray-300 transition">Sponsor</a></li>
+          <li><a href="/contribute/" class="block text-base hover:text-gray-300 transition">Contribute</a></li>
+          <li><a href="/connect/" class="block text-base hover:text-gray-300 transition">Connect</a></li>
         </ul>
       </div>
 
+      <!-- Divider -->
+      <div class="border-t border-gray-600 mb-6"></div>
+
       <!-- Social Icons -->
-      <div class="flex space-x-4 mt-10">
-        <a href="#" class="w-9 h-9 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
-          <i class="fab fa-github"></i>
+      <div class="flex justify-center space-x-4 mb-6">
+        <a href="#" class="w-12 h-12 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
+          <i class="fab fa-linkedin-in text-lg"></i>
         </a>
-        <a href="#" class="w-9 h-9 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
-          <i class="fab fa-slack"></i>
+        <a href="#" class="w-12 h-12 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
+          <i class="fab fa-youtube text-lg"></i>
         </a>
-        <a href="#" class="w-9 h-9 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
-          <i class="fab fa-linkedin-in"></i>
+        <a href="#" class="w-12 h-12 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
+          <i class="fab fa-slack text-lg"></i>
         </a>
-        <a href="#" class="w-9 h-9 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
-          <i class="fab fa-youtube"></i>
+        <a href="#" class="w-12 h-12 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
+          <i class="fab fa-github text-lg"></i>
         </a>
+      </div>
+
+      <!-- Divider -->
+      <div class="border-t border-gray-600 mb-6"></div>
+
+      <!-- Copyright -->
+      <div class="text-center mb-6">
+        <p class="text-sm">
+          Copyright © owasp.org 2025. All Rights Reserved.
+        </p>
+      </div>
+
+      <!-- Designed By -->
+      <div class="text-center">
+        <p class="text-sm mb-2">Designed & Developed by:</p>
+        <div class="flex items-center justify-center space-x-2">
+          <img src="/images/usability.png" alt="Usability Icon" class="h-6 w-auto" />
+          <a href="https://usabilitydesigns.com/" class="text-sm font-medium text-yellow-400 hover:text-yellow-300 transition">
+            USABILITY DESIGNS
+          </a>
+        </div>
       </div>
     </div>
 
-    <!-- Divider -->
-    <div class="border-t border-gray-600 mt-4"></div>
+    <!-- Desktop Layout -->
+    <div class="hidden md:block">
+      <!-- Top: Logo + Links + Social -->
+      <div class="flex justify-between items-start">
+        <!-- Left Section -->
+        <div class="flex flex-col logo-section">
+          <!-- Logo -->
+          <a href="/" class="logo-link">
+            <img
+              src="/images/Owasp-AI-Exchange-Logo.png"
+              alt="OWASP AI Exchange"
+              class="site-logo h-[39px] w-auto"
+            />
+          </a>
 
-    <!-- Bottom Section -->
-    <div class="flex w-full flex-row justify-between space-between pt-6">
-      <!-- Copyright -->
-      <p class="font-roboto text-[16px]">
-        Copyright © owasp.org 2025. All Rights Reserved.
-      </p>
-      <!-- Proudly Designed -->
-      <p class="flex gap-2 text-[12px]">
-        PROUDLY DESIGNED AND DEVELOPED BY:
-        <img src="/images/usability.png" alt="Usability Icon" class="h-5 inline-block" />
-        <a href="https://usabilitydesigns.com/" class="text-[#FFAE3C]">USABILITY DESIGNS</a>
-      </p>
+          <!-- Nav Links -->
+          <ul class="flex space-x-8 mt-4 font-roboto text-[16px]">
+            <li><a href="/" class="hover:text-white">Home</a></li>
+            <li><a href="/docs/ai_security_overview/" class="hover:text-white">Overview</a></li>
+            <li><a href="/media/" class="hover:text-white">Media</a></li>
+            <li><a href="/sponsor/" class="hover:text-white">Sponsor</a></li>
+            <li><a href="/contribute/" class="hover:text-white">Contribute</a></li>
+            <li><a href="/connect/" class="hover:text-white">Connect</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="flex space-x-4 mt-10">
+          <a href="#" class="w-9 h-9 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="#" class="w-9 h-9 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
+            <i class="fab fa-slack"></i>
+          </a>
+          <a href="#" class="w-9 h-9 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#" class="w-9 h-9 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="border-t border-gray-600 mt-4"></div>
+
+      <!-- Bottom Section -->
+      <div class="flex w-full flex-row justify-between space-between pt-6">
+        <!-- Copyright -->
+        <p class="font-roboto text-[16px]">
+          Copyright © owasp.org 2025. All Rights Reserved.
+        </p>
+        <!-- Proudly Designed -->
+        <p class="flex gap-2 text-[12px]">
+          PROUDLY DESIGNED AND DEVELOPED BY:
+          <img src="/images/usability.png" alt="Usability Icon" class="h-5 inline-block" />
+          <a href="https://usabilitydesigns.com/" class="text-[#FFAE3C]">USABILITY DESIGNS</a>
+        </p>
+      </div>
     </div>
   </div>
 </footer>

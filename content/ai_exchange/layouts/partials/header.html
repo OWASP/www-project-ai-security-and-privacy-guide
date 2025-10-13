@@ -28,8 +28,8 @@
       {{ end }}
     </div>
 
-    <!-- Navigation Menu -->
-    <nav class="main-navigation">
+    <!-- Desktop Navigation Menu -->
+    <nav class="main-navigation desktop-nav">
       <ul class="nav-list">
         {{ range .Site.Menus.main }}
           <li class="nav-item">
@@ -41,10 +41,10 @@
       </ul>
     </nav>
 
-    <!-- Social Icons and Search -->
+    <!-- Header Actions -->
     <div class="header-actions">
-      <!-- Social Icons -->
-      <div class="social-icons">
+      <!-- Desktop Social Icons -->
+      <div class="social-icons desktop-social">
         {{ range .Site.Menus.social }}
           {{ if eq .Params.type "search" }}
             <!-- Search icon will be handled separately -->
@@ -90,11 +90,81 @@
   </div>
 </header>
 
+<!-- Full Screen Mobile Menu Overlay -->
+<div class="mobile-menu-overlay" id="mobileMenu">
+  <div class="mobile-menu-header">
+    <!-- Mobile Logo Section -->
+    <div class="mobile-logo-section">
+      {{ if .Site.Params.navbar.displayLogo }}
+        <a href="{{ .Site.Params.navbar.logo.link | default "/" }}" class="mobile-logo-link">
+          <img 
+            src="{{ .Site.Params.navbar.logo.path | relURL }}" 
+            alt="{{ .Site.Title }}"
+            class="mobile-site-logo"
+            width="{{ .Site.Params.navbar.logo.width | default "auto" }}"
+            height="{{ .Site.Params.navbar.logo.height | default "48" }}"
+          />
+        </a>
+      {{ else if .Site.Params.navbar.displayTitle }}
+        <a href="/" class="mobile-site-title-link">
+          <span class="mobile-site-title">{{ .Site.Title }}</span>
+        </a>
+      {{ end }}
+    </div>
+
+    <!-- Close Button -->
+    <button class="mobile-menu-close" aria-label="Close menu">
+      <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Navigation Menu -->
+  <nav class="mobile-navigation">
+    <ul class="mobile-nav-list">
+      {{ range .Site.Menus.main }}
+        <li class="mobile-nav-item">
+          <a href="{{ .URL }}" class="mobile-nav-link {{ if eq $.RelPermalink .URL }}active{{ end }}">
+            {{ .Name }}
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </nav>
+
+  <!-- Mobile Social Icons -->
+  <div class="mobile-social-icons">
+    {{ range .Site.Menus.social }}
+      {{ if and (ne .Params.type "search") (or (eq .Params.icon "linkedin") (eq .Params.icon "youtube") (eq .Params.icon "github")) }}
+        <a href="{{ .URL }}" class="mobile-social-link" title="{{ .Name }}">
+          {{ if eq .Params.icon "github" }}
+            <svg class="mobile-social-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+            </svg>
+          {{ else if eq .Params.icon "linkedin" }}
+            <svg class="mobile-social-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          {{ else if eq .Params.icon "youtube" }}
+            <svg class="mobile-social-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          {{ end }}
+        </a>
+      {{ end }}
+    {{ end }}
+  </div>
+</div>
+
 <style>
-/* Default hide nav on mobile */
-.main-navigation {
+/* Desktop Navigation Styles */
+.main-navigation.desktop-nav {
   display: flex;
 }
+
+/* Hamburger Button Styles */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -104,32 +174,254 @@
   background: none;
   border: none;
   cursor: pointer;
+  z-index: 1001;
 }
+
 .hamburger span {
   display: block;
   height: 2px;
   width: 100%;
   background: #fff;
   border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #002843;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 10% 90%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px, 80px 80px, 60px 60px, 40px 40px, 70px 70px;
+  z-index: 9999;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+  overflow: hidden;
+}
+
+.mobile-menu-overlay.active {
+  display: flex;
+}
+
+/* Mobile Menu Header */
+.mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2rem 1rem 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.mobile-menu-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.mobile-logo-section {
+  flex: 1;
+}
+
+.mobile-site-logo {
+  height: 48px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.mobile-site-title {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.mobile-site-title-link {
+  text-decoration: none;
+}
+
+.mobile-menu-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.close-icon {
+  width: 24px;
+  height: 24px;
+  stroke: white;
+  stroke-width: 2;
+}
+
+/* Mobile Navigation */
+.mobile-navigation {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.mobile-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 400px;
+}
+
+.mobile-nav-item {
+  margin: 0;
+}
+
+.mobile-nav-link {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.25rem;
+  padding: 1.5rem 1rem;
+  margin: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  text-align: center;
+}
+
+.mobile-nav-link:hover {
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav-link.active {
+  background: #4CAF50;
+  color: white;
+  font-weight: 700;
+}
+
+.mobile-nav-link.active:hover {
+  background: #45a049;
+  color: white;
+}
+
+/* Mobile Social Icons */
+.mobile-social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-social-link {
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-social-link:hover {
+  color: #93c5fd;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.mobile-social-icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
 }
 
 /* Mobile Styles */
 @media (max-width: 768px) {
-  .main-navigation {
-    display: none;
-    flex-direction: column;
-    background: #111;
-    padding: 1rem;
+  .desktop-nav {
+    display: none !important;
   }
-  .main-navigation.active {
-    display: flex;
+  
+  .desktop-social {
+    display: none !important;
   }
+  
   .hamburger {
     display: flex;
   }
-  .nav-list {
-    flex-direction: column;
+  
+  .search-icon {
+    display: flex;
+  }
+  
+  .header-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+  }
+  
+  .logo-section {
+    flex: 1;
+  }
+  
+  .header-actions {
+    display: flex;
+    align-items: center;
     gap: 1rem;
+  }
+  
+  .site-logo {
+    height: 40px;
+    width: auto;
+    filter: brightness(0) invert(1);
+  }
+  
+  .site-title {
+    font-size: 1.25rem;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 769px) {
+  .mobile-menu-overlay {
+    display: none !important;
   }
 }
 </style>
@@ -137,10 +429,49 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.querySelector(".hamburger");
-  const nav = document.querySelector(".main-navigation");
+  const mobileMenu = document.querySelector(".mobile-menu-overlay");
+  const closeButton = document.querySelector(".mobile-menu-close");
+  const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
 
+  // Open mobile menu
   hamburger.addEventListener("click", () => {
-    nav.classList.toggle("active");
+    mobileMenu.classList.add("active");
+    hamburger.classList.add("active");
+    document.body.style.overflow = "hidden"; // Prevent background scrolling
+  });
+
+  // Close mobile menu
+  closeButton.addEventListener("click", () => {
+    mobileMenu.classList.remove("active");
+    hamburger.classList.remove("active");
+    document.body.style.overflow = "auto"; // Restore scrolling
+  });
+
+  // Close mobile menu when clicking on nav links
+  mobileNavLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+      hamburger.classList.remove("active");
+      document.body.style.overflow = "auto";
+    });
+  });
+
+  // Close mobile menu when clicking outside
+  mobileMenu.addEventListener("click", (e) => {
+    if (e.target === mobileMenu) {
+      mobileMenu.classList.remove("active");
+      hamburger.classList.remove("active");
+      document.body.style.overflow = "auto";
+    }
+  });
+
+  // Close mobile menu on escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && mobileMenu.classList.contains("active")) {
+      mobileMenu.classList.remove("active");
+      hamburger.classList.remove("active");
+      document.body.style.overflow = "auto";
+    }
   });
 });
 </script>
