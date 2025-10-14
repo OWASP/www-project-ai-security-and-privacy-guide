@@ -473,7 +473,7 @@ Important note: from a security threat perspective, GenAI is not that different 
 What is mainly new to the threat landscape because of LLMs?  
 - First of all, LLMs pose new threats to security because they may be used to create code with vulnerabilities, or they may be used by attackers to create malware, or they may cause harm through hallucinations. However, these concerns are outside the scope of the AI Exchange, which focuses on security threats to AI systems themselves.
 - Regarding input:
-  - Prompt injection is a completely new threat: attackers manipulating the behaviour of the model with crafted and sometimes hidden instructions.
+  - Prompt injection is when attackers manipulate the behaviour of the model with crafted and sometimes hidden instructions.
   - Also new is organizations sending huge amounts of data in prompts, with company secrets and personal data.
 - Regarding output: The fact that output can contain injection attacks, or can contain sensitive or copyrighted data is new (see [Copyright](/goto/copyright/)).
 - Overreliance is an issue. We let LLMs control and create things and may have too much trust in how correct they are, and also underestimate the risk of them being manipulated. The result is that attacks can have much impact.
