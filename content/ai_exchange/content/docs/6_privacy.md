@@ -26,7 +26,7 @@ AI Privacy can be divided into two parts:
     - 'Conventional' security of personal data in transit and in rest
     - Protecting against model attacks that try to retrieve personal data (e.g. model inversion)
     - Personal data minimization / differential privacy, including minimized retention
-  - Integrity protection of the model behaviour if that behaviour can hurt privacy of individuals. This happens for example when individuals are unlawfully discriminated or when the model output leads to actions that invade privacy (e.g. undergoing a fraud investigation).
+  - Integrity protection of the model behaviour if that behaviour can hurt privacy of individuals. This happens for example when individuals are unlawfully discriminated against or when the model output leads to actions that invade privacy (e.g. undergoing a fraud investigation).
 2. Threats and controls that are not about security, but about further rights of the individual, as covered by privacy regulations such as the GDPR, including use limitation, consent, fairness, transparency, data accuracy, right of correction/objection/erasure/request. 
 
 ### Legislation
