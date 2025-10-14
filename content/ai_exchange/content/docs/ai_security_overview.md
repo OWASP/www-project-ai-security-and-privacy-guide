@@ -122,9 +122,9 @@ This page will continue with discussions about:
 
 ### Threat model
 We distinguish between three types of threats:
-1. attacks during development-time (when data is obtained and prepared, and the model is trained/obtained),
-2. attacks through using the model (providing input and reading the output), and
-3. attacks on the system during runtime (in operation).
+1. threats during development-time (when data is obtained and prepared, and the model is trained/obtained) - for example data poisoning
+2. threats through using the model (through inference; providing input and getting the output) - for example prompt injection or evasion
+3. other threats to the system during runtime (in operation - not through inference) - for example stealing model input
 
 In AI, we outline 6 types of impacts that align with three types of attacker goals (disclose, deceive and disrupt):
 1. disclose: hurt confidentiality of train/test data
