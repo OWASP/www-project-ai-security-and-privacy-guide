@@ -1,6 +1,4 @@
-<section
-  class="relative bg-[#EDF7ED] py-16"
->
+<section class="relative bg-[#EDF7ED] py-16">
   <div class="max-w-[1400px] mx-auto px-6 md:px-12">
     <h2 class="text-3xl md:text-4xl font-bold text-center text-[#1a1a2e] mb-16">
       We are always happy to assist you!
@@ -49,7 +47,42 @@
 
       <!-- Right Column (Form) -->
       <div>
-        <form class="flex flex-col gap-6">
+        <!-- Card only visible on mobile -->
+        <div class="block md:hidden bg-white shadow-lg rounded-xl p-6">
+          <form class="flex flex-col gap-6">
+            <div class="grid grid-cols-1 gap-4">
+              <input
+                type="text"
+                placeholder="First Name*"
+                class="p-4 border border-gray-300 rounded-lg text-base w-full"
+              />
+              <input
+                type="text"
+                placeholder="Last Name*"
+                class="p-4 border border-gray-300 rounded-lg text-base w-full"
+              />
+            </div>
+            <input
+              type="email"
+              placeholder="Email Address*"
+              class="p-4 border border-gray-300 rounded-lg text-base w-full"
+            />
+            <textarea
+              placeholder="Message"
+              rows="4"
+              class="p-4 border border-gray-300 rounded-lg text-base resize-vertical w-full"
+            ></textarea>
+            <button
+              type="submit"
+              class="bg-green-500 text-white px-6 py-3 rounded-lg font-bold flex items-center justify-center gap-2 w-max hover:bg-green-600 transition"
+            >
+              Submit <span>→</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Original form for desktop -->
+        <form class="hidden md:flex flex-col gap-6">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <input
               type="text"

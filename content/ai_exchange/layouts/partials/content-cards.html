@@ -6,16 +6,66 @@
       <h2 class="text-3xl font-bold text-gray-900">Content Overview</h2>
     </div>
 
-    <!-- Grid of Cards -->
+   <!-- Cards Data -->
     {{ $cards := slice
-      (dict "img" "/images/r1.png" "num" "00" "title" "AI Security Overview" "text" `This section provides an overview of AI security — including threats, controls, and risk analysis to help understand the structure of the AI Exchange.` "links" (slice "› About the AI Exchange" "› Summary" "› How to Use This Document" "› Threat Matrix" "› Controls" "› Periodic Table" "› Risk Analysis" "› How About..."))
-      (dict "img" "/images/r2.png" "num" "01" "title" "General controls" "text" `These are the controls every organisation should have in place...` "links" (slice "› Governance controls" "› Data Limitation" "› Limit unwanted behaviour"))
-      (dict "img" "/images/r3.png" "num" "02" "title" "Threats through use and controls" "text" `Attacks by crafting inputs to AI, and their countermeasures...` "links" (slice "› Evasion" "› Prompt injection" "› Sensitive data disclosure" "› Model theft" "› Malfunctioning" "› Culture-sensitivity"))
-      (dict "img" "/images/r4.png" "num" "03" "title" "Development-time threats and controls" "text" `Attacks to the AI system in operation apart from input attacks...` "links" (slice "› Introduction" "› Development poisoning" "› Data leak"))
-      (dict "img" "/images/r5.png" "num" "04" "title" "Runtime application security threats" "text" `Attacks to the AI system in operation apart from the input attacks, and protective controls...` "links" (slice "› Non AI-specific threats" "› Runtime model poisoning" "› Direct runtime model theft" "› Insecure output handling" "› Leak sensitive input data"))
-      (dict "img" "/images/r6.png" "num" "05" "title" "AI Privacy" "text" `Apart from protecting personal data, AI systems have several responsibilities when it comes to privacy...` "links" (slice "› Use Limitation" "› Fairness" "› Data Minimisation" "› Privacy Rights" "› Data accuracy" "› Consent" "› Model attacks" "› Transparency"))
-      (dict "img" "/images/r7.png" "num" "06" "title" "AI Privacy" "text" `Apart from protecting personal data, AI systems have several responsibilities when it comes to privacy...` "links" (slice "› Use Limitation and Purpose Specification" "› Fairness" "› Data Minimisation and Storage Limitation" "› Privacy Rights" "› Data accuracy" "› Consent" "› Model attacks" "› Transparency"))
-      (dict "img" "/images/r8.png" "num" "07" "title" "References" "text" `References on specific topics can be found throughout the AI Exchange content. This section contains an overview...` "links" (slice "› Overview of AI Security" "› Overview of AI Security / Privacy Incidents" "› Misc." "› Learning and Training"))
+      (dict "img" "/images/r1.png" "num" "00" "title" "AI Security Overview" "text" `This section provides an overview of AI security — including threats, controls, and risk analysis to help understand the structure of the AI Exchange.` "learnMore" "/docs/ai_security_overview/" "links" (slice 
+        (dict "label" "› About the AI Exchange" "url" "/docs/ai_security_overview/") 
+        (dict "label" "› Summary" "url" "/docs/ai_security_overview/#summary---how-to-address-ai-security") 
+        (dict "label" "› How to Use This Document" "url" "/docs/ai_security_overview/#how-to-use-this-document") 
+        (dict "label" "› Threat Matrix" "url" "/docs/ai_security_overview/#ai-security-matrix") 
+        (dict "label" "› Controls" "url" "/docs/1_general_controls/") 
+        (dict "label" "› Periodic Table" "url" "/docs/ai_security_overview/#periodic-table-of-ai-security") 
+        (dict "label" "› Risk Analysis" "url" "/docs/ai_security_overview/#how-to-select-relevant-threats-and-controls-risk-analysis") 
+        (dict "label" "› How About..." "url" "/docs/ai_security_overview/#how-about-") 
+      ))
+      (dict "img" "/images/r2.png" "num" "01" "title" "General controls" "text" `These are the controls every organisation should have in place...` "learnMore" "/docs/1_general_controls/" "links" (slice 
+        (dict "label" "› Governance controls" "url" "/docs/1_general_controls/#11-general-governance-controls") 
+        (dict "label" "› Data Limitation" "url" "/docs/1_general_controls/#12-general-controls-for-sensitive-data-limitation") 
+        (dict "label" "› Limit unwanted behaviour" "url" "/docs/1_general_controls/#13-controls-to-limit-the-effects-of-unwanted-behaviour") 
+      ))
+      (dict "img" "/images/r3.png" "num" "02" "title" "Threats through use and controls" "text" `Attacks by crafting inputs to AI, and their countermeasures...` "learnMore" "/docs/2_threats_through_use/" "links" (slice 
+        (dict "label" "› Evasion" "url" "/docs/2_threats_through_use/#21-evasion") 
+        (dict "label" "› Prompt injection" "url" "/docs/2_threats_through_use/#22-prompt-injection") 
+        (dict "label" "› Sensitive data disclosure" "url" "/docs/2_threats_through_use/#23-sensitive-data-disclosure-through-use") 
+        (dict "label" "› Model theft" "url" "/docs/2_threats_through_use/#24-model-theft-through-use") 
+        (dict "label" "› Malfunctioning" "url" "/docs/2_threats_through_use/#25-failure-or-malfunction-of-ai-specific-elements-through-use") 
+        (dict "label" "› Culture-sensitivity" "url" "/docs/2_threats_through_use/#highlighted-differences-in-ai-security-and-cultural-alignment") 
+      ))
+      (dict "img" "/images/r4.png" "num" "03" "title" "Development-time threats and controls" "text" `Attacks to the AI system in operation apart from input attacks...` "learnMore" "/docs/3_development_time_threats/" "links" (slice 
+        (dict "label" "› Introduction" "url" "/docs/3_development_time_threats/") 
+        (dict "label" "› Development poisoning" "url" "/docs/3_development_time_threats/#31-broad-model-poisoning-development-time") 
+        (dict "label" "› Data leak" "url" "/docs/3_development_time_threats/#321-development-time-data-leak") 
+      ))
+      (dict "img" "/images/r5.png" "num" "04" "title" "Runtime application security threats" "text" `Attacks to the AI system in operation apart from the input attacks, and protective controls...` "learnMore" "/docs/4_runtime_application_security_threats/" "links" (slice 
+        (dict "label" "› Non AI-specific threats" "url" "/docs/4_runtime_application_security_threats/#41-non-ai-specific-application-security-threats") 
+        (dict "label" "› Runtime model poisoning" "url" "/docs/4_runtime_application_security_threats/#42-runtime-model-poisoning-manipulating-the-model-itself-or-its-inputoutput-logic") 
+        (dict "label" "› Direct runtime model theft" "url" "/docs/4_runtime_application_security_threats/#43-direct-runtime-model-theft") 
+        (dict "label" "› Insecure output handling" "url" "/docs/4_runtime_application_security_threats/#44-insecure-output-handling") 
+        (dict "label" "› Leak sensitive input data" "url" "/docs/4_runtime_application_security_threats/#45-leak-sensitive-input-data") 
+      ))
+      (dict "img" "/images/r6.png" "num" "05" "title" "AI Privacy" "text" `Apart from protecting personal data, AI systems have several responsibilities when it comes to privacy...` "learnMore" "/docs/6_privacy/" "links" (slice 
+        (dict "label" "› Use Limitation" "url" "/docs/6_privacy/#1-use-limitation-and-purpose-specification") 
+        (dict "label" "› Fairness" "url" "/docs/6_privacy/#2-fairness") 
+        (dict "label" "› Data minimization" "url" "/docs/6_privacy/#3-data-minimization-and-storage-limitation") 
+        (dict "label" "› Privacy Rights" "url" "/docs/6_privacy/#5-privacy-rights") 
+        (dict "label" "› Data accuracy" "url" "/docs/6_privacy/#6-data-accuracy") 
+        (dict "label" "› Consent" "url" "/docs/6_privacy/#7-consent") 
+        (dict "label" "› Model attacks" "url" "/docs/6_privacy/#8-model-attacks") 
+        (dict "label" "› Transparency" "url" "/docs/6_privacy/#4-transparency") 
+      ))
+      (dict "img" "/images/r7.png" "num" "06" "title" "AI Security Testing" "text" `Approaches to AI red teaming......` "learnMore" "/docs/5_testing/" "links" (slice 
+        (dict "label" "› Introduction" "url" "/docs/5_testing/#introduction") 
+        (dict "label" "› Tools for generative AI" "url" "/docs/5_testing/#red-teaming-tools-for-ai-and-genai") 
+        (dict "label" "› Threats to test" "url" "/docs/5_testing/#threats-to-test-for") 
+        (dict "label" "› Using tools" "url" "/docs/5_testing/#open-source-tools-for-predictive-ai-red-teaming") 
+        (dict "label" "› Tools for predictive AI" "url" "/docs/5_testing/#open-source-tools-for-predictive-ai-red-teaming")  
+      ))
+      (dict "img" "/images/r8.png" "num" "07" "title" "References" "text" `References on specific topics can be found throughout the AI Exchange content. This section contains an overview...` "learnMore" "/docs/ai_security_references/" "links" (slice 
+        (dict "label" "› Overview of AI Security" "url" "/docs/ai_security_references/#overviews-of-ai-security-threats") 
+        (dict "label" "› Overview of AI Security / Privacy Incidents" "url" "/docs/ai_security_references/#overviews-of-ai-securityprivacy-incidents") 
+        (dict "label" "› Misc." "url" "/docs/ai_security_references/#misc") 
+        (dict "label" "› Learning and Training" "url" "/docs/ai_security_references/#learning-and-training") 
+      ))
     }}
 
     <!-- Loop Cards -->
@@ -33,15 +83,15 @@
           <div>
             <h3 class="text-xl font-bold mb-2">{{ .title }}</h3>
             <p class="text-gray-600 text-md mb-3 leading-snug">{{ .text }}</p>
-            <div class="grid grid-cols-2 gap-x-6 gap-y-2 text-sm font-medium text-green-600">
+            <div class="hidden sm:grid sm:grid-cols-2 gap-x-6 gap-y-2 text-base font-medium text-green-600">
               {{ range .links }}
-              <a href="#" class="block">{{ . }}</a>
+                <a href="{{ .url }}" class="block hover:underline">{{ .label }}</a>
               {{ end }}
             </div>
           </div>
-          <button class="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-green-600 self-start mt-4">
+          <a href="{{ .learnMore }}" class="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-green-600 self-start mt-4">
             Learn more
-          </button>
+          </a>
         </div>
       </div>
       {{ end }}
