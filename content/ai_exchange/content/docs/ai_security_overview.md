@@ -320,7 +320,7 @@ Discovering potential risks that could impact the organization requires technica
 
   Who runs the model?
   - The supplier: select a trusthworthy supplier through [supply chain management](/goto/supplychainmanage/), to make sure the deployed model cannot be manipulated ([runtime model poisoning](/goto/runtimemodelpoison/)) - just the way you would expect any supplier to protect their running application from manipulation
-  - You: You need** to prevent [runtime model poisoning](/goto/runtimemodelpoison/) where attackers change the model that you have deployed.
+  - You: You need to prevent [runtime model poisoning](/goto/runtimemodelpoison/) where attackers change the model that you have deployed.
 
   Is the model (predictive AI or Generative AI) used in a judgement task (e.g. spam detection)?
   - Yes: Prevent an [evasion attack](/goto/evasion/) in which a user tries to fool the model into a wrong decision using data (not instructions). Here, the level of risk is an important aspect to evaluate - see below. The risk of an evasion attack may be acceptable.
