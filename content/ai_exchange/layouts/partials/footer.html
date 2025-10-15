@@ -24,18 +24,18 @@
     </script>
 
 <!-- Footer -->
-<footer class="bg-black text-white w-full py-8">
-  <div class="container mx-auto px-4 md:px-10">
+<footer class="bg-black text-white w-full">
+  <div class="container mx-auto px-4 md:px-10 md:py-4"> <!-- reduced desktop padding -->
     <!-- Mobile Layout -->
     <div class="md:hidden">
       <!-- Logo Section -->
-      <div class="text-center mb-8">
+      <div class="text-center mb-4">
         {{ if .Site.Params.navbar.displayLogo }}
           <a href="{{ .Site.Params.navbar.logo.link | default "/" }}" class="inline-block">
             <img
               src="{{ .Site.Params.navbar.logo.path | relURL }}"
               alt="{{ .Site.Title }}"
-              class="h-16 w-auto mx-auto mb-4 filter brightness-0 invert"
+              class="h-10 md:h-10 w-auto mx-auto mb-4 filter brightness-0 invert"
             />
           </a>
         {{ else if .Site.Params.navbar.displayTitle }}
@@ -70,10 +70,8 @@
         </ul>
       </div>
 
-      <!-- Divider -->
       <div class="border-t border-gray-600 mb-6"></div>
 
-      <!-- Social Icons -->
       <div class="flex justify-center space-x-4 mb-6">
         <a href="#" class="w-12 h-12 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
           <i class="fab fa-linkedin-in text-lg"></i>
@@ -89,17 +87,14 @@
         </a>
       </div>
 
-      <!-- Divider -->
       <div class="border-t border-gray-600 mb-6"></div>
 
-      <!-- Copyright -->
       <div class="text-center mb-6">
         <p class="text-sm">
           Copyright © owasp.org 2025. All Rights Reserved.
         </p>
       </div>
 
-      <!-- Designed By -->
       <div class="text-center">
         <p class="text-sm mb-2">Designed & Developed by:</p>
         <div class="flex items-center justify-center space-x-2">
@@ -112,7 +107,7 @@
     </div>
 
     <!-- Desktop Layout -->
-    <div class="hidden md:block">
+    <div class="hidden md:block py-4"> <!-- reduced vertical padding for desktop -->
       <!-- Top: Logo + Links + Social -->
       <div class="flex justify-between items-start">
         <!-- Left Section -->
@@ -122,12 +117,12 @@
             <img
               src="/images/Owasp-AI-Exchange-Logo.png"
               alt="OWASP AI Exchange"
-              class="site-logo h-[39px] w-auto"
+              class="site-logo h-[36px] w-auto"
             />
           </a>
 
           <!-- Nav Links -->
-          <ul class="flex space-x-8 mt-4 font-roboto text-[16px]">
+          <ul class="flex space-x-6 mt-3 font-roboto text-[15px]">
             <li><a href="/" class="hover:text-white">Home</a></li>
             <li><a href="/docs/ai_security_overview/" class="hover:text-white">Overview</a></li>
             <li><a href="/media/" class="hover:text-white">Media</a></li>
@@ -138,35 +133,34 @@
         </div>
 
         <!-- Social Icons -->
-        <div class="flex space-x-4 mt-10">
-          <a href="#" class="w-9 h-9 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
+        <div class="flex space-x-3 mt-2">
+          <a href="#" class="w-8 h-8 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
             <i class="fab fa-github"></i>
           </a>
-          <a href="#" class="w-9 h-9 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
+          <a href="#" class="w-8 h-8 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
             <i class="fab fa-slack"></i>
           </a>
-          <a href="#" class="w-9 h-9 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
+          <a href="#" class="w-8 h-8 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
             <i class="fab fa-linkedin-in"></i>
           </a>
-          <a href="#" class="w-9 h-9 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
+          <a href="#" class="w-8 h-8 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
             <i class="fab fa-youtube"></i>
           </a>
         </div>
       </div>
 
-      <!-- Divider -->
-      <div class="border-t border-gray-600 mt-4"></div>
+      <div class="border-t border-gray-600 mt-3"></div>
 
       <!-- Bottom Section -->
-      <div class="flex w-full flex-row justify-between space-between pt-6">
+      <div class="flex w-full flex-row justify-between items-center pt-3">
         <!-- Copyright -->
-        <p class="font-roboto text-[16px]">
+        <p class="font-roboto text-[14px]">
           Copyright © owasp.org 2025. All Rights Reserved.
         </p>
         <!-- Proudly Designed -->
-        <p class="flex gap-2 text-[12px]">
+        <p class="flex gap-2 text-[12px] items-center">
           PROUDLY DESIGNED AND DEVELOPED BY:
-          <img src="/images/usability.png" alt="Usability Icon" class="h-5 inline-block" />
+          <img src="/images/usability.png" alt="Usability Icon" class="h-4 inline-block" />
           <a href="https://usabilitydesigns.com/" class="text-[#FFAE3C]">USABILITY DESIGNS</a>
         </p>
       </div>

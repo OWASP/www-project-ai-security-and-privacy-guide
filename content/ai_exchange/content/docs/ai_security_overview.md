@@ -4,6 +4,24 @@ heroTitle: "AI Security Overview"
 heroText: "This section provides various overviews of threats and control, step-by-step risk analysis, and discussion of cross-cutting concerns."
 weight: 1
 ---
+<style>
+/* Global blockquote styling: vertical gray line */
+blockquote {
+    border-left: 3px solid #d1d5db !important; /* gray line */
+    padding-left: 0.75rem !important;          /* spacing between line and text */
+}
+
+/* Hyperlinks inside blockquotes: green color */
+blockquote a {
+    color: #16a34a !important;                 /* green link */
+    text-decoration: underline !important;
+}
+
+blockquote a:hover {
+    color: #0d924a !important;                 /* darker green on hover */
+}
+
+</style>
 ## About the AI Exchange
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/about/
@@ -49,6 +67,7 @@ The project started out as the 'AI security and privacy guide' in October 22 and
 ## Relevant OWASP AI initiatives
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/aiatowasp/
+
 <img 
   src="/images/overview1.png" 
   alt="AI Overview" 
