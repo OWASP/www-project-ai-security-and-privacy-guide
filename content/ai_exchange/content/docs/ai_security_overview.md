@@ -174,6 +174,31 @@ The [testing section](/goto/testing/) discusses more about agentic AI red teamin
 The AI security matrix below (click to enlarge) shows all threats and risks, ordered by type and impact.
 [![](/images/OwaspAIsecuritymatix.png)](/images/OwaspAIsecuritymatix.png)
 
+Clickable version, based on the [Periodic table](/goto/periodictable/):
+<table><thead>
+<tr><th>Asset &amp; Impact</th><th>Attack surface with lifecycle</th><th>Threat/Risk category</th></tr>
+</thead><tbody>
+<tr><td rowspan="7">Model behaviour Integrity</td><td rowspan="3">Runtime -Model use (provide input/ read output)</td><td><a href="/goto/directpromptinjection/">Direct prompt injection</a></td></tr>
+<tr>                                         <td><a href="/goto/indirectpromptinjection/">Indirect prompt injection</a></td></tr>
+<tr>                                         <td><a href="/goto/evasion/">Evasion</a> (e.g. adversarial examples)</td></tr>
+<tr>                                         <td>Runtime - Break into deployed model</td><td><a href="/goto/runtimemodelpoison/">Model poisoning runtime</a> (reprogramming)</td></tr>
+<tr><td rowspan="2">Development -Engineering environment</td><td><a href="/goto/devmodelpoison/">Development-environment model poisoning</a></td></tr>
+<tr>                                         <td><a href="/goto/datapoison/">Data poisoning of train/finetune data</a></td></tr>
+<tr><td>Development - Supply chain</td><td><a href="/goto/supplymodelpoison/">Supply-chain model poisoning</a></td></tr>
+<tr><td rowspan="3">Training data Confidentiality</td><td rowspan="2">Runtime - Model use</td><td><a href="/goto/disclosureuseoutput/">Data disclosure in model output</a></td></tr>
+<tr><td><a href="/goto/modelinversionandmembership/">Model inversion / Membership inference</a></td></tr>
+<tr><td>Development - Engineering environment</td><td><a href="/goto/devdataleak/">Training data leaks</a></td></tr>
+<tr><td rowspan="3">Model confidentiality</td><td>Runtime - Model use</td><td><a href="/goto/modeltheftuse/">Model theft through use</a> (input-output harvesting)</td></tr>
+<tr><td>Runtime - Break into deployed model</td><td><a href="/goto/runtimemodeltheft/">Direct model theft runtime</a></td></tr>
+<tr><td>Development - Engineering environment</td><td><a href="/goto/devmodelleak/">Model theft development-time</a></td></tr>
+<tr><td>Model behaviour Availability</td><td>Model use</td><td><a href="/goto/denialmodelservice/">Denial of model service</a> (model resource depletion)</td></tr>
+<tr><td>Model input data Confidentialiy</td><td>Runtime - All IT</td><td><a href="/goto/leakinput/">Model input leak</a></td></tr>
+<tr><td>Any asset, CIA</td><td>Runtime-All IT</td><td><a href="/goto/insecureoutput/">Model output contains injection</a></td></tr>
+<tr><td>Any asset, CIA</td><td>Runtime - All IT</td><td>Conventional runtime security attack on conventional asset</td></tr>
+<tr><td>Any asset, CIA</td><td>Runtime - All IT</td><td>Conventional attack on conventional supply chain</td></tr>
+</tbody></table>
+
+
 ---
 
 ## Controls overview
