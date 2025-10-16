@@ -17,7 +17,8 @@
 </p>
 
 >Welcome to the go-to resource for broad AI security & privacy - over 200 pages of practical advice and references on protecting AI and data-centric systems from threats. This content serves as key bookmark for practitioners, and is contributing actively and substantially to international standards such as ISO/IEC and the AI Act through official standard partnerships. Through broad collaboration with key institutes and SDOs, the _Exchange_ represents the consensus on AI security and privacy.<br>
-See the [overview of AI projects at OWASP](/goto/aiatowasp/).
+
+START HERE: [how to use this document](/goto//document/).
 
 {{< spacer height="10" >}}
 
