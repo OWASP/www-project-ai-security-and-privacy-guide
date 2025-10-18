@@ -89,21 +89,21 @@ While Artificial Intelligence (AI) offers tremendous opportunities, it also brin
 The AI Exchange is a single coherent resource on the security and privacy of AI systems, presented on this website, divided over several pages - containing threats, controls, guidelines, tests and references.
 
 **Ways to start, depending on your need:**
-- **Learn more about the AI Exchange**:
+- **Learn more about the AI Exchange**:  
   See [About](https://owaspai.org/goto/about/)
-- **Start AI security as organization**:
+- **Start AI security as organization**:  
   See [How to address AI security?](https://owaspai.org/goto/summary/) for the key steps to get started as organization.
-- **Start AI security as individual**:
+- **Start AI security as individual**:  
   See 'learn/lookup' below to familiarize yourself with the threats and controls.
-- **Secure a system**:
+- **Secure a system**:  
    If you want your **AI system to be secure**, start with [risk analysis](/goto/riskanalysis/) to guide you through a number of questions, resulting in the threats that apply. And when you click on those threats you'll find the controls (countermeasures) to check for, or to implement.
-- **Learn / look up**:
+- **Learn / look up**:  
   - To see a general overview and discussion of all **threats** from different angles, check the [AI threat model](/goto/threatsoverview/) or the [AI security matrix](/goto/aisecuritymatrix). In case you know the threat you need to protect against, find it in the overview of your choice and click to get more information and how to protect against it.
   - To find out what to do against a specific threat, check the [controls overview](/goto/controlsoverview/) or the [periodic table](/goto/periodictable/) to find the right **controls**.
   - To learn about **privacy** of AI systems, check [the privacy section](/goto/aiprivacy/).
   - Agentic AI aspects are covered throughout all content, with a specific section [here](goto/agenticaithreats/).
   - Looking for more information, or training material: see the [references](/goto/references/).
-- **Test**:
+- **Test**:  
   If you want to **test** the security of AI systems with tools, go to [the testing page](/goto/testing/).
 
 The AI exchange covers both heuristic artificial intelligence (e.g. expert systems) and machine learning. This means that when we talk about an AI system, it can for example be a Large Language Model, a linear regression function, a rule-based system, or a lookup table based on statistics. Throughout this document it is made clear when which threats and controls play a role.
