@@ -113,6 +113,7 @@ The AI Exchange is a single coherent resource on the security and privacy of AI 
   - To find out what to do against a specific threat, check the [controls overview](/goto/controlsoverview/) or the [periodic table](/goto/periodictable/) to find the right **controls**.
   - To learn about **privacy** of AI systems, check [the privacy section](/goto/aiprivacy/).
   - Agentic AI aspects are covered throughout all content, with a specific section [here](/goto/agenticaithreats/).
+  - To look up a specific topic, use the search function or the [index](/goto/index/).
   - Looking for more information, or training material: see the [references](/goto/references/).
 - **Test**:  
   If you want to **test** the security of AI systems with tools, go to [the testing page](/goto/testing/).
