@@ -83,6 +83,8 @@ When comparing the AI Exchange with the GenAI Security Project, the Exchange:
 
 While Artificial Intelligence (AI) offers tremendous opportunities, it also brings new risks including security threats. It is therefore imperative to approach AI applications with a clear understanding of potential threats and the controls against them. 
 
+[![](/images/guard.png)](/images/guard.png)
+
 The five steps - G.U.A.R.D - to address AI security are: 
 
 1. **Govern**  
