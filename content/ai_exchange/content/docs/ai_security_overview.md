@@ -37,6 +37,17 @@ The AI Exchange was founded in 2022 by [Rob van der Veer](https://www.linkedin.c
 
 The project started out as the 'AI security and privacy guide' in October 22 and was rebranded a year later as 'AI Exchange' to highlight the element of global collaboration. In March 2025 the AI Exchange was awarded the status of 'OWASP Flagship project' because of its critical importance, together with the ['GenAI Security Project'](https://genai.owasp.org/).
 
+**The AI Exchange is trusted by industry giants**
+
+Dimitri van Zantvliet, Director Cybersecurity, Dutch Railways:
+> "A risk-based, context-aware approach—like the one OWASP Exchange champions—not only supports the responsible use of AI, but ensures that real threats are mitigated without burdening engineers with irrelevant checklists. We need standards written by those who build and defend these systems every day."
+
+Sri Manda, Chief Security & Trust Officer at Peloton Interactive:
+> “AI regulation is critical for protecting safety and security, and for creating a level playing field for vendors. The challenge is to remove legal uncertainty by making standards really clear, and to avoid unnecessary requirements by building in flexible compliance. I’m very happy to see that OWASP Exchange has taken on these challenges by bringing the security community to the table to ensure we get standards that work.”
+
+Prateek Kalasannavar, Staff AI Security Engineer, Lenovo:
+> “At Lenovo, we’re operationalizing AI product security at scale, from embedded inference on devices to large-scale cloud-hosted models. OWASP AI Exchange serves as a vital anchor for mapping evolving attack surfaces, codifying AI-specific testing methodologies, and driving community-aligned standards for AI risk mitigation. It bridges the gap between theory and engineering.”
+
 
 ## Relevant OWASP AI initiatives
 >Category: discussion  
