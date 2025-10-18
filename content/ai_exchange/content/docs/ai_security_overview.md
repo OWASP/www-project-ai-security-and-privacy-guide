@@ -81,15 +81,24 @@ When comparing the AI Exchange with the GenAI Security Project, the Exchange:
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/summary/
 
-While Artificial Intelligence (AI) offers tremendous opportunities, it also brings new risks including security threats. It is therefore imperative to approach AI applications with a clear understanding of potential threats and the controls against them. In a nutshell, the main steps to address AI security are: 
+While Artificial Intelligence (AI) offers tremendous opportunities, it also brings new risks including security threats. It is therefore imperative to approach AI applications with a clear understanding of potential threats and the controls against them. 
 
-- Implement [AI governance](/goto/aiprogram/) including arranging [compliance](/goto/checkcompliance/).
-- [Extend your security practices](/goto/secprogram/) with the AI security assets, threats and controls from this document.
-- If you develop AI systems (even if you don't train your own models):
-  - Involve your data and AI engineering into your traditional [software development practices](/goto/devprogram/) and [secure development program](/goto/secdevprogram/). This involves [education on AI security](/goto/seceducate/).
-  - Apply appropriate [process controls and technical controls](/goto/periodictable/) through understanding of the [threats](/goto/threatsoverview/) as discussed in this document.
-- [Minimize or obfuscate sensitive data](/goto/datalimit/) and [limit the impact](/goto/limitunwanted/) of AI by managing privileges annd adding oversight, e.g. guardrails, human oversight.
-- Make sure your AI **suppliers** apply the appropriate controls.
+The five steps - G.U.A.R.D - to address AI security are: 
+
+1. **Govern**
+  Implement [AI governance](/goto/aiprogram/) including arranging [compliance](/goto/checkcompliance/). Agree on responsibilities, know what is going on, implement policy, [education](/goto/seceducate/), etc. 
+2. **Understand**
+   Know the relevant [AI security threats](/goto/threatsoverview/) and the corresponding [process controls and technical controls](/goto/periodictable/) that need to be applied by you or your suppliers.
+3. **Adapt**
+  - [Extend your security practices](/goto/secprogram/) with the AI security assets, threats and controls from this document.
+  - Extend your threat modelling to include the [AI security threat model(/goto/riskanalysis/)
+  - Extend your testing with [AI-specific security testing](/goto/testing/)
+  - Extend your supply chain management with [data and model supply chain management](/goto/supplychainmanage/)
+  - If you develop AI systems (even if you don't train your own models): Involve your data and AI engineering into your traditional [software development practices](/goto/devprogram/) and [secure development program](/goto/secdevprogram/). 
+4. **Reduce**
+  Reduce potential impact by [minimizing or obfuscating sensitive data](/goto/datalimit/) and [limiting the impact of unwanted behaviour](/goto/limitunwanted/) (e.g., managing privileges, guardrails, human oversight etc. Basically: apply Murphy's law.
+5. **Demonstrate**
+    Show evidence of responsible AI security through transparency, documentation, and communication. Prove to management, regulators, and clients that your AI systems are under control and that the applied safeguards work as intended.
 
 ---
 
