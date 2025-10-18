@@ -73,7 +73,7 @@ When comparing the AI Exchange with the GenAI Security Project, the Exchange:
 While Artificial Intelligence (AI) offers tremendous opportunities, it also brings new risks including security threats. It is therefore imperative to approach AI applications with a clear understanding of potential threats and the controls against them. In a nutshell, the main steps to address AI security are: 
 
 - Implement [AI governance](/goto/aiprogram/) including arranging [compliance](/goto/checkcompliance/).
-- [Extend your security practices](/goto/secprogram) with the AI security assets, threats and controls from this document.
+- [Extend your security practices](/goto/secprogram/) with the AI security assets, threats and controls from this document.
 - If you develop AI systems (even if you don't train your own models):
   - Involve your data and AI engineering into your traditional [software development practices](/goto/devprogram/) and [secure development program](/goto/secdevprogram/). This involves [education on AI security](/goto/seceducate/).
   - Apply appropriate [process controls and technical controls](/goto/periodictable/) through understanding of the [threats](/goto/threatsoverview/) as discussed in this document.
