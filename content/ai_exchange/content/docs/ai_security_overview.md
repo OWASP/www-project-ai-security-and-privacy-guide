@@ -91,7 +91,7 @@ The five steps - G.U.A.R.D - to address AI security are:
    Know the relevant [AI security threats](/goto/threatsoverview/) and the corresponding [process controls and technical controls](/goto/periodictable/) that need to be applied by you or your suppliers.
 3. **Adapt**  
   - [Extend your security practices](/goto/secprogram/) with the AI security assets, threats and controls from this document.
-  - Extend your threat modelling to include the [AI security threat model(/goto/riskanalysis/)
+  - Extend your threat modelling to include the [AI security threat model](/goto/riskanalysis/)
   - Extend your testing with [AI-specific security testing](/goto/testing/)
   - Extend your supply chain management with [data and model supply chain management](/goto/supplychainmanage/)
   - If you develop AI systems (even if you don't train your own models): Involve your data and AI engineering into your traditional [software development practices](/goto/devprogram/) and [secure development program](/goto/secdevprogram/). 
