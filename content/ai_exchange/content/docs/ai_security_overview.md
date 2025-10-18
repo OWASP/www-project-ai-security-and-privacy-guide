@@ -72,15 +72,13 @@ When comparing the AI Exchange with the GenAI Security Project, the Exchange:
 
 While Artificial Intelligence (AI) offers tremendous opportunities, it also brings new risks including security threats. It is therefore imperative to approach AI applications with a clear understanding of potential threats and the controls against them. In a nutshell, the main steps to address AI security are: 
 
-- Implement **AI governance**.
-- **Extend your security practices** with the AI security assets, threats and controls from this document.
+- Implement [AI governance](/goto/aiprogram/] including arranging [compliance](/goto/checkcompliance/).
+- [Extend your security practices](/goto/secprogram] with the AI security assets, threats and controls from this document.
 - If you develop AI systems (even if you don't train your own models):
-  - Involve your data and AI engineering into your traditional **(secure) software development practices**.
-  - Apply appropriate process **controls** and technical controls through understanding of the threats as discussed in this document.
+  - Involve your data and AI engineering into your traditional [software development practices](/goto/devprogram/) and [secure development program](/goto/secdevprogram/). This involves [education on AI security](/goto/seceducate/).
+  - Apply appropriate [process controls and technical controls](/goto/periodictable/) through understanding of the [threats](/goto/threatsoverview/) as discussed in this document.
+- [Minimize or obfuscate sensitive data](/goto/datalimit/) and [limit the impact](/goto/limitunwanted/) of AI by managing privileges annd adding oversight, e.g. guardrails, human oversight.
 - Make sure your AI **suppliers** apply the appropriate controls.
-- **Limit the impact** of AI by minimizing data and privileges, and by adding oversight, e.g. guardrails, human oversight.
-
-The AI exchange covers both heuristic artificial intelligence and machine learning. This means that when we talk about an AI system, it can for example be a Large Language Model, a linear regression function, a rule-based system, or a lookup table based on statistics. Throughout this document it is made clear when which threats and controls play a role.
 
 ---
 
@@ -88,15 +86,28 @@ The AI exchange covers both heuristic artificial intelligence and machine learni
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/document/
 
-The AI Exchange is a single coherent resource on how to protect AI systems, presented on this website, divided over several pages.
+The AI Exchange is a single coherent resource on the security and privacy of AI systems, presented on this website, divided over several pages - containing threats, controls, guidelines, tests and references.
 
 **Ways to start**
-- If you want your **AI system to be secure**, start with [risk analysis](/goto/riskanalysis/) which will guide you through a number of questions, resulting in the threats that apply. And when you click on those threats you'll find the controls to select and implement.
-- If you want to get an overview of the **threats** from different angles, check the [AI threat model](/goto/threatsoverview/) or the [AI security matrix](/goto/aisecuritymatrix). In case you know the threat you need to protect against, find it in the overview of your choice and click to get more information and how to protect against it.
-- To understand how **controls** link to the threats, check the [controls overview](/goto/controlsoverview/) or the [periodic table](/goto/periodictable/).
-- If you want to **test** the security of AI systems with tools, go to [the testing page](/goto/testing/).
-- To learn about **privacy** of AI systems, check [the privacy section](/goto/aiprivacy/).
-- Looking for more information, or training material: see the [references](/goto/references/).
+- LEARN MORE ABOUT THE AI EXCHANGE PROJECT:
+  - See [About](https://owaspai.org/goto/about/)
+- START AI SECURITY AS ORGANIZATION:
+  - See [How to address AI security?](https://owaspai.org/goto/summary/) for the key steps to get started as organization.
+- START AI SECURITY AS INDIVIDUAL:
+  - See 'learn/lookup' below to familiarize yourself with the threats and controls.
+- SECURE A SYSTEM:
+   - If you want your **AI system to be secure**, start with [risk analysis](/goto/riskanalysis/) to guide you through a number of questions, resulting in the threats that apply. And when you click on those threats you'll find the controls (countermeasures) to check for, or to implement.
+- LEARN/LOOKUP:
+  - To see a general overview and discussion of all **threats** from different angles, check the [AI threat model](/goto/threatsoverview/) or the [AI security matrix](/goto/aisecuritymatrix). In case you know the threat you need to protect against, find it in the overview of your choice and click to get more information and how to protect against it.
+  - To find out what to do against a specific threat, check the [controls overview](/goto/controlsoverview/) or the [periodic table](/goto/periodictable/) to find the right **controls**.
+  - To learn about **privacy** of AI systems, check [the privacy section](/goto/aiprivacy/).
+  - Agentic AI aspects are covered throughout all content, with a specific section [here](goto/agenticaithreats/).
+  - Looking for more information, or training material: see the [references](/goto/references/).
+- TEST:
+  - If you want to **test** the security of AI systems with tools, go to [the testing page](/goto/testing/).
+
+The AI exchange covers both heuristic artificial intelligence (e.g. expert systems) and machine learning. This means that when we talk about an AI system, it can for example be a Large Language Model, a linear regression function, a rule-based system, or a lookup table based on statistics. Throughout this document it is made clear when which threats and controls play a role.
+
 
 **The structure**  
 You can see the high-level structure on the [main page](https://owaspai.org). On larger screens you can see the structure of pages on the left sidebar and the structure within the current page on the right. On smaller screens you can view these structures through the menu.
