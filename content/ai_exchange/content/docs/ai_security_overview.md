@@ -101,7 +101,7 @@ The AI Exchange is a single coherent resource on the security and privacy of AI 
   - To see a general overview and discussion of all **threats** from different angles, check the [AI threat model](/goto/threatsoverview/) or the [AI security matrix](/goto/aisecuritymatrix). In case you know the threat you need to protect against, find it in the overview of your choice and click to get more information and how to protect against it.
   - To find out what to do against a specific threat, check the [controls overview](/goto/controlsoverview/) or the [periodic table](/goto/periodictable/) to find the right **controls**.
   - To learn about **privacy** of AI systems, check [the privacy section](/goto/aiprivacy/).
-  - Agentic AI aspects are covered throughout all content, with a specific section [here](goto/agenticaithreats/).
+  - Agentic AI aspects are covered throughout all content, with a specific section [here](/goto/agenticaithreats/).
   - Looking for more information, or training material: see the [references](/goto/references/).
 - **Test**:  
   If you want to **test** the security of AI systems with tools, go to [the testing page](/goto/testing/).
