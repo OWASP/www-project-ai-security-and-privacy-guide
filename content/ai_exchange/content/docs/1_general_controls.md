@@ -515,13 +515,16 @@ Useful standards include:
 
 Continuous validation: by frequently testing the behaviour of the model against an appropriate test set, it is possible to detect sudden changes caused by a permanent attack (e.g. data poisoning, model poisoning), and also some robustness issues against for example evasion attacks.
 
-Continuous validation is a process that is often in place to detect other issues than attacks: system failures, or the model performance going down because of changes in the real world since it was trained.
+Continuous validation is a process that is often in place to detect other issues than attacks: system failures, or the model performance going down because of changes in the real world since it was trained (model drift, model staleness). There are many performance metrics available and the best ones are those that align with the goal. These metrics pertain to correctness, but can also link to other aspects such as unwanted bias towards protected attributes.
 
 Note that continuous validation is typically not suitable for detecting backdoor poisoning attacks, as these are designed to trigger with very specific input that would normally not be present in test sets. In fact. Such attacks are often designed to pass validation tests.
 
 Useful standards include:
 
 - ISO 5338 (AI lifecycle) Continuous validation. Gap: covers this control fully
+- ISO/IEC 24029-2:2023 Artificial intelligence (AI) — Assessment of the robustness of neural networks
+- ISO/IEC 24027:2021 Bias in AI systems and datasets
+- ISO/IEC 25059:2023 Software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE) — Quality model for AI systems
 
 #### #EXPLAINABILITY 
 > Category: runtime data science control  
