@@ -7,6 +7,7 @@ excludeSearch: true
 
 | Date | Event | Title | Video |
 | - | - | - | - |
+| 15 Sep 2025 | CSA AI Summit | Agentic AI Security w/ Ken Huang & Rob van der Veer | [Youtube](https://www.youtube.com/watch?v=_BXTx-igwPA) | 
 | 14 May 2025 | SANS Emerging threats summit | AI security demystified w/ Rob van der Veer | [Youtube](https://youtu.be/P3zVhR4O7nY?si=IxZUuTeV4yRoZ6So) | 
 | 23 Apr 2025 | Dubai AI week | Optimizing AI w/ Rob van der Veer | [Youtube](https://www.youtube.com/watch?v=HbtIccHgrNA) | 
 | 1 Apr 2025 | SANS AI security summit | AI security made easy w/ Rob van der Veer | [Youtube](https://www.youtube.com/watch?v=iWnYSdj9rxE) | 
