@@ -489,12 +489,12 @@ A helpful way to look at AI is to see it as consisting of machine learning (the 
 This document focuses on machine learning. Nevertheless, here is a quick summary of the machine learning threats from this document that also apply to heuristic systems:
 
 - Model evasion is also possible with heuristic models, as attackers may try to find loopholes or weaknesses in the defined rules.
-- Model theft through use - it is possible to train a machine learning model based on input/output combinations from a heuristic model
-- Overreliance in use - heuristic systems can also be relied on too much. The applied knowledge can be false
+- Model theft through use - it is possible to train a machine learning model based on input/output combinations from a heuristic model.
+- Overreliance in use - heuristic systems can also be relied on too much. The applied knowledge can be false.
 - Both data poisoning and model poisoning can occur by tampering with the data used to enhance knowledge, or by manipulating the rules either during development or at runtime.
-- Leaks of data used for analysis or testing can still be an issue
-- Knowledge base, source code and configuration can be regarded as sensitive data when it is intellectual property, so it needs protection
-- Leak sensitive input data, for example when a heuristic system needs to diagnose a patient
+- Leaks of data used for analysis or testing can still be an issue.
+- Knowledge base, source code and configuration can be regarded as sensitive data when it is intellectual property, so it needs protection.
+- Leak sensitive input data, for example when a heuristic system needs to diagnose a patient.
 
 ### How about responsible or trustworthy AI?
 > Category: discussion  
