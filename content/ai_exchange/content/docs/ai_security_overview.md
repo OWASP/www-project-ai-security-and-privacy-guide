@@ -374,7 +374,7 @@ Discovering potential risks that could impact the organization requires technica
   - You: you need to prevent [development-time model poisoning](/goto/modelpoison/) which includes model poisoning, data poisoning and obtaining poisoned data or a poisoned pre-trained model in case you're finetuning the model.
  
   Do you use RAG (Retrieval Augmented Generation using GenAI) ?
-  Yes: Thenour retrieval repository plays a role in determining the model behaviour. This means:
+  Yes: Then your retrieval repository plays a role in determining the model behaviour. This means:
   - You need to prevent [data poisoning](/goto/datapoison/) of your retrieval repository, which includes preventing that it contains externally obtained poisoned data.
 
   Who runs the model?
