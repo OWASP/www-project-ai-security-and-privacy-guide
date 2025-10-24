@@ -658,7 +658,7 @@ stakeholders including developers, content creators, and copyright owners alike.
 #### Lawsuits Related to AI & Copyright
 Recent lawsuits (writing is April 2024) highlight the urgency of these issues. For instance, a class 
 action suit filed against Stability AI, Midjourney, and DeviantArt alleges infringement
-on the rights of millions of artists by training their tools on web-scraped images2.  
+on the rights of millions of artists by training their tools on web-scraped images.  
 Similarly, Getty Images’ lawsuit against Stability AI for using images from its catalog
 without permission to train an art-generating AI underscores the potential for 
 copyright disputes to escalate. Imagine the same scenario where a supplier 
