@@ -374,7 +374,7 @@ Discovering potential risks that could impact the organization requires technica
   - You: you need to prevent [development-time model poisoning](/goto/modelpoison/) which includes model poisoning, data poisoning and obtaining poisoned data or a poisoned pre-trained model in case you're finetuning the model.
  
   Do you use RAG (Retrieval Augmented Generation using GenAI) ?
-  Yes: Thenour retrieval repository plays a role in determining the model behaviour. This means:
+  Yes: Then your retrieval repository plays a role in determining the model behaviour. This means:
   - You need to prevent [data poisoning](/goto/datapoison/) of your retrieval repository, which includes preventing that it contains externally obtained poisoned data.
 
   Who runs the model?
@@ -459,7 +459,7 @@ For each selected threat, determine who is responsible for addressing it. By def
 
 If some components of your AI system are hosted, then you share responsibility regarding all controls for the relevant threats with the hosting provider. This needs to be arranged with the provider by using a tool like the responsibility matrix. Components can be the model, model extensions, your application, or your infrastructure. See [Threat model of using a model as-is](#threat-model-with-controls---genai-as-is).
 
-If an external party is not open about how certain risks are mitigated, consider requesting this information and when this remains unclear you are faced with either 1) accept the risk, 2) or provide your own mitigations, or 3)avoid the risk, by not engaging with the third party.
+If an external party is not open about how certain risks are mitigated, consider requesting this information and when this remains unclear you are faced with either 1) accept the risk, 2) or provide your own mitigations, or 3) avoid the risk, by not engaging with the third party.
 
 ### 6. Verify external responsibilities
 For the threats that are the responsibility of other organisations: attain assurance whether these organisations take care of it. This would involve the controls that are linked to these threats.
@@ -489,12 +489,12 @@ A helpful way to look at AI is to see it as consisting of machine learning (the 
 This document focuses on machine learning. Nevertheless, here is a quick summary of the machine learning threats from this document that also apply to heuristic systems:
 
 - Model evasion is also possible with heuristic models, as attackers may try to find loopholes or weaknesses in the defined rules.
-- Model theft through use - it is possible to train a machine learning model based on input/output combinations from a heuristic model
-- Overreliance in use - heuristic systems can also be relied on too much. The applied knowledge can be false
+- Model theft through use - it is possible to train a machine learning model based on input/output combinations from a heuristic model.
+- Overreliance in use - heuristic systems can also be relied on too much. The applied knowledge can be false.
 - Both data poisoning and model poisoning can occur by tampering with the data used to enhance knowledge, or by manipulating the rules either during development or at runtime.
-- Leaks of data used for analysis or testing can still be an issue
-- Knowledge base, source code and configuration can be regarded as sensitive data when it is intellectual property, so it needs protection
-- Leak sensitive input data, for example when a heuristic system needs to diagnose a patient
+- Leaks of data used for analysis or testing can still be an issue.
+- Knowledge base, source code and configuration can be regarded as sensitive data when it is intellectual property, so it needs protection.
+- Leak sensitive input data, for example when a heuristic system needs to diagnose a patient.
 
 ### How about responsible or trustworthy AI?
 > Category: discussion  
@@ -506,17 +506,17 @@ If your primary responsibility is security, it's best to start by focusing on AI
 
 Let's break down the principles of AI and explore how each one connects to security:
 - **Accuracy** is about the AI model being sufficiently correct to perform its 'business function'. Being incorrect can lead to harm, including (physical) safety problems (e.g. car trunk opens during driving) or other wrong decisions that are harmful (e.g. wrongfully declined loan). The link with security is that some attacks cause unwanted model behaviour which is by definition, an accuracy problem. Nevertheless, the security scope is restricted to mitigating the risks of those attacks - NOT solve the entire problem of creating an accurate model (selecting representative data for the trainset etc.).
-- **Safety**  refers to the condition of being protected from / unlikely to cause harm. Therefore safety of an AI system is about the level of accuracy when there is a risk of harm (typically implying physical harm but not restricted to that) , plus the things that are in place to mitigate those risks (apart from accuracy), which includes security to safeguard accuracy, plus a number of safety measures that are important for the business function of the model. These need to be taken care of and not just for security reasons because the model can make unsafe decisions for other reasons (e.g. bad training data), so they are a shared concern between safety and security:
+- **Safety**  refers to the condition of being protected from / unlikely to cause harm. Therefore safety of an AI system is about the level of accuracy when there is a risk of harm (typically implying physical harm but not restricted to that), plus the things that are in place to mitigate those risks (apart from accuracy), which includes security to safeguard accuracy, plus a number of safety measures that are important for the business function of the model. These need to be taken care of and not just for security reasons because the model can make unsafe decisions for other reasons (e.g. bad training data), so they are a shared concern between safety and security:
   -  [oversight](/goto/oversight/) to restrict unsafe behaviour, and connected to that: assigning least privileges to the model,
   -  [continuous validation](/goto/continuousvalidation/) to safeguard accuracy,
   -  [transparency](/goto/aitransparency/): see below,
   -  [explainability](/goto/continuousvalidation/): see below.
 - **Transparency**: sharing information about the approach, to warn users and depending systems of accuracy risks, plus in many cases users have the right to know details about a model being used and how it has been created. Therefore it is a shared concern between security, privacy and safety.
 - **Explainability**: sharing information to help users validate accuracy by explaining in more detail how a specific result came to be. Apart from validating accuracy this can also support users to get transparency and to understand what needs to change to get a different outcome. Therefore it is a shared concern between security, privacy, safety and business function. A special case is when explainability is required by law separate from privacy, which adds 'compliance' to the list of aspects that share this concern.
-- **Robustness** is about the ability of maintaining accuracy under expected or unexpected variations in input. The security scope is about when those variations are malicious (_adversarial robustness_) which often requires different countermeasures than those required against normal variations (_generalization robustness). Just like with accuracy, security is not involved per se in creating a robust model for normal variations. The exception is when generalization robustness or adversarial robustness is involved, as this becomes a shared concern between safety and security. Whether it falls more under one or the other depends on the specific case.
+- **Robustness** is about the ability of maintaining accuracy under expected or unexpected variations in input. The security scope is about when those variations are malicious (_adversarial robustness_) which often requires different countermeasures than those required against normal variations (_generalization robustness_). Just like with accuracy, security is not involved per se in creating a robust model for normal variations. The exception is when generalization robustness or adversarial robustness is involved, as this becomes a shared concern between safety and security. Whether it falls more under one or the other depends on the specific case.
 - **Free of discrimination**: without unwanted bias of protected attributes, meaning: no systematic inaccuracy where the model 'mistreats' certain groups (e.g. gender, ethnicity). Discrimination is undesired for legal and ethical reasons. The relation with security is that having detection of unwanted bias can help to identify unwanted model behaviour caused by an attack. For example, a data poisoning attack has inserted malicious data samples in the training set, which at first goes unnoticed, but then is discovered by an unexplained detection of bias in the model. Sometimes the term 'fairness' is used to refer to discrimination issues, but mostly fairness in privacy is a broader term referring to fair treatment of individuals, including transparency, ethical use, and privacy rights.
 - **Empathy**. Its connection to security lies in recognizing the practical limits of what security can achieve when evaluating an AI application. If individuals or organizations cannot be adequately protected, empathy means rethinking the idea, either by rejecting it altogether or by taking additional precautions to reduce potential harm.
-- **Accountability**. The relation of accountability with security is that security measures should be demonstrable, including the process that have led to those measures. In addition, traceability as a security property is important, just like in any IT system, in order to detect, reconstruct and respond to security incidents and provide accountability.
+- **Accountability**. The relation of accountability with security is that security measures should be demonstrable, including the processes that have led to those measures. In addition, traceability as a security property is important, just like in any IT system, in order to detect, reconstruct and respond to security incidents and provide accountability.
 - **AI security**. The security aspect of AI is the central topic of the AI Exchange. In short, it can be broken down into:
   - [Input attacks](/goto/threatsuse/), that are performed by providing input to the model
   - [Model poisoning](/goto/modelpoison/), aimed to alter the model's behavior
@@ -551,9 +551,9 @@ GenAI security particularities are:
 |2| GenAI models have typically been trained on very large datasets, which makes it more likely to output [sensitive data](/goto/disclosureuseoutput/) or [licensed data](/goto/copyright/), for which there is no control of access privileges built into the model. All data will be accessible to the model users. Some mechanisms may be in place in terms of system prompts or output filtering, but those are typically not watertight. |  ([OWASP for LLM 02: Sensitive Information Disclosure](https://genai.owasp.org/llmrisk/llm02/))  | 
 |3|[Data and model poisoning](/goto/modelpoison/) is an AI-broad problem, and with GenAI the risk is generally higher since training data can be supplied from different sources that may be challenging to control, such as the internet. Attackers could for example hijack domains and place manipulated information. | ([OWASP for LLM 04: Data and Model Poisoning](https://genai.owasp.org/llmrisk/llm04/))|
 |4|GenAI models can be inaccurate and hallucinate. This is an AI-broad risk factor, and Large Language Models (GenAI) can make matters worse by coming across as very confident and knowledgeable. In essence, this is about the risk of underestimating the probability that the model is wrong or the model has been manipulated. This means that it is connected to each and every security control. The strongest link is with [controls that limit the impact of unwanted model behavior](/goto/limitunwanted/), in particular [Least model privilege](/goto/leastmodelprivilege/).  |([OWASP for LLM 06: Excessive agency](https://genai.owasp.org/llmrisk/llm06/)) and ([OWASP for LLM 09: Misinformation](https://genai.owasp.org/llmrisk/llm09/)) |
-|5| [Leaking input data](/goto/leakinput/): GenAI models mostly live in the cloud - often managed by an external party, which may increase the risk of leaking training data and leaking prompts. This issue is not limited to GenAI, but GenAI has 2 particular risks here: 1) model use involves user interaction through prompts, adding user data and corresponding privacy/sensitivity issues, and 2) GenAI model input (prompts) can contain rich context information with sensitive data (e.g. company secrets). The latter issue occurs with *in context learning* or *Retrieval Augmented Generation(RAG)* (adding background information to a prompt): for example data from all reports ever written at a consultancy firm. First of all, this information will travel with the prompt to the cloud, and second: the system will likely not respect the original access rights to the information.| Not covered in LLM top 10 |
+|5| [Leaking input data](/goto/leakinput/): GenAI models mostly live in the cloud - often managed by an external party, which may increase the risk of leaking training data and leaking prompts. This issue is not limited to GenAI, but GenAI has 2 particular risks here: 1) model use involves user interaction through prompts, adding user data and corresponding privacy/sensitivity issues, and 2) GenAI model input (prompts) can contain rich context information with sensitive data (e.g. company secrets). The latter issue occurs with *in context learning* or *Retrieval Augmented Generation (RAG)* (adding background information to a prompt): for example data from all reports ever written at a consultancy firm. First of all, this information will travel with the prompt to the cloud, and second: the system will likely not respect the original access rights to the information.| Not covered in LLM top 10 |
 |6|Pre-trained models may have been manipulated. The concept of pretraining is not limited to GenAI, but the approach is quite common in GenAI, which increases the risk of [supply-chain model poisoning](/goto/supplymodelpoison/).| ([OWASP for LLM 03 - Supply chain vulnerabilities](https://genai.owasp.org/llmrisk/llm03/))|
-|7|[Model inversion and membership inference](/goto/modelinversionandmembership/) are typically low to zero risks for GenAI |Not covered in LLM top 10, apart from LLM06 which uses a different approach - see above|
+|7|[Model inversion and membership inference](/goto/modelinversionandmembership/) are typically low to zero risks for GenAI. |Not covered in LLM top 10, apart from LLM06 which uses a different approach - see above|
 |8|GenAI output may contain elements that perform an [injection attack](/goto/insecureoutput/) such as cross-site-scripting.| ([OWASP for LLM 05: Improper Output Handling](https://genai.owasp.org/llmrisk/llm05/))|
 |9|[Denial of service](/goto/denialmodelservice/) can be an issue for any AI model, but GenAI models typically cost more to run, so overloading them can create unwanted cost. | ([OWASP for LLM 10: Unbounded consumption](https://genai.owasp.org/llmrisk/llm10/)) |
 
@@ -658,7 +658,7 @@ stakeholders including developers, content creators, and copyright owners alike.
 #### Lawsuits Related to AI & Copyright
 Recent lawsuits (writing is April 2024) highlight the urgency of these issues. For instance, a class 
 action suit filed against Stability AI, Midjourney, and DeviantArt alleges infringement
-on the rights of millions of artists by training their tools on web-scraped images2.  
+on the rights of millions of artists by training their tools on web-scraped images.  
 Similarly, Getty Images’ lawsuit against Stability AI for using images from its catalog
 without permission to train an art-generating AI underscores the potential for 
 copyright disputes to escalate. Imagine the same scenario where a supplier 
@@ -716,7 +716,7 @@ applications, interfaces and other tech stacks.
 3. Clear Legal Framework and Policy: development and enforcement of legal 
 policies and procedures for AI use, which ensure they align with current IP 
 laws including copyright.
-4. Ethics in Data Sourcing: source data ethically, ensuring all date used for 
+4. Ethics in Data Sourcing: source data ethically, ensuring all data used for 
 training the AI models is either created in-house, or obtained with all 
 necessary permissions, or is sourced from public domains which provide 
 sufficient license for the organization’s intended use.
