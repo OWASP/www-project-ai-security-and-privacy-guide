@@ -716,7 +716,7 @@ applications, interfaces and other tech stacks.
 3. Clear Legal Framework and Policy: development and enforcement of legal 
 policies and procedures for AI use, which ensure they align with current IP 
 laws including copyright.
-4. Ethics in Data Sourcing: source data ethically, ensuring all date used for 
+4. Ethics in Data Sourcing: source data ethically, ensuring all data used for 
 training the AI models is either created in-house, or obtained with all 
 necessary permissions, or is sourced from public domains which provide 
 sufficient license for the organization’s intended use.
