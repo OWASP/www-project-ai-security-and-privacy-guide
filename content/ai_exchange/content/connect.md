@@ -16,19 +16,26 @@ excludeSearch: true
 
 Engage with the OWASP AI team through various platforms.
 
-- Connect with us on the [OWASP Slack](https://owasp.org/slack/invite) workspace in the `#project-ai-community` channel. Authors are in the closed `#project-ai-authors` channel.
+- Connect with us on the [OWASP Slack](https://owasp.org/slack/invite) workspace. People who are interested in AI security join `#project-ai-community`. Contributors are in the closed `#project-ai-authors` channel See [Contribute](/contribute).
 - Keep up with the latest updates by following us on [LinkedIn](https://www.linkedin.com/company/owasp-ai-exchange/ "OWASP AI Exchange LinkedIn").
 - For technical inquiries and suggestions, participate in our [GitHub Discussions](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions), or report and track issues on [GitHub Issues](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues).
 
 If contributing interests you, check out our [Contribution Guidelines](/contribute) or get in touch with our project leaders. The Exchange is built on expertise from contributors around the world and across all disciplines.
 
-## OWASP AI Project Leader
+## OWASP AI Exchange Project Leadership
+
+Leadership team:
+- Behnaz Karimi
+- Aruneesh Salhotra
+- Rob van der Veer
+
+
 
 {{< image-left src="/images/rob_van_der_veer.jpeg" alt="Image description" width="auto" height="150px" >}}
 
 ### [Rob van der Veer](https://robvanderveer.com)
 
-Project leader of **OWASP AI Exchange**, OpenCRE, and author of the Agile guide at SAMM.
+Founder of **OWASP AI Exchange**, OpenCRE, and author of the Agile guide at SAMM.
 Lead author of ISO/IEC 5338 on AI lifecycle, working group member of ISO/IEC 27090/91 on AI security and privacy, and co-editor/expert of CEN/CENELEC JTC21/WG5 for the EU AI Act.  
 Chief AI Officer at Software Improvement Group, the company that donated the initial framework of AI threats and controls to the Exchange.
 
