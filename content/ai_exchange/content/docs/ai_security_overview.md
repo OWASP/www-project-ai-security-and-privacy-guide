@@ -85,7 +85,7 @@ While Artificial Intelligence (AI) offers tremendous opportunities, it also brin
 
 [![](/images/guard.png)](/images/guard.png)
 
-The five steps - G.U.A.R.D - to address AI security are: 
+The five steps - G.U.A.R.D - to address AI security as an organization are: 
 
 1. **Govern**  
   Implement [AI governance](/goto/aiprogram/) including arranging [compliance](/goto/checkcompliance/). Agree on responsibilities, know what is going on, implement policy, [education](/goto/seceducate/), etc. 
@@ -93,10 +93,10 @@ The five steps - G.U.A.R.D - to address AI security are:
    Know the relevant [AI security threats](/goto/threatsoverview/) and the corresponding [process controls and technical controls](/goto/periodictable/) that need to be applied by you or your suppliers.
 3. **Adapt**  
   - [Adapt your security practices](/goto/secprogram/) to include AI security assets, threats and controls from this document.
-  - Adapt your threat modelling to include the [AI security threat model](/goto/riskanalysis/)
+  - Adapt your threat modelling to include the [AI security threat model](/goto/riskanalysis/) approach.
   - Adapt your testing to include [AI-specific security testing](/goto/testing/)
   - Adapt your supply chain management to include [data and model management](/goto/supplychainmanage/)
-  - If you develop AI systems (even if you don't train your own models): Adapt your [software development practices](/goto/devprogram/) and [secure development program](/goto/secdevprogram/) to involve AI engineering . 
+  - If you develop AI systems (even if you don't train your own models): Adapt your [software development practices](/goto/devprogram/) and [secure development program](/goto/secdevprogram/) to involve AI engineering activities. 
 4. **Reduce**  
   Reduce potential impact by [minimizing or obfuscating sensitive data](/goto/datalimit/) and [limiting the impact of unwanted behaviour](/goto/limitunwanted/) (e.g., managing privileges, guardrails, human oversight etc. Basically: apply Murphy's law.
 5. **Demonstrate**  
