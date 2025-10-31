@@ -490,7 +490,7 @@ After training data has been poisoned (see [data poisoning section](/goto/datapo
 Prompt injection attacks involve maliciously crafting or manipulating input prompts to models, directly or indirectly, in order to exploit vulnerabilities in their processing capabilities or to trick them into executing unintended actions.
 
 **Controls:**
-- See [General controls](/goto/generalcontrols/) especially [limiting the impact of unwanted model behaviour](/goto/limitimpact/).
+- See [General controls](/goto/generalcontrols/) especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/).
 - See [controls for threats through use](/goto/threatsuse/)
 - The below control(s), each marked with a # and a short name in capitals
 
@@ -557,7 +557,7 @@ See [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.
 
 **Controls:**
 
-- See [General controls](/goto/generalcontrols/) especially [limiting the impact of unwanted model behaviour](/goto/limitimpact/).
+- See [General controls](/goto/generalcontrols/) especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/).
 - See [controls for threats through use](/goto/threatsuse/)
 - See [controls for prompt injection](/goto/promptinjection/)
 
