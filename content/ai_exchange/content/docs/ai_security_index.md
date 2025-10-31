@@ -27,7 +27,7 @@ D
 [Data disclosure in model output](/goto/disclosureuseoutput/)  
 [Data poisoning of train/finetune data](/goto/datapoison/)  
 [Denial of model service](/goto/denialmodelservice/)  
-[Direct prompt injection](/goto/directpromptinjection)  
+[Direct prompt injection](/goto/directpromptinjection/)  
 
 E  
 [EU AI Act](/goto/checkcompliance/)  
@@ -57,7 +57,7 @@ M
 [Model inversion / Membership inference](/goto/modelinversionandmembership/)  
 [Model output contains injection](/goto/insecureoutput)  
 [Model poisoning in development-environment](/goto/devmodelpoison/)  
-[Model poisoning in runtime](/goto/runtimemodelpoison)  
+[Model poisoning in runtime](/goto/runtimemodelpoison/)  
 [Model poisoning through data poisoning of train/finetune data](/goto/datapoison/)  
 [Model theft directly in runtime](/goto/runtimemodeltheft/)  
 [Model poisoning in supply chain](/goto/supplymodelpoison/)  
