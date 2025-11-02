@@ -108,9 +108,18 @@ See [MITRE ATLAS - Evade ML model](https://atlas.mitre.org/techniques/AML.T0015)
 
 An Evasion attack typically consists of first searching for the inputs that mislead the model, and then applying it. That initial search can be very intensive, as it requires trying many variations of input. Therefore, limiting access to the model with for example Rate limiting mitigates the risk, but still leaves the possibility of using a so-called transfer attack (see [Closed box evasion](/goto/closedboxevasion/) to search for the inputs in another, similar, model.  
 
-  - See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
-  - See [controls for threats through use](/goto/threatsuse/)
-  - The below control(s), each marked with a # and a short name in capitals
+- See [General controls](/goto/generalcontrols/):
+  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/).
+- Controls for [threats through use](/goto/threatsuse/):
+  - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
+  - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
+  - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
+- [#DETECT ODD INPUT](/goto/detectoddinput/) - discussed below
+- [#DETECT ADVERSARIAL INPUT](/goto/detectadversarialinput/) - discussed below
+- [#EVASION ROBUST MODEL](/goto/evasionrobustmodel/) - discussed below
+- [#TRAIN ADVERSARIAL](/goto/trainadversarial/) - discussed below
+- [#INPUT DISTORTION](/goto/inputdistortion/) - discussed below
+- [#ADVERSARIAL ROBUST DESTILLATION](/goto/adversarialrobustdestillation/) - discussed below
 
 #### #DETECT ODD INPUT 
 >Category: runtime datasciuence control for threats through use  
@@ -462,8 +471,13 @@ In contrast to white-box attacks, black-box attacks operate without direct acces
 
 **Controls:**
 
-- See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
-- See See [controls for threats through use](/goto/threatsuse/)
+- See [General controls](/goto/generalcontrols/):
+  - Especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
+- Controls for [threats through use](/goto/threatsuse/):
+  - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
+  - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
+  - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
+
 
 References:
 
@@ -563,7 +577,7 @@ See [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
-- Controls for [prompt injection](/goto/promptinjection/)
+- Controls for [prompt injection](/goto/promptinjection/):
   - [#PROMPT INPUT VALIDATION](/goto/promptinputvalidation/) to filter any suspicious input
   - [#MODEL ALIGNMENT](/goto/modelalignment/) done by model makers to try to make the model behave
 
@@ -672,7 +686,7 @@ References:
 
 The more details a model is able to learn, the more it can store information on individual training set entries. If this happens more than necessary, this is called _overfitting_, which can be prevented by configuring smaller models.
 
-Controls for Model inversion and membership inference:
+**Controls for Model inversion and membership inference:**
 
 - See [General controls](/goto/generalcontrols/):
   - Especially [Sensitive data limitation](/goto/dataminimize/)
@@ -718,7 +732,6 @@ This attack is known as model stealing attack or model extraction attack or mode
 **Controls:**
 
 - See [General controls](/goto/generalcontrols/):
-  - Especially [Sensitive data limitation](/goto/dataminimize/)
 - Controls for [threats through use](/goto/threatsuse/):
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output - especially sensitive output
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
@@ -743,9 +756,14 @@ For example: A _sponge attack_ or _energy latency attack_ provides input that is
 
 **Controls:**
 
-- See [General controls](/goto/generalcontrols/), especially management controls
-- See [controls for threats through use](/goto/threatsuse/), including for example [RATELIMIT](/goto/ratelimit/)
-- The below control(s), each marked with a # and a short name in capitals
+- See [General controls](/goto/generalcontrols/):
+  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/).
+- Controls for [threats through use](/goto/threatsuse/):
+  - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
+  - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
+  - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
+- [#DOS INPUT VALIDATION](/goto/dosinputvalidation/) to stop input suspicious for this attack - discussed below
+- [#LIMIT RESOURCES](/goto/limitresources/) to prevent depletion - discussed below
 
   
 #### #DOS INPUT VALIDATION
