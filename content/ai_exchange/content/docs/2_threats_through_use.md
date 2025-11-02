@@ -557,9 +557,15 @@ See [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.
 
 **Controls:**
 
-- See [General controls](/goto/generalcontrols/) especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/).
-- See [controls for threats through use](/goto/threatsuse/)
-- See [controls for prompt injection](/goto/promptinjection/)
+- See [General controls](/goto/generalcontrols/):
+  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/).
+- Controls for [threats through use](/goto/threatsuse/):
+  - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
+  - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
+  - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
+- Controls for [prompt injection](/goto/promptinjection/)
+  - [#PROMPT INPUT VALIDATION](/goto/promptinputvalidation/) to filter any suspicious input
+  - [#MODEL ALIGNMENT](/goto/modelalignment/) done by model makers to try to make the model behave
 
 ---
 
@@ -584,11 +590,17 @@ References
 
 **Controls:**
 
-- See [General controls](/goto/generalcontrols/), in particular section [Controls to limit effects of unwanted model behaviour](/goto/limitunwanted/) as those are the last defense
-- See [controls for threats through use](/goto/threatsuse/)
-- See [controls for prompt injection](/goto/promptinjection/)
-- The below control(s), each marked with a # and a short name in capitals
-
+- See [General controls](/goto/generalcontrols/):
+  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/).
+- Controls for [threats through use](/goto/threatsuse/):
+  - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
+  - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
+  - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
+- Controls for [prompt injection](/goto/promptinjection/):
+  - [#PROMPT INPUT VALIDATION](/goto/promptinputvalidation/) to filter any suspicious input
+  - [#MODEL ALIGNMENT](/goto/modelalignment/) done by model makers to try to make the model behave
+  - [#INPUT SEGREGEGATION](/goto/inputsegregation/) - discussed below control
+    
 #### #INPUT SEGREGATION
 > Category: runtime information security control against application security threats  
 > Permalink: https://owaspai.org/goto/inputsegregation/
@@ -622,9 +634,13 @@ The disclosure is caused by an unintentional fault of including this data, and e
 
 **Controls specific for sensitive data output from model:**
 
-- See [General controls](/goto/generalcontrols/), especially [Sensitive data limitation](/goto/dataminimize/)
-- See [controls for threats through use](/goto/threatsuse/), to limit the model user group, the amount of access and to detect disclosure attempts
-- The below control(s), each marked with a # and a short name in capitals
+- See [General controls](/goto/generalcontrols/):
+  - Especially [Sensitive data limitation](/goto/dataminimize/)
+- Controls for [threats through use](/goto/threatsuse/):
+  - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output - especially sensitive output
+  - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
+  - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum  
+- [#FILTER SENSITIVE MODEL OUTPUT](/goto/filtersensitivemodeloutput/) - discussed below
 
 #### #FILTER SENSITIVE MODEL OUTPUT 
 >Category: runtime information security control for threats through use  
@@ -658,9 +674,14 @@ The more details a model is able to learn, the more it can store information on 
 
 Controls for Model inversion and membership inference:
 
-- See [General controls](/goto/generalcontrols/), especially [Sensitive data limitation](/goto/dataminimize/)
-- See [controls for threats through use](/goto/threatsuse/)
-- The below control(s), each marked with a # and a short name in capitals
+- See [General controls](/goto/generalcontrols/):
+  - Especially [Sensitive data limitation](/goto/dataminimize/)
+- Controls for [threats through use](/goto/threatsuse/):
+  - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output - especially sensitive output
+  - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
+  - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
+- [#OBSCURE CONFIDENCE](/goto/obscureconfidence/) to limit information that the attacker can use - discussed below
+- [#SMALL MODEL](/goto/smallmodel/) to limit the amount of information that can be retrieved
 
 #### #OBSCURE CONFIDENCE 
 >Category: runtime data science control for threats through use  
@@ -696,8 +717,12 @@ This attack is known as model stealing attack or model extraction attack or mode
 
 **Controls:**
 
-- See [General controls](/goto/generalcontrols/), especially management controls
-- See [controls for threats through use](/goto/threatsuse/)
+- See [General controls](/goto/generalcontrols/):
+  - Especially [Sensitive data limitation](/goto/dataminimize/)
+- Controls for [threats through use](/goto/threatsuse/):
+  - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output - especially sensitive output
+  - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
+  - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
 
 References
 
