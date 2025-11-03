@@ -53,7 +53,6 @@ Useful standards include:
 References:
  - [UNESCO on AI ethics and governance](https://www.unesco.org/ethics-ai/en)
  - [GenAI security project LLM AI Cybersecurity & governance checklist](https://genai.owasp.org/resource/llm-applications-cybersecurity-and-governance-checklist-english/)
- - 
 
 #### #SECPROGRAM 
 > Category: governance control  
@@ -107,8 +106,8 @@ Monitoring and incident response are standard elements of security programs and 
     - ISO/IEC 27000 – Information security management systems – Overview and vocabulary
     - ISO/IEC 27001 – Information security management systems – Requirements
     - ISO/IEC 27002 – Code of practice for information security management (See below)
-    - ISO/IEC 27003 – Information security management systems: Implementation Guidelines)
-    - ISO/IEC 27004 – Information security management measurements)
+    - ISO/IEC 27003 – Information security management systems: Implementation Guidelines
+    - ISO/IEC 27004 – Information security management measurements
     - ISO/IEC 27005 – Information security risk management
 
   - The '27002 controls' mentioned throughout this document are listed in the Annex of ISO 27001, and further detailed with practices in ISO 27002. At the high abstraction level, the most relevant ISO 27002 controls are:
