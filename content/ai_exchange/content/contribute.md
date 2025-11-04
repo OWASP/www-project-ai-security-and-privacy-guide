@@ -53,15 +53,19 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
      <tr><td>Chris Ancharski</td><td>Global community builder</td><td>US</td><td>Leadership team during part of 2024 </td></tr>
     <tr><td>Dan Sorensen</td><td>Centil</td><td>US</td><td>Misc. additions including development security</td></tr>
     <tr><td>Dennis Charolle</td><td>MilliporeSigma</td><td>US</td><td>Compliance overview and copyright</td></tr>
-    <tr><td>Disesdi Susanna Cox</td><td>OTW</td><td>US</td><td>Federated learning and many more</td></tr>
+    <tr><td>Disesdi Susanna Cox</td><td>OTW</td><td>US</td><td>Federated learning, testing and much more</td></tr>
     <tr><td>Elias Botterli Sørensen</td><td>Kantega</td><td>Norway</td><td>Several clarifications and improvmenets</td></tr>  
     <tr><td>Engin Bozdag</td><td>Uber</td><td>US</td><td>Substantial input on the privacy section</td></tr>
     <tr><td>Eoin Wickens</td><td>HiddenLayer</td><td>Ireland</td><td>Additions to development security</td></tr>
+    <tr><td>Iryna Schwindt</td><td></td><td>Germany</td><td>Testing</td></tr>
     <tr><td>Feiyang Tang</td><td>Software Improvement Group (SIG)</td><td></td><td></td></tr>
+    <tr><td>Jolly Trivedi</td><td></td><td>Finland</td><td>Testing</td></tr>
     <tr><td>John Sotiropoulos</td><td>Kainos</td><td>UK</td><td>Liaison to several institutes</td></tr>
     <tr><td>Manish Garg</td><td>VE3</td><td>UK</td><td>Runtime model protection</td></tr>
+    <tr><td>Maryam Alhashemi</td><td></td><td></td><td>Testing</td></tr>
     <tr><td>Marko Lihter</td><td>SplxAI</td><td>Croatia</td><td>step-by-step guide for organizations, website creation, various textual improvements</td></tr>
     <tr><td>Niklas Bunzel</td><td>Fraunhofer institute</td><td>Germany</td><td>data science discussion and references around evasion attacks</td></tr>
+    <tr><td>Rajiv Bahl</td><td></td><td>India</td><td>Testing</td></tr>
     <tr><td>Rocky Heckman</td><td>Cyber Dynamo</td><td>Australia</td><td>Security & privacy risk analysis and ISO/IEC 27562</td></tr>
     <tr><td>Rubens Zimbres</td><td></td><td>Brazil</td><td>Adversarial machine learning</td></tr>
     <tr><td>Roger Sanz</td><td>Universidad Isabel</td><td>Spain</td><td></td></tr>
@@ -72,6 +76,7 @@ If you're unsure about anything, feel free to [reach out to us](/connect) with y
     <tr><td>Steve Francolla</td><td>Workforce Tech LLC</td><td></td><td></td></tr>
     <tr><td>Wei Wei</td><td>IBM</td><td>Germany</td><td>mapping with ISO/IEC 42001</td></tr>
     <tr><td>Yiannis Kanellopoulos and team</td><td>Code4thought</td><td>Greece</td><td>evasion robustness</td></tr>   
+    <tr><td>Yuvaraj Govindarjulu</td><td>AI Shield</td><td>India</td><td>Testing</td></tr>
     <tr><td>Zoe Braiterman</td><td>Mutual Knowledge Systems</td><td>US</td><td>Many markdown improvements</td></tr>
 </table>
 
