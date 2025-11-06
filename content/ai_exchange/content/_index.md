@@ -80,7 +80,7 @@ Content also available in [pdf](OWASP-AI-Exchange.pdf)
 <tr style="border: none;">
   <td style="border: none;"><a href="https://www.straiker.ai/" rel="noopener noreferrer" target="_blank"><img src="/images/sp_straiker.jpg" style="display: block; margin: auto;" alt="Straiker sponsor"></a></td>
   <td style="border: none;"><a href="https://www.casco.com/" rel="noopener noreferrer" target="_blank"><img src="/images/sp_casco.png" style="display: block; margin: auto;" alt="Casco sponsor"></a></td>
-  <td style="border: none;"><a href="https://aisecurityacademy.ai/" rel="noopener noreferrer" target="_blank"><img src="/images/sp_academy2.png" style="display: block; margin: auto;" alt="Casco sponsor"></a></td>
+  <td style="border: none;"><a href="https://aisecurityacademy.ai/" rel="noopener noreferrer" target="_blank"><img src="/images/sp_academy2.png" style="display: block; margin: auto;" alt="AI security academy sponsor"></a></td>
 </tr>
 </table>
 <br>
