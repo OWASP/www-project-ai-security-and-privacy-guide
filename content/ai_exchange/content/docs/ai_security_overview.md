@@ -48,6 +48,25 @@ Sri Manda, Chief Security & Trust Officer at Peloton Interactive:
 Prateek Kalasannavar, Staff AI Security Engineer, Lenovo:
 > “At Lenovo, we’re operationalizing AI product security at scale, from embedded inference on devices to large-scale cloud-hosted models. OWASP AI Exchange serves as a vital anchor for mapping evolving attack surfaces, codifying AI-specific testing methodologies, and driving community-aligned standards for AI risk mitigation. It bridges the gap between theory and engineering.”
 
+**Mission/vision**
+
+The mission of the AI Exchange is to enable people to find and use information to ensure that AI systems are secure and privacy preserving.
+
+The vision of the AI Exchange is that the main challenge for people is to find the right information and then understand it so it can be turned into action. One of the underlying issues is the complexity, inconsistency, fragmentation and incompleteness of the standards and guideline landscape - with  issues of quality and being outdated - caused by the general lack of expertise in AI security in the industry. What resource to use?
+
+The AI Exchange achieves:
+- AUTHORITATIVE - active alignment with other resources through careful analysis and through close collaboration - particularly through substantial contribution to leading international standards at ISO/IEC and the AI Act - making sure the AI Exchange represents consensus. 
+- OPEN - Anybody that wants to, can contribute to the AI Exchange body of knowlesge, with strong quality assurance, including a screening process for Authors.
+- FREE - Anybody that wants to, use can use it in any way. Free of copyright and attribution. 
+- COVERAGE - comprehensive guidance instead of a selected set of issues (like a top 10 which is more for awareness) - and about all AI and data-intensive systems. AI is much more than Generative AI.
+- UNIFIED - a coherent resource instead of a fragmented set of disconnected separate resources.
+- CLEAR - clear explanation, including also the why and how and not just the what.
+- LEVERAGE - referring to various other sources instead of complex text that incorrectly suggests it is complete. This makes the Exchange the place to start
+- MOVING - continuous updates instead of occasional publications.
+
+All aspects above make the Exchange the go-to resource for practitioners, users, and training institutes - effectively and informally making the AI Exchange the standard in AI security.
+
+NOTE: Producing and continuously updating a comprehensive and coherent quality resource requires a strong coordinated approach. It is much harder than an approach of every person for themselves. But necessary.
 
 ## Relevant OWASP AI initiatives
 >Category: discussion  
