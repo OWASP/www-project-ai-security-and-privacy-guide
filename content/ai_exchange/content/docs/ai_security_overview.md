@@ -139,6 +139,7 @@ The AI Exchange is a single coherent resource on the security and privacy of AI 
 - **Secure a system**:  
    If you want your **AI system to be secure**, start with [risk analysis](/goto/riskanalysis/) to guide you through a number of questions, resulting in the threats that apply. And when you click on those threats you'll find the controls (countermeasures) to check for, or to implement.
 - **Learn / look up**:  
+  - For the short story with the main insights about what is special about AI security: see the [AI Exchange essentials](/goto/essentials/).
   - To see a general overview and discussion of all **threats** from different angles, check the [AI threat model](/goto/threatsoverview/) or the [AI security matrix](/goto/aisecuritymatrix). In case you know the threat you need to protect against, find it in the overview of your choice and click to get more information and how to protect against it.
   - To find out what to do against a specific threat, check the [controls overview](/goto/controlsoverview/) or the [periodic table](/goto/periodictable/) to find the right **controls**.
   - To learn about **privacy** of AI systems, check [the privacy section](/goto/aiprivacy/).
@@ -169,6 +170,39 @@ This page will continue with discussions about:
 - Various overviews of threats and controls: the matrix, the periodic table, and the navigator
 - Risk analysis to select relevant threats and controls
 - Various other topics: heuristic systems, responsible AI, generative AI, the NCSC/CISA guidelines, and copyright
+
+---
+
+## AI security essentials
+>Category: discussion  
+>Permalink: https://owaspai.org/goto/essentials/
+
+The upcoming sections discuss AI security threats and corresponding controls. Below are the main insights to understand the bigger picture of AI security What is different for AI systems?
+
+New threats:
+  - Model input threats:
+    - Mislead the model by crafting data to force wrong decisions (Evasion)
+    - Mislead the model by crafting instructions to manipulate behaviour (Prompt injection 
+    - Extract sensitive input, augmentation data or training data
+    - Extract sensitive model 
+  - Threats from new suppliers:
+    - Corrupt external data, models, and model hosting
+  - Conventional threats to new assets- notably:
+    - Model (model theft or poisoning)
+    - Input (where does it go?)
+    - Output, which needs to be treated as untrusted data
+    - Training data / augmentation data (changing it manipulates model behaviour - data poisoning)
+
+
+New controls:
+- Specfic AI engineering controls against poisoning and model input attacks - next to conventional controls
+- Impact limitation controls (because of zero model trust - Assume a model can be misled or leak data):
+  - Minimize or obfuscate sensitive data
+  - Limit model behaviour (oversight, guardrails, minimal model privilege)
+
+(*) Note: Attackers that have a similar model (or a copy) can craft misleading input covertly
+
+[![](/images/essentials.png)](/images/essentials.png)
 
 ---
 
