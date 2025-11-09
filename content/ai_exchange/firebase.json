@@ -15,7 +15,17 @@
       },
       {
         "source": "/goto/summary/",
-        "destination": "/docs/ai_security_overview/#summary---how-to-address-ai-security",
+        "destination": "/docs/ai_security_overview/#how-to-organize-ai-security",
+        "type": 301
+      },
+      {
+        "source": "/goto/organize/",
+        "destination": "/docs/ai_security_overview/#how-to-organize-ai-security",
+        "type": 301
+      },
+      {
+        "source": "/goto/organise/",
+        "destination": "/docs/ai_security_overview/#how-to-organize-ai-security",
         "type": 301
       },
       {
