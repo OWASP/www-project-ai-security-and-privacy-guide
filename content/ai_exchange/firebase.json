@@ -29,6 +29,11 @@
         "type": 301
       },
       {
+        "source": "/goto/essentials/",
+        "destination": "/docs/ai_security_overview/#ai-security-essentials",
+        "type": 301
+      },
+      {
         "source": "/goto/threatsoverview/",
         "destination": "/docs/ai_security_overview/#threats-overview",
         "type": 301
