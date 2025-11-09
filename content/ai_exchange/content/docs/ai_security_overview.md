@@ -96,15 +96,15 @@ When comparing the AI Exchange with the GenAI Security Project, the Exchange:
 - is offered completely free of copyright and attribution
 
 
-## Summary - How to address AI Security?
+## How to organize AI Security
 >Category: discussion  
->Permalink: https://owaspai.org/goto/summary/
+>Permalink: https://owaspai.org/goto/organize/
 
 While Artificial Intelligence (AI) offers tremendous opportunities, it also brings new risks including security threats. It is therefore imperative to approach AI applications with a clear understanding of potential threats and the controls against them. 
 
 [![](/images/guard.png)](/images/guard.png)
 
-The five steps - G.U.A.R.D - to address AI security as an organization are: 
+The five steps - G.U.A.R.D - to organize AI security as an organization are: 
 
 1. **Govern**  
   Implement [AI governance](/goto/aiprogram/) including arranging [compliance](/goto/checkcompliance/). Agree on responsibilities, know what is going on, implement policy, [education](/goto/seceducate/), etc. 
@@ -133,7 +133,7 @@ The AI Exchange is a single coherent resource on the security and privacy of AI 
 - **Learn more about the AI Exchange**:  
   See [About](https://owaspai.org/goto/about/)
 - **Start AI security as organization**:  
-  See [How to address AI security?](https://owaspai.org/goto/summary/) for the key steps to get started as organization.
+  See [How to organize AI security](https://owaspai.org/goto/organize/) for the key steps to get started as organization.
 - **Start AI security as individual**:  
   See 'learn/lookup' below to familiarize yourself with the threats and controls.
 - **Secure a system**:  
