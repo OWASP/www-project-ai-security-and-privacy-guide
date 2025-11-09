@@ -1,5 +1,7 @@
 ---
 title: 5. AI security testing
+heroTitle: "AI security testing"
+heroText: "AI security tests simulate adversarial behaviours to uncover vulnerabilities, weaknesses and risks in AI systems."
 weight: 6
 ---
 > Category: discussion  

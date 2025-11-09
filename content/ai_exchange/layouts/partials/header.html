@@ -73,12 +73,12 @@
       </div>
 
       <!-- Search Icon -->
-      <div class="search-icon">
+      <button class="search-icon" id="search-toggle" aria-label="Search">
         <svg class="search-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="11" cy="11" r="8"></circle>
           <path d="m21 21-4.35-4.35"></path>
         </svg>
-      </div>
+      </button>
 
       <!-- Hamburger Icon (only on mobile) -->
       <button class="hamburger" aria-label="Toggle menu">
@@ -89,6 +89,22 @@
     </div>
   </div>
 </header>
+
+<!-- Search Overlay -->
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-container">
+    <div class="search-header">
+      <input type="text" id="search-input" placeholder="Search articles, guides, and content..." autocomplete="off" />
+      <button class="search-close" id="search-close" aria-label="Close search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div id="search-results"></div>
+  </div>
+</div>
 
 <!-- Full Screen Mobile Menu Overlay -->
 <div class="mobile-menu-overlay" id="mobileMenu">
@@ -131,6 +147,12 @@
           </a>
         </li>
       {{ end }}
+      <!-- Search Link -->
+      <li class="mobile-nav-item">
+        <button class="mobile-nav-link mobile-search-btn" onclick="document.getElementById('search-toggle').click()">
+          Search
+        </button>
+      </li>
     </ul>
   </nav>
 
@@ -162,6 +184,27 @@
 /* Desktop Navigation Styles */
 .main-navigation.desktop-nav {
   display: flex;
+}
+
+/* Search Icon Button */
+.search-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-icon:hover {
+  opacity: 0.8;
+}
+
+.search-svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
 }
 
 /* Hamburger Button Styles */
@@ -394,7 +437,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1.5rem;
+    padding-left: 1rem !important;
+    padding-right: 1.5rem !important;
   }
   
   .logo-section {
@@ -423,6 +467,133 @@
   .mobile-menu-overlay {
     display: none !important;
   }
+}
+
+/* Search Overlay Styles */
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 9998;
+  display: none;
+  padding: 2rem;
+}
+
+.search-overlay.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-container {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.search-header {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.search-header input {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  font-size: 1.25rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  outline: none;
+}
+
+.search-header input:focus {
+  border-color: #4CAF50;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.search-header input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.search-close {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.search-close svg {
+  width: 24px;
+  height: 24px;
+}
+
+#search-results {
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+}
+
+.search-result-item {
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-result-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #4CAF50;
+}
+
+.search-result-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.search-result-url {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.5rem;
+}
+
+.search-result-snippet {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+.search-highlight {
+  background: rgba(76, 175, 80, 0.3);
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.mobile-search-btn {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 </style>
 
@@ -473,5 +644,117 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.style.overflow = "auto";
     }
   });
+});
+
+// Search Functionality
+document.addEventListener("DOMContentLoaded", () => {
+  const searchToggle = document.getElementById("search-toggle");
+  const searchOverlay = document.getElementById("searchOverlay");
+  const searchClose = document.getElementById("search-close");
+  const searchInput = document.getElementById("search-input");
+  const searchResults = document.getElementById("search-results");
+  
+  let searchData = [];
+
+  // Load search data
+  fetch('/index.json')
+    .then(response => response.json())
+    .then(data => {
+      searchData = data.articles;
+    })
+    .catch(error => {
+      console.error('Error loading search data:', error);
+    });
+
+  // Open search
+  if (searchToggle) {
+    searchToggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      console.log("Search clicked");
+      if (searchOverlay) {
+        searchOverlay.classList.add("active");
+        if (searchInput) {
+          searchInput.focus();
+        }
+        document.body.style.overflow = "hidden";
+      }
+    });
+  }
+
+  // Close search
+  searchClose.addEventListener("click", () => {
+    searchOverlay.classList.remove("active");
+    searchInput.value = "";
+    searchResults.innerHTML = "";
+    document.body.style.overflow = "auto";
+  });
+
+  // Close search on escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && searchOverlay.classList.contains("active")) {
+      searchOverlay.classList.remove("active");
+      searchInput.value = "";
+      searchResults.innerHTML = "";
+      document.body.style.overflow = "auto";
+    }
+  });
+
+  // Search functionality
+  searchInput.addEventListener("input", (e) => {
+    const query = e.target.value.toLowerCase().trim();
+    
+    if (query.length < 2) {
+      searchResults.innerHTML = "";
+      return;
+    }
+
+    const results = searchData
+      .map((article, index) => {
+        const titleMatch = article.title.toLowerCase().includes(query);
+        const contentMatch = article.content.toLowerCase().includes(query);
+        
+        if (titleMatch || contentMatch) {
+          // Get excerpt from content
+          const contentIndex = article.content.toLowerCase().indexOf(query);
+          const excerptStart = Math.max(0, contentIndex - 100);
+          const excerptEnd = Math.min(article.content.length, contentIndex + query.length + 100);
+          const excerpt = article.content.substring(excerptStart, excerptEnd);
+          
+          return {
+            title: article.title,
+            uri: article.uri,
+            excerpt: '...' + excerpt + '...',
+            query: query
+          };
+        }
+        return null;
+      })
+      .filter(item => item !== null)
+      .slice(0, 10); // Limit to 10 results
+
+    displayResults(results, query);
+  });
+
+  function displayResults(results, query) {
+    if (results.length === 0) {
+      searchResults.innerHTML = '<div class="text-center text-white opacity-50 py-8">No results found</div>';
+      return;
+    }
+
+    searchResults.innerHTML = results
+      .map(result => `
+        <div class="search-result-item" onclick="window.location.href='${result.uri}'">
+          <div class="search-result-title">${highlightText(result.title, query)}</div>
+          <div class="search-result-url">${result.uri}</div>
+          <div class="search-result-snippet">${highlightText(result.excerpt, query)}</div>
+        </div>
+      `)
+      .join("");
+  }
+
+  function highlightText(text, query) {
+    const regex = new RegExp(`(${query})`, 'gi');
+    return text.replace(regex, '<span class="search-highlight">$1</span>');
+  }
 });
 </script>

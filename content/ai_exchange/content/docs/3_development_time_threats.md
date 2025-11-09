@@ -1,5 +1,7 @@
 ---
 title: 3. Development-time threats
+heroTitle: "Development-time threats"
+heroText: "Attacks to the development environment and supply chain of AI systems, and what you can do about it."
 weight: 4
 ---
 ## 3.0 Development-time threats - Introduction

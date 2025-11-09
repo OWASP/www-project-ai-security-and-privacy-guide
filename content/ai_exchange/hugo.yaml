@@ -2,6 +2,12 @@ baseURL: https://owaspai.org/
 languageCode: en-us
 title: AI Exchange
 
+outputs:
+  home:
+    - HTML
+    - JSON
+    - RSS
+
 module:
   imports:
     - path: github.com/imfing/hextra
