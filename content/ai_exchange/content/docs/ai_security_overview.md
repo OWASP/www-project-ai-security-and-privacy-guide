@@ -179,10 +179,10 @@ This page will continue with discussions about:
 
 The upcoming sections discuss AI security threats and corresponding controls. Below are the main insights to understand the bigger picture of AI security What is different for AI systems?
 
-New threats:
+**New threats:**
   - Model input threats:
     - Mislead the model by crafting data to force wrong decisions (Evasion)
-    - Mislead the model by crafting instructions to manipulate behaviour (Prompt injection 
+    - Mislead the model by crafting instructions to manipulate behaviour (Prompt injection)
     - Extract sensitive input, augmentation data or training data
     - Extract sensitive model 
   - Threats from new suppliers:
@@ -193,10 +193,9 @@ New threats:
     - Output, which needs to be treated as untrusted data
     - Training data / augmentation data (changing it manipulates model behaviour - data poisoning)
 
-
-New controls:
-- Specfic AI engineering controls against poisoning and model input attacks - next to conventional controls
-- Impact limitation controls (because of zero model trust - Assume a model can be misled or leak data):
+**New controls:**
+- Specific AI engineering controls, to work against poisoning and model input attacks - next to conventional controls
+- Impact limitation controls (because of zero model trust: assume a model can be misled or leak data):
   - Minimize or obfuscate sensitive data
   - Limit model behaviour (oversight, guardrails, minimal model privilege)
 
