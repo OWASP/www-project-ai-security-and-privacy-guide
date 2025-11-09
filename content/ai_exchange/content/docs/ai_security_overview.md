@@ -181,15 +181,15 @@ The upcoming sections discuss AI security threats and corresponding controls. Be
 
 **New threats:**
   - Model input threats:
-    - Mislead the model by crafting data to force wrong decisions (Evasion)
-    - Mislead the model by crafting instructions to manipulate behaviour (Prompt injection)
-    - Extract sensitive input, augmentation data or training data
-    - Extract sensitive model 
+    - A misled model by crafted data to force wrong decisions (Evasion)
+    - A misled model by crafted instructions to manipulate behaviour (Prompt injection)
+    - Extracted sensitive training data, augmentation data, or input
+    - Extracted model 
   - Threats from new suppliers:
-    - Corrupt external data, models, and model hosting
+    - Corrupted external data, models, and model hosting
   - Conventional threats to new assets- notably:
     - Model (model theft or poisoning)
-    - Input (where does it go?)
+    - Input (leak)
     - Output, which needs to be treated as untrusted data
     - Training data / augmentation data (changing it manipulates model behaviour - data poisoning)
 
