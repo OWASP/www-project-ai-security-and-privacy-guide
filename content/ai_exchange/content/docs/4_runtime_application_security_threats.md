@@ -1,5 +1,7 @@
 ---
 title: 4. Runtime application security threats
+heroTitle: "Runtime application security threats"
+heroText: "Attacks to the AI system in operation apart from the input attacks, and protective controls"
 weight: 5
 ---
 > Category: group of runtime threats  

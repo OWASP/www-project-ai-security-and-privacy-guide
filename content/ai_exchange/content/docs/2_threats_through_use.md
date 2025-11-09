@@ -1,5 +1,7 @@
 ---
 title: 2. Threats through use
+heroTitle: "Threats through use"
+heroText: "Attacks by crafting inputs to AI, and their countermeasures"
 weight: 3
 ---
 ## 2.0. Threats through use - introduction
