@@ -485,7 +485,7 @@ Useful standards include:
 Least model privilege: Minimize privileges of a model to autonomously take actions:
 - Reduce actions that the model can potentially trigger to the minimum set of actions necessary for the use cases. This can also be done dynamically, depending on the request (e.g., some actions can be disabled for requests containing untrusted inputs).
 - Execute the actions with appropriate rights and privileges. This includes performing actions for a specific user within this user’s security context, thus inheriting their rights and privileges. This ensures that no actions are invoked and no data is retrieved outside the user's authoritization.
-- Avoid implementing authorization in Generative AI instructions, as these are vulnerable to hallunications and manipulation (e.g., prompt injection). This is especially applicable in Agentic AI. This includes the prevention of Generative AI outputing commands that include references to the user context as it would open up the opportunity to escalate privileges by manipulating that output.
+- Avoid implementing authorization in Generative AI instructions, as these are vulnerable to hallunications and manipulation (e.g., prompt injection). This is especially applicable in Agentic AI. This includes the prevention of Generative AI outputting commands that include references to the user context as it would open up the opportunity to escalate privileges by manipulating that output.
 
 For example: avoid connecting a model to an email facility to prevent it from sending incorrect or sensitive information to others.
 
@@ -516,7 +516,7 @@ Continuous validation: by frequently testing the behaviour of the model against 
 
 Continuous validation is a process that is often in place to detect other issues than attacks: system failures, or the model performance going down because of changes in the real world since it was trained (model drift, model staleness). There are many performance metrics available and the best ones are those that align with the goal. These metrics pertain to correctness, but can also link to other aspects such as unwanted bias towards protected attributes.
 
-Note that continuous validation is typically not suitable for detecting backdoor poisoning attacks, as these are designed to trigger with very specific input that would normally not be present in test sets. In fact. Such attacks are often designed to pass validation tests.
+Note that continuous validation is typically not suitable for detecting backdoor poisoning attacks, as these are designed to trigger with very specific input that would normally not be present in test sets. In fact, such attacks are often designed to pass validation tests.
 
 Useful standards include:
 
