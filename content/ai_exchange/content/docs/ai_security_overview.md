@@ -61,8 +61,8 @@ The AI Exchange achieves:
 - COVERAGE - comprehensive guidance instead of a selected set of issues (like a top 10 which is more for awareness) - and about all AI and data-intensive systems. AI is much more than Generative AI.
 - UNIFIED - a coherent resource instead of a fragmented set of disconnected separate resources.
 - CLEAR - clear explanation, including also the why and how and not just the what.
-- LEVERAGE - referring to various other sources instead of complex text that incorrectly suggests it is complete. This makes the Exchange the place to start
-- MOVING - continuous updates instead of occasional publications.
+- LINKED - referring to various other sources instead of complex text that incorrectly suggests it is complete. This makes the Exchange the place to start
+- EVOLVING - continuous updates instead of occasional publications.
 
 All aspects above make the Exchange the go-to resource for practitioners, users, and training institutes - effectively and informally making the AI Exchange the standard in AI security.
 
