@@ -325,16 +325,21 @@ All threats and controls are explored in more detail in the subsequent sections 
 
 If possible, and depending on price, organisations can prefer to use a ready-made model, instead of training or fine-tuning themselves. For example: an open source model to detect people in a camera image, or a general purpose LLM such as Google Gemini, OpenAI ChatGPT, Anthropic Claude, Alibaba QWen, Deepseek, Mistral, Grok or Falkon. Training such models yourself can cost millions of dollars, requires deep expertise and vast amounts of data.  
 
+The provider (e.g. OpenAI) has done the training/fine tuning and therefore is responsible for part of security. Hence, proper supply chain management regarding the model provider is required. 
+
 The following deployment options apply for ready-made models:
 - Closed source model, hosted by the provider - for the largest models typically the only available option
 - Self-hosted: Open source model (open weights) deployed on-premise (most secure) or in the virtual private cloud (secure if the cloud provider is trusted) - these options provide more security and may be the best option cost-wise, but do not support the largest models
 - Open source model (open weights) at a paid hosting service - convenient
 
-The provider (e.g. OpenAI) has done the training/fine tuning and therefore is responsible for part of security. Hence, proper supply chain management regarding the model provider is required. 
+**Self-hosted**
 
 The diagram below shows threats and controls in a self-hosting situation.
 
 [![AI Security Threats and controls - GenAI as-is](/images/threatscontrols-readymodel-selfhosted.png)](/images/threatscontrols-readymodel-selfhosted.png)
+
+
+**External-hosted**
 
 If the model is hosted externally, security largely depends on how the supplier handles data, including the security configuration. 
 Some relevant questions to ask here include: 
