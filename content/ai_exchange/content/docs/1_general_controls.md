@@ -472,7 +472,7 @@ Examples:
   - Logic preventing the trunk of a car from opening while the car is moving, even if the driver seems to request it
   - Requesting user confirmation before sending a large number of emails as instructed by a model
   - A special form of guardrails is censoring unwanted output of GenAI models (e.g. violent, unethical)
-  - 
+
 Useful standards include:
 
   - ISO/IEC 42001 B.9.3 defines controls for human oversight and decisions regarding autonomy. Gap: covers this control partly (human oversight only, not business logic)
