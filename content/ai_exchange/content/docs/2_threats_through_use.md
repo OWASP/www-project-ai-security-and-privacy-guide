@@ -114,12 +114,13 @@ An Evasion attack typically consists of first searching for the inputs that misl
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
-- [#DETECT ODD INPUT](/goto/detectoddinput/) - discussed below
-- [#DETECT ADVERSARIAL INPUT](/goto/detectadversarialinput/) - discussed below
-- [#EVASION ROBUST MODEL](/goto/evasionrobustmodel/) - discussed below
-- [#TRAIN ADVERSARIAL](/goto/trainadversarial/) - discussed below
-- [#INPUT DISTORTION](/goto/inputdistortion/) - discussed below
-- [#ADVERSARIAL ROBUST DESTILLATION](/goto/adversarialrobustdestillation/) - discussed below
+- Specifically for evasion:
+  - [#DETECT ODD INPUT](/goto/detectoddinput/) as unusual input can be suspicious for evasion - discussed below
+  - [#DETECT ADVERSARIAL INPUT](/goto/detectadversarialinput/) to find typical attack forms or multiple tries in a row - discussed below
+  - [#EVASION ROBUST MODEL](/goto/evasionrobustmodel/): choose an evasion-robust model design, configuration and/or training approach - discussed below
+  - [#TRAIN ADVERSARIAL](/goto/trainadversarial/): correcting the decision boundary of the model by injecting adversarial samples with correct output in the training set - discussed below
+  - [#INPUT DISTORTION](/goto/inputdistortion/): disturbing attempts to present precisely crafted input - discussed below
+  - [#ADVERSARIAL ROBUST DESTILLATION](/goto/adversarialrobustdestillation/): in essence trying to smooth decision boundaries - discussed below
 
 #### #DETECT ODD INPUT 
 >Category: runtime datasciuence control for threats through use  
@@ -504,9 +505,15 @@ After training data has been poisoned (see [data poisoning section](/goto/datapo
 Prompt injection attacks involve maliciously crafting or manipulating input prompts to models, directly or indirectly, in order to exploit vulnerabilities in their processing capabilities or to trick them into executing unintended actions.
 
 **Controls:**
-- See [General controls](/goto/generalcontrols/) especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/).
-- See [controls for threats through use](/goto/threatsuse/)
-- The below control(s), each marked with a # and a short name in capitals
+- See [General controls](/goto/generalcontrols/):
+  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/).
+- Controls for [threats through use](/goto/threatsuse/):
+  - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
+  - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
+  - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
+- Controls for [prompt injection](/goto/promptinjection/):
+  - [#PROMPT INPUT VALIDATION](/goto/promptinputvalidation/) to filter any suspicious input - see below
+  - [#MODEL ALIGNMENT](/goto/modelalignment/) done by model makers to try to make the model behave - see below
 
 #### #PROMPT INPUT VALIDATION
 > Category: runtime information security control against application security threats  
@@ -571,6 +578,8 @@ See [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.
 
 **Controls:**
 
+The same as for all prompt injection:
+
 - See [General controls](/goto/generalcontrols/):
   - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/).
 - Controls for [threats through use](/goto/threatsuse/):
@@ -607,14 +616,16 @@ References
 - See [General controls](/goto/generalcontrols/):
   - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/).
 - Controls for [threats through use](/goto/threatsuse/):
-  - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
+  - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output - and for INDIRECT prompt injection: looking primarily at the untrusted data that is inserted in the prompt
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
 - Controls for [prompt injection](/goto/promptinjection/):
   - [#PROMPT INPUT VALIDATION](/goto/promptinputvalidation/) to filter any suspicious input
   - [#MODEL ALIGNMENT](/goto/modelalignment/) done by model makers to try to make the model behave
-  - [#INPUT SEGREGEGATION](/goto/inputsegregation/) - discussed below control
-    
+- Specifically for INDIRECT prompt injection:
+  - [#INPUT SEGREGEGATION](/goto/inputsegregation/) - discussed below
+
+      
 #### #INPUT SEGREGATION
 > Category: runtime information security control against application security threats  
 > Permalink: https://owaspai.org/goto/inputsegregation/
@@ -653,8 +664,9 @@ The disclosure is caused by an unintentional fault of including this data, and e
 - Controls for [threats through use](/goto/threatsuse/):
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output - especially sensitive output
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
-  - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum  
-- [#FILTER SENSITIVE MODEL OUTPUT](/goto/filtersensitivemodeloutput/) - discussed below
+  - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
+-Specifically for Sensitive data output from model:
+  - [#FILTER SENSITIVE MODEL OUTPUT](/goto/filtersensitivemodeloutput/) - discussed below
 
 #### #FILTER SENSITIVE MODEL OUTPUT 
 >Category: runtime information security control for threats through use  
@@ -686,16 +698,17 @@ References:
 
 The more details a model is able to learn, the more it can store information on individual training set entries. If this happens more than necessary, this is called _overfitting_, which can be prevented by configuring smaller models.
 
-**Controls for Model inversion and membership inference:**
+**Controls for Model inversion and Membership inference:**
 
 - See [General controls](/goto/generalcontrols/):
   - Especially [Sensitive data limitation](/goto/dataminimize/)
 - Controls for [threats through use](/goto/threatsuse/):
-  - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output - especially sensitive output
+  - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input patterns
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
-- [#OBSCURE CONFIDENCE](/goto/obscureconfidence/) to limit information that the attacker can use - discussed below
-- [#SMALL MODEL](/goto/smallmodel/) to limit the amount of information that can be retrieved
+- Specifically for Model Inversion and Membership inference: 
+  - [#OBSCURE CONFIDENCE](/goto/obscureconfidence/) to limit information that the attacker can use - discussed below
+  - [#SMALL MODEL](/goto/smallmodel/) to limit the amount of information that can be retrieved - discussed below
 
 #### #OBSCURE CONFIDENCE 
 >Category: runtime data science control for threats through use  
@@ -733,8 +746,8 @@ This attack is known as model stealing attack or model extraction attack or mode
 
 - See [General controls](/goto/generalcontrols/):
 - Controls for [threats through use](/goto/threatsuse/):
-  - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output - especially sensitive output
-  - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
+  - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input 
+  - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker presenting many inputs in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
 
 References
@@ -757,13 +770,13 @@ For example: A _sponge attack_ or _energy latency attack_ provides input that is
 **Controls:**
 
 - See [General controls](/goto/generalcontrols/):
-  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/).
 - Controls for [threats through use](/goto/threatsuse/):
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
-- [#DOS INPUT VALIDATION](/goto/dosinputvalidation/) to stop input suspicious for this attack - discussed below
-- [#LIMIT RESOURCES](/goto/limitresources/) to prevent depletion - discussed below
+-Specifically for this threat:
+  - [#DOS INPUT VALIDATION](/goto/dosinputvalidation/) to stop input suspicious for this attack - discussed below
+  - [#LIMIT RESOURCES](/goto/limitresources/) to prevent depletion - discussed below
 
   
 #### #DOS INPUT VALIDATION

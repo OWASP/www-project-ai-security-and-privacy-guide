@@ -25,7 +25,13 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 **Controls for development-time protection:**
 
 - See [General controls](/goto/generalcontrols/)
-- The below control(s), each marked with a # and a short name in capitals
+- Specifically for development-time threats - all discussed below:
+  - [#DEV SECURITY](/goto/devsecurity/) to protect the development environment
+  - [#SEGREGATE DATA](/goto/segregatedata/) to create parts of the development environment with extra protection
+  - [#CONF COMPUTE](/goto/confcompute/) for denying access to where sensitive data is processed
+  - [#FEDERATED LEARNING](/goto/federatedlearning/) to decreases the risk of all data leaking and as a side-effect: increase the risk of some data leaking
+  - [#SUPPLY CHAIN MANAGE](/goto/supplychainmanage/) especially to control where data and models come from
+    
 
 #### #DEVDATAPROTECT
 > Category: information security control  
@@ -49,7 +55,7 @@ Data and models may have been obtained externally, just like software components
 
 Training data is in most cases only present during development-time, but there are exceptions:
   - A machine learning model may be continuously trained with data collected at runtime, which puts (part of the) training data in the runtime environment, where it also needs protection - as covered in this control section
-  - For GenAI, information can be retrieved from a repository to be added to a prompt, for example to inform a large language model about the context to take into account for an instruction or question. This principle is called _in-context learning_. For example [OpenCRE-chat](https://opencre.org/chatbot) uses a repository of requirements from security standards to add to a user question so that the large language model is more informed with background information. In the case of OpenCRE-chat this information is public, but in many cases the application of this so-called Retrieval Augmented Generation (RAG) will have a repository with company secrets or otherwise sensitive data. Organizations can benefit from unlocking their unique data, to be used by themselves, or to be provided as service or product. This is an attractive architecture because the alternative would be to train an LLM or to finetune it, which is expensive and difficult. A RAG approach may suffice. Effectively, this puts the repository data to the same use as training data is used: control the behaviour of the model. Therefore, the security controls that apply to train data, also apply to this run-time repository data.
+  - For GenAI, information can be retrieved from a repository to be added to a prompt, for example to inform a large language model about the context to take into account for an instruction or question. This principle is called _in-context learning_. For example [OpenCRE-chat](https://opencre.org/chatbot) uses a repository of requirements from security standards to add to a user question so that the large language model is more informed with background information. In the case of OpenCRE-chat this information is public, but in many cases the application of this so-called Retrieval Augmented Generation (RAG) will have a repository with company secrets or otherwise sensitive data. Organizations can benefit from unlocking their unique data, to be used by themselves, or to be provided as service or product. This is an attractive architecture because the alternative would be to train an LLM or to finetune it, which is expensive and difficult. A RAG approach may suffice. Effectively, this puts the repository data to the same use as training data is used: control the behaviour of the model. Therefore, the security controls that apply to train data, also apply to this run-time repository data. See [manipulate augmentation data](/goto/manipulateaugmentation).
 
 **Details on the how: protection strategies:**
 
@@ -157,7 +163,7 @@ Useful standards include:
 > Category: development-time data science control  
 > Permalink: https://owaspai.org/goto/federatedlearning/
  
-Federated learning can be applied when a training set is distributed over different organizations, preventing the data from needing to be collected in a central place - increasing the risk of leaking.  
+Federated learning can be applied when a training set is distributed over different organizations, preventing the data from needing to be collected in a central place. This decreases the risk of all data leaking and increases the risk of some data leaking.
 
 Federated Learning is a decentralized Machine Learning architecture wherein a number of clients (e.g. sensor or mobile devices) participate in collaborative, decentralized, asynchronous training, which is orchestrated and aggregated by a controlling central server. Advantages of Federated Learning include reduced central compute, and the potential for preservation of privacy, since training data may remain local to the client.
 
@@ -246,11 +252,22 @@ Data and model poisoning can occur at various stages, as illustrated in the thre
 
 **Controls for broad model poisoning:**
 
-- See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
-- See [controls for development-time protection](/goto/developmenttimeintro/)
-- The controls specific to [data poisoning](/goto/datapoison/) and [development-time model poisoning](/goto/devmodelpoison/)
-- The below control(s), each marked with a # and a short name in capitals
-
+- [General controls](/goto/generalcontrols/),
+  - especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
+- [Controls for development-time protection](/goto/developmenttimeintro/):
+  - [#DEV SECURITY](/goto/devsecurity/) to protect the development environment 
+  - [#SEGREGATE DATA](/goto/segregatedata/) to create parts of the development environment with extra protection
+  - [#CONF COMPUTE](/goto/confcompute/) for denying access to where sensitive data is processed
+  - [#SUPPLY CHAIN MANAGE](/goto/supplychainmanage/) especially to control where data and models come from
+- Controls for [data poisoning](/goto/datapoison/):
+  - [MORETRAINDATA](/goto/moretraindata/) to try and overrule poisoned data
+  - [DATAQUALITYCONTROL](/goto/dataqualitycontrol/) to try and detect or prevent poisoned data
+  - [TRAINDATADISTORTION](/goto/traindatadistortion/) to try and corrupt poisoned data
+  - [POISONROBUSTMODEL](/goto/poisonrobustmodel/) to reduce the abiliuty to recall poisoned data
+  - Controls that are aimed to improve the generalization ability of the model - reducing the memorization of any poisoned samples: [training with adversarial samples](/goto/trainadversarial/) and [adversarial robust distillation](/goto/adversarialrobustdistillation/)
+  
+- Controls specific to broad model poisoning - discussed below
+  - [MODELENSEMBLE](/goto/modelensemble/) so that if one of the models is poisoned, it can be contained
 
 #### #MODELENSEMBLE
 > Category: development-time data science control - including specific runtime implementation
@@ -301,10 +318,20 @@ References
 
 **Controls for data poisoning:**
 
-- See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
-- See [controls for development-time protection](/goto/developmenttimeintro/) of primarily the training data
-- See controls for [broad model poisoning](/goto/modelpoison/)
-- The below control(s), each marked with a # and a short name in capitals
+- [General controls](/goto/generalcontrols/),
+  - especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
+- [Controls for development-time protection](/goto/developmenttimeintro/):
+  - [#DEV SECURITY](/goto/devsecurity/) to protect the development environment and primarily the training data
+  - [#SEGREGATE DATA](/goto/segregatedata/) to create parts of the development environment with extra protection
+  - [#CONF COMPUTE](/goto/confcompute/) for denying access to where sensitive data is processed
+  - [#SUPPLY CHAIN MANAGE](/goto/supplychainmanage/) especially to control where data and models come from
+- Controls for [data poisoning](/goto/datapoison/) - discussed below:
+  - [MORETRAINDATA](/goto/moretraindata/) to try and overrule poisoned data
+  - [DATAQUALITYCONTROL](/goto/dataqualitycontrol/) to try and detect or prevent poisoned data
+  - [TRAINDATADISTORTION](/goto/traindatadistortion/) to try and corrupt poisoned data
+  - [POISONROBUSTMODEL](/goto/poisonrobustmodel/) to reduce the ability to recall poisoned data
+  - Controls that are aimed to improve the generalization ability of the model - reducing the memorization of any poisoned samples: [training with adversarial samples](/goto/trainadversarial/) and [adversarial robust distillation](/goto/adversarialrobustdistillation/)
+
 
 #### #MORETRAINDATA
 > Category: development-time data science control - pre-training    
@@ -412,10 +439,14 @@ Training data manipulation is referred to as [data poisoning](/goto/datapoison).
 
 **Controls:**
 
-- See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
-- See [controls for development-time protection](/goto/developmenttimeintro/)
-- See controls for broad model poisoning
-- Controls that are aimed to improve the generalization ability of the model - reducing the memorization of any poisoned samples: [training with adversarial samples](/goto/trainadversarial/) and [adversarial robust distillation](/goto/adversarialrobustdistillation/)
+- [General controls](/goto/generalcontrols/),
+  - especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
+- [Controls for development-time protection](/goto/developmenttimeintro/):
+  - [#DEV SECURITY](/goto/devsecurity/) to protect the development environment and primarily the model parameters
+  - [#SEGREGATE DATA](/goto/segregatedata/) to create parts of the development environment with extra protection
+  - [#CONF COMPUTE](/goto/confcompute/) for denying access to where sensitive data is processed
+  - [#SUPPLY CHAIN MANAGE](/goto/supplychainmanage/) especially to control where data and models come from
+
 
 ### 3.1.3 Supply-chain model poisoning
 >Category: development-time threat  
@@ -429,13 +460,16 @@ The type of manipulation can be through data poisoning, or by specifically chang
 
 **Controls:**
 
-- See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
-- See those controls for [data poisoning](/goto/modelpoison/) that work on models that have already been trained (post-training), e.g. [POISONROBUSTMODEL](/goto/poisonrobustmodel/)
-- See #[SUPPLYCHAINMANAGE](/goto/supplychainmanage/) to control obtaining a reliable model from a reliable supplier. 
+- [General controls](/goto/generalcontrols/),
+  - especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
+- From the [controls for development-time protection](/goto/developmenttimeintro/): [#SUPPLY CHAIN MANAGE](/goto/supplychainmanage/) to control where models come from
+- Controls for [data poisoning](/goto/datapoison/) post-training:
+  - [POISONROBUSTMODEL](/goto/poisonrobustmodel/) to reduce the ability to recall poisoned data
+  - [Adversarial robust distillation](/goto/adversarialrobustdistillation/) to improve the generalization ability of the model
+
 - Other controls need to be applied by the supplier of the model:
   - Controls for [development-time protection](/goto/developmenttimeintro/), like for example protecting the training set database against data poisoning
   - Controls for [broad model poisoning](/goto/modelpoison/)
-  - Controls for [data poisoning](/goto/modelpoison/) that work pre-training
 
 ---
 
@@ -459,8 +493,13 @@ GenAI models are often hosted in the cloud, sometimes managed by an external par
 
 **Controls:**
 
-- See [General controls](/goto/generalcontrols/), especially [Sensitive data limitation](/goto/dataminimize/)
-- See [controls for development-time protection](/goto/developmenttimeintro/)
+- [General controls](/goto/generalcontrols/),
+  - especially [Sensitive data limitation](/goto/dataminimize/)
+- [Controls for development-time protection](/goto/developmenttimeintro/):
+  - [#DEV SECURITY](/goto/devsecurity/) to protect the development environment and primarily the training and test data
+  - [#SEGREGATE DATA](/goto/segregatedata/) to create parts of the development environment with extra protection
+  - [#CONF COMPUTE](/goto/confcompute/) for denying access to where sensitive data is processed
+
 
 ### 3.2.2. Model theft through development-time model parameter leak
 >Category: development-time threat  
@@ -474,9 +513,14 @@ Alternative ways of model theft are [model theft through use](/goto/modeltheftus
 
 **Controls:**
 
-- See [General controls](/goto/generalcontrols/), especially [Sensitive data limitation](/goto/dataminimize/)
-- See [controls for development-time protection](/goto/developmenttimeintro/)
+- [General controls](/goto/generalcontrols/),
+  - especially [Sensitive data limitation](/goto/dataminimize/)
+- [Controls for development-time protection](/goto/developmenttimeintro/):
+  - [#DEV SECURITY](/goto/devsecurity/) to protect the development environment and primarily the model parameters
+  - [#SEGREGATE DATA](/goto/segregatedata/) to create parts of the development environment with extra protection
+  - [#CONF COMPUTE](/goto/confcompute/) for denying access to where sensitive data is processed
 
+  
 ### 3.2.3. Source code/configuration leak
 >Category: development-time threat  
 >Permalink: https://owaspai.org/goto/devcodeleak/
@@ -487,5 +531,9 @@ Impact: Confidentiality breach of model intellectual property.
 
 **Controls:**
 
-- See [General controls](/goto/generalcontrols/), especially [Sensitive data limitation](/goto/dataminimize/)
-- See [controls for development-time protection](/goto/developmenttimeintro/)
+- [General controls](/goto/generalcontrols/),
+  - especially [Sensitive data limitation](/goto/dataminimize/)
+- [Controls for development-time protection](/goto/developmenttimeintro/):
+  - [#DEV SECURITY](/goto/devsecurity/) to protect the development environment and primarily the source code/configuration
+  - [#SEGREGATE DATA](/goto/segregatedata/) to create parts of the development environment with extra protection
+  
