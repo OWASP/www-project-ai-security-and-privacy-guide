@@ -349,7 +349,7 @@ It is important to realise that a provider-hosted model needs your input data in
 This is not unique to LLM providers — it is the same for other multi-tenant SaaS services, such as commercial hosted Office suites. Even though providers usually minimise data storage, limit retention, and reduce data movement, the fact remains:
 your data leaves your environment in readable form.
 
-The diagram below shows threats and controls in an externally hosted.
+The diagram below shows threats and controls in an externally hosted situation.
 
 [![AI Security Threats and controls - GenAI as-is](/images/threatscontrols-readymodel-hosted.png)](/images/threatscontrols-readymodel-hosted.png)
 
