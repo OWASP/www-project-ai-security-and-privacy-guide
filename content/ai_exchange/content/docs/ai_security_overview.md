@@ -139,7 +139,7 @@ The AI Exchange is a single coherent resource on the security and privacy of AI 
 - **Secure a system**:  
    If you want your **AI system to be secure**, start with [risk analysis](/goto/riskanalysis/) to guide you through a number of questions, resulting in the threats that apply. And when you click on those threats you'll find the controls (countermeasures) to check for, or to implement.
 - **Learn / look up**:  
-  - For the short story with the main insights about what is special about AI security: see the [AI Exchange essentials](/goto/essentials/).
+  - For the short story with the main insights in what is special about AI security: see the [AI Exchange essentials](/goto/essentials/).
   - To see a general overview and discussion of all **threats** from different angles, check the [AI threat model](/goto/threatsoverview/) or the [AI security matrix](/goto/aisecuritymatrix). In case you know the threat you need to protect against, find it in the overview of your choice and click to get more information and how to protect against it.
   - To find out what to do against a specific threat, check the [controls overview](/goto/controlsoverview/) or the [periodic table](/goto/periodictable/) to find the right **controls**.
   - To understand what controls to apply in different deployment models: have a look at the [section on ready-made models](/goto/readymademodel/).
@@ -181,22 +181,21 @@ This page will continue with discussions about:
 The upcoming sections discuss AI security threats and corresponding controls. Below are the main insights to understand the bigger picture of AI security What is different for AI systems?
 
 **New threats:**
-  - Model input threats:
-    - A misled model by crafted data to force wrong decisions (Evasion)
-    - A misled model by crafted instructions to manipulate behaviour (Prompt injection)
-    - Extracted sensitive training data, augmentation data, or input
-    - Extracted model 
-  - Threats from new suppliers:
-    - Corrupted external data, models, and model hosting
-  - Conventional threats to new assets- notably:
+  - **Model input threats**:
+    - Evasion: Misleading a model by crafting data to force wrong decisions
+    - Prompt injection: Misleading a model by crafting instructions to manipulate behaviour
+    - Extracting from the model: training data, augmentation data, or input
+    - Extracting the model itself by querying the model
+  - **New suppliers** providing corrupted external data, models, and model hosting
+  - **New AI assets** with conventional threats, notably:
+    - Training data / augmentation data (changing it manipulates model behaviour - data poisoning)
     - Model (model theft or poisoning)
     - Input (leak)
-    - Output, which needs to be treated as untrusted data
-    - Training data / augmentation data (changing it manipulates model behaviour - data poisoning)
-
+    - Output (containing injection attacks)
+    
 **New controls:**
-- Specific AI engineering controls, to work against poisoning and model input attacks - next to conventional controls
-- Impact limitation controls (because of zero model trust: assume a model can be misled or leak data):
+- Specific **AI engineering** controls, to work against poisoning and model input attacks - next to conventional controls
+- **Impact limitation controls** (because of zero model trust: assume a model can be misled or leak data):
   - Minimize or obfuscate sensitive data
   - Limit model behaviour (oversight, guardrails, minimal model privilege)
 
