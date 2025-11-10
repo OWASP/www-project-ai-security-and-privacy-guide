@@ -1,4 +1,4 @@
-<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/bd920fa9-dea4-46ac-a694-59a76c6ae39e" />---
+---
 title: 0. AI Security Overview
 weight: 1
 ---
