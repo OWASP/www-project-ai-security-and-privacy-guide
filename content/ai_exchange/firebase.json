@@ -549,6 +549,16 @@
         "type": 301
       },
       {
+        "source": "/goto/leakaugmentation/",
+        "destination": "/docs/4_runtime_application_security_threats/#leak-augmentation-data",
+        "type": 301
+      },
+      {
+        "source": "/goto/manipulateaugmentation/",
+        "destination": "/docs/4_runtime_application_security_threats/#manipulate-augmentation-data",
+        "type": 301
+      },
+      {
         "source": "/goto/modelinputconfidentiality/",
         "destination": "/docs/4_runtime_application_security_threats/#modelinputconfidentiality",
         "type": 301
