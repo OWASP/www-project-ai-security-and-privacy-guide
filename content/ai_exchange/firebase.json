@@ -59,6 +59,11 @@
         "type": 301
       },
       {
+        "source": "/goto/readymademodel/",
+        "destination": "/docs/ai_security_overview/#threat-model-with-controls---ready-made-model",
+        "type": 301
+      },
+      {
         "source": "/goto/periodictable/",
         "destination": "/docs/ai_security_overview/#periodic-table-of-ai-security",
         "type": 301
