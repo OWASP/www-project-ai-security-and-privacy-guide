@@ -1,4 +1,4 @@
----
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/bd920fa9-dea4-46ac-a694-59a76c6ae39e" />---
 title: 0. AI Security Overview
 weight: 1
 ---
@@ -142,6 +142,7 @@ The AI Exchange is a single coherent resource on the security and privacy of AI 
   - For the short story with the main insights about what is special about AI security: see the [AI Exchange essentials](/goto/essentials/).
   - To see a general overview and discussion of all **threats** from different angles, check the [AI threat model](/goto/threatsoverview/) or the [AI security matrix](/goto/aisecuritymatrix). In case you know the threat you need to protect against, find it in the overview of your choice and click to get more information and how to protect against it.
   - To find out what to do against a specific threat, check the [controls overview](/goto/controlsoverview/) or the [periodic table](/goto/periodictable/) to find the right **controls**.
+  - To understand what controls to apply in different deployment models: have a look at the [section on ready-made models](/goto/readymademodel/).
   - To learn about **privacy** of AI systems, check [the privacy section](/goto/aiprivacy/).
   - Agentic AI aspects are covered throughout all content, with a specific section [here](/goto/agenticaithreats/).
   - To look up a specific topic, use the search function or the [index](/goto/index/).
