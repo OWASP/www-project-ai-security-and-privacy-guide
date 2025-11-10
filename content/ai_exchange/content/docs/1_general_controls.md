@@ -53,7 +53,6 @@ Useful standards include:
 References:
  - [UNESCO on AI ethics and governance](https://www.unesco.org/ethics-ai/en)
  - [GenAI security project LLM AI Cybersecurity & governance checklist](https://genai.owasp.org/resource/llm-applications-cybersecurity-and-governance-checklist-english/)
- - 
 
 #### #SECPROGRAM 
 > Category: governance control  
@@ -107,8 +106,8 @@ Monitoring and incident response are standard elements of security programs and 
     - ISO/IEC 27000 – Information security management systems – Overview and vocabulary
     - ISO/IEC 27001 – Information security management systems – Requirements
     - ISO/IEC 27002 – Code of practice for information security management (See below)
-    - ISO/IEC 27003 – Information security management systems: Implementation Guidelines)
-    - ISO/IEC 27004 – Information security management measurements)
+    - ISO/IEC 27003 – Information security management systems: Implementation Guidelines
+    - ISO/IEC 27004 – Information security management measurements
     - ISO/IEC 27005 – Information security risk management
 
   - The '27002 controls' mentioned throughout this document are listed in the Annex of ISO 27001, and further detailed with practices in ISO 27002. At the high abstraction level, the most relevant ISO 27002 controls are:
@@ -473,7 +472,7 @@ Examples:
   - Logic preventing the trunk of a car from opening while the car is moving, even if the driver seems to request it
   - Requesting user confirmation before sending a large number of emails as instructed by a model
   - A special form of guardrails is censoring unwanted output of GenAI models (e.g. violent, unethical)
-  - 
+
 Useful standards include:
 
   - ISO/IEC 42001 B.9.3 defines controls for human oversight and decisions regarding autonomy. Gap: covers this control partly (human oversight only, not business logic)
@@ -486,7 +485,7 @@ Useful standards include:
 Least model privilege: Minimize what actions a model can autonomously trigger, to prevent harmful events by a manipulated model (or a model that makes a mistake):
 - Reduce actions that the model can potentially trigger to the minimum set of actions necessary for the use cases. This can also be done dynamically, depending on the request (e.g., some actions can be disabled for requests containing untrusted inputs).
 - Execute the actions with appropriate rights and privileges. This includes performing actions for a specific user within this user’s security context, thus inheriting their rights and privileges. This ensures that no actions are invoked and no data is retrieved outside the user's authoritization.
-- Avoid implementing authorization in Generative AI instructions, as these are vulnerable to hallunications and manipulation (e.g., prompt injection). This is especially applicable in Agentic AI. This includes the prevention of Generative AI outputing commands that include references to the user context as it would open up the opportunity to escalate privileges by manipulating that output.
+- Avoid implementing authorization in Generative AI instructions, as these are vulnerable to hallunications and manipulation (e.g., prompt injection). This is especially applicable in Agentic AI. This includes the prevention of Generative AI outputting commands that include references to the user context as it would open up the opportunity to escalate privileges by manipulating that output.
 
 For example: if a model is connected to an email facility to summarize incoming emails - limit the access to read-only to avoid the model being manipulated to unwantedly send emails.
 
@@ -517,7 +516,7 @@ Continuous validation: by frequently testing the behaviour of the model against 
 
 Continuous validation is a process that is often in place to detect other issues than attacks: system failures, or the model performance going down because of changes in the real world since it was trained (model drift, model staleness). There are many performance metrics available and the best ones are those that align with the goal. These metrics pertain to correctness, but can also link to other aspects such as unwanted bias towards protected attributes.
 
-Note that continuous validation is typically not suitable for detecting backdoor poisoning attacks, as these are designed to trigger with very specific input that would normally not be present in test sets. In fact. Such attacks are often designed to pass validation tests.
+Note that continuous validation is typically not suitable for detecting backdoor poisoning attacks, as these are designed to trigger with very specific input that would normally not be present in test sets. In fact, such attacks are often designed to pass validation tests.
 
 Useful standards include:
 
