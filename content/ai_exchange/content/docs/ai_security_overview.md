@@ -319,24 +319,39 @@ The groups of controls form a summary of how to address AI security (controls ar
 
 All threats and controls are explored in more detail in the subsequent sections of the AI Exchange.
 
-### Threat model with controls - GenAI trained/fine tuned
-The diagram below focuses on threats and controls related to Generative AI, specifically in scenarios where the organization is responsible for **training or fine-tuning** the model. (note: this is not very common given the high cost and required expertise).
+### Threat model with controls - ready-made model
+>Category: discussion  
+>Permalink: https://owaspai.org/goto/readymademodel/
 
-[![AI Security Threats and controls - GenAI trained or fine tuned](/images/threatscontrols-genainotready.png)](/images/threatscontrols-genainotready.png)
+If possible, and depending on price, organisations can prefer to use a ready-made model, instead of training or fine-tuning themselves. For example: an open source model to detect people in a camera image, or a general purpose LLM such as Google Gemini, OpenAI ChatGPT, Anthropic Claude, Alibaba QWen, Deepseek, Mistral, Grok or Falkon. Training such models yourself can cost millions of dollars, requires deep expertise and vast amounts of data.  
 
-### Threat model with controls - GenAI as-is
-The diagram below focuses on threats and controls related to Generative AI when the organization uses the model as-is, without any additional training or fine-tuning. The provider (e.g. OpenAI) has done the training/fine tuning. Therefore, some risks are the responsibility of the model provider (sensitive/copyrighted data, manipulation at the provider). Nevertheless, the organization that uses the model should take these risks into account and gain assurance about them from the provider.
+The following deployment options apply for ready-made models:
+- Closed source model, hosted by the provider - for the largest models typically the only available option
+- Self-hosted: Open source model (open weights) deployed on-premise (most secure) or in the virtual private cloud (secure if the cloud provider is trusted) - these options provide more security and may be the best option cost-wise, but do not support the largest models
+- Open source model (open weights) at a paid hosting service - convenient
 
-In many cases, the as-is model is hosted externally, meaning security largely depends on how the supplier handles data, including the security configuration. 
+The provider (e.g. OpenAI) has done the training/fine tuning and therefore is responsible for part of security. Hence, proper supply chain management regarding the model provider is required. 
+
+The diagram below shows threats and controls in a self-hosting situation.
+
+[![AI Security Threats and controls - GenAI as-is](/images/threatscontrols-readymodel-selfhosted.png)](/images/threatscontrols-readymodel-selfhosted.png)
+
+If the model is hosted externally, security largely depends on how the supplier handles data, including the security configuration. 
 Some relevant questions to ask here include: 
 - How is the API protected? 
 - What is hosted within the Virtual Private Cloud (VPC)? The entire external model, or just the API? 
 - How is key management handled? 
-- What are the data retention policies? 
-- Is logging enabled, and if so, what is logged? 
-- Does the model send out sensitive input data when communicating with third-party sources?
+- What are the data retention policies? Has there been a court order that the provider needs to retain input and output for a certain period?
+- Is logging enabled, and if so, what is logged? And what is monitored - by operators and by algorithms? And in the case of monitoring algorithms: how is that infrastructure protected? Some providers require a special license and opting out of monitoring, so reading the small print is critical.
+- Does the model send out sensitive input data when communicating with third-party services?
 
-[![AI Security Threats and controls - GenAI as-is](/images/threatscontrols-readymodel.png)](/images/threatscontrols-readymodel.png)
+It is important to realise that a provider-hosted model needs your input data in clear text, because the model must read the data to process it. This means your sensitive data will exist unencrypted outside your infrastructure.  
+This is not unique to LLM providers — it is the same for other multi-tenant SaaS services, such as commercial hosted Office suites. Even though providers usually minimise data storage, limit retention, and reduce data movement, the fact remains:
+your data leaves your environment in readable form.
+
+The diagram below shows threats and controls in an externally hosted.
+
+[![AI Security Threats and controls - GenAI as-is](/images/threatscontrols-readymodel-hosted.png)](/images/threatscontrols-readymodel-hosted.png)
 
 ### Periodic table of AI security
 >Category: discussion  
