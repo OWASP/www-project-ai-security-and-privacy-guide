@@ -152,13 +152,13 @@ Example: The system might flag a vehicle going the wrong way on a one-way street
 
 An example of how to implement this is _activation Analysis_: Examining the activations of different layers in a neural network can reveal unusual patterns (anomalies) when processing an adversarial input. These anomalies can be used as a signal to detect potential attacks.
 
-**Open Set Recognition (OSR)** - a way to perform Anomaly Detection):  
+**Open Set Recognition (OSR)** - a way to perform Anomaly Detection:  
 Classifying known classes while identifying and rejecting unknown classes during testing. OSR is a way to perform anomaly detection, as it involves recognizing when an instance does not belong to any of the learned categories. This recognition makes use of the decision boundaries of the model.
 
-Example: During operation, the system identifies various known objects such as cars, trucks, pedestrians, and bicycles. However, when it encounters an unrecognized object, such as a fallen tree, it must classify it as "unknown. Open set recognition is critical because the system must be able to recognize that this object doesn't fit into any of its known categories.
+Example: During operation, the system identifies various known objects such as cars, trucks, pedestrians, and bicycles. However, when it encounters an unrecognized object, such as a fallen tree, it must classify it as "unknown". Open set recognition is critical because the system must be able to recognize that this object doesn't fit into any of its known categories.
 
 **Novelty Detection (ND)** - OOD input that is recognized as not malicious:  
-OOD input data can sometimes be recognized as not malicious and relevant or of interest. The system can decide how to respond: perhaps trigger another use case, or log is specifically, or let the model process the input if the expectation is that it can generalize to produce a sufficiently accurate result.
+OOD input data can sometimes be recognized as not malicious and relevant or of interest. The system can decide how to respond: perhaps trigger another use case, or log it specifically, or let the model process the input if the expectation is that it can generalize to produce a sufficiently accurate result.
 
 Example: The system has been trained on various car models. However, it has never seen a newly released model. When it encounters a new model on the road, novelty detection recognizes it as a new car type it hasn't seen, but understands it's still a car, a novel instance within a known category.
 
@@ -278,7 +278,7 @@ A robust model in the light of evasion is a model that does not display signific
 In other words: if we interpret the model with its inputs as a "system" and the sensitivity to evasion attacks as the "system fault" then this sensitivity may also be interpreted as (local) lack of graceful degradation.
 
 Reinforcing adversarial robustness is an experimental process where model robustness is measured in order to determine countermeasures. Measurement takes place by trying minor input deviations to detect meaningful outcome variations that undermine the model's reliability. If these variations are undetectable to the human eye but can produce false or incorrect outcome descriptions, they may also significantly undermine the model's reliability. Such cases indicate lack of model resilience to input variance resulting in sensitivity to evasion attacks and require detailed investigation.  
-Adversarial robustness (the senstitivity to adversarial examples) can be assessed with tools like [IBM Adversarial Robustness Toolbox](https://research.ibm.com/projects/adversarial-robustness-toolbox), [CleverHans](https://github.com/cleverhans-lab/cleverhans), or [Foolbox](https://github.com/bethgelab/foolbox).
+Adversarial robustness (the sensitivity to adversarial examples) can be assessed with tools like [IBM Adversarial Robustness Toolbox](https://research.ibm.com/projects/adversarial-robustness-toolbox), [CleverHans](https://github.com/cleverhans-lab/cleverhans), or [Foolbox](https://github.com/bethgelab/foolbox).
 
 Robustness issues can be addressed by:
 - Adversarial training - see [TRAINADVERSARIAL](/goto/trainadversarial/)
@@ -352,7 +352,7 @@ Input distortion: Lightly modify the input to make attacks fail, while maintaini
 
 Maintaining model correctness can be supported by performing multiple random modifications (e.g. randomized smoothing) to the input and then comparing the model output (e.g. best of three).  
 
-Input distrortion can stop both evasion attacks and targeted data poisoning
+Input distortion can stop both evasion attacks and targeted data poisoning.
 
 **Evasion attacks**
 
@@ -556,7 +556,7 @@ Direct prompt injection: a user tries to fool a Generative AI (eg. a Large Langu
 Impact: Obtaining information from the AI that is offensive, confidential, could grant certain legal rights, or triggers unauthorized functionality. Note that the person providing the prompt is the one receiving this information. The model itself is typically not altered, so this attack does not affect anyone else outside of the user (i.e., the attacker). The exception is when a model works with a shared context between users that can be influenced by user instructions.
 
 Many Generative AI systems have adjusted by their suppliers to behave (so-called _alignment_ or _safety training_), for example to prevent offensive language, or dangerous instructions. When prompt injection is  aimed at countering this, it is referred to as a *jailbreak attack*. Jailbreak attack strategies include:
-1. Abusing competing objectives. For example: if a model wants to be helpful, but also can't give you malicious instuctions, then a prompt injection could abuse this by appealing to the helpfulness to still get the instructions
+1. Abusing competing objectives. For example: if a model wants to be helpful, but also can't give you malicious instuctions, then a prompt injection could abuse this by appealing to the helpfulness to still get the instructions.
 2. Using input that is not recognized by the alignment ('out of distribution') but IS resulting in an answer based on the training data ('in distribution'). For example: using special encoding that fools safety training, but still results in the unwanted output.
 
 Examples of prompt injection: 
