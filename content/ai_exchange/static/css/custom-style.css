@@ -93,20 +93,25 @@ h1 {
     margin-bottom: 10px;
 }
   /* TWINKLE: fade layer for “scaling” illusion */
-  /* Smooth drift (kept from earlier) */
-  @keyframes starDrift {
-    from {
-      background-position:
-        0 0,
-        0 0,
-        0 0;
+  /* Blink animation keeps stars in place while varying brightness */
+  @keyframes starBlink {
+    0% {
+      opacity: 0.5;
     }
-    to {
-      /* each layer drifts in a different direction */
-      background-position:
-        240px 120px,      /* tiny stars */
-        -150px 120px,     /* small stars */
-        180px -90px;      /* medium stars */
+    20% {
+      opacity: 0.8;
+    }
+    40% {
+      opacity: 0.4;
+    }
+    60% {
+      opacity: 0.9;
+    }
+    80% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 0.7;
     }
   }
 
@@ -116,7 +121,7 @@ h1 {
     background-repeat: repeat;
     background-size: 480px 240px; /* bigger tile -> wider spacing */
     opacity: 0.6;                /* overall pass-through; tweak as you like */
-    animation: starDrift 10s linear infinite;
+    animation: starBlink 5s ease-in-out infinite;
     /* three layers: tiny, small, medium */
     background-image:
       /* Layer 1: tiny, many = subtle texture */
@@ -537,6 +542,12 @@ blockquote a:hover {
   margin: 1.5rem 0;
   font-size: 0.95rem;
   line-height: 1.5;
+}
+
+.docs-content table {
+  width: 500px !important;
+  max-width: 500px !important;
+  overflow-x: scroll;
 }
 
 /* .docs-content tableheader */
