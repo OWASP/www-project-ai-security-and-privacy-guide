@@ -181,20 +181,20 @@ This page will continue with discussions about:
 The upcoming sections discuss AI security threats and corresponding controls. Below are the main insights to understand the bigger picture of AI security What is different for AI systems?
 
 **New threats:**
-  - **Model input threats**:
-    - Evasion: Misleading a model by crafting data to force wrong decisions
-    - Prompt injection: Misleading a model by crafting instructions to manipulate behaviour
-    - Extracting from the model: training data, augmentation data, or input
-    - Extracting the model itself by querying the model
-  - **New suppliers** providing corrupted external data, models, and model hosting
+  - **[Model input threats](/goto/threatsuse/)**:
+    - [Evasion](/goto/evasion/): Misleading a model by crafting data to force wrong decisions
+    - [Prompt injection](/goto/promptinjection/): Misleading a model by crafting instructions to manipulate behaviour
+    - [Extracting from the model](/goto/disclosureuse/): training data, augmentation data, or input
+    - [Extracting of the model](/goto/modeltheftuse/) by querying the model
+  - **New suppliers** providing corrupted external [data](/goto/datapoison/), [models](/goto/supplymodelpoison/), and [model hosting](/goto/readymademodel/)
   - **New AI assets** with conventional threats, notably:
-    - Training data / augmentation data (changing it manipulates model behaviour - data poisoning)
-    - Model (model theft or poisoning)
-    - Input (leak)
-    - Output (containing injection attacks)
+    - Training data / augmentation data (changing it manipulates model behaviour - [data poisoning](/goto/datapoison/))
+    - Model ([model](/goto/devmodelleak/) [theft](/goto/runtimemodeltheft/) or [poiso](/goto/devmodelpoison/)[ning](/goto/runtimemodelpoison/))
+    - Input ([leak](/goto/leakinput/))
+    - Output (containing [injection attacks](/goto/insecureoutput/))
     
-**New controls:**
-- Specific **AI engineering** controls, to work against poisoning and model input attacks - next to conventional controls
+**[New controls](/goto/controlsoverview/):**
+- Specific **AI engineering controls**, to work against poisoning and model input attacks - next to conventional controls
 - **Impact limitation controls** (because of zero model trust: assume a model can be misled or leak data):
   - Minimize or obfuscate sensitive data
   - Limit model behaviour (oversight, guardrails, minimal model privilege)
