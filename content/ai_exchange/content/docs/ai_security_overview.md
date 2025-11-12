@@ -343,8 +343,8 @@ The diagram below shows threats and controls in a self-hosting situation.
 
 If the model is hosted externally, security largely depends on how the supplier handles data, including the security configuration. 
 Some relevant questions to ask here include: 
-- Is the model running in the vendor's processes or in your own virtual private cloud. Some vendors say you get a 'private instance', but that may refer to the API, and not the model. If the model runs in the cluster operated by your vendor, your sensitive input lives outside your protected space. Vendors will do their best to minimize storage and transfer, but they may log and monitor.
-- What are the data retention policies? Has there been a court order that the provider needs to retain input and output for a certain period?
+- Is the model running in the vendor's processes or in your own virtual private cloud? Some vendors say you get a 'private instance', but that may refer to the API, and not the model. If the model runs in the cluster operated by your vendor, your sensitive input lives outside your protected space. Vendors will do their best to minimize storage and transfer, but they may log and monitor. If it runs in your own VPC, you can regard it as self-hosted.
+- What are the data retention policies? Has there been a court order that the vendor needs to retain input and output for a certain period?
 - Is logging enabled, and if so, what is logged? And what is monitored - by operators and by algorithms? And in the case of monitoring algorithms: how is that infrastructure protected? Some providers require a special license and opting out of monitoring, so reading the small print is critical.
 - Does the model send out sensitive input data when communicating with third-party services?
 - Is the input used to train the model? This is a typical concern but in the larg majority of cases the input is not used. If vendors would do this secretly, it would get out because there are ways to tell.
