@@ -343,15 +343,29 @@ The diagram below shows threats and controls in a self-hosting situation.
 
 If the model is hosted externally, security largely depends on how the supplier handles data, including the security configuration. 
 Some relevant questions to ask here include: 
-- Is the model running in the vendor's processes or in your own virtual private cloud? Some vendors say you get a 'private instance', but that may refer to the API, and not the model. If the model runs in the cluster operated by your vendor, your sensitive input lives outside your protected space. Vendors will do their best to minimize storage and transfer, but they may log and monitor. If it runs in your own VPC, you can regard it as self-hosted.
-- What are the data retention policies? Has there been a court order that the vendor needs to retain input and output for a certain period?
-- Is logging enabled, and if so, what is logged? And what is monitored - by operators and by algorithms? And in the case of monitoring algorithms: how is that infrastructure protected? Some providers require a special license and opting out of monitoring, so reading the small print is critical.
-- Does the model send out sensitive input data when communicating with third-party services?
-- Is the input used to train the model? This is a typical concern but in the larg majority of cases the input is not used. If vendors would do this secretly, it would get out because there are ways to tell.
+
+1. Where does the model run?  
+Is the model running in the vendor's processes or in your own virtual private cloud? Some vendors say you get a 'private instance', but that may refer to the API, and not the model. If the model runs on the cluster operated by your vendor, your data leaves your environment in clear text. Vendors will minimize storage and transfer, but they may log and monitor. 
+
+2. What are the data retention rules?  
+Has a court required the vendor to retain logs for litigation? This happened to OpenAI in the US for a period of time.
+
+3. What is exactly logged and monitored?  
+Read the small print.
+Is logging enabled, and if so, what is logged?
+And what is monitored - by operators or by algorithms? And in the case of monitoring algorithms: how is that infrastructure protected? Some vendors allow you to opt out of logging, but only with specific licenses. 
+
+4. Is your input used for training?  
+This is a common fear, but in the vast majority of cases the input is not used. If vendors would do this secretly, it would get out because there are ways to tell.
+
+If you can't accept the risk for certain data, then hosting your own (smaller) model is the safest option. Typically it won't be as good and there's the catch 22.
 
 It is important to realise that a provider-hosted model needs your input data in clear text, because the model must read the data to process it. This means your sensitive data will exist unencrypted outside your infrastructure.  
 This is not unique to LLM providers — it is the same for other multi-tenant SaaS services, such as commercial hosted Office suites. Even though providers usually minimise data storage, limit retention, and reduce data movement, the fact remains:
 your data leaves your environment in readable form.
+
+When weighing this risk, compare it fairly: the vendor may still protect that environment better than you can protect your own.
+
 
 The diagram below shows threats and controls in an externally hosted situation.
 
