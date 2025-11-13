@@ -31,7 +31,7 @@ Join us in our mission to protect society from AI security issues by harnessing 
 <div>
 
 <section
-  class="intro-banner text-white py-12 mb-0 bg-cover bg-center bg-no-repeat"
+  class="intro-banner text-white py-8 md:py-8 mb-0 bg-cover bg-center bg-no-repeat"
   style="background-image: url('/images/herosponser.png')"
 >
   <div class="container text-left bg-opacity-50 p-8 rounded-lg">
@@ -43,7 +43,7 @@ Join us in our mission to protect society from AI security issues by harnessing 
       collective wisdom of global experts. Together, we can drive the development of secure
       and trustworthy AI systems.
     </p>
-    <a href="/sponsor">
+    <a href="mailto:aruneesh.salhotra@owasp.org">
       <button
         class="inline-block bg-[#4CAF50] hover:bg-emerald-700 text-white text-xl font-medium py-3 px-10 rounded-lg mt-[22px]"
       >
@@ -65,7 +65,7 @@ Join us in our mission to protect society from AI security issues by harnessing 
   </div>
 
   <!-- Sponsorship Section (Full Width Image + Overlay) -->
- <div class="container mx-auto px-4 sm:px-8 my-8 md:my-10 rounded-2xl">
+ <div class="container mx-auto px-4 sm:px-8 my-6 md:my-6 rounded-2xl">
   <div class="relative w-full">
     <!-- Background Image -->
     <img
@@ -77,19 +77,19 @@ Join us in our mission to protect society from AI security issues by harnessing 
     <div class="absolute inset-0 bg-black bg-opacity-30 rounded-t-xl"></div>
     <!-- Overlay Content -->
     <div class="absolute inset-0 flex flex-col justify-center items-center text-center rounded-t-xl p-4 sm:p-6">
-      <h2 class="text-lg sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 text-white">
+      <h2 class="text-lg sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-4 text-white">
         Support the Future of AI Security
       </h2>
-      <p class="text-xs sm:text-sm md:text-lg mb-4 sm:mb-6 text-white">
+      <p class="text-xs sm:text-sm md:text-lg mb-3 sm:mb-5 text-white">
         Get involved: aruneesh.salhotra@owasp.org
       </p>
-      <a
-        href="/sponsor"
-        class="inline-block bg-green-600 text-white px-5 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-green-700 transition mb-4 sm:mb-6 text-sm sm:text-base"
-      >
-        Sponsor Now
-      </a>
-      <h3 class="text-base sm:text-xl md:text-2xl font-bold mb-3 sm:mb-6 text-white">
+     <a
+  href="mailto:aruneesh.salhotra@owasp.org"
+  class="inline-block bg-green-600 text-white px-5 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-green-700 transition mb-3 sm:mb-5 text-sm sm:text-base"
+>
+  Sponsor Now
+</a>
+      <h3 class="text-base sm:text-xl md:text-2xl font-bold mb-2 sm:mb-4 text-white">
         Our Sponsors
       </h3>
       <div class="flex justify-center items-center flex-wrap gap-4 sm:gap-8">
@@ -113,7 +113,7 @@ Join us in our mission to protect society from AI security issues by harnessing 
 
   <!-- Sponsorship Benefits -->
   <div class="p-5 sm:p-8 bg-[#006284] rounded-b-2xl">
-    <h2 class="text-lg sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-10 text-white text-center">
+    <h2 class="text-lg sm:text-2xl md:text-3xl font-bold mb-5 sm:mb-8 text-white text-center">
       Sponsorship benefits include
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-10 text-center md:text-left">
@@ -151,11 +151,11 @@ Join us in our mission to protect society from AI security issues by harnessing 
   </div>
 </div>
   <!-- Project Sponsors Section -->
-  <div class="container mx-auto px-4 md:px-8  max-w-6xl">
-    <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-12">
+  <div class="container mx-auto px-4 md:px-8 max-w-6xl">
+    <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-8">
       Project Sponsors
     </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-4">
       {{< sponsor-card 
           name="Straker" 
           tier="Gold" 

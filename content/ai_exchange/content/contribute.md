@@ -19,11 +19,7 @@ weight: 1
       The OWASP projects are an open source effort, and we enthusiastically welcome all forms of
       contributions and feedback.
     </div>
-    <a
-      href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeuXZdg_iNbGwroZLeLsZTeXzmzertHqm5ivY9S5F9RNtqQ0w/viewform">
       <button
         class="inline-block bg-[#4CAF50] hover:bg-emerald-700 text-white text-base sm:text-lg md:text-xl font-medium py-2 sm:py-3 px-6 sm:px-8 md:px-10 rounded-lg mt-6"
       >
@@ -84,7 +80,7 @@ weight: 1
           <img src="/images/join.png" alt="Join icon" class="w-7 h-8 mb-4" />
           <h4 class="text-gray-900 mb-2 text-xl font-medium">Join</h4>
           <p class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px]">
-            <a href="https://forms.gle/XwEEK52y4iZQChuJ6" class="text-green-600 underline">Apply</a> to join the Authors group.
+            <a href="https://forms.gle/XwEEK52y4iZQChuJ6" class="text-green-600 underline">Apply</a> to join the contributors team (the authors group).
           </p>
         </div>
         <!-- OR -->
@@ -469,6 +465,8 @@ weight: 1
     </div>
   </div>
 </div>
+  <!-- Contact Section -->
+  {{< contact >}}
 
 <style>
   @media (max-width: 640px) {

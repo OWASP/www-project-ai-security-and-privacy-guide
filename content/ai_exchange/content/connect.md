@@ -18,11 +18,11 @@ sidebar:
     <p class="text-base sm:text-lg md:text-xl text-gray-200 max-w-2xl leading-relaxed">
       Engage with the OWASP AI team through various platforms.
     </p>
-    <button
+    <!-- <button
       class="inline-block bg-[#4CAF50] hover:bg-emerald-700 text-white text-base sm:text-lg md:text-xl font-medium py-2 sm:py-3 px-6 sm:px-8 md:px-10 rounded-lg mt-6"
     >
       Let's connect
-    </button>
+    </button> -->
   </div>
 </section>
 <!-- AI Exchange Platforms Section -->
@@ -53,7 +53,7 @@ sidebar:
           <h4 class="text-lg font-semibold text-gray-900 platform-title">Slack</h4>
         </div>
         <p class="text-gray-700 text-sm mb-2">
-          Collaborate in real time with peers and experts.
+          Connect with us on the OWASP Slack workspace in the #project-ai-community channel. Authors are in the closed #project-ai-authors channel.
         </p>
         <a href="https://owasp.org/slack/invite" class="text-green-600 text-sm font-medium hover:underline">
           Learn more →
@@ -110,13 +110,13 @@ sidebar:
     </div>
       <!-- Info Section -->
     <div class="text-left font-['Roboto'] text-base sm:text-lg md:text-xl text-gray-800 leading-relaxed px-4">
-      <p class="mb-4">• Connect with us on the
+      <p class="mb-4">Connect with us on the
         <a href="https://owasp.org/slack/invite" class="text-emerald-600 underline font-bold">OWASP Slack</a>
         workspace in the <span class="font-medium text-emerald-600">#project-ai-community</span>
         channel. Authors are in the closed
         <span class="font-medium text-emerald-600">#project-ai-authors</span> channel.
       </p>
-      <p class="mb-4">• Keep up with the latest updates by following us on
+      <!-- <p class="mb-4">• Keep up with the latest updates by following us on
         <a href="https://www.linkedin.com/company/owasp-ai-exchange/" class="text-emerald-600 underline font-bold">LinkedIn</a>.
       </p>
       <p class="mb-4">• For technical inquiries and suggestions, participate in our
@@ -130,7 +130,7 @@ sidebar:
         <a href="/contribute" class="text-emerald-600 underline font-bold">Contribution Guidelines</a>
         or get in touch with our project leaders.
       </p>
-      <p>The Exchange is built on expertise from contributors around the world and across all disciplines.</p>
+      <p>The Exchange is built on expertise from contributors around the world and across all disciplines.</p> -->
     </div>
   </div>
 </section>
@@ -190,7 +190,7 @@ sidebar:
       <!-- Contact Buttons -->
       <div class="contact-buttons flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 mt-10">
         <a
-          href="mailto:rob.vanderveer@owasp.org"
+          href="owaspaiexchange@gmail.com"
           class="flex items-center justify-center gap-2 bg-white shadow-lg rounded-xl w-full sm:w-[200px] h-[56px] px-4 py-2 text-gray-800 text-base sm:text-lg font-medium transition-transform hover:scale-105"
         >
           <img src="/images/email.png" alt="Email" class="w-6 h-6" />
