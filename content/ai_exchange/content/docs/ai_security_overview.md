@@ -201,7 +201,7 @@ The upcoming sections discuss AI security threats and corresponding controls. Be
 
 (*) Note: Attackers that have a similar model (or a copy) can craft misleading input covertly
 
-[![](/images/essentials3.png)](/images/essentials3.png)
+[![](/images/essentials4.png)](/images/essentials4.png)
 
 ---
 
