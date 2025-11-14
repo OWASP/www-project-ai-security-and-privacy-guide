@@ -195,6 +195,7 @@ The upcoming sections discuss AI security threats and corresponding controls. Be
     
 **[New controls](/goto/controlsoverview/):**
 - Specific **AI engineering controls**, to work against poisoning and model input attacks - next to conventional controls
+- **Monitoring** of model performance and inference allows detecting unintended behaviour, and filtering, stopping or alterting to unwanted input or output
 - **Impact limitation controls** (because of zero model trust: assume a model can be misled or leak data):
   - Minimize or obfuscate sensitive data
   - Limit model behaviour (oversight, guardrails, minimal model privilege)
