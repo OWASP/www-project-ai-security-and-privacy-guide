@@ -264,6 +264,7 @@ Data and model poisoning can occur at various stages, as illustrated in the thre
   - [DATAQUALITYCONTROL](/goto/dataqualitycontrol/) to try and detect or prevent poisoned data
   - [TRAINDATADISTORTION](/goto/traindatadistortion/) to try and corrupt poisoned data
   - [POISONROBUSTMODEL](/goto/poisonrobustmodel/) to reduce the abiliuty to recall poisoned data
+  - [SELECTIVEAMNESIA](/goto/selectiveamnesia/) to remove backdoor effects through targeted forgetting
   - Controls that are aimed to improve the generalization ability of the model - reducing the memorization of any poisoned samples: [training with adversarial samples](/goto/trainadversarial/) and [adversarial robust distillation](/goto/adversarialrobustdistillation/)
   
 - Controls specific to broad model poisoning - discussed below
@@ -330,6 +331,7 @@ References
   - [DATAQUALITYCONTROL](/goto/dataqualitycontrol/) to try and detect or prevent poisoned data
   - [TRAINDATADISTORTION](/goto/traindatadistortion/) to try and corrupt poisoned data
   - [POISONROBUSTMODEL](/goto/poisonrobustmodel/) to reduce the ability to recall poisoned data
+  - [SELECTIVEAMNESIA](/goto/selectiveamnesia/) to remove backdoor effects through targeted forgetting
   - Controls that are aimed to improve the generalization ability of the model - reducing the memorization of any poisoned samples: [training with adversarial samples](/goto/trainadversarial/) and [adversarial robust distillation](/goto/adversarialrobustdistillation/)
 
 
@@ -418,6 +420,43 @@ The general principle of reducing sensitivity to poisoned training data is to ma
 
 Useful standards include:
 - Not covered yet in ISO/IEC standards
+
+#### #SELECTIVEAMNESIA
+> Category: development-time data science control - post-training  
+> Permalink: https://owaspai.org/goto/selectiveamnesia/
+
+Selective amnesia: a two-step continual learning approach to remove backdoor effects from a compromised model by inducing targeted forgetting of both the backdoor task and primary task, followed by restoration of only the primary functionality.
+
+This control can be applied to a model that has already been trained, including models that have been obtained from an external source. It is particularly effective for removing unknown backdoors without requiring knowledge of the specific trigger pattern used in the attack.
+
+The selective amnesia approach, also known as SEAM (Selective Amnesia), is inspired by catastrophic forgetting mechanisms in continual learning. The method consists of two sequential steps:
+
+1. **Inducing forgetting**: Retrain the compromised model using clean data with randomized labels. This step causes the model to forget both its primary task and any backdoor tasks that were embedded during poisoning. The randomized labels disrupt the learned associations, effectively erasing the model's memory of both legitimate and malicious patterns.
+
+2. **Restoring primary functionality**: Subsequently retrain the model with correctly labeled clean data to recover its intended functionality. This step restores the model's ability to perform its primary task while ensuring that backdoor triggers no longer activate the malicious behavior.
+
+Effectiveness and efficiency:
+- Data requirements: Selective amnesia requires only a small fraction of clean data (e.g., 0.1% of the original training data) to effectively remove backdoor effects, making it practical even when limited clean data is available.
+- Computational efficiency: The method is computationally efficient, being approximately 30 times faster than training a model from scratch on the MNIST dataset, while achieving high fidelity in removing backdoor influences.
+- Applicability: The approach has been validated across various tasks, including image processing and natural language processing, under different attack scenarios and backdoor types.
+- Unknown backdoor removal: Unlike some other remediation techniques, selective amnesia does not require prior knowledge of the backdoor trigger pattern, making it effective against unknown or sophisticated backdoor attacks.
+
+When to use: Selective amnesia is particularly valuable when:
+- A model is suspected of being compromised but the specific backdoor mechanism is unknown
+- Limited clean data is available for remediation
+- Computational resources are constrained and full retraining is not feasible
+- The model must be remediated post-deployment without disrupting service availability
+
+Limitations:
+- The method requires access to clean training data, which may not always be available
+- The two-step process, while efficient, still requires computational resources for retraining
+- Effectiveness may vary depending on the complexity of the backdoor and the model architecture
+
+Useful standards include:
+- Not covered yet in ISO/IEC standards
+
+References:
+- ['Selective Amnesia: A Continual Learning Approach to Forgetting in Deep Neural Networks' by Zhu et al](https://arxiv.org/abs/2212.04687)
 
 #### #TRAINADVERSARIAL
 Training with adversarial examples is used as a control against evasion attacks, but can also be helpful against data poison trigger attacks that are based on slight alterations of training data, since these triggers are like adversarial samples.
