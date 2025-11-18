@@ -431,9 +431,9 @@ This control can be applied to a model that has already been trained, including 
 
 The selective amnesia approach, also known as SEAM (Selective Amnesia), is inspired by catastrophic forgetting mechanisms in continual learning. The method consists of two sequential steps:
 
-1. **Inducing forgetting**: Retrain the compromised model using clean data with randomized labels. This step causes the model to forget both its primary task and any backdoor tasks that were embedded during poisoning. The randomized labels disrupt the learned associations, effectively erasing the model's memory of both legitimate and malicious patterns.
+1. **Inducing forgetting**: Retrain (fine-tune) the compromised model using clean data with randomized labels. This step causes the model to forget both its primary task and any backdoor tasks that were embedded during poisoning. The randomized labels disrupt the learned associations, effectively erasing the model's memory of both legitimate and malicious patterns.
 
-2. **Restoring primary functionality**: Subsequently retrain the model with correctly labeled clean data to recover its intended functionality. This step restores the model's ability to perform its primary task while ensuring that backdoor triggers no longer activate the malicious behavior.
+2. **Restoring primary functionality**: Subsequently retrain (fine-tune) the model with a small subset of correctly labeled clean data to recover its intended functionality. This step restores the model's ability to perform its primary task while drastically reducing likelihood that backdoor triggers activate the malicious behavior.
 
 Effectiveness and efficiency:
 - Data requirements: Selective amnesia requires only a small fraction of clean data (e.g., 0.1% of the original training data) to effectively remove backdoor effects, making it practical even when limited clean data is available.
