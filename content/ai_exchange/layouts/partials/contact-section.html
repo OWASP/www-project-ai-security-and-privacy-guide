@@ -1,4 +1,4 @@
-<section class="relative bg-[#EDF7ED] py-16">
+<section id="contact-form" class="relative bg-[#EDF7ED] py-16">
   <div class="max-w-[1400px] mx-auto px-6 md:px-12">
     <h2 class="text-3xl md:text-4xl font-bold text-center text-[#1a1a2e] mb-16">
       We are always happy to assist you!
@@ -9,32 +9,19 @@
       <div>
         <!-- Social Icons -->
         <div class="flex flex-wrap gap-4 mb-8">
-          <a
-            href="#"
-            class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow"
-          >
+          <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions" target="_blank" class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow">
             <i class="fab fa-github text-gray-700"></i>
           </a>
-          <a
-            href="#"
-            class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow"
-          >
-            <i class="fab fa-youtube text-red-600"></i>
-          </a>
-          <a
-            href="#"
-            class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow"
-          >
-            <i class="fab fa-linkedin-in text-blue-700"></i>
-          </a>
-          <a
-            href="#"
-            class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow"
-          >
+          <a href="https://owasp.slack.com/join/shared_invite/zt-3iwx0wk01-vLwSQy1NfkD0Cv5UJeMbwQ#/shared-invite/email" target="_blank" class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow">
             <img src="/images/slack.png" alt="Slack" class="w-6 h-6" />
           </a>
+          <a href="https://www.linkedin.com/company/owasp-ai-exchange/" target="_blank" class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow">
+            <i class="fab fa-linkedin-in text-blue-700"></i>
+          </a>
+          <a href="https://www.youtube.com/playlist?list=PLCZNSZ1gyRoD5droM_qyXYyBofj00x_zO" target="_blank" class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow">
+            <i class="fab fa-youtube text-red-600"></i>
+          </a>
         </div>
-
         <h3 class="text-2xl font-bold text-[#1a1a2e] mb-4">
           Send us a message
         </h3>
@@ -51,31 +38,17 @@
         <div class="block md:hidden bg-white shadow-lg rounded-xl p-6">
           <form class="flex flex-col gap-6">
             <div class="grid grid-cols-1 gap-4">
-              <input
-                type="text"
-                placeholder="First Name*"
-                class="p-4 border border-gray-300 rounded-lg text-base w-full"
-              />
-              <input
-                type="text"
-                placeholder="Last Name*"
-                class="p-4 border border-gray-300 rounded-lg text-base w-full"
-              />
+              <input type="text" placeholder="First Name*"
+                class="p-4 border border-gray-300 rounded-lg text-base w-full" />
+              <input type="text" placeholder="Last Name*"
+                class="p-4 border border-gray-300 rounded-lg text-base w-full" />
             </div>
-            <input
-              type="email"
-              placeholder="Email Address*"
-              class="p-4 border border-gray-300 rounded-lg text-base w-full"
-            />
-            <textarea
-              placeholder="Message"
-              rows="4"
-              class="p-4 border border-gray-300 rounded-lg text-base resize-vertical w-full"
-            ></textarea>
-            <button
-              type="submit"
-              class="bg-green-500 text-white px-6 py-3 rounded-lg font-bold flex items-center justify-center gap-2 w-max hover:bg-green-600 transition"
-            >
+            <input type="email" placeholder="Email Address*"
+              class="p-4 border border-gray-300 rounded-lg text-base w-full" />
+            <textarea placeholder="Message" rows="4"
+              class="p-4 border border-gray-300 rounded-lg text-base resize-vertical w-full"></textarea>
+            <button type="submit"
+              class="bg-green-500 text-white px-6 py-3 rounded-lg font-bold flex items-center justify-center gap-2 w-max hover:bg-green-600 transition">
               Submit <span>→</span>
             </button>
           </form>
@@ -84,31 +57,17 @@
         <!-- Original form for desktop -->
         <form class="hidden md:flex flex-col gap-6">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input
-              type="text"
-              placeholder="First Name*"
-              class="p-4 border border-gray-300 rounded-lg text-base w-full"
-            />
-            <input
-              type="text"
-              placeholder="Last Name*"
-              class="p-4 border border-gray-300 rounded-lg text-base w-full"
-            />
+            <input type="text" placeholder="First Name*"
+              class="p-4 border border-gray-300 rounded-lg text-base w-full" />
+            <input type="text" placeholder="Last Name*"
+              class="p-4 border border-gray-300 rounded-lg text-base w-full" />
           </div>
-          <input
-            type="email"
-            placeholder="Email Address*"
-            class="p-4 border border-gray-300 rounded-lg text-base w-full"
-          />
-          <textarea
-            placeholder="Message"
-            rows="4"
-            class="p-4 border border-gray-300 rounded-lg text-base resize-vertical w-full"
-          ></textarea>
-          <button
-            type="submit"
-            class="bg-green-500 text-white px-6 py-3 rounded-lg font-bold flex items-center justify-center gap-2 w-max hover:bg-green-600 transition"
-          >
+          <input type="email" placeholder="Email Address*"
+            class="p-4 border border-gray-300 rounded-lg text-base w-full" />
+          <textarea placeholder="Message" rows="4"
+            class="p-4 border border-gray-300 rounded-lg text-base resize-vertical w-full"></textarea>
+          <button type="submit"
+            class="bg-green-500 text-white px-6 py-3 rounded-lg font-bold flex items-center justify-center gap-2 w-max hover:bg-green-600 transition">
             Submit <span>→</span>
           </button>
         </form>

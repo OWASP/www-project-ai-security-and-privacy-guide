@@ -19,11 +19,7 @@ weight: 1
       The OWASP projects are an open source effort, and we enthusiastically welcome all forms of
       contributions and feedback.
     </div>
-    <a
-      href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeuXZdg_iNbGwroZLeLsZTeXzmzertHqm5ivY9S5F9RNtqQ0w/viewform" target="_blank">
       <button
         class="inline-block bg-[#4CAF50] hover:bg-emerald-700 text-white text-base sm:text-lg md:text-xl font-medium py-2 sm:py-3 px-6 sm:px-8 md:px-10 rounded-lg mt-6"
       >
@@ -44,7 +40,7 @@ weight: 1
       The <span class="font-semibold">OWASP projects</span> are an open source effort, and we enthusiastically
       welcome all forms of contributions and feedback.
       If you are interested in AI security,
-      <a href="https://owasp.org/slack/invite" class="text-green-600 font-semibold hover:underline">join OWASP Slack</a>
+      <a href="https://owasp.org/slack/invite" target="_blank" class="text-green-600 font-semibold hover:underline">join OWASP Slack</a>
       and come to
       <a href="https://owaspai.org" class="text-green-600 font-semibold hover:underline">#project-ai-community</a>
       to learn and discuss.
@@ -84,7 +80,7 @@ weight: 1
           <img src="/images/join.png" alt="Join icon" class="w-7 h-8 mb-4" />
           <h4 class="text-gray-900 mb-2 text-xl font-medium">Join</h4>
           <p class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px]">
-            <a href="https://forms.gle/XwEEK52y4iZQChuJ6" class="text-green-600 underline">Apply</a> to join the Authors group.
+            <a href="https://forms.gle/XwEEK52y4iZQChuJ6" target="_blank" class="text-green-600 underline">Apply</a> to join the contributors team (the authors group).
           </p>
         </div>
         <!-- OR -->
@@ -111,8 +107,8 @@ weight: 1
           <h4 class="text-gray-900 mb-2 text-xl font-medium">Ideas</h4>
           <p class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px]">
             Propose your
-            <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions/categories/ideas" class="text-green-600 underline">ideas</a>, or submit an
-            <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues" class="text-green-600 underline">issue</a>.
+            <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions/categories/ideas" target="_blank" class="text-green-600 underline">ideas</a>, or submit an
+            <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues" target="_blank" class="text-green-600 underline">issue</a>.
           </p>
         </div>
         <!-- OR -->
@@ -139,7 +135,7 @@ weight: 1
           <h4 class="text-gray-900 mb-2 text-xl font-medium">Submit</h4>
           <p class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px]">
             Fork our repo and submit a
-            <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/pulls" class="text-green-600 underline">Pull Request</a>
+            <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/pulls" target="_blank" class="text-green-600 underline">Pull Request</a>
             for fixes or suggestions.
           </p>
         </div>
@@ -469,6 +465,8 @@ weight: 1
     </div>
   </div>
 </div>
+  <!-- Contact Section -->
+  {{< contact >}}
 
 <style>
   @media (max-width: 640px) {

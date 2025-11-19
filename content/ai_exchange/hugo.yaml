@@ -45,7 +45,7 @@ menu:
     - name: Home
       pageRef: /
       weight: 1
-    - name: Overview
+    - name: Content
       pageRef: /docs/ai_security_overview
       weight: 2
     - name: Media
@@ -75,17 +75,17 @@ menu:
         icon: github
     - name: Slack
       weight: 10
-      url: "https://github.com/OWASP/www-project-ai-security-and-privacy-guide"
+      url: "https://owasp.org/slack/invite"
       params:
         icon: slack
     - name: LinkedIn
       weight: 11
-      url: "https://github.com/OWASP/www-project-ai-security-and-privacy-guide"
+      url: "https://www.linkedin.com/company/owasp-ai-exchange/"
       params:
         icon: linkedin
     - name: Youtube
       weight: 11
-      url: "https://github.com/OWASP/www-project-ai-security-and-privacy-guide"
+      url: "https://www.youtube.com/playlist?list=PLCZNSZ1gyRoD5droM_qyXYyBofj00x_zO"
       params:
         icon: youtube
 

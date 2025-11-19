@@ -83,9 +83,9 @@ A full-width light gradient hero section for pages that need a lighter theme.
 ```
 {{< hero-section 
   title="The Ultimate AI Security Guide" 
-  subtitle="Get access to 200+ pages of practical guidance on protecting AI and data-centric systems." 
+  subtitle="Access to 200+ pages of practical guidance on protecting AI and data-centric systems." 
   button_text="Explore the Content" 
-  button_link="/docs/ai_security_overview" 
+  button_link="/docs/ai_security_overview/#how-to-use-this-document" 
 >}}
 ```
 

@@ -9,14 +9,15 @@
 >
   <div class="container text-left bg-opacity-50 p-8 rounded-lg">
     <h1 class="text-[46px] md:text-5xl font-bold mb-4">{{ .Params.heroTitle | default .Title }}</h1>
-    <p class="text-lg text-gray-300">
+    <p class="text-lg text-gray-300 max-w-4xl">
       {{ .Params.heroText | default "Engage with the OWASP AI team through various platforms." }}
     </p>
-    <button
-      class="inline-block bg-[#4CAF50] hover:bg-emerald-700 text-white text-xl font-medium py-3 px-10 rounded-lg mt-[22px]"
-    >
-      Let's connect 
-    </button>
+      <!-- <a
+  href="#contact-form"
+  class="inline-block bg-[#4CAF50] hover:bg-emerald-700 text-white text-xl font-medium py-3 px-10 rounded-lg mt-[22px] transition"
+>
+  Let's connect
+</a> -->
   </div>
 </section>
 
@@ -107,7 +108,7 @@
       </div>
     </aside>
 
-    <div class="sidebar-more">
+    <!-- <div class="sidebar-more">
       <h3 class="sidebar-title">More</h3>
       <ul class="flex flex-col">
         {{ range .Site.Menus.sidebar }}
@@ -116,7 +117,7 @@
           {{ end }}
         {{ end }}
       </ul>
-    </div>
+    </div> -->
   </div>
 
   <!-- Main Content -->

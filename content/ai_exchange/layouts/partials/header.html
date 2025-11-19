@@ -149,8 +149,11 @@
       {{ end }}
       <!-- Search Link -->
       <li class="mobile-nav-item">
-        <button class="mobile-nav-link mobile-search-btn" onclick="document.getElementById('search-toggle').click()">
-          Search
+        <button class="mobile-nav-link text-center mobile-search-btn" onclick="document.getElementById('search-toggle').click()">
+          <svg class="search-svg inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg> Search
         </button>
       </li>
     </ul>
@@ -589,11 +592,11 @@
 }
 
 .mobile-search-btn {
-  width: 100%;
-  text-align: left;
   background: none;
   border: none;
   cursor: pointer;
+  width: 100%;
+  margin: 0;
 }
 </style>
 
