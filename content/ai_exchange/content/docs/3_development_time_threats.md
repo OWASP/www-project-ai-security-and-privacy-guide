@@ -264,7 +264,6 @@ Data and model poisoning can occur at various stages, as illustrated in the thre
   - [DATAQUALITYCONTROL](/goto/dataqualitycontrol/) to try and detect or prevent poisoned data
   - [TRAINDATADISTORTION](/goto/traindatadistortion/) to try and corrupt poisoned data
   - [POISONROBUSTMODEL](/goto/poisonrobustmodel/) to reduce the abiliuty to recall poisoned data
-
   - Controls that are aimed to improve the generalization ability of the model - reducing the memorization of any poisoned samples: [training with adversarial samples](/goto/trainadversarial/) and [adversarial robust distillation](/goto/adversarialrobustdistillation/)
   
 - Controls specific to broad model poisoning - discussed below
@@ -331,7 +330,6 @@ References
   - [DATAQUALITYCONTROL](/goto/dataqualitycontrol/) to try and detect or prevent poisoned data
   - [TRAINDATADISTORTION](/goto/traindatadistortion/) to try and corrupt poisoned data
   - [POISONROBUSTMODEL](/goto/poisonrobustmodel/) to reduce the ability to recall poisoned data
-
   - Controls that are aimed to improve the generalization ability of the model - reducing the memorization of any poisoned samples: [training with adversarial samples](/goto/trainadversarial/) and [adversarial robust distillation](/goto/adversarialrobustdistillation/)
 
 
@@ -421,6 +419,7 @@ The general principle of reducing sensitivity to poisoned training data is to ma
     - **Restoring primary functionality**: Subsequently retrain (fine-tune) the model with a small subset of correctly labeled clean data to recover its intended functionality. This step restores the model's ability to perform its primary task while drastically reducing likelihood that backdoor triggers activate the malicious behavior.
     - **Effectiveness and efficiency**: Selective amnesia requires only a small fraction of clean data (e.g., 0.1% of the original training data) to effectively remove backdoor effects, making it practical even when limited clean data is available. The method is computationally efficient, being approximately 30 times faster than training a model from scratch on the MNIST dataset, while achieving high fidelity in removing backdoor influences. Unlike some other remediation techniques, selective amnesia does not require prior knowledge of the backdoor trigger pattern, making it effective against unknown backdoor attacks.
 
+Useful standards include:
 - Not covered yet in ISO/IEC standards
 
 References:
