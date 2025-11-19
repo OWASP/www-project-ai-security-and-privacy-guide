@@ -425,8 +425,6 @@ Useful standards include:
 References:
 - ['Selective Amnesia: A Continual Learning Approach to Forgetting in Deep Neural Networks' by Zhu et al](https://arxiv.org/abs/2212.04687)
 
-
-
 #### #TRAINADVERSARIAL
 Training with adversarial examples is used as a control against evasion attacks, but can also be helpful against data poison trigger attacks that are based on slight alterations of training data, since these triggers are like adversarial samples.
 
