@@ -85,7 +85,7 @@ menu:
         icon: linkedin
     - name: Youtube
       weight: 11
-      url: "https://www.youtube.com/@RobvanderVeer-ex3gj"
+      url: "https://www.youtube.com/playlist?list=PLCZNSZ1gyRoD5droM_qyXYyBofj00x_zO"
       params:
         icon: youtube
 

@@ -42,7 +42,7 @@ sidebar:
         <p class="text-gray-700 text-sm mb-2">
           Become part of our author community.
         </p>
-        <a href="https://forms.gle/XwEEK52y4iZQChuJ6" class="text-green-600 text-sm font-medium hover:underline">
+        <a href="https://forms.gle/XwEEK52y4iZQChuJ6" target="_blank" class="text-green-600 text-sm font-medium hover:underline">
           Learn more →
         </a>
       </div>
@@ -53,9 +53,9 @@ sidebar:
           <h4 class="text-lg font-semibold text-gray-900 platform-title">Slack</h4>
         </div>
         <p class="text-gray-700 text-sm mb-2">
-          Connect with us on the OWASP Slack workspace in the #project-ai-community channel. Authors are in the closed #project-ai-authors channel.
+          Engage with the OWASP AI team through various platforms. Connect with us on the OWASP Slack workspace in the #project-ai-community channel.
         </p>
-        <a href="https://owasp.org/slack/invite" class="text-green-600 text-sm font-medium hover:underline">
+        <a href="https://owasp.slack.com/join/shared_invite/zt-3iwx0wk01-vLwSQy1NfkD0Cv5UJeMbwQ#/shared-invite/email" target="_blank" class="text-green-600 text-sm font-medium hover:underline">
           Learn more →
         </a>
       </div>
@@ -65,8 +65,8 @@ sidebar:
           <img src="/images/linkedin_logo.png" alt="LinkedIn" class="w-6 h-6 sm:mr-2 platform-icon" />
           <h4 class="text-lg font-semibold text-gray-900 platform-title">LinkedIn</h4>
         </div>
-        <p class="text-gray-700 text-sm mb-2">Follow us and stay connected.</p>
-        <a href="https://www.linkedin.com/company/owasp-ai-exchange/" class="text-green-600 text-sm font-medium hover:underline">
+        <p class="text-gray-700 text-sm mb-2">Follow us and stay connected. The go-to resource for AI Security, feeding straight into international standards. Open source. 200 pages.</p>
+        <a href="https://www.linkedin.com/company/owasp-ai-exchange/" target="_blank" class="text-green-600 text-sm font-medium hover:underline">
           Learn more →
         </a>
       </div>
@@ -79,18 +79,18 @@ sidebar:
         <p class="text-gray-700 text-sm mb-2">
           Send us your feedback or suggestions.
         </p>
-        <a href="mailto:rob.vanderveer@owasp.org" class="text-green-600 text-sm font-medium hover:underline">
+        <a href="mailto:owaspaiexchange@gmail.com" class="text-green-600 text-sm font-medium hover:underline">
           Learn more →
         </a>
       </div>
       <!-- YouTube -->
       <div class="platform-card bg-white rounded-2xl border border-gray-200 shadow-md text-left px-5 py-5 transition-all duration-200 hover:scale-[1.02]">
         <div class="platform-header flex items-center mb-2 sm:mb-3">
-          <img src="/images/youtube.png" alt="YouTube" class="w-6 h-6 sm:mr-2 platform-icon" />
+          <img src="/images/youtube.png" alt="YouTube" class="h-6 sm:mr-2 platform-icon" />
           <h4 class="text-lg font-semibold text-gray-900 platform-title">YouTube</h4>
         </div>
         <p class="text-gray-700 text-sm mb-2">Watch our talks and sessions.</p>
-        <a href="https://www.youtube.com/@RobvanderVeer-ex3gj" class="text-green-600 text-sm font-medium hover:underline">
+        <a href="https://www.youtube.com/playlist?list=PLCZNSZ1gyRoD5droM_qyXYyBofj00x_zO" target="_blank" class="text-green-600 text-sm font-medium hover:underline">
           Learn more →
         </a>
       </div>
@@ -103,7 +103,7 @@ sidebar:
         <p class="text-gray-700 text-sm mb-2">
           Explore code and open discussions.
         </p>
-        <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions" class="text-green-600 text-sm font-medium hover:underline">
+        <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions" target="_blank" class="text-green-600 text-sm font-medium hover:underline">
           Learn more →
         </a>
       </div>
@@ -157,10 +157,7 @@ sidebar:
         alt="Rob van der Veer"
         class="w-full h-64 sm:h-[280px] object-cover rounded-xl shadow-md mb-3"
       />
-      <a
-        href="#"
-        class="text-emerald-600 text-lg font-medium underline mt-2 text-center"
-      >
+      <a href="https://robvanderveer.com/" class="text-emerald-600 text-lg font-medium underline mt-2 text-center">
         Rob van der Veer
       </a>
     </div>
@@ -189,23 +186,17 @@ sidebar:
       </ul>
       <!-- Contact Buttons -->
       <div class="contact-buttons flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 mt-10">
-        <a
-          href="owaspaiexchange@gmail.com"
-          class="flex items-center justify-center gap-2 bg-white shadow-lg rounded-xl w-full sm:w-[200px] h-[56px] px-4 py-2 text-gray-800 text-base sm:text-lg font-medium transition-transform hover:scale-105"
+        <a href="mailto:rob.vanderveer@owasp.org" class="flex items-center justify-center gap-2 bg-white shadow-lg rounded-xl w-full sm:w-[200px] h-[56px] px-4 py-2 text-gray-800 text-base sm:text-lg font-medium transition-transform hover:scale-105"
         >
           <img src="/images/email.png" alt="Email" class="w-6 h-6" />
           <span>E-mail</span>
         </a>
-        <a
-          href="https://twitter.com/robvanderveer"
-          class="flex items-center justify-center gap-2 bg-white shadow-lg rounded-xl w-full sm:w-[200px] h-[56px] px-4 py-2 text-gray-800 text-base sm:text-lg font-medium transition-transform hover:scale-105"
+        <a href="https://twitter.com/robvanderveer" target="_blank" class="flex items-center justify-center gap-2 bg-white shadow-lg rounded-xl w-full sm:w-[200px] h-[56px] px-4 py-2 text-gray-800 text-base sm:text-lg font-medium transition-transform hover:scale-105"
         >
           <img src="/images/twitter.png" alt="Twitter" class="w-6 h-6" />
           <span>Twitter</span>
         </a>
-        <a
-          href="https://www.linkedin.com/in/robvanderveer"
-          class="flex items-center justify-center gap-2 bg-white shadow-lg rounded-xl w-full sm:w-[200px] h-[56px] px-4 py-2 text-gray-800 text-base sm:text-lg font-medium transition-transform hover:scale-105"
+        <a href="https://www.linkedin.com/in/robvanderveer" target="_blank" class="flex items-center justify-center gap-2 bg-white shadow-lg rounded-xl w-full sm:w-[200px] h-[56px] px-4 py-2 text-gray-800 text-base sm:text-lg font-medium transition-transform hover:scale-105"
         >
           <img src="/images/linkedin_logo.png" alt="LinkedIn" class="w-6 h-6" />
           <span>LinkedIn</span>

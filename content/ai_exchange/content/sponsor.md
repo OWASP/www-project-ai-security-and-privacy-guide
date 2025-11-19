@@ -38,25 +38,21 @@ Join us in our mission to protect society from AI security issues by harnessing 
     <h1 class="text-[46px] md:text-5xl font-bold mb-4">
       Sponsor the OWASP AI Exchange
     </h1>
-    <p class="text-lg text-gray-300">
+    <p class="text-lg text-gray-300 max-w-4xl">
       Join us in our mission to protect society from AI security issues by harnessing the
       collective wisdom of global experts. Together, we can drive the development of secure
       and trustworthy AI systems.
     </p>
-    <a href="mailto:aruneesh.salhotra@owasp.org">
-      <button
-        class="inline-block bg-[#4CAF50] hover:bg-emerald-700 text-white text-xl font-medium py-3 px-10 rounded-lg mt-[22px]"
-      >
-        Sponsor Now
-      </button>
+    <a href="#contactSection" class="inline-block bg-[#4CAF50] hover:bg-emerald-700 text-white text-xl font-medium py-3 px-10 rounded-lg mt-[22px]">
+      Sponsor Now
     </a>
   </div>
 </section>
 
 
   <!-- Description Section (Centered Content) -->
- <div class="container mx-auto px-4 md:px-8 max-w-8xl">
-    <p class="text-lg text-gray-800 mb-6 leading-relaxed">
+ <div class="container mx-auto pt-10 pb-0 px-10 max-w-8xl">
+    <p class="text-lg text-gray-800 mb-4 leading-relaxed">
       The <span class="font-bold">OWASP AI Exchange</span> is at the global center of AI security standards and guidelines, serving as the ultimate resource for AI security practitioners and standard makers. The Exchange offers over 200 pages of practical advice and references on protecting AI and data-centric systems from security threats.
     </p>
     <p class="text-lg text-gray-800 leading-relaxed">
@@ -64,8 +60,8 @@ Join us in our mission to protect society from AI security issues by harnessing 
     </p>
   </div>
 
-  <!-- Sponsorship Section (Full Width Image + Overlay) -->
- <div class="container mx-auto px-4 sm:px-8 my-6 md:my-6 rounded-2xl">
+<!-- Sponsorship Section (Full Width Image + Overlay) -->
+ <div class="container mx-auto px-4 sm:px-8 rounded-2xl">
   <div class="relative w-full">
     <!-- Background Image -->
     <img
@@ -83,12 +79,7 @@ Join us in our mission to protect society from AI security issues by harnessing 
       <p class="text-xs sm:text-sm md:text-lg mb-3 sm:mb-5 text-white">
         Get involved: aruneesh.salhotra@owasp.org
       </p>
-     <a
-  href="mailto:aruneesh.salhotra@owasp.org"
-  class="inline-block bg-green-600 text-white px-5 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-green-700 transition mb-3 sm:mb-5 text-sm sm:text-base"
->
-  Sponsor Now
-</a>
+     <a href="mailto:aruneesh.salhotra@owasp.org" class="inline-block bg-green-600 text-white px-5 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-green-700 transition mb-3 sm:mb-5 text-sm sm:text-base">Sponsor Now</a>
       <h3 class="text-base sm:text-xl md:text-2xl font-bold mb-2 sm:mb-4 text-white">
         Our Sponsors
       </h3>
@@ -110,7 +101,6 @@ Join us in our mission to protect society from AI security issues by harnessing 
       </div>
     </div>
   </div>
-
   <!-- Sponsorship Benefits -->
   <div class="p-5 sm:p-8 bg-[#006284] rounded-b-2xl">
     <h2 class="text-lg sm:text-2xl md:text-3xl font-bold mb-5 sm:mb-8 text-white text-center">
@@ -119,8 +109,9 @@ Join us in our mission to protect society from AI security issues by harnessing 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-10 text-center md:text-left">
       <!-- Visibility -->
       <div>
-        <div class="flex flex-col md:flex-row items-center md:items-start mb-3">
-          <img src="/images/Vector1.png" alt="Icon 1" class="h-6 sm:h-8 w-6 sm:w-8 mb-2 md:mb-0 md:mr-3" />
+        <div class="flex flex-col md:flex-row items-center md:items-center mb-3">
+          <i class="far fa-eye text-white text-3xl mr-4"></i>
+          <!-- <img src="/images/Vector1.png" alt="Icon 1" class="h-6 sm:h-8 w-6 sm:w-8 mb-2 md:mb-0 md:mr-3" /> -->
           <h4 class="text-base sm:text-lg md:text-xl font-bold text-white">Visibility</h4>
         </div>
         <p class="text-white text-sm sm:text-base leading-relaxed">
@@ -129,8 +120,9 @@ Join us in our mission to protect society from AI security issues by harnessing 
       </div>
       <!-- Collaboration -->
       <div>
-        <div class="flex flex-col md:flex-row items-center md:items-start mb-3">
-          <img src="/images/Vector2.png" alt="Icon 2" class="h-6 sm:h-8 w-6 sm:w-8 mb-2 md:mb-0 md:mr-3" />
+        <div class="flex flex-col md:flex-row items-center md:items-center mb-3">
+          <i class="far fa-handshake text-white text-3xl mr-4"></i>
+          <!-- <img src="/images/Vector2.png" alt="Icon 2" class="h-6 sm:h-8 w-6 sm:w-8 mb-2 md:mb-0 md:mr-3" /> -->
           <h4 class="text-base sm:text-lg md:text-xl font-bold text-white">Collaboration</h4>
         </div>
         <p class="text-white text-sm sm:text-base leading-relaxed">
@@ -139,8 +131,9 @@ Join us in our mission to protect society from AI security issues by harnessing 
       </div>
       <!-- Thought Leadership -->
       <div>
-        <div class="flex flex-col md:flex-row items-center md:items-start mb-3">
-          <img src="/images/Vector1.png" alt="Icon 3" class="h-6 sm:h-8 w-6 sm:w-8 mb-2 md:mb-0 md:mr-3" />
+        <div class="flex flex-col md:flex-row items-center md:items-center mb-3">
+          <i class="far fa-lightbulb text-white text-3xl mr-4"></i>
+          <!-- <img src="/images/Vector1.png" alt="Icon 3" class="h-6 sm:h-8 w-6 sm:w-8 mb-2 md:mb-0 md:mr-3" /> -->
           <h4 class="text-base sm:text-lg md:text-xl font-bold text-white">Thought Leadership</h4>
         </div>
         <p class="text-white text-sm sm:text-base leading-relaxed">
@@ -151,11 +144,11 @@ Join us in our mission to protect society from AI security issues by harnessing 
   </div>
 </div>
   <!-- Project Sponsors Section -->
-  <div class="container mx-auto px-4 md:px-8 max-w-6xl">
-    <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-8">
+  <div class="container mx-auto pt-0 px-4 md:px-8 max-w-6xl">
+    <h2 class="text-4xl mb-10 md:text-5xl font-bold text-center text-gray-800">
       Project Sponsors
     </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
       {{< sponsor-card 
           name="Straker" 
           tier="Gold" 
@@ -174,5 +167,7 @@ Join us in our mission to protect society from AI security issues by harnessing 
   </div>
 
   <!-- Contact Section -->
-  {{< contact >}}
+  <div id="contactSection">
+    {{< contact >}}
+  </div>
 </div>
