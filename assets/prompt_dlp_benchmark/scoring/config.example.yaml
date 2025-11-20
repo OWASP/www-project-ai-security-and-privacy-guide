@@ -1,0 +1,5 @@
+endpoint: null  # HTTP endpoint to call for model output; null uses a local simulator
+http_method: POST
+headers: {}
+timeout_seconds: 30
+batch_size: 8

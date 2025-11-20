@@ -1,0 +1,11 @@
+version: 1
+rules:
+  - id: mask-phone
+    description: Mask phone-like sequences
+    pattern: '(?i)\b\+?[0-9][0-9\-\s]{6,}\b'
+    replace: '[REDACTED:PHONE]'
+  - id: mask-email
+    description: Mask email addresses
+    pattern: '(?i)[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}'
+    flags: 'i'
+    replace: '[REDACTED:EMAIL]'

@@ -1,0 +1,19 @@
+{
+  "TotalCases": 1,
+  "LeakageRate": 1.0,
+  "RedactionEffectiveness": 0.5,
+  "FalsePositiveRateApprox": 0.0,
+  "Details": [
+    {
+      "id": "single-input",
+      "category": "manual",
+      "surface": "manual",
+      "leaked": true,
+      "sensitive_matches_before": 2,
+      "sensitive_matches_after": 1,
+      "redaction_actions": null,
+      "approx_false_positive_actions": null,
+      "raw_preview": "Contact: Jane Doe, Email: jane.doe@example.com, Phone: +1-555-123-4567"
+    }
+  ]
+}
