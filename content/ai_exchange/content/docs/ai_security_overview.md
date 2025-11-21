@@ -248,10 +248,17 @@ What does this mean for security?
 - The attack surface is wide, and the potential impact should not be underestimated.
 - Because of that, the known controls become even more important — such as security of inter-model communication (e.g. MCP), traceability, protecting memory integrity, prompt injection defenses, rule-based guardrails, least model privilege, and human oversight. See the [controls overview section](/goto/controlsoverview/).
 
+For leaking sensitive data in agentic AI, you need three things, also called the lethal trifecta:
+1. Control of the attacker of data that find its way into an LLM at some point
+2. Access of that LLM or connected agents to sensitive data
+3. The ability of that LLM or connected agents to initiate sending out data to the attacker
+
+See [Simon Willison’s excellent work](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) for more details, and for examples in agentic AI software development [here](https://www.darkreading.com/application-security/github-copilot-camoleak-ai-attack-exfils-data) and [here](https://ainativedev.io/news/malicious-github-issue-ai-agent-leak).
+
+
 For more details on the agentic AI threats, see the [Agentic AI threats and mitigations, from the GenAI security project](https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/). For a more general discussion of Agentic AI, see [this article from Chip Huyen](https://huyenchip.com/2025/01/07/agents.html).
 
 The [testing section](/goto/testing/) discusses more about agentic AI red teaming and links to the collaboration between CSA and the Exchange: the Agentic AI red teaming guide.
-
 
 
 ### AI Security Matrix
