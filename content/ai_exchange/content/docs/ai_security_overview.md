@@ -195,13 +195,14 @@ The upcoming sections discuss AI security threats and corresponding controls. Be
     
 **[New controls](/goto/controlsoverview/):**
 - Specific **AI engineering controls**, to work against poisoning and model input attacks - next to conventional controls
+- **Monitoring** of model performance and inference allows detecting unintended behaviour, and filtering, stopping or alterting to unwanted input or output
 - **Impact limitation controls** (because of zero model trust: assume a model can be misled or leak data):
   - Minimize or obfuscate sensitive data
   - Limit model behaviour (oversight, guardrails, minimal model privilege)
 
 (*) Note: Attackers that have a similar model (or a copy) can craft misleading input covertly
 
-[![](/images/essentials3.png)](/images/essentials3.png)
+[![](/images/essentials4.png)](/images/essentials4.png)
 
 ---
 
@@ -247,10 +248,17 @@ What does this mean for security?
 - The attack surface is wide, and the potential impact should not be underestimated.
 - Because of that, the known controls become even more important — such as security of inter-model communication (e.g. MCP), traceability, protecting memory integrity, prompt injection defenses, rule-based guardrails, least model privilege, and human oversight. See the [controls overview section](/goto/controlsoverview/).
 
+For leaking sensitive data in agentic AI, you need three things, also called the lethal trifecta:
+1. Data: Control of the attacker of data that find its way into an LLM at some point in the session of a user that has the desired access 
+2. Access: Access of that LLM or connected agents to sensitive data
+3. Send: The ability of that LLM or connected agents to initiate sending out data to the attacker
+
+See [Simon Willison’s excellent work](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) for more details, and for examples in agentic AI software development [here](https://www.darkreading.com/application-security/github-copilot-camoleak-ai-attack-exfils-data) and [here](https://ainativedev.io/news/malicious-github-issue-ai-agent-leak).
+
+
 For more details on the agentic AI threats, see the [Agentic AI threats and mitigations, from the GenAI security project](https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/). For a more general discussion of Agentic AI, see [this article from Chip Huyen](https://huyenchip.com/2025/01/07/agents.html).
 
 The [testing section](/goto/testing/) discusses more about agentic AI red teaming and links to the collaboration between CSA and the Exchange: the Agentic AI red teaming guide.
-
 
 
 ### AI Security Matrix
@@ -381,7 +389,7 @@ Note that [general governance controls](/goto/governancecontrols/) apply to all 
 <table><thead>
 <tr><th>Asset &amp; Impact</th><th>Attack surface with lifecycle</th><th>Threat/Risk category</th><th>Controls</th></tr>
 </thead><tbody>
-<tr><td rowspan="7">Model behaviour Integrity</td><td rowspan="3">Runtime -Model use (provide input/ read output)</td><td><a href="/goto/directpromptinjection/">Direct prompt injection</a></td><td><a href="/goto/limitunwanted/">Limit unwanted behavior</a>, <a href="/goto/promptinputvalidation/">Prompt input validation</a>, <a href="/goto/modelalignment/">Model alignment</a></td></tr>
+<tr><td rowspan="7">Model behaviour Integrity</td><td rowspan="3">Runtime -Model use (provide input/ read output)</td><td><a href="/goto/directpromptinjection/">Direct prompt injection</a></td><td><a href="/goto/limitunwanted/">Limit unwanted behavior</a>, <a href="/goto/monitoruse/">Monitor</a>, <a href="/goto/ratelimit/">rate limit</a>, <a href="/goto/modelaccesscontrol/">model access control</a> plus: <a href="/goto/promptinputvalidation/">Prompt input validation</a>, <a href="/goto/modelalignment/">Model alignment</a></td></tr>
 <tr>                                         <td><a href="/goto/indirectpromptinjection/">Indirect prompt injection</a></td><td><a href="/goto/limitunwanted/">Limit unwanted behavior</a>, <a href="/goto/promptinputvalidation/">Prompt input validation</a>, <a href="/goto/inputsegregation/">Input segregation</a></td></tr>
 <tr>                                         <td><a href="/goto/evasion/">Evasion</a> (e.g. adversarial examples)</td><td><a href="/goto/limitunwanted/">Limit unwanted behavior</a>, <a href="/goto/monitoruse/">Monitor</a>, <a href="/goto/ratelimit/">rate limit</a>, <a href="/goto/modelaccesscontrol/">model access control</a> plus:<br><br><a href="/goto/detectoddinput/">Detect odd input</a>, <a href="/goto/detectadversarialinput/">detect adversarial input</a>, <a href="/goto/evasionrobustmodel/">evasion robust model</a>, <a href="/goto/trainadversarial/">train adversarial</a>, <a href="/goto/inputdistortion/">input distortion</a>, <a href="/goto/adversarialrobustdistillation/">adversarial robust distillation</a></td></tr>
 <tr>                                         <td>Runtime - Break into deployed model</td><td><a href="/goto/runtimemodelpoison/">Model poisoning runtime</a> (reprogramming)</td><td><a href="/goto/limitunwanted/">Limit unwanted behavior</a>, <a href="/goto/runtimemodelintegrity/">Runtime model integrity</a>, <a href="/goto/runtimemodeliointegrity/">runtime model input/output integrity</a></td></tr>

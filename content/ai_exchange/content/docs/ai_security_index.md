@@ -71,6 +71,7 @@ O
 P  
 [Periodic table](/goto/periodictable/)  
 [Privacy](/goto/aiprivacy/)  
+[Prompt injection](/goto/promptinjection/)
 
 R  
 [Red teaming](/goto/testing/)  
