@@ -574,7 +574,10 @@ Example 5: The process of trying prompt injection can be automated, searching fo
 Example 6: Prompt leaking: when an attacker manages through prompts to retrieve instructions to an LLM that were given by its makers
 
 
-See [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.T0051) and ([OWASP for LLM 01](https://genai.owasp.org/llmrisk/llm01/)).
+References:
+- [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.T0051)
+- [OWASP for LLM 01](https://genai.owasp.org/llmrisk/llm01/)
+- [OWASP CHeat sheets on Prompt injection prevention](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html)
 
 **Controls:**
 
