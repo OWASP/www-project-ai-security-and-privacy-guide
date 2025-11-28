@@ -21,3 +21,11 @@ go.work
 *.test
 *.out
 */firebase.json
+# Python env and cach
+.venv/
+venv/
+ENV/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
