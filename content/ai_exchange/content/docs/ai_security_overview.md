@@ -233,7 +233,7 @@ The diagram shows the threats as arrows. Each threat has a specific impact, indi
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/agenticaithreats/
 
-In Agentic AI, AI systems can take action instead of just present output, and sometimes act pro-actively or communicate with other agents. Important note: these are still software systems and AI systems, so everything in the AI Exchange applies, but there are a few attention points. 
+In Agentic AI, AI systems can take action instead of just present output, and sometimes act autonomously or communicate with other agents. Important note: these are still software systems and AI systems, so everything in the AI Exchange applies, but there are a few attention points. 
 
 An example of Agentic AI is a set of voice assistants that can control your heating, send emails, and even invite more assistants into the conversation. That’s powerful—but you’d probably want it to check with you first before sending a thousand emails.  
 
@@ -244,7 +244,7 @@ There are four typical properties of agentic AI:
 4. Multi-system: You often work with a mix of systems and interfaces. Because of that, developers tend to assign responsibilities regarding access control to the AI using instructions, opening up the door for manipulation through [prompt injection](/goto/promptinjection/).
 
 What does this mean for security?
-- Hallucinations and prompt injections can change commands — or even escalate privileges. Don’t give GenAI models/agents direct access control. Build that into your architecture.
+- Hallucinations and prompt injections can change commands — or even escalate privileges. Key controls are defense in depth and blast radius control ([impact limitation(/goto/limitunwanted/)). Don’t assign the responsibility of access control to GenAI models/agents. Build that into your architecture.
 - The attack surface is wide, and the potential impact should not be underestimated.
 - Because of that, the known controls become even more important — such as security of inter-model communication (e.g. MCP), traceability, protecting memory integrity, prompt injection defenses, rule-based guardrails, least model privilege, and human oversight. See the [controls overview section](/goto/controlsoverview/).
 
