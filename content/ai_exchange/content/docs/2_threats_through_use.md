@@ -601,7 +601,7 @@ The same as for all prompt injection:
 
 Indirect prompt injection ([OWASP for LLM 01](https://genai.owasp.org/llmrisk/llm01/)): a third party fools a large language model (GenAI) through the inclusion of (often hidden) instructions as part of a text that is inserted into a prompt by an application, causing unintended actions or answers by the LLM (GenAI). This is similar to remote code execution.
 
-Impact: Getting unwanted answers or actions from instructions from untrusted input that has been inserted in a prompt.
+Impact: Getting unwanted answers or actions (see [Agentic AI](/goto/agenticaithreats/) from instructions from untrusted input that has been inserted in a prompt.
 
 Example 1: let's say a chat application takes questions about car models. It turns a question into a prompt to a Large Language Model (LLM, a GenAI) by adding the text from the website about that car. If that website has been compromised with instructions invisible to the eye, those instructions are inserted into the prompt and may result in the user getting false or offensive information.
 
