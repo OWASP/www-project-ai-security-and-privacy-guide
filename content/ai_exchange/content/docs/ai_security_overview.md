@@ -178,9 +178,10 @@ This page will continue with discussions about:
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/essentials/
 
-The upcoming sections discuss AI security threats and corresponding controls. Below are the main insights to understand the bigger picture of AI security What is different for AI systems?
+The upcoming sections discuss AI security threats and corresponding controls. Below are the main insights to understand the bigger picture of AI security What is different for AI systems?  
+Many experts and organizations contributed to this overview, notably SANS Institute - making sure that the control sets in the Essentials align with SANS' Critical AI security guidelines.
 
-**New threats:**
+**New threats (overview [here](/goto/threatsoverview/):**
   - **[Model input threats](/goto/threatsuse/)**:
     - [Evasion](/goto/evasion/): Misleading a model by crafting data to force wrong decisions
     - [Prompt injection](/goto/promptinjection/): Misleading a model by crafting instructions to manipulate behaviour
@@ -193,16 +194,16 @@ The upcoming sections discuss AI security threats and corresponding controls. Be
     - Input ([leak](/goto/leakinput/))
     - Output (containing [injection attacks](/goto/insecureoutput/))
     
-**[New controls](/goto/controlsoverview/):**
-- Specific **AI engineering controls**, to work against poisoning and model input attacks - next to conventional controls
-- **Monitoring** of model performance and inference allows detecting unintended behaviour, and filtering, stopping or alterting to unwanted input or output
+**New controls (overview [here](/goto/controlsoverview/)):**
+- Specific **AI engineering controls**, to work against poisoning and model input attacks - next to conventional controls. This category is divided into **Data/model engineering** and **Model I/O handling** for filtering, stopping or alterting to suspicious input or output.
+- **[Monitoring](/goto/monitoruse/)** of model performance and inference - extending model I/O handing and overlooking general usage of the AI system
 - **Impact limitation controls** (because of zero model trust: assume a model can be misled or leak data):
-  - Minimize or obfuscate sensitive data
-  - Limit model behaviour (oversight, guardrails, minimal model privilege)
+  - [Minimize or obfuscate sensitive data](/goto/datalimit/)
+  - [Limit model behaviour](/goto/limitunwanted/) (oversight, guardrails, minimal model privilege)
 
 (*) Note: Attackers that have a similar model (or a copy) can craft misleading input covertly
 
-[![](/images/essentials4.png)](/images/essentials4.png)
+[![](/images/essentials4.png)](/images/essentials5.png)
 
 ---
 
