@@ -181,7 +181,7 @@ This page will continue with discussions about:
 The upcoming sections discuss AI security threats and corresponding controls. Below are the main insights to understand the bigger picture of AI security What is different for AI systems?  
 Many experts and organizations contributed to this overview, notably SANS Institute - making sure that the control sets in the Essentials align with SANS' Critical AI security guidelines.
 
-**New threats (overview [here](/goto/threatsoverview/):**
+**New threats (overview [here](/goto/threatsoverview/)):**
   - **[Model input threats](/goto/threatsuse/)**:
     - [Evasion](/goto/evasion/): Misleading a model by crafting data to force wrong decisions
     - [Prompt injection](/goto/promptinjection/): Misleading a model by crafting instructions to manipulate behaviour
@@ -203,7 +203,7 @@ Many experts and organizations contributed to this overview, notably SANS Instit
 
 (*) Note: Attackers that have a similar model (or a copy) can craft misleading input covertly
 
-[![](/images/essentials4.png)](/images/essentials5.png)
+[![](/images/essentials5.png)](/images/essentials5.png)
 
 ---
 
