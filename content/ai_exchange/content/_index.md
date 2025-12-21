@@ -16,9 +16,9 @@
 </table>
 </p>
 
->Welcome to the go-to resource for broad AI security & privacy - over 200 pages of practical advice and references on protecting AI and data-centric systems from threats. This content serves as key bookmark for practitioners, and is contributing actively and substantially to international standards such as ISO/IEC and the AI Act through official standard partnerships. Through broad collaboration with key institutes and SDOs, the _Exchange_ represents the consensus on AI security and privacy.<br>
+>Welcome to the go-to resource for broad AI security & privacy - over 300 pages of practical advice and references on protecting AI and data-centric systems from threats. This content serves as key bookmark for practitioners, and is contributing actively and substantially to international standards such as ISO/IEC and the AI Act through official standard partnerships. Through broad collaboration with key institutes and SDOs, the _Exchange_ represents the consensus on AI security and privacy.<br>
 
-START HERE: [how to use this document](/goto//document/).
+START HERE: [how to use this document](/goto//document/) or ask a question to AI on the content of the Exchange [here](https://notebooklm.google.com/notebook/75840a00-78f8-454d-ad4d-9ac27ae4cf48).
 
 {{< spacer height="10" >}}
 
