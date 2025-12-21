@@ -49,9 +49,12 @@ Each listed tool addresses a subset of the threat landscape of AI systems. Below
 - [Prompt Injection](https://owaspai.org/goto/promptinjection/): In this type of attack, the attacker provides the model with manipulative instructions aimed at achieving malicious outcomes or objectives.
 - [Direct Runtime Model Theft](https://owaspai.org/goto/runtimemodeltheft/): Attackers target parts of the model or critical components like the system prompt. By doing so, they gain the ability to craft sophisticated inputs that bypass guardrails.
 - [Insecure Output Handling](https://owaspai.org/goto/insecureoutput/): Generative AI systems can be vulnerable to traditional injection attacks, leading to risks if the outputs are improperly handled or processed.
-- For details on agentic AI system testing, see the [Agentic AI red teaming guide](https://cloudsecurityalliance.org/download/artifacts/agentic-ai-red-teaming-guide) which is a collaboration between the CSA and the AI Exchange.
 
 While we have mentioned the key threats for each of the AI Paradigm, we strongly encourage the reader to refer to all threats at the AI Exchange, based on the outcome of the Objective and scope definition phase in AI Red Teaming.
+
+**References on AI security testing**:
+- For details on agentic AI system testing, see the [Agentic AI red teaming guide](https://cloudsecurityalliance.org/download/artifacts/agentic-ai-red-teaming-guide) which is a collaboration between the CSA and the AI Exchange.
+- [OWASP AI security testing guide](https://owasp.org/www-project-ai-testing-guide/)
 
 ## **Red Teaming Tools for AI and GenAI**
 
