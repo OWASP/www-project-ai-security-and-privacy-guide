@@ -62,7 +62,7 @@ Purpose: prevent attackers that are not authorized to perform attacks through us
 
 Remaining risk: attackers may succeed in authenticating as an authorized user, or qualify as an authorized user, or bypass the access control through a vulnerability, or it is easy to become an authorized user (e.g. when the model is publicly available)
 
-Note: this is NOT protection of a strored model. For that, see Model confidentiality in Runtime and Development at the [Periodic table](https://owaspai.org/goto/periodictable/). 
+Note: this is NOT protection of a stored model. For that, see Model confidentiality in Runtime and Development at the [Periodic table](https://owaspai.org/goto/periodictable/). 
 
 
 Additional benefits of model access control are:
