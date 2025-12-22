@@ -555,12 +555,12 @@
       },
       {
         "source": "/goto/leakaugmentation/",
-        "destination": "/docs/4_runtime_application_security_threats/#leak-augmentation-data",
+        "destination": "/docs/4_runtime_application_security_threats/#46-leak-sensitive-augmentation-data",
         "type": 301
       },
       {
         "source": "/goto/manipulateaugmentation/",
-        "destination": "/docs/4_runtime_application_security_threats/#manipulate-augmentation-data",
+        "destination": "/docs/4_runtime_application_security_threats/#47-manipulate-augmentation-data",
         "type": 301
       },
       {
