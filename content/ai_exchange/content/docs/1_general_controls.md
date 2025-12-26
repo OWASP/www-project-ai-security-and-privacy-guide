@@ -493,7 +493,7 @@ Useful references include:
 
   - ISO 27002 control 8.2 Privileged access rights. Gap: covers this control fully, with the particularity that privileges assigned to autonomous model decisions need to be assigned with the risk of unwanted model behaviour in mind.
   - [OpenCRE on least privilege](https://www.opencre.org/cre/368-633) Gap: idem
-  - [A Novel Zero-Trust Identity Framework for Agentic AI: Decentralized Authentication and Fine-Grained Access Control](https://arxiv.org/pdf/)
+  - [A Novel Zero-Trust Identity Framework for Agentic AI: Decentralized Authentication and Fine-Grained Access Control](https://arxiv.org/abs/2505.19301)
 
 #### #AITRANSPARENCY
 > Category: runtime control    
