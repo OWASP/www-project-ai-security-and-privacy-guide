@@ -482,12 +482,15 @@ Useful standards include:
 > Category: runtime information security control    
 > Permalink: https://owaspai.org/goto/leastmodelprivilege/
 
-Least model privilege: Minimize what actions a model can autonomously trigger, to prevent harmful events by a manipulated model (or a model that makes a mistake):
-- Reduce actions that the model can potentially trigger to the minimum set of actions necessary for the use cases. This can also be done dynamically, depending on the request (e.g., some actions can be disabled for requests containing untrusted inputs).
-- Execute the actions with appropriate rights and privileges. This includes performing actions for a specific user within this user’s security context, thus inheriting their rights and privileges. This ensures that no actions are invoked and no data is retrieved outside the user's authoritization.
+Least model privilege: Minimize what a model can do (trigger actions or access data), to prevent harm in case the model is manipulated (or makes a mistake by itself):
+- Apply context privilege: Execute the actions with appropriate rights and privileges. This includes performing actions for a specific user within this user’s security context, thus inheriting their rights and privileges. This ensures that no actions are invoked and no data is retrieved outside the user's authoritization.
+- Task-based minimization: Reduce actions that the model can potentially trigger, and what they can be triggered on, to the minimum necessary for the use case. Ideally this is done dynamically, depending on the request or data used (e.g., some actions can be disabled for requests containing untrusted inputs). This requires aspects that may not be offered by Identity and Access Management mechanisms in place as: ephemeral, dynamic, and narrow permissions at scale, combined with trust establishment and potential revokation across different domains. 
 - Avoid implementing authorization in Generative AI instructions, as these are vulnerable to hallucinations and manipulation (e.g., prompt injection). This is especially applicable in Agentic AI. This includes the prevention of Generative AI outputting commands that include references to the user context as it would open up the opportunity to escalate privileges by manipulating that output.
 
-For example: if a model is connected to an email facility to summarize incoming emails - limit the access to read-only to avoid the model being manipulated to unwantedly send emails.
+For example: if a model is connected to an email facility to summarize incoming emails - limit the access to read-only, and only to emails the end user has access to - with the goald to avoid the model being manipulated to unwantedly send emails and/or gain access to unauthorized emails.
+
+It is a pitfall for engineers to simply ignore all this and allow AI to do everything,  as it saves them time hardening the privileges, and it delivers powerful agents, without the hassle of having to add privileges over time. Still, least model privilege is critical if successful manipulation is probable and the potential effects severe.
+
 
 Useful references include:
 
