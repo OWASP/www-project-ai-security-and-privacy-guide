@@ -307,26 +307,27 @@ The below diagram puts the controls in the AI Exchange into groups and places th
 [![](/images/threatscontrols.png)](/images/threatscontrols.png)
 The groups of controls form a summary of how to address AI security (controls are in capitals):
 1. **AI Governance**: integrate AI comprehensively into your information security and software development lifecycle processes, not just by addressing AI risks, but by embedding AI considerations across the entire lifecycle:  
-   >( [AIPROGRAM](/goto/aiprogram/ ), [SECPROGRAM](/goto/secprogram/), [DEVPROGRAM](/goto/devprogram/), [SECDEVPROGRAM](/goto/secdevprogram/), [CHECKCOMPLIANCE](/goto/checkcompliance/), [SECEDUCATE](/goto/seceducate/))
-2. Apply conventional **technical IT security controls** in a risk-based manner, since an AI system is an IT system:
-    - 2a Apply **standard** conventional IT security controls (e.g. 15408, ASVS, OpenCRE, ISO 27001 Annex A, NIST SP800-53) to the complete AI system and don't forget the new AI-specific assets :
+   >( [AI PROGRAM](/goto/aiprogram/ ), [SEC PROGRAM](/goto/secprogram/), [DEV PROGRAM](/goto/devprogram/), [SECDEV PROGRAM](/goto/secdevprogram/), [CHECK COMPLIANCE](/goto/checkcompliance/), [SEC EDUCATE](/goto/seceducate/))
+2. **Minimize/obfuscate data:** Limit the amount of data at rest and in transit. Also, limit data storage time, development-time and runtime:
+3. **Extend supply chain management with data and model governance:  [SUPPLY CHAIN MANAGE](/goto/supplychainmanage/)
+4. Apply conventional **technical security controls**, since an AI system is an IT system:
+    - 4a Apply standard **conventional security controls** (e.g. 15408, ASVS, OpenCRE, ISO 27001 Annex A, NIST SP800-53) to the complete AI system and don't forget the new AI-specific assets :
       - Development-time: model & data storage, model & data supply chain, data science documentation:  
-        >([DEVSECURITY](/goto/devsecurity/), [SEGREGATEDATA](/goto/segregatedata/), [SUPPLYCHAINMANAGE](/goto/supplychainmanage/), [DISCRETE](/goto/discrete/))
+        >([DEV SECURITY](/goto/devsecurity/), [SEGREGATE DATA](/goto/segregatedata/), [DISCRETE](/goto/discrete/))
       - Runtime: model storage, model use, plug-ins, and model input/output:  
-        >([RUNTIMEMODELINTEGRITY](/goto/runtimemodelintegrity/), [RUNTIMEMODELIOINTEGRITY](/goto/runtimemodeliointegrity/), [RUNTIMEMODELCONFIDENTIALITY](/goto/runtimemodelconfidentiality/), [MODELINPUTCONFIDENTIALITY](/goto/modelinputconfidentiality/), [ENCODEMODELOUTPUT](/goto/encodemodeloutput/), [LIMITRESOURCES](/goto/limitresources/))
-    - 2b **Adapt** conventional IT security controls to make them more suitable for AI (e.g. which usage patterns to monitor for):  
-      >([MONITORUSE](/goto/monitoruse/), [MODELACCESSCONTROL](/goto/modelaccesscontrol/), [RATELIMIT](/goto/ratelimit/))
-    - 2c Adopt **new** IT security controls:  
-      >([CONFCOMPUTE](/goto/confcompute/), [MODELOBFUSCATION](/goto/modelobfuscation/), [PROMPTINPUTVALIDATION](/goto/promptinputvalidation/), [INPUTSEGREGATION](/goto/inputsegregation/))
-3. Apply risk-based **data science security controls** :
-    - 3a Development-time controls when developing the model:  
-      >([FEDERATEDLEARNING](/goto/federatedlearning/), [CONTINUOUSVALIDATION](/goto/continuousvalidation/), [UNWANTEDBIASTESTING](/goto/unwantedbiastesting/), [EVASIONROBUSTMODEL](/goto/evasionrobustmodel/), [POISONROBUSTMODEL](/goto/poisonrobustmodel/), [TRAINADVERSARIAL](/goto/trainadversarial/), [TRAINDATADISTORTION](/goto/traindatadistortion/), [ADVERSARIALROBUSTDISTILLATION](/goto/adversarialrobustdistillation/), [MODELENSEMBLE](/goto/modelensemble/), [MORETRAINDATA](/goto/moretraindata/), [SMALLMODEL](/goto/smallmodel/), [DATAQUALITYCONTROL](/goto/dataqualitycontrol/), [MODELALIGNMENT](/goto/modelalignment/))
-    - 3b Runtime controls to filter and detect attacks:  
-      >([DETECTODDINPUT](/goto/detectoddinput/), [DETECTADVERSARIALINPUT](/goto/detectadversarialinput/), [DOSINPUTVALIDATION](/goto/dosinputvalidation/), [INPUTDISTORTION](/goto/inputdistortion/), [FILTERSENSITIVEMODELOUTPUT](/goto/filtersensitivemodeloutput/), [OBSCURECONFIDENCE](/goto/obscureconfidence/))
-4. **Minimize data:** Limit the amount of data at rest and in transit. Also, limit data storage time, development-time and runtime:  
-   >([DATAMINIMIZE](/goto/dataminimize/), [ALLOWEDDATA](/goto/alloweddata/), [SHORTRETAIN](/goto/shortretain/), [OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/))
-5. **Control behaviour impact** as the model can behave in unwanted ways - unintentionally or by manipulation:  
-   >([OVERSIGHT](/goto/oversight/), [LEASTMODELPRIVILEGE](/goto/leastmodelprivilege/), [AITRANSPARENCY](/goto/aitransparency/), [EXPLAINABILITY](/goto/explainability/), [CONTINUOUSVALIDATION](/goto/continuousvalidation/), [UNWANTEDBIASTESTING](/goto/unwantedbiastesting/))
+        >([RUNTIME MODEL INTEGRITY](/goto/runtimemodelintegrity/), [RUNTIME MODEL IO INTEGRITY](/goto/runtimemodeliointegrity/), [RUNTIME MODEL CONFIDENTIALITY](/goto/runtimemodelconfidentiality/), [MODEL INPUT CONFIDENTIALITY](/goto/modelinputconfidentiality/), [ENCODE MODEL OUTPUT](/goto/encodemodeloutput/), [LIMIT RESOURCES](/goto/limitresources/))
+    - 4b **Adapt** conventional IT security controls to make them more suitable for AI (e.g. which usage patterns to monitor for):  
+      >([MONITOR USE](/goto/monitoruse/), [MODEL ACCESS CONTROL](/goto/modelaccesscontrol/), [RATE LIMIT](/goto/ratelimit/))
+    - 4c Adopt **new** IT security controls:  
+      >([CONF COMPUTE](/goto/confcompute/), [MODEL OBFUSCATION](/goto/modelobfuscation/), [INPUT SEGREGATION](/goto/inputsegregation/))
+5. Apply **AI engineering security controls** :
+    - 5a Data/model engineering controls as part of development:  
+      >([FEDERATED LEARNING](/goto/federatedlearning/), [CONTINUOUS VALIDATION](/goto/continuousvalidation/), [UNWANTED BIAS TESTING](/goto/unwantedbiastesting/), [EVASION ROBUST MODEL](/goto/evasionrobustmodel/), [POISON ROBUST MODEL](/goto/poisonrobustmodel/), [TRAIN ADVERSARIAL](/goto/trainadversarial/), [TRAIN DATA DISTORTION](/goto/traindatadistortion/), [ADVERSARIAL ROBUST DISTILLATION](/goto/adversarialrobustdistillation/), [MODEL ENSEMBLE](/goto/modelensemble/), [MORE TRAINDATA](/goto/moretraindata/), [SMALL MODEL](/goto/smallmodel/), [DATA QUALITY CONTROL](/goto/dataqualitycontrol/), [MODEL ALIGNMENT](/goto/modelalignment/))
+    - 5b Model I/O handling during runtime controls to filter and detect attacks:  
+      >([DETECT ODD INPUT](/goto/detectoddinput/), [DETECT ADVERSARIAL INPUT](/goto/detectadversarialinput/), [PROMPT INPUT VALIDATION](/goto/promptinputvalidation/), [DOS INPUT VALIDATION](/goto/dosinputvalidation/), [INPUT DISTORTION](/goto/inputdistortion/), [FILTER SENSITIVE MODEL OUTPUT](/goto/filtersensitivemodeloutput/), [OBSCURE CONFIDENCE](/goto/obscureconfidence/))
+   >([DATA MINIMIZE](/goto/dataminimize/), [ALLOWED DATA](/goto/alloweddata/), [SHORT RETAIN](/goto/shortretain/), [OBFUSCATE TRAINING DATA](/goto/obfuscatetrainingdata/))
+6. **Limit model behaviour** as the model can behave in unwanted ways - unintentionally or by manipulation:  
+   >([OVERSIGHT](/goto/oversight/), [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/), [AI TRANSPARENCY](/goto/aitransparency/), [EXPLAINABILITY](/goto/explainability/), [CONTINUOUS VALIDATION](/goto/continuousvalidation/), [UNWANTED BIAS TESTING](/goto/unwantedbiastesting/))
 
 All threats and controls are explored in more detail in the subsequent sections of the AI Exchange.
 
