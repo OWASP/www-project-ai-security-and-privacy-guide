@@ -589,12 +589,14 @@ For the threats that are the responsibility of other organisations: attain assur
 Example: Regular audits and assessments of third-party security measures.
  
 ### 7. Select controls
-Next, for the threats that are relevant to your use-case and fall under your responsibility, review the associated controls, both those listed directly under the threat (or its parent category) and the general controls, which apply universally. See the Periodic table(ADD LINK) for an overview of which controls mitigate the risks for each threat. For each control, consider its purpose and assess whether it's worth implementing, and to what extent. This decision should weigh the cost of implementation against how effectively the control addresses the threat, along with the severity of the associated risk. These factors also influence the order in which you apply controls. Start with the highest-risk threats and prioritize low-cost, quick-win controls (the "low-hanging fruit").
+Next, for the threats that are relevant to your use-case and fall under your responsibility, review the associated controls, both those listed directly under the threat (or its parent category) and the general controls, which apply universally. See the [Periodic table](/goto/periodictable/) for an overview of which controls mitigate the risks for each threat. For each control, consider its purpose and assess whether it's worth implementing, and to what extent. This decision should weigh the cost of implementation against how effectively the control addresses the threat, along with the level of the associated risk. These factors also influence the order in which you apply controls. Start with the highest-risk threats and prioritize low-cost, quick-win controls (the "low-hanging fruit").
 
 Controls often have quality-related parameters that need to be adjusted to suit the specific situation and level of risk. For example, this could involve deciding how much noise to add to input data or setting appropriate thresholds for anomaly detection. Testing the effectiveness of these controls in a simulation environment helps you evaluate their performance and security impact to find the right balance. This tuning process should be continuous, using insights from both simulated tests and real-world production feedback.
 
+When have you done enough? The AI system is sufficiently secure when all identified risks can be treated, meaning transfered, avoided or accepted, where acceptance in some cases can be directly, and in other cases require you to add controls to bring the risk to an acceptable level.
+
 ### 8. Residual risk acceptance
-In the end you need to be able to accept the risks that remain regarding each threat, given the controls that you implemented. The severity level of the risks you deem aceptable should be significantly low to the point where it won't hurt your business on any front.
+In the end you need to be able to accept the risks that remain regarding each threat, given the controls that you implemented. 
 
 ### 9. Further management of the selected controls
 (see [SECPROGRAM](/goto/secprogram/)), which includes continuous monitoring, documentation, reporting, and incident response.
