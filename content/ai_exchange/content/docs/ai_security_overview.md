@@ -596,10 +596,10 @@ Next, for the threats that are relevant to your use-case and fall under your res
 
 Controls often have quality-related parameters that need to be adjusted to suit the specific situation and level of risk. For example, this could involve deciding how much noise to add to input data or setting appropriate thresholds for anomaly detection. Testing the effectiveness of these controls in a simulation environment helps you evaluate their performance and security impact to find the right balance. This tuning process should be continuous, using insights from both simulated tests and real-world production feedback.
 
-When have you done enough? The AI system is sufficiently secure when all identified risks can be treated, meaning transfered, avoided or accepted, where acceptance in some cases can be directly, and in other cases require you to add controls to bring the risk to an acceptable level.
+When have you done enough? The AI system is sufficiently secure when all identified risks can be treated, meaning transfered, avoided or accepted, where acceptance in some cases can be done directly, without first taking action, and in other cases require you to implement controls to bring the risk to an acceptable level.
 
 ### 8. Residual risk acceptance
-In the end, you need to be able to accept the risks that remain regarding each threat, given the controls that you implemented.  The severity level of the risks you deem acceptable should be significantly low to the point where it won’t hurt your business on any front.
+In the end, you need to be able to accept the risks that remain regarding each threat, given the controls that you implemented. 
 
 ### 9. Further management of the selected controls
 (see [SECPROGRAM](/goto/secprogram/)), which includes continuous monitoring, documentation, reporting, and incident response.
