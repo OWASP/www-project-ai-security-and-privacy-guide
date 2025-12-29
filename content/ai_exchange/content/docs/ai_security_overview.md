@@ -229,7 +229,7 @@ In AI, we outline 6 types of impacts that align with three types of attacker goa
 5. disrupt: hurt availability of the model (the model either doesn't work or behaves in an unwanted way - not to deceive users but to disrupt normal operations)
 6. disrupt/disclose: confidentiality, integrity, and availability of non AI-specific assets
 
-The threats that create these impacts use different attack surfaces. For example: the confidentiality of train data can be compromised by hacking into the database during development, but it can also get leaked by a _membership inference attack_ that can find out whether a certain individual was in the train data, simply by feeding that person's data into the model and looking at the details of the model output.
+The threats that create these impacts use different attack surfaces. For example: the confidentiality of training data can be compromised by hacking into the database during development, but it can also get leaked by a _membership inference attack_ that can find out whether a certain individual was in the train data, simply by feeding that person's data into the model and looking at the details of the model output.
 
 The diagram shows the threats as arrows. Each threat has a specific impact, indicated by letters referring to the Impact legend. The control overview section contains this diagram with groups of controls added.
 [![](/images/threats.png)](/images/threats.png)
@@ -255,6 +255,8 @@ There are four typical properties of agentic AI:
 
 What does this mean for security?
 - Hallucinations and prompt injections can change commands — or even escalate privileges. Key controls are defense in depth and blast radius control ([impact limitation](/goto/limitunwanted/)). Don’t assign the responsibility of access control to GenAI models/agents. Build that into your architecture.
+- Existing assumptions about things like trust boundaries and other established security measures might need to be revisited because agentic AI changes interconnectivity and data flows between system components.
+- Agents deployed with their own sets of permissions open up privilege escalation vectors because they are susceptible to becoming a confused deputy
 - The attack surface is wide, and the potential impact should not be underestimated.
 - Because of that, the known controls become even more important — such as security of inter-model communication (e.g. MCP), traceability, protecting memory integrity, prompt injection defenses, rule-based guardrails, least model privilege, and human oversight. See the [controls overview section](/goto/controlsoverview/).
 
@@ -276,7 +278,7 @@ Further links:
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/aisecuritymatrix/
 
-The AI security matrix below (click to enlarge) shows all threats and risks, ordered by type and impact.
+The AI security matrix below (click to enlarge) shows a list of threats and risks, ordered by type and impact.
 [![](/images/OwaspAIsecuritymatix.png)](/images/OwaspAIsecuritymatix.png)
 
 Clickable version, based on the [Periodic table](/goto/periodictable/):
@@ -309,6 +311,7 @@ Clickable version, based on the [Periodic table](/goto/periodictable/):
 ## Controls overview
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/controlsoverview/
+The AI exchange lists a number of controls that can mitigate risks of malicious attack. Be aware that many of the controls are subject to trade-offs with other machine learning properties that can affect accuracy and normal operations of the model. Particularly, controls that involve changes to the learning process and data distributions can have un-intented downstream side-effects, and must be considered and introduced with care.
 
 ### Scope of controls
 In the AI Exchange we focus on AI-specific threats and their corresponding controls. Some of the controls are AI-specific (e.g. adding noise to the training set) and others are not (e.g. encrypting the training database). We refer to the latter as ‘conventional controls’. The Exchange focuses on the details of the AI-specific controls because the details of conventional controls are specified elsewhere - see for example [OpenCRE](https://opencre.org). We do provide AI-specific aspects of those controls, for example that protection of model parameters can be implemented using a Trusted Execution Environment.
@@ -398,7 +401,7 @@ The diagram below shows threats and controls in an externally hosted situation.
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/periodictable/
 
-The table below, created by the OWASP AI Exchange, shows the various threats to AI and the controls you can use against them – all organized by asset, impact and attack surface, with deeplinks to comprehensive coverage here at the AI Exchange website.  
+The table below, created by the OWASP AI Exchange, shows the various threats to AI and the controls you can use against them – all organized by asset, impact and attack surface, with deep links to comprehensive coverage here at the AI Exchange website.  
 Note that [general governance controls](/goto/governancecontrols/) apply to all threats.
 
 <table><thead>
@@ -468,7 +471,7 @@ Discovering potential risks that could impact the organization requires the tech
 
 **Unwanted model behaviour**
 
-  Regarding model behaviour, we focus on manipulation by attackers, as the scope of this document is security. Other sources of unwanted behaviour are general inaccuracy (e.g. hallucinations) and/or unwanted bias regarding certain groups (discrimination).
+  Regarding model behaviour, we focus on manipulation by attackers, as the scope of this document is security. Other sources of unwanted behavior are general inaccuracy (e.g. hallucinations) and/or unwanted bias regarding certain groups (discrimination).
     
   This will always be an applicable threat, independent of your use-case, although the risk level may sometimes be accepted as shown below.
 
@@ -497,7 +500,7 @@ Discovering potential risks that could impact the organization requires the tech
   Is the model (predictive AI or Generative AI) used in a judgement task (e.g. spam detection)?
   - Yes: Prevent an [evasion attack](/goto/evasion/) in which a user tries to fool the model into a wrong decision using data (not instructions). Here, the level of risk is an important aspect to evaluate - see below. The risk of an evasion attack may be acceptable.
     
-  In order to assess the level of risk for unwanted model behaviour through manipulation, consider what the motivation of an attacker could be. What could an attacker gain by for example sabotaging your model? Just a claim to fame? Could it be a disgruntled employee? Maybe a competitor? What could an attacker gain by a less conspicuous model behaviour attack, like an evasion attack or data poisoning with a trigger? Is there a scenario where an attacker benefits from fooling the model? An example where evasion IS interesting and possible: adding certain words in a spam email so that it is not recognized as such. An example where evasion is not interesting is when a patient gets a skin disease diagnosis based on a picture of the skin. The patient has no interest in a wrong decision, and also the patient typically has no control - well maybe by painting the skin. There are situations in which this CAN be of interest for the patient, for example to be eligible for compensation in case the (faked) skin disease was caused by certain restaurant food. This demonstrates that it all depends on the context whether a theoretical threat is a real threat or not. Depending on the probability and impact of the threats, and on the relevant policies, some threats may be accepted as risk. When not accepted, the level of risk is input to the strength of the controls. For example: if data poisoning can lead to substantial benefit for a group of attackers, then the training data needs to be get a high level of protection.
+  In order to assess the level of risk for unwanted model behaviour through manipulation, consider what the motivation of an attacker could be. What could an attacker gain by for example sabotaging your model? Just a claim to fame? Could it be a disgruntled employee? Maybe a competitor? What could an attacker gain by a less conspicuous model behaviour attack, like an evasion attack or data poisoning with a trigger? Is there a scenario where an attacker benefits from fooling the model? An example where evasion IS interesting and possible: adding certain words in a spam email so that it is not recognized as such. An example where evasion is not interesting is when a patient gets a skin disease diagnosis based on a picture of the skin. The patient has no interest in a wrong decision, and also the patient typically has no control - well maybe by painting the skin. There are situations in which this CAN be of interest for the patient, for example to be eligible for compensation in case the (faked) skin disease was caused by certain restaurant food. This demonstrates that it all depends on the context whether a theoretical threat is a real threat or not. Depending on the probability and impact of the threats, and on the relevant policies, some threats may be accepted as risk. When not accepted, the level of risk is input to the strength of the controls. For example: if data poisoning can lead to substantial benefit for a group of attackers, then the training data needs to be given a high level of protection.
 
  **Leaking training data**
 
@@ -525,7 +528,7 @@ Discovering potential risks that could impact the organization requires the tech
  **Leaking input data**
  
   Is your input data sensitive?
-  - Prevent [leaking input data](/goto/leakinput/). Especially if the model is run by a supplier, proper care needs to be taken to ensure that this data is minimized and transferred or stored securely. Review the security measures provided by the supplier, including any options to disable logging or monitoring on their end. Realise that most Cloud AI models have your input and output unencrypted in their infrastructure (just like Google and Microsoft 365). If you use the right license and configuration you can prevent it being stored or analysed. One risk that remains is that the government of the supplier may force to store and keep input and output to serve for subpoenas. If you're using a RAG system, remember that the data you retrieve and inject into the prompt also counts as input data. This often includes sensitive company information or personal data.
+  - Prevent [leaking input data](/goto/leakinput/). Especially if the model is run by a supplier, proper care needs to be taken to ensure that this data is minimized and transferred or stored securely. Review the security measures provided by the supplier, including any options to disable logging or monitoring on their end. Realise that most Cloud AI models have your input and output unencrypted in their infrastructure (just like Google and Microsoft 365). If you use the right license and configuration, you can prevent it from being stored or analysed. One risk that remains is that the government of the supplier may be forced to store and keep input and output to serve for subpoenas. If you're using a RAG system, remember that the data you retrieve and inject into the prompt also counts as input data. This often includes sensitive company information or personal data.
 
 
  **Misc.**
@@ -533,7 +536,7 @@ Discovering potential risks that could impact the organization requires the tech
   Is your model a Large Language Model?
   - Prevent [insecure output handling](/goto/insecureoutput/), for example, when you display the output of the model on a website and the output contains malicious Javascript.
 
-  Make sure to prevent [model inavailability by malicious users](/denialmodelservice/) (e.g. large inputs, many requests). If your model is run by a supplier, then certain countermeasures may already be in place to address this.
+  Make sure to prevent [model unavailability by malicious users](/denialmodelservice/) (e.g. large inputs, many requests). If your model is run by a supplier, then certain countermeasures may already be in place to address this.
 
   Since AI systems are software systems, they require appropriate conventional application security and operational security, apart from the AI-specific threats and controls mentioned in this section.
 
@@ -596,7 +599,7 @@ Controls often have quality-related parameters that need to be adjusted to suit 
 When have you done enough? The AI system is sufficiently secure when all identified risks can be treated, meaning transfered, avoided or accepted, where acceptance in some cases can be directly, and in other cases require you to add controls to bring the risk to an acceptable level.
 
 ### 8. Residual risk acceptance
-In the end you need to be able to accept the risks that remain regarding each threat, given the controls that you implemented. 
+In the end, you need to be able to accept the risks that remain regarding each threat, given the controls that you implemented.  The severity level of the risks you deem acceptable should be significantly low to the point where it won’t hurt your business on any front.
 
 ### 9. Further management of the selected controls
 (see [SECPROGRAM](/goto/secprogram/)), which includes continuous monitoring, documentation, reporting, and incident response.
@@ -675,11 +678,11 @@ GenAI security particularities are:
 |2| GenAI models have typically been trained on very large datasets, which makes it more likely to output [sensitive data](/goto/disclosureuseoutput/) or [licensed data](/goto/copyright/), for which there is no control of access privileges built into the model. All data will be accessible to the model users. Some mechanisms may be in place in terms of system prompts or output filtering, but those are typically not watertight. |  ([OWASP for LLM 02: Sensitive Information Disclosure](https://genai.owasp.org/llmrisk/llm02/))  | 
 |3|[Data and model poisoning](/goto/modelpoison/) is an AI-broad problem, and with GenAI the risk is generally higher since training data can be supplied from different sources that may be challenging to control, such as the internet. Attackers could for example hijack domains and place manipulated information. | ([OWASP for LLM 04: Data and Model Poisoning](https://genai.owasp.org/llmrisk/llm04/))|
 |4|GenAI models can be inaccurate and hallucinate. This is an AI-broad risk factor, and Large Language Models (GenAI) can make matters worse by coming across as very confident and knowledgeable. In essence, this is about the risk of underestimating the probability that the model is wrong or the model has been manipulated. This means that it is connected to each and every security control. The strongest link is with [controls that limit the impact of unwanted model behavior](/goto/limitunwanted/), in particular [Least model privilege](/goto/leastmodelprivilege/).  |([OWASP for LLM 06: Excessive agency](https://genai.owasp.org/llmrisk/llm06/)) and ([OWASP for LLM 09: Misinformation](https://genai.owasp.org/llmrisk/llm09/)) |
-|5| [Leaking input data](/goto/leakinput/): GenAI models mostly live in the cloud - often managed by an external party, which may increase the risk of leaking training data and leaking prompts. This issue is not limited to GenAI, but GenAI has 2 particular risks here: 1) model use involves user interaction through prompts, adding user data and corresponding privacy/sensitivity issues, and 2) GenAI model input (prompts) can contain rich context information with sensitive data (e.g. company secrets). The latter issue occurs with *in context learning* or *Retrieval Augmented Generation (RAG)* (adding background information to a prompt): for example data from all reports ever written at a consultancy firm. First of all, this information will travel with the prompt to the cloud, and second: the system will likely not respect the original access rights to the information.| Not covered in LLM top 10 |
+|5| [Leaking input data](/goto/leakinput/): GenAI models mostly live in the cloud - often managed by an external party, which may increase the risk of leaking training data and leaking prompts. This issue is not limited to GenAI, but GenAI has 2 particular risks here: 1) model use involves user interaction through prompts, adding user data and corresponding privacy/sensitivity issues, and 2) GenAI model input (prompts) can contain rich context information with sensitive data (e.g. company secrets). The latter issue occurs with *in-context learning* or *Retrieval Augmented Generation (RAG)* (adding background information to a prompt): for example data from all reports ever written at a consultancy firm. First of all, this information will travel with the prompt to the cloud, and second: the system will likely not respect the original access rights to the information.| Not covered in LLM top 10 |
 |6|Pre-trained models may have been manipulated. The concept of pretraining is not limited to GenAI, but the approach is quite common in GenAI, which increases the risk of [supply-chain model poisoning](/goto/supplymodelpoison/).| ([OWASP for LLM 03 - Supply chain vulnerabilities](https://genai.owasp.org/llmrisk/llm03/))|
 |7|[Model inversion and membership inference](/goto/modelinversionandmembership/) are typically low to zero risks for GenAI. |Not covered in LLM top 10, apart from LLM06 which uses a different approach - see above|
 |8|GenAI output may contain elements that perform an [injection attack](/goto/insecureoutput/) such as cross-site-scripting.| ([OWASP for LLM 05: Improper Output Handling](https://genai.owasp.org/llmrisk/llm05/))|
-|9|[Denial of service](/goto/denialmodelservice/) can be an issue for any AI model, but GenAI models typically cost more to run, so overloading them can create unwanted cost. | ([OWASP for LLM 10: Unbounded consumption](https://genai.owasp.org/llmrisk/llm10/)) |
+|9|[Denial of service](/goto/denialmodelservice/) can be an issue for any AI model, but GenAI models typically cost more to run, so overloading them can create unwanted costs. | ([OWASP for LLM 10: Unbounded consumption](https://genai.owasp.org/llmrisk/llm10/)) |
 
 GenAI References:
 
@@ -696,7 +699,7 @@ Mapping of the UK NCSC /CISA [Joint Guidelines for secure AI system development]
 To see those controls linked to threats, refer to the [Periodic table of AI security](/goto/periodictable/).  
 
 Note that the UK Government drove an initiative through their DSIT department to build on these joint guidelines and produce the [DSIT Code of Practice for the Cyber Security of AI](https://www.gov.uk/government/publications/ai-cyber-security-code-of-practice/code-of-practice-for-the-cyber-security-of-ai#code-of-practice-principles), which reorganizes things according to 13 principles, does a few tweaks, and adds a bit more of governance. The principle mapping is added below, and adds mostly post-market aspects:
-- Principle 10: Communication and processes assoiated with end-users and affected entities
+- Principle 10: Communication and processes associated with end-users and affected entities
 - Principle 13: Ensure proper data and model disposal
 
 
@@ -732,7 +735,7 @@ Note that the UK Government drove an initiative through their DSIT department to
   Part of #[SECURITY PROGRAM](/goto/secprogram/)
 - Release AI responsibly:  
   Part of #[DEVELOPMENT PROGRAM](/goto/devprogram/)
-- Make it easy for users to do the right things (DSIT principe 4, called Enable human responsibility for AI systems):  
+- Make it easy for users to do the right things (DSIT principle 4, called Enable human responsibility for AI systems):  
   Part of #[SECURITY PROGRAM](/goto/secprogram/), and also involving #[EXPLAINABILITY](/goto/explainability/), documenting prohibited use cases, and #[HUMAN OVERSIGHT](/goto/humanoversight))
 
 4. Secure operation and maintenance
@@ -741,7 +744,7 @@ Note that the UK Government drove an initiative through their DSIT department to
   #[CONTINUOUS VALIDATION](/goto/continuousvalidation/), #[UNWANTED BIAS TESTING](/goto/unwantedbiastesting/)
 - Monitor your system’s inputs:  
   #[MONITOR USE](/goto/monitoruse/), #[DETECT ODD INPUT](/goto/detectoddinput/), #[DETECT ADVERSARIAL INPUT](/goto/detectadversarialinput/)
-- Follow a secure by design approach to updates (DSIT Principle 11: Maintain regular security updates, patches and mitigations):  
+- Follow a secure by design approach to updates (DSIT principle 11: Maintain regular security updates, patches and mitigations):  
   Part of #[SECURE DEVELOPMENT PROGRAM](/goto/secdevprogram/)
 - Collect and share lessons learned:  
   Part of #[SECURITY PROGRAM](/goto/secprogram/) and #[SECURE DEVELOPMENT PROGRAM](/goto/secdevprogram/)
@@ -786,7 +789,7 @@ on the rights of millions of artists by training their tools on web-scraped imag
 Similarly, Getty Images’ lawsuit against Stability AI for using images from its catalog
 without permission to train an art-generating AI underscores the potential for 
 copyright disputes to escalate. Imagine the same scenario where a supplier 
-provides vast quantities of training data for your systems, that has been 
+provides vast quantities of training data for your systems that have been 
 compromised by protected work, data sets, or blocks of materials not licensed or 
 authorized for such use. 
 
@@ -824,7 +827,7 @@ Note that AI vendors have started to take responsibility for copyright issues of
 Read more at [The Verge on Microsoft indemnification](https://www.theverge.com/2023/9/7/23863349/microsoft-ai-assume-responsibility-copyright-lawsuit) and [Direction Microsoft on the requirements of the indemnification](https://www.directionsonmicrosoft.com/blog/why-microsofts-copilot-copyright-commitment-may-not-mean-much-for-customers-yet/).
 
 #### Do generative AI models really copy existing work?
-Do generative AI models really lookup existing work that may be copyrighted? In essence: no. A Generative AI model does not have sufficient capacity to store all the examples of code or pictures that were in its training set. Instead, during training, it extracts patterns about how things work in the data that it sees, and then later, based on those patterns, it generates new content. Parts of this content may show remnants of existing work, but that is more of a coincidence. In essence, a model doesn't recall exact blocks of code, but uses its 'understanding' of coding to create new code. Just like with human beings, this understanding may result in reproducing parts of something you have seen before, but not per se because this was from exact memory. Having said that, this remains a difficult discussion that we also see in the music industry: did a musician come up with a chord sequence because she learned from many songs that this type of sequence works and then coincidentally created something that already existed, or did she copy it exactly from that existing song?
+Do generative AI models really look up existing work that may be copyrighted? In essence: no. A Generative AI model does not have sufficient capacity to store all the examples of code or pictures that were in its training set. Instead, during training, it extracts patterns about how things work in the data that it sees, and then later, based on those patterns, it generates new content. Parts of this content may show remnants of existing work, but that is more of a coincidence. In essence, a model doesn't recall exact blocks of code, but uses its 'understanding' of coding to create new code. Just like with human beings, this understanding may result in reproducing parts of something you have seen before, but not per se because this was from exact memory. Having said that, this remains a difficult discussion that we also see in the music industry: did a musician come up with a chord sequence because she learned from many songs that this type of sequence works and then coincidentally created something that already existed, or did she copy it exactly from that existing song?
 
 #### Mitigating Risk
 Organizations have several key strategies to mitigate the risk of copyright 
