@@ -704,9 +704,10 @@ Mapping of the UK NCSC /CISA [Joint Guidelines for secure AI system development]
 To see those controls linked to threats, refer to the [Periodic table of AI security](/goto/periodictable/).  
 
 Note that the UK Government drove an initiative through their DSIT department to build on these joint guidelines and produce the [DSIT Code of Practice for the Cyber Security of AI](https://www.gov.uk/government/publications/ai-cyber-security-code-of-practice/code-of-practice-for-the-cyber-security-of-ai#code-of-practice-principles), which reorganizes things according to 13 principles, does a few tweaks, and adds a bit more of governance. The principle mapping is added below, and adds mostly post-market aspects:
+
+
 - Principle 10: Communication and processes associated with end-users and affected entities
 - Principle 13: Ensure proper data and model disposal
-
 
 1. Secure design
 
