@@ -429,14 +429,15 @@ Useful standards include:
 > Category: group of controls  
 > Permalink: https://owaspai.org/goto/limitunwanted/
 
-Unwanted model behaviour is the intended result of many AI security attacks. There are many ways to prevent and to detect these attacks, but this section is about how the effects of unwanted model behaviour can be controlled, in order to reduce the impact of an attack.
+Unwanted model behaviour is the intended result of many AI attacks (e.g. data poisoning, evasion, prompt injection). There are many ways to prevent and to detect these attacks, but this section is about how the effects of unwanted model behaviour can be controlled, in order to reduce the impact of an attack - by constraining actions, introducing oversight and enabling timely containment and recovery. This is sometimes referred to as _blast radius control_.
 
-Besides attacks, AI systems can display unwanted behaviour for other reasons, making the control of this behaviour a shared responsibility. Main potential causes of unwanted model behaviour:
+Besides attacks, AI systems can display unwanted behaviour for other reasons, making the control of this behaviour a shared responsibility, beyond just security. Key causes of unwanted model behaviour include:
 
 - Insufficient or incorrect training data
 - Model staleness/ Model drift (i.e. the model becoming outdated)
 - Mistakes during model and data engineering
-- Security threats: attacks as laid out in this document, e.g. model poisoning, evasion attack, prompt injection
+- Feedback loops where model output ends up in the training data of future models, which leads to model collapse (also known as recursive pollution)
+- Security threats: attacks as laid out in this document
 
 Successfully mitigating unwanted model behaviour has its own threats:
 
@@ -445,7 +446,7 @@ Successfully mitigating unwanted model behaviour has its own threats:
 
 Example: When Large Language Models (GenAI) can perform actions, the privileges around which actions and when become important ([OWASP for LLM 07](https://llmtop10.com/llm07/)).
 
-Example: LLMs (GenAI), just like most AI models, induce their results based on training data, meaning that they can make up things that are false. In addition, the training data can contain false or outdated information. At the same time, LLMs (GenAI) can come across very confident about their output. These aspects make overreliance of LLM (GenAI) ([OWASP for LLM 09](https://llmtop10.com/llm09/)) a real risk, plus excessive agency as a result of that ([OWASP for LLM 08](https://llmtop10.com/llm08/)). Note that all AI models in principle can suffer from overreliance - not just Large Language Models.
+Example: LLMs (GenAI), just like most AI models, induce their results based on training data, meaning that they can make up things that are false. In addition, the training data can contain false or outdated information. At the same time, LLMs (GenAI) can come across as very confident about their output. These aspects make overreliance of LLM (GenAI) ([OWASP for LLM 09](https://llmtop10.com/llm09/)) a real risk, plus excessive agency as a result of that ([OWASP for LLM 08](https://llmtop10.com/llm08/)). Note that all AI models in principle can suffer from overreliance - not just Large Language Models.
 
 **Controls to limit the effects of unwanted model behaviour:**
 
@@ -453,11 +454,11 @@ Example: LLMs (GenAI), just like most AI models, induce their results based on t
 > Category: runtime control    
 > Permalink: https://owaspai.org/goto/oversight/
 
-Oversight of model behaviour by humans or business logic in the form of rules (guardrails).
+Description: Oversight of model behaviour by humans or automoated (using logic in the form of rules).
   
-Purpose: Detect unwanted model behavior and correct or halt the execution of a model's decision.
+Objective: Detect unwanted model behavior and correct or halt the execution of a model's decision.
 
-**Limitations of guardrails:**
+**Limitations of automated oversight:**
 The properties of wanted or unwanted model behavior often cannot be entirely specified, limiting the effectiveness of guardrails.
 
 **Limitations of human oversight:**
@@ -465,12 +466,13 @@ The alternative to guardrails is to apply human oversight. This is of course mor
 For human operators or drivers of automated systems like self-driving cars, staying actively involved or having a role in the control loop helps maintain situational awareness. This involvement can prevent complacency and ensures that the human operator is ready to take over control if the automated system fails or encounters a scenario it cannot handle. However, maintaining situational awareness can be challenging with high levels of automation due to the "out-of-the-loop" phenomenon, where the human operator may become disengaged from the task at hand, leading to slower response times or decreased effectiveness in managing unexpected situations.
 In other words: If you as a user are not involved actively in performing a task, then you lose understanding of whether it is correct or what the impact can be. If you then only need to confirm something by saying 'go ahead' or 'cancel', a badly informed 'go ahead' is easy to pick.
 
-Designing automated systems that require some level of human engagement or regularly update the human operator on the system's status can help maintain situational awareness and ensure safer operations.
+Designing automated systems that require some level of human engagement or regularly update the human operator on the system's status can help maintain situational awareness and ensure safer operations. When automated oversight may not be enough to prevent unacceptable outcomes, systems can be designed to escalate to human review. In such cases, the review is typically carried out by individuals who are qualified or appropriately instructed. This escalation is often triggered by rules that flag suspicious or high-risk situations.
   
 Examples:
 
   - Logic preventing the trunk of a car from opening while the car is moving, even if the driver seems to request it
   - Requesting user confirmation before sending a large number of emails as instructed by a model
+  - Another form of human oversight is allowing users to undo or revert actions initiated by the AI system, such as reversing changes made to a file
   - A special form of guardrails is censoring unwanted output of GenAI models (e.g. violent, unethical)
 
 Useful standards include:
@@ -483,13 +485,15 @@ Useful standards include:
 > Permalink: https://owaspai.org/goto/leastmodelprivilege/
 
 Least model privilege: Minimize what a model can do (trigger actions or access data), to prevent harm in case the model is manipulated (or makes a mistake by itself):
-- Apply context privilege: Execute the actions with appropriate rights and privileges. This includes performing actions for a specific user within this user’s security context, thus inheriting their rights and privileges. This ensures that no actions are invoked and no data is retrieved outside the user's authoritization.
-- Task-based minimization: Reduce actions that the model can potentially trigger, and what they can be triggered on, to the minimum necessary for the use case. Ideally this is done dynamically, depending on the request or data used (e.g., some actions can be disabled for requests containing untrusted inputs). This requires aspects that may not be offered by Identity and Access Management mechanisms in place as: ephemeral, dynamic, and narrow permissions at scale, combined with trust establishment and potential revokation across different domains. 
+- Honor limitations of the actor: Execute actions of AI systems with the rights and privileges of the initiating user or service. This ensures that no actions are invoked and no data is retrieved outside the intended authoritizations.
+- Task-based minimization: Take the actor-limitation a step further by reducing actions that the model can potentially trigger, and what they can be triggered on, to the minimum necessary for the use case. The purpose of this is _blast radius control_: limit the attack surface in case the AI model is compromised, or in case the AI model makes a mistake. Ideally this minimzation is done dynamically, depending on the request or data used (e.g., some actions can be disabled for requests containing untrusted inputs). This requires aspects that may not be offered by Identity and Access Management mechanisms in place, such as: ephemeral tokens, dynamic permissions, and narrow permission control at scale, combined with trust establishment and potential revokation across different domains. 
 - Avoid implementing authorization in Generative AI instructions, as these are vulnerable to hallucinations and manipulation (e.g., prompt injection). This is especially applicable in Agentic AI. This includes the prevention of Generative AI outputting commands that include references to the user context as it would open up the opportunity to escalate privileges by manipulating that output.
 
-For example: if a model is connected to an email facility to summarize incoming emails - limit the access to read-only, and only to emails the end user has access to - with the goald to avoid the model being manipulated to unwantedly send emails and/or gain access to unauthorized emails.
+Example case: an AI model is connected to an email facility to summarize incoming emails:
+- Honor limitations of the actor: make sure the AI only can access the emails the end user can access
+- -Task-based minimization: limit the email access to read-only - with the goal to avoid the model being manipulated to for example send spam emails, or include misinformation in the summaries, or gain access to sensitive emails of the user and send those to the attacker.
 
-It is a pitfall for engineers to simply ignore all this and allow AI to do everything,  as it saves them time hardening the privileges, and it delivers powerful agents, without the hassle of having to add privileges over time. Still, least model privilege is critical if successful manipulation is probable and the potential effects severe.
+It is a pitfall for engineers to simply ignore all this and allow AI to do everything,  as it saves them time hardening the privileges, and it delivers powerful general-purpose agents, without the hassle of having to add privileges over time. Still, least model privilege is critical if successful manipulation is probable and the potential effects severe.
 
 
 Useful references include:
