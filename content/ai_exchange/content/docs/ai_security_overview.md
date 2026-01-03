@@ -195,13 +195,13 @@ Many experts and organizations contributed to this overview, notably SANS Instit
     - Output (containing [injection attacks](/goto/insecureoutput/))
     
 **New controls (overview [here](/goto/controlsoverview/)):**
-- Specific **AI engineering controls**, to work against poisoning and model input attacks - next to conventional controls. This category is divided into **Data/model engineering** and **Model I/O handling** for filtering, stopping or alterting to suspicious input or output.
+- Specific **AI engineer controls**, to work against poisoning and model input attacks - next to conventional controls. This category is divided into **Data/model engineering** and **Model I/O handling** for filtering, stopping or alterting to suspicious input or output. It is typically the territory of AI experts e.g. data scientist with elements from mathematics, statistics, linguistics and machine learning.
 - **[Monitoring](/goto/monitoruse/)** of model performance and inference - extending model I/O handing and overlooking general usage of the AI system
 - **Impact limitation controls** (because of zero model trust: assume a model can be misled or leak data):
   - [Minimize or obfuscate sensitive data](/goto/datalimit/)
   - [Limit model behaviour](/goto/limitunwanted/) (oversight, guardrails, minimal model privilege)
 
-(*) Note: Attackers that have a similar model (or a copy) can craft misleading input covertly
+(*) Note: Attackers that have a similar model (or a copy) can typically craft misleading input efficiently and without being noticed
 
 [![](/images/essentials5.png)](/images/essentials5.png)
 
@@ -334,7 +334,7 @@ The groups of controls form a summary of how to address AI security (controls ar
       >([MONITOR USE](/goto/monitoruse/), [MODEL ACCESS CONTROL](/goto/modelaccesscontrol/), [RATE LIMIT](/goto/ratelimit/))
     - 4c Adopt **new** IT security controls:  
       >([CONF COMPUTE](/goto/confcompute/), [MODEL OBFUSCATION](/goto/modelobfuscation/), [INPUT SEGREGATION](/goto/inputsegregation/))
-5. Apply **AI engineering security controls** :
+5. Apply **AI engineer security controls** :
     - 5a Data/model engineering controls as part of development:  
       >([FEDERATED LEARNING](/goto/federatedlearning/), [CONTINUOUS VALIDATION](/goto/continuousvalidation/), [UNWANTED BIAS TESTING](/goto/unwantedbiastesting/), [EVASION ROBUST MODEL](/goto/evasionrobustmodel/), [POISON ROBUST MODEL](/goto/poisonrobustmodel/), [TRAIN ADVERSARIAL](/goto/trainadversarial/), [TRAIN DATA DISTORTION](/goto/traindatadistortion/), [ADVERSARIAL ROBUST DISTILLATION](/goto/adversarialrobustdistillation/), [MODEL ENSEMBLE](/goto/modelensemble/), [MORE TRAINDATA](/goto/moretraindata/), [SMALL MODEL](/goto/smallmodel/), [DATA QUALITY CONTROL](/goto/dataqualitycontrol/), [MODEL ALIGNMENT](/goto/modelalignment/))
     - 5b Model I/O handling during runtime controls to filter and detect attacks:  
