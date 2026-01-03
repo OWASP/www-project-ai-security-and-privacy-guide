@@ -484,8 +484,8 @@ Useful standards include:
 > Category: runtime information security control    
 > Permalink: https://owaspai.org/goto/leastmodelprivilege/
 
-Least model privilege: Minimize what a model can do (trigger actions or access data), to prevent harm in case the model is manipulated (or makes a mistake by itself):
-- Honor limitations of the actor: Execute actions of AI systems with the rights and privileges of the initiating user or service. This ensures that no actions are invoked and no data is retrieved outside the intended authoritizations.
+Least model privilege: Minimize what a model can do (trigger actions or access data), to prevent harm in case the model is manipulated, or makes a mistake by itself:
+- Honor limitations of the actor: Execute actions of AI systems with the rights and privileges of the initiating user or service. This ensures that no actions are invoked and no data is retrieved outside the intended authorizations.
 - Task-based minimization: Take the actor-limitation a step further by reducing actions that the model can potentially trigger, and what they can be triggered on, to the minimum necessary for the use case. The purpose of this is _blast radius control_: limit the attack surface in case the AI model is compromised, or in case the AI model makes a mistake. Ideally this minimzation is done dynamically, depending on the request or data used (e.g., some actions can be disabled for requests containing untrusted inputs). This requires aspects that may not be offered by Identity and Access Management mechanisms in place, such as: ephemeral tokens, dynamic permissions, and narrow permission control at scale, combined with trust establishment and potential revokation across different domains. 
 - Avoid implementing authorization in Generative AI instructions, as these are vulnerable to hallucinations and manipulation (e.g., prompt injection). This is especially applicable in Agentic AI. This includes the prevention of Generative AI outputting commands that include references to the user context as it would open up the opportunity to escalate privileges by manipulating that output.
 
@@ -494,6 +494,11 @@ Example case: an AI model is connected to an email facility to summarize incomin
 - -Task-based minimization: limit the email access to read-only - with the goal to avoid the model being manipulated to for example send spam emails, or include misinformation in the summaries, or gain access to sensitive emails of the user and send those to the attacker.
 
 It is a pitfall for engineers to simply ignore all this and allow AI to do everything,  as it saves them time hardening the privileges, and it delivers powerful general-purpose agents, without the hassle of having to add privileges over time. Still, least model privilege is critical if successful manipulation is probable and the potential effects severe.
+
+One of the most powerful thing to let AI agents do is to execute code. That is where task-based minimization becomes a challenge because on the one hand you want to broaden the possibilities for the agents, and on the other hand you want to limit those possibilities for attackers. Solutions include:
+- Replacing arbitrary code execution with the execution of a limited set of API calls
+- Removing commands (e.g. deleting them from a deployed operating system
+- Sand boxing the code execution by for example network segementation, to mininize the attack surface of commands
 
 
 Useful references include:
