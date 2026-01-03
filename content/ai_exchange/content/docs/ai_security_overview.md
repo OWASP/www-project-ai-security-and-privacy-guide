@@ -252,7 +252,7 @@ An example of Agentic AI is a set of voice assistants that can control your heat
 
 There are four typical properties of agentic AI:
 1. Action: Agents don’t just chat — they invoke functions such as sending an email. That makes [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) a key control.
-2. Autonomous: Agents can trigger each other, enabling autonomous responses (e.g. a script receives an email, triggering a GenAI follow-up). That makes [OVERSIGHT](/goto/oversight/) important, and it makes working memory an attack vector because that's where the state of an autonomous agent lives.
+2. Autonomous: Agents can trigger each other, enabling autonomous responses (e.g. a script receives an email, triggering a GenAI follow-up). That makes [OVERSIGHT](/goto/oversight/) important, and it makes working memory an attack vector because that's where the state and the plan of an autonomous agent lives.
 3. Complex: Agentic behaviour is emergent.
 4. Multi-system: You often work with a mix of systems and interfaces. Because of that, developers tend to assign responsibilities regarding access control to the AI using instructions, opening up the door for manipulation through [prompt injection](/goto/promptinjection/).
 
@@ -261,9 +261,9 @@ What does this mean for security?
 - Existing assumptions about things like trust boundaries and other established security measures might need to be revisited because agentic AI changes interconnectivity and data flows between system components.
 - Agents deployed with their own sets of permissions open up privilege escalation vectors because they are susceptible to becoming a confused deputy
 - The attack surface is wide, and the potential impact should not be underestimated.
-- Because of that, the known controls become even more important — such as security of inter-model communication (e.g. MCP), traceability, protecting memory integrity, prompt injection defenses, rule-based guardrails, least model privilege, and human oversight. See the [controls overview section](/goto/controlsoverview/).
+- Because of that, the known controls become even more important — such as security of inter-model communication (e.g. MCP), [traceability](/goto/monitoruse/), protecting memory integrity, [prompt injection defenses](/goto/promptinjectionm/), [rule-based / human oversight](/goto/oversight/), and [least model privilege](/goto/leastmodelprivilege/). See the [controls overview section](/goto/controlsoverview/).
 
-For leaking sensitive data in agentic AI, you need three things, also called the lethal trifecta:
+For leaking sensitive data in agentic AI, you need three things, also called the _lethal trifecta_:
 1. Data: Control of the attacker of data that find its way into an LLM at some point in the session of a user that has the desired access, to perform [indirect prompt injection](/goto/indirectpromptinjection/) 
 2. Access: Access of that LLM or connected agents to sensitive data
 3. Send: The ability of that LLM or connected agents to initiate sending out data to the attacker
