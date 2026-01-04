@@ -315,7 +315,12 @@
       },
       {
         "source": "/goto/promptinputvalidation/",
-        "destination": "/docs/2_threats_through_use/#prompt-input-validation",
+        "destination": "/docs/2_threats_through_use/#genai-io-handling",
+        "type": 301
+      },
+      {
+        "source": "/goto/genaiiohandling/",
+        "destination": "/docs/2_threats_through_use/#genai-io-handling",
         "type": 301
       },
       {
