@@ -528,7 +528,6 @@ The objective of unwanted GenAI I/O handling is to reduce the risk of manipulate
 **Applicability**
 This control is applicable to generative AI systems that accept untrusted or semi-trusted inputs and produce outputs that influence users, applications, or downstream systems. It is especially relevant for systems that rely on prompts, instructions, or multimodal inputs (such as text, images, audio, or files).
 Unwanted GenAI I/O handling is less applicable to closed systems with fixed inputs and tightly constrained outputs, though even such systems may still benefit from limited forms of detection or filtering depending on risk tolerance.
-@@Some changes here are made by Rob without suggestion mode:
 
 **Implementation requirements**
 - **Encode and transform untrusted data**: Encoding, escaping, or transforming untrusted input before it is incorporated into prompts can help prevent data to be interpreted as instructions. These techniques can also be applied to the model output to contain the downstream impact on the consumer systems. While these techniques do not eliminate all risks, they reduce ambiguity and limit the impact of direct or indirect instruction injection.
