@@ -523,7 +523,7 @@ This section discusses the two types of prompt injection and the mitigation cont
 
 #### #PROMPT INJECTION DEFENSE AT INFERENCE
 > Category: runtime AI engineer controls against input threats  
-> Permalink: https://owaspai.org/goto/PROMPT INJECTION DEFENSE AT INFERENCE/
+> Permalink: https://owaspai.org/goto/promptinjectiondefenseatinference/
 
 **Description**  
 Prompt injection defense at inference focuses on detecting, containing, and responding to unwanted or unsafe behavior that is introduced through model inputs or observed in model outputs. This includes techniques such as encoding, normalization, detection, filtering, and behavioral analysis applied to both inputs and outputs of generative AI systems.
