@@ -319,8 +319,8 @@
         "type": 301
       },
       {
-        "source": "/goto/genaiiohandling/",
-        "destination": "/docs/2_threats_through_use/#genai-io-handling",
+        "source": "/goto/promptinjectiondefenseatinference/",
+        "destination": "/docs/2_threats_through_use/#prompt-injection-defense-at-inference",
         "type": 301
       },
       {
