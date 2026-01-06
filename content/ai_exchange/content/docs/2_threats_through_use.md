@@ -512,7 +512,7 @@ This section discusses the two types of prompt injection and the mitigation cont
   
 **Controls for all forms of prompt injection:**
 - See [General controls](/goto/generalcontrols/):
-  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) with highlights [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege) and [OVERSIGHT](/goto/oversight/).
+  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) with highlights [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/).
 - Controls for [threats through use](/goto/threatsuse/):
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
@@ -632,7 +632,7 @@ References:
 The same as for all prompt injection:
 
 - See [General controls](/goto/generalcontrols/):
-  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) with highlights [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege) and [OVERSIGHT](/goto/oversight/).
+  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) with highlights [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/).
 - Controls for [threats through use](/goto/threatsuse/):
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
@@ -670,7 +670,7 @@ References
 **Controls:**
 
 - See [General controls](/goto/generalcontrols/):
-  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) with highlights [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege) and [OVERSIGHT](/goto/oversight/).
+  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) with highlights [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/).
 - Controls for [threats through use](/goto/threatsuse/):
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output - and for INDIRECT prompt injection: looking primarily at the untrusted data that is inserted in the prompt
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
