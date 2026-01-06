@@ -315,12 +315,12 @@
       },
       {
         "source": "/goto/promptinputvalidation/",
-        "destination": "/docs/2_threats_through_use/#genai-io-handling",
+        "destination": "/docs/2_threats_through_use/#prompt-injection-io-handling",
         "type": 301
       },
       {
-        "source": "/goto/promptinjectiondefenseatinference/",
-        "destination": "/docs/2_threats_through_use/#prompt-injection-defense-at-inference",
+        "source": "/goto/promptinjectioniohandling/",
+        "destination": "/docs/2_threats_through_use/#prompt-injection-io-handling",
         "type": 301
       },
       {
