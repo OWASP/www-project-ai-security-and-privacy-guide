@@ -504,8 +504,8 @@ After training data has been poisoned (see [data poisoning section](/goto/datapo
 
 Prompt injection attacks involve maliciously crafting or manipulating input prompts to models, directly or indirectly, in order to exploit vulnerabilities in their processing capabilities or to trick them into executing unintended actions.  
 This section discusses the two types of prompt injection and the mitigation controls:
-- [Direct prompt injection](/goto/directpromptinjection)
-- [Indirect prompt injection](/goto/indirectpromptinjection)
+- [Direct prompt injection](/goto/directpromptinjection/)
+- [Indirect prompt injection](/goto/indirectpromptinjection/)
 
 **References**
 - [Cyberpedia on prompt injection](https://www.paloaltonetworks.com/cyberpedia/what-is-a-prompt-injection-attack)
