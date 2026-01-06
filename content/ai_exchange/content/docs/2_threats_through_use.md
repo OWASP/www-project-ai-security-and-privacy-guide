@@ -505,12 +505,12 @@ After training data has been poisoned (see [data poisoning section](/goto/datapo
 Prompt injection attacks involve maliciously crafting or manipulating input prompts to models, directly or indirectly, in order to exploit vulnerabilities in their processing capabilities or to trick them into executing unintended actions.  
 This section discusses the two types of prompt injection and the mitigation controls:
 - [Direct prompt injection](/goto/directpromptinjection)
-- [Inddirect prompt injection](/goto/indirectpromptinjection)
+- [Indirect prompt injection](/goto/indirectpromptinjection)
 
 **References**
 - [Cyberpedia on prompt injection](https://www.paloaltonetworks.com/cyberpedia/what-is-a-prompt-injection-attack)
   
-**Controls:**
+**Controls for all forms of prompt injection:**
 - See [General controls](/goto/generalcontrols/):
   - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/).
 - Controls for [threats through use](/goto/threatsuse/):
@@ -518,18 +518,18 @@ This section discusses the two types of prompt injection and the mitigation cont
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
 - Controls for [prompt injection](/goto/promptinjection/):
-  - [#PROMPT INJECTION DEFENSE AT INFERENCE](/goto/promptinjectiondefenseatinference/) to handle any suspicious input or output - see below
+  - [#PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/) to handle any suspicious input or output - see below
   - [#MODEL ALIGNMENT](/goto/modelalignment/) done by model makers to try to make the model behave - see below
 
-#### #PROMPT INJECTION DEFENSE AT INFERENCE
+#### #PROMPT INJECTION IO HANDLING
 > Category: runtime AI engineer controls against input threats  
-> Permalink: https://owaspai.org/goto/promptinjectiondefenseatinference/
+> Permalink: https://owaspai.org/goto/promptinjectioniohandling/
 
 **Description**  
-Prompt injection defense at inference focuses on detecting, containing, and responding to unwanted or unsafe behavior that is introduced through model inputs or observed in model outputs. This includes techniques such as encoding, normalization, detection, filtering, and behavioral analysis applied to both inputs and outputs of generative AI systems.
+This control focuses on detecting, containing, and responding to unwanted or unsafe behavior that is introduced through model inputs or observed in model outputs. This includes techniques such as encoding, normalization, detection, filtering, and behavioral analysis applied to both inputs and outputs of generative AI systems.
 
 **Objective**  
-The objective of Prompt injection defense at inference is to reduce the risk of manipulated, unsafe, or unintended model behavior caused by crafted instructions, ambiguous natural language, or adversarial content. Generative AI systems are particularly susceptible to instruction-based manipulation because they interpret flexible, human-like inputs rather than strict syntax. Addressing unwanted I/O behavior helps prevent misuse such as prompt injection, indirect instruction following, and unintended task execution, while also improving overall system robustness and trustworthiness.
+The objective of this control is to reduce the risk of manipulated, unsafe, or unintended model behavior caused by crafted instructions, ambiguous natural language, or adversarial content. Generative AI systems are particularly susceptible to instruction-based manipulation because they interpret flexible, human-like inputs rather than strict syntax. Addressing unwanted I/O behavior helps prevent misuse such as prompt injection, indirect instruction following, and unintended task execution, while also improving overall system robustness and trustworthiness.
 
 **Applicability**  
 This control is applicable to generative AI systems that accept untrusted or semi-trusted inputs and produce outputs that influence users, applications, or downstream systems. It is especially relevant for systems that rely on prompts, instructions, or multimodal inputs (such as text, images, audio, or files).
@@ -540,9 +540,9 @@ Unwanted GenAI I/O handling is less applicable to closed systems with fixed inpu
 - **Escape/neutralize instruction-like tokens**: Transform any tokens in untrusted data that may be mistaken for real by an AI model or parser, such as fences, role markers, XML/HTML Tags and tool calling tokens. This reduces accidental compliance but semantic injection stil passes through.
 - **Delineate inserted untrusted data** - see [#INPUT SEGREGATION](/goto/inputsegregation/) to increase the probability that all externally sourced or user-provided content is  treated as untrusted data not interpreted as instructions.
 - **Recognize manipulative instructions in input**: Detecting patterns that indicate attempts to manipulate model behavior through crafted instructions (e.g.: ‘forget previous instructions’ or 'retrieve password'). These patterns may appear in text, images, audio, metadata, retrieved data, or uploaded files, depending on the system’s supported modalities.
-- **Use GenAI for recognition**. The flexibility of natural language makes it harder to apply input validation than for strict syntax situations like SQL commands. To address this flexibility of natural language in prompt inputs, the best practice is to utilize LLM-based detectors (LLM-as-a-judge) for the detection of malicious instructions in a more semantic way, instead of syntactic. However, it’s important to note that this method may come with longer latency, higher compute costs, potential license costs, and considerations regarding accuracy, compared to other strategies such as normalizing or pre-processing input, or employing heuristic and rules-based approaches.
+- **Use GenAI for recognition**. The flexibility of natural language makes it harder to apply input validation than for strict syntax situations like SQL commands. To address this flexibility of natural language in prompt inputs, the best practice for high-risk situations is to utilize LLM-based detectors (LLM-as-a-judge) for the detection of malicious instructions in a more semantic way, instead of syntactic. However, it’s important to note that this method may come with longer latency, higher compute costs, potential license costs, and considerations regarding accuracy, compared to other strategies such as normalizing or pre-processing input, or employing heuristic and rules-based approaches.
+- **Grounding checks** let a separate Generative AI model decide if an input or output is off-topic or escalates capabilities (e.g. a LLM powered food recipes app suddenly is trying to send emails). This takes the use of LLMs to detect suspicious input and output a step further by including context. This is required in case GenAI-based recognition is insufficient to cover certain attack scenarios (see above).
 - **Apply input handling upstream**. By applying sanitization or detection as early as possible (e.g. when data is retrieved from an API), attacks are noticed sooner, obfuscation of instructions or sensitive data may be prevented, and AI components with less sophisticated I/O handling are protected. This also means that these techniques need to be applied to the output of the model if that output may ever become input to another model without such protections. If output is to be used in other command-interpreting tools, further encoding is needed - see [#ENCODE MODEL OUTPUT](/goto/encodemodeloutput/).
-- **Grounding checks** take the use of LLMs to detect suspicious situations a step further by letting a model decide if an input or output is off-topic or escalates capabilities (e.g. a LLM powered food recipes app suddenly is trying to send emails).
 - **Detect unwanted output**: Detecting patterns of unwanted behaviour in output, such as:
   - Offensive language or dangerous information
   - Sensitive data: see [SENSITIVE OUTPUT HANDLING](/goto/sensitiveoutputhandling/) for the control to detect sensitive data (e.g. names, phone numbers, passwords, tokens). These detections can also be applied on the input of the model or on APIs that retrieve data to go into the model.
@@ -638,7 +638,7 @@ The same as for all prompt injection:
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
 - Controls for [prompt injection](/goto/promptinjection/):
-  - [#PROMPT INJECTION DEFENSE AT INFERENCE](/goto/promptinjectiondefenseatinference/) to handle any suspicious input or output - see below
+  - [#PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/) to handle any suspicious input or output - see below
   - [#MODEL ALIGNMENT](/goto/modelalignment/) done by model makers to try to make the model behave
 
 ---
@@ -674,7 +674,7 @@ References
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
 - Controls for [prompt injection](/goto/promptinjection/):
-  - [#PROMPT INJECTION DEFENSE AT INFERENCE](/goto/promptinjectiondefenseatinference/) to handle any suspicious input or output - see below
+  - [#PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/) to handle any suspicious input or output - see below
   - [#MODEL ALIGNMENT](/goto/modelalignment/) done by model makers to try to make the model behave
 - Specifically for INDIRECT prompt injection:
   - [#INPUT SEGREGEGATION](/goto/inputsegregation/) - discussed below
