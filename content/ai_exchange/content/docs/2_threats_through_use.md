@@ -512,14 +512,14 @@ This section discusses the two types of prompt injection and the mitigation cont
   
 **Controls for all forms of prompt injection:**
 - See [General controls](/goto/generalcontrols/):
-  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/).
+  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) with highlights [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege) and [OVERSIGHT](/goto/oversight/).
 - Controls for [threats through use](/goto/threatsuse/):
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
 - Controls for [prompt injection](/goto/promptinjection/):
   - [#PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/) to handle any suspicious input or output - see below
-  - [#MODEL ALIGNMENT](/goto/modelalignment/) done by model makers to try to make the model behave - see below
+  - [#MODEL ALIGNMENT](/goto/modelalignment/) done by mostly model makers to try to make the model behave - see below
 
 #### #PROMPT INJECTION IO HANDLING
 > Category: runtime AI engineer controls against input threats  
@@ -632,14 +632,14 @@ References:
 The same as for all prompt injection:
 
 - See [General controls](/goto/generalcontrols/):
-  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/).
+  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) with highlights [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege) and [OVERSIGHT](/goto/oversight/).
 - Controls for [threats through use](/goto/threatsuse/):
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
 - Controls for [prompt injection](/goto/promptinjection/):
   - [#PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/) to handle any suspicious input or output - see below
-  - [#MODEL ALIGNMENT](/goto/modelalignment/) done by model makers to try to make the model behave
+  - [#MODEL ALIGNMENT](/goto/modelalignment/) done by mostly model makers to try to make the model behave
 
 ---
 
@@ -647,9 +647,9 @@ The same as for all prompt injection:
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/indirectpromptinjection/
 
-Indirect prompt injection ([OWASP for LLM 01](https://genai.owasp.org/llmrisk/llm01/)): a third party fools a large language model (GenAI) through the inclusion of (often hidden) instructions as part of a text that is inserted into a prompt by an application, causing unintended actions or answers by the LLM (GenAI). This is similar to remote code execution.
+Indirect prompt injection: a third party fools a large language model (GenAI) through the inclusion of (often hidden) instructions as part of a text that is inserted into a prompt by an application, causing unintended actions or answers by the LLM (GenAI). This is similar to remote code execution.
 
-Impact: Getting unwanted answers or actions (see [Agentic AI](/goto/agenticaithreats/) from instructions from untrusted input that has been inserted in a prompt.
+Impact: Getting unwanted answers or actions (see [Agentic AI](/goto/agenticaithreats/)) from instructions in untrusted input that has been inserted in a prompt.
 
 Example 1: let's say a chat application takes questions about car models. It turns a question into a prompt to a Large Language Model (LLM, a GenAI) by adding the text from the website about that car. If that website has been compromised with instructions invisible to the eye, those instructions are inserted into the prompt and may result in the user getting false or offensive information.
 
@@ -657,7 +657,9 @@ Example 2: a person embeds hidden text (white on white) in a job application, sa
 
 Example 3: Say an LLM is connected to a plugin that has access to a Github account and the LLM also has access to web sites to look up information. An attacker can hide instructions on a website and then make sure that the LLM reads that website. These instructions may then for example make a private coding project public. See this [talk by Johann Rehberger](https://youtu.be/ADHAokjniE4?si=sAGImaFX49mi8dmk&t=1474)
 
-See [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.T0051).
+Mappings
+- [OWASP Top 10 for LLM 01](https://genai.owasp.org/llmrisk/llm01/)
+- [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.T0051)
 
 References
 - [Illustrative blog by Simon Willison](https://simonwillison.net/2023/Apr/14/worst-that-can-happen/)
@@ -668,14 +670,14 @@ References
 **Controls:**
 
 - See [General controls](/goto/generalcontrols/):
-  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/).
+  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) with highlights [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege) and [OVERSIGHT](/goto/oversight/).
 - Controls for [threats through use](/goto/threatsuse/):
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output - and for INDIRECT prompt injection: looking primarily at the untrusted data that is inserted in the prompt
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
 - Controls for [prompt injection](/goto/promptinjection/):
   - [#PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/) to handle any suspicious input or output - see below
-  - [#MODEL ALIGNMENT](/goto/modelalignment/) done by model makers to try to make the model behave
+  - [#MODEL ALIGNMENT](/goto/modelalignment/) done by mostly model makers to try to make the model behave
 - Specifically for INDIRECT prompt injection:
   - [#INPUT SEGREGEGATION](/goto/inputsegregation/) - discussed below
 
