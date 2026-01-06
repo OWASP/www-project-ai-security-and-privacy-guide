@@ -182,7 +182,9 @@ This page will continue with discussions about:
 >Permalink: https://owaspai.org/goto/essentials/
 
 The upcoming sections discuss AI security threats and corresponding controls. Below are the main insights to understand the bigger picture of AI security What is different for AI systems?  
-Many experts and organizations contributed to this overview, notably SANS Institute - making sure that the control sets in the Essentials align with SANS' Critical AI security guidelines.
+Many experts and organizations contributed to this overview. This included close collaboration with SANS Institute - ensuring alignment with SANS’ Critical AI security guidelines, as part of the ongoing collaboration between SANS and the AI Exchange to share expertise and support broad education.
+
+making sure that the control sets in the Essentials align with SANS' Critical AI security guidelines.
 
 **New threats (overview [here](/goto/threatsoverview/)):**
   - **[Model input threats](/goto/threatsuse/)**:
