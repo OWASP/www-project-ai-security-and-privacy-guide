@@ -547,6 +547,7 @@ Unwanted GenAI I/O handling is less applicable to closed systems with fixed inpu
   - Offensive language or dangerous information
   - Sensitive data: see [SENSITIVE OUTPUT HANDLING](/goto/sensitiveoutputhandling/) for the control to detect sensitive data (e.g. names, phone numbers, passwords, tokens). These detections can also be applied on the input of the model or on APIs that retrieve data to go into the model.
   - Suspicious function calls.  Ideally, the privileges of an agent are already hardened to the task (see [#LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/)), in which case detection comes down to issuing an alert once an agent attempts to execute an action for which it has no permissions. In addition, the stategy can include the detection of unusual function calls in the context, issuing alerts for further investigation, or asking for approval by a human in the loop. Manipulation of function flow is commonly referred to as _application flow perturbation_. An advanced way to detect manipulated workflows is to perform rule-based sanity checks during steps, e.g. verify whether certain safety checks of filters were executed before processing data. The actual stopping of function calls is covered by the [#OVERSIGHT](/goto/oversight/) control.
+- **Output Filtering against Prompt Leakage**: Ensure outputs are scanned and post-processed to prevent accidental disclosure of system prompts, internal policies, or secret configuration values, and avoid using such internal content directly in user‑visible responses. 
 - **Update detections constantly**: Make sure that techniques and patterns for detection of input/output are constantly updated by using external sources.  Since this is an arms race, the best strategy is to base this on an open source or third party resource. Popular tool providers at the time of writing include: Pangea, Hiddenlayer, AIShield, and Aiceberg.
 - **Respond to detections appropriately**: Based on the confidence of detections, the input can either be filtered, the processing stopped, or an alert can be issued in the log. For more details, see [#MONITOR USE](/goto/monitoruse/)
 
@@ -619,7 +620,7 @@ Example 4: Making a chatbot say things that are legally binding and gain attacke
 
 Example 5: The process of trying prompt injection can be automated, searching for _pertubations_ to a prompt that allow circumventing the alignment. See [this article by Zou et al](https://llm-attacks.org/).
 
-Example 6: Prompt leaking: when an attacker manages through prompts to retrieve instructions to an LLM that were given by its makers
+Example 6: When an attacker manages to retrieve system instructions provided by Developers through crafted input prompts. (known as System prompt leakage, Refer [System Prompt Leakage](https://genai.owasp.org/llmrisk/llm072025-system-prompt-leakage/)).
 
 
 References:
@@ -638,7 +639,7 @@ The same as for all prompt injection:
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
 - Controls for [prompt injection](/goto/promptinjection/):
-  - [#PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/) to handle any suspicious input or output - see below
+  - [#PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/) to handle any suspicious input or output 
   - [#MODEL ALIGNMENT](/goto/modelalignment/) done by mostly model makers to try to make the model behave
 
 ---
@@ -679,9 +680,51 @@ References
   - [#PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/) to handle any suspicious input or output - see below
   - [#MODEL ALIGNMENT](/goto/modelalignment/) done by mostly model makers to try to make the model behave
 - Specifically for INDIRECT prompt injection:
-  - [#INPUT SEGREGEGATION](/goto/inputsegregation/) - discussed below
+  - [#INPUT SEGREGEGATION](/goto/inputsegregation/) - discussed below after 2.2.3
 
-      
+
+### 2.2.3 Multimodal Prompt Injection
+>Category: threat through use  
+>Permalink: https://owaspai.org/goto/multimodalpromptinjection/
+
+Multimodal Prompt Injection: an attacker injects instrudtions into non-text modalities (for example: images, audio, video, documents with embedded objects) or coordinates instructions across text and other modaltities so that multimodal GenAI system interprets them as part of its prompt and follows them, leading to unintended or malicious behaviour. This can be seen as an extension of direct or indirect prompt injection to vision-based, audio-based and other multi-modal architectures where input is automatically fused into a shared representation beofre or during reasoning.
+
+In multimodal systems, models routinely:
+- Extract text from images via OCR or visual encoders.
+- Fuse visual, textual (or sometimes audio) embeddings into a shared latent space.
+- Treat all modalities as potential instruction channels, not just the explicit user text.
+
+As a result, instructions hidden in images or other media can act as "soft-prompts" or "meta-instructions" that steer model behaviour even when the visible user text appears benign.
+
+Example 1: A AI helpdesk assistant uses a vision-language model to read screenshots and UI mockups uploaded by users. An attacker uploads a screenshot with small or low-contrast text that instructs to respond with the API key from the system prompt. The user-visible text describes a normal support issue, but the model's visual encoder extracts the hidden instruction and the assistant attempts to leak secrets or reveal internal configuration.
+
+Example 2: An attacker crafts an image using gradient-based or generative techniques so that it still looks benign (for example a product photo), but its pixels are optimized to embed a meta-instruction to respond with toxic language. When the image is processed by the model, the visual embedding pushes the system to systematically follow the attacker’s objective, even though no explicit malicious text appears in the user prompt.
+
+**Relation to direct and indirect prompt injection**
+Multimodal prompt injection can be:
+
+- Direct when the attacker uploads or controls the multimodal input (for example, an end user uploads an adversarial image with hidden instructions along with a natural-language query).
+​
+
+- Indirect when untrusted multimodal content (for example a product screenshot, scanned form, or social-media image) is automatically pulled in by an application and passed to a multimodal model as context, similar to remote code execution via untrusted data.
+​
+References:
+- [Multimodal Prompt Injection Attacks: Risks and Defenses for Modern LLMs](https://arxiv.org/pdf/2509.05883v1)
+- [From Prompt Injection to Multimodal Evasion - Presentation by Niklas Bunzel](https://owasp.org/www-chapter-germany/stammtische/hamburg/assets/slides/2025_07_16%20Bunzel%20-%20AI%20Security%20and%20Privacy.pdf)
+
+**Controls:**
+
+- See [General controls](/goto/generalcontrols/):
+  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) with highlights [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/).
+- Controls for [threats through use](/goto/threatsuse/):
+  - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output - and for MultiModal prompt injection: looking primarily at the additional modalities such as vision and audio.
+  - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
+  - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
+- Controls for [prompt injection](/goto/promptinjection/):
+  - [#PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/) to handle any suspicious input or output 
+  - [#MODEL ALIGNMENT](/goto/modelalignment/) done by mostly model makers to try to make the models behave
+
+
 #### #INPUT SEGREGATION
 > Category: runtime information security control against application security threats  
 > Permalink: https://owaspai.org/goto/inputsegregation/
