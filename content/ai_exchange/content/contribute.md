@@ -172,6 +172,8 @@ weight: 1
   </div>
 </div>
 
+{{< tabs items="Guidelines,Contributing authors, Project leadership" >}}
+
 <div class="py-16 px-4 sm:px-6 lg:px-8 bg-[#F1F1F1]">
   <div class="container mx-auto p-0">
     <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-8 text-center">
@@ -504,6 +506,16 @@ weight: 1
   }
 </style>
 
+## Participate in development of the content at [owaspai.org](https://owaspai.org)
+
+- 📥 Send your suggestion to the [project leader](/connect/#owasp-ai-project-leader).
+- 📄 or [apply to join the group who build and grow the AI Exchange](https://forms.gle/XwEEK52y4iZQChuJ6) (the 'AI Exchange Authors group')
+- 🗣️ or discuss with the [project leader](/connect/#owasp-ai-project-leader) how to become part of the Authors group
+- 💡 or propose your [ideas](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions/categories/ideas), or submit an [issue](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues).
+- 📄 or fork our repo and submit a [Pull Request](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/pulls) for fixes or suggestions.
+- 🙏 or pose your questions on [GitHub](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions/categories/q-a) or in #project-ai-community.
+- [Join OWASP Slack](https://owasp.org/slack/invite) and come to #project-ai-community to learn and discuss.
+
 
 
 
@@ -646,168 +658,58 @@ function renderCards() {
   renderCards();
 });
 </script>
-<style>
-@media (max-width: 768px) {
-  .contributor-card {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff !important; /* ✅ Force white background */
-    padding: 1.25rem;
-    border-radius: 1rem;
-    width: 90%;
-    margin: 0 auto 1rem auto;
-    min-height: 190px; /* ensures consistent height */
-  }
-}
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-10 md:gap-y-6 text-left relative">
 
-  <!-- Card 1 -->
-  <div class="relative flex flex-col h-full">
-    <div class="flex flex-col flex-1 bg-white border border-gray-200 rounded-xl shadow-md p-6">
-      <img src="/images/suggest.png" alt="Suggest icon" class="w-7 h-8 mb-4" />
-      <h4 class="text-gray-900 mb-2 text-xl font-medium">Suggest</h4>
-      <p class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px]">
-        Send your suggestion to the
-        <a href="https://owaspai.org/connect/#owasp-ai-project-leader" class="text-green-600 underline">leadership team</a>.
-      </p>
-    </div>
-    <!-- OR -->
-    <div class="hidden lg:flex absolute top-1/2 lg:-right-8 -translate-y-1/2 h-10 w-10 rounded-full bg-[#4D92AA]
-        text-white text-[18px] font-semibold items-center justify-center shadow z-10">
-      OR
-    </div>
-  </div>
+{{< html-tab >}}
+<table border='1'>
+    <tr><th>Name</th><th>Company</th><th>Country</th><th>Contributions</th></tr>
+    <tr><td><b>Rob van der Veer</b></td><td>Software Improvement Group (SIG)</td><td>Netherlands</td><td>Project founder and lead, content, leadership team</td></tr>
+    <tr><td><b>Aruneesh Salhotra</b></td><td>SNM Consulting Inc</td><td>US</td><td>Outreach, management, content, leadership team</td></tr>
+    <tr><td><b>Behnaz Karimi</b></td><td>Accenture</td><td>Germany</td><td>Misc. contributions including model obfuscation and explanation, leadership team</td></tr>
+    <tr><td>Adelin Travers</td><td>Trail of Bits</td><td></td><td></td></tr>
+    <tr><td>Alan Hau</td><td>AIFT (Vulcan)</td><td>Singapore</td><td>Cultural sensitivity and global comparison</td></tr>
+    <tr><td>Alex Leung</td><td>AIFT (Vulcan)</td><td>Singapore</td><td>Cultural sensitivity and global comparison</td></tr>
+    <tr><td>Alon Tron</td><td>Stealth</td><td>Israel</td><td>Improved supply chain management</td></tr>
+    <tr><td>Andrew Stokes</td><td>Pebl</td><td>US</td><td>Added selective amnesia</td></tr>
+    <tr><td>Angie Qarry</td><td>QDeepTech</td><td>Austria</td><td>several elaborations and references on data science defence mechanisms</td></tr>
+    <tr><td>Annegrit Seyerlein-Klug</td><td>TH Brandenburg</td><td>Germany</td><td>mapping with misc. standards</td></tr>
+    <tr><td>Anthony Glynn</td><td>CapitalOne</td><td>US</td><td>many textual improvements & link to LLM top 10</td></tr>
+     <tr><td>Chris Ancharski</td><td>Global community builder</td><td>US</td><td>Leadership team during part of 2024 </td></tr>
+    <tr><td>Dan Sorensen</td><td>Centil</td><td>US</td><td>Misc. additions including development security</td></tr>
+    <tr><td>Dennis Charolle</td><td>MilliporeSigma</td><td>US</td><td>Compliance overview and copyright</td></tr>
+    <tr><td>Disesdi Susanna Cox</td><td>OTW</td><td>US</td><td>Federated learning, testing and much more</td></tr>
+    <tr><td>Elias Botterli Sørensen</td><td>Kantega</td><td>Norway</td><td>Several clarifications and improvmenets</td></tr>  
+    <tr><td>Engin Bozdag</td><td>Uber</td><td>US</td><td>Substantial input on the privacy section</td></tr>
+    <tr><td>Eoin Wickens</td><td>HiddenLayer</td><td>Ireland</td><td>Additions to development security</td></tr>
+    <tr><td>Iryna Schwindt</td><td></td><td>Germany</td><td>Testing</td></tr>
+    <tr><td>Feiyang Tang</td><td>Software Improvement Group (SIG)</td><td></td><td></td></tr>
+    <tr><td>Jolly Trivedi</td><td></td><td>Finland</td><td>Testing</td></tr>
+    <tr><td>John Sotiropoulos</td><td>Kainos</td><td>UK</td><td>Liaison to several institutes</td></tr>
+    <tr><td>Manish Garg</td><td>VE3</td><td>UK</td><td>Runtime model protection</td></tr>
+    <tr><td>Maryam Alhashemi</td><td></td><td></td><td>Testing</td></tr>
+    <tr><td>Marko Lihter</td><td>SplxAI</td><td>Croatia</td><td>step-by-step guide for organizations, website creation, various textual improvements</td></tr>
+    <tr><td>Niklas Bunzel</td><td>Fraunhofer institute</td><td>Germany</td><td>data science discussion and references around evasion attacks</td></tr>
+    <tr><td>Rajiv Bahl</td><td></td><td>India</td><td>Testing</td></tr>
+    <tr><td>Rocky Heckman</td><td>Cyber Dynamo</td><td>Australia</td><td>Security & privacy risk analysis and ISO/IEC 27562</td></tr>
+    <tr><td>Rubens Zimbres</td><td></td><td>Brazil</td><td>Adversarial machine learning</td></tr>
+    <tr><td>Roger Sanz</td><td>Universidad Isabel</td><td>Spain</td><td></td></tr>
+    <tr><td>Sandy Dunn</td><td>Boise State University, AI Cyber Advisors</td><td>US</td><td>Community management in the initial phase</td></tr>
+    <tr><td>S M Zia Ur Rashid</td><td>Paycom</td><td>US</td><td>AI red teaming and supply chain requirements project, learning and training resources table under references</td></tr>
+    <tr><td>Sean Oesch</td><td>Oak Ridge National Laboratory</td><td>US</td><td>BLUF, Adversarial Training, OOD detection, NISTIR 8269, Guide Usability/Structure</td></tr>
+    <tr><td>Srajan Gupta</td><td>Dave</td><td></td><td></td></tr>
+    <tr><td>Steve Francolla</td><td>Workforce Tech LLC</td><td></td><td></td></tr>
+    <tr><td>Wei Wei</td><td>IBM</td><td>Germany</td><td>mapping with ISO/IEC 42001</td></tr>
+    <tr><td>Yiannis Kanellopoulos and team</td><td>Code4thought</td><td>Greece</td><td>evasion robustness</td></tr>   
+    <tr><td>Yuvaraj Govindarjulu</td><td>AI Shield</td><td>India</td><td>Testing</td></tr>
+    <tr><td>Zoe Braiterman</td><td>Mutual Knowledge Systems</td><td>US</td><td>Many markdown improvements</td></tr>
+</table>
 
-  <!-- Card 2 -->
-  <div class="relative flex flex-col h-full">
-    <div class="flex flex-col flex-1 bg-white border border-gray-200 rounded-xl shadow-md p-6">
-      <img src="/images/join.png" alt="Join icon" class="w-7 h-8 mb-4" />
-      <h4 class="text-gray-900 mb-2 text-xl font-medium">Join</h4>
-      <p class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px]">
-        <a href="https://forms.gle/XwEEK52y4iZQChuJ6" class="text-green-600 underline">Apply</a> to join the Authors group.
-      </p>
-    </div>
-    <!-- OR -->
-    <div class="hidden lg:flex absolute top-1/2 lg:-right-8 -translate-y-1/2 h-10 w-10 rounded-full bg-[#4D92AA]
-        text-white text-[18px] font-semibold items-center justify-center shadow z-10">
-      OR
-    </div>
-  </div>
+{{< /html-tab >}}
 
-  <!-- Card 3 -->
-  <div class="relative flex flex-col h-full">
-    <div class="flex flex-col flex-1 bg-white border border-gray-200 rounded-xl shadow-md p-6">
-      <img src="/images/ideas.png" alt="Ideas icon" class="w-6 h-8 mb-4" />
-      <h4 class="text-gray-900 mb-2 text-xl font-medium">Ideas</h4>
-      <p class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px]">
-        Propose your
-        <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions/categories/ideas" class="text-green-600 underline">ideas</a>,
-        or submit an
-        <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues" class="text-green-600 underline">issue</a>.
-      </p>
-    </div>
-    <!-- OR -->
-    <div class="hidden lg:flex absolute top-1/2 lg:-right-8 -translate-y-1/2 h-10 w-10 rounded-full bg-[#4D92AA]
-        text-white text-[18px] font-semibold items-center justify-center shadow z-10">
-      OR
-    </div>
-  </div>
+{{< tab >}}
+Leadership team:
+- Behnaz Karimi
+- Aruneesh Salhotra
+- Rob van der Veer
+{{< /tab >}}
 
-  <!-- Card 4 -->
-  <div class="relative flex flex-col h-full">
-    <div class="flex flex-col flex-1 bg-white border border-gray-200 rounded-xl shadow-md p-6">
-      <img src="/images/submit.png" alt="Submit icon" class="w-8 h-8 mb-4" />
-      <h4 class="text-gray-900 mb-2 text-xl font-medium">Submit</h4>
-      <p class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px]">
-        Fork our repo and submit a
-        <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/pulls" class="text-green-600 underline">Pull Request</a>
-        for fixes or suggestions.
-      </p>
-    </div>
-    <!-- OR -->
-    <div class="hidden lg:flex absolute top-1/2 lg:-right-8 -translate-y-1/2 h-10 w-10 rounded-full bg-[#4D92AA]
-        text-white text-[18px] font-semibold items-center justify-center shadow z-10">
-      OR
-    </div>
-  </div>
-
-  <!-- Card 5 (last one, centered) -->
-  <div class="relative flex flex-col h-full sm:col-span-2 lg:col-span-1 justify-center">
-    <div class="flex flex-col flex-1 bg-white border border-gray-200 rounded-xl shadow-md p-6">
-      <img src="/images/engage.png" alt="Engage icon" class="w-8 h-8 mb-4" />
-      <h4 class="text-gray-900 mb-2 text-xl font-medium">Engage</h4>
-      <p class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px]">
-        Pose your questions on
-        <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions/categories/q-a" class="text-green-600 underline">GitHub</a>
-        or in #project-ai-community.
-      </p>
-    </div>
-  </div>
-</div>
-
-<!-- Responsive Mobile Styling -->
-
-@media (max-width: 640px) {
-  .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 1.5rem;
-    position: relative;
-  }
-
-  /* Center OR between rows */
-  .grid > div:nth-child(2)::after,
-  .grid > div:nth-child(4)::after {
-    content: "OR";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -20px;
-    background: #4D92AA;
-    color: white;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    font-size: 0.9rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    z-index: 10;
-  }
-
-  /* Center last card */
-  .grid > div:last-child {
-    grid-column: span 2 / span 2;
-    display: flex;
-    justify-content: center;
-  }
-
-  /* OR above last card */
-  .grid > div:last-child::before {
-    content: "OR";
-    position: absolute;
-    top: -24px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #4D92AA;
-    color: white;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    font-size: 0.9rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    z-index: 10;
-  }
-
-  /* Hide OR inside cards */
-  .grid .absolute {
-    display: none !important;
-  }
-}
-
-
-</style>
+{{< /tabs >}}

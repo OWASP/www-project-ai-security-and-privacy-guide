@@ -27,7 +27,7 @@ sidebar:
 </section>
 <!-- AI Exchange Platforms Section -->
 <section id="platforms" class="bg-[#f9fafb] w-full py-12 font-['Roboto']">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 text-center">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-center">
     <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-800 mb-10">
       Connect through our platforms
     </h2>
@@ -110,27 +110,36 @@ sidebar:
     </div>
       <!-- Info Section -->
     <div class="text-left font-['Roboto'] text-base sm:text-lg md:text-xl text-gray-800 leading-relaxed px-4">
-      <p class="mb-4">Connect with us on the
-        <a href="https://owasp.org/slack/invite" class="text-emerald-600 underline font-bold">OWASP Slack</a>
-        workspace in the <span class="font-medium text-emerald-600">#project-ai-community</span>
-        channel. Authors are in the closed
-        <span class="font-medium text-emerald-600">#project-ai-authors</span> channel.
-      </p>
-      <!-- <p class="mb-4">• Keep up with the latest updates by following us on
-        <a href="https://www.linkedin.com/company/owasp-ai-exchange/" class="text-emerald-600 underline font-bold">LinkedIn</a>.
-      </p>
-      <p class="mb-4">• For technical inquiries and suggestions, participate in our
-        <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions"
-           class="text-emerald-600 underline font-bold">GitHub Discussions</a>, 
-        or report and track issues on
-        <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues"
-           class="text-emerald-600 underline font-bold">GitHub Issues</a>.
-      </p>
-      <p class="mb-4">If contributing interests you, check out our
-        <a href="/contribute" class="text-emerald-600 underline font-bold">Contribution Guidelines</a>
-        or get in touch with our project leaders.
-      </p>
-      <p>The Exchange is built on expertise from contributors around the world and across all disciplines.</p> -->
+      <ul class="list-disc list-outside pl-6 text-base sm:text-lg md:text-xl text-gray-800 leading-relaxed space-y-5">
+        <li>
+          Connect with us on the
+          <a href="https://owasp.org/slack/invite" class="text-emerald-600 underline font-bold">OWASP Slack</a>
+          workspace. People who are interested in AI security join
+          <span class="font-medium text-emerald-600">#project-ai-community</span>.
+          Contributors are in the closed
+          <span class="font-medium text-emerald-600">#project-ai-authors</span> channel.
+        </li>
+        <li>
+          Keep up with the latest updates by following us on
+          <a href="https://www.linkedin.com/company/owasp-ai-exchange/" class="text-emerald-600 underline font-bold">
+            "OWASP AI Exchange LinkedIn"
+          </a>.
+        </li>
+        <li>
+          For technical inquiries and suggestions, participate in our
+          <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions"
+            class="text-emerald-600 underline font-bold">GitHub Discussions</a>,
+          or report and track issues on
+          <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues"
+            class="text-emerald-600 underline font-bold">GitHub Issues</a>.
+        </li>
+        <li>
+          If contributing interests you, check out our
+          <a href="/contribute" class="text-emerald-600 underline font-bold">Contribution Guidelines</a>
+          or get in touch with our project leaders.
+        </li>
+      </ul>
+      <p class="mt-6">The Exchange is built on expertise from contributors around the world and across all disciplines.</p>
     </div>
   </div>
 </section>
@@ -209,6 +218,7 @@ sidebar:
 <!-- Contact Section -->
 {{< contact >}}
 
+
 <style>
   @media (max-width: 640px) {
     #platforms .grid {
@@ -226,6 +236,13 @@ sidebar:
       border-radius: 1rem;
       background-color: #fff;
     }
+
+## OWASP AI Exchange Project Leadership
+
+Leadership team:
+- Behnaz Karimi
+- Aruneesh Salhotra
+- Rob van der Veer
 
     /* Logo + title row */
     #platforms .platform-header {
@@ -248,6 +265,10 @@ sidebar:
       font-weight: 600 !important;
       color: #111827;
     }
+
+Founder of **OWASP AI Exchange**, OpenCRE, and author of the Agile guide at SAMM.
+Lead author of ISO/IEC 5338 on AI lifecycle, working group member of ISO/IEC 27090/91 on AI security and privacy, and co-editor/expert of CEN/CENELEC JTC21/WG5 for the EU AI Act.  
+Chief AI Officer at Software Improvement Group, the company that donated the initial framework of AI threats and controls to the Exchange.
 
     #platforms p {
       font-size: 0.9rem !important;

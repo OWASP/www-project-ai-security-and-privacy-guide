@@ -1,0 +1,38 @@
+audience:
+  - breaker
+  - builder
+community:
+  - name: project-ai-community
+    platform: slack
+    url: https://owasp.slack.com/archives/C04FV0D1GES
+    description: 'Channel for the community interested in the content and the direction of the OWASP AI Exchange: <https://owaspai.org>'
+leaders:
+  - name: Rob van der Veer
+    email: rob.vanderveer@owasp.org
+    github: robvanderveer
+  - name: Aruneesh Salhotra
+    email: aruneesh.salhotra@owasp.org
+    github: aruneeshsalhotra
+  - name: Chris Ancharski
+    email: chris.ancharski@owasp.org
+  - name: Behnaz Karimi
+    email: behnaz.karimi@owasp.org
+    github: behyka
+level: 2
+name: OWASP AI Security and Privacy Guide
+pitch: Guidance on designing, creating, testing, and procuring secure and privacy-preserving AI systems
+repositories:
+  - name: www-project-ai-security-and-privacy-guide
+    url: https://github.com/OWASP/www-project-ai-security-and-privacy-guide
+    description: OWASP Foundation Web Repository
+tags:
+  - AIsecpri
+  - AI
+  - security
+  - privacy
+  - requirements
+  - guide
+  - machinelearning
+  - algorithms
+type: documentation
+website: https://owasp.org/www-project-ai-security-and-privacy-guide

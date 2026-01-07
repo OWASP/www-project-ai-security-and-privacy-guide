@@ -139,3 +139,42 @@ GenAI models mostly live in the cloud - often managed by an external party, whic
 > Permalink: https://owaspai.org/goto/modelinputconfidentiality/
 
 Model input confidentiality: see [SECDEVPROGRAM](/goto/secdevprogram/) to attain application security, with the focus on protecting the transport and storage of model input (e.g. access control, encryption, minimize retention)
+
+---
+
+## 4.6. Leak sensitive augmentation data
+> Category: runtime application security threat  
+> Permalink: https://owaspai.org/goto/leakaugmentation/
+
+Impact: Confidentiality breach of sensitive augmentation data
+
+Augmentation data (background information added to a prompt) is typically stored in _vector databases_. This increases the attack surface for any sensitive data, since its stored outside its regular storage with the regular protection (e.g. company reports) and therefore requires additional protection.   
+See [Leak sensitive input data](goto/leakinput/) for how augmentation data can leak when it's added to the prompt. The best practice is to assume that augmentation data can leak to the output, so the access rights for that data need to align with the rights of the user(s) that can see the output.
+
+
+
+**References:**
+- [Mitigating Security Risks in RAG LLM Applications, November 2023, CSA](https://cloudsecurityalliance.org/blog/2023/11/22/mitigating-security-risks-in-retrieval-augmented-generation-rag-llm-applications)
+
+**Controls:**
+- See [General controls](/goto/generalcontrols/)
+- The [security program](/goto/secprogram/),  [application security](/goto/secdevprogram/), [environment security](/goto/devsecurity/) and [data segregation](/goto/segregatedata/) - making sure Vector databases are included in the assets
+
+---
+
+## 4.7. Manipulate augmentation data
+> Category: runtime application security threat  
+> Permalink: https://owaspai.org/goto/manipulateaugmentation/
+
+Impact: Augmentation data is altered to manipulate model behaviour.
+
+Augmentation data (background information added to a prompt) is typically stored in _vector databases_. When augmentation data is manipulated (e.g. inserting false information), it can change the output of the model - making it very similiar to [data poisoning](/goto/datapoison/).
+
+**References:**
+- [Mitigating Security Risks in RAG LLM Applications, November 2023, CSA](https://cloudsecurityalliance.org/blog/2023/11/22/mitigating-security-risks-in-retrieval-augmented-generation-rag-llm-applications)
+
+**Controls:**
+- See [General controls](/goto/generalcontrols/)
+- The [security program](/goto/secprogram/),  [application security](/goto/secdevprogram/), [environment security](/goto/devsecurity/) and [data segregation](/goto/segregatedata/) - making sure Vector databases are included in the assets
+
+
