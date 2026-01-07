@@ -32,15 +32,15 @@ The AI Exchange was founded in 2022 by &lt;a href="https://www.linkedin.com/in/r
 &lt;h2>Relevant OWASP AI initiatives&lt;span class="absolute -mt-20" id="relevant-owasp-ai-initiatives">&lt;/span>
 &lt;a href="#relevant-owasp-ai-initiatives" class="subheading-anchor" aria-label="Permalink for this section">&lt;/a>&lt;/h2>&lt;blockquote>
 &lt;p>Category: discussion&lt;br>
-Permalink: &lt;a href="https://owaspai.org/goto/aiatowasp/" target="_blank" rel="noopener">https://owaspai.org/goto/aiatowasp/&lt;/a>
-&lt;img
+Permalink: &lt;a href="https://owaspai.org/goto/aiatowasp/" target="_blank" rel="noopener">https://owaspai.org/goto/aiatowasp/&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;img
 src="https://owaspai.org/images/overview1.png"
 alt="AI Overview"
 width="950"
 height="200"
 class="mx-auto"
 />&lt;/p>
-&lt;/blockquote>
 &lt;p>In short, the two flagship OWASP AI projects:&lt;/p>
 &lt;ul>
 &lt;li>The &lt;strong>OWASP AI Exchange&lt;/strong> is a comprehensive core framework of threats, controls and related best practices for all AI, actively aligned with international standards and feeding into them. It covers all types of AI, and next to security it discusses privacy as well.&lt;/li>
