@@ -1,0 +1,70 @@
+{{/* 
+Hero Section Shortcode
+Usage: {{< hero-section title="Your Title" subtitle="Your Subtitle" button_text="Button Text" button_link="#section" >}}
+
+Parameters:
+- title: Main heading text
+- subtitle: Descriptive text below the title
+- button_text: Text for the call-to-action button
+- button_link: Link/anchor for the button
+- background: Optional background variant (default: "dark")
+*/}}
+
+{{ $title := .Get "title" | default "Welcome" }}
+{{ $subtitle := .Get "subtitle" | default "Discover more about our mission" }}
+{{ $buttonText := .Get "button_text" | default "Get Started" }}
+{{ $buttonLink := .Get "button_link" | default "#" }}
+{{ $background := .Get "background" | default "dark" }}
+
+{{/* Full width hero section - no container constraints */}}
+<section class="w-screen relative left-1/2 right-1/2 -mx-[50vw] bg-gradient-to-br from-slate-900 via-blue-900 to-blue-800 text-white py-20 text-center overflow-hidden">
+  <!-- Network graphic background -->
+  <div class="absolute inset-0 bg-gradient-radial from-green-400/10 via-transparent to-transparent opacity-30"></div>
+  
+  <div class="relative z-10 px-5">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-6xl md:text-7xl font-bold mb-5 text-white leading-tight">{{ $title }}</h1>
+      <div class="text-xl md:text-2xl mb-10 text-white/90 leading-relaxed max-w-3xl mx-auto">
+        {{ $subtitle }}
+      </div>
+      {{ if $buttonText }}
+        <a href="{{ $buttonLink }}" class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg no-underline font-bold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+          {{ $buttonText }}
+        </a>
+      {{ end }}
+    </div>
+  </div>
+  
+  <!-- Additional decorative elements for high-resolution screens -->
+  <div class="absolute top-10 left-10 w-20 h-20 border border-green-400/20 rounded-full opacity-50"></div>
+  <div class="absolute top-20 right-20 w-16 h-16 border border-blue-400/20 rounded-full opacity-30"></div>
+  <div class="absolute bottom-20 left-1/4 w-12 h-12 border border-emerald-400/20 rounded-full opacity-40"></div>
+  <div class="absolute bottom-10 right-1/3 w-8 h-8 border border-white/20 rounded-full opacity-30"></div>
+</section>
+
+<style>
+  /* Custom radial gradient for the background pattern */
+  .bg-gradient-radial {
+    background-image: radial-gradient(circle at 20% 20%, rgba(34, 197, 94, 0.1) 0%, transparent 50%), 
+                      radial-gradient(circle at 80% 80%, rgba(34, 197, 94, 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 40% 60%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+  }
+  
+  /* Ensure full width on all screen sizes */
+  @media (min-width: 1536px) {
+    .text-6xl {
+      font-size: 4.5rem;
+      line-height: 1.1;
+    }
+  }
+  
+  @media (min-width: 1920px) {
+    .text-6xl {
+      font-size: 5rem;
+      line-height: 1.1;
+    }
+    .text-xl {
+      font-size: 1.5rem;
+    }
+  }
+</style>

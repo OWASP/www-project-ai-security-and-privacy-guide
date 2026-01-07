@@ -2,6 +2,12 @@ baseURL: https://owaspai.org/
 languageCode: en-us
 title: AI Exchange
 
+outputs:
+  home:
+    - HTML
+    - JSON
+    - RSS
+
 module:
   imports:
     - path: github.com/imfing/hextra
@@ -12,14 +18,14 @@ params:
   og_image: https://owaspai.org/images/aix-og-logo.jpg
   og_description: Comprehensive guidance and alignment on how to protect AI against security threats - by professionals, for professionals.
   navbar:
-    displayTitle: true
+    displayTitle: false
     displayLogo: true
     logo:
-      path: images/owasp-logo.svg
-      dark: images/owasp-logo-dark.svg
+      path: images/Owasp-AI-Exchange-Logo.png
+      dark: images/Owasp-AI-Exchange-Logo.png
       link: /
-      width: 30
-      height: 30
+      width: "Auto"
+      height: 48
   editURL:
     enable: true
     base: "https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/content/ai_exchange/content"
@@ -30,21 +36,24 @@ params:
   page:
     # full (100%), wide (90rem), normal (1280px)
     width: wide
+    params:
+      heroTitle: "AI Security Overview"
+      heroText: "This section provides various overviews of threats and control, step-by-step risk analysis, and discussion of cross-cutting concerns."
 
 menu:
   main:
     - name: Home
       pageRef: /
       weight: 1
-    - name: Overview
+    - name: Content
       pageRef: /docs/ai_security_overview
       weight: 2
     - name: Media
       pageRef: /media
       weight: 3
-    - name: Meetings
-      pageRef: /meetings
-      weight: 4
+    # - name: Meetings
+    #   pageRef: /meetings
+    #   weight: 4
     - name: Contribute
       pageRef: /contribute
       weight: 5
@@ -54,6 +63,7 @@ menu:
     - name: Sponsor
       pageRef: /sponsor
       weight: 7
+  social:
     - name: Search
       weight: 8
       params:
@@ -63,14 +73,57 @@ menu:
       url: "https://github.com/OWASP/www-project-ai-security-and-privacy-guide"
       params:
         icon: github
+    - name: Slack
+      weight: 10
+      url: "https://owasp.org/slack/invite"
+      params:
+        icon: slack
+    - name: LinkedIn
+      weight: 11
+      url: "https://www.linkedin.com/company/owasp-ai-exchange/"
+      params:
+        icon: linkedin
+    - name: Youtube
+      weight: 11
+      url: "https://www.youtube.com/playlist?list=PLCZNSZ1gyRoD5droM_qyXYyBofj00x_zO"
+      params:
+        icon: youtube
 
+  docs:
+    - name: "0. AI Security Overview"
+      pageRef: /docs/ai_security_overview
+      weight: 1
+    - name: "1. General controls"
+      pageRef: /docs/1_general_controls
+      weight: 2
+    - name: "2. Threats through use"
+      pageRef: /docs/2_threats_through_use
+      weight: 3
+    - name: "3. Development-time threats"
+      pageRef: /docs/3_development_time_threats
+      weight: 4
+    - name: "4. Runtime application security threats"
+      pageRef: /docs/4_runtime_application_security_threats
+      weight: 5
+    - name: "5. AI security testing"
+      pageRef: /docs/5_testing
+      weight: 6
+    - name: "6. AI privacy"
+      pageRef: /docs/6_privacy
+      weight: 7
+    - name: "AI Security References"
+      pageRef: /docs/ai_security_references
+      weight: 8
+    - name: "Index"
+      pageRef: /docs/
+      weight: 9
   sidebar:
     - name: More
       params:
         type: separator
       weight: 1
     - name: Home
-      pageRef: /
+      pageRef: / 
       weight: 2
     - name: Connect with us
       pageRef: /connect
@@ -102,3 +155,7 @@ markup:
       hardWraps: false
       unsafe: true
       xhtml: false
+  tableOfContents:
+    startLevel: 2
+    endLevel: 4
+    ordered: false
