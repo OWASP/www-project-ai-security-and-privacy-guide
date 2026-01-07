@@ -521,7 +521,7 @@ This section discusses the two types of prompt injection and the mitigation cont
   - [#PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/) to handle any suspicious input or output - see below
   - [#MODEL ALIGNMENT](/goto/modelalignment/) done by mostly model makers to try to make the model behave - see below
 
-#### #PROMPT INJECTION IO HANDLING
+#### #PROMPT INJECTION I/O HANDLING
 > Category: runtime AI engineer controls against input threats  
 > Permalink: https://owaspai.org/goto/promptinjectioniohandling/
 
@@ -535,7 +535,7 @@ The objective of this control is to reduce the risk of manipulated, unsafe, or u
 This control is applicable to generative AI systems that accept untrusted or semi-trusted inputs and produce outputs that influence users, applications, or downstream systems. It is especially relevant for systems that rely on prompts, instructions, or multimodal inputs (such as text, images, audio, or files).
 Unwanted GenAI I/O handling is less applicable to closed systems with fixed inputs and tightly constrained outputs, though even such systems may still benefit from limited forms of detection or filtering depending on risk tolerance.
 
-**Implementation requirements**  
+**Implementation**  
 - **Sanitize characters to reduce hidden or obfuscated instructions**: Normalize input using Unicode normalization (e.g. NFKC) to remove encoding ambiguity, and optionally apply stricter character filtering (e.g. allow-listing permitted characters) to prevent hidden control or instruction-like content. Also remove zero-width or otherwise invisible characters (e.g. white on white). This step typically aids detection of instructions as well.
 - **Escape/neutralize instruction-like tokens**: Transform any tokens in untrusted data that may be mistaken for real by an AI model or parser, such as fences, role markers, XML/HTML Tags and tool calling tokens. This reduces accidental compliance but semantic injection stil passes through.
 - **Delineate inserted untrusted data** - see [#INPUT SEGREGATION](/goto/inputsegregation/) to increase the probability that all externally sourced or user-provided content is  treated as untrusted data not interpreted as instructions.
