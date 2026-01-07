@@ -679,9 +679,51 @@ References
   - [#PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/) to handle any suspicious input or output - see below
   - [#MODEL ALIGNMENT](/goto/modelalignment/) done by mostly model makers to try to make the model behave
 - Specifically for INDIRECT prompt injection:
-  - [#INPUT SEGREGEGATION](/goto/inputsegregation/) - discussed below
+  - [#INPUT SEGREGEGATION](/goto/inputsegregation/) - discussed below after 2.2.3
 
-      
+
+### 2.2.3 Multimodal Prompt Injection
+>Category: threat through use  
+>Permalink: https://owaspai.org/goto/multimodalpromptinjection/
+
+Multimodal Prompt Injection: an attacker injects instrudtions into non-text modalities (for example: images, audio, video, documents with embedded objects) or coordinates instructions across text and other modaltities so that multimodal GenAI system interprets them as part of its prompt and follows them, leading to unintended or malicious behaviour. This can be seen as an extension of direct or indirect prompt injection to vision-based, audio-based and other multi-modal architectures where input is automatically fused into a shared representation beofre or during reasoning.
+
+In multimodal systems, models routinely:
+- Extract text from images via OCR or visual encoders.
+- Fuse visual, textual (or sometimes audio) embeddings into a shared latent space.
+- Treat all modalities as potential instruction channels, not just the explicit user text.
+
+As a result, instructions hidden in images or other media can act as "soft-prompts" or "meta-instructions" that steer model behaviour even when the visible user text appears benign.
+
+Example 1: A AI helpdesk assistant uses a vision-language model to read screenshots and UI mockups uploaded by users. An attacker uploads a screenshot with small or low-contrast text that instructs to respond with the API key from the system prompt. The user-visible text describes a normal support issue, but the model's visual encoder extracts the hidden instruction and the assistant attempts to leak secrets or reveal internal configuration.
+
+Example 2: An attacker crafts an image using gradient-based or generative techniques so that it still looks benign (for example a product photo), but its pixels are optimized to embed a meta-instruction to respond with toxic language. When the image is processed by the model, the visual embedding pushes the system to systematically follow the attacker’s objective, even though no explicit malicious text appears in the user prompt.
+
+**Relation to direct and indirect prompt injection**
+Multimodal prompt injection can be:
+
+- Direct when the attacker uploads or controls the multimodal input (for example, an end user uploads an adversarial image with hidden instructions along with a natural-language query).
+​
+
+- Indirect when untrusted multimodal content (for example a product screenshot, scanned form, or social-media image) is automatically pulled in by an application and passed to a multimodal model as context, similar to remote code execution via untrusted data.
+​
+References:
+- [Multimodal Prompt Injection Attacks: Risks and Defenses for Modern LLMs](https://arxiv.org/pdf/2509.05883v1)
+- [From Prompt Injection to Multimodal Evasion - Presentation by Niklas Bunzel](https://owasp.org/www-chapter-germany/stammtische/hamburg/assets/slides/2025_07_16%20Bunzel%20-%20AI%20Security%20and%20Privacy.pdf)
+
+**Controls:**
+
+- See [General controls](/goto/generalcontrols/):
+  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) with highlights [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/).
+- Controls for [threats through use](/goto/threatsuse/):
+  - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output - and for MultiModal prompt injection: looking primarily at the additional modalities such as vision and audio.
+  - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
+  - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
+- Controls for [prompt injection](/goto/promptinjection/):
+  - [#PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/) to handle any suspicious input or output 
+  - [#MODEL ALIGNMENT](/goto/modelalignment/) done by mostly model makers to try to make the models behave
+
+
 #### #INPUT SEGREGATION
 > Category: runtime information security control against application security threats  
 > Permalink: https://owaspai.org/goto/inputsegregation/
