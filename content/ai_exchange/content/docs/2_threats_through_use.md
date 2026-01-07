@@ -24,7 +24,7 @@ Monitor use: Monitor the use of the model (input, date, time, user) by registeri
   - suspicious inputs or series of inputs (see [DETECTODDINPUT](#detectoddinput) and [DETECTADVERSARIALINPUT](#detectadversarialinput))
 
 By adding details to logs on the version of the model used and the output, troubleshooting becomes easier.
-  
+
 Useful standards include:
 
   - ISO 27002 Controls 8.15 Logging and 8.16 Monitoring activities. Gap: covers this control fully, with the particularity: monitoring needs to look for specific patterns of AI attacks (e.g. model attacks through use). The ISO 27002 control has no details on that.
@@ -194,7 +194,7 @@ The main concepts of adversarial attack detectors include:
 - **Detection of adversarial patches**: These patches are localized, often visible modifications that can even be placed in the real world. The techniques mentioned above can detect adversarial patches, yet they often require modification due to the unique noise pattern of these patches, particularly when they are used in real-world settings and processed through a camera. In these scenarios, the entire image includes benign camera noise (camera fingerprint), complicating the detection of the specially crafted adversarial patches.
 
 See also [DETECTODDINPUT](/goto/detectoddinput/) for detecting abnormal input which can be an indication of adversarialinput.
-  
+
 Useful standards include:
 
   - Not covered yet in ISO/IEC standards
@@ -335,7 +335,7 @@ Note that adversarial samples may also be used as  poisoned data, in which cases
 
   - Not covered yet in ISO/IEC standards
   - ENISA Securing Machine Learning Algorithms Annex C: "Add some adversarial examples to the training dataset"
-  
+
   References:
 
   - For a general summary of adversarial training, see [Bai et al.](https://arxiv.org/pdf/2102.01356.pdf)
@@ -380,7 +380,7 @@ References:
   - Athalye, Anish, et al. "Synthesizing robust adversarial examples." International conference on machine learning. PMLR, 2018.
   - Athalye, Anish, Nicholas Carlini, and David Wagner. "Obfuscated gradients give a false sense of security: Circumventing defenses to adversarial examples." International conference on machine learning. PMLR, 2018.
 
-  
+
 #### #ADVERSARIAL ROBUST DISTILLATION
 >Category: development-time data science control for threats through use  
 >Permalink: https://owaspai.org/goto/adversarialrobustdistillation/
@@ -392,7 +392,7 @@ Useful standards include:
   - Not covered yet in ISO/IEC standards
 
   - ENISA Securing Machine Learning Algorithms Annex C: "Choose and define a more resilient model design"
- 
+
  References
 
   - Papernot, Nicolas, et al. "Distillation as a defense to adversarial
@@ -415,8 +415,8 @@ Black box attack strategies are:
 
 - Query-Based Attacks:
   In query-based black box attacks, an attacker systematically queries the target model using carefully designed inputs and observes the resulting outputs to search for variations of input that lead to a false decision of the model.
-This approach enables the attacker to indirectly reconstruct or estimate the model's decision boundaries, thereby facilitating the creation of inputs that can mislead the model.
-These attacks are categorized based on the type of output the model provides:
+  This approach enables the attacker to indirectly reconstruct or estimate the model's decision boundaries, thereby facilitating the creation of inputs that can mislead the model.
+  These attacks are categorized based on the type of output the model provides:
   - Desicion-based (or Label-based) attacks: where the model only reveals the top prediction label
   - Score-based attacks: where the model discloses a score (like a softmax score), often in the form of a vector indicating the top-k predictions.In research typically models which output the whole vector are evaluated, but the output could also be restricted to e.g. top-10 vector. The confidence scores provide more detailed feedback about how close the adversarial example is to succeeding, allowing for more precise adjustments. In a score-based scenario an attacker can for example approximate the gradient by evaluating the objective function values at two very close points.
 
@@ -776,7 +776,7 @@ Useful standards include:
 Model inversion (or _data reconstruction_) occurs when an attacker reconstructs a part of the training set by intensive experimentation during which the input is optimized to maximize indications of confidence level in the output of the model.
 
 ![](/images/inversion3.png)
-  
+
 Membership inference is presenting a model with input data that identifies something or somebody (e.g. a personal identity or a portrait picture), and using any indication of confidence in the output to infer the presence of that something or somebody in the training set.
 
 ![](/images/membership3.png)
@@ -818,6 +818,39 @@ Small model: overfitting (storing individual training samples) can be prevented 
 Useful standards include:
 
   - Not covered yet in ISO/IEC standards
+
+### 2.3.3. Cross-context data leakage through shared account reuse
+>Category: threat through use  
+>Permalink: https://owaspai.org/goto/crosscontextleakage/
+
+Description:  
+Cross-context data leakage occurs when distinct environments, devices, or applications share the same account credentials or API keys, resulting in unintentional information exposure between them. This is often done deliberately to pool usage credits or context budgets across tools, but the unintended consequence is that prompts, logs, or embeddings may become accessible between those tools.
+
+Even if a particular device or environment appears isolated (for example, a local IDE plugin or browser chat instance), its API credentials may implicitly authorize access to shared cloud-level resources such as conversation histories or embeddings. In such cases, the device itself shows no visible leakage, but the same credentials allow other integrations to access or be influenced by that shared context.
+
+Impact:  
+Confidentiality breach of sensitive prompts or outputs, unintentional influence of one user’s context on another’s results, and difficulty in tracing responsibility for leakage due to shared authentication scope.
+
+Examples:  
+- A developer assistant and a web chatbot share one API key, allowing queries from one to surface tokens or vectors from the other.  
+- A plug-in retrieves data influenced by another team’s prior conversation history in the same account.  
+
+**Controls specific for cross-context data leakage:**  
+- See [General controls](/goto/generalcontrols/), especially [Sensitive data limitation](/goto/dataminimize/) and [Model access control](/goto/modelaccesscontrol/).  
+- The below control(s), each marked with a # and a short name in capitals  
+
+#### #SEPARATE API KEYS  
+>Category: runtime information security control for threats through use  
+>Permalink: https://owaspai.org/goto/separateapikeys/  
+
+Use distinct API keys or credentials per environment, user, or integration to prevent cloud-side context crossover. Scope tokens narrowly to the specific service or workspace, and disable account-wide history or shared embeddings where possible.  
+
+**Detection:**  
+Monitor for cross-client or cross-workspace term overlap in generated output, which can signal unintended data reuse.
+
+Useful standards include:  
+- ISO/IEC 42001 B.6.2.5 – Access control and monitoring of AI operations (partial coverage).  
+- ENISA *Securing Machine Learning Algorithms* Annex C – “Restrict shared access and manage credential scope.”  
 
 ---
 
