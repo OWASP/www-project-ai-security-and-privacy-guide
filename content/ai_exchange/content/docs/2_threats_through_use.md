@@ -35,12 +35,12 @@ Useful standards include:
 >Category: runtime information security control for threats through use  
 >Permalink: https://owaspai.org/goto/ratelimit/
 
-Description:
+**Description**
 
 Limit the rate (frequency) of access to the model - preferably per actor (user, API key or session). The goal is not only to prevent resource exhaustion but also to severely slow down experimentation that underlies many AI attacks through use. 
 
 
-**Objective: **
+**Objective**
 
 To delay and discourage attackers who rely on many model interactions to:
 [TODO: add links to the mentioned attacks]
@@ -53,7 +53,7 @@ To delay and discourage attackers who rely on many model interactions to:
 
 By restricting the number and speed of model interactions, cost of attacks increase (effort, time, resources) thereby making the attacks less practical and allowing an opportunity for detection and incident response.
 
-**Applicability: **
+**Applicability**
 
 Defined by risk management (see #RISKANALYSIS). It is a primary control against many “threats through use”. Natural rate limits can exist in systems whose context inherently restricts query rates (e.g., medical imaging or human supervised processes). Exceptions may apply when rate limiting would block intended safety-critical or real-time functions, such as:
 
@@ -63,7 +63,8 @@ Defined by risk management (see #RISKANALYSIS). It is a primary control against 
 
 When rate limiting is impractical for the provider but feasible for the deployer, this responsibility must be clearly delegated and documented (see #SECPROGRAM)
 
-Implementation: 
+**Implementation**
+
   a. Per-Actor Limiting
     - Track and limit inference frequency for each identifiable actor (authenticated user id, api key, session token)
     - If identity is unavailable or not reliable (eg lack of access control) then approximate using IP or device fingerprint.
@@ -80,7 +81,7 @@ d. Detection & Response
     
 Complement this control with #MODEL ACCESS CONTROL, #MONITORUSE and detection mechanisms. 
 
-**Risk-Reduction Guidance:**
+**Risk-Reduction Guidance**
 
 Rate limiting slows down attacks rather than preventing them outright. To evaluate effectiveness, estimate how many inferences an attack requires and calculate the delay imposed. AI system’s intended use, current best practices and existing attack tests can serve as useful indicators.
 
@@ -96,10 +97,12 @@ Typical inference volumes for attack feasibility:
 
 **Note:** Effective rate limiting can differ from configured limits due to mult-accounting or multi-model instances; consider this in the risk evaluation. 
 
-**Particularity:**
+**Particularity**
+
 Unlike traditional IT rate limiting (which protects performance), here it primarily mitigates security threats to AI systems through experimentation. It does come with extra benefits like stability, cost control and DoS resilience. 
 
 **Limitations:**
+
   - Low-frequency or single-try attacks (e.g., prompt injection or indirect leakage) remain unaffected. 
   - Attackers may circumvent limits by parallel access or multi-instance use, or through a transferability attack (link).
 
@@ -108,7 +111,6 @@ Unlike traditional IT rate limiting (which protects performance), here it primar
  - [OWASP Cheat sheet on denial of service, featuring rate limiting](https://cheatsheetseries.owasp.org/cheatsheets/Denial_of_Service_Cheat_Sheet.html)
 
 Useful standards include:
-
   - ISO 27002 has no control for this
   - See [OpenCRE](https://www.opencre.org/cre/630-573)
 
