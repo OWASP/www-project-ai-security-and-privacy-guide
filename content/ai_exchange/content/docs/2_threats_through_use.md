@@ -35,15 +35,75 @@ Useful standards include:
 >Category: runtime information security control for threats through use  
 >Permalink: https://owaspai.org/goto/ratelimit/
 
-Rate limit: Limit the rate (frequency) of access to the model (e.g. API) - preferably per user.
+Description:
 
-Purpose: severely delay attackers trying many inputs to perform attacks through use (e.g. try evasion attacks or for model inversion).
+Limit the rate (frequency) of access to the model - preferably per actor (user, API key or session). The goal is not only to prevent resource exhaustion but also to severely slow down experimentation that underlies many AI attacks through use. 
 
-Particularity: limit access not to prevent system overload (conventional rate limiting goal) but to also prevent experimentation for AI attacks.
 
-Remaining risk: this control does not prevent attacks that use low frequency of interaction (e.g. don't rely on heavy experimentation)
+**Objective: **
 
-References:
+To delay and discourage attackers who rely on many model interactions to:
+[TODO: add links to the mentioned attacks]
+- Search for adversarial or evasion samples: pairs of (successful attack, unwanted output) data is useful for constructing evasion attacks and jailbreaks.
+- Perform data poisoning exploration and extract exposure-restricted data.
+- Experiment with various direct and indirect prompt injection techniques to both exploit the system and/or study the attack behavior.
+- Attempt model inversion and/or membership inference.
+- Extract training data or model parameters, or
+- Copy or re-train a model via large scale harvesting (model theft)
+
+By restricting the number and speed of model interactions, cost of attacks increase (effort, time, resources) thereby making the attacks less practical and allowing an opportunity for detection and incident response.
+
+**Applicability: **
+
+Defined by risk management (see #RISKANALYSIS). It is a primary control against many “threats through use”. Natural rate limits can exist in systems whose context inherently restricts query rates (e.g., medical imaging or human supervised processes). Exceptions may apply when rate limiting would block intended safety-critical or real-time functions, such as:
+
+- Emergency dispatch or medical triage models.
+- Cybersecurity monitoring that must analyze all traffic.
+- Real-time identity or fraud detection under strict latency constraints. 
+
+When rate limiting is impractical for the provider but feasible for the deployer, this responsibility must be clearly delegated and documented (see #SECPROGRAM)
+
+Implementation: 
+  a. Per-Actor Limiting
+    - Track and limit inference frequency for each identifiable actor (authenticated user id, api key, session token)
+    - If identity is unavailable or not reliable (eg lack of access control) then approximate using IP or device fingerprint.
+    - Helps distinguish legitimate use from brute-force experimentation.
+  b. Total-Use Limiting
+    - Set an overall cap across all actors to mitigate distributed or collusive attacks. 
+    - Can use fixed or sliding windows, adaptive limits or dynamic throttling based on risk.
+c. Optimize & Calibrate
+    - Base thresholds on usage analytics or theoretical workload to balance availability with risk reduction.
+    - Lower limits increase security but may affect user experience - tune for acceptable residual risk, possibly with the help of additional controls . 
+d. Detection & Response
+    - Breaching a rate limit must trigger event logging and potential incident workflows. 
+    - Integrate with #MONITORUSE and incident response (see #SECPROGRAM)
+    
+Complement this control with #MODEL ACCESS CONTROL, #MONITORUSE and detection mechanisms. 
+
+**Risk-Reduction Guidance:**
+
+Rate limiting slows down attacks rather than preventing them outright. To evaluate effectiveness, estimate how many inferences an attack requires and calculate the delay imposed. AI system’s intended use, current best practices and existing attack tests can serve as useful indicators.
+
+**Example:** An attack needing 10,000 interactions at 1 per minute takes approximately 167 hours (~ 7days). This may move the residual risk below acceptance thresholds, especially if the detection is active. 
+
+Typical inference volumes for attack feasibility:
+  - Evasion attacks and model inversion (where attackers try to fool or reverse-engineer a model): thousands of queries when the attacker has no knowledge of the model. If the attacker has full knowledge of the model, the number of required queries is typically an order of magnitude less.
+  - Adversarial patches (where small, localized changes are made to inputs): tens of queries
+  - Transfer attacks: zero queries on the target model as the attacks can be performed on a similar surrogate model.
+  - Membership inference: 1-many, depending on the dataset. For eg: known target vs scanning through a large list of possible individuals.
+  - Model theft (input-output replication): proportional to input-space diversity. 
+  - Attacks that try to extract sensitive training data or manipulate models (like prompt injection): may involve dozens to hundreds of crafted inputs, but they don’t always rely on trial-and-error. In many cases, attackers can use standard, pre-designed inputs that are known to expose weaknesses.
+
+**Note:** Effective rate limiting can differ from configured limits due to mult-accounting or multi-model instances; consider this in the risk evaluation. 
+
+**Particularity:**
+Unlike traditional IT rate limiting (which protects performance), here it primarily mitigates security threats to AI systems through experimentation. It does come with extra benefits like stability, cost control and DoS resilience. 
+
+**Limitations:**
+  - Low-frequency or single-try attacks (e.g., prompt injection or indirect leakage) remain unaffected. 
+  - Attackers may circumvent limits by parallel access or multi-instance use, or through a transferability attack (link).
+
+**References:**
  - [Article on token bucket and leaky bucket rate limiting](https://medium.com/@apurvaagrawal_95485/token-bucket-vs-leaky-bucket-1c25b388436c)
  - [OWASP Cheat sheet on denial of service, featuring rate limiting](https://cheatsheetseries.owasp.org/cheatsheets/Denial_of_Service_Cheat_Sheet.html)
 
@@ -56,24 +116,65 @@ Useful standards include:
 >Category: runtime information security control for threats through use  
 >Permalink: https://owaspai.org/goto/modelaccesscontrol/
 
-Model access control: Securely limit allowing access to use the model to authorized users.
+**Description:**
+Restrict access to model inference functions to approved and identifiable users. This involves applying authentication (verifying who is accessing) and authorization (limiting what they can access) so that only trusted actors can interact with the model.
 
-Purpose: prevent attackers that are not authorized to perform attacks through use.
+**Objective:**
+To reduce risk of input-based  and misuse attacks (attacks through use) by ensuring that only authorized users can send requests to the model. Access control limits the number of potential attackers, helps attribute actions to individuals or systems (adhering to privacy obligations), and strengthens related controls such as rate limits, activity monitoring and incident investigation.
 
-Remaining risk: attackers may succeed in authenticating as an authorized user, or qualify as an authorized user, or bypass the access control through a vulnerability, or it is easy to become an authorized user (e.g. when the model is publicly available)
+**Applicability:**
+This control applies whenever AI models are exposed for inference, especially in multi-use or public facing systems. It is a primary safeguard against attacks through input or repeated experimentation.
 
-Note: this is NOT protection of a stored model. For that, see Model confidentiality in Runtime and Development at the [Periodic table](https://owaspai.org/goto/periodictable/). 
+Exceptions may apply when:
+  - The model must remain publicly accessible without authentication for its intended use
+  - Legal or regulatory conditions prohibit access control.
+  - The physical or operational environment already ensures restricted access (e.g., on-premise medical device requiring physical presence)
 
+If implementation is more practical for the deployer than the provider, this responsibility should be explicitly documented in accordance with risk management policies. 
 
-Additional benefits of model access control are:
-- Linking users to activity is Opportunity to link certain use or abuse to individuals - of course under privacy obligations
-- Linking activity to a user (or using service) allows more accurate [rate limiting](/goto/ratelimit/) to user-accounts, and detection suspect series of actions - since activity can be linked to paterns of individual users
+**Implementation Options:**
+**a. Authenticate users:** Actors accessing model inference are typically authenticated (e.g., user accounts, API Keys, tokens).
+**b. Apply least privilege:** Grant access only to functions or models necessary for each user’s role or purpose. 
+    i. **Implement fine-grained access control:** Restrict access to specific AI models, features, or datasets based on their sensitivity and the user’s risk profile.
+    ii. **Use role-based and purpose-based permissions:** Define permissions for different groups (e.g., developers, testers, operators, end users) and grant access only for the tasks they must perform.
+**c. Apply defence-in-depth:**  Access control should be enforced at multiple layers of the AI system (API gateway, application layer, model endpoint) so that a single failure does not expose the model.
+**d. Log access events:** Record both successful and failed access attempts, considering privacy obligations when storing identifiers (e.g., IPs, device IDs).
+**e. Reduce the risk of multi-account abuse:** Attackers may create or use multiple accounts to avoid per-user rate limits. Increase the cost of account creation through measures such as multi-factor authentication, CAPTCHA, identity verification, or additional trust checks.
+**f. Detect and respond to suspicious activity:**
+    i. **Temporarily block the AI systems to the users after repeated failed authentication attempts.**
+    ii. **Generate alerts for investigation of** suspicious **access behavior.**
+**g. Integrate with other controls:** Use authenticated identity for per-user rate limiting, anomaly detection and incident reconstruction.
 
-Useful standards include:
+**Risk-Reduction Guidance:**
+Access control lowers the probability of attacks by reducing the number of actors who can interact with the model and linking actions to identities.
 
-  - Technical access control: ISO 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: covers this control fully
-  - [OpenCRE on technical access control](https://www.opencre.org/cre/724-770)
-  - [OpenCRE on centralized access control](https://www.opencre.org/cre/117-371)
+This traceability includes:
+
+- Individualized rate limiting and behavioral detection
+- Faster containment and forensic reconstruction of attacks
+- Better accountability and deterrence for malicious use.
+  
+Residual risk can be analyzed by estimating:
+
+- Consider the likelihood that an attacker may already belong to an authorized user group. An insider or a legitimately authorized external user can still misuse access to conduct attacks through the model.
+- The chance that authorized users themselves are compromised (phishing, session hijacking, password theft, coercion)
+- The likelihood of bypassing authentication or authorization mechanisms.
+- The exposure level of systems that require open access.
+
+**Particularity:**
+
+In AI systems, access control protects model endpoints and data-dependent inference rather than static resources. Unlike traditional IT access control that safeguards files or databases, this focuses on restricting who can query or experiment with a model. Even publicly available models benefit from identity-based tracking to enable rate limits, anomaly detection, and incident handling.
+
+This control focuses on restricting and managing who can access model inference, not on protecting a stored model file for example.  
+
+For protection of trained model artifacts, see “Model Confidentiality” in the Runtime and Development sections of the [Periodic table](https://owaspai.org/goto/periodictable/). 
+
+**Limitations:**
+  - Attackers may still exploit authorized accounts via compromise or insider misuse or vulnerabilities.
+  - Some attacks can occur indirectly within allowed sessions (e.g., indirectsubtle prompt injection).
+  - Publicly available models remain vulnerable if alternative protections are not in place.
+
+Complement this control with #RATE LIMIT #MONITORUSE and incident response (#SECPROGRAM)
 
 ---
 
