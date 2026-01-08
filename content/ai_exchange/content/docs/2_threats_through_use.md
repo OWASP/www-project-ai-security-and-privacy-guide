@@ -6,6 +6,61 @@ weight: 3
 >Category: group of threats through use  
 >Permalink: https://owaspai.org/goto/threatsuse/
 
+Threats through use (also called “input attacks”, “inference-time attacks”, or “runtime adversarial attacks”) occur when an adversary crafts inputs to a deployed AI system to achieve malicious goals such as:
+
+- Bypassing decisions (evasion)
+- Extracting sensitive information (model inversion, membership inference, sensitive data disclosure)
+- Stealing the model itself via queries (model theft through use)
+- Hijacking behaviour in GenAI systems (prompt injection)
+- Causing resource exhaustion or system malfunction
+
+These threats are the most common attack vector for publicly exposed AI services (APIs, chatbots, embedded models) because the attacker only needs access to the inference interface – no privileged development access is required. An AI defence-in-depth approach is to apply controls in progressive layers. Start with the simplest and most effective ones; only add more complex layers if residual risk remains unacceptable.
+
+**Base layer – Protect model confidentiality (do this first)**
+
+Many input attacks become dramatically easier (or even feasible) when the attacker can download or access the model attributes(referred to as a white-box setting). Examples:
+- Evasion attacks become much more efficient and effective as gradient-based evasion tactics can be applied that require access to the model attributes.
+- Model inversion and membership inference are orders of magnitude faster with parameters.
+- Stolen models bypass runtime protections (rate limits, input filters, system prompts) so attackers can experiment without being constrained or observed.
+
+**Controls:** Treat model attributes as high-value secrets. Apply conventional confidentiality controls both in development (#DEVSECURITY) and operation (secure serving, API authentication, no public model downloads).
+Allowed exception: Publicly available models (e.g., Llama 3 on Hugging Face) or when equivalent public models already exist.
+
+**Layer 1 – Reduce information leakage in outputs**
+
+Many query-based attacks rely on rich feedback (confidence scores, logits, verbose explanations). Removing unnecessary information raises the bar significantly.
+
+**Controls:**
+Hide, segregate from process  or quantise confidence scores (#HIDECONFIDENCE).
+Return only final labels or generated text – no probabilities unless strictly required.
+For GenAI: Use deterministic sampling (temperature=0) or top-p filtering to reduce variability exploitable for attacks.
+
+**Layer 2 – Limit exposure and query volume**
+
+If Layer 1 is insufficient (for example, if you cannot hide output information), restrict who can query the model and how much.
+
+**Controls:**
+Strong authentication and authorisation (#ACCESSCONTROL) – only identified users/services get inference access.
+Per-user/service rate limiting (#RATELIMIT) – e.g., 100 queries/hour for standard users, higher for trusted internal services.
+CAPTCHA or proof-of-work for public endpoints if appropriate.
+**Exception:** Publicly available models (e.g., Llama 3 on Hugging Face) or when equivalent public models already exist. Using these models bypasses the controls mentioned.
+
+**Layer 3 – Filter, detect, and respond**
+
+If residual risk is still unacceptable:
+
+**Controls:**
+- Input/output monitoring and anomaly detection - create alerts, repetitive adversarial patterns, unusual query spikes.
+- Automated response (block, throttle, alert).
+- Training-data minimisation and obfuscation (#DATAMINIMIZE) where reconstruction attacks are a concern.
+
+**Beyond Layer 3 – Advanced or architectural mitigations**
+
+If residual risk is still unacceptable, and if these controls are applicable:
+- Adversarial training or certified robustness (expensive, often limited scope).
+- Ensemble models or randomised defences.
+- Architectural changes (e.g., add guard models, use retrieval-only systems instead of full generation).
+
 Threats through use take place through normal interaction with an AI model: providing input and receiving output. Many of these threats require experimentation with the model, which is referred to in itself as an _Oracle attack_.
 
 **Controls for threats through use:**
