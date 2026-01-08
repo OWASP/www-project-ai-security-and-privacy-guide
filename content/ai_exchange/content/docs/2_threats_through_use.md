@@ -75,20 +75,194 @@ Useful standards include:
   - [OpenCRE on technical access control](https://www.opencre.org/cre/724-770)
   - [OpenCRE on centralized access control](https://www.opencre.org/cre/117-371)
 
----
+**References:**
+  - Technical access control: ISO 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: covers this control fully
+  - [OpenCRE on technical access control](https://www.opencre.org/cre/724-770)
+  - [OpenCRE on centralized access control](https://www.opencre.org/cre/117-371)
+
+## #ANOMALOUS INPUT HANDLING
+Category: runtime data science control for threats through use
+Permalink: https://owaspai.org/goto/anomalousinputhandling/ 
+
+**Description:**
+Detect odd input: implement tools to detect whether input is odd and potentially respond, where ‘odd’ means significantly different from the training data or even invalid - also called input validation - without knowledge on what malicious input looks like.
+
+
+**Objective:**
+Address unusual input as it is indicative of malicious activity. Response can vary between ignore, issue an alert, stop inference, or even take further steps to control the threat (see #monitor use for more details).
+
+**Applicability:**
+Odd input is suspicious for every attack that happens through use, because attackers obviously behave differently than normal users do. However, detecting odd input has strong limitations (see below) and therefore its applicability depends on the successful detection rate on the one hand and on the other hand: 1) implementation effort, 2_ performance penalty, and 3_ the number of false positives which can hinder users, security operations or both. Only a representative test can provide the required insight. This can be achieved by testing the detection on normal use, and setting a threshold at a level where the false positive rate is still acceptable. 
+
+**Implementation Options:**
+We use an example of a machine learning system designed for a self-driving car to illustrate these approaches.
+
+**Types of detecting odd input**
+Out-of-Distribution Detection (OOD), Novelty Detection (ND), Outlier Detection (OD), Anomaly Detection (AD), and Open Set Recognition (OSR) are all related and sometimes overlapping tasks that deal with unexpected or unseen data. However, each of these tasks has its own specific focus and methodology. In practical applications, the techniques used to solve the problems may be similar or the same.
+
+**Out-of-Distribution Detection (OOD) - the broad category of detecting odd input:**
+Identifying data points that differ significantly from the distribution of the training data. OOD is a broader concept that can include aspects of novelty, anomaly, and outlier detection, depending on the context.
+
+**Example:** 
+The system is trained on vehicles, pedestrians, and common animals like dogs and cats. One day, however, it encounters a horse on the street. The system needs to recognize that the horse is an out-of-distribution object.
+
+Methods for detecting out-of-distribution (OOD) inputs incorporate approaches from outlier detection, anomaly detection, novelty detection, and open set recognition, using techniques like similarity measures between training and test data, model introspection for activated neurons, and OOD sample generation and retraining. 
+
+Approaches such as thresholding the output confidence vector help classify inputs as in or out-of-distribution, assuming higher confidence for in-distribution examples. Techniques like supervised contrastive learning, where a deep neural network learns to group similar classes together while separating different ones, and various clustering methods, also enhance the ability to distinguish between in-distribution and OOD inputs. 
+
+For more details, one can refer to the survey by Yang et al. and other resources on the learnability of OOD: here.
+
+**Outlier Detection (OD) - a form of OOD:**
+Identifying data points that are significantly different from the majority of the data. Outliers can be a form of anomalies or novel instances, but not all outliers are necessarily out-of-distribution.
+
+**Example:**
+Suppose the system is trained on cars and trucks moving at typical city speeds. One day, it detects a car moving significantly faster than all the others. This car is an outlier in the context of normal traffic behavior.
+
+**Anomaly Detection (AD) - a form of OOD:**
+Identifying abnormal or irregular instances that raise suspicions by differing significantly from the majority of the data. Anomalies can be outliers, and they might also be out-of-distribution, but the key aspect is their significance in terms of indicating a problem or rare event. 
+
+**Example:** 
+
+The system might flag a vehicle going the wrong way on a one-way street as an anomaly. It’s not just an outlier; it’s an anomaly that indicates a potentially dangerous situation.
+
+An example of how to implement this is Activation Analysis: Examining the activations of different layers in a neural network can reveal unusual patterns (anomalies) when processing an adversarial input. These anomalies can be used as a signal to detect potential attacks.
+
+Another example of how to implement this is similarity-based analysis: Comparing incoming input against a ground truth data set, which typically corresponds to the training data and represents the normal input space. If the input is sufficiently dissimilar from this reference data, it can be treated as deviating from expected behavior and flagged as odd input. Various similarity metrics can be used for this comparison (see table below).
+
+
+
+| Modality | Similarity Measures - Recommended | Notes or Tools |
+|:---------|:----------------------------------|:----------------|
+| Text | Cosine similarity, Jaccard Index, Embedding distance (e.g., BERT, Sentence-BERT), Word/Token Histograms | Use transformer-based embeddings |
+| Image | Structural Similarity Index (SSIM), Euclidean distance, Pixel-Wise MSE, Perceptual Loss (VGG-based) | Normalize lighting or scaling; Patch-based SSIM helps detect targeted attacks in specific image regions.|
+| Audio | MFCC-base distance, Dynamic Time Warping (DTW), Spectral Convergence, Cosine similarity on embeddings | Use frame-wise comparison for streaming; DTW corrects time shifts. |
+| Tabular | Euclidean distance, Mahalanobis distance, Correlation coefficient, Gower distance | Ensure normalization and categorical encoding before analysis; Mahalanobis distance offers strong outlier detection.|
+
+**Open Set Recognition (OSR) - a way to perform Anomaly Detection):**
+Classifying known classes while identifying and rejecting unknown classes during testing. OSR is a way to perform anomaly detection, as it involves recognizing when an instance does not belong to any of the learned categories. This recognition makes use of the decision boundaries of the model.
+
+**Example: **
+During operation, the system identifies various known objects such as cars, trucks, pedestrians, and bicycles. However, when it encounters an unrecognized object, such as a fallen tree, it must classify it as “unknown”. Open set recognition is critical because the system must be able to recognize that this object doesn’t fit into any of its known categories.
+
+**Novelty Detection (ND) - OOD input that is recognized as not malicious:**
+OOD input data can sometimes be recognized as not malicious and relevant or of interest. The system can decide how to respond: perhaps trigger another use case, or log its specifically, or let the model process the input if the expectation is that it can generalize to produce a sufficiently accurate result.
+
+**Example:** 
+The system has been trained on various car models. However, it has never seen a newly released model. When it encounters a new model on the road, novelty detection recognizes it as a new car type it hasn’t seen, but understands it’s still a car, a novel instance within a known category.
+
+**Risk-Reduction Guidance:**
+Detecting odd input is critical to maintaining model integrity, addressing potential concept drift, and preventing adversarial attacks that may take advantage of model behaviors on out of distribution data. 
+
+**Particularity:**
+Unlike detection mechanisms in conventional systems that rely on predefined rules or signatures, AI systems often rely on statistical or behavioral detection  methods such as presented here. In other words, AI systems typically rely more on pattern-based detection in contrast to  rule-based detection.
+
+**Limitations**
+Not all odd input is malicious, and not all malicious input is odd. There are examples of adversarial input specifically crafted to bypass detection of odd input. Detection mechanisms may not identify all malicious inputs, and some odd inputs may be benign or relevant.
+
+For evasion attacks, detecting odd input is often ineffective because adversarial samples are specifically designed to appear similar to normal input by definition. As a result, many evasion attacks will not be detected by deviation-based methods. Some forms of evasion, such as adversarial patches, may still produce detectable anomalies.
+
+**References:**
+- Hendrycks, Dan, and Kevin Gimpel. “A baseline for detecting misclassified and out-of-distribution examples in neural networks.” arXiv preprint arXiv:1610.02136 (2016). ICLR 2017.
+- Yang, Jingkang, et al. “Generalized out-of-distribution detection: A survey.” arXiv preprint arXiv:2110.11334 (2021).
+- Khosla, Prannay, et al. “Supervised contrastive learning.” Advances in neural information processing systems 33 (2020): 18661-18673.
+- Sehwag, Vikash, et al. “Analyzing the robustness of open-world machine learning.” Proceedings of the 12th ACM Workshop on Artificial Intelligence and Security. 2019.
+
+Useful standards include:
+- Not covered yet in ISO/IEC standards
+- ENISA Securing Machine Learning Algorithms Annex C: “Ensure that the model is sufficiently resilient to the environment in which it will operate.”
+
+## #UNWANTED INPUT SERIES HANDLING
+Category: runtime data science control for threats through use
+Permalink: TODO
+TODO: also link this from here to other parts
+
+**Description:**
+Unwanted input series handling: Implement tools to detect and respond to suspicious or unwanted patterns across a series of inputs, which may indicate abuse, reconnaissance, or multi-step attacks.
+This control focuses on behavior across multiple inputs, rather than adversarial properties of a single sample.
+
+**Objective:**
+Unwanted input series handling aims to identify suspicious behavior that emerges only when multiple inputs are analyzed together. Many attacks, such as model inversion, evasion search, or model theft through use, rely on iterative probing rather than a single malicious input. Detecting these patterns helps surface reconnaissance, abuse, and multi-step attacks that would otherwise appear benign at the individual input level.
+Secondary benefits include improved abuse monitoring, better attribution of malicious behavior, and stronger signals for investigation and response.
+
+**Applicability**
+This control is most applicable to systems that allow repeated interaction over time, such as APIs, chat-based models, or decision services exposed to external users. It is especially relevant when attackers can submit many inputs from the same actor, source, or session.
+Unwanted input series handling is less applicable in environments where inputs are isolated, rate-limited by design, or physically constrained. Its effectiveness depends on the ability to reliably group inputs by actor, source, or context.
+
+**Implementation Options:**
+The main concepts of detecting series of  unwanted inputs include:
+ ** - Statistical analysis of input series:** Adversarial attacks often follow certain patterns, which can be analysed by looking at input on a per-user basis. 
+      - Examples:
+         - A series of small deviations in the input space, indicating a possible attack such as a search to perform model inversion or an evasion attack. These attacks also typically have a series of inputs with a general increase of confidence value.          
+          - Inputs that appear systematic (very random or very uniform or covering the entire input space) may indicate a model theft through use attack.
+
+** - Behavior-based detection of odd input usage:** In addition to analysing individual inputs (see #ODD INPUT HANDLING), the system may analyse inference usage patterns. A significantly higher-than-normal number of inferences by a single actor over a defined period of time can be treated as odd behavior and used as a signal to decide on a response. This detection complements input-based methods and aligns with principles described in rate limiting (see #RATE LIMIT).
+
+** - Input optimization pattern detection:** Some attacks rely on repeatedly adjusting inputs to gradually achieve a successful outcome, such as finding an adversarial example, extracting sensitive behavior, or manipulating model responses. These attacks such as evasion attacks, model inversion attacks, sensitive training data output from instructions attack, often appear as a series of closely related inputs from the same actor, rather than a single malicious request. 
+
+One way to identify such behavior is to analyze input series for unusually high similarity across many inputs. Slightly altered inputs that remain close in the input space can indicate probing or optimization activity rather than normal usage. 
+
+Detection approaches may include:
+  - clustering input series to identify dense groups of highly similar inputs,
+  - measuring pairwise similarity across inputs within a time window, not limited to consecutive requests,
+  - analyzing the frequency and distribution of similar inputs to distinguish systematic probing from benign repetition.
+
+Considering similarity across a broader range of past inputs helps reduce evasion strategies where attackers alternate between probing inputs and unrelated requests to avoid detection.
+
+Signals from rate-based controls (see #RATE LIMIT), such as unusually frequent requests, can complement similarity analysis by providing additional context about suspicious optimization behavior.
+
+**Risk-Reduction Guidance**
+
+Analyzing input series can reveal attack strategies that rely on gradual exploration of the input space, confidence probing, or systematic coverage of model behavior. These patterns often indicate higher-effort attacks such as model extraction or inversion rather than accidental misuse.
+
+While this control improves visibility into complex attacks, its effectiveness depends on baseline modeling of normal behavior and careful tuning to avoid false positives, particularly for legitimate high-volume or exploratory use cases.
+
+**Particularity**
+
+Unlike traditional abuse detection, unwanted input series handling focuses on how models are learned and probed, rather than on explicit violations or malformed inputs. Many AI-specific attacks only become visible through temporal or statistical analysis of interactions with the model.
+
+**Limitations**
+
+Legitimate users may exhibit behavior similar to attack patterns, such as systematic testing or research-driven exploration. Attackers may distribute inputs across multiple identities or sources to reduce detectability. This control does not prevent attacks on its own and is most effective when combined with rate limiting, access control, and investigation workflows.
+
+**References**
+
+See also #ODD INPUT HANDLING for detecting abnormal input which can be an indication of adversarial input and #EVASION INPUT HANDLING for detecting single input evasion inputs. Useful standards include:
+- Not covered yet in ISO/IEC standards
+
 
 ## 2.1. Evasion
 >Category: group of threats through use  
 >Permalink: https://owaspai.org/goto/evasion/
 
-Evasion: an attacker fools the model by crafting input to mislead it into performing its task incorrectly. 
+Evasion: an attacker fools the model by crafting input to mislead it into performing its task incorrectly. Evasion attacks force a model to make a wrong decision by feeding it carefully crafted inputs (adversarial examples). The model behaves correctly on normal data but fails on these malicious inputs.
+
+This is different from a Prompt injection(link) attack which inputs manipulative instructions (instead of data) to make the model perform its task incorrectly.
+
+In evasion attacks on AI systems, adversaries craft **adversarial examples** to mislead models.
+- **Untargeted attacks** aim for any incorrect output (e.g., misclassifying a cat as anything else).
+-** Targeted attacks** force a specific wrong output (e.g., misclassifying a panda as a gibbon).
+- **Digital attacks** directly alter data like pixels or text in software.
+- **Physical attacks** modify real-world objects, such as adding stickers to signs or wearing adversarial clothing, which cameras then capture as fooled inputs.
+- **Diffuse perturbations** apply tiny, imperceptible noise across the entire input (hard for humans to notice).
+- **Localized patches** concentrate visible but innocuous-looking changes in one area (e.g., a small sticker), making them practical for physical-world attacks.
+
+
+
+
+Figure. Evasion attacks classification
 
 Impact: Integrity of model behaviour is affected, leading to issues from unwanted model output (e.g. failing fraud detection, decisions leading to safety issues, reputation damage, liability).
 
-A typical attacker goal with Evasion is to find out how to slightly change a certain input (say an image, or a text) to fool the model. The advantage of slight change is that it is harder to detect by humans or by an automated detection of unusual input, and it is typically easier to perform (e.g. slightly change an email message by adding a word so it still sends the same message, but it fools the model in for example deciding it is not a phishing message).  
+A typical attacker's goal with evasion is to find out how to slightly change a certain input (say an image, or a text) to fool the model. The advantage of slight change is that it is harder to detect by humans or by an automated detection of unusual input, and it is typically easier to perform (e.g. slightly change an email message by adding a word so it still sends the same message, but it fools the model in for example deciding it is not a phishing message).  
 Such small changes (call 'perturbations') lead to a large (and false) modification of its outputs. The modified inputs are often called *adversarial examples*.  
 
-Evasion attacks can be categorized into physical (e.g. changing the real world to influence for example a camera image) and digital (e.g. changing a digital image). Furthermore, they can be categorized in either untargeted (any wrong output) and targeted (a specific wrong output). Note that Evasion of a binary classifier (i.e. yes/no) belongs to both categories.
+Evasion attacks can be categorized into physical (e.g. changing the real world to influence for example a camera image) and digital (e.g. changing a digital image). Furthermore, they can be categorized as either untargeted (any wrong output) or targeted (a specific wrong output). Note that Evasion of a binary classifier (i.e. yes/no) belongs to both categories. Evasion attacks can be either universal (one perturbation that is successfully applicable to multiple samples) or individual (successfully for the given sample).
+
+The attacker knowledge can be divided into 4 categories:
+  - Open-box (in research typically called white-box, in security-context often referred to as perfect knowledge): The attacker has complete knowledge of/access to the targeted AI system including the architecture, weights and gradients. (link to Open-box attacks)
+  - Closed-box (in research typically called black-box, in security-context often referred to as zero-knowledge): The attacker has no knowledge of the targeted AI system. The attacker can perform inference (provide input and read output). (link to Closed-box attacks)
+  - Gray-box (in security-context often referred to as partial-knowledge): The attacker has some knowledge of the targeted AI system e.g. the architecture, training data. (link to Gray-box attacks)
+  - Transferability-based attacks: A special kind of black-box or gray-box attack, where the attacker performs an attack (open--box or closed-box)on a ‘surrogate’ model (similar to the target model) and then uses the found samples to attack the target system. (link to transferability-based attacks)
 
 Example 1: slightly changing traffic signs so that self-driving cars may be fooled.
 ![](/images/inputphysical.png)
@@ -106,7 +280,7 @@ See [MITRE ATLAS - Evade ML model](https://atlas.mitre.org/techniques/AML.T0015)
 
 **Controls for evasion:**
 
-An Evasion attack typically consists of first searching for the inputs that mislead the model, and then applying it. That initial search can be very intensive, as it requires trying many variations of input. Therefore, limiting access to the model with for example Rate limiting mitigates the risk, but still leaves the possibility of using a so-called transfer attack (see [Closed box evasion](/goto/closedboxevasion/) to search for the inputs in another, similar, model.  
+An evasion attack typically consists of first searching for the inputs that mislead the model, and then applying it. That initial search can be very intensive, as it requires trying many variations of input. Therefore, limiting access to the model with for example rate limiting mitigates the risk, but still leaves the possibility of using a so-called transfer attack (see -link to transfer attacks to search for the inputs in another, similar model.  
 
 - See [General controls](/goto/generalcontrols/):
   - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/).
