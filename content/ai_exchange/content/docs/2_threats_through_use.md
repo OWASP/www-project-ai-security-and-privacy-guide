@@ -118,13 +118,16 @@ Useful standards include:
 >Category: runtime information security control for threats through use  
 >Permalink: https://owaspai.org/goto/modelaccesscontrol/
 
-**Description:**
+**Description**
+
 Restrict access to model inference functions to approved and identifiable users. This involves applying authentication (verifying who is accessing) and authorization (limiting what they can access) so that only trusted actors can interact with the model.
 
-**Objective:**
+**Objective**
+
 To reduce risk of input-based  and misuse attacks (attacks through use) by ensuring that only authorized users can send requests to the model. Access control limits the number of potential attackers, helps attribute actions to individuals or systems (adhering to privacy obligations), and strengthens related controls such as rate limits, activity monitoring and incident investigation.
 
-**Applicability:**
+**Applicability**
+
 This control applies whenever AI models are exposed for inference, especially in multi-use or public facing systems. It is a primary safeguard against attacks through input or repeated experimentation.
 
 Exceptions may apply when:
@@ -134,36 +137,36 @@ Exceptions may apply when:
 
 If implementation is more practical for the deployer than the provider, this responsibility should be explicitly documented in accordance with risk management policies. 
 
-**Implementation Options:**
-**a. Authenticate users:** Actors accessing model inference are typically authenticated (e.g., user accounts, API Keys, tokens).
-**b. Apply least privilege:** Grant access only to functions or models necessary for each user’s role or purpose. 
-    i. **Implement fine-grained access control:** Restrict access to specific AI models, features, or datasets based on their sensitivity and the user’s risk profile.
-    ii. **Use role-based and purpose-based permissions:** Define permissions for different groups (e.g., developers, testers, operators, end users) and grant access only for the tasks they must perform.
-**c. Apply defence-in-depth:**  Access control should be enforced at multiple layers of the AI system (API gateway, application layer, model endpoint) so that a single failure does not expose the model.
-**d. Log access events:** Record both successful and failed access attempts, considering privacy obligations when storing identifiers (e.g., IPs, device IDs).
-**e. Reduce the risk of multi-account abuse:** Attackers may create or use multiple accounts to avoid per-user rate limits. Increase the cost of account creation through measures such as multi-factor authentication, CAPTCHA, identity verification, or additional trust checks.
-**f. Detect and respond to suspicious activity:**
-    i. **Temporarily block the AI systems to the users after repeated failed authentication attempts.**
-    ii. **Generate alerts for investigation of** suspicious **access behavior.**
-**g. Integrate with other controls:** Use authenticated identity for per-user rate limiting, anomaly detection and incident reconstruction.
+**Implementation Options**
 
-**Risk-Reduction Guidance:**
+1. **Authenticate users:** Actors accessing model inference are typically authenticated (e.g., user accounts, API Keys, tokens).
+2. **Apply least privilege:** Grant access only to functions or models necessary for each user’s role or purpose.
+   - **Implement fine-grained access control:** Restrict access to specific AI models, features, or datasets based on their sensitivity and the user’s risk profile.
+   - **Use role-based and purpose-based permissions:** Define permissions for different groups (e.g., developers, testers, operators, end users) and grant access only for the tasks they must perform.
+3. **Apply defence-in-depth:**  Access control should be enforced at multiple layers of the AI system (API gateway, application layer, model endpoint) so that a single failure does not expose the model.
+4. **Log access events:** Record both successful and failed access attempts, considering privacy obligations when storing identifiers (e.g., IPs, device IDs).
+5. **Reduce the risk of multi-account abuse:** Attackers may create or use multiple accounts to avoid per-user rate limits. Increase the cost of account creation through measures such as multi-factor authentication, CAPTCHA, identity verification, or additional trust checks.
+6. **Detect and respond to suspicious activity:**
+   - **Temporarily block the AI systems to the users after repeated failed authentication attempts.**
+   - **Generate alerts for investigation of** suspicious **access behavior.**
+7. Integrate with other controls:** Use authenticated identity for per-user rate limiting, anomaly detection and incident reconstruction.
+
+**Risk-Reduction Guidance**
+
 Access control lowers the probability of attacks by reducing the number of actors who can interact with the model and linking actions to identities.
 
 This traceability includes:
-
 - Individualized rate limiting and behavioral detection
 - Faster containment and forensic reconstruction of attacks
 - Better accountability and deterrence for malicious use.
   
 Residual risk can be analyzed by estimating:
-
 - Consider the likelihood that an attacker may already belong to an authorized user group. An insider or a legitimately authorized external user can still misuse access to conduct attacks through the model.
 - The chance that authorized users themselves are compromised (phishing, session hijacking, password theft, coercion)
 - The likelihood of bypassing authentication or authorization mechanisms.
 - The exposure level of systems that require open access.
 
-**Particularity:**
+**Particularity**
 
 In AI systems, access control protects model endpoints and data-dependent inference rather than static resources. Unlike traditional IT access control that safeguards files or databases, this focuses on restricting who can query or experiment with a model. Even publicly available models benefit from identity-based tracking to enable rate limits, anomaly detection, and incident handling.
 
@@ -171,7 +174,8 @@ This control focuses on restricting and managing who can access model inference,
 
 For protection of trained model artifacts, see “Model Confidentiality” in the Runtime and Development sections of the [Periodic table](https://owaspai.org/goto/periodictable/). 
 
-**Limitations:**
+**Limitations**
+
   - Attackers may still exploit authorized accounts via compromise or insider misuse or vulnerabilities.
   - Some attacks can occur indirectly within allowed sessions (e.g., indirectsubtle prompt injection).
   - Publicly available models remain vulnerable if alternative protections are not in place.
