@@ -555,7 +555,7 @@ The objective of this control is to reduce the risk of manipulated, unsafe, or u
 
 **Applicability**  
 This control is applicable to generative AI systems that accept untrusted or semi-trusted inputs and produce outputs that influence users, applications, or downstream systems. It is especially relevant for systems that rely on prompts, instructions, or multimodal inputs (such as text, images, audio, or files).
-Unwanted GenAI I/O handling is less applicable to closed systems with fixed inputs and tightly constrained outputs, though even such systems may still benefit from limited forms of detection or filtering depending on risk tolerance.
+This control is less applicable to closed systems with fixed inputs and tightly constrained outputs, though even such systems may still benefit from limited forms of detection or filtering depending on risk tolerance.
 
 **Implementation**  
 - **Sanitize characters to reduce hidden or obfuscated instructions**: Normalize input using Unicode normalization (e.g. NFKC) to remove encoding ambiguity, and optionally apply stricter character filtering (e.g. allow-listing permitted characters) to prevent hidden control or instruction-like content. Also remove zero-width or otherwise invisible characters (e.g. white on white). This step typically aids detection of instructions as well.
@@ -570,7 +570,12 @@ Unwanted GenAI I/O handling is less applicable to closed systems with fixed inpu
   - Sensitive data: see [SENSITIVE OUTPUT HANDLING](/goto/sensitiveoutputhandling/) for the control to detect sensitive data (e.g. names, phone numbers, passwords, tokens). These detections can also be applied on the input of the model or on APIs that retrieve data to go into the model.
   - A special category of sensitive data: system prompts, as they can be used by attackers to cicrumvent prompt injection protection in such prompts. 
   - Suspicious function calls.  Ideally, the privileges of an agent are already hardened to the task (see [#LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/)), in which case detection comes down to issuing an alert once an agent attempts to execute an action for which it has no permissions. In addition, the stategy can include the detection of unusual function calls in the context, issuing alerts for further investigation, or asking for approval by a human in the loop. Manipulation of function flow is commonly referred to as _application flow perturbation_. An advanced way to detect manipulated workflows is to perform rule-based sanity checks during steps, e.g. verify whether certain safety checks of filters were executed before processing data. The actual stopping of function calls is covered by the [#OVERSIGHT](/goto/oversight/) control.
-- **Update detections constantly**: Make sure that techniques and patterns for detection of input/output are constantly updated by using external sources.  Since this is an arms race, the best strategy is to base this on an open source or third party resource. Popular tool providers at the time of writing include: Pangea, Hiddenlayer, AIShield, and Aiceberg.
+- **Update detections constantly**: Make sure that techniques and patterns for detection of input/output are constantly updated by using external sources.  Since this is an arms race, the best strategy is to base this on an open source or third party resource. Popular tool providers at the time of writing include: Pangea, Hiddenlayer, AIShield, and Aiceberg. Popular open source packages for prmpt injection detection are, in alphabeticall order:
+  - [Guardrails-AI](https://github.com/guardrails-ai/guardrails)
+  - [Langkit](https://github.com/whylabs/langkit).
+  - [LLM Guard](https://github.com/protectai/llm-guard)
+  - [NVIDIA-NeMo Guardrails](https://github.com/NVIDIA-NeMo/Guardrails)
+  - [Rebuff](https://github.com/protectai/rebuff)
 - **Respond to detections appropriately**: Based on the confidence of detections, the input can either be filtered, the processing stopped, or an alert can be issued in the log. For more details, see [#MONITOR USE](/goto/monitoruse/)
 
 **Risk-Reduction Guidance**  
