@@ -22,7 +22,9 @@ This governance challenge may seem daunting because of all the new things to tak
 
 Technically one could argue that this control is out of scope for cyber security, but it initiates action to get in control of AI security.
 
-When doing risk analysis on AI initiatives, consider at least the following:
+See [How to organize AI security](/goto/organize/) for the 5 GUARD steps and to see how governance fits into the whole.
+
+When doing impact analysis on AI initiatives, consider at least the following:
 - Note that an AI program is not just about risk TO AI, such as security risks - it is also about risks BY AI, such as threats to fairness, safety, etc.
 - Include laws and regulations, as the type of AI application may be prohibited (e.g. social scoring under the EU AI Act). See #[CHECKCOMPLIANCE](/goto/checkcompliance/)
 - Can the required transparency be provided into how the AI works?
@@ -66,10 +68,11 @@ Make sure to include AI-specific assets and the threats to them. The threats are
 - training data
 - test data
 - the model - often referred to as _model parameters_ (values that change when a model is trained)
+- hyperparameters
 - documentation of models and the process of their development including experiments
 - model input
 - model output, which needs to be regarded as untrusted if the training data or model is untrusted
-- sufficiently correct model behaviour
+- intended model behaviour
 - data to train and test obtained from external sources
 - models to train and use from external sources
 
@@ -140,38 +143,31 @@ Purpose: Reduces security risks by proper attention to mitigating those risks du
 
 The best way to do this is to build on your existing secure software development practices and include AI teams and AI particularities. This means that data science development activities should become part of your secure software development practices. Examples of these practices: secure development training, code review, security requirements, secure coding guidelines, threat modeling (including AI-specific threats), static analysis tooling, dynamic analysis tooling, and penetration testing. There is no need for an isolated secure development framework for AI.
 
-Particularities for AI in secure software development:
-- AI teams (e.g. data scientists) need to be taken into scope of your secure development activities, for them to address both conventional security threats and AI-specific threats, applying both conventional security controls and AI-specific ones. Typically, technical teams depend on the AI engineers when it comes to the AI-specific controls as they mostly require deep AI expertise. For example: if training data is confidential and collected in a distributed way, then a federated learning approach may be considered.
-- AI security assets, threats and controls (as covered in this document) need to be considered, effecting requirements, policies, coding guidelines, training, tooling, testing practices and more. Usually, this is done by adding these elements in the organization's Information Security Management System, as described in [SECPROGRAM](/goto/segprogram/), and align secure software development to that - just like it has been aligned on the conventional assets, threats and controls. 
+Particularities for AI in software development, and how to address them:
+- AI involves new types of engineering: data engineering and model engineering (e.g. model training), together with new types of engineers: e.g. data scientists, data engineers, AI engineers. Make sure this new engineering becomes an integral part of the general [Development program](/goto/devprogram/) with its best practices (e.g. versioning, portfolio management, retirement). For example: Version management/traceability of the combination of code, configuration, training data and models, for troubleshooting and rollback
+
+- New assets, threats and controls (as covered in this document) need to be considered, affecting requirements, policies, coding guidelines, training, tooling, testing practices and more. Usually, this is done by adding these elements in the organization's Information Security Management System, as described in [SECPROGRAM](/goto/secprogram/), and align secure software development to that - just like it has been aligned on the conventional assets, threats and controls (see [SECDEVPROGRAM](/goto/secdevprogram/)).  This involves both conventional security threats and AI-specific threats, applying both conventional security controls and AI-specific ones. Typically, technical teams depend on the AI engineers when it comes to the AI-specific controls as they mostly require deep AI expertise. For example: if training data is confidential and collected in a distributed way, then a federated learning approach may be considered.
+
 - Apart from software components, the supply chain for AI can also include data and models which may have been poisoned, which is why data provenance and model management are central in [AI supply chain management](/goto/supplychainmanage/).
-- In AI, software components can also run in the development environment instead of in production, for example, to train models, which increases the attack surface e.g. malicious development components attacking training data.
+- In AI, software components can also run in the development, for example tools to prepare training data or train a model. Because of this, the AI development environment is vulnerable to traditional software security risks, such as open source package vulnerabilities, CWEs, exposed secrets, and sensitive data leaks. Without robust controls in place, these risks go undetected by standard application security testing tools, potentially exposing the entire lifecycle to breaches.
 
-AI-specific elements in the development environment (sometimes referred to as MLops):
-- Supply chain management of data and models, including provenance of the internal processes (for data this effectively means data governance)
-- In addition to supply chain management: integrity checks on elements that can be poisoned (data, models), using an internal or external signed registry for example
-- Static code analysis
-  - Running big data/AI technology-specific static analysis rules (e.g the typical mistake of creating a new dataframe in Python without assigning it to a new one)
-  - Running maintainability analysis on code, as data and model engineering code is typically hindered by code quality issues
-  - Evaluating code for the percentage of code for automated testing. Industry average is 43% (SIG benchmark report 2023). An often cited recommendation is 80%. Research shows that automated testing in AI engineering is often neglected (SIG benchmark report 2023), as the performance of the AI model is mistakenly regarded as the ground truth of correctness.
-- Training (if required)
-  - Automated training of the model when necessary
-  - Automated detection of training set issues (standard data quality control plus checking for potential poisoning using pattern recognition or anomaly detection)
-  - Any pre-training controls to mitigate poisoning risks, especially if the deployment process is segregated from the rest of the engineering environment in which poisoning may have taken place, e.g. fine pruning (reducing the size of the model and doing extra training with a ground truth training set)
-  - Automated data collection and transformation to prepare the train set, when required
-- Version management/traceability of the combination of code, configuration, training data and models, for troubleshooting and rollback
-- Running AI-specific dynamic tests before deployment:
-  - Automated validation of the model, including discrimination bias measurement
-  - Security tests (e.g. data poisoning payloads, prompt injection payloads, adversarial robustness testing). See the [testing section](/goto/testing/).
-- Running AI-specific dynamic tests in production:
-  - Continual automated validation of the model, including discrimination bias measurement and the detection of staleness: the input space changing over time, causing the training set to get out of date
-- Potential protection measures in deployment of the model (e.g. obfuscation, encryption, or hashing)
+- The AI development environment typically involves sensitive data, in contrast to conventional engineering where the use of such data by engineers is normally avoided. Therefore, apply [development security](/goto/devsecurity/) on the development environment. In addition to the conventional assets of code, configuration and secrets, the AI-specific development assets are:
+  - Potentially sensitive data needed to train, test and validate models
+  - Model parameters, which often represent intellectual property and can also be used to prepare input attacks when obtained.
 
-Depending on risk analysis, certain threats may require specific practices in the development lifecycle. These threats and controls are covered elsewhere in this document. 
 
-Related controls:
-- [Development program](/goto/devprogram/) on including AI engineering in all software lifecycle processes (e.g. versioning, portfolio management, retirement)
-- [Supply chain management](/goto/supplychainmanage/) which discusses AI-specific supply-chain risks
-- [Development security](/goto/devsecurity/) on protecting the development environment
+- New best practices or pitfalls in AI-specific code:
+  - Run static analysis rules specific to big data/AI technology(e.g the typical mistake of creating a new dataframe in Python without assigning it to a new one)
+  - Run maintainability analysis on code, as data and model engineering code is typically hindered by code quality issues
+  - Evaluate code for the percentage of code for automated testing. Industry average is 43% (SIG benchmark report 2023). An often cited recommendation is 80%. Research shows that automated testing in AI engineering is often neglected (SIG benchmark report 2023), as the performance of the AI model is mistakenly regarded as the ground truth of correctness.
+
+- Model performance testing is essential
+  - Run AI-specific dynamic performance tests before deployment (see [#CONTINUOUSVALIDATION](/goto/continuousvalidation/)):
+  - Run security tests (e.g. data poisoning payloads, prompt injection payloads, adversarial robustness testing). See the [testing section](/goto/testing/).
+  - Run continual automated validation of the model, including discrimination bias measurement and the detection of staleness: the input space changing over time, causing the training set to get out of date
+- Model deployment is a new aspect to AI and it may offer  specific protection measuressuch as obfuscation, encryption, integrity checks or a Trusted Execution Environment.)
+
+Depending on risk analysis, certain threats may require specific practices in the development lifecycle. These threats and controls are covered elsewhere in this document.
 
 Useful standards include:
 - ISO 27002 control 8.25 Secure development lifecycle. Gap: covers this control fully, with said particularity, but lack of detail - the 8.25 Control description in ISO 27002:2022 is one page, whereas secure software development is a large and complex topic - see below for further references
