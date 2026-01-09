@@ -514,16 +514,16 @@ Useful standards include:
 > Category: development-time data science control - pre-training  
 > Permalink: https://owaspai.org/goto/traindatadistortion/
 
-Train data distortion: distorting untrusted training data by smoothing or adding noise, to make poisoned 'triggers' ineffective. Such a trigger has been inserted by an attacker in the training data, together with an unwanted output. Whenever input data is presented that contains a similar 'trigger', the model can recognize it and output the unwanted value. The idea is to distort the triggers so that they are not recognized anymore by the model.  
+Train data distortion: distorting untrusted training data by smoothing or adding noise, to make poisoned 'triggers' ineffective. Such a trigger has been inserted by an attacker in the training data, together with an unwanted output. Whenever input data is presented that contains a similar 'trigger', the model can recognize it and output the unwanted value. The idea is to distort the triggers so that they are not recognized anymore by the model. The idea is essentially the same as in [#INPUTDISTORTION](/goto/inputdistortion/), where it is used to defend against evasion attacks and data poisoning.
 
 A special form of train data distortion is complete removal of certain input fields. Technically, this is data minimization (see [DATAMINIMIZE](goto/dataminimize/)), but its purpose is not protecting the confidentiality of that data per se, but reducing the ability to memorize poisoned samples.
 
 Data distortion can also be part of differential privacy: to make personal data less recognizable. This means that applying differential privacy can be a countermeasure to data poisoning as well.
 
-This control can only be applied during training and therefore not to an already trained model.
+This control can only be applied during training and therefore not to an already pre-trained model.
 
 Effectiveness: 
-- The level of effectiveness needs to be tested by experimenting, which will not give conclusive results, as an attacker may find more clever ways to poison the data than the methods used during testing. It is a best practice to keep the original training data, in order to expertiment with the amount or distortion.
+- The level of effectiveness needs to be tested by experimenting, which will not give conclusive results, as an attacker may find more clever ways to poison the data than the methods used during testing. It is a best practice to keep the original training data, in order to experiment with the amount or distortion.
 - This control has no effect against attackers that have direct access to the training data after it has been distorted. For example, if the distorted training data is stored in a file or database to which the attacker has access, then the poisoned samples can still be injected. In other words: if there is zero trust in protection of the engineering environment, then train data distortion is only effective against data poisoning that took place outside the engineering environment (collected during runtime or obtained through the supply chain). This problem can be reduced by creating a trusted environment in which the model is trained, separated from the rest of the engineering environment. By doing so, controls such as train data distortion can be applied in that trusted environment and thus protect against data poisoning that may have taken place in the rest of the engineering environment.
 
 See also [EVASIONROBUSTMODEL](/goto/evasionrobustmodel/) on adding noise against evasion attacks and [OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/) to minimize data for confidentiality purposes (e.g. differential privacy).
@@ -531,11 +531,11 @@ See also [EVASIONROBUSTMODEL](/goto/evasionrobustmodel/) on adding noise against
 Examples:
 
 - [Transferability blocking](https://arxiv.org/pdf/1703.04318.pdf). The true defense mechanism against closed box attacks is to obstruct the transferability of the adversarial samples. The transferability enables the usage of adversarial samples in different models trained on different datasets. Null labeling is a procedure that blocks transferability, by introducing null labels into the training dataset, and trains the model to discard the adversarial samples as null labeled data.
-- DEFENSE-GAN
-- Local intrinsic dimensionality
-- (weight)Bagging - see Annex C in ENISA 2021
-- TRIM algorithm - see Annex C in ENISA 2021
-- STRIP technique (after model evaluation) - see Annex C in ENISA 2021
+- DEFENSE-GAN: Defense-GAN attempts to "purify" images (adversarial attacks) by mapping them to the manifold of valid, unperturbed inputs.
+- Local intrinsic dimensionality. Poisoned samples often exhibit distinct local characteristics, such as being outliers or lying in a subspace with abnormal properties, which result in anomalously high or low LID scores. By computing LID scores during training, poisoned data points can be identified and removed, allowing the model to train robustly on clean data.
+- (weight)Bagging - see Annex C in ENISA 2021. By training multiple models on different subsets of the training data, the impact of poisoned samples is diluted across the ensemble. By combining predictions, bagging reduces the influence of any single poisoned sample, enhancing the robustness of the overall system against data poisoning attacks.
+- TRIM algorithm - see Annex C in ENISA 2021. The TRIM algorithm is a defense mechanism against data poisoning attacks that identifies and removes potentially poisoned samples from a dataset. It iteratively trains a model while excluding data points that contribute disproportionately to the loss, as these are likely to be outliers or poisoned samples. By focusing on minimizing the loss for the remaining data, TRIM ensures robust training by reducing the impact of maliciously crafted inputs.
+- STRIP technique (after model evaluation) - see Annex C in ENISA 2021. STRIP is a detection method for backdoor attacks. It works by applying random perturbations to input samples and measuring the model's prediction entropy; backdoored inputs typically produce consistently low entropy, as the trigger enforces a fixed output regardless of the perturbations. By flagging inputs with anomalously low entropy, STRIP effectively identifies and mitigates the influence of backdoor attacks during inference.
 
 Link to standards:
 
@@ -547,7 +547,7 @@ Link to standards:
 
 Poison robust model: select a model type and creation approach to reduce sensitivity to poisoned training data.
 
-This control can be applied to a model that has already been trained, including models that have been obtained from an external source. 
+This control can be applied to a model that has already been trained, so including models that have been obtained from an external source. 
 
 The general principle of reducing sensitivity to poisoned training data is to make sure that the model does not memorize the specific malicious input pattern (or _backdoor trigger_). The following two examples represent different strategies, which can also complement each other in an approach called **fine pruning** (See [paper on fine-pruning](https://arxiv.org/pdf/1805.12185.pdf)):
 1. Reduce memorization by removing elements of memory using **pruning**. Pruning in essence reduces the size of the model so it does not have the capacity to trigger on backdoor-examples while retaining sufficient accuracy for the intended use case. The approach removes neurons in a neural network that have been identified as non-essential for sufficient accuracy.
