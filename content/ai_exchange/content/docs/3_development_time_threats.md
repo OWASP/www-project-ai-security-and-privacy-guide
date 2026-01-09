@@ -434,14 +434,50 @@ Useful standards include:
 > Category: development-time data science control - pre-training  
 > Permalink: https://owaspai.org/goto/dataqualitycontrol/
 
+**Description**  
 Data quality control: Perform quality control on data including detecting poisoned samples through integrity checks, statistical deviation or pattern recognition. 
 
-Particularity for AI: Standard data quality checks are not sufficient for AI systems, as data may be maliciously altered to compromise model behavior. This requires different checks than standard checks on quality issues from the source, or that occurred by mistake. Nevertheless, standard checks can help somewhat to detect malicious changes. It is essential to implement enhanced security measures to detect these alterations:
-- Secure Hash Codes: Safely store hash codes of data elements, such as images, and conduct regular checks for manipulations. See [DEVSECURITY](/goto/devsecurity) for more details on integrity checks.
-- Statistical deviation detection
-- Recognizing specific types of poisoned samples by applying pattern recognition
+Standard data quality checks are not sufficient for AI systems, as data may be maliciously altered to compromise model behavior. This requires different checks than standard checks on quality issues from the source, or that occurred by mistake. Nevertheless, standard checks can help somewhat to detect malicious changes.
 
-When: This control can only be applied during training and cannot be retroactively applied to an already trained model. Implementing it during training ensures that the model learns from clean, high-quality data, thus enhancing its performance and security. This is key to know and implement early on in the training process to ensure adequate training results and long-term success in the overall quality of the data.
+**Objective**  
+Data quality control aims to reduce the risk of data poisoning by identifying anomalous or manipulated training samples before they influence model behavior i.e. before training and before augmentation of input. Poisoned samples can be introduced intentionally to manipulate the model, and early detection helps prevent persistent or hard-to-reverse impacts on model integrity.
+
+**Applicability**  
+This control applies during data preparation, training, and data augmentation phases. It cannot be applied retroactively to a model that has already been trained. Implementing it during training ensures that the model learns from clean, high-quality data, thus enhancing its performance and security. This is key to know and implement early on in the training process to ensure adequate training results and long-term success in the overall quality of the data.
+
+Its applicability depends on the assessed risk of data poisoning, including sabotage poisoning and trigger-based poisoning. In some cases, anomaly detection thresholds may prove ineffective at distinguishing poisoned samples from benign data (FP risk), in which case alternative or complementary controls may be more appropriate.
+
+When anomaly detection thresholds consistently fail to distinguish poisoned samples from benign data, reliance on alternative or complementary controls may be more effective.
+Implementation may be more suitable for the deployer in environments where training data pipelines or supply chains are externally managed.
+
+**Implementation of Detection of anomalous training samples**  
+Training data can be analyzed to identify samples that deviate from expected distributions or patterns. Poisoned samples may differ statistically or structurally from the rest of the dataset, making anomaly detection a useful signal.
+
+Deviation detection can be applied:
+- to newly added samples before training or augmentation, and
+- to existing samples already present in the training dataset.
+
+Thresholds for detection are typically established through experimentation to balance detection effectiveness and model correctness.
+
+**Implementation of Filtering, alerting, and investigation workflows**  
+Detected anomalies can be handled in different ways depending on the degree of deviation:
+- samples that strongly deviate from expected behavior may be filtered out of the training data to reduce poisoning risk,
+- samples that moderately deviate may trigger alerts for further investigation, allowing identification of attack sources or pipeline weaknesses.
+
+Using multiple thresholds (for filtering versus alerting) helps balance false positives, investigation effort, and model accuracy.
+
+**Implementation of Deviation calculation methods**  
+Different methods can be used to detect anomalous or poisoned samples, including:
+- statistical deviation and outlier detection methods,
+- spectral signatures based on covariance of learned feature representations,
+- activation clustering, where poisoned triggers produce distinct neuron activation patterns,
+- Reject on Negative Impact (RONI), which evaluates the impact of individual samples on model performance, and
+- gradient fingerprinting, which compares the influence of samples during retraining.
+
+The appropriateness of a method depends on the poisoning threat model and can be assessed through targeted testing, including poisoned dataset benchmarks and resistance testing.
+
+**Implementation of detection mechanism protection**  
+Detection mechanisms and the data they rely on benefit from protection against manipulation, especially in environments where attackers may target the development pipeline or supply chain. Segregation of development environments and integrity protections can help prevent attackers from tampering with detection logic.
 
 Key Points for Consideration:
 - Proactive Approach: Implement data quality controls during the training phase to prevent issues before they arise in production.
@@ -449,11 +485,27 @@ Key Points for Consideration:
 - Continuous Monitoring: Regularly update and audit data quality controls to adapt to evolving threats and maintain the robustness of AI systems.
 - Collaboration and Standards: Adhere to international standards like ISO/IEC 5259 and 42001 while recognizing their limitations. Advocate for the development of more comprehensive standards that address the unique challenges of AI data quality.
 
-References
+**Risk-Reduction Guidance**  
+Filtering anomalous training samples can reduce the probability of successful data poisoning, particularly when poisoned samples introduce unusual triggers or patterns. Effectiveness depends on the representativeness of the data, the quality of deviation metrics, and the chosen thresholds.
+Testing detection approaches on known poisoned datasets can help assess their effectiveness and validate implementation choices.
+
+**Particularity**  
+Standard data quality checks are not sufficient for AI systems, as data may be maliciously altered to compromise model behavior. This requires different checks than standard checks on quality issues from the source, or that occurred by mistake. Nevertheless, standard checks can help somewhat to detect malicious changes. It is essential to implement enhanced security measures to detect these alterations:
+- Secure Hash Codes: Safely store hash codes of data elements, such as images, and conduct regular checks for manipulations. See [DEVSECURITY](/goto/devsecurity/) for more details on integrity checks.
+- Statistical deviation detection
+- Recognizing specific types of poisoned samples by applying pattern recognition
+
+**Limitations**  
+Anomaly detection involves trade-offs:
+- false positives may lead to unnecessary investigation or removal of rare but valid samples, potentially harming model accuracy,
+- false negatives may occur when poisoned samples closely resemble normal data and evade detection.
+
+Sophisticated attackers can design poisoned samples to blend into the normal data distribution, reducing the effectiveness of purely anomaly-based approaches.
+
+**References**  
 - ['Detection of Adversarial Training Examples in Poisoning Attacks through Anomaly Detection'](https://arxiv.org/abs/1802.03041)
 
 Useful standards include:
-
 - ISO/IEC 5259 series on Data quality for analytics and ML. Gap: covers this control minimally. in light of the particularity - the standard does not mention approaches to detect malicious changes (including detecting statistical deviations). Nevertheless, standard data quality control helps to detect malicious changes that violate data quality rules.
 - ISO/iEC 42001 B.7.4 briefly covers data quality for AI. Gap: idem as ISO 5259
 - Not further covered yet in ISO/IEC standards
