@@ -277,16 +277,31 @@ The impact of security threats on confidentiality and integrity can be reduced b
 > Category: development-time and runtime control  
 > Permalink: https://owaspai.org/goto/dataminimize/
 
-Data minimize: remove data fields or records (e.g. from a training set) that are unnecessary for the application, in order to prevent potential data leaks or manipulation. 
+**Description**  
+Data minimize: remove data fields or records (e.g. from a training set) that are unnecessary for the application, in order to prevent potential data leaks or manipulation because we cannot leak what isn’t there in the first place 
 
-Purpose: minimize the impact of data leakage or manipulation
+**Objective**  
+Minimize the impact of data leakage or manipulation by reducing the amount of data processed by the system.
 
-A typical opportunity to remove unnecessary data in machine learning is to clean up data that is used solely for experimental purposes.
+**Applicability**  
+Data minimization applies during data collection, preparation, training, evaluation, and runtime logging. It is particularly relevant when datasets contain personal, confidential, or exposure-restricted information.
+An exception to applicability to the AI system provider is when the deployer is better positioned to implement (part of) this control, as long as the provider communicates this requirement to the deployer. 
 
-A method to determine which fields or records can be removed is to statistically analyze which data elements do not play a role in model performance. 
+**Implementation Options**  
+In addition to removing (or archiving) unused or low-impact fields and records, data minimization can include:
+- removing data elements (fields, record) that do not materially affect model performance (e.g. correctnessrobustness, fairness) based on experimentation or analysis;
+- retaining certain identifiers only to support data removal requests or lifecycle management, while excluding them from model training;
+- updating training datasets to reflect removals or corrections made in upstream source data (e.g. when personal data is destroyed from the source data then training data is updated to reflect the change);
+- original data can be preserved separately with access controls for future use.
 
-  Useful standards include:
+**Risk-Reduction Guidance**  
+Data minimization reduces confidentiality risk by limiting the presence of exposure-restricted information. Data that is not collected or retained cannot be leaked, reconstructed, or inferred from the system. It also reduces the consequences of dataset theft or unauthorized access. 
 
+**Particularity**  
+AI models often tolerate reduced feature sets and incomplete data better than traditional applications, enabling stronger minimization strategies without functional loss.
+
+**References**  
+Useful standards include:
   - Not covered yet in ISO/IEC standards.
 
 #### #ALLOWEDDATA 
