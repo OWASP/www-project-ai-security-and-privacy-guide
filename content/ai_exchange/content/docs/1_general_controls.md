@@ -540,18 +540,68 @@ Useful standards include:
 > Category: runtime data science control  
 > Permalink: https://owaspai.org/goto/continuousvalidation/
 
+**Description**  
 Continuous validation: by frequently testing the behaviour of the model against an appropriate test set, it is possible to detect sudden changes caused by a permanent attack (e.g. data poisoning, model poisoning), and also some robustness issues against for example evasion attacks.
 
 Continuous validation is a process that is often in place to detect other issues than attacks: system failures, or the model performance going down because of changes in the real world since it was trained (model drift, model staleness). There are many performance metrics available and the best ones are those that align with the goal. These metrics pertain to correctness, but can also link to other aspects such as unwanted bias towards protected attributes.
 
 Note that continuous validation is typically not suitable for detecting backdoor poisoning attacks, as these are designed to trigger with very specific input that would normally not be present in test sets. In fact, such attacks are often designed to pass validation tests.
 
+**Objective**  
+Continuous validation helps verify that the model continues to behave as intended over time meeting acceptance criteria. In addition to supporting functional correctness, it provides a mechanism to detect unexpected or unexplained changes in model behaviour that may indicate permanent manipulation, such as data poisoning or model poisoning. Continuous validation may also surface certain robustness weaknesses, including limited exposure to evasion-related failure modes.
+In some systems, model behaviour directly implements security-relevant functions, such as access control or policy enforcement, making correctness validation important from a cybersecurity perspective.
+
+**Applicability**  
+Continuous validation applies to AI systems where changes in model behaviour could introduce security, safety, or compliance risks. It is particularly relevant when risks related to data poisoning, model poisoning, or unintended behavioural drift are not fully acceptable.
+
+**Implementation**  
+
+**Validation timing and triggers**  
+Continuous validation can be performed at points in the system lifecycle where model behaviour may reasonably change or be at risk of manipulation. This includes:
+- after initial training, retraining, or fine-tuning,
+- before deployment or redeployment, and
+- periodically during operation when the residual risk of model integrity is not considered acceptable.  
+
+Operational validation is particularly relevant when models remain exposed to updates, external dependencies, or environments where unauthorized modification is plausible. The frequency and scope of validation are typically informed by risk analysis and the criticality of the model’s output.
+
+**Detection of degradation and response handling**  
+Validation results can be monitored for unexpected or unexplained changes in model performance, which may indicate permanent behavioural changes caused by attacks, configuration errors, or environmental drift.  
+When performance degradation or abnormal behaviour is observed, possible response options include:
+- investigating the underlying cause;
+- continuing operation when degradation is temporary and within acceptable bounds;
+- rolling back to a previous model version with known behaviour;
+- restricting usage to lower-risk scenarios or specific tasksl
+- introducing additional human or automated oversight for high-risk outputs to limit error propagation; or
+- temporarily disabling the system if continued operation is unsafe.  
+The choice of response influences both the impact of the issue and the timeliness of recovery.
+
+**Protection and management of validation data**  
+Test datasets serve as a reference for intended or acceptable model behaviour and therefore benefit from protection against manipulation. Storing validation data separately from training data or model artifacts can reduce the likelihood that attackers influence both the model and its evaluation baseline.
+When validation data remains less exposed than training data or deployed model components, continuous validation can help surface integrity issues even if other parts of the system are compromised.
+
+**Risk-Reduction Guidance**  
+Continuous validation can be an effective mechanism for detecting permanent behavioural changes caused by attacks such as data poisoning or model poisoning. Detection timeliness depends on how frequently validation is performed and whether the manipulated model has already been deployed.
+The level of impact from a detected degradation depends on both the severity of the behaviour change and the response taken. Responses may include investigation, rollback to a previous model version, restricting usage to lower-risk scenarios, or introducing additional oversight for high-risk outputs.
+Continuous validation is not a strong countermeasure against evasion attacks and does not guarantee detection of attacks designed to bypass validation, such as trigger-based backdoor poisoning.
+For poisoning introduced during development or training, validation before deployment can prevent exposure entirely, whereas poisoning introduced during operation may only be detected after some period of use, depending on validation frequency.
+
+**Particularity**  
+There is a terminology difference between AI performance testing and traditional performance testing in non-AI systems. The latter  focuses on efficiency metrics such as latency or throughput, whereas performance testing of AI models  focuses on behavioural correctness, robustness, and consistency with intended use. It may also include checks for bias or unintended decision patterns.
+
+**Limitations**  
+Continuous validation relies on the representativeness and integrity of the test dataset. Attacks that are triggered only by rare or highly specific inputs may not be detected if those inputs are absent from test sets.
+If attackers are able to manipulate both the model and the test data, validation results may no longer be trustworthy. Validation alone therefore does not replace other integrity and monitoring controls.
+
+
+**References**
 Useful standards include:
 
 - ISO 5338 (AI lifecycle) Continuous validation. Gap: covers this control fully
 - ISO/IEC 24029-2:2023 Artificial intelligence (AI) — Assessment of the robustness of neural networks
 - ISO/IEC 24027:2021 Bias in AI systems and datasets
 - ISO/IEC 25059:2023 Software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE) — Quality model for AI systems
+- CEN/CLC JT021008 AI trustworthiness framework
+
 
 #### #EXPLAINABILITY 
 > Category: runtime data science control  
