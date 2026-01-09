@@ -26,14 +26,14 @@ An AI Program includes:
 - Keeping an inventory of AI initiatives
 - Perform impact analysis on initiatives
 - Organize AI innovation
-- Include AI risks in risk mangement
-- Asign responsibilities, e.g. model accountability, data accountability, and risk governance
+- Include AI risks in risk management
+- Assign responsibilities, e.g. model accountability, data accountability, and risk governance
 - AI literacy (e.g. [training](/goto/seceducate/)
 - Organize [compliance](/goto/checkcompliance/)
 - Incorporate AI assets in the [security program](/goto/secprogram/)
 
 When doing impact analysis on AI initiatives, consider at least the following:
-- Note that an AI program is not just about risk TO AI, such as security risks - it is also about risks BY AI, such as threats to fairness, safety, etc.
+- Note that an AI program is not just about risks TO AI, such as security risks - it is also about risks BY AI, such as threats to fairness, safety, etc.
 - Include laws and regulations, as the type of AI application may be prohibited (e.g. social scoring under the EU AI Act). See #[CHECKCOMPLIANCE](/goto/checkcompliance/)
 - Can the required transparency be provided into how the AI works?
 - Can the privacy rights be achieved (right to access, erase, correct, update personal data, and the right to object)?
@@ -107,7 +107,7 @@ Because AI has specific assets (e.g. training data), **AI-specific honeypots** a
 - External access granted to a specific library
 - Models imported as-is from GitHub
 
-Monitoring and incident response are standard elements of security programs and AI can be included in it by understanding the relevant AI security assets, threats, and controls The discussion of threats include detection mechanisms that become part of monitoring.
+Monitoring and incident response are standard elements of security programs and AI can be included in it by understanding the relevant AI security assets, threats, and controls. The discussion of threats include detection mechanisms that become part of monitoring.
 
 **Useful standards include:**
 
@@ -173,7 +173,7 @@ Particularities for AI in software development, and how to address them:
   - Run AI-specific dynamic performance tests before deployment (see [#CONTINUOUSVALIDATION](/goto/continuousvalidation/)):
   - Run security tests (e.g. data poisoning payloads, prompt injection payloads, adversarial robustness testing). See the [testing section](/goto/testing/).
   - Run continual automated validation of the model, including discrimination bias measurement and the detection of staleness: the input space changing over time, causing the training set to get out of date
-- Model deployment is a new aspect to AI and it may offer  specific protection measuressuch as obfuscation, encryption, integrity checks or a Trusted Execution Environment.)
+- Model deployment is a new aspect to AI and it may offer  specific protection measures such as obfuscation, encryption, integrity checks or a Trusted Execution Environment.)
 
 Depending on risk analysis, certain threats may require specific practices in the development lifecycle. These threats and controls are covered elsewhere in this document.
 
@@ -246,7 +246,7 @@ General Legal Considerations on AI/Security:
 
 Non-Security Compliance Considerations: 
 - Ethics: Deep fake weaponization and how the system addresses and deals with it, protects against it and mitigates it
-- Human Control: any and all AI systems should be deployed with appropriate level of human control and oversight, based on ascertained risks to individuals. AI systems should be designed and utilized with the concept that the use of AI respects dignity and rights of individuals; “Keep the human in the loop” concept. See [Oversight](/goto/oversight/).
+- Human Control: any and all AI systems should be deployed with appropriate levels of human control and oversight, based on ascertained risks to individuals. AI systems should be designed and utilized with the concept that the use of AI respects dignity and rights of individuals; “Keep the human in the loop” concept. See [Oversight](/goto/oversight/).
 - Discrimination: a process must be included to review datasets to avoid and prevent any bias. See [Unwanted bias testing](/goto/unwantedbiastesting/).
 - Transparency: ensure transparency in the AI system deployment, usage and proactive compliance with regulatory requirements; “Trust by Design”
 - Accountability: AI systems should be accountable for actions and outputs and usage of data sets. See [AI Program](/goto/aiprogram/)
@@ -297,7 +297,7 @@ An exception to applicability to the AI system provider is when the deployer is 
 
 **Implementation**  
 In addition to removing (or archiving) unused or low-impact fields and records, data minimization can include:
-- removing data elements (fields, record) that do not materially affect model performance (e.g. correctnessrobustness, fairness) based on experimentation or analysis;
+- removing data elements (fields, record) that do not materially affect model performance (e.g. correctness, robustness, fairness) based on experimentation or analysis;
 - retaining certain identifiers only to support data removal requests or lifecycle management, while excluding them from model training;
 - updating training datasets to reflect removals or corrections made in upstream source data (e.g. when personal data is destroyed from the source data then training data is updated to reflect the change);
 - original data can be preserved separately with access controls for future use.
@@ -494,7 +494,7 @@ Least model privilege: Minimize what a model can do (trigger actions or access d
 
 **Requirements:**
 - Honor limitations of the served: Execute actions of AI systems with the rights and privileges of the user or service being served. This ensures that no actions are invoked and no data is retrieved outside authorizations.
-- Task-based minimization: Take the served-limitation a step further by reducing actions that the model can potentially trigger, and what they can be triggered on, to the minimum necessary for the reasonably foreseeable use cases. See below for the flexibility balance. The purpose of this is _blast radius control_: to limit the attack surface in case the AI model is compromised, or in case the AI model makes a mistake. This requires mechanisms that may not be offered by the Identity and Access Management in place, such as: ephemeral tokens, dynamic permissions, and narrow permission control at scale, combined with trust establishment and potential revokation across different domains. 
+- Task-based minimization: Take the served-limitation a step further by reducing actions that the model can potentially trigger, and what they can be triggered on, to the minimum necessary for the reasonably foreseeable use cases. See below for the flexibility balance. The purpose of this is _blast radius control_: to limit the attack surface in case the AI model is compromised, or in case the AI model makes a mistake. This requires mechanisms that may not be offered by the Identity and Access Management in place, such as: ephemeral tokens, dynamic permissions, and narrow permission control at scale, combined with trust establishment and potential revocation across different domains. 
 - Avoid implementing authorization in Generative AI instructions, as these are vulnerable to hallucinations and manipulation (e.g., prompt injection). This is especially applicable in Agentic AI. This includes the prevention of Generative AI outputting commands that include references to the user context as it would open up the opportunity to escalate privileges by manipulating that output.
 
 Example case: an AI model is connected to an email facility to summarize incoming emails to an end user:
@@ -506,12 +506,12 @@ How to strike the balance between:
 1. a general purpose AI agent that has all permissions which you can assign to anything, and
 2. a large set of AI agents,  each for a different type of task with the right set of permissions to prevent it stepping out of bounds?
 Option 1 is the easiest extreme and option 2 requires more effort and also may cause certain workflows to fail because the agent didn't have permissions, causing user frustration and administrator effort to further tailor agents and permissions.  
-Still, least model privilege is critical if successful manipulation is probable and the potential effects are severe. The best practice is to at least have separate agents for the permissions that may have severe effects (e.g. execute run commands). This puts the responsibility of selecting the right permissions to the actor choosing the agent. This can intrroduce the risk of the actor (person or agent) choosing an agent with too many permissions because they are not sufficiently informed, or they prefer flexibility over security too much. If this risk is real, then dynamic minimization of permissions is required. This requires the implementation of logic that sets action permissions based on knowledge of the intent (e.g. an agent tjhat is assigned to summarize a ticket only gets access to read tickets), and knowledge of potential risks (e.g. reducing permissions automatically the moment that untrusted input is introduced in an agent workflow).
+Still, least model privilege is critical if successful manipulation is probable and the potential effects are severe. The best practice is to at least have separate agents for the permissions that may have severe effects (e.g. execute run commands). This puts the responsibility of selecting the right permissions to the actor choosing the agent. This can introduce the risk of the actor (person or agent) choosing an agent with too many permissions because they are not sufficiently informed, or they prefer flexibility over security too much. If this risk is real, then dynamic minimization of permissions is required. This requires the implementation of logic that sets action permissions based on knowledge of the intent (e.g. an agent that is assigned to summarize a ticket only gets access to read tickets), and knowledge of potential risks (e.g. reducing permissions automatically the moment that untrusted input is introduced in an agent workflow).
 
-One of the most powerful thing to let AI agents do is to execute code. That is where task-based minimization becomes a challenge because on the one hand you want to broaden the possibilities for the agents, and on the other hand you want to limit those possibilities for attackers. Solutions include:
+One of the most powerful things to let AI agents do is to execute code. That is where task-based minimization becomes a challenge because on the one hand you want to broaden the possibilities for the agents, and on the other hand you want to limit those possibilities for attackers. Solutions include:
 - Replacing arbitrary code execution with the execution of a limited set of API calls
 - Removing commands (e.g. deleting them from a deployed operating system
-- Sand boxing the code execution by for example network segementation, to mininize the attack surface of commands
+- Sand boxing the code execution by for example network segmentation, to minimize the attack surface of commands
 
 
 Useful references include:
@@ -567,7 +567,7 @@ When performance degradation or abnormal behaviour is observed, possible respons
 - investigating the underlying cause;
 - continuing operation when degradation is temporary and within acceptable bounds;
 - rolling back to a previous model version with known behaviour;
-- restricting usage to lower-risk scenarios or specific tasksl
+- restricting usage to lower-risk scenarios or specific tasks;
 - introducing additional human or automated oversight for high-risk outputs to limit error propagation; or
 - temporarily disabling the system if continued operation is unsafe.  
 The choice of response influences both the impact of the issue and the timeliness of recovery.
