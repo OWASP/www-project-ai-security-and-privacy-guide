@@ -76,7 +76,7 @@ This allows us to observe a chain of thoughts in which various models perform a 
   - #OVERSIGHT (including automated and human)
   - #UNWANTED INPUT SERIES HANDLING,
   - #OBSCURE CONFIDENCE,
-  - # SENSITIVE OUTPUT HANDLING,
+  - #SENSITIVE OUTPUT HANDLING,
   - #CONTINUOUSVALIDATION,
   - training data scanning and filtering.
     
