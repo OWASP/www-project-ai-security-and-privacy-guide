@@ -565,7 +565,7 @@ References:
 #### #TRAINADVERSARIAL
 Training with adversarial examples is used as a control against evasion attacks, but can also be helpful against data poison trigger attacks that are based on slight alterations of training data, since these triggers are like adversarial samples.
 
-For example: adding images of stop signs in a training database for a self driving car, labeled as 35 miles an hour, where the stop sign is slightly altered. What this effectively does is to force the model to make a mistake with traffic signs that have been altered in a similar way. This type of data poisoning aims to prevent anomaly detection of the poisoned samples.  
+For example: adding images of stop signs in a training database for a self-driving car, labeled as 35 miles an hour, where the stop sign is slightly altered. What this effectively does is to force the model to make a mistake with traffic signs that have been altered in a similar way. This type of data poisoning aims to prevent anomaly detection of the poisoned samples.  
 
 Find the corresponding control section [here, with the other controls against Evasion attacks](https://owaspai.org/goto/trainadversarial/).
 
@@ -577,7 +577,7 @@ References:
 > Category: development-time threat  
 > Permalink: https://owaspai.org/goto/devmodelpoison/
 
-This threat refers to manipulating behaviour of the model by not poisoning the training data, but instead manipulate elements in the development-environment that lead to the model or represent the model (i.e. model parameters), e.g. by manipulating storage of model parameters. When the model is trained by a supplier in a manipulative way and supplied as-is, then it is [supply-chain model poisoning](goto/supplymodelpoison/).
+This threat refers to manipulating behaviour of the model  NOT  by n poisoning the training data, but instead by manipulating elements in the development-environment that lead to the model or represent the model (i.e. model attributes), e.g. by manipulating storage of model parameters or placing the model with a completely different one with malicious behavior, injection of malware (command or code injection) through custom or lambda layers, manipulating the model weights and modifying the model architecture, embedding deserialization attacks, which could execute stealthily during model unpacking or model execution. When the model is trained by a supplier in a manipulative way and supplied as-is, then it is [supply-chain model poisoning](goto/supplymodelpoison/).
 Training data manipulation is referred to as [data poisoning](/goto/datapoison).  See the attack surface diagram in the [broad model poisoning section](/goto/modelpoison/).
 
 **Controls:**
@@ -589,6 +589,7 @@ Training data manipulation is referred to as [data poisoning](/goto/datapoison).
   - [#SEGREGATE DATA](/goto/segregatedata/) to create parts of the development environment with extra protection
   - [#CONF COMPUTE](/goto/confcompute/) for denying access to where sensitive data is processed
   - [#SUPPLY CHAIN MANAGE](/goto/supplychainmanage/) especially to control where data and models come from
+- Controls for model performance validation to detect deviation: [#CONTINUOUSVALIDATION](/goto/continuousvalidation/)
 
 
 ### 3.1.3 Supply-chain model poisoning
@@ -599,7 +600,7 @@ An attacker manipulates a third-party (pre-)trained model which is then supplied
 
 AI models are sometimes obtained elsewhere (e.g. open source) and then further trained or fine-tuned. These models may have been manipulated (poisoned) at the source, or in transit. See [OWASP for LLM 03: Supply Chain](https://genai.owasp.org/llmrisk/llm03/).
 
-The type of manipulation can be through data poisoning, or by specifically changing the model parameters. Therefore, the same controls apply that help against those attacks. Since changing the model parameters requires protection of the parameters at the moment they are manipulated, this is not in the hands of the one who obtained the model. What remains are the controls against data poisoning, the controls against model poisoning in general (e.g. model ensembles), plus of course good supply chain management.
+The type of manipulation can be through data poisoning, or by specifically changing the model parameters. Therefore, the same controls apply that help against those attacks. Since changing the model parameters requires protection of the parameters at the moment they are manipulated, this is not in the hands of the one who obtained the model. What remains are the controls against data poisoning, the controls against model poisoning in general (e.g. model ensembles), plus of course good supply chain management including protective considerations of frameworks and tools as supply-chain components that can be poisoned. 
 
 **Controls:**
 
@@ -613,6 +614,7 @@ The type of manipulation can be through data poisoning, or by specifically chang
 - Other controls need to be applied by the supplier of the model:
   - Controls for [development-time protection](/goto/developmenttimeintro/), like for example protecting the training set database against data poisoning
   - Controls for [broad model poisoning](/goto/modelpoison/)
+- [#SUPPLY CHAIN MANAGE](/goto/supplychainmanage/) especially to components from frameworks and tools 
 
 ---
 
@@ -621,7 +623,7 @@ The type of manipulation can be through data poisoning, or by specifically chang
 >Permalink: https://owaspai.org/goto/devleak/
 
 
-### 3.2.1. Development-time data leak
+### 3.2.1. Dev Training or test data theft
 >Category: development-time threat  
 >Permalink: https://owaspai.org/goto/devdataleak/
 
@@ -629,7 +631,8 @@ Unauthorized access to train or test data through a data leak of the development
 
 Impact: Confidentiality breach of sensitive train/test data.
 
-Training data or test data can be confidential because it's sensitive data (e.g. personal data) or intellectual property. An attack or an unintended failure can lead to this training data leaking.  
+Training data or test data can be confidential because it's sensitive data (e.g. personal data) or intellectual property. An attack or an unintended failure can lead to this training data leaking. Training or test data theft means unauthorized access to exposure-restricted training or test data through stealing data from the development environment, including the supply chain.
+ 
 Leaking can happen from the development environment, as engineers need to work with real data to train the model.  
 Sometimes training data is collected at runtime, so a live system can become an attack surface for this attack.  
 GenAI models are often hosted in the cloud, sometimes managed by an external party. Therefore, if you train or fine tune these models, the training data (e.g. company documents) needs to travel to that cloud.
@@ -638,7 +641,7 @@ GenAI models are often hosted in the cloud, sometimes managed by an external par
 
 - [General controls](/goto/generalcontrols/),
   - especially [Sensitive data limitation](/goto/dataminimize/)
-- [Controls for development-time protection](/goto/developmenttimeintro/):
+- [Controls for training or test data theft protection](/goto/developmenttimeintro/):
   - [#DEV SECURITY](/goto/devsecurity/) to protect the development environment and primarily the training and test data
   - [#SEGREGATE DATA](/goto/segregatedata/) to create parts of the development environment with extra protection
   - [#CONF COMPUTE](/goto/confcompute/) for denying access to where sensitive data is processed
