@@ -651,9 +651,9 @@ GenAI models are often hosted in the cloud, sometimes managed by an external par
 >Category: development-time threat  
 >Permalink: https://owaspai.org/goto/devmodelleak/
 
-Unauthorized access to model parameters through a data leak of the development environment.
+Unauthorized access to model attributes (e.g., parameters, weights, architecture) through stealing data from the development environment, including the supply chain. This can occur via insider access, compromised repositories, or weak storage controls
 
-Impact: Confidentiality breach of model parameters, which can result in intellectual model theft and/or allowing to perform model attacks on the stolen model that normally would be mitigated by rate limiting, access control, or detection mechanisms.
+Impact: Exposure of model attributes makes it easier for attackers to craft or perform input attacks, such as evasion attacks or model inversion. 
 
 Alternative ways of model theft are [model theft through use](/goto/modeltheftuse/) and [direct runtime model theft](/goto/runtimemodeltheft/).
 
@@ -665,6 +665,7 @@ Alternative ways of model theft are [model theft through use](/goto/modeltheftus
   - [#DEV SECURITY](/goto/devsecurity/) to protect the development environment and primarily the model parameters
   - [#SEGREGATE DATA](/goto/segregatedata/) to create parts of the development environment with extra protection
   - [#CONF COMPUTE](/goto/confcompute/) for denying access to where sensitive data is processed
+  - [#SUPPLY CHAIN MANAGE](/goto/supplychainmanage/) specifically protects model attributes
 
   
 ### 3.2.3. Source code/configuration leak
