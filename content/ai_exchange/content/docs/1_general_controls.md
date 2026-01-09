@@ -16,7 +16,7 @@ weight: 2
 AI program: Install and execute a program to govern AI.  
 One could argue that this control is out of scope for cyber security, but it initiates action to get in control of AI security.
 
-**Ojective**  
+**Objective**  
 The objective of an AI Program is to take responsibility for AI as an organization and make sure that all AI initiatives are known and under control, including their security.
 
 **Implementation**  
