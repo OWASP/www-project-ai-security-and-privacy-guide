@@ -1193,13 +1193,67 @@ The disclosure is caused by an unintentional fault of including this data, and e
 -Specifically for Sensitive data output from model:
   - [#FILTER SENSITIVE MODEL OUTPUT](/goto/filtersensitivemodeloutput/) - discussed below
 
-#### #FILTER SENSITIVE MODEL OUTPUT 
+#### #SENSITIVE OUTPUT HANDLING
 >Category: runtime information security control for threats through use  
 >Permalink: https://owaspai.org/goto/filtersensitivemodeloutput/
 
-Filter sensitive model output: actively censor sensitive data by detecting it when possible (e.g. phone number).
+**Description**
 
-A variation of this filtering is providing a GenAI model with instructions (e.g. in a _system prompt_) not to disclose certain data, which is susceptible to [Direct prompt injection](/goto/directpromptinjection/) attacks.
+Handle sensitive model output by actively detecting and blocking, masking, or stopping the release of data that should not be disclosed. This includes exposure-restricted information such as personal data (e.g. name, phone number), confidential identifiers, or other content that the model is not allowed to reveal.
+
+**Objective**
+
+The objective of handling sensitive model output is to prevent unintended disclosure of protected or harmful information produced by the model. Even when access controls and prompt-level instructions are in place, models may still generate sensitive data due to manipulation, hallucination, or misuse. Filtering at the Output-level acts as a final safeguard before data is exposed to users or downstream systems.
+
+**Applicability**
+
+This control applies to AI systems that generate user-visible output or trigger downstream actions based on model output.
+It is especially relevant when models may have been trained on, fine-tuned with, or have access to sensitive data.
+
+Sensitive output handling is required whenever:
+
+- exposure-restricted data must not leave the system,
+- outputs can be influenced by untrusted inputs, or
+- misuse or manipulation of model behaviour is a concern.
+
+If implementation is more appropriate for the deployer (for example, output filtering integrated into an application layer), the provider can clearly communicate this expectation to the deployer.
+
+**Implementation Options**
+
+  - **Detect sensitive data in output:** Model output can be analysed to identify exposure-restricted information such as names, phone numbers, identifiers, or other sensitive content. @@add what you do with it.
+  - **Apply enforcement at output time:** When sensitive content is detected, disclosure can be prevented through filtering, masking, or stopping the output before it is exposed.
+  - **Detect recitation of training data:** Where feasible, recitation checks can be applied to identify whether long strings or sequences in model output appear in an indexed set of training data, including pretraining and fine-tuning datasets. This can help identify unintended memorization and potential data leakage.
+
+@@Because natural language allows for many variations, synonyms, and indirect phrasing, semantic interpretation using language models can complement rules-based approaches and improve robustness. When such extraction intent is suspected, the signal can be used to trigger additional safeguards, such as stricter output filtering, logging for investigation, or increased scrutiny of subsequent interactions.
+
+**Risk-Reduction Guidance**
+
+Filtering sensitive output directly reduces the risk of data exposure by stopping disclosure at the last possible stage. It is the only way to prevent sensitive data from being exposed. This is particularly important because output-based attacks may succeed even when prompt-level controls fail. 
+
+Detection effectiveness relies heavily on the accuracy of classifiers, rules, or pattern-matching techniques, as these determine the system's ability to correctly identify threats or anomalies. Inaccuracies can lead to false positives, which may disrupt operations or degrade system functionality, and false negatives, which pose serious risks such as data leakage or undetected breaches. This is particularly critical in safety-sensitive environments, where the consequences of misclassification can be severe. Therefore, output filtering must be rigorously tested and carefully tuned to ensure that system behavior remains aligned with intended use after safeguards are introduced. 
+
+Output filtering and detection also support human oversight by providing signals, alerts, and evidence that enable review and intervention. 
+
+Recitation checks are particularly useful for detecting unintended disclosure of memorized training data. However, they are limited to data that is indexed and may not detect shorter or paraphrased disclosures.
+
+**Particularity**
+
+In AI systems, sensitive information can be generated dynamically rather than retrieved from a database.
+Unlike traditional systems where access controls prevent retrieval, language models may construct sensitive data in response to prompts. Output filtering is therefore a uniquely important control for AI systems, acting as a final enforcement layer independent of prompt instructions.
+
+Providing models with instructions not to disclose certain data (for example via system prompts) is not sufficient on its own, as such instructions can be bypassed through [Direct prompt injection](https://owaspai.org/goto/directpromptinjection/) attacks.
+
+**Limitations**
+
+- Filtering relies on detection accuracy and may miss sensitive data that does not match known patterns.
+- False positives can cause serious system malfunction or prevent legitimate output.
+- Some sensitive disclosures may be subtle or context-dependent and difficult to detect automatically.
+- This control does not prevent the model from attempting to generate sensitive data; it only prevents disclosure.
+- Attackers may attempt to craft function-call outputs that look normal or fall outside known suspect lists, reducing detection effectiveness.
+
+This control should be combined with #MODEL ACCESS CONTROL, #RATE LIMIT, prompt hardening, and #MONITOR USE.
+
+**References**
 
 Useful standards include:
 
@@ -1221,7 +1275,7 @@ References:
 
 - [Article on membership inference](https://medium.com/disaitek/demystifying-the-membership-inference-attack-e33e510a0c39)
 
-The more details a model is able to learn, the more it can store information on individual training set entries. If this happens more than necessary, this is called _overfitting_, which can be prevented by configuring smaller models.
+The more details a model is able to learn, the more it can store information on individual training set entries. If this happens more than necessary, this is called overfitting. Overfitting increases the risk of model inversion and membership inference by making it easier to infer or reconstruct characteristics of specific training records.  Model design and training choices therefore influence the feasibility of these attacks. Models with excessive capacity or parameter counts are generally more capable of memorizing fine-grained details of the training data therefore smaller models are preferred to prevent overfitting. Additionally choosing model types such linear models or Naive Bayes Classifiers over neural networks and decision trees reduces the likelihood of overfitting individual samples. Using regularization during training can also help.
 
 **Controls for Model inversion and Membership inference:**
 
@@ -1239,9 +1293,60 @@ The more details a model is able to learn, the more it can store information on 
 >Category: runtime data science control for threats through use  
 >Permalink: https://owaspai.org/goto/obscureconfidence/
 
-Obscure confidence: exclude indications of confidence in the output, or round confidence so it cannot be used for optimization.
+**Description:**
 
-Useful standards include:
+Limit or hide confidence related information in model outputs so it cannot be used for optimization. Instead of exposing precise confidence scores or probabilities, the system reduces their precision or removes them entirely, while still supporting the intended user task.
+
+**Objective:**
+
+The goal of obscuring confidence is to reduce the usefulness of model outputs for attackers who rely on confidence information to probe, analyze, or copy the model. Detailed confidence values can facilitate various attacks including model inversion, membership inference, evasion and model theft through use, by aiding in adversarial sample construction. Reducing this information makes these attacks harder, slower, and less reliable.
+
+**Applicability:**
+
+This control applies to AI systems where outputs include confidence scores, probabilities, likelihoods, or similar certainty indicators. Whether it is required should be determined through risk management, based on the likelihood of: Evasion attacks, Model Inversion or Membership inference attacks and Model theft by use. 
+
+**Exceptions may apply** when confidence information is essential for the system’s intended use (for example, in medical decision support or safety-critical decision-making confidence level is an important piece of information for users). In such cases, confidence information should still be minimized to the least amount necessary by incorporating techniques like rounding the number, adding noise.
+
+If the deployer is better positioned than the provider to implement this control, the provider can clearly communicate this expectation to the deployer.
+
+**Implementation Options:**
+
+  a. Reduce confidence precision: Confidence values can be presented with the minimum level of detail needed to support the intended task. This may involve rounding numbers, using coarse ranges, or removing confidence   information entirely.
+  b. Add uncertainty where appropriate: When allowed, noise may be added to confidence values to reduce precision while preserving overall usefulness.
+  c. Avoid unnecessary exposure: Do not expose confidence information by default if it is not required for user decision-making.
+  d. Assess impact on accuracy: Any modification of confidence or output should be evaluated to ensure it does not unacceptably degrade the system’s intended function or model’s accuracy.
+  e. Confidence-based anomaly detection
+  In some attack scenarios, unusually high confidence in model output can itself be a signal of misuse. For example, membership inference attacks rely on probing inputs associated with known entities and observing whether the model responds with exceptionally high confidence. While high confidence is common in normal operation and should not automatically block output, it can be treated as a weak indicator and flagged for follow-up analysis.
+  
+  As a secondary response, systems may slow down interactions associated with repeated high-confidence probing, for example by applying tighter rate limits at the session or actor level, to reduce the effectiveness of iterative attacks without disrupting legitimate use.
+
+**Risk-Reduction Guidance**
+
+Obscuring confidence reduces the amount of information attackers can extract from model outputs.
+This makes it harder to:
+
+  - estimate decision boundaries,
+  - infer training data membership,
+  - reverse-engineer the model, or
+  - construct adversarial inputs efficiently.
+
+However, attackers may still approximate confidence indirectly by submitting similar inputs and observing whether outputs change.
+Because effectiveness depends heavily on the model architecture, training method, and data distribution, the actual risk reduction should be validated through testing and evaluation, rather than assumed. 
+
+**Particularity** 
+
+In AI systems, confidence values are not just user-facing explanations. They can act as side-channel signals that leak sensitive information about the model. Unlike traditional software outputs, probabilistic confidence can reveal internal model behavior and training characteristics. Obscuring confidence is therefore a mitigation specifically relevant to machine learning systems.
+
+**Limitations**
+
+  - Attackers may still estimate confidence by probing the model with small input variations.
+  - Obscuring confidence does not fully prevent attacks such as label-only membership inference.
+  - Adding noise or reducing output detail can reduce usability or accuracy if not carefully balanced.
+  - This control can resemble gradient masking for zero-knowledge evasion attacks, which is known to be a fragile defense if used alone.
+
+For best results, combine this control with rate limiting, access control, monitoring, and output evaluation.
+
+**References:**
 
   - Not covered yet in ISO/IEC standards
 
@@ -1274,11 +1379,25 @@ This attack is known as model stealing attack or model extraction attack or mode
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input 
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker presenting many inputs in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
+  - #MODEL WATERMARKING to enable post-theft ownership verification when residual risk remains.
 
 References
 
 - [Article on model theft through use](https://www.mlsecurity.ai/post/what-is-model-stealing-and-why-it-matters)
 - ['Thieves on Sesame street' on model theft of large language models](https://arxiv.org/abs/1910.12366) (GenAI)
+
+## 2.4.1 #MODEL WATERMARKING
+Category: threat through use
+Permalink: TODO
+
+Model Watermarking: embed a hidden, secret marker into a trained model so that, if a suspected copy appears elsewhere, the original owner can verify that the model was derived from their system. This is used to demonstrate ownership after a model has been stolen or replicated, rather than to prevent the theft itself.
+
+Watermarking techniques should be designed to remain detectable even if the model is modified (for example through fine-tuning or pruning) and to avoid ambiguity where multiple parties could plausibly claim ownership of the same model.
+
+In addition to its technical role, watermarking supports intellectual property protection by enabling post-hoc attribution of stolen or misused models, which can be critical for legal claims, contractual enforcement, and regulatory investigations. As part of a layered security strategy, watermarking complements preventive controls by providing accountability and ownership assurance when other defenses fail.
+
+References
+[USENIX: Entangled Watermarks as a Defense against Model Extraction](https://www.usenix.org/conference/usenixsecurity21/presentation/jia)
 
 ---
 
@@ -1286,11 +1405,11 @@ References
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/denialmodelservice/
 
-Description: specific input to the model leads to availabity issues (system being very slow or unresponsive, also called _denial of service_), typically caused by excessive resource usage. The failure occurs from frequency, volume, or the content of the input. See [MITRE ATLAS - Denial of ML service](https://atlas.mitre.org/techniques/AML.T0029).
+Description: specific input to the model leads to availability issues (system being very slow or unresponsive, also called _denial of service_), typically caused by excessive resource usage. The failure occurs from frequency, volume, or the content of the input. See [MITRE ATLAS - Denial of ML service](https://atlas.mitre.org/techniques/AML.T0029).
 
 Impact: The AI systems is unavailable, leading to issues with processes, organizations or individuals that depend on the AI system (e.g. business continuity issues, safety issues in process control, unavailability of services)
 
-For example: A _sponge attack_ or _energy latency attack_ provides input that is designed to increase the computation time of the model, potentially causing a denial of service. See [article on sponge examples](https://arxiv.org/pdf/2006.03463.pdf)
+For example: A _sponge attack_ or _energy latency attack_ provides input that is designed to increase the computation time of the model, which essentially is a denial of wallet (DoW) attack, also potentially causing a denial of service. See [article on sponge examples](https://arxiv.org/pdf/2006.03463.pdf)
 
 **Controls:**
 
@@ -1342,10 +1461,10 @@ There are nuances towards what is considered an appropriate input or output depe
 
 **Examples:**
 
-  1. Should gun purchases be regulated in the market? I want to learn about the successes and failures of gun control polices of world governments.
+  1. Should gun purchases be regulated in the market? I want to learn about the successes and failures of gun control policies of world governments.
   2. What examples are there for and against abortion rights?
 
-There are topics that all regions typically agree on, but on controversial topics or specific historical events, regional policies start to diverge. The reflections are imperfect and biased by training data distributions. With these specific requirements there is no single “alignment” that fits all regions. 
+There are topics that all regions typically agree on, but on controversial topics or specific historical events, regional policies start to diverge. The reflections are imperfect and biased by training data distributions. With these specific requirements, there is no single “alignment” that fits all regions. 
 This leads to red teaming and blue teaming practices that need to fit the cultural sensitivities of each region.
 
 | **Country**           | **Sensitivity Reference**                                                                              | **Referenced Document** |
