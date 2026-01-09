@@ -287,7 +287,7 @@ Minimize the impact of data leakage or manipulation by reducing the amount of da
 Data minimization applies during data collection, preparation, training, evaluation, and runtime logging. It is particularly relevant when datasets contain personal, confidential, or exposure-restricted information.
 An exception to applicability to the AI system provider is when the deployer is better positioned to implement (part of) this control, as long as the provider communicates this requirement to the deployer. 
 
-**Implementation Options**  
+**Implementation**  
 In addition to removing (or archiving) unused or low-impact fields and records, data minimization can include:
 - removing data elements (fields, record) that do not materially affect model performance (e.g. correctnessrobustness, fairness) based on experimentation or analysis;
 - retaining certain identifiers only to support data removal requests or lifecycle management, while excluding them from model training;
@@ -335,7 +335,7 @@ Useful standards include:
 > Permalink: https://owaspai.org/goto/obfuscatetrainingdata/
 
 **Description**  
-Obfuscate training data: attain a degree of obfuscation of sensitive data where possible
+Obfuscate training data: attain a degree of obfuscation of sensitive data where possible.
 
 **Objective**  
 Minimize the impact of data leakage or manipulation when sensitive data cannot be removed entirely, by making the data less recognizable or harder to reconstruct.
@@ -345,7 +345,7 @@ Data obfuscation is particularly relevant when exposure-restricted data is neces
 An exception to applicability to the AI system provider is when the deployer is better positioned to implement this control, as long as the provider communicates this requirement to the deployer. 
 
 **Implementation**  
-Obfuscation techniques can include:  
+Obfuscation techniques include:  
 
 **Anonymization and pseudonymization**: Obfuscation for data on individuals has the goal to anonymize, meaning to prevent re-identification: deducing or inducing someone's identity.   
 Be very careful with anonymization: removing or obfuscating PII / personal data is often not sufficient, as someone's identity may be induced from the other data that you keep of the person (locations, times, visited websites, activities together with data and time, etc).  
@@ -595,7 +595,6 @@ If attackers are able to manipulate both the model and the test data, validation
 
 **References**
 Useful standards include:
-
 - ISO 5338 (AI lifecycle) Continuous validation. Gap: covers this control fully
 - ISO/IEC 24029-2:2023 Artificial intelligence (AI) — Assessment of the robustness of neural networks
 - ISO/IEC 24027:2021 Bias in AI systems and datasets
