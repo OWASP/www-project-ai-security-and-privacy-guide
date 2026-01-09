@@ -12,17 +12,25 @@ weight: 2
 > Category: governance control  
 > Permalink: https://owaspai.org/goto/aiprogram/
 
-AI program: Install and execute a program to govern AI. Take responsibility for AI as an organization, by keeping an inventory of AI initiatives, perform risk analysis on them, and manage those risks.  
+**Description**  
+AI program: Install and execute a program to govern AI.  
+One could argue that this control is out of scope for cyber security, but it initiates action to get in control of AI security.
 
+**Ojective**  
+The objective of an AI Program is to take responsibility for AI as an organization and make sure that all AI initiatives are known and under control, including their security.
 
-Purpose: 1) reduces probability of AI initiatives being overlooked for proper governance (including security) - as covered by controls in this document, and 2) increases incentive for proper governance as the AI program takes responsibility for it. Without proper governance, the controls in this document can only happen by accident.
-
-This includes assigning responsibilities, e.g. model accountability, data accountability, and risk governance.  
-This governance challenge may seem daunting because of all the new things to take care of, but there are plenty of existing controls in organizations that can be extended to include AI (e.g. policies, risk analysis, impact analysis, inventory of used services etc.).
-
-Technically one could argue that this control is out of scope for cyber security, but it initiates action to get in control of AI security.
-
-See [How to organize AI security](/goto/organize/) for the 5 GUARD steps and to see how governance fits into the whole.
+**Implementation**  
+This governance challenge may seem daunting because of all the new things to take care of, but there are numerous existing controls in organizations already that can be extended to include AI (e.g. policies, risk analysis, impact analysis, inventory of used services etc.).  
+See [How to organize AI security](/goto/organize/) for the 5 GUARD steps and to see how governance fits into the whole.  
+An AI Program includes:
+- Keeping an inventory of AI initiatives
+- Perform impact analysis on initiatives
+- Organize AI innovation
+- Include AI risks in risk mangement
+- Asign responsibilities, e.g. model accountability, data accountability, and risk governance
+- AI literacy (e.g. [training](/goto/seceducate/)
+- Organize [compliance](/goto/checkcompliance/)
+- Incorporate AI assets in the [security program](/goto/secprogram/)
 
 When doing impact analysis on AI initiatives, consider at least the following:
 - Note that an AI program is not just about risk TO AI, such as security risks - it is also about risks BY AI, such as threats to fairness, safety, etc.
@@ -347,15 +355,6 @@ An exception to applicability to the AI system provider is when the deployer is 
 **Implementation**  
 Obfuscation techniques include:  
 
-**Anonymization and pseudonymization**: Obfuscation for data on individuals has the goal to anonymize, meaning to prevent re-identification: deducing or inducing someone's identity.   
-Be very careful with anonymization: removing or obfuscating PII / personal data is often not sufficient, as someone's identity may be induced from the other data that you keep of the person (locations, times, visited websites, activities together with data and time, etc).  
-The risk of re-identification can be assessed by experts using statistical properties such as K-anonymity, L-diversity, and T-closeness.  
-Anonymity is not an absolute concept, but a statistical one. Even if someone's identity can be guessed from data with some certainty, it can be harmful. The concept of _differential privacy_ helps to analyse the level of anonymity. It is a framework for formalizing privacy in statistical and data analysis, ensuring that the privacy of individual data entries in a database is protected. The key idea is to make it possible to learn about the population as a whole while providing strong guarantees that the presence or absence of any single individual in the dataset does not significantly affect the outcome of any analysis. This is often achieved by adding a controlled amount of random noise to the results of queries on the database. This noise is carefully calibrated to mask the contribution of individual data points, which means that the output of a data analysis (or query) should be essentially the same, whether any individual's data is included in the dataset or not. In other words by observing the output, one should not be able to infer whether any specific individual's data was used in the computation.
-
-Distorting training data can make it effectively uncrecognizable, which of course needs to be weighed against the negative effect on model performance that this typically creates. See also [TRAINDATADISTORTION](/goto/traindatadistortion/) which is about distortion against data poisoning and [EVASIONROBUSTMODEL](/goto/evasionrobustmodel/) for distortion against evasion attacks. Together with this control OBFUSCATETRAININGDATA, these are all approaches that distort training data, but for different purposes.
-
-**Examples of approaches are:**
-
 - **Private Aggregation of Teacher Ensembles (PATE)**  
 Private Aggregation of Teacher Ensembles (PATE) is a privacy-preserving machine learning technique. This method tackles the challenge of training models on sensitive data while maintaining privacy. It achieves this by employing an ensemble of "teacher" models along with a "student" model. Each teacher model is independently trained on distinct subsets of sensitive data, ensuring that there is no overlap in the training data between any pair of teachers. Since no single model sees the entire dataset, it reduces the risk of exposing sensitive information. Once the teacher models are trained, they are used to make predictions. When a new (unseen) data point is presented, each teacher model gives its prediction. These predictions are then aggregated to reach a consensus. This consensus is considered more reliable and less prone to individual biases or overfitting to their respective training subsets. To further enhance privacy, noise is added to the aggregated predictions. By adding noise, the method ensures that the final output doesn't reveal specifics about the training data of any individual teacher model. The student model is trained not on the original sensitive data, but on the aggregated and noised predictions of the teacher models. Essentially, the student learns from the collective wisdom and privacy-preserving outputs of the teachers. This way, the student model can make accurate predictions without ever directly accessing the sensitive data. However, there are challenges in balancing the amount of noise (for privacy) and the accuracy of the student model. Too much noise can degrade the performance of the student model, while too little might compromise privacy.
  
@@ -377,12 +376,6 @@ Within the realm of personal data protection, tokenization aligns with the princ
 Tokenization aligns with this concept by replacing personal details with tokens, increasing the difficulty of linking specific records back to individuals.
 Tokenization proves particularly advantageous in development-time data science when handling sensitive datasets. It enhances security by enabling data scientists to work with valuable information without compromising individual privacy. The implementation of tokenization techniques supports the broader objective of obfuscating training data, striking a balance between leveraging valuable data insights and safeguarding the privacy of individuals.
 
-- **Anonymization**
-Anonymization is the process of concealing or transforming sensitive information in a dataset to protect individuals' privacy and identity. This involves replacing or modifying identifiable elements with generic labels or pseudonyms, aiming to obfuscate data and prevent specific individual identification while maintaining data utility for effective model training. In the broader context of advanced pseudonymization methods, anonymization is crucial for preserving privacy and confidentiality in data analysis and processing.
-Challenges in anonymization include the need for robust techniques to prevent re-identification, limitations of traditional methods, and potential vulnerabilities in achieving true anonymization. There is an intersection with advanced techniques such as encryption, secure multiparty computation, and pseudonyms with proof of ownership.
-In the healthcare sector with personally identifiable information (PII), there are potential pseudonymization options, emphasizing advanced techniques like asymmetric encryption, ring signatures, group pseudonyms and pseudonyms based on multiple identifiers. In the cybersecurity sector, pseudonymization is applied in common use cases, such as telemetry and reputation systems.
-These use cases demonstrate the practical relevance and applicability of pseudonymization techniques in real-world scenarios, offering valuable insights for stakeholders involved in data pseudonymization and data protection.
-
 **Risk-Reduction Guidance**  
 Obfuscation reduces the likelihood that training data can be reconstructed or linked back to individuals. Effectiveness can be evaluated through attack testing or by relying on formal privacy guarantees such as differential privacy or an equivalent mathematical framework. Residual risk remains when exposure-restricted data is still present, when obfuscation mechanisms fail, or when reconstruction or re-identification remains possible, such as through access to token mapping tables.
 
@@ -390,10 +383,14 @@ Obfuscation reduces the likelihood that training data can be reconstructed or li
 AI models typically do not require exact or human-readable representations of training data, allowing obfuscation techniques that would be impractical in traditional systems. In traditional systems, data attributes are processed directly leaving less room for obfuscation techniques. 
 
 **Limitations**  
-Obfuscation limitations include:
-- Obfuscation reduces the risk of re-identification or inference, but does not eliminate it;
-- token-based approaches introduce additional risk if mapping tables are compromised.
-- Increasing privacy guarantees often comes at the cost of reduced model accuracy.
+Obfuscation reduces the risk of re-identification or inference, but does not eliminate it:
+- Removing or obfuscating PII / personal data is often not sufficient, as someone's identity may be induced from the other data that you keep of the person (locations, times, visited websites, activities together with data and time, etc). 
+- Token-based approaches introduce additional risk if mapping tables are compromised.
+
+The risk of re-identification can be assessed by experts using statistical properties such as K-anonymity, L-diversity, and T-closeness.  
+Anonymity is not an absolute concept, but a statistical one. Even if someone's identity can be guessed from data with some certainty, it can be harmful. The concept of _differential privacy_ helps to analyse the level of anonymity. It is a framework for formalizing privacy in statistical and data analysis, ensuring that the privacy of individual data entries in a database is protected. The key idea is to make it possible to learn about the population as a whole while providing strong guarantees that the presence or absence of any single individual in the dataset does not significantly affect the outcome of any analysis. This is often achieved by adding a controlled amount of random noise to the results of queries on the database. This noise is carefully calibrated to mask the contribution of individual data points, which means that the output of a data analysis (or query) should be essentially the same, whether any individual's data is included in the dataset or not. In other words by observing the output, one should not be able to infer whether any specific individual's data was used in the computation.
+
+Distorting training data can make it effectively uncrecognizable, which of course needs to be weighed against the negative effect on model performance that this typically creates. See also [TRAINDATADISTORTION](/goto/traindatadistortion/) which is about distortion against data poisoning and [EVASIONROBUSTMODEL](/goto/evasionrobustmodel/) for distortion against evasion attacks. Together with this control OBFUSCATETRAININGDATA, these are all approaches that distort training data, but for different purposes.
 
 **References:**  
 - [SF-PATE: Scalable, Fair, and Private Aggregation of Teacher Ensembles](https://arxiv.org/abs/2204.05157)
