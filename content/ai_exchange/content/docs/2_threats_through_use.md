@@ -491,6 +491,62 @@ Legitimate users may exhibit behavior similar to attack patterns, such as system
 See also [#ANOMALOUS INPUT HANDLING](/goto/anomalous input handling/) for detecting abnormal input which can be an indication of adversarial input and #EVASION INPUT HANDLING for detecting single input evasion inputs. Useful standards include:
 - Not covered yet in ISO/IEC standards
 
+
+#### #OBSCURE CONFIDENCE 
+>Category: runtime AI engineer control for input threats
+>Permalink: https://owaspai.org/goto/obscureconfidence/
+
+**Description**
+
+Limit or hide confidence related information in model outputs so it cannot be used for attacks that involve optimization. Instead of exposing precise confidence scores or probabilities, the system reduces precision or removes the information entirely, while still supporting the intended user task.
+
+**Objective**
+
+The goal of obscuring confidence is to reduce the usefulness of model outputs for attackers who rely on confidence information to probe, analyze, or copy the model. Detailed confidence values can facilitate various attacks including model inversion, membership inference, evasion and model theft through use, by aiding in adversarial sample construction. Reducing this information makes these attacks harder, slower, and less reliable.
+
+**Applicability**
+
+This control applies to AI systems where outputs include confidence scores, probabilities, likelihoods, or similar certainty indicators. Whether it is required should be determined through risk management, based on the likelihood of: Evasion attacks, Model Inversion or Membership inference attacks and Model theft through use. 
+
+The exceptions is when confidence information is essential for the system’s intended use (for example, in medical decision support or safety-critical decision-making confidence level is an important piece of information for users). In such cases, confidence information should still be minimized to the least amount necessary by incorporating techniques like rounding the number, adding noise.
+
+If the deployer is better positioned than the provider to implement this control, the provider can clearly communicate this expectation to the deployer.
+
+**Implementation**
+1. Reduce confidence precision: Confidence values can be presented with the minimum level of detail needed to support the intended task. This may involve rounding numbers, using coarse ranges, or removing confidence information entirely.
+2. Assess impact on accuracy: Any modification of confidence or output should be evaluated to ensure it does not unacceptably degrade the system’s intended function or model’s accuracy.
+
+NOTE: Confidence-based anomaly detection  
+In some attack scenarios, unusually high confidence in model output can itself be a signal of misuse. For example, membership inference attacks rely on probing inputs associated with known entities and observing whether the model responds with exceptionally high confidence. While high confidence is common in normal operation and should not automatically block output, it can be treated as a weak indicator and flagged for follow-up analysis.
+  
+**Risk-Reduction Guidance**
+
+Obscuring confidence reduces the amount of information attackers can extract from model outputs.
+This makes it harder to:
+
+  - estimate decision boundaries,
+  - infer training data membership,
+  - reverse-engineer the model, or
+  - construct adversarial inputs efficiently.
+
+However, attackers may still approximate confidence indirectly by submitting similar inputs and observing whether outputs change.
+Because effectiveness depends heavily on the model architecture, training method, and data distribution, the actual risk reduction should be validated through testing and evaluation, rather than assumed. 
+
+**Particularity** 
+
+In AI systems, confidence values are not just user-facing explanations. They can act as side-channel signals that leak sensitive information about the model. Unlike traditional software outputs, probabilistic confidence can reveal internal model behavior and training characteristics. Obscuring confidence is therefore a mitigation specifically relevant to machine learning systems.
+
+**Limitations**
+  - Attackers may still estimate confidence by probing the model with small input variations.
+  - Obscuring confidence does not fully prevent attacks such as label-only membership inference.
+  - Adding noise or reducing output detail can reduce usability or accuracy if not carefully balanced.
+  - This control can resemble gradient masking for zero-knowledge evasion attacks, which is known to be a fragile defense if used alone.
+
+**References**
+  - Not covered yet in ISO/IEC standards
+
+
+
 ## 2.1. Evasion
 >Category: group of threats through use  
 >Permalink: https://owaspai.org/goto/evasion/
@@ -538,7 +594,8 @@ An evasion attack typically consists of first searching for the inputs that misl
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
-  - [#ANOMALOUS INPUT HANDLING](/goto/anomalousinputhandling/) as unusual input can be suspicious for evasion 
+  - [#ANOMALOUS INPUT HANDLING](/goto/anomalousinputhandling/) as unusual input can be suspicious for evasion
+  - [#OBSCURE CONFIDENCE](/goto/obscureconfidence/) to limit information that the attacker can use
 - Specifically for evasion:
     - [#DETECT ADVERSARIAL INPUT](/goto/detectadversarialinput/) to find typical attack forms or multiple tries in a row - discussed below
   - [#EVASION ROBUST MODEL](/goto/evasionrobustmodel/): choose an evasion-robust model design, configuration and/or training approach - discussed below
@@ -1140,12 +1197,12 @@ The disclosure is caused by an unintentional fault of including this data, and e
   - [#FILTER SENSITIVE MODEL OUTPUT](/goto/filtersensitivemodeloutput/) - discussed below
 
 #### #SENSITIVE OUTPUT HANDLING
->Category: runtime information security control for threats through use  
+>Category: runtime information security control for input threats
 >Permalink: https://owaspai.org/goto/filtersensitivemodeloutput/
 
 **Description**
 
-Handle sensitive model output by actively detecting and blocking, masking, or stopping the release of data that should not be disclosed. This includes exposure-restricted information such as personal data (e.g. name, phone number), confidential identifiers, or other content that the model is not allowed to reveal.
+Handle sensitive model output by actively detecting and blocking, masking, stopping, or logging the unwanted disclosure of data. This includes exposure-restricted information such as personal data (e.g. name, phone number), confidential identifiers, passwords, and tokens.
 
 **Objective**
 
@@ -1153,28 +1210,25 @@ The objective of handling sensitive model output is to prevent unintended disclo
 
 **Applicability**
 
-This control applies to AI systems that generate user-visible output or trigger downstream actions based on model output.
-It is especially relevant when models may have been trained on, fine-tuned with, or have access to sensitive data.
+Sensitive output handling is applicable in case:
 
-Sensitive output handling is required whenever:
-
-- exposure-restricted data must not leave the system,
-- outputs can be influenced by untrusted inputs, or
+- The model has been trained on, fine-tuned with, or have access to exposure-restricted data (e.g. data that has been inserted into an input prompt), and
+- that data may be reflected in the model output, and
+- model output can reach unauthorized actors, directly, or downstream, and
 - misuse or manipulation of model behaviour is a concern.
 
 If implementation is more appropriate for the deployer (for example, output filtering integrated into an application layer), the provider can clearly communicate this expectation to the deployer.
 
-**Implementation Options**
-
-  - **Detect sensitive data in output:** Model output can be analysed to identify exposure-restricted information such as names, phone numbers, identifiers, or other sensitive content. @@add what you do with it.
-  - **Apply enforcement at output time:** When sensitive content is detected, disclosure can be prevented through filtering, masking, or stopping the output before it is exposed.
-  - **Detect recitation of training data:** Where feasible, recitation checks can be applied to identify whether long strings or sequences in model output appear in an indexed set of training data, including pretraining and fine-tuning datasets. This can help identify unintended memorization and potential data leakage.
-
-@@Because natural language allows for many variations, synonyms, and indirect phrasing, semantic interpretation using language models can complement rules-based approaches and improve robustness. When such extraction intent is suspected, the signal can be used to trigger additional safeguards, such as stricter output filtering, logging for investigation, or increased scrutiny of subsequent interactions.
+**Implementation**
+- **Detect sensitive data in output:** Model output can be analysed to identify exposure-restricted information such as names, phone numbers, identifiers, or other sensitive content. @@add what you do with it.
+- **Apply enforcement at output time:** When sensitive content is detected, disclosure can be prevented through filtering, masking, or stopping the output before it is exposed - provided detection confidence is sufficiently high. 
+- **Log:**Logging of detections is key, and if confidence in the detection is low, it can be marked with an alert to pick up later.
+- **Detect recitation of training data:** Where feasible, recitation checks can be applied to identify whether long strings or sequences in model output appear in an indexed set of training data, including pretraining and fine-tuning datasets. This can help identify unintended memorization and potential data leakage.
+- **Use GenAI for detection**: In case natural language allows for too many variations, synonyms, and indirect phrasing, then semantic interpretation using language models can complement rules-based approaches and improve robustness. 
 
 **Risk-Reduction Guidance**
 
-Filtering sensitive output directly reduces the risk of data exposure by stopping disclosure at the last possible stage. It is the only way to prevent sensitive data from being exposed. This is particularly important because output-based attacks may succeed even when prompt-level controls fail. 
+Filtering sensitive output directly reduces the risk of data exposure by stopping disclosure at the last possible stage. This is particularly important because output-based attacks may succeed even when prompt-level controls fail. 
 
 Detection effectiveness relies heavily on the accuracy of classifiers, rules, or pattern-matching techniques, as these determine the system's ability to correctly identify threats or anomalies. Inaccuracies can lead to false positives, which may disrupt operations or degrade system functionality, and false negatives, which pose serious risks such as data leakage or undetected breaches. This is particularly critical in safety-sensitive environments, where the consequences of misclassification can be severe. Therefore, output filtering must be rigorously tested and carefully tuned to ensure that system behavior remains aligned with intended use after safeguards are introduced. 
 
@@ -1194,10 +1248,8 @@ Providing models with instructions not to disclose certain data (for example via
 - Filtering relies on detection accuracy and may miss sensitive data that does not match known patterns.
 - False positives can cause serious system malfunction or prevent legitimate output.
 - Some sensitive disclosures may be subtle or context-dependent and difficult to detect automatically.
-- This control does not prevent the model from attempting to generate sensitive data; it only prevents disclosure.
-- Attackers may attempt to craft function-call outputs that look normal or fall outside known suspect lists, reducing detection effectiveness.
+- Attackers may attempt to obfuscate output o circumvent detection (e.g. base64 encoding a token)
 
-This control should be combined with #MODEL ACCESS CONTROL, #RATE LIMIT, prompt hardening, and #MONITOR USE.
 
 **References**
 
@@ -1231,70 +1283,10 @@ The more details a model is able to learn, the more it can store information on 
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input patterns
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
+  - [#OBSCURE CONFIDENCE](/goto/obscureconfidence/) to limit information that the attacker can use
 - Specifically for Model Inversion and Membership inference: 
-  - [#OBSCURE CONFIDENCE](/goto/obscureconfidence/) to limit information that the attacker can use - discussed below
   - [#SMALL MODEL](/goto/smallmodel/) to limit the amount of information that can be retrieved - discussed below
 
-#### #OBSCURE CONFIDENCE 
->Category: runtime data science control for threats through use  
->Permalink: https://owaspai.org/goto/obscureconfidence/
-
-**Description:**
-
-Limit or hide confidence related information in model outputs so it cannot be used for optimization. Instead of exposing precise confidence scores or probabilities, the system reduces their precision or removes them entirely, while still supporting the intended user task.
-
-**Objective:**
-
-The goal of obscuring confidence is to reduce the usefulness of model outputs for attackers who rely on confidence information to probe, analyze, or copy the model. Detailed confidence values can facilitate various attacks including model inversion, membership inference, evasion and model theft through use, by aiding in adversarial sample construction. Reducing this information makes these attacks harder, slower, and less reliable.
-
-**Applicability:**
-
-This control applies to AI systems where outputs include confidence scores, probabilities, likelihoods, or similar certainty indicators. Whether it is required should be determined through risk management, based on the likelihood of: Evasion attacks, Model Inversion or Membership inference attacks and Model theft by use. 
-
-**Exceptions may apply** when confidence information is essential for the system’s intended use (for example, in medical decision support or safety-critical decision-making confidence level is an important piece of information for users). In such cases, confidence information should still be minimized to the least amount necessary by incorporating techniques like rounding the number, adding noise.
-
-If the deployer is better positioned than the provider to implement this control, the provider can clearly communicate this expectation to the deployer.
-
-**Implementation Options:**
-
-  a. Reduce confidence precision: Confidence values can be presented with the minimum level of detail needed to support the intended task. This may involve rounding numbers, using coarse ranges, or removing confidence   information entirely.
-  b. Add uncertainty where appropriate: When allowed, noise may be added to confidence values to reduce precision while preserving overall usefulness.
-  c. Avoid unnecessary exposure: Do not expose confidence information by default if it is not required for user decision-making.
-  d. Assess impact on accuracy: Any modification of confidence or output should be evaluated to ensure it does not unacceptably degrade the system’s intended function or model’s accuracy.
-  e. Confidence-based anomaly detection
-  In some attack scenarios, unusually high confidence in model output can itself be a signal of misuse. For example, membership inference attacks rely on probing inputs associated with known entities and observing whether the model responds with exceptionally high confidence. While high confidence is common in normal operation and should not automatically block output, it can be treated as a weak indicator and flagged for follow-up analysis.
-  
-  As a secondary response, systems may slow down interactions associated with repeated high-confidence probing, for example by applying tighter rate limits at the session or actor level, to reduce the effectiveness of iterative attacks without disrupting legitimate use.
-
-**Risk-Reduction Guidance**
-
-Obscuring confidence reduces the amount of information attackers can extract from model outputs.
-This makes it harder to:
-
-  - estimate decision boundaries,
-  - infer training data membership,
-  - reverse-engineer the model, or
-  - construct adversarial inputs efficiently.
-
-However, attackers may still approximate confidence indirectly by submitting similar inputs and observing whether outputs change.
-Because effectiveness depends heavily on the model architecture, training method, and data distribution, the actual risk reduction should be validated through testing and evaluation, rather than assumed. 
-
-**Particularity** 
-
-In AI systems, confidence values are not just user-facing explanations. They can act as side-channel signals that leak sensitive information about the model. Unlike traditional software outputs, probabilistic confidence can reveal internal model behavior and training characteristics. Obscuring confidence is therefore a mitigation specifically relevant to machine learning systems.
-
-**Limitations**
-
-  - Attackers may still estimate confidence by probing the model with small input variations.
-  - Obscuring confidence does not fully prevent attacks such as label-only membership inference.
-  - Adding noise or reducing output detail can reduce usability or accuracy if not carefully balanced.
-  - This control can resemble gradient masking for zero-knowledge evasion attacks, which is known to be a fragile defense if used alone.
-
-For best results, combine this control with rate limiting, access control, monitoring, and output evaluation.
-
-**References:**
-
-  - Not covered yet in ISO/IEC standards
 
 #### #SMALL MODEL 
 >Category: development-time data science control for threats through use  
