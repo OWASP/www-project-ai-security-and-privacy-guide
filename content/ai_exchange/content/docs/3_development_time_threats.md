@@ -10,15 +10,18 @@ This section discusses the AI security threats during the development of the AI 
 
 **Background:**
 
-Data science (data engineering and model engineering - for machine learning often referred to as _training phase_) introduces new elements and therefore new attack surface into the engineering environment. Data engineering (collecting, storing, and preparing data) is typically a large and important part of machine learning engineering. Together with model engineering, it requires appropriate security to protect against data leaks, data poisoning, leaks of intellectual property, and supply chain attacks (see further below). In addition, data quality assurance can help reduce risks of intended and unintended data issues.
+Data science (data engineering and model engineering - for machine learning often referred to as the _training phase_) introduces new elements and therefore new attack surfaces into the engineering environment. Data engineering (collecting, storing, and preparing data) is typically a large and important part of machine learning engineering. Together with model engineering, it requires appropriate security to protect against data leaks, data poisoning, leaks of intellectual property, and supply chain attacks (see further below). In addition, data quality assurance can help reduce risks of intended and unintended data issues.
 
 **Particularities:**
 
 - Particularity 1: the data in the AI development environment is real data that is typically sensitive, because it is needed to train the model and that obviously needs to happen on real data, instead of fake data that you typically see in standard development environment situations (e.g. for testing). Therefore, data protection activities need to be extended from the live system to the development environment.
 - Particularity 2: elements in the AI development environment (data, code, configuration & parameters) require extra protection as they are prone to attacks to manipulate model behaviour (called _poisoning_)
 - Particularity 3: source code, configuration, and parameters are typically critical intellectual property in AI
-- Particularity 4: the supply chain for AI systems introduces two new elements: data and models
+- Particularity 4: the supply chain for AI systems introduces new elements: data, model and AI components.
 - Particularity 5: external software components may run within the engineering environments, for example to train models, introducing a new threat of malicious components gaining access to assets in that environment (e.g. to poison training data)
+- Particularity 6: software components for AI systems can also run in the development environment instead of in production (for example data-processing libraries, feature-engineering tools, or, or even the training framework itself). This increases the attack surface because malicious development components could gain access to training data or model parameters.
+- Particularity 7:  Model development can be done in a collaborative way across trust boundaries, such as federated learning, merging parameter-efficient fine-tuning (PEFT) modules, and using model conversion services. These collaborations can mitigate some risks by for example spreading training data, but they also extend the attack surface and as such increase threats such as data poisoning.
+
 
 ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 
