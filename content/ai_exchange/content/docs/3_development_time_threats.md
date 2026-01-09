@@ -163,7 +163,7 @@ Useful standards include:
 - Not covered yet in ISO/IEC standards
 
 #### #FEDERATEDLEARNING
-> Category: development-time data science control  
+> Category: development-time AI engineer control  
 > Permalink: https://owaspai.org/goto/federatedlearning/
  
 Federated learning can be applied when a training set is distributed over different organizations, preventing the data from needing to be collected in a central place. This decreases the risk of all data leaking and increases the risk of some data leaking.
@@ -204,11 +204,11 @@ Useful standards include:
 
 **Description**  
 Supply chain management focuses on managing the supply chain to minimize the security risk from externally obtained elements. In conventional software engineering these elements are source code or software components (e.g. open source). AI supply chains differ from conventional software supply chains in several ways:  
-1. supplied elements can also include data, models, fine-tuning artifacts (eg: LoRA modules) and development-time tooling.
-2. many of the software components are executed development-time instead of just in production (the runtime of the application),
-3. As explained in the development-time threats, there are new vulnerable assets during AI development: training data and model parameters - which can fall victim to software components running development-time.
+1. supplied elements can also include data, models, fine-tuning artifacts (eg: LoRA modules) and development-time tooling;
+2. software components may be executed development-time instead of runtime when the AI system is in production ;
+3. as explained in the development-time threats, there are new vulnerable assets during AI development: training data and model parameters - which can fall victim to software components running development-time.
 
-Because of these characteristics, classic supply chain guardrails may not fully cover AI development environments, particularly notebook-based workflows and MLOps tooling.
+Because of these characteristics, classic supply chain management may not fully cover AI development environments, particularly notebook-based workflows and MLOps tooling.
 
 **Objective**  
 The objective of supply chain management in AI systems is to reduce the risk of malicious or accidental compromise of data, models, and development environments by improving visibility, verification, and governance across the AI system lifecycle. Compromises could lead to manipulated model behavior, unwanted secrets or output copyrighted material.  
@@ -228,6 +228,8 @@ It is especially relevant when:
 
 Risk management determines when deeper governance or verification is warranted, especially for threats related to supply chain compromise, poisoning, or unauthorized modification.
 
+**Implementation**  
+
 **Implementation of provenance, record keeping, and traceability**  
 The AI supply chain can be complex. Just like with obtained source code or software components, data or models may involve multiple suppliers. For example: a model is trained by one vendor and then fine-tuned by another vendor. Or: an AI system contains multiple models, one is a model that has been fine-tuned with data from source X, using a base model from vendor A that claims data is used from sources Y and Z, where the data from source Z was labeled by vendor B. Because of this supply chain complexity, data and model provenance is a helpful activity. The Software Bill Of Materials (SBOM) becomes the AI Bill Of Materials (AIBOM) or Model Bill of Material (MBOM).  
 
@@ -237,10 +239,12 @@ Maintaining structured records for AI-specific assets helps establish provenance
 - training data sources and augmentation steps and data used to augment training data,
 - dependencies and environment requirements (eg hardware, frameworks, packages etc) relevant to security,
 - ownership, authorship, and responsible teams or suppliers.
-- **Lifecycle-aware record updates**: Provenance and traceability records benefit from being updated at meaningful points in the AI system lifecycle. Typical update points include initial model development, major model version releases, pre-production deployment, significant architecture changes, introduction of new training datasets, and critical dependency updates. Additional checkpoints may be defined based on team practices or risk posture.Making these update points explicitly helps ensure records remain accurate as models, data, and dependencies evolve over time.
-  
+
 Such records are often referred to as Model Cards, AIBOMs, or MBOMs, and can complement traditional SBOM practices by including AI-specific artifacts. 
 
+**Implementation of lifecycle-aware record updates**  
+Provenance and traceability records benefit from being updated at meaningful points in the AI system lifecycle. Typical update points include initial model development, major model version releases, pre-production deployment, significant architecture changes, introduction of new training datasets, and critical dependency updates. Additional checkpoints may be defined based on team practices or risk posture.Making these update points explicitly helps ensure records remain accurate as models, data, and dependencies evolve over time.
+  
 **Implementation of Integrity, verification, and vulnerability management**  
 Supply chain management benefits from verifying the integrity and authenticity of supplied data and models. Common techniques include:
 - checksum or hash verification,
@@ -252,7 +256,9 @@ Monitoring for known vulnerabilities affecting supplied models, data pipelines, 
 
 **Implementation of supplier evaluation and security assessment of supplied models**  
 Evaluating the trustworthiness of suppliers (external vendors or internal teams) helps contextualize supply chain risk. This may include reviewing:
-- supplier security practices,
+- reputation,
+- activity,
+- supplier security posture,
 - development environments and access controls over AI assets,
 - provenance claims for data and models,
 - contractual assurances or warranties.
@@ -353,7 +359,7 @@ Data and model poisoning can occur at various stages, as illustrated in the thre
   - [MODELENSEMBLE](/goto/modelensemble/) so that if one of the models is poisoned, it can be contained
 
 #### #MODELENSEMBLE
-> Category: development-time data science control - including specific runtime implementation
+> Category: development-time AI engineer control - including specific runtime implementation
 > Permalink: https://owaspai.org/goto/modelensemble/
 
 Model ensemble: deploy the model as an ensemble of models by randomly splitting the trainset to allow detection of poisoning. If one model's output deviates from the others, it can be ignored, as this indicates possible manipulation of the train set.
@@ -419,7 +425,7 @@ References
 
 
 #### #MORETRAINDATA
-> Category: development-time data science control - pre-training    
+> Category: development-time AI engineer control - pre-training    
 > Permalink: https://owaspai.org/goto/moretraindata/
 
 More train data: increasing the amount of non-malicious data makes training more robust against poisoned examples - provided that these poisoned examples are small in number. One way to do this is through data augmentation - the creation of artificial training set samples that are small variations of existing samples.  The goal is to 'outnumber' the poisoned samples so the model 'forgets' them. However, this also runs the risk of catastrophic forgetting, where also benign data points (especially those out of distribution) are lost. Also, watch out for overfitting which is another potential side effect to this control.
@@ -431,7 +437,7 @@ Useful standards include:
 - Not covered yet in ISO/IEC standards
 
 #### #DATAQUALITYCONTROL
-> Category: development-time data science control - pre-training  
+> Category: development-time AI engineer control - pre-training  
 > Permalink: https://owaspai.org/goto/dataqualitycontrol/
 
 **Description**  
@@ -448,25 +454,26 @@ This control applies during data preparation, training, and data augmentation ph
 Its applicability depends on the assessed risk of data poisoning, including sabotage poisoning and trigger-based poisoning. In some cases, anomaly detection thresholds may prove ineffective at distinguishing poisoned samples from benign data (FP risk), in which case alternative or complementary controls may be more appropriate.
 
 When anomaly detection thresholds consistently fail to distinguish poisoned samples from benign data, reliance on alternative or complementary controls may be more effective.
-Implementation may be more suitable for the deployer in environments where training data pipelines or supply chains are externally managed.
+Implementation may be more suitable for the deployer of the AI system in environments where training data pipelines or supply chains are externally managed.
 
-**Implementation of Detection of anomalous training samples**  
+**Implementation**  
+
+**Implementation of standard data quality controls**
+Standard data quality controls include:
+- Validation: regularly verify if data satistfies requirements regarding format and being in the allowed range of values
+- Versioning and rollback mechanisms in order to pinpoint quality incidents and restore data
+- Data provenance (see [SUPPLY CHAIN MANAGE](/goto/supplychainmanage/)
+
+**Implementation of integrity checks**  
+Safely store hash codes of data elements and conduct regular checks for manipulations. See [DEVSECURITY](/goto/devsecurity/) for more details on integrity checks.
+
+**Implementation of Detecting anomalous training samples**  
 Training data can be analyzed to identify samples that deviate from expected distributions or patterns. Poisoned samples may differ statistically or structurally from the rest of the dataset, making anomaly detection a useful signal.
 
 Deviation detection can be applied:
 - to newly added samples before training or augmentation, and
 - to existing samples already present in the training dataset.
 
-Thresholds for detection are typically established through experimentation to balance detection effectiveness and model correctness.
-
-**Implementation of Filtering, alerting, and investigation workflows**  
-Detected anomalies can be handled in different ways depending on the degree of deviation:
-- samples that strongly deviate from expected behavior may be filtered out of the training data to reduce poisoning risk,
-- samples that moderately deviate may trigger alerts for further investigation, allowing identification of attack sources or pipeline weaknesses.
-
-Using multiple thresholds (for filtering versus alerting) helps balance false positives, investigation effort, and model accuracy.
-
-**Implementation of Deviation calculation methods**  
 Different methods can be used to detect anomalous or poisoned samples, including:
 - statistical deviation and outlier detection methods,
 - spectral signatures based on covariance of learned feature representations,
@@ -476,24 +483,27 @@ Different methods can be used to detect anomalous or poisoned samples, including
 
 The appropriateness of a method depends on the poisoning threat model and can be assessed through targeted testing, including poisoned dataset benchmarks and resistance testing.
 
+Detected anomalies can be handled in different ways depending on the degree of deviation:
+- samples that strongly deviate from expected behavior may be filtered out of the training data to reduce poisoning risk,
+- samples that moderately deviate may trigger alerts for further investigation, allowing identification of attack sources or pipeline weaknesses.
+
+Thresholds for detection are typically established through experimentation to balance detection effectiveness and model correctness. Using multiple thresholds (for filtering versus alerting) helps balance false positives, investigation effort, and model accuracy.
+
 **Implementation of detection mechanism protection**  
 Detection mechanisms and the data they rely on benefit from protection against manipulation, especially in environments where attackers may target the development pipeline or supply chain. Segregation of development environments and integrity protections can help prevent attackers from tampering with detection logic.
 
-Key Points for Consideration:
+**Implementation considerations**  
 - Proactive Approach: Implement data quality controls during the training phase to prevent issues before they arise in production.
 - Comprehensive Verification: Combine automated methods with human oversight for critical data, ensuring that anomalies are accurately identified and addressed.
 - Continuous Monitoring: Regularly update and audit data quality controls to adapt to evolving threats and maintain the robustness of AI systems.
-- Collaboration and Standards: Adhere to international standards like ISO/IEC 5259 and 42001 while recognizing their limitations. Advocate for the development of more comprehensive standards that address the unique challenges of AI data quality.
+- Collaboration and Standards: Adhere to international standards like ISO/IEC 5259 and 42001 while recognizing their limitations. 
 
 **Risk-Reduction Guidance**  
 Filtering anomalous training samples can reduce the probability of successful data poisoning, particularly when poisoned samples introduce unusual triggers or patterns. Effectiveness depends on the representativeness of the data, the quality of deviation metrics, and the chosen thresholds.
 Testing detection approaches on known poisoned datasets can help assess their effectiveness and validate implementation choices.
 
 **Particularity**  
-Standard data quality checks are not sufficient for AI systems, as data may be maliciously altered to compromise model behavior. This requires different checks than standard checks on quality issues from the source, or that occurred by mistake. Nevertheless, standard checks can help somewhat to detect malicious changes. It is essential to implement enhanced security measures to detect these alterations:
-- Secure Hash Codes: Safely store hash codes of data elements, such as images, and conduct regular checks for manipulations. See [DEVSECURITY](/goto/devsecurity/) for more details on integrity checks.
-- Statistical deviation detection
-- Recognizing specific types of poisoned samples by applying pattern recognition
+Standard data quality checks are not sufficient for AI systems, as data may be maliciously altered to compromise model behavior. This requires different checks than standard checks on quality issues from the source, or that occurred by mistake. Nevertheless, standard checks (e.g. is the data in the correct format) help to some extent to detect malicious changes. 
 
 **Limitations**  
 Anomaly detection involves trade-offs:
@@ -503,33 +513,40 @@ Anomaly detection involves trade-offs:
 Sophisticated attackers can design poisoned samples to blend into the normal data distribution, reducing the effectiveness of purely anomaly-based approaches.
 
 **References**  
+- [GS1 Data quality framework](https://www.gs1.org/services/data-quality/data-quality-framework)
+- [IBM on data quality in AI](https://research.ibm.com/projects/data-quality-in-ai)
+- [SAND on data quality vs integrity](https://www.sandtech.com/insight/data-integrity-vs-data-quality-why-ai-models-need-both-for-success/)
 - ['Detection of Adversarial Training Examples in Poisoning Attacks through Anomaly Detection'](https://arxiv.org/abs/1802.03041)
 
 Useful standards include:
+- ISO/IEC 25012:2008(E) on Data quality characeristics (Accuracy, completeness, consistency, currentness, credibility)
 - ISO/IEC 5259 series on Data quality for analytics and ML. Gap: covers this control minimally. in light of the particularity - the standard does not mention approaches to detect malicious changes (including detecting statistical deviations). Nevertheless, standard data quality control helps to detect malicious changes that violate data quality rules.
 - ISO/iEC 42001 B.7.4 briefly covers data quality for AI. Gap: idem as ISO 5259
 - Not further covered yet in ISO/IEC standards
 
 #### #TRAINDATADISTORTION
-> Category: development-time data science control - pre-training  
+> Category: development-time AI-engineer control - pre-training  
 > Permalink: https://owaspai.org/goto/traindatadistortion/
 
-Train data distortion: distorting untrusted training data by smoothing or adding noise, to make poisoned 'triggers' ineffective. Such a trigger has been inserted by an attacker in the training data, together with an unwanted output. Whenever input data is presented that contains a similar 'trigger', the model can recognize it and output the unwanted value. The idea is to distort the triggers so that they are not recognized anymore by the model. The idea is essentially the same as in [#INPUTDISTORTION](/goto/inputdistortion/), where it is used to defend against evasion attacks and data poisoning.
+**Description**
+Train data distortion: distorting untrusted training data by smoothing or adding noise.
+
+**Objective**  
+Distorting training data intends to make poisoned 'triggers' ineffective. Such a trigger has been inserted by an attacker in the training data, together with an unwanted output. Whenever input data is presented that contains a similar 'trigger', the model can recognize it and output the unwanted value. The idea is to distort the triggers so that they are not recognized anymore by the model. The idea is essentially the same as in [#INPUTDISTORTION](/goto/inputdistortion/), where it is used to defend against evasion attacks and data poisoning.
+
+**Implementation**  
+Distortion can be performed by e.g. adding noise (randomization), smoothing. For images, JPEG compression can be considered .
+See also [EVASIONROBUSTMODEL](/goto/evasionrobustmodel/) on adding noise against evasion attacks and [OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/) to minimize data for confidentiality purposes - which can serve two purposes: privacy and data poisoning mitgitation.
 
 A special form of train data distortion is complete removal of certain input fields. Technically, this is data minimization (see [DATAMINIMIZE](goto/dataminimize/)), but its purpose is not protecting the confidentiality of that data per se, but reducing the ability to memorize poisoned samples.
 
-Data distortion can also be part of differential privacy: to make personal data less recognizable. This means that applying differential privacy can be a countermeasure to data poisoning as well.
-
 This control can only be applied during training and therefore not to an already pre-trained model.
 
-Effectiveness: 
+**Risk reducation guidance**  
 - The level of effectiveness needs to be tested by experimenting, which will not give conclusive results, as an attacker may find more clever ways to poison the data than the methods used during testing. It is a best practice to keep the original training data, in order to experiment with the amount or distortion.
 - This control has no effect against attackers that have direct access to the training data after it has been distorted. For example, if the distorted training data is stored in a file or database to which the attacker has access, then the poisoned samples can still be injected. In other words: if there is zero trust in protection of the engineering environment, then train data distortion is only effective against data poisoning that took place outside the engineering environment (collected during runtime or obtained through the supply chain). This problem can be reduced by creating a trusted environment in which the model is trained, separated from the rest of the engineering environment. By doing so, controls such as train data distortion can be applied in that trusted environment and thus protect against data poisoning that may have taken place in the rest of the engineering environment.
 
-See also [EVASIONROBUSTMODEL](/goto/evasionrobustmodel/) on adding noise against evasion attacks and [OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/) to minimize data for confidentiality purposes (e.g. differential privacy).
-
-Examples:
-
+**Examples**  
 - [Transferability blocking](https://arxiv.org/pdf/1703.04318.pdf). The true defense mechanism against closed box attacks is to obstruct the transferability of the adversarial samples. The transferability enables the usage of adversarial samples in different models trained on different datasets. Null labeling is a procedure that blocks transferability, by introducing null labels into the training dataset, and trains the model to discard the adversarial samples as null labeled data.
 - DEFENSE-GAN: Defense-GAN attempts to "purify" images (adversarial attacks) by mapping them to the manifold of valid, unperturbed inputs.
 - Local intrinsic dimensionality. Poisoned samples often exhibit distinct local characteristics, such as being outliers or lying in a subspace with abnormal properties, which result in anomalously high or low LID scores. By computing LID scores during training, poisoned data points can be identified and removed, allowing the model to train robustly on clean data.
@@ -537,12 +554,11 @@ Examples:
 - TRIM algorithm - see Annex C in ENISA 2021. The TRIM algorithm is a defense mechanism against data poisoning attacks that identifies and removes potentially poisoned samples from a dataset. It iteratively trains a model while excluding data points that contribute disproportionately to the loss, as these are likely to be outliers or poisoned samples. By focusing on minimizing the loss for the remaining data, TRIM ensures robust training by reducing the impact of maliciously crafted inputs.
 - STRIP technique (after model evaluation) - see Annex C in ENISA 2021. STRIP is a detection method for backdoor attacks. It works by applying random perturbations to input samples and measuring the model's prediction entropy; backdoored inputs typically produce consistently low entropy, as the trigger enforces a fixed output regardless of the perturbations. By flagging inputs with anomalously low entropy, STRIP effectively identifies and mitigates the influence of backdoor attacks during inference.
 
-Link to standards:
-
+**Link to standards**  
 - Not covered yet in ISO/IEC standards
 
 #### #POISONROBUSTMODEL
-> Category: development-time data science control - post-training  
+> Category: development-time AI engineer control - post-training  
 > Permalink: https://owaspai.org/goto/poisonrobustmodel/
 
 Poison robust model: select a model type and creation approach to reduce sensitivity to poisoned training data.
@@ -623,7 +639,7 @@ The type of manipulation can be through data poisoning, or by specifically chang
 >Permalink: https://owaspai.org/goto/devleak/
 
 
-### 3.2.1. Dev Training or test data theft
+### 3.2.1. Development-time data leak
 >Category: development-time threat  
 >Permalink: https://owaspai.org/goto/devdataleak/
 
@@ -641,7 +657,7 @@ GenAI models are often hosted in the cloud, sometimes managed by an external par
 
 - [General controls](/goto/generalcontrols/),
   - especially [Sensitive data limitation](/goto/dataminimize/)
-- [Controls for training or test data theft protection](/goto/developmenttimeintro/):
+- [Controls for development-time protection](/goto/developmenttimeintro/):
   - [#DEV SECURITY](/goto/devsecurity/) to protect the development environment and primarily the training and test data
   - [#SEGREGATE DATA](/goto/segregatedata/) to create parts of the development environment with extra protection
   - [#CONF COMPUTE](/goto/confcompute/) for denying access to where sensitive data is processed
