@@ -603,93 +603,72 @@ References:
 
   - Sehwag, Vikash, et al. "Analyzing the robustness of open-world machine learning." Proceedings of the 12th ACM Workshop on Artificial Intelligence and Security. 2019.
 
+## #EVASION INPUT HANDLING
+Category: runtime data science control for threats through use
+Permalink: TODO
 
-#### #DETECT ADVERSARIAL INPUT
->Category: runtime data science control for threats through use  
->Permalink: https://owaspai.org/goto/detectadversarialinput/
+**Description:**
 
-Detect adversarial input: Implement tools to detect specific attack patterns in input or series of inputs (e.g. patches in images).
+Evasion input handling: Implement tools to detect and respond to individual adversarial inputs that are crafted to evade model behavior. Evasion input handling focuses on identifying adversarial characteristics within a single input sample, regardless of whether it appears in isolation or as part of a broader attack.
 
-The main concepts of adversarial attack detectors include:
-- **Statistical analysis of input series**: Adversarial attacks often follow certain patterns, which can be analysed by looking at input on a per-user basis. For example to detect series of small deviations in the input space, indicating a possible attack such as a search to perform model inversion or an evasion attack. These attacks also typically have series of inputs with a general increase of confidence value. Another example: if inputs seem systematic (very random or very uniform or covering the entire input space) it may indicate a [model theft through use attack](/goto/modeltheftuse/).
-- **Statistical Methods**: Adversarial inputs often deviate from benign inputs in some statistical metric and can therefore be detected. Examples are utilizing the Principal Component Analysis (PCA), Bayesian Uncertainty Estimation (BUE) or Structural Similarity Index Measure (SSIM). These techniques differentiate from statistical analysis of input series, as these statistical detectors decide if a sample is adversarial or not per input sample, such that these techniques are able to also detect transferred black box attacks.
-- **Detection Networks**: A detector network operates by analyzing the inputs or the behavior of the primary model to spot adversarial examples. These networks can either run as a preprocessing function or in parallel to the main model. To use a detector networks as a preprocessing function, it has to be trained to differentiate between benign and adversarial samples, which is in itself a hard task. Therefore it can rely on e.g. the original input or on statistical metrics. To train a detector network to run in parallel to the main model, typically the detector is trained to distinguish between benign and adversarial inputs from the intermediate features of the main model's hidden layer. Caution: Adversarial attacks could be crafted to circumvent the detector network and fool the main model.
-- **Input Distortion Based Techniques (IDBT)**: A function is used to modify the input to remove any adversarial data. The model is applied to both versions of the image, the original input and the modified version. The results are compared to detect possible attacks. See [INPUTDISTORTION](/goto/inputdistortion/).
-- **Detection of adversarial patches**: These patches are localized, often visible modifications that can even be placed in the real world. The techniques mentioned above can detect adversarial patches, yet they often require modification due to the unique noise pattern of these patches, particularly when they are used in real-world settings and processed through a camera. In these scenarios, the entire image includes benign camera noise (camera fingerprint), complicating the detection of the specially crafted adversarial patches.
+**Objective:**
 
-See also [DETECTODDINPUT](/goto/detectoddinput/) for detecting abnormal input which can be an indication of adversarialinput.
-  
-Useful standards include:
+Evasion input handling aims to reduce the risk of adversarial inputs that are intentionally crafted to cause incorrect or unsafe model behavior while appearing valid. These attacks may target model decision boundaries, exploit learned representations, or introduce localized perturbations such as adversarial patches. Addressing evasion at the individual input level helps limit incorrect predictions, unsafe actions, and downstream failures even when attacks occur sporadically or without a broader interaction pattern.
 
-  - Not covered yet in ISO/IEC standards
+Secondary benefits include improved robustness testing, better understanding of model blind spots, and early signals of adversarial adaptation.
 
-  - ENISA Securing Machine Learning Algorithms Annex C: "Implement tools to detect if a data point is an adversarial example or not"
+**Applicability:** 
 
-References:
+This control is most applicable to models exposed to untrusted or adversarial environments, such as computer vision systems, speech recognition, and security-sensitive classification tasks. It is particularly relevant when individual inputs can independently cause harm or unsafe behavior.
 
-  - [Feature squeezing](https://arxiv.org/pdf/1704.01155.pdf) (IDBT) compares the output of the model against the output based on a distortion of the input that reduces the level of detail. This is done by reducing the number of features or reducing the detail of certain features (e.g. by smoothing). This approach is like [INPUTDISTORTION](#inputdistortion), but instead of just changing the input to remove any adversarial data, the model is also applied to the original input and then used to compare it, as a detection mechanism.
+Evasion input handling is less effective in isolation when attackers adapt quickly or when attacks rely primarily on multi-step probing across many inputs. In such cases, it is best used alongside controls that monitor input series, usage patterns, or access behavior.
 
-  - [MagNet](https://arxiv.org/abs/1705.09064) and [here](https://www.mdpi.com/2079-9292/11/8/1283)
+**Implementation Options**
 
-  - [DefenseGAN](https://arxiv.org/abs/1805.06605) and Goodfellow, I.; Pouget-Abadie, J.; Mirza, M.; Xu, B.; Warde-Farley, D.; Ozair, S.; Courville, A.; Bengio, Y. Generative adversarial networks. Commun. ACM 2020, 63, 139–144.
+The main concepts of detecting evasion input attacks include:
+  - **Statistical Methods:** Adversarial inputs often deviate from benign inputs in some statistical metric and can therefore be detected. Examples are utilizing the Principal Component Analysis (PCA), Bayesian     Uncertainty Estimation (BUE) or Structural Similarity Index Measure (SSIM). These techniques differentiate from statistical analysis of input series (see #UNWANTED INPUT SERIES HANDLING), as these statistical detectors decide if a sample is adversarial or not per input sample, such that these techniques are able to also detect transferred black box attacks.
+  - **Detection Networks:** A detector network operates by analyzing the inputs or the behavior of the primary model to spot adversarial examples. These networks can either run as a preprocessing function or in parallel to the main model. To use a detector network as a preprocessing function, it has to be trained to differentiate between benign and adversarial samples, which is in itself a hard task. Therefore, it can rely on e.g. the original input or on statistical metrics. To train a detector network to run in parallel to the main model, typically, the detector is trained to distinguish between benign and adversarial inputs from the intermediate features of the main model’s hidden layer. Caution: Adversarial attacks could be crafted to circumvent the detector network and fool the main model.
+  - **Input Distortion Based Techniques (IDBT)**: A function is used to modify the input to remove any adversarial data. The model is applied to both versions of the image, the original input and the modified version. The results are compared to detect possible attacks. See [INPUTDISTORTION](/goto/inputdistortion/).
+  - **Detection of adversarial patches:** These patches are localized, often visible modifications that can even be placed in the real world. The techniques mentioned above can detect adversarial patches, yet they often require modification due to the unique noise pattern of these patches, particularly when they are used in real-world settings and processed through a camera. In these scenarios, the entire image includes benign camera noise (camera fingerprint), complicating the detection of the specially crafted adversarial patches.
 
-  - [Local intrinsic dimensionality](https://www.ijcai.org/proceedings/2021/0437.pdf)
+**Risk-Reduction Guidance**
 
-  -  Hendrycks, Dan, and Kevin Gimpel. "Early methods for detecting
-adversarial images." arXiv preprint arXiv:1608.00530 (2016).
+Detecting evasion at the single-input level can reduce the success rate of adversarial examples, including transferred black-box attacks. Techniques such as statistical detection, detector networks, and input distortion can identify inputs that exploit model weaknesses even when they appear valid to humans.
+However, adversarial attacks often evolve to bypass known detection methods. As a result, the risk reduction provided by this control depends on regular evaluation, adaptation, and combination with complementary defenses such as rate limiting, series-based detection, and model hardening.
 
-  - Kherchouche, Anouar, Sid Ahmed Fezza, and Wassim Hamidouche. "Detect
-and defense against adversarial examples in deep learning using natural
-scene statistics and adaptive denoising." Neural Computing and
-Applications (2021): 1-16.
+**Particularity**
 
-  - Roth, Kevin, Yannic Kilcher, and Thomas Hofmann. "The odds are odd: A
-statistical test for detecting adversarial examples." International
-Conference on Machine Learning. PMLR, 2019.
+Unlike traditional input validation (e.g. SQL injection), evasion input handling addresses inputs that are syntactically and semantically valid but intentionally crafted to exploit learned model behavior. These attacks target the statistical and representational properties of machine learning models rather than explicit rules or schemas.
 
-  - Bunzel, Niklas, and Dominic Böringer. "Multi-class Detection for Off
-The Shelf transfer-based Black Box Attacks." Proceedings of the 2023
-Secure and Trustworthy Deep Learning Systems Workshop. 2023.
+**Limitations**
 
-  - Xiang, Chong, and Prateek Mittal. "Detectorguard: Provably securing
-object detectors against localized patch hiding attacks." Proceedings of
-the 2021 ACM SIGSAC Conference on Computer and Communications Security. 2021.
+Adversarial examples may be crafted to evade both the primary model and dedicated detectors. Some detection techniques introduce additional computational overhead or reduce model accuracy. Physical-world attacks, such as adversarial patches, are especially challenging due to environmental noise and variability. This control does not prevent attackers from repeatedly probing the model to refine evasion strategies.
 
-  - Bunzel, Niklas, Ashim Siwakoti, and Gerrit Klause. "Adversarial Patch
-Detection and Mitigation by Detecting High Entropy Regions." 2023 53rd
-Annual IEEE/IFIP International Conference on Dependable Systems and
-Networks Workshops (DSN-W). IEEE, 2023.
+**References**
 
-  - Liang, Bin, Jiachun Li, and Jianjun Huang. "We can always catch you:
-Detecting adversarial patched objects with or without signature." arXiv
-preprint arXiv:2106.05261 (2021).
+- [Feature squeezing](https://arxiv.org/pdf/1704.01155.pdf) (IDBT) compares the output of the model against the output based on a distortion of the input that reduces the level of detail. This is done by reducing the number of features or reducing the detail of certain features (e.g. by smoothing). This approach is like [INPUTDISTORTION](https://owaspai.org/docs/2_threats_through_use/#inputdistortion), but instead of just changing the input to remove any adversarial data, the model is also applied to the original input and then used to compare it, as a detection mechanism.
+- [MagNet](https://arxiv.org/abs/1705.09064) and [here](https://www.mdpi.com/2079-9292/11/8/1283)
+- [DefenseGAN](https://arxiv.org/abs/1805.06605) and Goodfellow, I.; Pouget-Abadie, J.; Mirza, M.; Xu, B.; Warde-Farley, D.; Ozair, S.; Courville, A.; Bengio, Y. Generative adversarial networks. Commun. ACM 2020, 63, 139–144.
+- [Local intrinsic dimensionality](https://www.ijcai.org/proceedings/2021/0437.pdf)
+- Hendrycks, Dan, and Kevin Gimpel. “Early methods for detecting adversarial images.” arXiv preprint arXiv:1608.00530 (2016).
+- Kherchouche, Anouar, Sid Ahmed Fezza, and Wassim Hamidouche. “Detect and defense against adversarial examples in deep learning using natural scene statistics and adaptive denoising.” Neural Computing and Applications (2021): 1-16.
+- Roth, Kevin, Yannic Kilcher, and Thomas Hofmann. “The odds are odd: A statistical test for detecting adversarial examples.” International Conference on Machine Learning. PMLR, 2019.
+- Bunzel, Niklas, and Dominic Böringer. “Multi-class Detection for Off The Shelf transfer-based Black Box Attacks.” Proceedings of the 2023 Secure and Trustworthy Deep Learning Systems Workshop. 2023.
+- Xiang, Chong, and Prateek Mittal. “Detectorguard: Provably securing object detectors against localized patch hiding attacks.” Proceedings of the 2021 ACM SIGSAC Conference on Computer and Communications Security. 2021.
+- Bunzel, Niklas, Ashim Siwakoti, and Gerrit Klause. “Adversarial Patch Detection and Mitigation by Detecting High Entropy Regions.” 2023 53rd Annual IEEE/IFIP International Conference on Dependable Systems and Networks Workshops (DSN-W). IEEE, 2023.
+- Liang, Bin, Jiachun Li, and Jianjun Huang. “We can always catch you: Detecting adversarial patched objects with or without signature.” arXiv preprint arXiv:2106.05261 (2021).
+- Chen, Zitao, Pritam Dash, and Karthik Pattabiraman. “Jujutsu: A Two-stage Defense against Adversarial Patch Attacks on Deep Neural Networks.” Proceedings of the 2023 ACM Asia Conference on Computer and Communications Security. 2023.
+- Liu, Jiang, et al. “Segment and complete: Defending object detectors against adversarial patch attacks with robust patch detection.” Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2022.
+- Metzen, Jan Hendrik, et al. “On detecting adversarial perturbations.” arXiv preprint arXiv:1702.04267 (2017).
+- Gong, Zhitao, and Wenlu Wang. “Adversarial and clean data are not twins.” Proceedings of the Sixth International Workshop on Exploiting Artificial Intelligence Techniques for Data Management. 2023.
+- Tramer, Florian. “Detecting adversarial examples is (nearly) as hard as classifying them.” International Conference on Machine Learning. PMLR, 2022.
+- Hendrycks, Dan, and Kevin Gimpel. “Early methods for detecting adversarial images.” arXiv preprint arXiv:1608.00530 (2016).
+- Feinman, Reuben, et al. “Detecting adversarial samples from artifacts.” arXiv preprint arXiv:1703.00410 (2017).
 
-  - Chen, Zitao, Pritam Dash, and Karthik Pattabiraman. "Jujutsu: A
-Two-stage Defense against Adversarial Patch Attacks on Deep Neural
-Networks." Proceedings of the 2023 ACM Asia Conference on Computer and
-Communications Security. 2023.
+See also [ODD INPUT HANDLING](https://owaspai.org/goto/oddinputhandling/) for detecting abnormal input which can be an indication of adversarial input. Useful standards include:
+- Not covered yet in ISO/IEC standards
+- ENISA Securing Machine Learning Algorithms Annex C: “Implement tools to detect if a data point is an adversarial example or not”
 
-  - Liu, Jiang, et al. "Segment and complete: Defending object detectors
-against adversarial patch attacks with robust patch detection."
-Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern
-Recognition. 2022.
-
-  - Metzen, Jan Hendrik, et al. "On detecting adversarial perturbations."
-arXiv preprint arXiv:1702.04267 (2017).
-
-  - Gong, Zhitao, and Wenlu Wang. "Adversarial and clean data are not twins."
-Proceedings of the Sixth International Workshop on Exploiting Artificial
-Intelligence Techniques for Data Management. 2023.
-
-  - Tramer, Florian. "Detecting adversarial examples is (nearly) as
-hard as classifying them." International Conference on Machine Learning.
-PMLR, 2022.
-
-  - Hendrycks, Dan, and Kevin Gimpel. "Early methods for detecting adversarial
-images." arXiv preprint arXiv:1608.00530 (2016).
-
-  - Feinman, Reuben, et al. "Detecting adversarial samples from artifacts."
-arXiv preprint arXiv:1703.00410 (2017).
 
 #### #EVASION ROBUST MODEL
 >Category: development-time datascience control for threats through use  
