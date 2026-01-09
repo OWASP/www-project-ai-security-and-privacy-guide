@@ -1310,6 +1310,12 @@ This attack is known as model stealing attack or model extraction attack or mode
 
 ![](/images/theft3.png)
 
+References
+
+- [Article on model theft through use](https://www.mlsecurity.ai/post/what-is-model-stealing-and-why-it-matters)
+- ['Thieves on Sesame street' on model theft of large language models](https://arxiv.org/abs/1910.12366) (GenAI)
+
+
 **Controls:**
 
 - See [General controls](/goto/generalcontrols/):
@@ -1317,16 +1323,14 @@ This attack is known as model stealing attack or model extraction attack or mode
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input 
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker presenting many inputs in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
-  - #MODEL WATERMARKING to enable post-theft ownership verification when residual risk remains.
+  - [#OBSCURE CONFIDENCE](/goto/obscureconfidence/) to limit information that the attacker can use
+- Controls for model theft through use specifically:
+  - [#MODEL WATERMARKING](/goto/modelwatermarking/) to enable post-theft ownership verification when residual risk remains - discussed below
 
-References
 
-- [Article on model theft through use](https://www.mlsecurity.ai/post/what-is-model-stealing-and-why-it-matters)
-- ['Thieves on Sesame street' on model theft of large language models](https://arxiv.org/abs/1910.12366) (GenAI)
-
-## 2.4.1 #MODEL WATERMARKING
-Category: threat through use
-Permalink: TODO
+#### #MODEL WATERMARKING
+>Category: development-time AI engineer control for threats through use  
+>Permalink: TODO
 
 Model Watermarking: embed a hidden, secret marker into a trained model so that, if a suspected copy appears elsewhere, the original owner can verify that the model was derived from their system. This is used to demonstrate ownership after a model has been stolen or replicated, rather than to prevent the theft itself.
 
