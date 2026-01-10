@@ -205,7 +205,7 @@ Useful standards include:
 **Description**  
 Supply chain management focuses on managing the supply chain to minimize the security risk from externally obtained elements. In conventional software engineering these elements are source code or software components (e.g. open source). AI supply chains differ from conventional software supply chains in several ways:  
 1. supplied elements can also include data, models, fine-tuning artifacts (eg: LoRA modules) and development-time tooling;
-2. software components may be executed development-time instead of runtime when the AI system is in production ;
+2. software components may be executed development-time instead of runtime when the AI system is in production;
 3. as explained in the development-time threats, there are new vulnerable assets during AI development: training data and model parameters - which can fall victim to software components running development-time.
 
 Because of these characteristics, classic supply chain management may not fully cover AI development environments, particularly notebook-based workflows and MLOps tooling.
@@ -387,7 +387,7 @@ An attacker manipulates data that the model uses to learn, in order to affect th
 
 The manipulated data can be training data, but also in-context-learning data that is used to augment the input (e.g. a prompt) to a model with information to use. Collaborative mitigations like [#FEDERATEDLEARNING](/goto/federatedlearning/) can reduce data centralization but require additional poisoning controls based on extension of attack surface.
 
-Example 1: an attacker breaks into a training set database to add images of houses and labels them as 'fighter plane', to mislead the camera system of an autonomous missile. The missile is then manipulated to attack houses. With a good test set this unwanted behaviour may be detected. However, the attacker can also perform so-called targeted data poisoning by making the poisoned data represent input that normally doesn't occur and therefore would not be in a testset. The attacker can then create that abnormal input in practice. In the previous example this could be houses with white crosses on the door.  See [MITRE ATLAS - Poison trainingdata](https://atlas.mitre.org/techniques/AML.T0020)
+Example 1: an attacker breaks into a training set database to add images of houses and labels them as 'fighter planes', to mislead the camera system of an autonomous missile. The missile is then manipulated to attack houses. With a good test set this unwanted behaviour may be detected. However, the attacker can also perform so-called targeted data poisoning by making the poisoned data represent input that normally doesn't occur and therefore would not be in a testset. The attacker can then create that abnormal input in practice. In the previous example this could be houses with white crosses on the door.  See [MITRE ATLAS - Poison trainingdata](https://atlas.mitre.org/techniques/AML.T0020)
 
 Example 2: a malicious supplier poisons data that is later obtained by another party to train a model. See [MITRE ATLAS - Publish poisoned datasets](https://atlas.mitre.org/techniques/AML.T0019)
 
@@ -396,7 +396,7 @@ Example 3: unwanted information (e.g. false facts) in documents on the internet 
 
 There are roughly two categories of data poisoning: 
 
-- Targeted data poisoning - which triggers unwanted responses to specific inputs (e.g. a money transaction is wrongfully marked as NOT fraud because it has a specific amount of money for which the model has been manipulated to ignore). Other name: Trojan attack or Backdoor.
+- Targeted data poisoning - which triggers unwanted responses to specific inputs (e.g. a money transaction is wrongfully marked as NOT fraud because it has a specific amount of money for which the model has been manipulated to ignore). Other names: Trojan attack or Backdoor.
 - Sabotage: data poisoning leads to unwanted results for regular inputs, leading to e.g. business continuity problems or safety issues.
 
 Sabotage data poisoning attacks are relatively easy to detect because they occur for regular inputs, but backdoor data poisoning only occurs for really specific inputs and is therefore hard to detect: there is no code to review in a model to look for backdoors, the model parameters cannot be reviewed as they make no sense to the human eye, and testing is typically done using normal cases, with blind spots for backdoors. This is the intention of attackers - to bypass regular testing. 
@@ -460,7 +460,7 @@ Implementation may be more suitable for the deployer of the AI system in environ
 
 **Implementation of standard data quality controls**
 Standard data quality controls include:
-- Validation: regularly verify if data satistfies requirements regarding format and being in the allowed range of values
+- Validation: regularly verify if data satisfies requirements regarding format and being in the allowed range of values
 - Versioning and rollback mechanisms in order to pinpoint quality incidents and restore data
 - Data provenance (see [SUPPLY CHAIN MANAGE](/goto/supplychainmanage/)
 
@@ -519,7 +519,7 @@ Sophisticated attackers can design poisoned samples to blend into the normal dat
 - ['Detection of Adversarial Training Examples in Poisoning Attacks through Anomaly Detection'](https://arxiv.org/abs/1802.03041)
 
 Useful standards include:
-- ISO/IEC 25012:2008(E) on Data quality characeristics (Accuracy, completeness, consistency, currentness, credibility)
+- ISO/IEC 25012:2008(E) on Data quality characteristics (Accuracy, completeness, consistency, currentness, credibility)
 - ISO/IEC 5259 series on Data quality for analytics and ML. Gap: covers this control minimally. in light of the particularity - the standard does not mention approaches to detect malicious changes (including detecting statistical deviations). Nevertheless, standard data quality control helps to detect malicious changes that violate data quality rules.
 - ISO/iEC 42001 B.7.4 briefly covers data quality for AI. Gap: idem as ISO 5259
 - Not further covered yet in ISO/IEC standards
@@ -536,13 +536,13 @@ Distorting training data intends to make poisoned 'triggers' ineffective. Such a
 
 **Implementation**  
 Distortion can be performed by e.g. adding noise (randomization), smoothing. For images, JPEG compression can be considered .
-See also [EVASIONROBUSTMODEL](/goto/evasionrobustmodel/) on adding noise against evasion attacks and [OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/) to minimize data for confidentiality purposes - which can serve two purposes: privacy and data poisoning mitgitation.
+See also [EVASIONROBUSTMODEL](/goto/evasionrobustmodel/) on adding noise against evasion attacks and [OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/) to minimize data for confidentiality purposes - which can serve two purposes: privacy and data poisoning mitigation.
 
 A special form of train data distortion is complete removal of certain input fields. Technically, this is data minimization (see [DATAMINIMIZE](goto/dataminimize/)), but its purpose is not protecting the confidentiality of that data per se, but reducing the ability to memorize poisoned samples.
 
 This control can only be applied during training and therefore not to an already pre-trained model.
 
-**Risk reducation guidance**  
+**Risk-Reduction Guidance**  
 - The level of effectiveness needs to be tested by experimenting, which will not give conclusive results, as an attacker may find more clever ways to poison the data than the methods used during testing. It is a best practice to keep the original training data, in order to experiment with the amount or distortion.
 - This control has no effect against attackers that have direct access to the training data after it has been distorted. For example, if the distorted training data is stored in a file or database to which the attacker has access, then the poisoned samples can still be injected. In other words: if there is zero trust in protection of the engineering environment, then train data distortion is only effective against data poisoning that took place outside the engineering environment (collected during runtime or obtained through the supply chain). This problem can be reduced by creating a trusted environment in which the model is trained, separated from the rest of the engineering environment. By doing so, controls such as train data distortion can be applied in that trusted environment and thus protect against data poisoning that may have taken place in the rest of the engineering environment.
 
@@ -563,7 +563,7 @@ This control can only be applied during training and therefore not to an already
 
 Poison robust model: select a model type and creation approach to reduce sensitivity to poisoned training data.
 
-This control can be applied to a model that has already been trained, so including models that have been obtained from an external source. 
+This control can be applied to a model that has already been trained, including models that have been obtained from an external source. 
 
 The general principle of reducing sensitivity to poisoned training data is to make sure that the model does not memorize the specific malicious input pattern (or _backdoor trigger_). The following two examples represent different strategies, which can also complement each other in an approach called **fine pruning** (See [paper on fine-pruning](https://arxiv.org/pdf/1805.12185.pdf)):
 1. Reduce memorization by removing elements of memory using **pruning**. Pruning in essence reduces the size of the model so it does not have the capacity to trigger on backdoor-examples while retaining sufficient accuracy for the intended use case. The approach removes neurons in a neural network that have been identified as non-essential for sufficient accuracy.
