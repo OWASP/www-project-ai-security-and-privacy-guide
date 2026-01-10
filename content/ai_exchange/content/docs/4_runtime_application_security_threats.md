@@ -64,7 +64,7 @@ Run-time model Input/Output integrity: apply traditional application security co
 
 Impact: Confidentiality breach of model parameters, which can result in intellectual model theft and/or allowing to perform model attacks on the stolen model that normally would be mitigated by rate limiting, access control, or detection mechanisms.
 
-Stealing model parameters from a live system by breaking into it (e.g. by gaining access to executables, memory or other storage/transfer of  parameter data in the production environment). This is different from [model theft through use](/goto/modeltheftuse/) which goes through a number of steps to steal a model through normal use, hence the use of the word 'direct'. It is also different from [model theft development-time](/goto/devmodelleak/) from a lifecylce and attack surface perspective.
+Stealing model parameters from a live system by breaking into it (e.g. by gaining access to executables, memory or other storage/transfer of  parameter data in the production environment). This is different from [model theft through use](/goto/modeltheftuse/) which goes through a number of steps to steal a model through normal use, hence the use of the word 'direct'. It is also different from [model theft development-time](/goto/devmodelleak/) from a lifecycle and attack surface perspective.
 
 This category also includes _side-channel attacks_, where attackers do not necessarily steal the entire model but instead extract specific details about the model’s behaviour or internal state. By observing characteristics like response times, power consumption, or electromagnetic emissions during inference, attackers can infer sensitive information about the model. This type of attack can provide insights into the model's structure, the type of data it processes, or even specific parameter values, which may be leveraged for subsequent attacks or to replicate the model.
 
@@ -146,7 +146,7 @@ Model input confidentiality: see [SECDEVPROGRAM](/goto/secdevprogram/) to attain
 
 Impact: Confidentiality breach of sensitive augmentation data
 
-Augmentation data (background information added to a prompt) is typically stored in _vector databases_. This increases the attack surface for any sensitive data, since its stored outside its regular storage with the regular protection (e.g. company reports) and therefore requires additional protection.   
+Augmentation data (background information added to a prompt) is typically stored in _vector databases_. This increases the attack surface for any sensitive data, since it's stored outside its regular storage with the regular protection (e.g. company reports) and therefore requires additional protection.   
 See [Leak sensitive input data](goto/leakinput/) for how augmentation data can leak when it's added to the prompt. The best practice is to assume that augmentation data can leak to the output, so the access rights for that data need to align with the rights of the user(s) that can see the output.
 
 
@@ -166,7 +166,7 @@ See [Leak sensitive input data](goto/leakinput/) for how augmentation data can l
 
 Impact: Augmentation data is altered to manipulate model behaviour.
 
-Augmentation data (background information added to a prompt) is typically stored in _vector databases_. When augmentation data is manipulated (e.g. inserting false information), it can change the output of the model - making it very similiar to [data poisoning](/goto/datapoison/).
+Augmentation data (background information added to a prompt) is typically stored in _vector databases_. When augmentation data is manipulated (e.g. inserting false information), it can change the output of the model - making it very similar to [data poisoning](/goto/datapoison/).
 
 **References:**
 - [Mitigating Security Risks in RAG LLM Applications, November 2023, CSA](https://cloudsecurityalliance.org/blog/2023/11/22/mitigating-security-risks-in-retrieval-augmented-generation-rag-llm-applications)
