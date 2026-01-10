@@ -8,7 +8,7 @@ weight: 3
 >Category: group of threats through use  
 >Permalink: https://owaspai.org/goto/threatsuse/
 
-Threats through use (also called “input attacks”, “inference-time attacks”, or “runtime adversarial attacks”) occur when an adversary crafts inputs to a deployed AI system to achieve malicious goals such as:
+Threats through use (also called “input attacks”, “inference-time attacks”, or “runtime adversarial attacks”) occur when an attacker crafts inputs to a deployed AI system to achieve malicious goals such as:
 
 - Bypassing decisions (evasion)
 - Extracting sensitive information (model inversion, membership inference, sensitive data disclosure)
