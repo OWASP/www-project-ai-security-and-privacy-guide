@@ -1,0 +1,102 @@
+{{ define "main" }}
+
+<!-- Hero Section -->
+<div
+  class="bg-gradient-to-br from-[#000000] via-[#000A12] to-[#00579A] text-white relative overflow-hidden"
+>
+  <div class="stars-wide"></div>
+  <div
+    class="container mx-auto relative z-10 flex flex-col md:flex-row items-center px-4 md:px-10 py-0"
+  >
+    <!-- Graphic placeholder -->
+    <div class="globe-graphic w-1/2 mb-0 md:block"></div>
+
+    <div class="hero-content w-full md:w-1/2 text-center md:text-left">
+      <div class="text-lg md:text-lg font-medium mb-4 transition">
+        The Go-To Source for AI Security
+      </div>
+      <h1 class="text-4xl md:text-[50px] font-bold mb-8">
+        The Ultimate AI Security Guide
+      </h1>
+      <p class="text-lg mb-8 leading-6 xs:leading-8">
+        Access to <strong class="text-2xl">200+ pages</strong> of practical
+        guidance on protecting AI and data-centric systems. Official liaison
+        partner for the AI Act and ISO.
+      </p>
+      <div class="flex flex-col md:flex-row gap-4 flex-wrap justify-center md:justify-start">
+        <a
+          href="/docs/ai_security_overview/#how-to-use-this-document"
+          class="theme-blue-bg text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition w-full md:w-auto text-center"
+          >Explore the Content</a
+        >
+        <a
+          href="/contribute"
+          class="theme-green-bg text-white px-6 py-3 rounded-lg font-bold hover:bg-green-600 transition w-full md:w-auto text-center"
+          >Contribute Now</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Discover, Connect, Contribute Section -->
+<div class="container mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16">
+  <!-- Heading -->
+  <div class="text-center mb-4 sm:mb-6">
+    <div class="font-semibold uppercase tracking-wide text-green-500 mb-2 sm:mb-3 text-sm sm:text-base">
+      AI Security
+    </div>
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-snug">
+      Discover, Connect, and Contribute
+    </h2>
+  </div>
+
+  <!-- Cards Partial -->
+  <div class="w-full">
+    {{ partial "cards.html" . }}
+  </div>
+</div>
+
+
+<!-- Content Overview Section -->
+{{ partial "content-cards.html" . }}
+
+
+<!-- Contribute CTA Section -->
+<div class="container mx-auto px-4 md:px-8 py-10">
+  <div
+    class="rounded-xl text-center w-full flex flex-col items-center justify-center shadow-lg px-4 sm:px-6 py-8 sm:py-10 bg-gradient-to-r from-[#43A557] via-[#2C8E66] to-[#006284] mx-auto max-w-md sm:max-w-none"
+  >
+    <div
+      class="text-sm font-semibold uppercase tracking-wider mb-2 text-[#EBEFFF]"
+    >
+      Learn, Connect, and Innovate
+    </div>
+    <h2 class="text-2xl sm:text-3xl font-bold mb-6 text-[#EBEFFF]">
+      Contribute to the future of AI security
+    </h2>
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLSeuXZdg_iNbGwroZLeLsZTeXzmzertHqm5ivY9S5F9RNtqQ0w/viewform"
+      class="inline-block bg-white text-green-500 font-bold border-2 border-white rounded-lg px-8 sm:px-10 py-2 hover:bg-green-50 transition"
+    >
+      Become A Contributor
+    </a>
+  </div>
+</div>
+
+
+
+
+<!-- Media Section -->
+{{ partial "media-cards.html" . }}
+
+<!-- Sponsor Section -->
+
+    <!-- Sponsorship Section (Full Width Image + Overlay) -->
+ {{ partial "sponser-section.html" .}}
+
+</div>
+
+<!-- Contact Section -->
+{{ partial "contact-section.html" . }}
+{{ end }}
