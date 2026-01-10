@@ -19,7 +19,7 @@ These attacks and how to protect against them will be discussed in the following
 
 **Controls for threats through use**
 
-These are the controls for threaths throuh use in general - more specific controls are discussed in the subsections for the various types of attacks:
+These are the controls for threats through use in general - more specific controls are discussed in the subsections for the various types of attacks:
 - See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/) and [Sensitive data limitation](/goto/dataminimize/)
 - The below control(s), each marked with a # and a short name in capitals
 
@@ -333,7 +333,7 @@ For protection of trained model artifacts, see “Model Confidentiality” in th
 **Limitations**
 
   - Attackers may still exploit authorized accounts via compromise or insider misuse or vulnerabilities.
-  - Some attacks can occur indirectly within allowed sessions (e.g., indirectsubtle prompt injection).
+  - Some attacks can occur within allowed sessions (e.g., indirect prompt injection).
   - Publicly available models remain vulnerable if alternative protections are not in place.
 
 Complement this control with #RATE LIMIT #MONITORUSE and incident response (#SECPROGRAM)
@@ -348,7 +348,7 @@ Category: runtime data science control for threats through use
 Permalink: https://owaspai.org/goto/anomalousinputhandling/ 
 
 **Description**  
-Anomalous input hanlding: implement tools to detect whether input is odd and potentially respond, where ‘odd’ means significantly different from the training data or even invalid - also called input validation - without knowledge on what malicious input looks like.
+Anomalous input handling: implement tools to detect whether input is odd and potentially respond, where ‘odd’ means significantly different from the training data or even invalid - also called input validation - without knowledge on what malicious input looks like.
 
 **Objective**  
 Address unusual input as it is indicative of malicious activity. Response can vary between ignore, issue an alert, stop inference, or even take further steps to control the threat (see #monitor use for more details).
@@ -419,7 +419,7 @@ Detecting anomalous input is critical to maintaining model integrity, addressing
 Unlike detection mechanisms in conventional systems that rely on predefined rules or signatures, AI systems often rely on statistical or behavioral detection  methods such as presented here. In other words, AI systems typically rely more on pattern-based detection in contrast to  rule-based detection.
 
 **Limitations**  
-Not all anomous input is malicious, and not all malicious input is odd. There are examples of adversarial input specifically crafted to bypass detection of anomalous input. Detection mechanisms may not identify all malicious inputs, and some anomlous inputs may be benign or relevant.
+Not all anomalous input is malicious, and not all malicious input is anomalous. There are examples of adversarial input specifically crafted to bypass detection of anomalous input. Detection mechanisms may not identify all malicious inputs, and some anomalous inputs may be benign or relevant.
 
 For evasion attacks, detecting anomalous input is often ineffective because adversarial samples are specifically designed to appear similar to normal input by definition. As a result, many evasion attacks will not be detected by deviation-based methods. Some forms of evasion, such as adversarial patches, may still produce detectable anomalies.
 
@@ -508,7 +508,7 @@ The goal of obscuring confidence is to reduce the usefulness of model outputs fo
 
 This control applies to AI systems where outputs include confidence scores, probabilities, likelihoods, or similar certainty indicators. Whether it is required should be determined through risk management, based on the likelihood of: Evasion attacks, Model Inversion or Membership inference attacks and Model theft through use. 
 
-The exceptions is when confidence information is essential for the system’s intended use (for example, in medical decision support or safety-critical decision-making confidence level is an important piece of information for users). In such cases, confidence information should still be minimized to the least amount necessary by incorporating techniques like rounding the number, adding noise.
+The exception is when confidence information is essential for the system’s intended use (for example, in medical decision support or safety-critical decision-making confidence level is an important piece of information for users). In such cases, confidence information should still be minimized to the least amount necessary by incorporating techniques like rounding the number, adding noise.
 
 If the deployer is better positioned than the provider to implement this control, the provider can clearly communicate this expectation to the deployer.
 
@@ -732,7 +732,7 @@ PMLR, 2018.
 
 Train adversarial:  Introducing adversarial examples into the training set and using them to train the model to be more robust against evasion attacks and/or data poisoning. First, adversarial examples are generated using one or more specific adversarial attack methods that have been defined in advance. These attacks are employed to create adversarial examples, such as using the PGD attack in Madry Adversarial Training. 
 
-By definition, the model produces the wrong output for these adversarial  examples. By introducing adversarial examples into the training set with the correct output, the model is essentially corrected. i.e., it is less affected by the perturbation from the adversarial attacks (in the production phase), and it may be able to generalize better over the data used in production environment. In other words, by training the model on adversarial examples, it learns not to overly rely on subtle patterns in the data that might burden the model's ability to predict/generalize well.
+By definition, the model produces the wrong output for these adversarial  examples. By introducing adversarial examples into the training set with the correct output, the model is essentially corrected. i.e., it is less affected by the perturbation from the adversarial attacks (in the production phase), and it may be able to generalize better over the data used in the production environment. In other words, by training the model on adversarial examples, it learns not to overly rely on subtle patterns in the data that might burden the model's ability to predict/generalize well.
 
 Note that adversarial samples may also be used as  poisoned data, in which cases training with adversarial samples also mitigates data poisoning risk. On the other hand, it is important to note that generating the adversarial examples creates significant training overhead, does not scale well with model complexity / input dimension, can lead to overfitting and may not generalize well to new attack methods.
 
@@ -943,7 +943,7 @@ This section discusses the two types of prompt injection and the mitigation cont
 
 
 **Modality**  
-Instructions can be placed into text, and into non-text modalities, sych as images, audio, video, and documents with embedded objects.  Instructions can also be coordinated across text and other modalities so that multimodal GenAI system interprets them and follows them, leading to unintended or malicious behaviour. 
+Instructions can be placed into text, and into non-text modalities, such as images, audio, video, and documents with embedded objects.  Instructions can also be coordinated across text and other modalities so that the multimodal GenAI system interprets them and follows them, leading to unintended or malicious behaviour. 
 
 In multimodal systems, models routinely:
 - Extract text from images via OCR or visual encoders.
@@ -993,7 +993,7 @@ This control is less applicable to closed systems with fixed inputs and tightly 
 
 **Implementation**  
 - **Sanitize characters to reduce hidden or obfuscated instructions**: Normalize input using Unicode normalization (e.g. NFKC) to remove encoding ambiguity, and optionally apply stricter character filtering (e.g. allow-listing permitted characters) to prevent hidden control or instruction-like content. Also remove zero-width or otherwise invisible characters (e.g. white on white). This step typically aids detection of instructions as well.
-- **Escape/neutralize instruction-like tokens**: Transform any tokens in untrusted data that may be mistaken for real by an AI model or parser, such as fences, role markers, XML/HTML Tags and tool calling tokens. This reduces accidental compliance but semantic injection stil passes through.
+- **Escape/neutralize instruction-like tokens**: Transform any tokens in untrusted data that may be mistaken for real by an AI model or parser, such as fences, role markers, XML/HTML Tags and tool calling tokens. This reduces accidental compliance but semantic injection still passes through.
 - **Delineate inserted untrusted data** - see [#INPUT SEGREGATION](/goto/inputsegregation/) to increase the probability that all externally sourced or user-provided content is  treated as untrusted data not interpreted as instructions.
 - **Recognize manipulative instructions in input**: Detecting patterns that indicate attempts to manipulate model behavior through crafted instructions (e.g.: ‘forget previous instructions’ or 'retrieve password'). These patterns may appear in text, images, audio, metadata, retrieved data, or uploaded files, depending on the system’s supported modalities.
 - **Use GenAI for recognition**. The flexibility of natural language makes it harder to apply input validation than for strict syntax situations like SQL commands. To address this flexibility of natural language in prompt inputs, the best practice for high-risk situations is to utilize LLM-based detectors (LLM-as-a-judge) for the detection of malicious instructions in a more semantic way, instead of syntactic. However, it’s important to note that this method may come with longer latency, higher compute costs, potential license costs, and considerations regarding accuracy, compared to other strategies such as normalizing or pre-processing input, or employing heuristic and rules-based approaches.
@@ -1002,9 +1002,9 @@ This control is less applicable to closed systems with fixed inputs and tightly 
 - **Detect unwanted output**: Detecting patterns of unwanted behaviour in output, such as:
   - Offensive language or dangerous information
   - Sensitive data: see [SENSITIVE OUTPUT HANDLING](/goto/sensitiveoutputhandling/) for the control to detect sensitive data (e.g. names, phone numbers, passwords, tokens). These detections can also be applied on the input of the model or on APIs that retrieve data to go into the model.
-  - A special category of sensitive data: system prompts, as they can be used by attackers to cicrumvent prompt injection protection in such prompts. 
+  - A special category of sensitive data: system prompts, as they can be used by attackers to circumvent prompt injection protection in such prompts. 
   - Suspicious function calls.  Ideally, the privileges of an agent are already hardened to the task (see [#LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/)), in which case detection comes down to issuing an alert once an agent attempts to execute an action for which it has no permissions. In addition, the stategy can include the detection of unusual function calls in the context, issuing alerts for further investigation, or asking for approval by a human in the loop. Manipulation of function flow is commonly referred to as _application flow perturbation_. An advanced way to detect manipulated workflows is to perform rule-based sanity checks during steps, e.g. verify whether certain safety checks of filters were executed before processing data. The actual stopping of function calls is covered by the [#OVERSIGHT](/goto/oversight/) control.
-- **Update detections constantly**: Make sure that techniques and patterns for detection of input/output are constantly updated by using external sources.  Since this is an arms race, the best strategy is to base this on an open source or third party resource. Popular tool providers at the time of writing include: Pangea, Hiddenlayer, AIShield, and Aiceberg. Popular open source packages for prmpt injection detection are, in alphabeticall order:
+- **Update detections constantly**: Make sure that techniques and patterns for detection of input/output are constantly updated by using external sources.  Since this is an arms race, the best strategy is to base this on an open source or third party resource. Popular tool providers at the time of writing include: Pangea, Hiddenlayer, AIShield, and Aiceberg. Popular open source packages for prompt injection detection are, in alphabetical order:
   - [Guardrails-AI](https://github.com/guardrails-ai/guardrails)
   - [Langkit](https://github.com/whylabs/langkit).
   - [LLM Guard](https://github.com/protectai/llm-guard)
@@ -1021,7 +1021,7 @@ Unlike traditional application input validation, Prompt injection defense at inf
 
 **Limitations**  
 No detection method reliably identifies all forms of manipulative or unwanted instructions. Generative models used for detection may themselves be influenced by crafted inputs. Heuristic and rules-based approaches may fail to generalize to new attack variations. Additionally, experimentation through small input changes over time may evade single-input detection and require complementary series-based analysis.
-This control does not replace access control, rate limiting, or monitoring, but works best alongside them - combined with [controls to limit the effects of unwnanted model behaviour](/goto/limitunwanted/).
+This control does not replace access control, rate limiting, or monitoring, but works best alongside them - combined with [controls to limit the effects of unwanted model behaviour](/goto/limitunwanted/).
 
 **References**
 - [Invisible prompt injection](https://arxiv.org/abs/2505.16957)
@@ -1065,8 +1065,8 @@ Direct prompt injection: a user tries to fool a Generative AI (eg. a Large Langu
 
 Impact: Obtaining information from the AI that is offensive, confidential, could grant certain legal rights, or triggers unauthorized functionality. Note that the person providing the prompt is the one receiving this information. The model itself is typically not altered, so this attack does not affect anyone else outside of the user (i.e., the attacker). The exception is when a model works with a shared context between users that can be influenced by user instructions.
 
-Many Generative AI systems have adjusted by their suppliers to behave (so-called _alignment_ or _safety training_), for example to prevent offensive language, or dangerous instructions. When prompt injection is  aimed at countering this, it is referred to as a *jailbreak attack*. Jailbreak attack strategies include:
-1. Abusing competing objectives. For example: if a model wants to be helpful, but also can't give you malicious instuctions, then a prompt injection could abuse this by appealing to the helpfulness to still get the instructions.
+Many Generative AI systems have been adjusted by their suppliers to behave (so-called _alignment_ or _safety training_), for example to prevent offensive language, or dangerous instructions. When prompt injection is  aimed at countering this, it is referred to as a *jailbreak attack*. Jailbreak attack strategies include:
+1. Abusing competing objectives. For example: if a model wants to be helpful, but also can't give you malicious instructions, then a prompt injection could abuse this by appealing to the helpfulness to still get the instructions.
 2. Using input that is not recognized by the alignment ('out of distribution') but IS resulting in an answer based on the training data ('in distribution'). For example: using special encoding that fools safety training, but still results in the unwanted output.
 
 Examples of prompt injection: 
@@ -1079,7 +1079,7 @@ Example 3: Embarrass a company that offers an AI Chat service by letting it spea
 
 Example 4: Making a chatbot say things that are legally binding and gain attackers certain rights. See [Chevy AI bot story in 2023](https://hothardware.com/news/car-dealerships-chatgpt-goes-awry-when-internet-gets-to-it).
 
-Example 5: The process of trying prompt injection can be automated, searching for _pertubations_ to a prompt that allow circumventing the alignment. See [this article by Zou et al](https://llm-attacks.org/).
+Example 5: The process of trying prompt injection can be automated, searching for _pertubations_ to a prompt that allows circumventing the alignment. See [this article by Zou et al](https://llm-attacks.org/).
 
 Example 6: When an attacker manages to retrieve system instructions provided by Developers through crafted input prompts, in order to later help craft prompt injections that circumvent the protections in those system prompts. (known as System prompt leakage, Refer [System Prompt Leakage](https://genai.owasp.org/llmrisk/llm072025-system-prompt-leakage/)).
 
@@ -1148,7 +1148,7 @@ References
 > Category: runtime information security control against application security threats  
 > Permalink: https://owaspai.org/goto/inputsegregation/
 
-Input segregation: clearly separate/delimit/deliniate untrusted data when inserting it into a prompt and instruct the model to ignore instructions in that data. Use consistent and hard to spoof markers. One way to do this is to pass inputs as structured fields using a structured format such as JSON. Some platforms offer integrated mechanisms for segregation (e.g. ChatML for OpenAI API calls and Langchain prompt formatters).
+Input segregation: clearly separate/delimit/delineate untrusted data when inserting it into a prompt and instruct the model to ignore instructions in that data. Use consistent and hard to spoof markers. One way to do this is to pass inputs as structured fields using a structured format such as JSON. Some platforms offer integrated mechanisms for segregation (e.g. ChatML for OpenAI API calls and Langchain prompt formatters).
 
 For example the prompt:  
 "TASK:
