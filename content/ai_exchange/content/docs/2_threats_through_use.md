@@ -18,7 +18,6 @@ Threats through use (also called “input attacks”, “inference-time attacks�
 
 These attacks and how to protect against them will be discussed in the following subsections.
 
-
 **Controls for threats through use**
 
 These are the controls for threats through use in general - more specific controls are discussed in the subsections for the various types of attacks:
