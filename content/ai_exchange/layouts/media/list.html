@@ -1,0 +1,79 @@
+{{ define "main" }}
+<!-- Hero Section -->
+<section
+  class="intro-banner text-white py-12 mb-0 bg-cover bg-center bg-no-repeat"
+  style="background-image: url('/images/media.png')"
+>
+  <div class="container text-left bg-opacity-50 p-6 md:p-12 rounded-lg">
+    <h1 class="text-3xl md:text-5xl font-bold mb-4">{{ .Title }}</h1>
+    <p class="text-base md:text-lg text-gray-300 max-w-2xl">
+      Protect AI systems from threats with encryption, access controls, and monitoring.
+    </p>
+    <!-- <button
+      class="inline-block bg-[#4CAF50] hover:bg-emerald-700 text-white text-lg md:text-xl font-medium py-2 md:py-3 px-6 md:px-10 rounded-lg mt-6"
+    >
+      Explore Media
+    </button> -->
+  </div>
+</section>
+
+<!-- Media Grid -->
+<div class="container mx-auto px-4 py-12">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {{ $items := site.Data.media.items }} 
+    {{ range $items }}
+    <div class="w-full max-w-[401px] mx-auto">
+      <!-- Clickable Thumbnail -->
+      <a
+        href="{{ .url }}"
+        target="_blank"
+        rel="noopener"
+        class="group block rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
+      >
+        <div class="relative w-full h-56 md:h-[253px] overflow-hidden rounded-lg">
+          <img
+            src="{{ .thumbnail }}"
+            alt="{{ .title }}"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+
+          <!-- Overlay with Play Icon -->
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div
+              class="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full backdrop-blur-sm transition-transform duration-300 group-hover:scale-110 group-hover:bg-white/30"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-8 h-8 text-white transition-transform duration-300 group-hover:scale-125"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Title + Date -->
+      <div class="p-4">
+        <a href="{{ .url }}" target="_blank" rel="noopener">
+          <h3
+            class="text-lg md:text-xl font-bold text-black mt-1 hover:text-[#00B7BA] transition-colors"
+          >
+            {{ .title }}
+          </h3>
+        </a>
+        <p class="text-sm text-gray-500 mt-1">
+          {{ .date | time.Format "02 Jan 2006" }}
+        </p>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+
+<!-- Contact CTA Section -->
+{{ partial "contact-section.html" . }}
+
+{{ end }}

@@ -1,0 +1,15 @@
+{
+  "articles": [
+    {{ range $index, $page := .Site.RegularPages }}
+      {{ if ne $index 0 }},{{ end }}
+      {
+        "title": {{ $page.Title | jsonify }},
+        "uri": {{ $page.Permalink | jsonify }},
+        "content": {{ $page.Plain | jsonify }},
+        "tags": {{ $page.Params.tags | jsonify }},
+        "categories": {{ $page.Params.categories | jsonify }}
+      }
+    {{ end }}
+  ]
+}
+

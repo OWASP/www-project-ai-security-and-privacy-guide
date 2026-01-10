@@ -1,0 +1,151 @@
+{{ define "main" }}
+<!-- ✅ Alpine.js for dropdown logic -->
+<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css"/>
+
+<section
+  class="intro-banner text-white py-12 mb-0 bg-cover bg-center bg-no-repeat"
+  style="background-image: url('/images/overview-hero.png')"
+>
+  <div class="container text-left bg-opacity-50 p-8 rounded-lg">
+    <h1 class="text-[46px] md:text-5xl font-bold mb-4">{{ .Params.heroTitle | default .Title }}</h1>
+    <p class="text-lg text-gray-300 max-w-4xl">
+      {{ .Params.heroText | default "Engage with the OWASP AI team through various platforms." }}
+    </p>
+      <!-- <a
+  href="#contact-form"
+  class="inline-block bg-[#4CAF50] hover:bg-emerald-700 text-white text-xl font-medium py-3 px-10 rounded-lg mt-[22px] transition"
+>
+  Let's connect
+</a> -->
+  </div>
+</section>
+
+<div class="docs-layout" x-data="{ openSidebar: false, openToc: false }">
+
+  <!-- ✅ Mobile Dropdown Buttons -->
+  <div class="md:hidden flex flex-col gap-3 p-4">
+    <!-- Sidebar dropdown -->
+    <div class="bg-[#EEF3FF] rounded-xl shadow-sm">
+      <button
+        @click="openSidebar = !openSidebar"
+        class="w-full flex justify-between items-center text-gray-800 font-semibold px-5 py-3"
+      >
+        <span>AI Security Overview</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          :class="{'rotate-90': openSidebar}"
+          class="w-5 h-5 text-gray-600 transform transition-transform"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      <!-- Sidebar content dropdown -->
+      <div x-show="openSidebar" x-transition class="px-5 pb-3">
+        <ul class="flex flex-col text-left text-sm font-medium text-gray-700 space-y-2">
+          <li><a href="/docs/ai_security_overview/" class="hover:text-[#006284]">0. AI Security Overview </a></li>
+          <li><a href="/docs/1_general_controls/" class="hover:text-[#006284]">1. General Controls</a></li>
+          <li><a href="/docs/2_threats_through_use/" class="hover:text-[#006284]">2. Threats Through Use</a></li>
+          <li><a href="/docs/3_development_time_threats/" class="hover:text-[#006284]">3. Development-Time Threats</a></li>
+          <li><a href="/docs/4_runtime_application_security_threats/" class="hover:text-[#006284]">4. Runtime Application Security Threats</a></li>
+          <li><a href="/docs/5_testing/" class="hover:text-[#006284]">5. AI Security Testing</a></li>
+          <li><a href="/docs/6_privacy/" class="hover:text-[#006284]">6. AI Privacy</a></li>
+          <li><a href="/docs/ai_security_references/" class="hover:text-[#006284]">AI Security References</a></li>
+          <li><a href="/docs/" class="hover:text-[#006284]">Index</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TOC dropdown -->
+    <div class="bg-[#EEF3FF] rounded-xl shadow-sm">
+      <button
+        @click="openToc = !openToc"
+        class="w-full flex justify-between items-center text-gray-800 font-semibold px-5 py-3"
+      >
+        <span>Select Topics</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          :class="{'rotate-90': openToc}"
+          class="w-5 h-5 text-gray-600 transform transition-transform"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      <!-- TOC content dropdown -->
+      <div x-show="openToc" x-transition class="px-5 pb-3">
+        <div class="text-left text-sm text-gray-700 space-y-2">
+          {{ .TableOfContents }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Desktop Layout (unchanged) -->
+  <div class="hidden md:flex docs-sidebar-column">
+    <aside class="docs-sidebar p-0">
+      <div class="sidebar-container pt-6">
+        <nav class="sidebar-nav">
+          <ul class="flex flex-col">
+            <li><a href="/docs/ai_security_overview/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/ai_security_overview/" }}active{{ end }}"><span>0. AI Security Overview</span></a></li>
+            <li><a href="/docs/1_general_controls/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/1_general_controls/" }}active{{ end }}"><span>1. General controls</span></a></li>
+            <li><a href="/docs/2_threats_through_use/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/2_threats_through_use/" }}active{{ end }}"><span>2. Threats through use</span></a></li>
+            <li><a href="/docs/3_development_time_threats/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/3_development_time_threats/" }}active{{ end }}"><span>3. Development-time threats</span></a></li>
+            <li><a href="/docs/4_runtime_application_security_threats/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/4_runtime_application_security_threats/" }}active{{ end }}"><span>4. Runtime application security threats</span></a></li>
+            <li><a href="/docs/5_testing/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/5_testing/" }}active{{ end }}"><span>5. AI security testing</span></a></li>
+            <li><a href="/docs/6_privacy/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/6_privacy/" }}active{{ end }}"><span>6. AI privacy</span></a></li>
+            <li><a href="/docs/ai_security_references/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/ai_security_references/" }}active{{ end }}"><span>AI Security References</span></a></li>
+            <li><a href="/docs/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/" }}active{{ end }}"><span>Index</span></a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- <div class="sidebar-more">
+      <h3 class="sidebar-title">More</h3>
+      <ul class="flex flex-col">
+        {{ range .Site.Menus.sidebar }}
+          {{ if ne .Params.type "separator" }}
+            <li><a href="{{ .URL }}" class="sidebar-menu-item">{{ .Name }}</a></li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    </div> -->
+  </div>
+
+  <!-- Main Content -->
+  <main class="docs-main">
+    <div class="docs-content">
+      <nav class="breadcrumbs">
+        <a href="/">Home</a>
+        <span class="breadcrumb-separator">></span>
+        <span class="current-page">{{ .Title }}</span>
+      </nav>
+      <h1 class="docs-title">{{ .Title }}</h1>
+      <div class="docs-body documentation">
+        {{ .Content }}
+      </div>
+    </div>
+  </main>
+
+  <!-- ✅ Right TOC (desktop only) -->
+  <aside class="hidden md:block docs-toc docs-sidebar-column">
+    <div class="toc-container sticky">
+      <h3 class="toc-title py-2">On this page</h3>
+      <div class="toc-content bg-gradient-to-b from-[#CCF6CE] to-[#FDFBFB] border border-gray-300 rounded-lg p-4">
+        {{ .TableOfContents }}
+      </div>
+    </div>
+  </aside>
+</div>
+
+{{ partial "contact-section.html" . }}
+
+{{ end }}

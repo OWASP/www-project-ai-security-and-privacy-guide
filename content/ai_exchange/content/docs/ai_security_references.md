@@ -1,5 +1,7 @@
 ---
 title: AI Security References
+heroTitle: "AI Security References"
+heroText: "References on specific topics can be found throughout the AI Exchange content. This section contains an overview."
 weight: 8
 ---
 ## References of the OWASP AI Exchange
