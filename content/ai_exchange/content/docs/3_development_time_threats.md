@@ -464,7 +464,7 @@ Implementation may be more suitable for the deployer of the AI system in environ
 Standard data quality controls include:
 - Validation: regularly verify if data satisfies requirements regarding format and being in the allowed range of values
 - Versioning and rollback mechanisms in order to pinpoint quality incidents and restore data
-- Data provenance (see [SUPPLY CHAIN MANAGE](/goto/supplychainmanage/)
+- Data provenance (see [SUPPLY CHAIN MANAGE](/goto/supplychainmanage/))
 
 **Implementation of integrity checks**  
 Safely store hash codes of data elements and conduct regular checks for manipulations. See [DEVSECURITY](/goto/devsecurity/) for more details on integrity checks.
