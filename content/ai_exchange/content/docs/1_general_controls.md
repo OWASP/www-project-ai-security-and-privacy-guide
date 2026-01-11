@@ -599,7 +599,7 @@ Continuous validation applies to AI systems where changes in model behaviour cou
 
 **Implementation**  
 
-**Validation timing and triggers**  
+**Implementation of timing and triggers**  
 Continuous validation can be performed at points in the system lifecycle where model behaviour may reasonably change or be at risk of manipulation. This includes:
 - after initial training, retraining, or fine-tuning,
 - before deployment or redeployment, and
@@ -607,7 +607,7 @@ Continuous validation can be performed at points in the system lifecycle where m
 
 Operational validation is particularly relevant when models remain exposed to updates, external dependencies, or environments where unauthorized modification is plausible. The frequency and scope of validation are typically informed by risk analysis and the criticality of the model’s output.
 
-**Detection of degradation and response handling**  
+**Implementation of degradation detection and response handling**  
 Validation results can be monitored for unexpected or unexplained changes in model performance, which may indicate permanent behavioural changes caused by attacks, configuration errors, or environmental drift.  
 When performance degradation or abnormal behaviour is observed, possible response options include:
 - investigating the underlying cause;
@@ -618,9 +618,9 @@ When performance degradation or abnormal behaviour is observed, possible respons
 - temporarily disabling the system if continued operation is unsafe.  
 The choice of response influences both the impact of the issue and the timeliness of recovery.
 
-**Protection and management of validation data**  
-Test datasets serve as a reference for intended or acceptable model behaviour and therefore benefit from protection against manipulation. Storing validation data separately from training data or model artifacts can reduce the likelihood that attackers influence both the model and its evaluation baseline.
-When validation data remains less exposed than training data or deployed model components, continuous validation can help surface integrity issues even if other parts of the system are compromised.
+**Implementation of test data management and protection**  
+Test datasets serve as a reference for intended or acceptable model behaviour and therefore benefit from protection against manipulation. Storing test data separately from training data or model artifacts can reduce the likelihood that attackers influence both the model and its evaluation baseline.
+When test data remains less exposed than training data or deployed model components, continuous validation can help surface integrity issues even if other parts of the system are compromised.
 
 **Risk-Reduction Guidance**  
 Continuous validation can be an effective mechanism for detecting permanent behavioural changes caused by attacks such as data poisoning or model poisoning. Detection timeliness depends on how frequently validation is performed and whether the manipulated model has already been deployed.
