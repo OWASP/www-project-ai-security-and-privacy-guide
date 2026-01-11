@@ -1344,15 +1344,17 @@ References
 
 ---
 
-## 2.5. Failure or malfunction of AI-specific elements through use
+## 2.5. AI resource exhaustion
 >Category: threat through use  
->Permalink: https://owaspai.org/goto/denialmodelservice/
+>Permalink: https://owaspai.org/goto/airesourceexhaustion/
 
-Description: specific input to the model leads to availability issues (system being very slow or unresponsive, also called _denial of service_), typically caused by excessive resource usage. The failure occurs from frequency, volume, or the content of the input. See [MITRE ATLAS - Denial of ML service](https://atlas.mitre.org/techniques/AML.T0029).
+Description: specific input to the model leads to resource exhaustion, which can be the depletion of funds or availability issues (system being very slow or unresponsive, also called _denial of service_). The failure occurs from frequency, volume, or the content of the input. See [MITRE ATLAS - Denial of ML service](https://atlas.mitre.org/techniques/AML.T0029).
 
-Impact: The AI systems is unavailable, leading to issues with processes, organizations or individuals that depend on the AI system (e.g. business continuity issues, safety issues in process control, unavailability of services)
+Impact: Loss of money or the AI systems is unavailable, leading to issues with processes, organizations or individuals that depend on the AI system (e.g. business continuity issues, safety issues in process control, unavailability of services)
 
-For example: A _sponge attack_ or _energy latency attack_ provides input that is designed to increase the computation time of the model, which essentially is a denial of wallet (DoW) attack, also potentially causing a denial of service. See [article on sponge examples](https://arxiv.org/pdf/2006.03463.pdf)
+Examples:
+- Malicious intensive use of a paid third party model leads to high costs for the use
+- A _sponge attack_ or _energy latency attack_ provides input that is designed to increase the computation time of the model, which essentially is a denial of wallet (DoW) attack, also potentially causing a denial of service. See [article on sponge examples](https://arxiv.org/pdf/2006.03463.pdf)
 
 **Controls:**
 
