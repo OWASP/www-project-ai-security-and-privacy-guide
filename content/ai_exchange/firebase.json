@@ -355,7 +355,12 @@
       },
       {
         "source": "/goto/filtersensitivemodeloutput/",
-        "destination": "/docs/2_threats_through_use/#filter-sensitive-model-output",
+        "destination": "/docs/2_threats_through_use/#sensitiveoutputhandling",
+        "type": 301
+      },
+      {
+        "source": "/goto/sensitiveoutputhandling/",
+        "destination": "/docs/2_threats_through_use/#sensitiveoutputhandling",
         "type": 301
       },
       {
