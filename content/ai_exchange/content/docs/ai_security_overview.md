@@ -1,7 +1,7 @@
 ---
 title: 0. AI Security Overview
 heroTitle: "AI Security Overview"
-heroText: "This section provides various overviews of threats and control, step-by-step risk analysis, and discussion of cross-cutting concerns."
+heroText: "This section provides an introduction, various high-over views of threats and control, step-by-step risk analysis, and discussion of cross-cutting concerns. THe next sections go deeper into the threats and controls."
 weight: 1
 ---
 
