@@ -436,10 +436,13 @@ Useful standards include:
 > Category: development-time and runtime control    
 > Permalink: https://owaspai.org/goto/discrete/
 
+**Description**  
 Minimize access to technical details that could help attackers.
 
-Purpose: reduce the information available to attackers, which can assist them in selecting and tailoring their attacks, thereby lowering the probability of a successful attack.
+**Objective**  
+Reduce the information available to attackers, which can assist them in selecting and tailoring their attacks, thereby lowering the probability of a successful attack.
 
+**Implementation**  
 Minimizing and protecting technical details can be achieved by incorporating such details as an asset into information security management. This will ensure proper asset management, data classification, awareness education, policy, and inclusion in risk analysis.
 
 Note: this control needs to be weighed against the [AITRANSPARENCY](#aitransparency) control that requires to be more open about technical aspects of the model. The key is to minimize information that can help attackers while being transparent.
@@ -450,9 +453,8 @@ For example:
   - When choosing a model type or model implementation, take into account that there is an advantage of having technology with which attackers are less familiar
   - Minimize technical details in model output
 
-
+**References**  
 Useful standards include:
-
   - ISO 27002 Control 5.9: Inventory of information and other associated assets. Gap: covers this control fully, with the particularity that technical data science details can be sensitive. .
   - See [OpenCRE on data classification and handling](https://www.opencre.org/cre/074-873). Gap: idem
   - [MITRE ATlAS Acquire Public ML Artifacts](https://atlas.mitre.org/techniques/AML.T0002)
