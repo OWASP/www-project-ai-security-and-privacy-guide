@@ -289,10 +289,11 @@ Useful standards include:
 > Category: governance control  
 > Permalink: https://owaspai.org/goto/seceducate/
 
+**Description**  
 Security education for data scientists and development teams on AI threat awareness, including attacks on models. It is essential for all engineers, including data scientists, to attain a security mindset.
 
+**References**  
 Useful standards include:
-
   - ISO 27002 Control 6.3 Awareness training. Gap: covers this control fully, but lacks detail and needs to take into account the particularity: training material needs to cover AI security threats and controls
 
 ---
