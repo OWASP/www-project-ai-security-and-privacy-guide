@@ -547,11 +547,11 @@ In AI systems, confidence values are not just user-facing explanations. They can
   - Not covered yet in ISO/IEC standards
 
 
-
 ## 2.1. Evasion
 >Category: group of threats through use  
 >Permalink: https://owaspai.org/goto/evasion/
 
+**Description**  
 Evasion: an attacker fools the model by crafting input to mislead it into performing its task incorrectly. Evasion attacks force a model to make a wrong decision by feeding it carefully crafted inputs (adversarial examples). The model behaves correctly on normal data but fails on these malicious inputs.
 
 This is different from a Prompt injection(link) attack which inputs manipulative instructions (instead of data) to make the model perform its task incorrectly.
