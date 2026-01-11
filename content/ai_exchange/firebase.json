@@ -249,18 +249,33 @@
         "type": 301
       },
       {
+        "source": "/goto/detectoddinput/",
+        "destination": "/docs/2_threats_through_use/#anomalous-input-handling",
+        "type": 301
+      },
+      {
+        "source": "/goto/anomalousinputhandling/",
+        "destination": "/docs/2_threats_through_use/#anomalous-input-handling",
+        "type": 301
+      },
+      {
+        "source": "/goto/unwantedinputserieshandling/",
+        "destination": "/docs/2_threats_through_use/#unwanted-input-series-handling",
+        "type": 301
+      },
+      {
         "source": "/goto/evasion/",
         "destination": "/docs/2_threats_through_use/#21-evasion",
         "type": 301
       },
       {
-        "source": "/goto/detectoddinput/",
-        "destination": "/docs/2_threats_through_use/#detect-oddinput",
+        "source": "/goto/detectadversarialinput/",
+        "destination": "/docs/2_threats_through_use/#evasion-input-handling",
         "type": 301
       },
       {
-        "source": "/goto/detectadversarialinput/",
-        "destination": "/docs/2_threats_through_use/#detect-adversarial-input",
+        "source": "/goto/evasioninputhandling/",
+        "destination": "/docs/2_threats_through_use/#evasion-input-handling",
         "type": 301
       },
       {
@@ -361,6 +376,11 @@
       {
         "source": "/goto/modeltheftuse/",
         "destination": "/docs/2_threats_through_use/#24-model-theft-through-use",
+        "type": 301
+      },
+      {
+        "source": "/goto/modelwatermarking/",
+        "destination": "/docs/2_threats_through_use/#model-watermarking/",
         "type": 301
       },
       {
