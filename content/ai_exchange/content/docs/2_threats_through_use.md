@@ -31,7 +31,7 @@ These are the controls for threats through use in general - more specific contro
 Monitor use: observe, correlate, and log model usage (date, time, user), inputs, outputs, and system behavior to identify events or patterns that may indicate a cybersecurity incident. This can be used to reconstruct incidents, and make it part of the existing incident detection process - extended with AI-specific methods, including:
 
   - improper functioning of the model (see [CONTINUOUSVALIDATION](/goto/continuousvalidation/) and [UNWANTEDBIASTESTING](/goto/unwantedbiastesting/))
-  - suspicious patterns of model use (e.g. high frequency - see [RATELIMIT](#ratelimit))
+  - suspicious patterns of model use (e.g., high frequency - see [RATELIMIT](#ratelimit))
   - suspicious inputs or series of inputs (see anomalous input handling and prompt injection I/O handling)
 
 By adding details to logs on the version of the model used and the output, troubleshooting becomes easier. This control provides centralized visibility into how AI systems are used over time and across actors, sessions, and models.
@@ -125,7 +125,7 @@ For each monitored risk, criteria can be defined to identify suspicious patterns
   Detection mechanisms benefit from being explicitly linked to response actions, such as filtering, throttling, escalation, or containment. Response selection is typically driven by confidence, threat type, and potential impact, and may range from automated safeguards to follow-up investigation.
 
 **- Incident Response and Containment**
-Detection mechanisms benefit from being paired with predefined response actions that limit harm, preserve evidence, and support recovery. For each detection used in the system, a corresponding response approach can be documented (e.g. incident response playbook - SOP), specifying when actions are automated, when follow-up is required, and what escalation paths apply.
+Detection mechanisms benefit from being paired with predefined response actions that limit harm, preserve evidence, and support recovery. For each detection used in the system, a corresponding response approach can be documented (e.g., incident response playbook - SOP), specifying when actions are automated, when follow-up is required, and what escalation paths apply.
 Response actions may vary depending on the certainty of detection, the threat type, and the potential impact, and can include:
 
   **- Immediate containment**
@@ -184,7 +184,7 @@ Additionally, Response actions introduce trade-offs. Overly aggressive responses
 
 Useful standards include:
 
-  - ISO 27002 Controls 8.15 Logging and 8.16 Monitoring activities. Gap: covers this control fully, with the particularity: monitoring needs to look for specific patterns of AI attacks (e.g. model attacks through use). The ISO 27002 control has no details on that.
+  - ISO 27002 Controls 8.15 Logging and 8.16 Monitoring activities. Gap: covers this control fully, with the particularity: monitoring needs to look for specific patterns of AI attacks (e.g., model attacks through use). The ISO 27002 control has no details on that.
   - ISO/IEC 42001 B.6.2.6 discusses AI system operation and monitoring. Gap: covers this control fully, but on a high abstraction level.
   - See [OpenCRE](https://www.opencre.org/cre/058-083). Idem
 
@@ -564,12 +564,12 @@ In evasion attacks on AI systems, adversaries craft **adversarial examples** to 
 - **Diffuse perturbations** apply tiny, imperceptible noise across the entire input (hard for humans to notice).
 - **Localized patches** concentrate visible but innocuous-looking changes in one area (e.g., a small sticker), making them practical for physical-world attacks. 
 
-Impact: Integrity of model behaviour is affected, leading to issues from unwanted model output (e.g. failing fraud detection, decisions leading to safety issues, reputation damage, liability).
+Impact: Integrity of model behaviour is affected, leading to issues from unwanted model output (e.g., failing fraud detection, decisions leading to safety issues, reputation damage, liability).
 
-A typical attacker's goal with evasion is to find out how to slightly change a certain input (say an image, or a text) to fool the model. The advantage of slight change is that it is harder to detect by humans or by an automated detection of unusual input, and it is typically easier to perform (e.g. slightly change an email message by adding a word so it still sends the same message, but it fools the model in for example deciding it is not a phishing message).  
+A typical attacker's goal with evasion is to find out how to slightly change a certain input (say an image, or a text) to fool the model. The advantage of slight change is that it is harder to detect by humans or by an automated detection of unusual input, and it is typically easier to perform (e.g., slightly change an email message by adding a word so it still sends the same message, but it fools the model in for example deciding it is not a phishing message).  
 Such small changes (call 'perturbations') lead to a large (and false) modification of its outputs. The modified inputs are often called *adversarial examples*.  
 
-Evasion attacks can be categorized into physical (e.g. changing the real world to influence for example a camera image) and digital (e.g. changing a digital image). Furthermore, they can be categorized in either untargeted (any wrong output) and targeted (a specific wrong output). Note that Evasion of a binary classifier (i.e. yes/no) belongs to both categories.
+Evasion attacks can be categorized into physical (e.g., changing the real world to influence for example a camera image) and digital (e.g., changing a digital image). Furthermore, they can be categorized in either untargeted (any wrong output) and targeted (a specific wrong output). Note that Evasion of a binary classifier (i.e. yes/no) belongs to both categories.
 
 Example 1: slightly changing traffic signs so that self-driving cars may be fooled.
 ![](/images/inputphysical.png)
@@ -888,9 +888,9 @@ adversarial attacks." arXiv preprint arXiv:1706.06083 (2017).
 
 ### 2.1.3 Transferability-based evasion attacks
 
-Attackers can execute a transferability-based attack in a closed-box situation by first creating adversarial examples using a surrogate model: a copy or approximation of the closed-box target model, and then applying these adversarial examples to the target model.  The surrogate model can be a model from another supplier that performs a similar task (e.g. recognize traffic signs), or a model that the attacker trained based on available or self-collected or self-labeled data.
+Attackers can execute a transferability-based attack in a closed-box situation by first creating adversarial examples using a surrogate model: a copy or approximation of the closed-box target model, and then applying these adversarial examples to the target model.  The surrogate model can be a model from another supplier that performs a similar task (e.g., recognize traffic signs), or a model that the attacker trained based on available or self-collected or self-labeled data.
 
-The advantage of a surrogate model is that it may expose its internals (e,g. because it’s open source), allowing a white-box attack. But even closed models (e.g. an API in the cloud) may be beneficial in case detection mechanisms and rate limiting are less strict than the target model - making a closed-box attack easier and quicker to perform, 
+The advantage of a surrogate model is that it may expose its internals (e.g., because it's open source), allowing a white-box attack. But even closed models (e.g., an API in the cloud) may be beneficial in case detection mechanisms and rate limiting are less strict than the target model - making a closed-box attack easier and quicker to perform, 
 
 The goal is to create adversarial examples that will ‘hopefully’ transfer to the original target model, even though the surrogate may be internally different from the target. Because the task is similar, it can be expected that the decision boundaries in the model are similar. The likelihood of a successful transfer is generally higher when the surrogate model closely resembles the target model in terms of complexity and structure. However, it’s noted that even attacks developed using simpler surrogate models tend to transfer effectively. 
 
@@ -1080,7 +1080,7 @@ Example 3: Embarrass a company that offers an AI Chat service by letting it spea
 
 Example 4: Making a chatbot say things that are legally binding and gain attackers certain rights. See [Chevy AI bot story in 2023](https://hothardware.com/news/car-dealerships-chatgpt-goes-awry-when-internet-gets-to-it).
 
-Example 5: The process of trying prompt injection can be automated, searching for _pertubations_ to a prompt that allows circumventing the alignment. See [this article by Zou et al](https://llm-attacks.org/).
+Example 5: The process of trying prompt injection can be automated, searching for _perturbations_ to a prompt that allows circumventing the alignment. See [this article by Zou et al](https://llm-attacks.org/).
 
 Example 6: When an attacker manages to retrieve system instructions provided by Developers through crafted input prompts, in order to later help craft prompt injections that circumvent the protections in those system prompts. (known as System prompt leakage, Refer [System Prompt Leakage](https://genai.owasp.org/llmrisk/llm072025-system-prompt-leakage/)).
 
@@ -1182,7 +1182,7 @@ The model discloses sensitive training data or is abused to do so.
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/disclosureuseoutput/
 
-The output of the model may contain sensitive data from the training set, for example a large language model (GenAI) generating output including personal data that was part of its training set. Furthermore, GenAI can output other types of sensitive data, such as copyrighted text or images(see [Copyright](/goto/copyright/)). Once training data is in a GenAI model, original variations in access rights cannot be controlled anymore. ([OWASP for LLM 02](https://genai.owasp.org/llmrisk/llm02/))
+The output of the model may contain sensitive data from the training set, for example a large language model (GenAI) generating output including personal data that was part of its training set. Furthermore, GenAI can output other types of sensitive data, such as copyrighted text or images (see [Copyright](/goto/copyright/)). Once training data is in a GenAI model, original variations in access rights cannot be controlled anymore. ([OWASP for LLM 02](https://genai.owasp.org/llmrisk/llm02/))
 
 The disclosure is caused by an unintentional fault of including this data, and exposed through normal use or through provocation by an attacker using the system. See [MITRE ATLAS - LLM Data Leakage](https://atlas.mitre.org/techniques/AML.T0057)
 
