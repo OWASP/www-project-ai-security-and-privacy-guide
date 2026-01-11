@@ -46,6 +46,7 @@ When doing impact analysis on AI initiatives, consider at least the following:
 - Can unwanted behaviour be sufficiently contained by mitigations (see Controls to limit unwanted behaviour)?
 - See Risk management under [SECPROGRAM](/goto/secprogram/) for security-specific risk analysis, also involving privacy.
 
+**Particularity**  
 In general risk management it may help to keep in mind the following particularities of AI:
 1. Inductive instead of deductive, meaning that being wrong is part of the game for machine learning models, which can lead to harm
 2. Connected to 1: models can go stale
@@ -66,7 +67,6 @@ Useful standards include:
  - [US Federal Reserve SR 11-07: Guidance on Model Risk Management](https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm): supervisory guidance for banking organizations and supervisors.
 
 42001 is about extending your risk management system - it focuses on governance. ISO 5338 (see #[DEVPROGRAM](#devprogram) below) is about extending your software lifecycle practices - it focuses on engineering and everything around it. ISO 42001 can be seen as a management system for the governance of responsible AI in an organization, similar to how ISO 27001 is a management system for information security. ISO 42001 doesn’t go into the lifecycle processes. It for example does not discuss how to train models, how to do data lineage, continuous validation, versioning of AI models, project planning challenges, and how and when exactly sensitive data is used in engineering.
-
 
 
 #### #SECPROGRAM 
@@ -155,12 +155,16 @@ Useful standards include:
 > Category: governance control  
 > Permalink: https://owaspai.org/goto/secdevprogram/
 
+**Description**  
 Secure development program:  Have processes concerning software development in place to make sure that security is built into your AI system.
 
-Purpose: Reduces security risks by proper attention to mitigating those risks during software development.
+**Objective**  
+Reduces security risks by proper attention to mitigating those risks during software development.
 
+**Implementation**  
 The best way to do this is to build on your existing secure software development practices and include AI teams and AI particularities. This means that data science development activities should become part of your secure software development practices. Examples of these practices: secure development training, code review, security requirements, secure coding guidelines, threat modeling (including AI-specific threats), static analysis tooling, dynamic analysis tooling, and penetration testing. There is no need for an isolated secure development framework for AI.
 
+**Particularity**  
 Particularities for AI in software development, and how to address them:
 - AI involves new types of engineering: data engineering and model engineering (e.g. model training), together with new types of engineers: e.g. data scientists, data engineers, AI engineers. Make sure this new engineering becomes an integral part of the general [Development program](/goto/devprogram/) with its best practices (e.g. versioning, portfolio management, retirement). For example: Version management/traceability of the combination of code, configuration, training data and models, for troubleshooting and rollback
 
@@ -185,18 +189,20 @@ Particularities for AI in software development, and how to address them:
   - Run continual automated validation of the model, including discrimination bias measurement and the detection of staleness: the input space changing over time, causing the training set to get out of date
 - Model deployment is a new aspect to AI and it may offer  specific protection measures such as obfuscation, encryption, integrity checks or a Trusted Execution Environment.)
 
+**Risk-Reduction guidance**  
 Depending on risk analysis, certain threats may require specific practices in the development lifecycle. These threats and controls are covered elsewhere in this document.
+
+**References**  
+- [OWASP SAMM](https://owaspsamm.org)
+- [NIST SSDF](https://csrc.nist.gov/projects/ssdf)
+- [NIST SSDF AI practices](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-218A.ipd.pdf)
+- [GenAI security project solutions overview](https://genai.owasp.org/ai-security-solutions-landscape/)
 
 Useful standards include:
 - ISO 27002 control 8.25 Secure development lifecycle. Gap: covers this control fully, with said particularity, but lack of detail - the 8.25 Control description in ISO 27002:2022 is one page, whereas secure software development is a large and complex topic - see below for further references
 - ISO/IEC 27115 (Cybersecurity evaluation of complex systems)
 - See [OpenCRE on secure software development processes](https://www.opencre.org/cre/616-305) with notable links to NIST SSDF and OWASP SAMM. Gap: covers this control fully, with said particularity
 
-References: 
-- [OWASP SAMM](https://owaspsamm.org)
-- [NIST SSDF](https://csrc.nist.gov/projects/ssdf)
-- [NIST SSDF AI practices](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-218A.ipd.pdf)
-- [GenAI security project solutions overview](https://genai.owasp.org/ai-security-solutions-landscape/)
 
 #### #DEVPROGRAM 
 > Category: governance control  
