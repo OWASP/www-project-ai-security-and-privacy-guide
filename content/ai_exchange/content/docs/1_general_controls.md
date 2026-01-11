@@ -246,9 +246,11 @@ Useful standards include:
 > Category: governance control  
 > Permalink: https://owaspai.org/goto/checkcompliance/
 
+**Description**  
 Check compliance: Make sure that AI-relevant laws and regulations are taken into account in compliance management (including security aspects). If personal data is involved and/or AI is applied to make decisions about individuals, then privacy laws and regulations are also in scope. See the [Privacy section](/goto/aiprivacy/) for details.  
-Compliance as a goal can be a powerful driver for organizations to grow their readiness for AI. While doing this, it is important to keep in mind that legislation has a scope that does not necessarily include all the relevant risks for the organization. Many rules are about the potential harm to individuals and society, and don’t cover the impact on business stakes per se. For example: the European AI act does not include risks for protecting company secrets. In other words: be mindful of blind spots when using laws and regulations as your guide.
 
+**Objective**  
+Compliance as a goal can be a powerful driver for organizations to grow their readiness for AI. While doing this, it is important to keep in mind that legislation has a scope that does not necessarily include all the relevant risks for the organization. Many rules are about the potential harm to individuals and society, and don’t cover the impact on business stakes per se. For example: the European AI act does not include risks for protecting company secrets. In other words: be mindful of blind spots when using laws and regulations as your guide.
 
 Global Jurisdictional considerations (as of end of 2023):
 - Canada: Artificial Intelligence & Data Act
@@ -258,6 +260,7 @@ Global Jurisdictional considerations (as of end of 2023):
 - Europe: (i) AI Act, (ii) AI Liability Directive, (iii) Product Liability Directive
 - China: (i) Regulations on the Administration of Deep Synthesis of Internet Information Services, (ii) Shanghai Municipal Regulations on Promoting Development of AI Industry, (iii) Shenzhen Special Economic Zone AI Industry Promotion Regulations, (iv) Provisional Administrative Measures for Generative AI Services
 
+**Implementation**  
 General Legal Considerations on AI/Security:
 - Privacy Laws: AI must comply with all local/global privacy laws at all times, such as GDPR, CCPA, HIPAA. See the [Privacy section](/goto/aiprivacy/).
 - Data Governance: any AI components/functions provided by a 3rd party for integration must have data governance frameworks, including those for the protection of personal data and structure/definitions on how its collected, processed, stored
@@ -270,7 +273,7 @@ Non-Security Compliance Considerations:
 - Transparency: ensure transparency in the AI system deployment, usage and proactive compliance with regulatory requirements; “Trust by Design”
 - Accountability: AI systems should be accountable for actions and outputs and usage of data sets. See [AI Program](/goto/aiprogram/)
 
-References
+**References**  
   - [Vischer on legal aspects of AI](https://www.vischer.com/en/artificial-intelligence/)
   - [Summary of AI Act by SIG](https://www.softwareimprovementgroup.com/eu-ai-act-summary/)
   - [Summary of US AI legislation by SIG](https://www.softwareimprovementgroup.com/us-ai-legislation-overview/)
