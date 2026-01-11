@@ -295,7 +295,7 @@ Exceptions may apply when:
 
 If implementation is more practical for the deployer than the provider, this responsibility should be explicitly documented in accordance with risk management policies. 
 
-**Implementation Options**
+**Implementation**
 
 1. **Authenticate users:** Actors accessing model inference are typically authenticated (e.g., user accounts, API Keys, tokens).
 2. **Apply least privilege:** Grant access only to functions or models necessary for each user’s role or purpose.
@@ -340,7 +340,7 @@ For protection of trained model artifacts, see “Model Confidentiality” in th
 
 Complement this control with #RATE LIMIT #MONITORUSE and incident response (#SECPROGRAM)
 
-**References:**
+**References**
   - Technical access control: ISO 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: covers this control fully
   - [OpenCRE on technical access control](https://www.opencre.org/cre/724-770)
   - [OpenCRE on centralized access control](https://www.opencre.org/cre/117-371)
@@ -358,7 +358,7 @@ Address unusual input as it is indicative of malicious activity. Response can va
 **Applicability**  
 Anomalous input is suspicious for every attack that happens through use, because attackers obviously behave differently than normal users do. However, detecting anomalous input has strong limitations (see below) and therefore its applicability depends on the successful detection rate on the one hand and on the other hand: 1) implementation effort, 2_ performance penalty, and 3_ the number of false positives which can hinder users, security operations or both. Only a representative test can provide the required insight. This can be achieved by testing the detection on normal use, and setting a threshold at a level where the false positive rate is still acceptable. 
 
-**Implementation:**
+**Implementation**
 
 We use an example of a machine learning system designed for a self-driving car to illustrate these approaches.
 
@@ -405,7 +405,7 @@ Another example of how to implement this is similarity-based analysis: Comparing
 **Open Set Recognition (OSR) - a way to perform Anomaly Detection):**  
 Classifying known classes while identifying and rejecting unknown classes during testing. OSR is a way to perform anomaly detection, as it involves recognizing when an instance does not belong to any of the learned categories. This recognition makes use of the decision boundaries of the model.
 
-**Example: **  
+**Example:**  
 During operation, the system identifies various known objects such as cars, trucks, pedestrians, and bicycles. However, when it encounters an unrecognized object, such as a fallen tree, it must classify it as “unknown”. Open set recognition is critical because the system must be able to recognize that this object doesn’t fit into any of its known categories.
 
 **Novelty Detection (ND) - OOD input that is recognized as not malicious:**  
@@ -414,10 +414,10 @@ OOD input data can sometimes be recognized as not malicious and relevant or of i
 **Example:**  
 The system has been trained on various car models. However, it has never seen a newly released model. When it encounters a new model on the road, novelty detection recognizes it as a new car type it hasn’t seen, but understands it’s still a car, a novel instance within a known category.
 
-**Risk-Reduction Guidance:**  
+**Risk-Reduction Guidance**  
 Detecting anomalous input is critical to maintaining model integrity, addressing potential concept drift, and preventing adversarial attacks that may take advantage of model behaviors on out of distribution data. 
 
-**Particularity:**  
+**Particularity**  
 Unlike detection mechanisms in conventional systems that rely on predefined rules or signatures, AI systems often rely on statistical or behavioral detection  methods such as presented here. In other words, AI systems typically rely more on pattern-based detection in contrast to  rule-based detection.
 
 **Limitations**  
@@ -425,7 +425,7 @@ Not all anomalous input is malicious, and not all malicious input is anomalous. 
 
 For evasion attacks, detecting anomalous input is often ineffective because adversarial samples are specifically designed to appear similar to normal input by definition. As a result, many evasion attacks will not be detected by deviation-based methods. Some forms of evasion, such as adversarial patches, may still produce detectable anomalies.
 
-**References:**  
+**References**  
 - Hendrycks, Dan, and Kevin Gimpel. “A baseline for detecting misclassified and out-of-distribution examples in neural networks.” arXiv preprint arXiv:1610.02136 (2016). ICLR 2017.
 - Yang, Jingkang, et al. “Generalized out-of-distribution detection: A survey.” arXiv preprint arXiv:2110.11334 (2021).
 - Khosla, Prannay, et al. “Supervised contrastive learning.” Advances in neural information processing systems 33 (2020): 18661-18673.
@@ -439,11 +439,11 @@ Useful standards include:
 >Category: runtime AI engineer control for threats through use
 >Permalink: https://owaspai.org/goto/unwantedinputserieshandling/ 
 
-**Description:**  
+**Description**  
 Unwanted input series handling: Implement tools to detect and respond to suspicious or unwanted patterns across a series of inputs, which may indicate abuse, reconnaissance, or multi-step attacks.
 This control focuses on behavior across multiple inputs, rather than adversarial properties of a single sample.
 
-**Objective:**  
+**Objective**  
 Unwanted input series handling aims to identify suspicious behavior that emerges only when multiple inputs are analyzed together. Many attacks, such as model inversion, evasion search, or model theft through use, rely on iterative probing rather than a single malicious input. Detecting these patterns helps surface reconnaissance, abuse, and multi-step attacks that would otherwise appear benign at the individual input level.
 Secondary benefits include improved abuse monitoring, better attribution of malicious behavior, and stronger signals for investigation and response.
 
@@ -451,7 +451,7 @@ Secondary benefits include improved abuse monitoring, better attribution of mali
 This control is most applicable to systems that allow repeated interaction over time, such as APIs, chat-based models, or decision services exposed to external users. It is especially relevant when attackers can submit many inputs from the same actor, source, or session.
 Unwanted input series handling is less applicable in environments where inputs are isolated, rate-limited by design, or physically constrained. Its effectiveness depends on the ability to reliably group inputs by actor, source, or context.
 
-**Implementation Options:**  
+**Implementation**  
 The main concepts of detecting series of  unwanted inputs include:
 - **Statistical analysis of input series:** Adversarial attacks often follow certain patterns, which can be analysed by looking at input on a per-user basis. 
     - Examples:
