@@ -22,6 +22,7 @@ h1 {
 .docs-main ol, .docs-main ul, .docs-main menu {
     list-style: initial !important;
     margin-left: 1rem !important;
+    margin-bottom: 1rem !important;
 }
 .nav-container .nav-container-blur {
     /* backdrop-filter: blur(10px); */
