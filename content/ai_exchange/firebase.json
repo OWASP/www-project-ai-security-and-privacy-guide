@@ -365,7 +365,12 @@
       },
       {
         "source": "/goto/denialmodelservice/",
-        "destination": "/docs/2_threats_through_use/#25-failure-or-malfunction-of-ai-specific-elements-through-use",
+        "destination": "/docs/2_threats_through_use/#25-ai-resource-exhaustion/",
+        "type": 301
+      },
+      {
+        "source": "/goto/airesourceexhaustion/",
+        "destination": "/docs/2_threats_through_use/#25-ai-resource-exhaustion/",
         "type": 301
       },
       {
@@ -386,11 +391,6 @@
       {
         "source": "/goto/limitresources/",
         "destination": "/docs/2_threats_through_use/#limit-resources",
-        "type": 301
-      },
-      {
-        "source": "/goto/denialmodelservicedata/",
-        "destination": "/docs/2_threats_through_use/#241-denial-of-model-service-due-to-inconsistent-data-or-a-sponge-example",
         "type": 301
       },
       {
