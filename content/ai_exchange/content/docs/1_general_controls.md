@@ -561,10 +561,12 @@ One of the most powerful things to let AI agents do is to execute code. That is 
 > Category: runtime control    
 > Permalink: https://owaspai.org/goto/aitransparency/
 
+**Description**  
 AI transparency: By being transparent with users about the rough workings of the model, its training process, and the general expected accuracy and reliability of the AI system's output, people can adjust their reliance ([OWASP for LLM 09](https://llmtop10.com/llm09/)) on it accordingly. The simplest form of this is to inform users that an AI model is being involved. Transparency here is about providing abstract information regarding the model and is therefore something else than _explainability_.
 
 See the [DISCRETE](#discrete) control for the balance between being transparent and being discrete about the model. 
 
+**References**  
 Useful standards include:
 
   - ISO/IEC 42001 B.7.2 describes data management to support transparency. Gap: covers this control minimally, as it only covers the data management part.
@@ -640,10 +642,12 @@ Useful standards include:
 > Category: runtime data science control  
 > Permalink: https://owaspai.org/goto/explainability/
 
+**Description**  
 Explainability: Explaining how individual model decisions are made, a field referred to as Explainable AI (XAI), can aid in gaining user trust in the model. In some cases, this can also prevent overreliance, for example, when the user observes the simplicity of the 'reasoning' or even errors in that process. See [this Stanford article on explainability and overreliance](https://hai.stanford.edu/news/ai-overreliance-problem-are-explanations-solution). Explanations of how a model works can also aid security assessors to evaluate AI security risks of a model.
 
 #### #UNWANTEDBIASTESTING 
 > Category: runtime data science control  
 > Permalink: https://owaspai.org/goto/unwantedbiastesting/
 
+**Description**  
 Unwanted bias testing: By doing test runs of the model to measure unwanted bias, unwanted behaviour caused by an attack can be detected. The details of bias detection fall outside the scope of this document as it is not a security concern - other than that, an attack on model behaviour can cause bias.
