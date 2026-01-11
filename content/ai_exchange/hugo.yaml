@@ -115,7 +115,7 @@ menu:
       pageRef: /docs/ai_security_references
       weight: 8
     - name: "Index"
-      pageRef: /docs/
+      pageRef: /docs/ai_security_index
       weight: 9
   sidebar:
     - name: More
