@@ -490,12 +490,25 @@ Example: LLMs (GenAI), just like most AI models, induce their results based on t
 > Category: runtime control    
 > Permalink: https://owaspai.org/goto/oversight/
 
-Description: Oversight of model behaviour by humans or automated (using logic in the form of rules).
-  
-Objective: Detect unwanted model behavior and correct or halt the execution of a model's decision.
+**Description**  
+Oversight of model behaviour by humans or automated (using logic in the form of rules).
 
+**Objective**  
+Detect unwanted model behavior and correct or halt the execution of a model's decision.
+
+**Applicability**  
 A separate form of oversight is [MODEL ALIGNMENT](/goto/modelalignment/) which intends to constrain model behaviour through training, fine tuning, and system prompts. This is treated as a separate control because the effectiveness is limited and therefore no guarantee.
 
+**Implementation**  
+Designing automated systems that require some level of human engagement or regularly update the human operator on the system's status can help maintain situational awareness and ensure safer operations. When automated oversight may not be enough to prevent unacceptable outcomes, systems can be designed to escalate to human review. In such cases, the review is typically carried out by individuals who are qualified or appropriately instructed. This escalation is often triggered by rules that flag suspicious or high-risk situations.
+  
+Examples:
+  - Logic preventing the trunk of a car from opening while the car is moving, even if the driver seems to request it
+  - Requesting user confirmation before sending a large number of emails as instructed by a model
+  - Another form of human oversight is allowing users to undo or revert actions initiated by the AI system, such as reversing changes made to a file
+  - A special form of guardrails is censoring unwanted output of GenAI models (e.g. violent, unethical)
+
+**Limitations**  
 **Limitations of automated oversight:**
 The properties of wanted or unwanted model behavior often cannot be entirely specified, limiting the effectiveness of guardrails.
 
@@ -504,15 +517,7 @@ The alternative to guardrails is to apply human oversight. This is of course mor
 For human operators or drivers of automated systems like self-driving cars, staying actively involved or having a role in the control loop helps maintain situational awareness. This involvement can prevent complacency and ensures that the human operator is ready to take over control if the automated system fails or encounters a scenario it cannot handle. However, maintaining situational awareness can be challenging with high levels of automation due to the "out-of-the-loop" phenomenon, where the human operator may become disengaged from the task at hand, leading to slower response times or decreased effectiveness in managing unexpected situations.
 In other words: If you as a user are not involved actively in performing a task, then you lose understanding of whether it is correct or what the impact can be. If you then only need to confirm something by saying 'go ahead' or 'cancel', a badly informed 'go ahead' is easy to pick.
 
-Designing automated systems that require some level of human engagement or regularly update the human operator on the system's status can help maintain situational awareness and ensure safer operations. When automated oversight may not be enough to prevent unacceptable outcomes, systems can be designed to escalate to human review. In such cases, the review is typically carried out by individuals who are qualified or appropriately instructed. This escalation is often triggered by rules that flag suspicious or high-risk situations.
-  
-Examples:
-
-  - Logic preventing the trunk of a car from opening while the car is moving, even if the driver seems to request it
-  - Requesting user confirmation before sending a large number of emails as instructed by a model
-  - Another form of human oversight is allowing users to undo or revert actions initiated by the AI system, such as reversing changes made to a file
-  - A special form of guardrails is censoring unwanted output of GenAI models (e.g. violent, unethical)
-
+**References**  
 Useful standards include:
 
   - ISO/IEC 42001 B.9.3 defines controls for human oversight and decisions regarding autonomy. Gap: covers this control partly (human oversight only, not business logic)
