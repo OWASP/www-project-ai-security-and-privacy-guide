@@ -1,0 +1,10 @@
+{
+  "git.enabled": false,
+  "git.decorations.enabled": false,
+  "scm.diffDecorations": "none",
+  "scm.diffDecorationsGutterVisibility": "never",
+  "scm.diffDecorationsGutterAction": "none",
+  "diffEditor.ignoreTrimWhitespace": true,
+  "diffEditor.renderSideBySide": false,
+  "workbench.editor.enablePreview": false
+}

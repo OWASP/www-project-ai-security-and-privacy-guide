@@ -16,11 +16,11 @@ Data science (data engineering and model engineering - for machine learning ofte
 
 **Particularities:**
 
-- Particularity 1: the data in the AI development environment is real data that is typically sensitive, because it is needed to train the model and that obviously needs to happen on real data, instead of fake data that you typically see in standard development environment situations (e.g. for testing). Therefore, data protection activities need to be extended from the live system to the development environment.
+- Particularity 1: the data in the AI development environment is real data that is typically sensitive, because it is needed to train the model and that obviously needs to happen on real data, instead of fake data that you typically see in standard development environment situations (e.g., for testing). Therefore, data protection activities need to be extended from the live system to the development environment.
 - Particularity 2: elements in the AI development environment (data, code, configuration & parameters) require extra protection as they are prone to attacks to manipulate model behaviour (called _poisoning_)
 - Particularity 3: source code, configuration, and parameters are typically critical intellectual property in AI
 - Particularity 4: the supply chain for AI systems introduces new elements: data, model and AI components.
-- Particularity 5: external software components may run within the engineering environments, for example to train models, introducing a new threat of malicious components gaining access to assets in that environment (e.g. to poison training data)
+- Particularity 5: external software components may run within the engineering environments, for example to train models, introducing a new threat of malicious components gaining access to assets in that environment (e.g., to poison training data)
 - Particularity 6: software components for AI systems can also run in the development environment instead of in production (for example data-processing libraries, feature-engineering tools, or, or even the training framework itself). This increases the attack surface because malicious development components could gain access to training data or model parameters.
 - Particularity 7:  Model development can be done in a collaborative way across trust boundaries, such as federated learning, merging parameter-efficient fine-tuning (PEFT) modules, and using model conversion services. These collaborations can mitigate some risks by for example spreading training data, but they also extend the attack surface and as such increase threats such as data poisoning.
 
@@ -84,7 +84,7 @@ Training data is in most cases only present during development-time, but there a
     - ISO 27002 control 5.37 Documented operating procedures
     - Many more ISO 27002 controls (See OpenCRE link)
   - [OpenCRE](https://www.opencre.org/cre/862-452)
-- Logging and monitoring to detect suspicious manipulation of data, (e.g. outside office hours)  
+- Logging and monitoring to detect suspicious manipulation of data, (e.g., outside office hours)  
   Useful standards include:
   - ISO 27002 control 8.16 Monitoring activities. Gap: covers this control fully
   - [OpenCRE on Detect and respond](https://www.opencre.org/cre/887-750)
@@ -142,7 +142,7 @@ Segregate data: store sensitive development data (training or test data, model p
 
 Examples of areas in which training data can be segregated:
 1. External - for when training data is obtained externally
-2. Application development environment: for application engineers that perhaps need to work with the actual training data, but require different access rights (e.g. don't need to change it)
+2. Application development environment: for application engineers that perhaps need to work with the actual training data, but require different access rights (e.g., don't need to change it)
 3. Data engineering environment: for engineers collecting and processing the data.
 4. Training environment: for engineers training the model with the processed data. In this area, controls can be applied against risks that involve access to the other less-protected development areas. That way, for example data poisoning can be mitigated.
 5. Operational environment - for when training data is collected in operation
@@ -170,7 +170,7 @@ Useful standards include:
  
 Federated learning can be applied when a training set is distributed over different organizations, preventing the data from needing to be collected in a central place. This decreases the risk of all data leaking and increases the risk of some data leaking.
 
-Federated Learning is a decentralized Machine Learning architecture wherein a number of clients (e.g. sensor or mobile devices) participate in collaborative, decentralized, asynchronous training, which is orchestrated and aggregated by a controlling central server. Advantages of Federated Learning include reduced central compute, and the potential for preservation of privacy, since training data may remain local to the client.
+Federated Learning is a decentralized Machine Learning architecture wherein a number of clients (e.g., sensor or mobile devices) participate in collaborative, decentralized, asynchronous training, which is orchestrated and aggregated by a controlling central server. Advantages of Federated Learning include reduced central compute, and the potential for preservation of privacy, since training data may remain local to the client.
 
 Broadly, Federated Learning generally consists of four high-level steps: First, there is a server-to-client broadcast; next, local models are updated on the client; once trained, local models are then returned to the central server; and finally, the central server updates via model aggregation.
 
@@ -182,8 +182,8 @@ Federated machine learning may offer significant benefits for organizations in s
 - **Data diversity**. Because federated learning relies on a plurality of models to aggregate an update to the central model, it may provide benefits in data & model diversity. The ability to operate efficiently in resource-constrained environments may further allow for increases in heterogeneity of client devices, further increasing the diversity of available data.
 
 **Challenges in federated machine learning**  
-- **Remaining risk of data disclosure by the model**. Care must be taken to protect against  _data disclosure by use_ threats (e.g. membership inference), as sensitive data may still be extracted from the model/models. Therefore, _model theft_ threats also need mitigation, as training data may be disclosed from a stolen model. The federated learning architecture has specific attack surfaces for _model theft_ in the form of transferring the model from client to server and storage of the model at the server. These require protection.
-- **Federated learning does not sufficiently protect the client’s data against the central party**. An active and dishonest central party could extract user data from the received gradients by manipulating shared weights and isolating the user’s training data by computing deltas between the client’s weights and the central weights. Minimization and obfuscation (e.g. adding noise) is necessary to protect user’s data from the central party.
+- **Remaining risk of data disclosure by the model**. Care must be taken to protect against  _data disclosure by use_ threats (e.g., membership inference), as sensitive data may still be extracted from the model/models. Therefore, _model theft_ threats also need mitigation, as training data may be disclosed from a stolen model. The federated learning architecture has specific attack surfaces for _model theft_ in the form of transferring the model from client to server and storage of the model at the server. These require protection.
+- **Federated learning does not sufficiently protect the client's data against the central party**. An active and dishonest central party could extract user data from the received gradients by manipulating shared weights and isolating the user's training data by computing deltas between the client's weights and the central weights. Minimization and obfuscation (e.g., adding noise) is necessary to protect user's data from the central party.
 - **More attack surface for poisoning**. Security concerns also include attacks via data/model poisoning; with federated systems additionally introducing a vast network of clients, some of which may be malicious.
 - **Device Heterogeneity**. User- or other devices may vary widely in their computational, storage, transmission, or other capabilities, presenting challenges for federated deployments. These may additionally introduce device-specific security concerns, which practitioners should take into consideration in design phases. While designing for constraints including connectivity, battery life, and compute, it is also critical to consider edge device security.
 - **Broadcast Latency & Security**. Efficient communication across a federated network introduces additional challenges. While strategies exist to minimize broadcast phase latency, they must also take into consideration potential data security risks. Because models are vulnerable during transmission phases, any communication optimizations must account for data security in transit.
@@ -205,7 +205,7 @@ Useful standards include:
 > Permalink: https://owaspai.org/goto/supplychainmanage/
 
 **Description**  
-Supply chain management focuses on managing the supply chain to minimize the security risk from externally obtained elements. In conventional software engineering these elements are source code or software components (e.g. open source). AI supply chains differ from conventional software supply chains in several ways:  
+Supply chain management focuses on managing the supply chain to minimize the security risk from externally obtained elements. In conventional software engineering these elements are source code or software components (e.g., open source). AI supply chains differ from conventional software supply chains in several ways:  
 1. supplied elements can also include data, models, fine-tuning artifacts (eg: LoRA modules) and development-time tooling;
 2. software components may be executed development-time instead of runtime when the AI system is in production;
 3. as explained in the development-time threats, there are new vulnerable assets during AI development: training data and model parameters - which can fall victim to software components running development-time.
@@ -330,7 +330,7 @@ Development-time model poisoning in the broad sense is when an attacker manipula
 2. [development-environment model poisoning](/goto/devmodelpoison/): an attacker manipulates model parameters, or other engineering elements that take part in creating the model, such as code, configuration or libraries.
 3. [supply-chain model poisoning](/goto/supplymodelpoison/): using a supplied trained model which has been manipulated by an attacker.
 
-Impact: Integrity of model behaviour is affected, leading to issues from unwanted model output (e.g. failing fraud detection, decisions leading to safety issues, reputation damage, liability).
+Impact: Integrity of model behaviour is affected, leading to issues from unwanted model output (e.g., failing fraud detection, decisions leading to safety issues, reputation damage, liability).
 
 Data and model poisoning can occur at various stages, as illustrated in the threat model below.  
 - Supplied data or a supplied model can have been poisoned
@@ -379,15 +379,15 @@ Useful standards include:
 > Permalink: https://owaspai.org/goto/datapoison/
 
 An attacker manipulates data that the model uses to learn, in order to affect the algorithm's behavior. Also called _causative attacks_. There are multiple ways to do this (see the attack surface diagram in the [broad model poisoning section](/goto/modelpoison/)):
-- Changing the data while in storage during development-time (e.g. by hacking the database)
-- Changing the data while in transit to the storage (e.g. by hacking into a data transfer)
+- Changing the data while in storage during development-time (e.g., by hacking the database)
+- Changing the data while in transit to the storage (e.g., by hacking into a data transfer)
 - Changing the data while at the supplier, before the data is obtained from the supplier
 - Changing the data while at the supplier, where a model is trained and then that model is obtained from the supplier
 - Manipulating data entry in operation, feeding into training data, for example by creating fake accounts to enter positive reviews for products, making these products get recommended more often
 - Several of the above attack types are very much possible if executed by an insider attacker
 
 
-The manipulated data can be training data, but also in-context-learning data that is used to augment the input (e.g. a prompt) to a model with information to use. Collaborative mitigations like [#FEDERATEDLEARNING](/goto/federatedlearning/) can reduce data centralization but require additional poisoning controls based on extension of attack surface.
+The manipulated data can be training data, but also in-context-learning data that is used to augment the input (e.g., a prompt) to a model with information to use. Collaborative mitigations like [#FEDERATEDLEARNING](/goto/federatedlearning/) can reduce data centralization but require additional poisoning controls based on extension of attack surface.
 
 Example 1: an attacker breaks into a training set database to add images of houses and labels them as 'fighter planes', to mislead the camera system of an autonomous missile. The missile is then manipulated to attack houses. With a good test set this unwanted behaviour may be detected. However, the attacker can also perform so-called targeted data poisoning by making the poisoned data represent input that normally doesn't occur and therefore would not be in a testset. The attacker can then create that abnormal input in practice. In the previous example this could be houses with white crosses on the door.  See [MITRE ATLAS - Poison trainingdata](https://atlas.mitre.org/techniques/AML.T0020)
 
@@ -398,7 +398,7 @@ Example 3: unwanted information (e.g. false facts) in documents on the internet 
 
 There are roughly two categories of data poisoning: 
 
-- Targeted data poisoning - which triggers unwanted responses to specific inputs (e.g. a money transaction is wrongfully marked as NOT fraud because it has a specific amount of money for which the model has been manipulated to ignore). Other names: Trojan attack or Backdoor.
+- Targeted data poisoning - which triggers unwanted responses to specific inputs (e.g., a money transaction is wrongfully marked as NOT fraud because it has a specific amount of money for which the model has been manipulated to ignore). Other names: Trojan attack or Backdoor.
 - Sabotage: data poisoning leads to unwanted results for regular inputs, leading to e.g. business continuity problems or safety issues.
 
 Sabotage data poisoning attacks are relatively easy to detect because they occur for regular inputs, but backdoor data poisoning only occurs for really specific inputs and is therefore hard to detect: there is no code to review in a model to look for backdoors, the model parameters cannot be reviewed as they make no sense to the human eye, and testing is typically done using normal cases, with blind spots for backdoors. This is the intention of attackers - to bypass regular testing. 
@@ -505,7 +505,7 @@ Filtering anomalous training samples can reduce the probability of successful da
 Testing detection approaches on known poisoned datasets can help assess their effectiveness and validate implementation choices.
 
 **Particularity**  
-Standard data quality checks are not sufficient for AI systems, as data may be maliciously altered to compromise model behavior. This requires different checks than standard checks on quality issues from the source, or that occurred by mistake. Nevertheless, standard checks (e.g. is the data in the correct format) help to some extent to detect malicious changes. 
+Standard data quality checks are not sufficient for AI systems, as data may be maliciously altered to compromise model behavior. This requires different checks than standard checks on quality issues from the source, or that occurred by mistake. Nevertheless, standard checks (e.g., is the data in the correct format) help to some extent to detect malicious changes. 
 
 **Limitations**  
 Anomaly detection involves trade-offs:
@@ -616,9 +616,9 @@ Training data manipulation is referred to as [data poisoning](/goto/datapoison).
 
 An attacker manipulates a third-party (pre-)trained model which is then supplied, obtained and unknowingly further used and/or trained/fine tuned, while still having the unwanted behaviour (see the attack surface diagram in the [broad model poisoning section](/goto/modelpoison/)). If the supplied model is used for further training, then the attack is called a _transfer learning attack_.
 
-AI models are sometimes obtained elsewhere (e.g. open source) and then further trained or fine-tuned. These models may have been manipulated (poisoned) at the source, or in transit. See [OWASP for LLM 03: Supply Chain](https://genai.owasp.org/llmrisk/llm03/).
+AI models are sometimes obtained elsewhere (e.g., open source) and then further trained or fine-tuned. These models may have been manipulated (poisoned) at the source, or in transit. See [OWASP for LLM 03: Supply Chain](https://genai.owasp.org/llmrisk/llm03/).
 
-The type of manipulation can be through data poisoning, or by specifically changing the model parameters. Therefore, the same controls apply that help against those attacks. Since changing the model parameters requires protection of the parameters at the moment they are manipulated, this is not in the hands of the one who obtained the model. What remains are the controls against data poisoning, the controls against model poisoning in general (e.g. model ensembles), plus of course good supply chain management including protective considerations of frameworks and tools as supply-chain components that can be poisoned. 
+The type of manipulation can be through data poisoning, or by specifically changing the model parameters. Therefore, the same controls apply that help against those attacks. Since changing the model parameters requires protection of the parameters at the moment they are manipulated, this is not in the hands of the one who obtained the model. What remains are the controls against data poisoning, the controls against model poisoning in general (e.g., model ensembles), plus of course good supply chain management including protective considerations of frameworks and tools as supply-chain components that can be poisoned. 
 
 **Controls:**
 
@@ -649,11 +649,11 @@ Unauthorized access to train or test data through a data leak of the development
 
 Impact: Confidentiality breach of sensitive train/test data.
 
-Training data or test data can be confidential because it's sensitive data (e.g. personal data) or intellectual property. An attack or an unintended failure can lead to this training data leaking. Training or test data theft means unauthorized access to exposure-restricted training or test data through stealing data from the development environment, including the supply chain.
+Training data or test data can be confidential because it's sensitive data (e.g., personal data) or intellectual property. An attack or an unintended failure can lead to this training data leaking. Training or test data theft means unauthorized access to exposure-restricted training or test data through stealing data from the development environment, including the supply chain.
  
 Leaking can happen from the development environment, as engineers need to work with real data to train the model.  
 Sometimes training data is collected at runtime, so a live system can become an attack surface for this attack.  
-GenAI models are often hosted in the cloud, sometimes managed by an external party. Therefore, if you train or fine tune these models, the training data (e.g. company documents) needs to travel to that cloud.
+GenAI models are often hosted in the cloud, sometimes managed by an external party. Therefore, if you train or fine tune these models, the training data (e.g., company documents) needs to travel to that cloud.
 
 **Controls:**
 

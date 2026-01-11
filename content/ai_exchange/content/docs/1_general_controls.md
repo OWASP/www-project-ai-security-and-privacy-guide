@@ -60,7 +60,7 @@ Useful standards include:
  - ISO/IEC 42001 AI management system. Gap: covers this control fully.
  - [US Federal Reserve SR 11-07: Guidance on Model Risk Management](https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm): supervisory guidance for banking organizations and supervisors.
 
-42001 is about extending your risk management system - it focuses on governance. ISO 5338 (see #[DEVPROGRAM](#devprogram) below) is about extending your software lifecycle practices - it focuses on engineering and everything around it. ISO 42001 can be seen as a management system for the governance of responsible AI in an organization, similar to how ISO 27001 is a management system for information security. ISO 42001 doesn’t go into the lifecycle processes. It for example does not discuss how to train models, how to do data lineage, continuous validation, versioning of AI models, project planning challenges, and how and when exactly sensitive data is used in engineering.
+42001 is about extending your risk management system - it focuses on governance. ISO 5338 (see #[DEVPROGRAM](#devprogram) below) is about extending your software lifecycle practices - it focuses on engineering and everything around it. ISO 42001 can be seen as a management system for the governance of responsible AI in an organization, similar to how ISO 27001 is a management system for information security. ISO 42001 doesn't go into the lifecycle processes. For example, it does not discuss how to train models, how to do data lineage, continuous validation, versioning of AI models, project planning challenges, and how and when exactly sensitive data is used in engineering.
 
 References:
  - [UNESCO on AI ethics and governance](https://www.unesco.org/ethics-ai/en)
@@ -86,7 +86,7 @@ Make sure to include AI-specific assets and the threats to them. The threats are
 - data to train and test obtained from external sources
 - models to train and use from external sources
 
-By incorporating these assets and the threats to them, the security program takes care of mitigating these risks. For example: by informing engineers in awareness training that they should not leave their documentation laying around. Or: by installing malware detection on engineer machines because of the high sensitivity of the training data that they work with. 
+By incorporating these assets and the threats to them, the security program takes care of mitigating these risks. For example: by informing engineers in awareness training that they should not leave their documentation lying around. Or: by installing malware detection on engineer machines because of the high sensitivity of the training data that they work with. 
 
 Every AI initiative, new and existing, should perform a privacy and security risk analysis. AI programs have additional concerns around privacy and security that need to be considered. While each system implementation will be different based on its contextual purpose, the same process can be applied. These analyses can be performed before the development process and will guide security and privacy controls for the system. These controls are based on security protection goals such as Confidentiality, Integrity and Availability, and privacy goals such as Unlinkability, Transparency and Intervenability. ISO/IEC TR 27562:2023 provides a detailed list of points of attention for these goals and coverage.
 
@@ -167,7 +167,7 @@ Particularities for AI in software development, and how to address them:
 
 
 - New best practices or pitfalls in AI-specific code:
-  - Run static analysis rules specific to big data/AI technology(e.g the typical mistake of creating a new dataframe in Python without assigning it to a new one)
+  - Run static analysis rules specific to big data/AI technology (e.g., the typical mistake of creating a new dataframe in Python without assigning it to a new one)
   - Run maintainability analysis on code, as data and model engineering code is typically hindered by code quality issues
   - Evaluate code for the percentage of code for automated testing. Industry average is 43% (SIG benchmark report 2023). An often cited recommendation is 80%. Research shows that automated testing in AI engineering is often neglected (SIG benchmark report 2023), as the performance of the AI model is mistakenly regarded as the ground truth of correctness.
 
@@ -175,7 +175,7 @@ Particularities for AI in software development, and how to address them:
   - Run AI-specific dynamic performance tests before deployment (see [#CONTINUOUSVALIDATION](/goto/continuousvalidation/)):
   - Run security tests (e.g. data poisoning payloads, prompt injection payloads, adversarial robustness testing). See the [testing section](/goto/testing/).
   - Run continual automated validation of the model, including discrimination bias measurement and the detection of staleness: the input space changing over time, causing the training set to get out of date
-- Model deployment is a new aspect to AI and it may offer  specific protection measures such as obfuscation, encryption, integrity checks or a Trusted Execution Environment.)
+- Model deployment is a new aspect to AI and it may offer  specific protection measures such as obfuscation, encryption, integrity checks or a Trusted Execution Environment.
 
 Depending on risk analysis, certain threats may require specific practices in the development lifecycle. These threats and controls are covered elsewhere in this document.
 
@@ -386,7 +386,7 @@ AI models typically do not require exact or human-readable representations of tr
 
 **Limitations**  
 Obfuscation reduces the risk of re-identification or inference, but does not eliminate it:
-- Removing or obfuscating PII / personal data is often not sufficient, as someone's identity may be induced from the other data that you keep of the person (locations, times, visited websites, activities together with data and time, etc). 
+- Removing or obfuscating PII / personal data is often not sufficient, as someone's identity may be induced from the other data that you keep of the person (locations, times, visited websites, activities together with data and time, etc.). 
 - Token-based approaches introduce additional risk if mapping tables are compromised.
 
 The risk of re-identification can be assessed by experts using statistical properties such as K-anonymity, L-diversity, and T-closeness.  
@@ -521,6 +521,49 @@ Useful references include:
   - ISO 27002 control 8.2 Privileged access rights. Gap: covers this control fully, with the particularity that privileges assigned to autonomous model decisions need to be assigned with the risk of unwanted model behaviour in mind.
   - [OpenCRE on least privilege](https://www.opencre.org/cre/368-633) Gap: idem
   - [A Novel Zero-Trust Identity Framework for Agentic AI: Decentralized Authentication and Fine-Grained Access Control](https://arxiv.org/abs/2505.19301)
+
+
+#### #MODEL ALIGNMENT
+> Category: development-time and runtime AI engineer control against unwanted GenAI model behaviour 
+> Permalink: https://owaspai.org/goto/modelalignment/
+
+**Description and objective**  
+In the context of Generative AI (e.g., LLMs), alignment refers to the process of ensuring that the model's behavior and outputs are consistent with human values, intentions, and ethical standards.  
+Controls external to the model to manage model behaviour are: 
+- [OVERSIGHT](/goto/oversight/): conventional mechanisms responding to the actual outcome of the model
+- [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/): conventional mechanisms that put boundaries on what the model can affect
+- [PROMPT INJECTION I/O handling](/goto/promptinjectioniohandling): detection mechanisms on input and output to prevent unwanted behaviour
+The intent of Model alignment is to bake such mechanisms into the model itself, through training and instruction.
+
+**Implementation**  
+Achieving the goal of model alignment involves multiple layers:  
+
+1. Training-Time Alignment, shaping the core behaviour of the model
+
+    This is often what people mean by "model alignment" in the strict sense:
+    - Training data choices
+    - Fine-tuning (on aligned examples: helpful, harmless, honest)
+    - Reinforcement learning from human feedback (RLHF) or other reward modeling
+
+2. Deployment-Time Alignment (Including System Prompts)
+
+    Even if the model is aligned during training, its actual behavior during use is also influenced by:
+    - System prompts / instruction prompts
+    - Guardrails built into the AI system and external tools that oversee or control responses (like content filters or output constraints) - see [#PROMPT INJECTION IO HANDLING](/goto/promptinjectioniohandling/) and [#OVERSIGHT](/goto/oversight/)
+
+See [the appendix on culture-sensitive alignment](/goto/culturesensitivealignment/).
+
+**Limitations**  
+Advantage of Model alignment over the external mechanisms:
+- Training-time alignment is in essence able to capture complex behavioural boundaries in the form of many examples of wanted and less-wanted behaviour
+- Recognition of unwanted behaviour is very flexible as the GenAI model typically has powerful judgement abilities. 
+
+Disadvantages of Model alignment:
+- A model's ability to behave through alignment suffers from reliability issues, as it can be prone to manipulation or imperfect memorization and application of what it has learned and what it has been told. 
+- The boundaries of unwanted model behaviour may change after model training (e.g., through new findings), forcing the use of system prompts and/or external controls
+
+Therefore, alignment should be seen as a probabilistic, model-internal control that must be combined with deterministic, external mechanisms for high-risk or regulated use cases.
+
 
 #### #AITRANSPARENCY
 > Category: runtime control    
