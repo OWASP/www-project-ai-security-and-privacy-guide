@@ -58,7 +58,7 @@ It is particularly relevant when:
 
 In some deployments, implementation may be more appropriate at the deployer or platform layer, provided monitoring requirements are clearly communicated.
 
-**Implementation Options**
+**Implementation**
 
   **- Event and signal monitoring:**
   
@@ -259,12 +259,12 @@ Typical inference volumes for attack feasibility:
 
 Unlike traditional IT rate limiting (which protects performance), here it primarily mitigates security threats to AI systems through experimentation. It does come with extra benefits like stability, cost control and DoS resilience. 
 
-**Limitations:**
+**Limitations**
 
   - Low-frequency or single-try attacks (e.g., prompt injection or indirect leakage) remain unaffected. 
   - Attackers may circumvent limits by parallel access or multi-instance use, or through a transferability attack (link).
 
-**References:**
+**References**
  - [Article on token bucket and leaky bucket rate limiting](https://medium.com/@apurvaagrawal_95485/token-bucket-vs-leaky-bucket-1c25b388436c)
  - [OWASP Cheat sheet on denial of service, featuring rate limiting](https://cheatsheetseries.owasp.org/cheatsheets/Denial_of_Service_Cheat_Sheet.html)
 
