@@ -533,12 +533,13 @@ Controls external to the model to manage model behaviour are:
 - [OVERSIGHT](/goto/oversight/): conventional mechanisms responding to the actual outcome of the model
 - [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/): conventional mechanisms that put boundaries on what the model can affect
 - [PROMPT INJECTION I/O handling](/goto/promptinjectioniohandling): detection mechanisms on input and output to prevent unwanted behaviour
-The intent of Model alignment is to bake such mechanisms into the model itself, through training and instruction.
+
+The intent of Model alignment is achieve similar goals by baking it into the model itself, through training and instruction.
 
 **Implementation**  
 Achieving the goal of model alignment involves multiple layers:  
 
-1. Training-Time Alignment, shaping the core behaviour of the model
+1. Training-Time Alignment: the maker of the model shaping its core behaviour
 
     This is often what people mean by "model alignment" in the strict sense:
     - Training data choices
