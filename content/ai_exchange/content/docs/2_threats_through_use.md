@@ -1163,7 +1163,7 @@ The disclosure is caused by an unintentional fault of including this data, and e
 
 #### #SENSITIVE OUTPUT HANDLING
 >Category: runtime information security control for input threats
->Permalink: https://owaspai.org/goto/filtersensitivemodeloutput/
+>Permalink: https://owaspai.org/goto/sensitiveoutputhandling/
 
 **Description**
 
@@ -1295,7 +1295,7 @@ References
 
 #### #MODEL WATERMARKING
 >Category: development-time AI engineer control for threats through use  
->Permalink: TODO
+>Permalink: https://owaspai.org/goto/modelwatermarking/
 
 Model Watermarking: embed a hidden, secret marker into a trained model so that, if a suspected copy appears elsewhere, the original owner can verify that the model was derived from their system. This is used to demonstrate ownership after a model has been stolen or replicated, rather than to prevent the theft itself.
 
@@ -1303,8 +1303,8 @@ Watermarking techniques should be designed to remain detectable even if the mode
 
 In addition to its technical role, watermarking supports intellectual property protection by enabling post-hoc attribution of stolen or misused models, which can be critical for legal claims, contractual enforcement, and regulatory investigations. As part of a layered security strategy, watermarking complements preventive controls by providing accountability and ownership assurance when other defenses fail.
 
-References
-[USENIX: Entangled Watermarks as a Defense against Model Extraction](https://www.usenix.org/conference/usenixsecurity21/presentation/jia)
+References:
+- [USENIX: Entangled Watermarks as a Defense against Model Extraction](https://www.usenix.org/conference/usenixsecurity21/presentation/jia)
 
 ---
 
