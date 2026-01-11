@@ -34,44 +34,298 @@
 
       <!-- Right Column (Form) -->
       <div>
+        <!-- Success/Error Messages -->
+        <div id="form-message" class="hidden mb-4 p-4 rounded-lg"></div>
+
         <!-- Card only visible on mobile -->
         <div class="block md:hidden bg-white shadow-lg rounded-xl p-6">
-          <form class="flex flex-col gap-6">
+          <form id="contact-form-mobile" class="flex flex-col gap-6" novalidate>
             <div class="grid grid-cols-1 gap-4">
-              <input type="text" placeholder="First Name*"
-                class="p-4 border border-gray-300 rounded-lg text-base w-full" />
-              <input type="text" placeholder="Last Name*"
-                class="p-4 border border-gray-300 rounded-lg text-base w-full" />
+              <div>
+                <input id="mobile-first-name" name="first_name" type="text" placeholder="First Name*" required
+                  class="p-4 border border-gray-300 rounded-lg text-base w-full focus:outline-none focus:ring-2 focus:ring-green-500" />
+                <span class="error-message hidden text-red-600 text-sm mt-1"></span>
+              </div>
+              <div>
+                <input id="mobile-last-name" name="last_name" type="text" placeholder="Last Name*" required
+                  class="p-4 border border-gray-300 rounded-lg text-base w-full focus:outline-none focus:ring-2 focus:ring-green-500" />
+                <span class="error-message hidden text-red-600 text-sm mt-1"></span>
+              </div>
             </div>
-            <input type="email" placeholder="Email Address*"
-              class="p-4 border border-gray-300 rounded-lg text-base w-full" />
-            <textarea placeholder="Message" rows="4"
-              class="p-4 border border-gray-300 rounded-lg text-base resize-vertical w-full"></textarea>
-            <button type="submit"
-              class="bg-green-500 text-white px-6 py-3 rounded-lg font-bold flex items-center justify-center gap-2 w-max hover:bg-green-600 transition">
-              Submit <span>→</span>
+            <div>
+              <input id="mobile-email" name="email" type="email" placeholder="Email Address*" required
+                class="p-4 border border-gray-300 rounded-lg text-base w-full focus:outline-none focus:ring-2 focus:ring-green-500" />
+              <span class="error-message hidden text-red-600 text-sm mt-1"></span>
+            </div>
+            <div>
+              <textarea id="mobile-message" name="message" placeholder="Message" rows="4"
+                class="p-4 border border-gray-300 rounded-lg text-base resize-vertical w-full focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+              <span class="error-message hidden text-red-600 text-sm mt-1"></span>
+            </div>
+            <button type="submit" id="mobile-submit-btn"
+              class="bg-green-500 text-white px-6 py-3 rounded-lg font-bold flex items-center justify-center gap-2 w-max hover:bg-green-600 transition disabled:opacity-50 disabled:cursor-not-allowed">
+              <span id="mobile-submit-text">Submit</span>
+              <span id="mobile-submit-arrow">→</span>
+              <span id="mobile-submit-loader" class="hidden">⏳</span>
             </button>
           </form>
         </div>
 
         <!-- Original form for desktop -->
-        <form class="hidden md:flex flex-col gap-6">
+        <form id="contact-form-desktop" class="hidden md:flex flex-col gap-6" novalidate>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input type="text" placeholder="First Name*"
-              class="p-4 border border-gray-300 rounded-lg text-base w-full" />
-            <input type="text" placeholder="Last Name*"
-              class="p-4 border border-gray-300 rounded-lg text-base w-full" />
+            <div>
+              <input id="desktop-first-name" name="first_name" type="text" placeholder="First Name*" required
+                class="p-4 border border-gray-300 rounded-lg text-base w-full focus:outline-none focus:ring-2 focus:ring-green-500" />
+              <span class="error-message hidden text-red-600 text-sm mt-1"></span>
+            </div>
+            <div>
+              <input id="desktop-last-name" name="last_name" type="text" placeholder="Last Name*" required
+                class="p-4 border border-gray-300 rounded-lg text-base w-full focus:outline-none focus:ring-2 focus:ring-green-500" />
+              <span class="error-message hidden text-red-600 text-sm mt-1"></span>
+            </div>
           </div>
-          <input type="email" placeholder="Email Address*"
-            class="p-4 border border-gray-300 rounded-lg text-base w-full" />
-          <textarea placeholder="Message" rows="4"
-            class="p-4 border border-gray-300 rounded-lg text-base resize-vertical w-full"></textarea>
-          <button type="submit"
-            class="bg-green-500 text-white px-6 py-3 rounded-lg font-bold flex items-center justify-center gap-2 w-max hover:bg-green-600 transition">
-            Submit <span>→</span>
+          <div>
+            <input id="desktop-email" name="email" type="email" placeholder="Email Address*" required
+              class="p-4 border border-gray-300 rounded-lg text-base w-full focus:outline-none focus:ring-2 focus:ring-green-500" />
+            <span class="error-message hidden text-red-600 text-sm mt-1"></span>
+          </div>
+          <div>
+            <textarea id="desktop-message" name="message" placeholder="Message" rows="4"
+              class="p-4 border border-gray-300 rounded-lg text-base resize-vertical w-full focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+            <span class="error-message hidden text-red-600 text-sm mt-1"></span>
+          </div>
+          <button type="submit" id="desktop-submit-btn"
+            class="bg-green-500 text-white px-6 py-3 rounded-lg font-bold flex items-center justify-center gap-2 w-max hover:bg-green-600 transition disabled:opacity-50 disabled:cursor-not-allowed">
+            <span id="desktop-submit-text">Submit</span>
+            <span id="desktop-submit-arrow">→</span>
+            <span id="desktop-submit-loader" class="hidden">⏳</span>
           </button>
         </form>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+(function() {
+  const API_URL = 'https://usabilitydesigns.com/calendar/send-mail.php';
+  
+  // Get both forms
+  const mobileForm = document.getElementById('contact-form-mobile');
+  const desktopForm = document.getElementById('contact-form-desktop');
+  const formMessage = document.getElementById('form-message');
+
+  // Validation functions
+  function validateField(field) {
+    const value = field.value.trim();
+    const fieldName = field.name;
+    let isValid = true;
+    let errorMsg = '';
+
+    // Remove previous error styling
+    field.classList.remove('border-red-500');
+    const errorSpan = field.parentElement.querySelector('.error-message');
+    if (errorSpan) {
+      errorSpan.classList.add('hidden');
+      errorSpan.textContent = '';
+    }
+
+    // Required field validation
+    if (field.hasAttribute('required') && !value) {
+      isValid = false;
+      errorMsg = 'This field is required';
+    }
+
+    // Email validation
+    if (fieldName === 'email' && value) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        isValid = false;
+        errorMsg = 'Please enter a valid email address';
+      }
+    }
+
+    // Text length validation
+    if (fieldName === 'first_name' && value && value.length < 2) {
+      isValid = false;
+      errorMsg = 'First name must be at least 2 characters';
+    }
+
+    if (fieldName === 'last_name' && value && value.length < 2) {
+      isValid = false;
+      errorMsg = 'Last name must be at least 2 characters';
+    }
+
+    // Display error if invalid
+    if (!isValid && errorSpan) {
+      field.classList.add('border-red-500');
+      errorSpan.textContent = errorMsg;
+      errorSpan.classList.remove('hidden');
+    }
+
+    return isValid;
+  }
+
+  function validateForm(form) {
+    const fields = form.querySelectorAll('input[required], textarea[required]');
+    let isFormValid = true;
+
+    fields.forEach(field => {
+      if (!validateField(field)) {
+        isFormValid = false;
+      }
+    });
+
+    // Also validate email even if not required
+    const emailField = form.querySelector('input[name="email"]');
+    if (emailField && emailField.value.trim()) {
+      if (!validateField(emailField)) {
+        isFormValid = false;
+      }
+    }
+
+    return isFormValid;
+  }
+
+  // Show message function
+  function showMessage(message, isError = false) {
+    formMessage.textContent = message;
+    formMessage.className = isError 
+      ? 'mb-4 p-4 rounded-lg bg-red-100 border border-red-400 text-red-700' 
+      : 'mb-4 p-4 rounded-lg bg-green-100 border border-green-400 text-green-700';
+    formMessage.classList.remove('hidden');
+    
+    // Scroll to message
+    formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    // Auto-hide success messages after 5 seconds
+    if (!isError) {
+      setTimeout(() => {
+        formMessage.classList.add('hidden');
+      }, 5000);
+    }
+  }
+
+  // Set loading state
+  function setLoadingState(form, isLoading) {
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const submitText = form.querySelector('[id$="-submit-text"]');
+    const submitArrow = form.querySelector('[id$="-submit-arrow"]');
+    const submitLoader = form.querySelector('[id$="-submit-loader"]');
+
+    if (submitBtn) {
+      submitBtn.disabled = isLoading;
+    }
+    if (submitText) {
+      submitText.style.display = isLoading ? 'none' : 'inline';
+    }
+    if (submitArrow) {
+      submitArrow.style.display = isLoading ? 'none' : 'inline';
+    }
+    if (submitLoader) {
+      submitLoader.style.display = isLoading ? 'inline' : 'none';
+    }
+  }
+
+  // Reset form
+  function resetForm(form) {
+    form.reset();
+    // Clear all error states
+    form.querySelectorAll('.error-message').forEach(span => {
+      span.classList.add('hidden');
+      span.textContent = '';
+    });
+    form.querySelectorAll('input, textarea').forEach(field => {
+      field.classList.remove('border-red-500');
+    });
+  }
+
+  // Submit form handler
+  async function handleSubmit(form, e) {
+    e.preventDefault();
+
+    // Hide previous messages
+    formMessage.classList.add('hidden');
+
+    // Validate form
+    if (!validateForm(form)) {
+      showMessage('Please fill in all required fields correctly.', true);
+      return;
+    }
+
+    // Collect form data
+    const formDataObj = new FormData(form);
+    const data = {
+      first_name: formDataObj.get('first_name'),
+      last_name: formDataObj.get('last_name'),
+      email: formDataObj.get('email'),
+      message: formDataObj.get('message') || ''
+    };
+
+    // Set loading state
+    setLoadingState(form, true);
+
+    try {
+      // Try JSON first since endpoint returns JSON
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      });
+
+      // Try to parse as JSON, fallback to text
+      let result;
+      const contentType = response.headers.get('content-type');
+      if (contentType && contentType.includes('application/json')) {
+        result = await response.json();
+      } else {
+        const text = await response.text();
+        try {
+          result = JSON.parse(text);
+        } catch (e) {
+          // If not JSON, treat as success if status is ok
+          if (response.ok) {
+            result = { success: true };
+          } else {
+            result = { success: false, error: 'Server error occurred' };
+          }
+        }
+      }
+
+      if (result.success) {
+        showMessage('Thank you! Your message has been sent successfully.', false);
+        resetForm(form);
+      } else {
+        showMessage(result.error || 'Failed to send message. Please try again later.', true);
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      showMessage('An error occurred while sending your message. Please try again later.', true);
+    } finally {
+      setLoadingState(form, false);
+    }
+  }
+
+  // Add event listeners
+  if (mobileForm) {
+    mobileForm.addEventListener('submit', (e) => handleSubmit(mobileForm, e));
+    
+    // Real-time validation on blur
+    mobileForm.querySelectorAll('input, textarea').forEach(field => {
+      field.addEventListener('blur', () => validateField(field));
+    });
+  }
+
+  if (desktopForm) {
+    desktopForm.addEventListener('submit', (e) => handleSubmit(desktopForm, e));
+    
+    // Real-time validation on blur
+    desktopForm.querySelectorAll('input, textarea').forEach(field => {
+      field.addEventListener('blur', () => validateField(field));
+    });
+  }
+})();
+</script>

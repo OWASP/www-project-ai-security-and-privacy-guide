@@ -144,6 +144,46 @@ sidebar:
   </div>
 </section>
 
+<div class="py-16 px-2 sm:px-4 lg:px-8 bg-[#F1F1F1]">
+  <div class="container mx-auto p-0">
+    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-8 text-center">
+      OWASP AI Exchange Project Leadership
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <!-- Behnaz Karimi -->
+      <div class="flex flex-col items-center bg-white border border-gray-200 rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+        <img src="/images/Behnaz-Karimi.jpg" alt="Behnaz Karimi" class="w-60 h-60 rounded-full object-cover mb-4 border-1 border-gray-500" />
+        <h3 class="text-xl font-semibold text-gray-900 mb-2 text-center">Behnaz Karimi</h3>
+        <div class="flex items-center justify-center mt-2">
+          <a href="https://www.linkedin.com/in/behnaz-karimi-behi/" target="_blank" class="text-blue-600 hover:text-blue-800 transition-colors" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in text-2xl"></i>
+          </a>
+        </div>
+      </div>
+      <!-- Aruneesh Salhotra -->
+      <div class="flex flex-col items-center bg-white border border-gray-200 rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+        <img src="/images/Aruneesh.jpg" alt="Aruneesh Salhotra" class="w-60 h-60 rounded-full object-cover mb-4 border-1 border-gray-500" />
+        <h3 class="text-xl font-semibold text-gray-900 mb-2 text-center">Aruneesh Salhotra</h3>
+        <div class="flex items-center justify-center mt-2">
+          <a href="https://www.linkedin.com/in/aruneeshsalhotra/" target="_blank" class="text-blue-600 hover:text-blue-800 transition-colors" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in text-2xl"></i>
+          </a>
+        </div>
+      </div>
+      <!-- Rob van der Veer -->
+      <div class="flex flex-col items-center bg-white border border-gray-200 rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+        <img src="/images/Rob-van-der-Veer.jpg" alt="Rob van der Veer" class="w-60 h-60 rounded-full object-cover mb-4 border-1 border-gray-500" />
+        <h3 class="text-xl font-semibold text-gray-900 mb-2 text-center">Rob van der Veer</h3>
+        <div class="flex items-center justify-center mt-2">
+          <a href="https://www.linkedin.com/in/robvanderveer/" target="_blank" class="text-blue-600 hover:text-blue-800 transition-colors" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in text-2xl"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- OWASP AI Project Leader Section -->
 <section
   class="w-full bg-white py-14 px-4 sm:px-6 md:px-10 font-['Roboto'] text-center sm:text-left"
@@ -178,7 +218,7 @@ sidebar:
         <li class="flex items-start gap-3">
           <span class="mt-3 w-3 h-3 bg-emerald-600 rounded-full shrink-0"></span>
           <span>
-            Project leader of <strong>OWASP AI Exchange</strong>, <strong>OpenCRE</strong>,
+            Founder of <strong>OWASP AI Exchange</strong>, <strong>OpenCRE</strong>,
             and author of the Agile guide at <strong>SAMM</strong>. Lead author of
             <strong>ISO/IEC 5338</strong> on AI lifecycle, working group member of
             <strong>ISO/IEC 27090/91</strong> on AI security and privacy, and
