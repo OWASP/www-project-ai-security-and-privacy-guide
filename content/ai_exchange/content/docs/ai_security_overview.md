@@ -221,7 +221,7 @@ making sure that the control sets in the Essentials align with SANS' Critical AI
     - Output (containing [injection attacks](/goto/insecureoutput/))
     
 **New controls (overview [here](/goto/controlsoverview/)):**
-- Specific **AI engineer controls**, to work against poisoning and model input attacks - next to conventional controls. This category is divided into **Data/model engineering** and **Model I/O handling** for filtering, stopping or alterting to suspicious input or output. It is typically the territory of AI experts e.g. data scientist with elements from mathematics, statistics, linguistics and machine learning.
+- Specific **AI engineer controls**, to work against poisoning and model input attacks - next to conventional controls. This category is divided into **Data/model engineering** and **Model I/O handling** for filtering, stopping or alerting to suspicious input or output. It is typically the territory of AI experts e.g. data scientists with elements from mathematics, statistics, linguistics and machine learning.
 - **[Monitoring](/goto/monitoruse/)** of model performance and inference - extending model I/O handing and overlooking general usage of the AI system
 - **Impact limitation controls** (because of zero model trust: assume a model can be misled or leak data):
   - [Minimize or obfuscate sensitive data](/goto/datalimit/)
@@ -510,7 +510,7 @@ Discovering potential risks that could impact the organization requires the tech
   - [Controls to limit effects of unwanted model behaviour](/goto/limitunwanted/) (e.g. human oversight when necessary, model least privilege for agents)
 
   Question: Is the model GenAI (e.g. a Large Language Model)? 
-  - Protect against [prompt injection](/goto/directpromptinjection/) when an attacker can cobtrol the model input (e.g. a prompt), and with not too much effort create output that is too harmful - for example: offensive output, dangerous information, misinformation, or triggering harmful functions (Agentic AI). This is particularly the case if model input comes from end-users and output goes straight to them, or can trigger functions. The first question is: has the model supplier done enough according to your risk appetite. For this, you can check tests that the supplier or others have performed tests and when not available: do these tests yourself. What you accept, in other words: wjhat you find too much effort in combination with too harmful, depends on your context. If a user wants the AI to say something offensive: do you regard it as a problem if that user succeeds in getting offended? Do you regard it as a problem if users can get a recipe to make poison - given that they can get this from many other AI's out there. See the linked threat section for more details.
+  - Protect against [prompt injection](/goto/directpromptinjection/) when an attacker can control the model input (e.g. a prompt), and with not too much effort create output that is too harmful - for example: offensive output, dangerous information, misinformation, or triggering harmful functions (Agentic AI). This is particularly the case if model input comes from end-users and output goes straight to them, or can trigger functions. The first question is: has the model supplier done enough according to your risk appetite. For this, you can check tests that the supplier or others have performed tests and when not available: do these tests yourself. What you accept, in other words: what you find too much effort in combination with too harmful, depends on your context. If a user wants the AI to say something offensive: do you regard it as a problem if that user succeeds in getting offended? Do you regard it as a problem if users can get a recipe to make poison - given that they can get this from many other AI's out there. See the linked threat section for more details.
   - Protect against [indirect prompt injection](/goto/indirectpromptinjection/) when your system inserts untrusted data in a prompt e.g. you retrieve somebody's resume and include it in a prompt.
 
   
@@ -518,7 +518,7 @@ Discovering potential risks that could impact the organization requires the tech
   - The supplier: protect against [Supply chain model poisoning](/goto/supplymodelpoison/): obtaining or working with a model that has been manipulated to behave in unintended ways. This is done through proper [supply chain management](/goto/supplychainmanage/) (e.g. selecting a trustworthy supplier and verifying the authenticity of the model). This is to gain assurance on the security posture of the provider, meaning the provider prevents model poisoning during development, including data poisoning, and uses uncompromised data. If the risk of data poisoning remains unacceptable, implementing post-training countermeasures can be an option if you have the expertise and if you have access to the model parameters (e.g. open source weights). See [POISONROBUSTMODEL](/goto/poisonrobustmodel/). Note that providers are typically not very open about their security countermeasures, which means that it can be challenging to gain sufficient assurance. Regulations will hopefully help achieve more provider transparency. For more details, see [ready made models](/goto/readymademodel/).
   - You: you need to protect against [development-time model poisoning](/goto/modelpoison/) which includes model poisoning, data poisoning and obtaining poisoned data or a poisoned pre-trained model in case you're finetuning the model.
 
-  Why not train/finetune a model yourself? There are many third party and open source models that may be able to perfrom the required task, perhaps after some fine tuning. Organizations often choose external GenAI models because they are typically general purpose, and training is difficult and expensive (often millions of dollars). Finetuning of generative AI is also not often performed by organizations given the cost of compute and the complexity involved. Some GenAI models can be obtained and run on your own infrastructure. The reasons for this can be lower cost (if it is an open source model), and the fact that sensitive input information does not have to be sent externally. A reason to use an externally hosted GenAI model can be the quality of the model.
+  Why not train/finetune a model yourself? There are many third party and open source models that may be able to perform the required task, perhaps after some fine tuning. Organizations often choose external GenAI models because they are typically general purpose, and training is difficult and expensive (often millions of dollars). Finetuning of generative AI is also not often performed by organizations given the cost of compute and the complexity involved. Some GenAI models can be obtained and run on your own infrastructure. The reasons for this can be lower cost (if it is an open source model), and the fact that sensitive input information does not have to be sent externally. A reason to use an externally hosted GenAI model can be the quality of the model.
  
  
   Question: Do you use RAG (Retrieval Augmented Generation) ?
@@ -629,7 +629,7 @@ Next, for the threats that are relevant to your use-case and fall under your res
 
 Controls often have quality-related parameters that need to be adjusted to suit the specific situation and level of risk. For example, this could involve deciding how much noise to add to input data or setting appropriate thresholds for anomaly detection. Testing the effectiveness of these controls in a simulation environment helps you evaluate their performance and security impact to find the right balance. This tuning process should be continuous, using insights from both simulated tests and real-world production feedback.
 
-When have you done enough? The AI system is sufficiently secure when all identified risks can be treated, meaning transfered, avoided or accepted, where acceptance in some cases can be done directly, without first taking action, and in other cases require you to implement controls to bring the risk to an acceptable level.
+When have you done enough? The AI system is sufficiently secure when all identified risks can be treated, meaning transferred, avoided or accepted, where acceptance in some cases can be done directly, without first taking action, and in other cases require you to implement controls to bring the risk to an acceptable level.
 
 ### 8. Residual risk acceptance
 In the end, you need to be able to accept the risks that remain regarding each threat, given the controls that you implemented. 
@@ -660,7 +660,7 @@ This document focuses on machine learning. Nevertheless, here is a quick summary
 > Category: discussion  
 > Permalink: https://owaspai.org/goto/responsibleai/
 
-There are many aspects of AI when it comes to positive outcome while mitigating risks. This is often referred to as responsible AI or trustworthy AI, where the former emphasises ethics, society, and governance, while the latter emphasises the more technical and operational aspects.
+There are many aspects of AI when it comes to positive outcomes while mitigating risks. This is often referred to as responsible AI or trustworthy AI, where the former emphasises ethics, society, and governance, while the latter emphasises the more technical and operational aspects.
 
 If your primary responsibility is security, it's best to start by focusing on AI security. Once you have a solid grasp of that, you can expand your knowledge to other AI aspects, even if it's just to support colleagues who are responsible for those areas and help them stay vigilant. After all, security professionals are often skilled at spotting potential failure points. Furthermore, some aspects can be a consequence of compromised AI and are therefore helpful to understand, such as _safety_.
 
@@ -883,7 +883,7 @@ necessary permissions, or is sourced from public domains which provide
 sufficient license for the organization’s intended use.
 5. Define AI-Generated Content Ownership: clearly defined ownership of the 
 content generated by AI systems, which should include under what conditions
-it be used, shared, disseminated.
+it can be used, shared, disseminated.
 6. Confidentiality and Trade Secret Protocols: strict protocols will help protect 
 confidentiality of the materials while preserving and maintaining trade secret 
 status.

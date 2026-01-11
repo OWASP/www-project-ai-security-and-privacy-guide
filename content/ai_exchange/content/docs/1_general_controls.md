@@ -14,18 +14,28 @@ weight: 2
 > Category: governance control  
 > Permalink: https://owaspai.org/goto/aiprogram/
 
-AI program: Install and execute a program to govern AI. Take responsibility for AI as an organization, by keeping an inventory of AI initiatives, perform risk analysis on them, and manage those risks.  
+**Description**  
+AI program: Install and execute a program to govern AI.  
+One could argue that this control is out of scope for cyber security, but it initiates action to get in control of AI security.
 
+**Objective**  
+The objective of an AI Program is to take responsibility for AI as an organization and make sure that all AI initiatives are known and under control, including their security.
 
-Purpose: 1) reduces probability of AI initiatives being overlooked for proper governance (including security) - as covered by controls in this document, and 2) increases incentive for proper governance as the AI program takes responsibility for it. Without proper governance, the controls in this document can only happen by accident.
+**Implementation**  
+This governance challenge may seem daunting because of all the new things to take care of, but there are numerous existing controls in organizations already that can be extended to include AI (e.g. policies, risk analysis, impact analysis, inventory of used services etc.).  
+See [How to organize AI security](/goto/organize/) for the 5 GUARD steps and to see how governance fits into the whole.  
+An AI Program includes:
+- Keeping an inventory of AI initiatives
+- Perform impact analysis on initiatives
+- Organize AI innovation
+- Include AI risks in risk management
+- Assign responsibilities, e.g. model accountability, data accountability, and risk governance
+- AI literacy (e.g. [training](/goto/seceducate/)
+- Organize [compliance](/goto/checkcompliance/)
+- Incorporate AI assets in the [security program](/goto/secprogram/)
 
-This includes assigning responsibilities, e.g. model accountability, data accountability, and risk governance.  
-This governance challenge may seem daunting because of all the new things to take care of, but there are plenty of existing controls in organizations that can be extended to include AI (e.g. policies, risk analysis, impact analysis, inventory of used services etc.).
-
-Technically one could argue that this control is out of scope for cyber security, but it initiates action to get in control of AI security.
-
-When doing risk analysis on AI initiatives, consider at least the following:
-- Note that an AI program is not just about risk TO AI, such as security risks - it is also about risks BY AI, such as threats to fairness, safety, etc.
+When doing impact analysis on AI initiatives, consider at least the following:
+- Note that an AI program is not just about risks TO AI, such as security risks - it is also about risks BY AI, such as threats to fairness, safety, etc.
 - Include laws and regulations, as the type of AI application may be prohibited (e.g. social scoring under the EU AI Act). See #[CHECKCOMPLIANCE](/goto/checkcompliance/)
 - Can the required transparency be provided into how the AI works?
 - Can the privacy rights be achieved (right to access, erase, correct, update personal data, and the right to object)?
@@ -68,10 +78,11 @@ Make sure to include AI-specific assets and the threats to them. The threats are
 - training data
 - test data
 - the model - often referred to as _model parameters_ (values that change when a model is trained)
+- hyperparameters
 - documentation of models and the process of their development including experiments
 - model input
 - model output, which needs to be regarded as untrusted if the training data or model is untrusted
-- sufficiently correct model behaviour
+- intended model behaviour
 - data to train and test obtained from external sources
 - models to train and use from external sources
 
@@ -98,7 +109,7 @@ Because AI has specific assets (e.g. training data), **AI-specific honeypots** a
 - External access granted to a specific library
 - Models imported as-is from GitHub
 
-Monitoring and incident response are standard elements of security programs and AI can be included in it by understanding the relevant AI security assets, threats, and controls The discussion of threats include detection mechanisms that become part of monitoring.
+Monitoring and incident response are standard elements of security programs and AI can be included in it by understanding the relevant AI security assets, threats, and controls. The discussion of threats include detection mechanisms that become part of monitoring.
 
 **Useful standards include:**
 
@@ -142,38 +153,31 @@ Purpose: Reduces security risks by proper attention to mitigating those risks du
 
 The best way to do this is to build on your existing secure software development practices and include AI teams and AI particularities. This means that data science development activities should become part of your secure software development practices. Examples of these practices: secure development training, code review, security requirements, secure coding guidelines, threat modeling (including AI-specific threats), static analysis tooling, dynamic analysis tooling, and penetration testing. There is no need for an isolated secure development framework for AI.
 
-Particularities for AI in secure software development:
-- AI teams (e.g. data scientists) need to be taken into scope of your secure development activities, for them to address both conventional security threats and AI-specific threats, applying both conventional security controls and AI-specific ones. Typically, technical teams depend on the AI engineers when it comes to the AI-specific controls as they mostly require deep AI expertise. For example: if training data is confidential and collected in a distributed way, then a federated learning approach may be considered.
-- AI security assets, threats and controls (as covered in this document) need to be considered, effecting requirements, policies, coding guidelines, training, tooling, testing practices and more. Usually, this is done by adding these elements in the organization's Information Security Management System, as described in [SECPROGRAM](/goto/segprogram/), and align secure software development to that - just like it has been aligned on the conventional assets, threats and controls. 
+Particularities for AI in software development, and how to address them:
+- AI involves new types of engineering: data engineering and model engineering (e.g. model training), together with new types of engineers: e.g. data scientists, data engineers, AI engineers. Make sure this new engineering becomes an integral part of the general [Development program](/goto/devprogram/) with its best practices (e.g. versioning, portfolio management, retirement). For example: Version management/traceability of the combination of code, configuration, training data and models, for troubleshooting and rollback
+
+- New assets, threats and controls (as covered in this document) need to be considered, affecting requirements, policies, coding guidelines, training, tooling, testing practices and more. Usually, this is done by adding these elements in the organization's Information Security Management System, as described in [SECPROGRAM](/goto/secprogram/), and align secure software development to that - just like it has been aligned on the conventional assets, threats and controls (see [SECDEVPROGRAM](/goto/secdevprogram/)).  This involves both conventional security threats and AI-specific threats, applying both conventional security controls and AI-specific ones. Typically, technical teams depend on the AI engineers when it comes to the AI-specific controls as they mostly require deep AI expertise. For example: if training data is confidential and collected in a distributed way, then a federated learning approach may be considered.
+
 - Apart from software components, the supply chain for AI can also include data and models which may have been poisoned, which is why data provenance and model management are central in [AI supply chain management](/goto/supplychainmanage/).
-- In AI, software components can also run in the development environment instead of in production, for example, to train models, which increases the attack surface e.g. malicious development components attacking training data.
+- In AI, software components can also run in the development, for example tools to prepare training data or train a model. Because of this, the AI development environment is vulnerable to traditional software security risks, such as open source package vulnerabilities, CWEs, exposed secrets, and sensitive data leaks. Without robust controls in place, these risks go undetected by standard application security testing tools, potentially exposing the entire lifecycle to breaches.
 
-AI-specific elements in the development environment (sometimes referred to as MLops):
-- Supply chain management of data and models, including provenance of the internal processes (for data this effectively means data governance)
-- In addition to supply chain management: integrity checks on elements that can be poisoned (data, models), using an internal or external signed registry for example
-- Static code analysis
-  - Running big data/AI technology-specific static analysis rules (e.g the typical mistake of creating a new dataframe in Python without assigning it to a new one)
-  - Running maintainability analysis on code, as data and model engineering code is typically hindered by code quality issues
-  - Evaluating code for the percentage of code for automated testing. Industry average is 43% (SIG benchmark report 2023). An often cited recommendation is 80%. Research shows that automated testing in AI engineering is often neglected (SIG benchmark report 2023), as the performance of the AI model is mistakenly regarded as the ground truth of correctness.
-- Training (if required)
-  - Automated training of the model when necessary
-  - Automated detection of training set issues (standard data quality control plus checking for potential poisoning using pattern recognition or anomaly detection)
-  - Any pre-training controls to mitigate poisoning risks, especially if the deployment process is segregated from the rest of the engineering environment in which poisoning may have taken place, e.g. fine pruning (reducing the size of the model and doing extra training with a ground truth training set)
-  - Automated data collection and transformation to prepare the train set, when required
-- Version management/traceability of the combination of code, configuration, training data and models, for troubleshooting and rollback
-- Running AI-specific dynamic tests before deployment:
-  - Automated validation of the model, including discrimination bias measurement
-  - Security tests (e.g. data poisoning payloads, prompt injection payloads, adversarial robustness testing). See the [testing section](/goto/testing/).
-- Running AI-specific dynamic tests in production:
-  - Continual automated validation of the model, including discrimination bias measurement and the detection of staleness: the input space changing over time, causing the training set to get out of date
-- Potential protection measures in deployment of the model (e.g. obfuscation, encryption, or hashing)
+- The AI development environment typically involves sensitive data, in contrast to conventional engineering where the use of such data by engineers is normally avoided. Therefore, apply [development security](/goto/devsecurity/) on the development environment. In addition to the conventional assets of code, configuration and secrets, the AI-specific development assets are:
+  - Potentially sensitive data needed to train, test and validate models
+  - Model parameters, which often represent intellectual property and can also be used to prepare input attacks when obtained.
 
-Depending on risk analysis, certain threats may require specific practices in the development lifecycle. These threats and controls are covered elsewhere in this document. 
 
-Related controls:
-- [Development program](/goto/devprogram/) on including AI engineering in all software lifecycle processes (e.g. versioning, portfolio management, retirement)
-- [Supply chain management](/goto/supplychainmanage/) which discusses AI-specific supply-chain risks
-- [Development security](/goto/devsecurity/) on protecting the development environment
+- New best practices or pitfalls in AI-specific code:
+  - Run static analysis rules specific to big data/AI technology(e.g the typical mistake of creating a new dataframe in Python without assigning it to a new one)
+  - Run maintainability analysis on code, as data and model engineering code is typically hindered by code quality issues
+  - Evaluate code for the percentage of code for automated testing. Industry average is 43% (SIG benchmark report 2023). An often cited recommendation is 80%. Research shows that automated testing in AI engineering is often neglected (SIG benchmark report 2023), as the performance of the AI model is mistakenly regarded as the ground truth of correctness.
+
+- Model performance testing is essential
+  - Run AI-specific dynamic performance tests before deployment (see [#CONTINUOUSVALIDATION](/goto/continuousvalidation/)):
+  - Run security tests (e.g. data poisoning payloads, prompt injection payloads, adversarial robustness testing). See the [testing section](/goto/testing/).
+  - Run continual automated validation of the model, including discrimination bias measurement and the detection of staleness: the input space changing over time, causing the training set to get out of date
+- Model deployment is a new aspect to AI and it may offer  specific protection measures such as obfuscation, encryption, integrity checks or a Trusted Execution Environment.)
+
+Depending on risk analysis, certain threats may require specific practices in the development lifecycle. These threats and controls are covered elsewhere in this document.
 
 Useful standards include:
 - ISO 27002 control 8.25 Secure development lifecycle. Gap: covers this control fully, with said particularity, but lack of detail - the 8.25 Control description in ISO 27002:2022 is one page, whereas secure software development is a large and complex topic - see below for further references
@@ -244,7 +248,7 @@ General Legal Considerations on AI/Security:
 
 Non-Security Compliance Considerations: 
 - Ethics: Deep fake weaponization and how the system addresses and deals with it, protects against it and mitigates it
-- Human Control: any and all AI systems should be deployed with appropriate level of human control and oversight, based on ascertained risks to individuals. AI systems should be designed and utilized with the concept that the use of AI respects dignity and rights of individuals; “Keep the human in the loop” concept. See [Oversight](/goto/oversight/).
+- Human Control: any and all AI systems should be deployed with appropriate levels of human control and oversight, based on ascertained risks to individuals. AI systems should be designed and utilized with the concept that the use of AI respects dignity and rights of individuals; “Keep the human in the loop” concept. See [Oversight](/goto/oversight/).
 - Discrimination: a process must be included to review datasets to avoid and prevent any bias. See [Unwanted bias testing](/goto/unwantedbiastesting/).
 - Transparency: ensure transparency in the AI system deployment, usage and proactive compliance with regulatory requirements; “Trust by Design”
 - Accountability: AI systems should be accountable for actions and outputs and usage of data sets. See [AI Program](/goto/aiprogram/)
@@ -283,16 +287,31 @@ The impact of security threats on confidentiality and integrity can be reduced b
 > Category: development-time and runtime control  
 > Permalink: https://owaspai.org/goto/dataminimize/
 
-Data minimize: remove data fields or records (e.g. from a training set) that are unnecessary for the application, in order to prevent potential data leaks or manipulation. 
+**Description**  
+Data minimize: remove data fields or records (e.g. from a training set) that are unnecessary for the application, in order to prevent potential data leaks or manipulation because we cannot leak what isn’t there in the first place 
 
-Purpose: minimize the impact of data leakage or manipulation
+**Objective**  
+Minimize the impact of data leakage or manipulation by reducing the amount of data processed by the system.
 
-A typical opportunity to remove unnecessary data in machine learning is to clean up data that is used solely for experimental purposes.
+**Applicability**  
+Data minimization applies during data collection, preparation, training, evaluation, and runtime logging. It is particularly relevant when datasets contain personal, confidential, or exposure-restricted information.
+An exception to applicability to the AI system provider is when the deployer is better positioned to implement (part of) this control, as long as the provider communicates this requirement to the deployer. 
 
-A method to determine which fields or records can be removed is to statistically analyze which data elements do not play a role in model performance. 
+**Implementation**  
+In addition to removing (or archiving) unused or low-impact fields and records, data minimization can include:
+- removing data elements (fields, record) that do not materially affect model performance (e.g. correctness, robustness, fairness) based on experimentation or analysis;
+- retaining certain identifiers only to support data removal requests or lifecycle management, while excluding them from model training;
+- updating training datasets to reflect removals or corrections made in upstream source data (e.g. when personal data is destroyed from the source data then training data is updated to reflect the change);
+- original data can be preserved separately with access controls for future use.
 
-  Useful standards include:
+**Risk-Reduction Guidance**  
+Data minimization reduces confidentiality risk by limiting the presence of exposure-restricted information. Data that is not collected or retained cannot be leaked, reconstructed, or inferred from the system. It also reduces the consequences of dataset theft or unauthorized access. 
 
+**Particularity**  
+AI models often tolerate reduced feature sets and incomplete data better than traditional applications, enabling stronger minimization strategies without functional loss.
+
+**References**  
+Useful standards include:
   - Not covered yet in ISO/IEC standards.
 
 #### #ALLOWEDDATA 
@@ -325,79 +344,64 @@ Useful standards include:
 > Category: development-time data science control    
 > Permalink: https://owaspai.org/goto/obfuscatetrainingdata/
 
-Obfuscate training data: attain a degree of obfuscation of sensitive data where possible
+**Description**  
+Obfuscate training data: attain a degree of obfuscation of sensitive data where possible.
 
-Purpose: minimize the impact of data leakage or manipulation
+**Objective**  
+Minimize the impact of data leakage or manipulation when sensitive data cannot be removed entirely, by making the data less recognizable or harder to reconstruct.
 
-**Anonymization**  
-Obfuscation for data on individuals has the goal to anonymize, meaning to prevent re-identification: deducing or inducing someone's identity.   
-Be very careful with anonymization: removing or obfuscating PII / personal data is often not sufficient, as someone's identity may be induced from the other data that you keep of the person (locations, times, visited websites, activities together with data and time, etc).  
+**Applicability**  
+Data obfuscation is particularly relevant when exposure-restricted data is necessary for training, compliance, or risk mitigation, and cannot be removed.
+An exception to applicability to the AI system provider is when the deployer is better positioned to implement this control, as long as the provider communicates this requirement to the deployer. 
+
+**Implementation**  
+Obfuscation techniques include:  
+
+- **Private Aggregation of Teacher Ensembles (PATE)**  
+Private Aggregation of Teacher Ensembles (PATE) is a privacy-preserving machine learning technique. This method tackles the challenge of training models on sensitive data while maintaining privacy. It achieves this by employing an ensemble of "teacher" models along with a "student" model. Each teacher model is independently trained on distinct subsets of sensitive data, ensuring that there is no overlap in the training data between any pair of teachers. Since no single model sees the entire dataset, it reduces the risk of exposing sensitive information. Once the teacher models are trained, they are used to make predictions. When a new (unseen) data point is presented, each teacher model gives its prediction. These predictions are then aggregated to reach a consensus. This consensus is considered more reliable and less prone to individual biases or overfitting to their respective training subsets. To further enhance privacy, noise is added to the aggregated predictions. By adding noise, the method ensures that the final output doesn't reveal specifics about the training data of any individual teacher model. The student model is trained not on the original sensitive data, but on the aggregated and noised predictions of the teacher models. Essentially, the student learns from the collective wisdom and privacy-preserving outputs of the teachers. This way, the student model can make accurate predictions without ever directly accessing the sensitive data. However, there are challenges in balancing the amount of noise (for privacy) and the accuracy of the student model. Too much noise can degrade the performance of the student model, while too little might compromise privacy.
+ 
+- **Objective function perturbation**
+Objective function perturbation is a differential privacy technique used to train machine learning models while maintaining data privacy. It involves the intentional introduction of a controlled amount of noise into the learning algorithm’s objective function, which is a measure of the discrepancy between a model’s predictions and the actual results. The perturbation, or slight modification, involves adding noise to the objective function, resulting in a final model that doesn’t exactly fit the original data, thereby preserving privacy. The added noise is typically calibrated to the objective function’s sensitivity to individual data points and the desired privacy level, as quantified by parameters like epsilon in differential privacy. This ensures that the trained model doesn’t reveal sensitive information about any individual data point in the training dataset. The main challenge in objective function perturbation is balancing data privacy with the accuracy of the resulting model. Increasing the noise enhances privacy but can degrade the model’s accuracy. The goal is to strike an optimal balance where the model remains useful while individual data points stay private.
+
+- **Masking**  
+Masking involves the alteration or replacement of sensitive features within datasets with alternative representations that retain the essential information required for training while obscuring sensitive details. Various methods can be employed for masking, including tokenization, perturbation, generalization, and feature engineering. Tokenization replaces sensitive text data with unique identifiers, while perturbation adds random noise to numerical data to obscure individual values. Generalization involves grouping individuals into broader categories, and feature engineering creates derived features that convey relevant information without revealing sensitive details. Once the sensitive features are masked or transformed, machine learning models can be trained on the modified dataset, ensuring that they learn useful patterns without exposing sensitive information about individuals. However, achieving a balance between preserving privacy and maintaining model utility is crucial, as more aggressive masking techniques may lead to reduced model performance.
+
+- **Encryption**  
+Encryption is a fundamental technique for pseudonymization and data protection. It underscores the need for careful implementation of encryption techniques, particularly asymmetric encryption, to achieve robust pseudonymization. Emphasis is placed on the importance of employing randomized encryption schemes, such as Paillier and Elgamal, to ensure unpredictable pseudonyms. Furthermore, homomorphic encryption, which allows computations on ciphertexts without the decryption key, presents potential advantages for cryptographic operations but poses challenges in pseudonymization. The use of asymmetric encryption for outsourcing pseudonymization and the introduction of cryptographic primitives like ring signatures and group pseudonyms in advanced pseudonymization schemes are important.  
+There are two models of encryption in machine learning:
+  1. (part of) the data remains in encrypted form for the data scientists all the time, and is only in its original form for a separate group of data engineers that prepare and then encrypt the data for the data scientists.
+  2. The data is stored and communicated in encrypted form to protect against access from users outside the data scientists, but is used in its original form when analysed, and transformed by the data scientists and the model. In the second model it is important to combine the encryption with proper access control, because it hardly offers protection to encrypt data in a database and then allow any user access to that data through the database application.
+
+- **Tokenization**  
+Tokenization is a technique for obfuscating data with the aim of enhancing privacy and security in the training of machine learning models. The objective is to introduce a level of obfuscation to sensitive data, thereby reducing the risk of exposing individual details while maintaining the data's utility for model training. In the process of tokenization, sensitive information, such as words or numerical values, is replaced with unique tokens or identifiers. This substitution makes it difficult for unauthorized users to derive meaningful information from the tokenized data.  
+Within the realm of personal data protection, tokenization aligns with the principles of differential privacy. When applied to personal information, this technique ensures that individual records remain indiscernible within the training data, thus safeguarding privacy. Differential privacy involves introducing controlled noise or perturbations to the data to prevent the extraction of specific details about any individual.  
+Tokenization aligns with this concept by replacing personal details with tokens, increasing the difficulty of linking specific records back to individuals.
+Tokenization proves particularly advantageous in development-time data science when handling sensitive datasets. It enhances security by enabling data scientists to work with valuable information without compromising individual privacy. The implementation of tokenization techniques supports the broader objective of obfuscating training data, striking a balance between leveraging valuable data insights and safeguarding the privacy of individuals.
+
+**Risk-Reduction Guidance**  
+Obfuscation reduces the likelihood that training data can be reconstructed or linked back to individuals. Effectiveness can be evaluated through attack testing or by relying on formal privacy guarantees such as differential privacy or an equivalent mathematical framework. Residual risk remains when exposure-restricted data is still present, when obfuscation mechanisms fail, or when reconstruction or re-identification remains possible, such as through access to token mapping tables.
+
+**Particularity**  
+AI models typically do not require exact or human-readable representations of training data, allowing obfuscation techniques that would be impractical in traditional systems. In traditional systems, data attributes are processed directly leaving less room for obfuscation techniques. 
+
+**Limitations**  
+Obfuscation reduces the risk of re-identification or inference, but does not eliminate it:
+- Removing or obfuscating PII / personal data is often not sufficient, as someone's identity may be induced from the other data that you keep of the person (locations, times, visited websites, activities together with data and time, etc). 
+- Token-based approaches introduce additional risk if mapping tables are compromised.
+
 The risk of re-identification can be assessed by experts using statistical properties such as K-anonymity, L-diversity, and T-closeness.  
 Anonymity is not an absolute concept, but a statistical one. Even if someone's identity can be guessed from data with some certainty, it can be harmful. The concept of _differential privacy_ helps to analyse the level of anonymity. It is a framework for formalizing privacy in statistical and data analysis, ensuring that the privacy of individual data entries in a database is protected. The key idea is to make it possible to learn about the population as a whole while providing strong guarantees that the presence or absence of any single individual in the dataset does not significantly affect the outcome of any analysis. This is often achieved by adding a controlled amount of random noise to the results of queries on the database. This noise is carefully calibrated to mask the contribution of individual data points, which means that the output of a data analysis (or query) should be essentially the same, whether any individual's data is included in the dataset or not. In other words by observing the output, one should not be able to infer whether any specific individual's data was used in the computation.
 
-Distorting training data can make it effectively uncrecognizable, which of course needs to be weighed against the inaccuracy that this typically creates. See also [TRAINDATADISTORTION](/goto/traindatadistortion/) which is about distortion against data poisoning and [EVASIONROBUSTMODEL](/goto/evasionrobustmodel/) for distortion against evasion attacks. Together with this control OBFUSCATETRAININGDATA, these are all approaches that distort training data, but for different purposes.
+Distorting training data can make it effectively uncrecognizable, which of course needs to be weighed against the negative effect on model performance that this typically creates. See also [TRAINDATADISTORTION](/goto/traindatadistortion/) which is about distortion against data poisoning and [EVASIONROBUSTMODEL](/goto/evasionrobustmodel/) for distortion against evasion attacks. Together with this control OBFUSCATETRAININGDATA, these are all approaches that distort training data, but for different purposes.
 
-**Examples of approaches are:**
-
-- Private Aggregation of Teacher Ensembles (PATE)
-    
-  Private Aggregation of Teacher Ensembles (PATE) is a privacy-preserving machine learning technique. This method tackles the challenge of training models on sensitive data while maintaining privacy. It achieves this by employing an ensemble of "teacher" models along with a "student" model. Each teacher model is independently trained on distinct subsets of sensitive data, ensuring that there is no overlap in the training data between any pair of teachers. Since no single model sees the entire dataset, it reduces the risk of exposing sensitive information. Once the teacher models are trained, they are used to make predictions. When a new (unseen) data point is presented, each teacher model gives its prediction. These predictions are then aggregated to reach a consensus. This consensus is considered more reliable and less prone to individual biases or overfitting to their respective training subsets. To further enhance privacy, noise is added to the aggregated predictions. By adding noise, the method ensures that the final output doesn't reveal specifics about the training data of any individual teacher model. The student model is trained not on the original sensitive data, but on the aggregated and noised predictions of the teacher models. Essentially, the student learns from the collective wisdom and privacy-preserving outputs of the teachers. This way, the student model can make accurate predictions without ever directly accessing the sensitive data. However, there are challenges in balancing the amount of noise (for privacy) and the accuracy of the student model. Too much noise can degrade the performance of the student model, while too little might compromise privacy.
-
-  References:
-
-  - [SF-PATE: Scalable, Fair, and Private Aggregation of Teacher Ensembles](https://arxiv.org/abs/2204.05157)
-   
-- Objective function perturbation
-    
-  Objective function perturbation is a differential privacy technique used to train machine learning models while maintaining data privacy. It involves the intentional introduction of a controlled amount of noise into the learning algorithm’s objective function, which is a measure of the discrepancy between a model’s predictions and the actual results. The perturbation, or slight modification, involves adding noise to the objective function, resulting in a final model that doesn’t exactly fit the original data, thereby preserving privacy. The added noise is typically calibrated to the objective function’s sensitivity to individual data points and the desired privacy level, as quantified by parameters like epsilon in differential privacy. This ensures that the trained model doesn’t reveal sensitive information about any individual data point in the training dataset. The main challenge in objective function perturbation is balancing data privacy with the accuracy of the resulting model. Increasing the noise enhances privacy but can degrade the model’s accuracy. The goal is to strike an optimal balance where the model remains useful while individual data points stay private.
-
-  References:
-
-  - [Differentially Private Objective Perturbation: Beyond Smoothness and Convexity](https://arxiv.org/abs/1909.01783v1)
-
-- Masking
-
-  Masking involves the alteration or replacement of sensitive features within datasets with alternative representations that retain the essential information required for training while obscuring sensitive details. Various methods can be employed for masking, including tokenization, perturbation, generalization, and feature engineering. Tokenization replaces sensitive text data with unique identifiers, while perturbation adds random noise to numerical data to obscure individual values. Generalization involves grouping individuals into broader categories, and feature engineering creates derived features that convey relevant information without revealing sensitive details. Once the sensitive features are masked or transformed, machine learning models can be trained on the modified dataset, ensuring that they learn useful patterns without exposing sensitive information about individuals. However, achieving a balance between preserving privacy and maintaining model utility is crucial, as more aggressive masking techniques may lead to reduced model performance.
-
-  References:
-
-  - [Data Masking with Privacy Guarantees]([https://arxiv.org/abs/1909.01783v1](https://arxiv.org/abs/1901.02185))
-
-- Encryption
-
-  Encryption is a fundamental technique for pseudonymization and data protection. It underscores the need for careful implementation of encryption techniques, particularly asymmetric encryption, to achieve robust pseudonymization. Emphasis is placed on the importance of employing randomized encryption schemes, such as Paillier and Elgamal, to ensure unpredictable pseudonyms. Furthermore, homomorphic encryption, which allows computations on ciphertexts without the decryption key, presents potential advantages for cryptographic operations but poses challenges in pseudonymization. The use of asymmetric encryption for outsourcing pseudonymization and the introduction of cryptographic primitives like ring signatures and group pseudonyms in advanced pseudonymization schemes are important.
-
-  There are two models of encryption in machine learning:
-
-  1. (part of) the data remains in encrypted form for the data scientists all the time, and is only in its original form for a separate group of data engineers, that prepare and then encrypt the data for the data scientists.
-  2. the data is stored and communicated in encrypted form to protect against access from users outside the data scientists, but is used in its original form when analysed, and transformed by the data scientists and the model. In the second model it is important to combine the encryption with proper access control, because it hardly offers protection to encrypt data in a database and then allow any user access to that data through the database application.
-
-- Tokenization
-
-  Tokenization is a technique for obfuscating data with the aim of enhancing privacy and security in the training of machine learning models. The objective is to introduce a level of obfuscation to sensitive data, thereby reducing the risk of exposing individual details while maintaining the data's utility for model training. In the process of tokenization, sensitive information, such as words or numerical values, is replaced with unique tokens or identifiers. This substitution makes it difficult for unauthorized users to derive meaningful information from the tokenized data.
-    
-  Within the realm of personal data protection, tokenization aligns with the principles of differential privacy. When applied to personal information, this technique ensures that individual records remain indiscernible within the training data, thus safeguarding privacy. Differential privacy involves introducing controlled noise or perturbations to the data to prevent the extraction of specific details about any individual.
-    
-  Tokenization aligns with this concept by replacing personal details with tokens, increasing the difficulty of linking specific records back to individuals.
-Tokenization proves particularly advantageous in development-time data science when handling sensitive datasets. It enhances security by enabling data scientists to work with valuable information without compromising individual privacy. The implementation of tokenization techniques supports the broader objective of obfuscating training data, striking a balance between leveraging valuable data insights and safeguarding the privacy of individuals.
-
-- Anonymization
-    
-  Anonymization is the process of concealing or transforming sensitive information in a dataset to protect individuals' privacy and identity. This involves replacing or modifying identifiable elements with generic labels or pseudonyms, aiming to obfuscate data and prevent specific individual identification while maintaining data utility for effective model training. In the broader context of advanced pseudonymization methods, anonymization is crucial for preserving privacy and confidentiality in data analysis and processing.
-
-  Challenges in anonymization include the need for robust techniques to prevent re-identification, limitations of traditional methods, and potential vulnerabilities in achieving true anonymization. There is an intersection with advanced techniques such as encryption, secure multiparty computation, and pseudonyms with proof of ownership.
-
-  In the healthcare sector with personally identifiable information (PII), there are potential pseudonymization options, emphasizing advanced techniques like asymmetric encryption, ring signatures, group pseudonyms and pseudonyms based on multiple identifiers. In the cybersecurity sector, pseudonymization is applied in common use cases, such as telemetry and reputation systems.
-    
-  These use cases demonstrate the practical relevance and applicability of pseudonymization techniques in real-world scenarios, offering valuable insights for stakeholders involved in data pseudonymization and data protection.
-
-  
-**Further references:**
+**References:**  
+- [SF-PATE: Scalable, Fair, and Private Aggregation of Teacher Ensembles](https://arxiv.org/abs/2204.05157)
+- [Differentially Private Objective Perturbation: Beyond Smoothness and Convexity](https://arxiv.org/abs/1909.01783v1)
+- [Data Masking with Privacy Guarantees]([https://arxiv.org/abs/1909.01783v1](https://arxiv.org/abs/1901.02185))
 - Abadi, M., Chu, A., Goodfellow, I., McMahan, H. B., Mironov, I., Talwar, K., & Zhang, L. (2016). Deep learning with differential privacy. Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security, 308-318. [Link](https://doi.org/10.1145/2976749.2978318)
-  - Dwork, C., & Roth, A. (2014). The Algorithmic Foundations of Differential Privacy. Foundations and Trends in Theoretical Computer Science. [Link](https://doi.org/10.1561/0400000042)
-
-**Useful standards include:**
-
+- Dwork, C., & Roth, A. (2014). The Algorithmic Foundations of Differential Privacy. Foundations and Trends in Theoretical Computer Science. [Link](https://doi.org/10.1561/0400000042)
+  
+Useful standards include:
 - Not covered yet in ISO/IEC standards.
 
 #### #DISCRETE
@@ -492,7 +496,7 @@ Least model privilege: Minimize what a model can do (trigger actions or access d
 
 **Requirements:**
 - Honor limitations of the served: Execute actions of AI systems with the rights and privileges of the user or service being served. This ensures that no actions are invoked and no data is retrieved outside authorizations.
-- Task-based minimization: Take the served-limitation a step further by reducing actions that the model can potentially trigger, and what they can be triggered on, to the minimum necessary for the reasonably foreseeable use cases. See below for the flexibility balance. The purpose of this is _blast radius control_: to limit the attack surface in case the AI model is compromised, or in case the AI model makes a mistake. This requires mechanisms that may not be offered by the Identity and Access Management in place, such as: ephemeral tokens, dynamic permissions, and narrow permission control at scale, combined with trust establishment and potential revokation across different domains. 
+- Task-based minimization: Take the served-limitation a step further by reducing actions that the model can potentially trigger, and what they can be triggered on, to the minimum necessary for the reasonably foreseeable use cases. See below for the flexibility balance. The purpose of this is _blast radius control_: to limit the attack surface in case the AI model is compromised, or in case the AI model makes a mistake. This requires mechanisms that may not be offered by the Identity and Access Management in place, such as: ephemeral tokens, dynamic permissions, and narrow permission control at scale, combined with trust establishment and potential revocation across different domains. 
 - Avoid implementing authorization in Generative AI instructions, as these are vulnerable to hallucinations and manipulation (e.g., prompt injection). This is especially applicable in Agentic AI. This includes the prevention of Generative AI outputting commands that include references to the user context as it would open up the opportunity to escalate privileges by manipulating that output.
 
 Example case: an AI model is connected to an email facility to summarize incoming emails to an end user:
@@ -504,12 +508,12 @@ How to strike the balance between:
 1. a general purpose AI agent that has all permissions which you can assign to anything, and
 2. a large set of AI agents,  each for a different type of task with the right set of permissions to prevent it stepping out of bounds?
 Option 1 is the easiest extreme and option 2 requires more effort and also may cause certain workflows to fail because the agent didn't have permissions, causing user frustration and administrator effort to further tailor agents and permissions.  
-Still, least model privilege is critical if successful manipulation is probable and the potential effects are severe. The best practice is to at least have separate agents for the permissions that may have severe effects (e.g. execute run commands). This puts the responsibility of selecting the right permissions to the actor choosing the agent. This can intrroduce the risk of the actor (person or agent) choosing an agent with too many permissions because they are not sufficiently informed, or they prefer flexibility over security too much. If this risk is real, then dynamic minimization of permissions is required. This requires the implementation of logic that sets action permissions based on knowledge of the intent (e.g. an agent tjhat is assigned to summarize a ticket only gets access to read tickets), and knowledge of potential risks (e.g. reducing permissions automatically the moment that untrusted input is introduced in an agent workflow).
+Still, least model privilege is critical if successful manipulation is probable and the potential effects are severe. The best practice is to at least have separate agents for the permissions that may have severe effects (e.g. execute run commands). This puts the responsibility of selecting the right permissions to the actor choosing the agent. This can introduce the risk of the actor (person or agent) choosing an agent with too many permissions because they are not sufficiently informed, or they prefer flexibility over security too much. If this risk is real, then dynamic minimization of permissions is required. This requires the implementation of logic that sets action permissions based on knowledge of the intent (e.g. an agent that is assigned to summarize a ticket only gets access to read tickets), and knowledge of potential risks (e.g. reducing permissions automatically the moment that untrusted input is introduced in an agent workflow).
 
-One of the most powerful thing to let AI agents do is to execute code. That is where task-based minimization becomes a challenge because on the one hand you want to broaden the possibilities for the agents, and on the other hand you want to limit those possibilities for attackers. Solutions include:
+One of the most powerful things to let AI agents do is to execute code. That is where task-based minimization becomes a challenge because on the one hand you want to broaden the possibilities for the agents, and on the other hand you want to limit those possibilities for attackers. Solutions include:
 - Replacing arbitrary code execution with the execution of a limited set of API calls
 - Removing commands (e.g. deleting them from a deployed operating system
-- Sand boxing the code execution by for example network segementation, to mininize the attack surface of commands
+- Sand boxing the code execution by for example network segmentation, to minimize the attack surface of commands
 
 
 Useful references include:
@@ -535,18 +539,67 @@ Useful standards include:
 > Category: runtime data science control  
 > Permalink: https://owaspai.org/goto/continuousvalidation/
 
+**Description**  
 Continuous validation: by frequently testing the behaviour of the model against an appropriate test set, it is possible to detect sudden changes caused by a permanent attack (e.g. data poisoning, model poisoning), and also some robustness issues against for example evasion attacks.
 
 Continuous validation is a process that is often in place to detect other issues than attacks: system failures, or the model performance going down because of changes in the real world since it was trained (model drift, model staleness). There are many performance metrics available and the best ones are those that align with the goal. These metrics pertain to correctness, but can also link to other aspects such as unwanted bias towards protected attributes.
 
 Note that continuous validation is typically not suitable for detecting backdoor poisoning attacks, as these are designed to trigger with very specific input that would normally not be present in test sets. In fact, such attacks are often designed to pass validation tests.
 
-Useful standards include:
+**Objective**  
+Continuous validation helps verify that the model continues to behave as intended over time meeting acceptance criteria. In addition to supporting functional correctness, it provides a mechanism to detect unexpected or unexplained changes in model behaviour that may indicate permanent manipulation, such as data poisoning or model poisoning. Continuous validation may also surface certain robustness weaknesses, including limited exposure to evasion-related failure modes.
+In some systems, model behaviour directly implements security-relevant functions, such as access control or policy enforcement, making correctness validation important from a cybersecurity perspective.
 
+**Applicability**  
+Continuous validation applies to AI systems where changes in model behaviour could introduce security, safety, or compliance risks. It is particularly relevant when risks related to data poisoning, model poisoning, or unintended behavioural drift are not fully acceptable.
+
+**Implementation**  
+
+**Validation timing and triggers**  
+Continuous validation can be performed at points in the system lifecycle where model behaviour may reasonably change or be at risk of manipulation. This includes:
+- after initial training, retraining, or fine-tuning,
+- before deployment or redeployment, and
+- periodically during operation when the residual risk of model integrity is not considered acceptable.  
+
+Operational validation is particularly relevant when models remain exposed to updates, external dependencies, or environments where unauthorized modification is plausible. The frequency and scope of validation are typically informed by risk analysis and the criticality of the model’s output.
+
+**Detection of degradation and response handling**  
+Validation results can be monitored for unexpected or unexplained changes in model performance, which may indicate permanent behavioural changes caused by attacks, configuration errors, or environmental drift.  
+When performance degradation or abnormal behaviour is observed, possible response options include:
+- investigating the underlying cause;
+- continuing operation when degradation is temporary and within acceptable bounds;
+- rolling back to a previous model version with known behaviour;
+- restricting usage to lower-risk scenarios or specific tasks;
+- introducing additional human or automated oversight for high-risk outputs to limit error propagation; or
+- temporarily disabling the system if continued operation is unsafe.  
+The choice of response influences both the impact of the issue and the timeliness of recovery.
+
+**Protection and management of validation data**  
+Test datasets serve as a reference for intended or acceptable model behaviour and therefore benefit from protection against manipulation. Storing validation data separately from training data or model artifacts can reduce the likelihood that attackers influence both the model and its evaluation baseline.
+When validation data remains less exposed than training data or deployed model components, continuous validation can help surface integrity issues even if other parts of the system are compromised.
+
+**Risk-Reduction Guidance**  
+Continuous validation can be an effective mechanism for detecting permanent behavioural changes caused by attacks such as data poisoning or model poisoning. Detection timeliness depends on how frequently validation is performed and whether the manipulated model has already been deployed.
+The level of impact from a detected degradation depends on both the severity of the behaviour change and the response taken. Responses may include investigation, rollback to a previous model version, restricting usage to lower-risk scenarios, or introducing additional oversight for high-risk outputs.
+Continuous validation is not a strong countermeasure against evasion attacks and does not guarantee detection of attacks designed to bypass validation, such as trigger-based backdoor poisoning.
+For poisoning introduced during development or training, validation before deployment can prevent exposure entirely, whereas poisoning introduced during operation may only be detected after some period of use, depending on validation frequency.
+
+**Particularity**  
+There is a terminology difference between AI performance testing and traditional performance testing in non-AI systems. The latter  focuses on efficiency metrics such as latency or throughput, whereas performance testing of AI models  focuses on behavioural correctness, robustness, and consistency with intended use. It may also include checks for bias or unintended decision patterns.
+
+**Limitations**  
+Continuous validation relies on the representativeness and integrity of the test dataset. Attacks that are triggered only by rare or highly specific inputs may not be detected if those inputs are absent from test sets.
+If attackers are able to manipulate both the model and the test data, validation results may no longer be trustworthy. Validation alone therefore does not replace other integrity and monitoring controls.
+
+
+**References**
+Useful standards include:
 - ISO 5338 (AI lifecycle) Continuous validation. Gap: covers this control fully
 - ISO/IEC 24029-2:2023 Artificial intelligence (AI) — Assessment of the robustness of neural networks
 - ISO/IEC 24027:2021 Bias in AI systems and datasets
 - ISO/IEC 25059:2023 Software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE) — Quality model for AI systems
+- CEN/CLC JT021008 AI trustworthiness framework
+
 
 #### #EXPLAINABILITY 
 > Category: runtime data science control  
