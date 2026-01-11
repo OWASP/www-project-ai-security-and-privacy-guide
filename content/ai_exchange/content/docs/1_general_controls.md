@@ -339,10 +339,13 @@ Useful standards include:
 > Category: development-time and runtime control    
 > Permalink: https://owaspai.org/goto/alloweddata/
 
+**Description**  
 Ensure allowed data, meaning: removing data (e.g. from a training set) that is prohibited for the intended purpose. This is particularly important if consent was not given and the data contains personal information collected for a different purpose. 
 
-Purpose: Apart from compliance, the purpose is to minimize the impact of data leakage or manipulation
+**Objective**  
+Apart from compliance, the purpose is to minimize the impact of data leakage or manipulation
 
+**References**  
 Useful standards include:
 
   - ISO/IEC 23894 (AI risk management) covers this in A.8 Privacy. Gap: covers this control fully, with a brief section on the idea
@@ -351,12 +354,16 @@ Useful standards include:
 > Category: development-time and runtime control    
 > Permalink: https://owaspai.org/goto/shortretain/
 
+**Description**  
 Short retain: Remove or anonymize data once it is no longer needed, or when legally required (e.g., due to privacy laws).
 
-Purpose: minimize the impact of data leakage or manipulation
+**Objective**  
+Minimize the impact of data leakage or manipulation
 
+**Implementation**  
 Limiting the retention period of data can be seen as a special form of data minimization. Privacy regulations typically require personal data to be removed when it is no longer needed for the purpose for which it was collected. Sometimes exceptions need to be made because of other rules (e.g. to keep a record of proof). Apart from these regulations, it is a general best practice to remove any sensitive data when it is no longer of use, to reduce the impact of a data leak.
-  
+
+**References**  
 Useful standards include:
 
   - Not covered yet in ISO/IEC standards.
@@ -415,7 +422,7 @@ Anonymity is not an absolute concept, but a statistical one. Even if someone's i
 
 Distorting training data can make it effectively uncrecognizable, which of course needs to be weighed against the negative effect on model performance that this typically creates. See also [TRAINDATADISTORTION](/goto/traindatadistortion/) which is about distortion against data poisoning and [EVASIONROBUSTMODEL](/goto/evasionrobustmodel/) for distortion against evasion attacks. Together with this control OBFUSCATETRAININGDATA, these are all approaches that distort training data, but for different purposes.
 
-**References:**  
+**References**  
 - [SF-PATE: Scalable, Fair, and Private Aggregation of Teacher Ensembles](https://arxiv.org/abs/2204.05157)
 - [Differentially Private Objective Perturbation: Beyond Smoothness and Convexity](https://arxiv.org/abs/1909.01783v1)
 - [Data Masking with Privacy Guarantees]([https://arxiv.org/abs/1909.01783v1](https://arxiv.org/abs/1901.02185))
