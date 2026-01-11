@@ -84,7 +84,7 @@ Join us in our mission to protect society from AI security issues by harnessing 
       <h3 class="text-base sm:text-xl md:text-2xl font-bold mb-2 sm:mb-4 text-white">
         Our Sponsors
       </h3>
-      <div class="flex justify-center items-center flex-wrap gap-4 sm:gap-8">
+      <div class="flex justify-center items-center flex-wrap gap-4 sm:gap-12">
         <a href="https://www.straiker.ai/" target="_blank" rel="noopener noreferrer">
           <img
             src="/images/straikerlogo.png"
@@ -92,10 +92,17 @@ Join us in our mission to protect society from AI security issues by harnessing 
             class="h-8 sm:h-10 md:h-12 w-auto"
           />
         </a>
-        <a href="https://www.casco.com/" target="_blank" rel="noopener noreferrer">
+        <a href="https://casco.com/" target="_blank" rel="noopener noreferrer">
           <img
             src="/images/cascologo.png"
             alt="Casco sponsor"
+            class="h-10 sm:h-12 md:h-16 w-auto"
+          />
+        </a>
+        <a href="https://www.aisecurityacademy.ai/" target="_blank" rel="noopener noreferrer">
+          <img
+            src="/images/ais-logo.png"
+            alt="AI Security Academy"
             class="h-10 sm:h-12 md:h-16 w-auto"
           />
         </a>
@@ -145,11 +152,11 @@ Join us in our mission to protect society from AI security issues by harnessing 
   </div>
 </div>
   <!-- Project Sponsors Section -->
-  <div class="container mx-auto pt-0 px-4 md:px-8 max-w-6xl">
+  <div class="container mx-auto pt-0 px-4 md:px-8 max-w-8xl">
     <h2 class="text-4xl mb-10 md:text-5xl font-bold text-center text-gray-800">
       Project Sponsors
     </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8">
       {{< sponsor-card 
           name="Straker" 
           tier="Gold" 
@@ -162,7 +169,14 @@ Join us in our mission to protect society from AI security issues by harnessing 
           tier="Silver" 
           logo="/images/sp_casco-removebg-preview.png"
           description="Casco validates security, safety, and accuracy of AI apps and agents. Continuously." 
-          link="https://www.casco.com/"
+          link="https://casco.com/"
+      >}}
+      {{< sponsor-card 
+          name="AI Security Academy" 
+          tier="Silver" 
+          logo="/images/AISecurityAcademyLogo.png"
+          description="AI Security Academy is the world's first hands-on training platform dedicated to securing artificial intelligence." 
+          link="https://www.aisecurityacademy.ai/"
       >}}
     </div>
   </div>
