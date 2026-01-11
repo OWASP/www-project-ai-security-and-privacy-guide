@@ -32,7 +32,7 @@ Monitor use: observe, correlate, and log model usage (date, time, user), inputs,
 
   - improper functioning of the model (see [CONTINUOUSVALIDATION](/goto/continuousvalidation/) and [UNWANTEDBIASTESTING](/goto/unwantedbiastesting/))
   - suspicious patterns of model use (e.g., high frequency - see [RATELIMIT](#ratelimit))
-  - suspicious inputs or series of inputs (see anomalous input handling and prompt injection I/O handling)
+  - suspicious inputs or series of inputs (see [ANOMALOUS INPUT HANDLING](/goto/anomalousinputhandling/). [UNWANTEDINPUTSERIESHANDLING](goto/unwantedinputserieshandling/) and [PROMPT INJECTION I/O handling](/goto/promptinjectioniohandling/))
 
 By adding details to logs on the version of the model used and the output, troubleshooting becomes easier. This control provides centralized visibility into how AI systems are used over time and across actors, sessions, and models.
 
@@ -969,14 +969,14 @@ Multimodal prompt injection can be:
   
 **Controls for all forms of prompt injection:**
 - See [General controls](/goto/generalcontrols/):
-  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) with highlights [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/).
+  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) with highlights [MODEL ALIGNMENT](/goto/modelalignment/), [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/).
 - Controls for [threats through use](/goto/threatsuse/):
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
 - Controls for [prompt injection](/goto/promptinjection/):
   - [#PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/) to handle any suspicious input or output - see below
-  - [#MODEL ALIGNMENT](/goto/modelalignment/) done by mostly model makers to try to make the model behave - see below
+  
 
 #### #PROMPT INJECTION I/O HANDLING
 > Category: runtime AI engineer controls against input threats  
@@ -1012,6 +1012,7 @@ This control is less applicable to closed systems with fixed inputs and tightly 
   - [NVIDIA-NeMo Guardrails](https://github.com/NVIDIA-NeMo/Guardrails)
   - [Rebuff](https://github.com/protectai/rebuff)
 - **Respond to detections appropriately**: Based on the confidence of detections, the input can either be filtered, the processing stopped, or an alert can be issued in the log. For more details, see [#MONITOR USE](/goto/monitoruse/)
+- **Inform users when necessary**: It is a best practice to inform users when their input is blocked (e.g., requesting potentially harmful information), as the user may not be aware of certain policies - unless the input is clearly malicious. 
 
 **Risk-Reduction Guidance**  
 Prompt injection defense at inference reduces the likelihood that crafted inputs or ambiguous language will cause the model to behave outside its intended purpose. It is particularly effective against instruction-based attacks that rely on the model’s tendency to follow natural language commands.
@@ -1028,34 +1029,6 @@ This control does not replace access control, rate limiting, or monitoring, but 
 - [Invisible prompt injection](https://arxiv.org/abs/2505.16957)
 - [Instruction detection](https://arxiv.org/html/2505.06311v2)
 - [Techniques to bypass prompt injection detection](https://arxiv.org/html/2504.11168v1)
-
-
-
-
-#### #MODEL ALIGNMENT
-> Category: development-time and runtime control against unwanted LLM model behaviour 
-> Permalink: https://owaspai.org/goto/modelalignment/
-
-In the context of large language models (LLMs), alignment refers to the process of ensuring that the model's behavior and outputs are consistent with human values, intentions, and ethical standards.
-
-Achieving the goal of model alignment involves multiple layers:  
-
-1. Training-Time Alignment, shaping the core behaviour of the model
-
-    This is often what people mean by "model alignment" in the strict sense:
-    - Training data choices
-    - Fine-tuning (on aligned examples: helpful, harmless, honest)
-    - Reinforcement learning from human feedback (RLHF) or other reward modeling
-
-2. Deployment-Time Alignment (Including System Prompts)
-
-    Even if the model is aligned during training, its actual behavior during use is also influenced by:
-    - System prompts / instruction prompts
-    - Guardrails built into the AI system and external tools that oversee or control responses (like content filters or output constraints) - see [#OVERSIGHT](/goto/oversight/)
-
-To avoid making judgments or creating the appearance of doing so, the model’s output should explicitly inform the user of its refusal to interpret the given input. 
-
-See [the appendix on culture-sensitive alignment](/goto/culturesensitivealignment/).
 
 
 ### 2.2.1. Direct prompt injection
@@ -1095,15 +1068,14 @@ References:
 The same as for all prompt injection:
 
 - See [General controls](/goto/generalcontrols/):
-  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) with highlights [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/).
+  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) with highlights [MODEL ALIGNMENT](/goto/modelalignment/), [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/).
 - Controls for [threats through use](/goto/threatsuse/):
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
 - Controls for [prompt injection](/goto/promptinjection/):
   - [#PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/) to handle any suspicious input or output 
-  - [#MODEL ALIGNMENT](/goto/modelalignment/) done by mostly model makers to try to make the model behave
-
+  
 ---
 
 ### 2.2.2 Indirect prompt injection
@@ -1133,7 +1105,7 @@ References
 **Controls:**
 
 - See [General controls](/goto/generalcontrols/):
-  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) with highlights [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/).
+  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) with highlights [MODEL ALIGNMENT](/goto/modelalignment/), [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/).
 - Controls for [threats through use](/goto/threatsuse/):
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output - and for INDIRECT prompt injection: looking primarily at the untrusted data that is inserted in the prompt
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time

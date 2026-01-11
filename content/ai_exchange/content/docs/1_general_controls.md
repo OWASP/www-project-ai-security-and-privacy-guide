@@ -522,6 +522,49 @@ Useful references include:
   - [OpenCRE on least privilege](https://www.opencre.org/cre/368-633) Gap: idem
   - [A Novel Zero-Trust Identity Framework for Agentic AI: Decentralized Authentication and Fine-Grained Access Control](https://arxiv.org/abs/2505.19301)
 
+
+#### #MODEL ALIGNMENT
+> Category: development-time and runtime AI engineer control against unwanted GenAI model behaviour 
+> Permalink: https://owaspai.org/goto/modelalignment/
+
+**Description and objective**  
+In the context of Generative AI (e.g., LLMs), alignment refers to the process of ensuring that the model's behavior and outputs are consistent with human values, intentions, and ethical standards.  
+Controls external to the model to manage model behaviour are: 
+- [OVERSIGHT](/goto/oversight/): conventional mechanisms responding to the actual outcome of the model
+- [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/): conventional mechanisms that put boundaries on what the model can affect
+- [PROMPT INJECTION I/O handling](/goto/promptinjectioniohandling): detection mechanisms on input and output to prevent unwanted behaviour
+The intent of Model alignment is to bake such mechanisms into the model itself, through training and instruction.
+
+**Implementation**  
+Achieving the goal of model alignment involves multiple layers:  
+
+1. Training-Time Alignment, shaping the core behaviour of the model
+
+    This is often what people mean by "model alignment" in the strict sense:
+    - Training data choices
+    - Fine-tuning (on aligned examples: helpful, harmless, honest)
+    - Reinforcement learning from human feedback (RLHF) or other reward modeling
+
+2. Deployment-Time Alignment (Including System Prompts)
+
+    Even if the model is aligned during training, its actual behavior during use is also influenced by:
+    - System prompts / instruction prompts
+    - Guardrails built into the AI system and external tools that oversee or control responses (like content filters or output constraints) - see [#PROMPT INJECTION IO HANDLING](/goto/promptinjectioniohandling/) and [#OVERSIGHT](/goto/oversight/)
+
+See [the appendix on culture-sensitive alignment](/goto/culturesensitivealignment/).
+
+**Limitations**  
+Advantage of Model alignment over the external mechanisms:
+- Training-time alignment is in essence able to capture complex behavioural boundaries in the form of many examples of wanted and less-wanted behaviour
+- Recognition of unwanted behaviour is very flexible as the GenAI model typically has powerful judgement abilities. 
+
+Disadvantages of Model alignment:
+- A model's ability to behave through alignment suffers from reliability issues, as it can be prone to manipulation or imperfect memorization and application of what it has learned and what it has been told. 
+- The boundaries of unwanted model behaviour may change after model training (e.g., through new findings), forcing the use of system prompts and/or external controls
+
+Therefore, alignment should be seen as a probabilistic, model-internal control that must be combined with deterministic, external mechanisms for high-risk or regulated use cases.
+
+
 #### #AITRANSPARENCY
 > Category: runtime control    
 > Permalink: https://owaspai.org/goto/aitransparency/
