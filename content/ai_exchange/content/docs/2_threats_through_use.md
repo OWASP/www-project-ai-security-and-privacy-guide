@@ -754,8 +754,10 @@ Useful standards include:
 >Category: runtime data science control for threats through use  
 >Permalink: https://owaspai.org/goto/inputdistortion/
 
+**Description**  
 Input distortion: The process of slightly modifying and/or adding noise to the input with the intent of distorting the adversarial attack, causing it to fail, while maintaining sufficient model correctness. Modification can be done by  adding noise (randomization), smoothing or JPEG compression.
 
+**Implementation**  
 Input distortion defenses are effective against both evasion attacks and data poisoning attacks.
 
   **Input distortion against Evasion Attacks**
@@ -775,13 +777,7 @@ Input distortion defenses are effective against both evasion attacks and data po
 
 See [DETECTADVERSARIALINPUT](https://owaspai.org/docs/2_threats_through_use/#detectadversarialinput) for an approach where the distorted input is used for detecting an adversarial attack.
 
-Useful standards include:
-
-  - Not covered yet in ISO/IEC standards
-
-  - ENISA Securing Machine Learning Algorithms Annex C: "Apply modifications on inputs"
-
-References:
+**References**  
   - Weilin Xu, David Evans, Yanjun Qi. Feature Squeezing: Detecting Adversarial Examples in Deep Neural Networks. 2018 Network and Distributed System Security Symposium. 18-21 February, San Diego, California.
   - Das, Nilaksh, et al. "Keeping the bad guys out: Protecting and vaccinating deep learning with jpeg compression." arXiv preprint arXiv:1705.02900 (2017).
   - He, Warren, et al. "Adversarial example defense: Ensembles of weak defenses are not strong." 11th USENIX workshop on offensive technologies (WOOT 17). 2017.
@@ -790,6 +786,12 @@ References:
   - Mahmood, Kaleel, et al. "Beware the black-box: On the robustness of recent defenses to adversarial examples." Entropy 23.10 (2021): 1359.
   - Athalye, Anish, et al. "Synthesizing robust adversarial examples." International conference on machine learning. PMLR, 2018.
   - Athalye, Anish, Nicholas Carlini, and David Wagner. "Obfuscated gradients give a false sense of security: Circumventing defenses to adversarial examples." International conference on machine learning. PMLR, 2018.
+
+Useful standards include:
+
+  - Not covered yet in ISO/IEC standards
+
+  - ENISA Securing Machine Learning Algorithms Annex C: "Apply modifications on inputs"
 
   
 #### #ADVERSARIAL ROBUST DISTILLATION
