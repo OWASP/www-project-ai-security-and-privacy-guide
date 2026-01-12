@@ -798,16 +798,10 @@ Useful standards include:
 >Category: development-time data science control for threats through use  
 >Permalink: https://owaspai.org/goto/adversarialrobustdistillation/
 
+**Description**  
 Adversarial-robust distillation: defensive distillation involves training a student model to replicate the softened outputs of the *teacher* model, increasing the resilience of the *student* model to adversarial examples by smoothing the decision boundaries and making the model less sensitive to small perturbations in the input. Care must be taken when considering defensive distillation techniques, as security concerns have arisen about their effectiveness.
 
-Useful standards include:
-
-  - Not covered yet in ISO/IEC standards
-
-  - ENISA Securing Machine Learning Algorithms Annex C: "Choose and define a more resilient model design"
- 
- References
-
+**References**  
   - Papernot, Nicolas, et al. "Distillation as a defense to adversarial
 perturbations against deep neural networks." 2016 IEEE symposium on
 security and privacy (SP). IEEE, 2016.
@@ -815,6 +809,13 @@ security and privacy (SP). IEEE, 2016.
   - Carlini, Nicholas, and David Wagner. "Defensive distillation is not
 robust to adversarial examples." arXiv preprint arXiv:1607.04311 (2016).
 
+Useful standards include:
+
+  - Not covered yet in ISO/IEC standards
+
+  - ENISA Securing Machine Learning Algorithms Annex C: "Choose and define a more resilient model design"
+ 
+ 
 ### 2.1.1. Closed-box evasion
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/closedboxevasion/
