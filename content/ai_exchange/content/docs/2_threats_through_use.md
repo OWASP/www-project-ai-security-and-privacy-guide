@@ -671,10 +671,13 @@ Useful standards include:
 >Category: development-time data science control for threats through use  
 >Permalink: https://owaspai.org/goto/evasionrobustmodel/
 
+**Description**  
 Evasion-robust model: choose an evasion-robust model design, configuration and/or training approach to maximize resilience against evasion.
 
+**Objective**  
 A robust model in the light of evasion is a model that does not display significant changes in output for minor changes in input. Adversarial examples are inputs that result in an unwanted result, where the input is a minor change of an input that leads to a wanted result.
 
+**Implementation**  
 Reinforcing adversarial robustness is an experimental process where model robustness is measured in order to determine countermeasures. Measurement takes place by trying minor input deviations to detect meaningful outcome variations that undermine the model's reliability. If these variations are undetectable to the human eye but can produce false or incorrect outcome descriptions, they may also significantly undermine the model's reliability. Such cases indicate the lack of model resilience to input variance results in sensitivity to evasion attacks and require detailed investigation.  
 Adversarial robustness (the sensitivity to adversarial examples) can be assessed with tools like [IBM Adversarial Robustness Toolbox](https://research.ibm.com/projects/adversarial-robustness-toolbox), [CleverHans](https://github.com/cleverhans-lab/cleverhans), or [Foolbox](https://github.com/bethgelab/foolbox).
 
@@ -692,16 +695,7 @@ Robustness issues can be addressed by:
 Regarding the defensive approaches which focus on model architecture and design we may collectively describe them as  part of a broader evasion-robust model design strategy. Some of the most commonly used methods are kTWA, gated batch norm layers and ensembles to name a few, yet they are still prone to attacks by highly determined threat actors.
 Not to mention that the combination of different defensive strategies : combining gradient masking with ensembles may result in better robustness. 
 
-
-  Useful standards include:
-
-  - ISO/IEC TR 24029 (Assessment of the robustness of neural networks) Gap: this standard discusses general robustness and does not discuss robustness against adversarial inputs explicitly.
-
-  - ENISA Securing Machine Learning Algorithms Annex C: "Choose and define a more resilient model design"
-
-  - ENISA Securing Machine Learning Algorithms Annex C: "Reduce the information given by the model"
-
-  References:
+**References**  
 
   -  Xiao, Chang, Peilin Zhong, and Changxi Zheng. "Enhancing Adversarial
 Defense by k-Winners-Take-All." 8th International Conference on Learning
@@ -719,6 +713,15 @@ Processing (ICIP). IEEE, 2019.
 gradients give a false sense of security: Circumventing defenses to
 adversarial examples." International conference on machine learning.
 PMLR, 2018.
+
+  Useful standards include:
+
+  - ISO/IEC TR 24029 (Assessment of the robustness of neural networks) Gap: this standard discusses general robustness and does not discuss robustness against adversarial inputs explicitly.
+
+  - ENISA Securing Machine Learning Algorithms Annex C: "Choose and define a more resilient model design"
+
+  - ENISA Securing Machine Learning Algorithms Annex C: "Reduce the information given by the model"
+
 
 #### #TRAIN ADVERSARIAL
 >Category: development-time data science control for threats through use  
