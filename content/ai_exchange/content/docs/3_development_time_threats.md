@@ -10,11 +10,11 @@ weight: 4
 
 This section discusses the AI security threats during the development of the AI system, which includes the engineering environment and the supply chain as attack surfaces.
 
-**Background:**
+**Background**
 
 Data science (data engineering and model engineering - for machine learning often referred to as the _training phase_) introduces new elements and therefore new attack surfaces into the engineering environment. Data engineering (collecting, storing, and preparing data) is typically a large and important part of machine learning engineering. Together with model engineering, it requires appropriate security to protect against data leaks, data poisoning, leaks of intellectual property, and supply chain attacks (see further below). In addition, data quality assurance can help reduce risks of intended and unintended data issues.
 
-**Particularities:**
+**Particularities**
 
 - Particularity 1: the data in the AI development environment is real data that is typically sensitive, because it is needed to train the model and that obviously needs to happen on real data, instead of fake data that you typically see in standard development environment situations (e.g., for testing). Therefore, data protection activities need to be extended from the live system to the development environment.
 - Particularity 2: elements in the AI development environment (data, code, configuration & parameters) require extra protection as they are prone to attacks to manipulate model behaviour (called _poisoning_)
@@ -27,7 +27,7 @@ Data science (data engineering and model engineering - for machine learning ofte
 
 ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 
-**Controls for development-time protection:**
+**Controls for development-time protection**
 
 - See [General controls](/goto/generalcontrols/)
 - Specifically for development-time threats - all discussed below:
@@ -47,8 +47,11 @@ This control has been integrated with [#DEVSECURITY](/goto/devsecurity/).
 #### #DEVSECURITY
 > Category: development-time information security control  
 > Permalink: https://owaspai.org/goto/devsecurity/
- 
+
+**Description**  
 Development security: appropriate security of the AI development infrastructure, also taking into account the sensitive information that is typical to AI: training data, test data, model parameters and technical documentation. 
+
+**Implementation**
 
 **How:** This can be achieved by adding the said assets to the existing security management system. Security involves for example encryption, screening of development personnel, protection of source code/configuration, virus scanning on engineering machines.
 
@@ -129,8 +132,8 @@ The data a model consumes is the most influential part of the MLOps lifecycle an
 Often, datasets may not just be a collection of text or images but may be comprised of pointers to other pieces of data rather than the data itself. One such dataset is the LAOIN-400m, where pointers to images are stored as URLs - however, data stored at a URL is not permanent and may be subject to manipulation or removal of the content. As such having a level of indirection can introduce integrity issues and leave oneself vulnerable to data poisoning, as was shown by Carlini et al in their paper ‘Poisoning Web-Scale Datasets is practical’. For more information, see the [data poisoning section](/goto/datapoison/). 
 Verification of dataset entries through hashing is of the utmost importance so as to reduce the capacity for tampering, corruption, or potential for data poisoning. 
 
-**Useful standards include:**
-
+**References**  
+Useful standards include:
 - ISO 27001 Information Security Management System does not cover development-environment security explicitly. Nevertheless, the information security management system is designed to take care of it, provided that the relevant assets and their threats are taken into account. Therefore it is important to add train/test/validation data, model parameters and technical documentation to the existing development environment asset list.
 
 
