@@ -1,4 +1,4 @@
-{{ define "main" }}
+ {{ define "main" }}
 <!-- ✅ Alpine.js for dropdown logic -->
 <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css"/>
@@ -31,7 +31,7 @@
         @click="openSidebar = !openSidebar"
         class="w-full flex justify-between items-center text-gray-800 font-semibold px-5 py-3"
       >
-        <span>AI Security Overview</span>
+        <span>Pages</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           :class="{'rotate-90': openSidebar}"
@@ -66,7 +66,7 @@
         @click="openToc = !openToc"
         class="w-full flex justify-between items-center text-gray-800 font-semibold px-5 py-3"
       >
-        <span>Select Topics</span>
+        <span>Topics on this page</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           :class="{'rotate-90': openToc}"
