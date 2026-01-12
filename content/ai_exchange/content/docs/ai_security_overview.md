@@ -10,7 +10,7 @@ weight: 1
 >Permalink: https://owaspai.org/goto/about/
 
 **Summary**  
-Welcome to the go-to single resource for AI security & privacy - over 200 pages of practical advice and references on protecting AI, and data-centric systems from threats - where AI consists of Analytical AI, Discriminative AI, Generative AI and heuristic systems. This content serves as key bookmark for practitioners, and is contributed actively and substantially to international standards such as ISO/IEC and the AI Act through official standard partnerships. Through broad collaboration with key institutes and SDOs, the _Exchange_ represents the consensus on AI security and privacy.
+Welcome to the go-to single resource for AI security & privacy - over 300 pages of practical advice and references on protecting AI, and data-centric systems from threats - where AI consists of Analytical AI, Discriminative AI, Generative AI and heuristic systems. This content serves as key bookmark for practitioners, and is contributed actively and substantially to international standards such as ISO/IEC and the AI Act through official standard partnerships. Through broad collaboration with key institutes and SDOs, the _Exchange_ represents the consensus on AI security and privacy.
 
  <p class="text-center">
   <a href="https://youtu.be/kQC7ouDB_z8" target="_blank" rel="noopener noreferrer">
@@ -205,8 +205,6 @@ This page will continue with discussions about:
 The upcoming sections discuss AI security threats and corresponding controls. Below are the main insights to understand the bigger picture of AI security What is different for AI systems?  
 Many experts and organizations contributed to this overview. This included close collaboration with SANS Institute - ensuring alignment with SANS’ Critical AI security guidelines, as part of the ongoing collaboration between SANS and the AI Exchange to share expertise and support broad education.
 
-making sure that the control sets in the Essentials align with SANS' Critical AI security guidelines.
-
 **New threats (overview [here](/goto/threatsoverview/)):**
   - **[Model input threats](/goto/threatsuse/)**:
     - [Evasion](/goto/evasion/): Misleading a model by crafting data to force wrong decisions
@@ -216,7 +214,7 @@ making sure that the control sets in the Essentials align with SANS' Critical AI
   - **New suppliers** providing corrupted external [data](/goto/datapoison/), [models](/goto/supplymodelpoison/), and [model hosting](/goto/readymademodel/)
   - **New AI assets** with conventional threats, notably:
     - Training data / augmentation data (changing it manipulates model behaviour - [data poisoning](/goto/datapoison/))
-    - Model ([model](/goto/devmodelleak/) [theft](/goto/runtimemodeltheft/) or [poiso](/goto/devmodelpoison/)[ning](/goto/runtimemodelpoison/))
+    - Model ([model](/goto/devmodelleak/) [theft](/goto/runtimemodeltheft/) or [poisoning](/goto/devmodelpoison/)[ning](/goto/runtimemodelpoison/))
     - Input ([leak](/goto/leakinput/))
     - Output (containing [injection attacks](/goto/insecureoutput/))
     
