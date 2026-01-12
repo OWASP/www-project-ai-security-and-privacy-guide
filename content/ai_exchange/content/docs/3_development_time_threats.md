@@ -10,11 +10,11 @@ weight: 4
 
 This section discusses the AI security threats during the development of the AI system, which includes the engineering environment and the supply chain as attack surfaces.
 
-**Background:**
+**Background**
 
 Data science (data engineering and model engineering - for machine learning often referred to as the _training phase_) introduces new elements and therefore new attack surfaces into the engineering environment. Data engineering (collecting, storing, and preparing data) is typically a large and important part of machine learning engineering. Together with model engineering, it requires appropriate security to protect against data leaks, data poisoning, leaks of intellectual property, and supply chain attacks (see further below). In addition, data quality assurance can help reduce risks of intended and unintended data issues.
 
-**Particularities:**
+**Particularities**
 
 - Particularity 1: the data in the AI development environment is real data that is typically sensitive, because it is needed to train the model and that obviously needs to happen on real data, instead of fake data that you typically see in standard development environment situations (e.g., for testing). Therefore, data protection activities need to be extended from the live system to the development environment.
 - Particularity 2: elements in the AI development environment (data, code, configuration & parameters) require extra protection as they are prone to attacks to manipulate model behaviour (called _poisoning_)
@@ -27,7 +27,7 @@ Data science (data engineering and model engineering - for machine learning ofte
 
 ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 
-**Controls for development-time protection:**
+**Controls for development-time protection**
 
 - See [General controls](/goto/generalcontrols/)
 - Specifically for development-time threats - all discussed below:
@@ -47,8 +47,11 @@ This control has been integrated with [#DEVSECURITY](/goto/devsecurity/).
 #### #DEVSECURITY
 > Category: development-time information security control  
 > Permalink: https://owaspai.org/goto/devsecurity/
- 
+
+**Description**  
 Development security: appropriate security of the AI development infrastructure, also taking into account the sensitive information that is typical to AI: training data, test data, model parameters and technical documentation. 
+
+**Implementation**
 
 **How:** This can be achieved by adding the said assets to the existing security management system. Security involves for example encryption, screening of development personnel, protection of source code/configuration, virus scanning on engineering machines.
 
@@ -129,8 +132,8 @@ The data a model consumes is the most influential part of the MLOps lifecycle an
 Often, datasets may not just be a collection of text or images but may be comprised of pointers to other pieces of data rather than the data itself. One such dataset is the LAOIN-400m, where pointers to images are stored as URLs - however, data stored at a URL is not permanent and may be subject to manipulation or removal of the content. As such having a level of indirection can introduce integrity issues and leave oneself vulnerable to data poisoning, as was shown by Carlini et al in their paper ‘Poisoning Web-Scale Datasets is practical’. For more information, see the [data poisoning section](/goto/datapoison/). 
 Verification of dataset entries through hashing is of the utmost importance so as to reduce the capacity for tampering, corruption, or potential for data poisoning. 
 
-**Useful standards include:**
-
+**References**  
+Useful standards include:
 - ISO 27001 Information Security Management System does not cover development-environment security explicitly. Nevertheless, the information security management system is designed to take care of it, provided that the relevant assets and their threats are taken into account. Therefore it is important to add train/test/validation data, model parameters and technical documentation to the existing development environment asset list.
 
 
@@ -138,8 +141,10 @@ Verification of dataset entries through hashing is of the utmost importance so a
 > Category: development-time information security control  
 > Permalink: https://owaspai.org/goto/segregatedata/
 
+**Description**  
 Segregate data: store sensitive development data (training or test data, model parameters, technical documentation) in separated areas with restricted access. Each separate area can then be hardened accordingly and access granted to only those that need to work with that data directly.
 
+**Implementation**  
 Examples of areas in which training data can be segregated:
 1. External - for when training data is obtained externally
 2. Application development environment: for application engineers that perhaps need to work with the actual training data, but require different access rights (e.g., don't need to change it)
@@ -149,6 +154,7 @@ Examples of areas in which training data can be segregated:
 
 For more development environment security, see [DEVSECURITY](/goto/devsecurity/).
 
+**References**  
 Useful standards include:
 
 - ISO 27002 control 8.31 Separation of development, test and production environments. Gap: covers this control partly - the particularity is that the development environment typically has the sensitive data instead of the production environment - which is typically the other way around in non-AI systems. Therefore it helps to restrict access to that data within the development environment. Even more: within the development environment further segregation can take place to limit access to only those who need the data for their work, as some developers will not be processing data.
@@ -158,8 +164,10 @@ Useful standards include:
 > Category: development-time information security control  
 > Permalink: https://owaspai.org/goto/confcompute/
 
+**Description**  
 Confidential compute: If available and possible, use features of the data science execution environment to hide training data and model parameters from model engineers - even while it is in use.
 
+**References**  
 Useful standards include:
 
 - Not covered yet in ISO/IEC standards
@@ -167,13 +175,15 @@ Useful standards include:
 #### #FEDERATEDLEARNING
 > Category: development-time AI engineer control  
 > Permalink: https://owaspai.org/goto/federatedlearning/
- 
+
+**Description**  
 Federated learning can be applied when a training set is distributed over different organizations, preventing the data from needing to be collected in a central place. This decreases the risk of all data leaking and increases the risk of some data leaking.
 
 Federated Learning is a decentralized Machine Learning architecture wherein a number of clients (e.g., sensor or mobile devices) participate in collaborative, decentralized, asynchronous training, which is orchestrated and aggregated by a controlling central server. Advantages of Federated Learning include reduced central compute, and the potential for preservation of privacy, since training data may remain local to the client.
 
 Broadly, Federated Learning generally consists of four high-level steps: First, there is a server-to-client broadcast; next, local models are updated on the client; once trained, local models are then returned to the central server; and finally, the central server updates via model aggregation.
 
+**Implementation**  
 **Federated machine learning benefits & use cases**  
 Federated machine learning may offer significant benefits for organizations in several domains, including regulatory compliance, enhanced privacy, scalability and bandwidth, and other user/client considerations.  
 - **Regulatory compliance**. In federated machine learning, data collection is decentralized, which may allow for greater ease of regulatory compliance. Decentralization of data may be especially beneficial for international organizations, where data transfer across borders may be unlawful.
@@ -189,7 +199,7 @@ Federated machine learning may offer significant benefits for organizations in s
 - **Broadcast Latency & Security**. Efficient communication across a federated network introduces additional challenges. While strategies exist to minimize broadcast phase latency, they must also take into consideration potential data security risks. Because models are vulnerable during transmission phases, any communication optimizations must account for data security in transit.
 - **Querying the data creates a risk**. When collected data is stored on multiple clients, central data queries may be required for analysis work, next to Federated learning. Such queries would need the server to have access to the data at all clients, creating a security risk. In order to analyse the data without collecting it, various Privacy-preserving techniques exist, including cryptographic and information-theoretic strategies, such as Secure Function Evaluation (SFE), also known as Secure Multi-Party Computation (SMC/SMPC). However, all approaches entail tradeoffs between privacy and utility.
 
-References:
+**References**  
 
 - Boenisch, Franziska, Adam Dziedzic, Roei Schuster, Ali Shahin Shamsabadi, Ilia Shumailov, and Nicolas Papernot. "When the curious abandon honesty: Federated learning is not private." In 2023 IEEE 8th European Symposium on Security and Privacy (EuroS&P), pp. 175-199. IEEE, (2023). [Link](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10190537&casa_token=pN_XbcDtMXUAAAAA:ob2oBgMHHMDT37J0VTwRH_bZAnHGCqdIcX5ozCJt3IsgHlAPkDjvBmjksUbmjaQSls-jB0U)
 - Sun, Gan, Yang Cong, Jiahua Dong, Qiang Wang and Ji Liu. “Data Poisoning Attacks on Federated Machine Learning.” IEEE Internet of Things Journal 9 (2020): 11365-11375. [Link](https://arxiv.org/pdf/2004.10020.pdf)
@@ -325,6 +335,7 @@ Useful standards include:
 > Category: group of development-time threats  
 > Permalink: https://owaspai.org/goto/modelpoison/
 
+**Description**  
 Development-time model poisoning in the broad sense is when an attacker manipulates development elements (the engineering environment and the supply chain), to alter the behavior of the model. There are three types, each covered in a subsection:
 1. [data poisoning](/goto/datapoison/): an attacker manipulates training data, or data used for in-context learning.
 2. [development-environment model poisoning](/goto/devmodelpoison/): an attacker manipulates model parameters, or other engineering elements that take part in creating the model, such as code, configuration or libraries.
@@ -364,12 +375,14 @@ Data and model poisoning can occur at various stages, as illustrated in the thre
 > Category: development-time AI engineer control - including specific runtime implementation
 > Permalink: https://owaspai.org/goto/modelensemble/
 
+**Description**  
 Model ensemble: deploy the model as an ensemble of models by randomly splitting the trainset to allow detection of poisoning. If one model's output deviates from the others, it can be ignored, as this indicates possible manipulation of the train set.
 
 Effectiveness: the more the dataset has been poisoned with samples, the less effective this approach is.
 
 Ensemble learning is a term in machine learning used for using multiple learning algorithms, with the purpose of better predictive performance.
 
+**References**  
 Useful standards include:
   - Not covered yet in ISO/IEC standards
 
@@ -378,6 +391,7 @@ Useful standards include:
 > Category: development-time threat  
 > Permalink: https://owaspai.org/goto/datapoison/
 
+**Description**  
 An attacker manipulates data that the model uses to learn, in order to affect the algorithm's behavior. Also called _causative attacks_. There are multiple ways to do this (see the attack surface diagram in the [broad model poisoning section](/goto/modelpoison/)):
 - Changing the data while in storage during development-time (e.g., by hacking the database)
 - Changing the data while in transit to the storage (e.g., by hacking into a data transfer)
@@ -403,12 +417,6 @@ There are roughly two categories of data poisoning:
 
 Sabotage data poisoning attacks are relatively easy to detect because they occur for regular inputs, but backdoor data poisoning only occurs for really specific inputs and is therefore hard to detect: there is no code to review in a model to look for backdoors, the model parameters cannot be reviewed as they make no sense to the human eye, and testing is typically done using normal cases, with blind spots for backdoors. This is the intention of attackers - to bypass regular testing. 
 
-References
-
-- [Summary of 15 backdoor papers at CVPR '23](https://zahalka.net/ai_security_blog/2023/09/backdoor-attacks-defense-cvpr-23-how-to-build-and-burn-trojan-horses/)
-- [Badnets article by Gu et al](https://arxiv.org/abs/1708.06733)
-- [Clean-label Backdoor attacks by Turner et al](https://people.csail.mit.edu/madry/lab/cleanlabel.pdf)
-
 **Controls for data poisoning:**
 
 - [General controls](/goto/generalcontrols/),
@@ -425,15 +433,23 @@ References
   - [POISONROBUSTMODEL](/goto/poisonrobustmodel/) to reduce the ability to recall poisoned data
   - Controls that are aimed to improve the generalization ability of the model - reducing the memorization of any poisoned samples: [training with adversarial samples](/goto/trainadversarial/) and [adversarial robust distillation](/goto/adversarialrobustdistillation/)
 
+**References**  
+
+- [Summary of 15 backdoor papers at CVPR '23](https://zahalka.net/ai_security_blog/2023/09/backdoor-attacks-defense-cvpr-23-how-to-build-and-burn-trojan-horses/)
+- [Badnets article by Gu et al](https://arxiv.org/abs/1708.06733)
+- [Clean-label Backdoor attacks by Turner et al](https://people.csail.mit.edu/madry/lab/cleanlabel.pdf)
+
 
 #### #MORETRAINDATA
 > Category: development-time AI engineer control - pre-training    
 > Permalink: https://owaspai.org/goto/moretraindata/
 
+**Description**  
 More train data: increasing the amount of non-malicious data makes training more robust against poisoned examples - provided that these poisoned examples are small in number. One way to do this is through data augmentation - the creation of artificial training set samples that are small variations of existing samples.  The goal is to 'outnumber' the poisoned samples so the model 'forgets' them. However, this also runs the risk of catastrophic forgetting, where also benign data points (especially those out of distribution) are lost. Also, watch out for overfitting which is another potential side effect to this control.
 
 This control can only be applied during training and therefore not to an already trained model. Nevertheless, a variation can be applied to a trained model: by fine-tuning it with additional non-malicious data - see [POISONROBUSTMODEL](/goto/poisonrobustmodel/).
 
+**References**  
 Useful standards include:
 
 - Not covered yet in ISO/IEC standards
@@ -530,7 +546,7 @@ Useful standards include:
 > Category: development-time AI-engineer control - pre-training  
 > Permalink: https://owaspai.org/goto/traindatadistortion/
 
-**Description**
+**Description**  
 Train data distortion: distorting untrusted training data by smoothing or adding noise.
 
 **Objective**  
@@ -556,17 +572,21 @@ This control can only be applied during training and therefore not to an already
 - TRIM algorithm - see Annex C in ENISA 2021. The TRIM algorithm is a defense mechanism against data poisoning attacks that identifies and removes potentially poisoned samples from a dataset. It iteratively trains a model while excluding data points that contribute disproportionately to the loss, as these are likely to be outliers or poisoned samples. By focusing on minimizing the loss for the remaining data, TRIM ensures robust training by reducing the impact of maliciously crafted inputs.
 - STRIP technique (after model evaluation) - see Annex C in ENISA 2021. STRIP is a detection method for backdoor attacks. It works by applying random perturbations to input samples and measuring the model's prediction entropy; backdoored inputs typically produce consistently low entropy, as the trigger enforces a fixed output regardless of the perturbations. By flagging inputs with anomalously low entropy, STRIP effectively identifies and mitigates the influence of backdoor attacks during inference.
 
-**Link to standards**  
+**References**  
+Useful standards include:  
 - Not covered yet in ISO/IEC standards
 
 #### #POISONROBUSTMODEL
 > Category: development-time AI engineer control - post-training  
 > Permalink: https://owaspai.org/goto/poisonrobustmodel/
 
+**Description**  
 Poison robust model: select a model type and creation approach to reduce sensitivity to poisoned training data.
 
+**Applicability**  
 This control can be applied to a model that has already been trained, including models that have been obtained from an external source. 
 
+**Implementation**  
 The general principle of reducing sensitivity to poisoned training data is to make sure that the model does not memorize the specific malicious input pattern (or _backdoor trigger_). The following two examples represent different strategies, which can also complement each other in an approach called **fine pruning** (See [paper on fine-pruning](https://arxiv.org/pdf/1805.12185.pdf)):
 1. Reduce memorization by removing elements of memory using **pruning**. Pruning in essence reduces the size of the model so it does not have the capacity to trigger on backdoor-examples while retaining sufficient accuracy for the intended use case. The approach removes neurons in a neural network that have been identified as non-essential for sufficient accuracy.
 2. Overwrite memorized malicious patterns using **fine tuning** by retraining a model on a clean dataset(without poisoning). A specific approach to this is **Selective Amnesia**, which is a two-step continual learning approach to remove backdoor effects from a compromised model by inducing targeted forgetting of both the backdoor task and primary task, followed by restoration of only the primary functionality.
@@ -574,20 +594,24 @@ The general principle of reducing sensitivity to poisoned training data is to ma
     - **Restoring primary functionality**: Subsequently retrain (fine-tune) the model with a _small subset_ of correctly labeled clean data to recover its intended functionality. This step restores the model's ability to perform its primary task while drastically reducing likelihood that backdoor triggers activate the malicious behavior.
     - **Effectiveness and efficiency**: Selective amnesia requires only a small fraction of clean data (e.g., 0.1% of the original training data) to effectively remove backdoor effects, making it practical even when limited clean data is available. The method is computationally efficient, being approximately 30 times faster than training a model from scratch on the MNIST dataset, while achieving high fidelity in removing backdoor influences. Unlike some other remediation techniques, selective amnesia does not require prior knowledge of the backdoor trigger pattern, making it effective against unknown backdoor attacks.
 
+**References**  
+- ['Selective Amnesia: A Continual Learning Approach to Forgetting in Deep Neural Networks' by Zhu et al](https://arxiv.org/abs/2212.04687)
+
 Useful standards include:
 - Not covered yet in ISO/IEC standards
 
-References:
-- ['Selective Amnesia: A Continual Learning Approach to Forgetting in Deep Neural Networks' by Zhu et al](https://arxiv.org/abs/2212.04687)
-
 #### #TRAINADVERSARIAL
+> Category: development-time AI engineer control - pre-training  
+> Permalink: https://owaspai.org/goto/trainadversarial/
+
+**Description**  
 Training with adversarial examples is used as a control against evasion attacks, but can also be helpful against data poison trigger attacks that are based on slight alterations of training data, since these triggers are like adversarial samples.
 
 For example: adding images of stop signs in a training database for a self-driving car, labeled as 35 miles an hour, where the stop sign is slightly altered. What this effectively does is to force the model to make a mistake with traffic signs that have been altered in a similar way. This type of data poisoning aims to prevent anomaly detection of the poisoned samples.  
 
 Find the corresponding control section [here, with the other controls against Evasion attacks](https://owaspai.org/goto/trainadversarial/).
 
-References:
+**References**  
 - ['How to adversarially train against data poisoning'](https://arxiv.org/abs/2102.13624)
 - ['Is Adversarial Training Really a Silver Bullet for Mitigating Data Poisoning?'](https://openreview.net/forum?id=zKvm1ETDOq)
 
@@ -595,10 +619,11 @@ References:
 > Category: development-time threat  
 > Permalink: https://owaspai.org/goto/devmodelpoison/
 
+**Description**  
 This threat refers to manipulating behaviour of the model  NOT  by n poisoning the training data, but instead by manipulating elements in the development-environment that lead to the model or represent the model (i.e. model attributes), e.g. by manipulating storage of model parameters or placing the model with a completely different one with malicious behavior, injection of malware (command or code injection) through custom or lambda layers, manipulating the model weights and modifying the model architecture, embedding deserialization attacks, which could execute stealthily during model unpacking or model execution. When the model is trained by a supplier in a manipulative way and supplied as-is, then it is [supply-chain model poisoning](goto/supplymodelpoison/).
 Training data manipulation is referred to as [data poisoning](/goto/datapoison).  See the attack surface diagram in the [broad model poisoning section](/goto/modelpoison/).
 
-**Controls:**
+**Controls**
 
 - [General controls](/goto/generalcontrols/),
   - especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
@@ -614,13 +639,14 @@ Training data manipulation is referred to as [data poisoning](/goto/datapoison).
 >Category: development-time threat  
 >Permalink: https://owaspai.org/goto/supplymodelpoison/
 
+**Description**  
 An attacker manipulates a third-party (pre-)trained model which is then supplied, obtained and unknowingly further used and/or trained/fine tuned, while still having the unwanted behaviour (see the attack surface diagram in the [broad model poisoning section](/goto/modelpoison/)). If the supplied model is used for further training, then the attack is called a _transfer learning attack_.
 
 AI models are sometimes obtained elsewhere (e.g., open source) and then further trained or fine-tuned. These models may have been manipulated (poisoned) at the source, or in transit. See [OWASP for LLM 03: Supply Chain](https://genai.owasp.org/llmrisk/llm03/).
 
 The type of manipulation can be through data poisoning, or by specifically changing the model parameters. Therefore, the same controls apply that help against those attacks. Since changing the model parameters requires protection of the parameters at the moment they are manipulated, this is not in the hands of the one who obtained the model. What remains are the controls against data poisoning, the controls against model poisoning in general (e.g., model ensembles), plus of course good supply chain management including protective considerations of frameworks and tools as supply-chain components that can be poisoned. 
 
-**Controls:**
+**Controls**
 
 - [General controls](/goto/generalcontrols/),
   - especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
@@ -645,6 +671,7 @@ The type of manipulation can be through data poisoning, or by specifically chang
 >Category: development-time threat  
 >Permalink: https://owaspai.org/goto/devdataleak/
 
+**Description**  
 Unauthorized access to train or test data through a data leak of the development environment.
 
 Impact: Confidentiality breach of sensitive train/test data.
@@ -655,7 +682,7 @@ Leaking can happen from the development environment, as engineers need to work w
 Sometimes training data is collected at runtime, so a live system can become an attack surface for this attack.  
 GenAI models are often hosted in the cloud, sometimes managed by an external party. Therefore, if you train or fine tune these models, the training data (e.g., company documents) needs to travel to that cloud.
 
-**Controls:**
+**Controls**
 
 - [General controls](/goto/generalcontrols/),
   - especially [Sensitive data limitation](/goto/dataminimize/)
@@ -669,13 +696,14 @@ GenAI models are often hosted in the cloud, sometimes managed by an external par
 >Category: development-time threat  
 >Permalink: https://owaspai.org/goto/devmodelleak/
 
+**Description**  
 Unauthorized access to model attributes (e.g., parameters, weights, architecture) through stealing data from the development environment, including the supply chain. This can occur via insider access, compromised repositories, or weak storage controls
 
 Impact: Exposure of model attributes makes it easier for attackers to craft or perform input attacks, such as evasion attacks or model inversion. 
 
 Alternative ways of model theft are [model theft through use](/goto/modeltheftuse/) and [direct runtime model theft](/goto/runtimemodeltheft/).
 
-**Controls:**
+**Controls**
 
 - [General controls](/goto/generalcontrols/),
   - especially [Sensitive data limitation](/goto/dataminimize/)
@@ -690,11 +718,12 @@ Alternative ways of model theft are [model theft through use](/goto/modeltheftus
 >Category: development-time threat  
 >Permalink: https://owaspai.org/goto/devcodeleak/
 
+**Description**  
 Unauthorized access to code or configuration that leads to the model, through a data leak of the development environment. Such code or configuration is used to preprocess the training/test data and train the model.
 
 Impact: Confidentiality breach of model intellectual property.
 
-**Controls:**
+**Controls**
 
 - [General controls](/goto/generalcontrols/),
   - especially [Sensitive data limitation](/goto/dataminimize/)
