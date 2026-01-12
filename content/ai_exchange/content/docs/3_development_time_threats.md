@@ -671,6 +671,7 @@ The type of manipulation can be through data poisoning, or by specifically chang
 >Category: development-time threat  
 >Permalink: https://owaspai.org/goto/devdataleak/
 
+**Description**  
 Unauthorized access to train or test data through a data leak of the development environment.
 
 Impact: Confidentiality breach of sensitive train/test data.
@@ -681,7 +682,7 @@ Leaking can happen from the development environment, as engineers need to work w
 Sometimes training data is collected at runtime, so a live system can become an attack surface for this attack.  
 GenAI models are often hosted in the cloud, sometimes managed by an external party. Therefore, if you train or fine tune these models, the training data (e.g., company documents) needs to travel to that cloud.
 
-**Controls:**
+**Controls**
 
 - [General controls](/goto/generalcontrols/),
   - especially [Sensitive data limitation](/goto/dataminimize/)
@@ -695,13 +696,14 @@ GenAI models are often hosted in the cloud, sometimes managed by an external par
 >Category: development-time threat  
 >Permalink: https://owaspai.org/goto/devmodelleak/
 
+**Description**  
 Unauthorized access to model attributes (e.g., parameters, weights, architecture) through stealing data from the development environment, including the supply chain. This can occur via insider access, compromised repositories, or weak storage controls
 
 Impact: Exposure of model attributes makes it easier for attackers to craft or perform input attacks, such as evasion attacks or model inversion. 
 
 Alternative ways of model theft are [model theft through use](/goto/modeltheftuse/) and [direct runtime model theft](/goto/runtimemodeltheft/).
 
-**Controls:**
+**Controls**
 
 - [General controls](/goto/generalcontrols/),
   - especially [Sensitive data limitation](/goto/dataminimize/)
@@ -716,11 +718,12 @@ Alternative ways of model theft are [model theft through use](/goto/modeltheftus
 >Category: development-time threat  
 >Permalink: https://owaspai.org/goto/devcodeleak/
 
+**Description**  
 Unauthorized access to code or configuration that leads to the model, through a data leak of the development environment. Such code or configuration is used to preprocess the training/test data and train the model.
 
 Impact: Confidentiality breach of model intellectual property.
 
-**Controls:**
+**Controls**
 
 - [General controls](/goto/generalcontrols/),
   - especially [Sensitive data limitation](/goto/dataminimize/)
