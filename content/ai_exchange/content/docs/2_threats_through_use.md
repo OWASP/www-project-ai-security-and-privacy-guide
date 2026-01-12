@@ -1205,14 +1205,14 @@ Sensitive output handling is applicable in case:
 - model output can reach unauthorized actors, directly, or downstream, and
 - misuse or manipulation of model behaviour is a concern.
 
-If implementation is more appropriate for the deployer (for example, output filtering integrated into an application layer), the provider can clearly communicate this expectation to the deployer.
-
 **Implementation**
-- **Detect sensitive data in output:** Model output can be analysed to identify exposure-restricted information such as names, phone numbers, identifiers, or other sensitive content. @@add what you do with it.
+- **Detect sensitive data in output:** Scan model output for exposure-restricted information such as names, phone numbers, identifiers, passwords, or other sensitive content. 
 - **Apply enforcement at output time:** When sensitive content is detected, disclosure can be prevented through filtering, masking, or stopping the output before it is exposed - provided detection confidence is sufficiently high. 
-- **Log:**Logging of detections is key, and if confidence in the detection is low, it can be marked with an alert to pick up later.
+- **Log:** Logging of detections is key, and if confidence in the detection is low, it can be marked with an alert to pick up later.
 - **Detect recitation of training data:** Where feasible, recitation checks can be applied to identify whether long strings or sequences in model output appear in an indexed set of training data, including pretraining and fine-tuning datasets. This can help identify unintended memorization and potential data leakage.
-- **Use GenAI for detection**: In case natural language allows for too many variations, synonyms, and indirect phrasing, then semantic interpretation using language models can complement rules-based approaches and improve robustness. 
+- **Use GenAI for detection**: In case natural language allows for too many variations, synonyms, and indirect phrasing, then semantic interpretation using language models can complement rules-based approaches and improve robustness. A variant of this is to use [#MODEL ALIGNMENT](/goto/modelalignment/) (e.g., system prompts) to prevent sensitive output - which suffers from inherent limitations.
+
+Implementation may be done by the provider of the model - for example to filter sensitive training data. If the AI system that uses the model provides input (perhaps incloding augmentation data) that includes sensitive data, the AI system can implement its own sensitive output handling, in case this input may leak into the output.
 
 **Risk-Reduction Guidance**
 
