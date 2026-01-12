@@ -46,6 +46,7 @@ When doing impact analysis on AI initiatives, consider at least the following:
 - Can unwanted behaviour be sufficiently contained by mitigations (see Controls to limit unwanted behaviour)?
 - See Risk management under [SECPROGRAM](/goto/secprogram/) for security-specific risk analysis, also involving privacy.
 
+**Particularity**  
 In general risk management it may help to keep in mind the following particularities of AI:
 1. Inductive instead of deductive, meaning that being wrong is part of the game for machine learning models, which can lead to harm
 2. Connected to 1: models can go stale
@@ -56,24 +57,29 @@ In general risk management it may help to keep in mind the following particulari
 7. Can listen and speak: communicate through natural language instead of user interfaces
 8. Can hear and see: have sound and vision recognition abilities
 
+**References**  
+
+ - [UNESCO on AI ethics and governance](https://www.unesco.org/ethics-ai/en)
+ - [GenAI security project LLM AI Cybersecurity & governance checklist](https://genai.owasp.org/resource/llm-applications-cybersecurity-and-governance-checklist-english/)
+   
 Useful standards include:
  - ISO/IEC 42001 AI management system. Gap: covers this control fully.
  - [US Federal Reserve SR 11-07: Guidance on Model Risk Management](https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm): supervisory guidance for banking organizations and supervisors.
 
 42001 is about extending your risk management system - it focuses on governance. ISO 5338 (see #[DEVPROGRAM](#devprogram) below) is about extending your software lifecycle practices - it focuses on engineering and everything around it. ISO 42001 can be seen as a management system for the governance of responsible AI in an organization, similar to how ISO 27001 is a management system for information security. ISO 42001 doesn't go into the lifecycle processes. For example, it does not discuss how to train models, how to do data lineage, continuous validation, versioning of AI models, project planning challenges, and how and when exactly sensitive data is used in engineering.
 
-References:
- - [UNESCO on AI ethics and governance](https://www.unesco.org/ethics-ai/en)
- - [GenAI security project LLM AI Cybersecurity & governance checklist](https://genai.owasp.org/resource/llm-applications-cybersecurity-and-governance-checklist-english/)
 
 #### #SECPROGRAM 
 > Category: governance control  
 > Permalink: https://owaspai.org/goto/secprogram/
 
-Security program: Make sure the organization has a security program (also referred to as _information security management system_) and that it includes the whole AI lifecycle and AI specific aspects.
+**Description**  
+Security Program: Make sure the organization has a security program (also referred to as _information security management system_) and that it includes the whole AI lifecycle and AI specific aspects.
 
-Purpose: ensures adequate mitigation of AI security risks through information security management, as the security program takes responsibility for the AI-specific threats and corresponding risks. For more details on using this document in risk analysis, see the [risk analysis section](/goto/riskanalysis/).
+**Objective**  
+Ensures adequate mitigation of AI security risks through information security management, as the security program takes responsibility for the AI-specific threats and corresponding risks. For more details on using this document in risk analysis, see the [risk analysis section](/goto/riskanalysis/).
 
+**Implementation**  
 Make sure to include AI-specific assets and the threats to them. The threats are covered in this resource and the assets are:
 - training data
 - test data
@@ -111,7 +117,9 @@ Because AI has specific assets (e.g. training data), **AI-specific honeypots** a
 
 Monitoring and incident response are standard elements of security programs and AI can be included in it by understanding the relevant AI security assets, threats, and controls. The discussion of threats include detection mechanisms that become part of monitoring.
 
-**Useful standards include:**
+
+**References**  
+Useful standards include:
 
   - The entire ISO 27000-27005 range is applicable to AI systems in the general sense as they are IT systems. Gap: covers this control fully regarding the processes, with the high-level particularity that there are three AI-specific attack surfaces that need to be taken into account in information security management: 1)AI development-time attacks, 2)attacks through model use and 3)AI Application security attacks. See the controls under the corresponding sections to see more particularities.
     These standards cover:
@@ -147,12 +155,16 @@ Monitoring and incident response are standard elements of security programs and 
 > Category: governance control  
 > Permalink: https://owaspai.org/goto/secdevprogram/
 
+**Description**  
 Secure development program:  Have processes concerning software development in place to make sure that security is built into your AI system.
 
-Purpose: Reduces security risks by proper attention to mitigating those risks during software development.
+**Objective**  
+Reduces security risks by proper attention to mitigating those risks during software development.
 
+**Implementation**  
 The best way to do this is to build on your existing secure software development practices and include AI teams and AI particularities. This means that data science development activities should become part of your secure software development practices. Examples of these practices: secure development training, code review, security requirements, secure coding guidelines, threat modeling (including AI-specific threats), static analysis tooling, dynamic analysis tooling, and penetration testing. There is no need for an isolated secure development framework for AI.
 
+**Particularity**  
 Particularities for AI in software development, and how to address them:
 - AI involves new types of engineering: data engineering and model engineering (e.g. model training), together with new types of engineers: e.g. data scientists, data engineers, AI engineers. Make sure this new engineering becomes an integral part of the general [Development program](/goto/devprogram/) with its best practices (e.g. versioning, portfolio management, retirement). For example: Version management/traceability of the combination of code, configuration, training data and models, for troubleshooting and rollback
 
@@ -177,29 +189,34 @@ Particularities for AI in software development, and how to address them:
   - Run continual automated validation of the model, including discrimination bias measurement and the detection of staleness: the input space changing over time, causing the training set to get out of date
 - Model deployment is a new aspect to AI and it may offer  specific protection measures such as obfuscation, encryption, integrity checks or a Trusted Execution Environment.
 
+**Risk-Reduction guidance**  
 Depending on risk analysis, certain threats may require specific practices in the development lifecycle. These threats and controls are covered elsewhere in this document.
+
+**References**  
+- [OWASP SAMM](https://owaspsamm.org)
+- [NIST SSDF](https://csrc.nist.gov/projects/ssdf)
+- [NIST SSDF AI practices](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-218A.ipd.pdf)
+- [GenAI security project solutions overview](https://genai.owasp.org/ai-security-solutions-landscape/)
 
 Useful standards include:
 - ISO 27002 control 8.25 Secure development lifecycle. Gap: covers this control fully, with said particularity, but lack of detail - the 8.25 Control description in ISO 27002:2022 is one page, whereas secure software development is a large and complex topic - see below for further references
 - ISO/IEC 27115 (Cybersecurity evaluation of complex systems)
 - See [OpenCRE on secure software development processes](https://www.opencre.org/cre/616-305) with notable links to NIST SSDF and OWASP SAMM. Gap: covers this control fully, with said particularity
 
-References: 
-- [OWASP SAMM](https://owaspsamm.org)
-- [NIST SSDF](https://csrc.nist.gov/projects/ssdf)
-- [NIST SSDF AI practices](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-218A.ipd.pdf)
-- [GenAI security project solutions overview](https://genai.owasp.org/ai-security-solutions-landscape/)
 
 #### #DEVPROGRAM 
 > Category: governance control  
 > Permalink: https://owaspai.org/goto/devprogram/
 
+**Description**  
 Development program: Having a development lifecycle program for AI. Apply general (not just security-oriented) software engineering best practices to AI development.
 
 Data scientists are focused on creating working models, not on creating future-proof software per se. Often, organizations already have software practices and processes in place. It is important to extend these to AI development, instead of treating AI as something that requires a separate approach. Do not isolate AI engineering. This includes automated testing, code quality, documentation, and versioning. ISO/IEC 5338 explains how to make these practices work for AI.
 
-Purpose: This way, AI systems will become easier to maintain, transferable, secure, more reliable, and future-proof.
+**Objective**  
+This way, AI systems will become easier to maintain, transferable, secure, more reliable, and future-proof.
 
+**Implementation**  
 A best practice is to mix data scientist profiles with software engineering profiles in teams, as software engineers typically need to learn more about data science, and data scientists generally need to learn more about creating future-proof, maintainable, and easily testable code.
 
 Another best practice is to continuously measure quality aspects of data science code (maintainability, test code coverage), and provide coaching to data scientists in how to manage those quality levels.
@@ -215,23 +232,25 @@ Related controls that are key parts of the development lifecycle:
 The below interpretation diagram of ISO/IEC 5338 provides a good overview to get an idea of the topics involved.
 ![5338](/images/5338.png)
 
+**References**  
+
+  - [Research on code quality gaps in AI systems](https://www.softwareimprovementgroup.com/averting-a-major-ai-crisis-we-need-to-fix-the-big-quality-gap-in-ai-systems/)
+
 Useful standards include:
 
   - [ISO/IEC 5338 - AI lifecycle](https://www.iso.org/standard/81118.html) Gap: covers this control fully - ISO 5338 covers the complete software development lifecycle for AI, by extending the existing ISO 12207 standard on software lifecycle: defining several new processes and discussing AI-specific particularities for existing processes. See also [this blog](https://www.softwareimprovementgroup.com/iso-5338-get-to-know-the-global-standard-on-ai-systems/).
   - [ISO/IEC 27002](https://www.iso.org/standard/75652.html) control 5.37 Documented operating procedures. Gap: covers this control minimally - this covers only a very small part of the control
   - [OpenCRE on documentation of function](https://www.opencre.org/cre/162-655) Gap: covers this control minimally
 
-  References:
-
-  - [Research on code quality gaps in AI systems](https://www.softwareimprovementgroup.com/averting-a-major-ai-crisis-we-need-to-fix-the-big-quality-gap-in-ai-systems/)
-
 #### #CHECKCOMPLIANCE 
 > Category: governance control  
 > Permalink: https://owaspai.org/goto/checkcompliance/
 
+**Description**  
 Check compliance: Make sure that AI-relevant laws and regulations are taken into account in compliance management (including security aspects). If personal data is involved and/or AI is applied to make decisions about individuals, then privacy laws and regulations are also in scope. See the [Privacy section](/goto/aiprivacy/) for details.  
-Compliance as a goal can be a powerful driver for organizations to grow their readiness for AI. While doing this, it is important to keep in mind that legislation has a scope that does not necessarily include all the relevant risks for the organization. Many rules are about the potential harm to individuals and society, and don’t cover the impact on business stakes per se. For example: the European AI act does not include risks for protecting company secrets. In other words: be mindful of blind spots when using laws and regulations as your guide.
 
+**Objective**  
+Compliance as a goal can be a powerful driver for organizations to grow their readiness for AI. While doing this, it is important to keep in mind that legislation has a scope that does not necessarily include all the relevant risks for the organization. Many rules are about the potential harm to individuals and society, and don’t cover the impact on business stakes per se. For example: the European AI act does not include risks for protecting company secrets. In other words: be mindful of blind spots when using laws and regulations as your guide.
 
 Global Jurisdictional considerations (as of end of 2023):
 - Canada: Artificial Intelligence & Data Act
@@ -241,6 +260,7 @@ Global Jurisdictional considerations (as of end of 2023):
 - Europe: (i) AI Act, (ii) AI Liability Directive, (iii) Product Liability Directive
 - China: (i) Regulations on the Administration of Deep Synthesis of Internet Information Services, (ii) Shanghai Municipal Regulations on Promoting Development of AI Industry, (iii) Shenzhen Special Economic Zone AI Industry Promotion Regulations, (iv) Provisional Administrative Measures for Generative AI Services
 
+**Implementation**  
 General Legal Considerations on AI/Security:
 - Privacy Laws: AI must comply with all local/global privacy laws at all times, such as GDPR, CCPA, HIPAA. See the [Privacy section](/goto/aiprivacy/).
 - Data Governance: any AI components/functions provided by a 3rd party for integration must have data governance frameworks, including those for the protection of personal data and structure/definitions on how its collected, processed, stored
@@ -253,7 +273,7 @@ Non-Security Compliance Considerations:
 - Transparency: ensure transparency in the AI system deployment, usage and proactive compliance with regulatory requirements; “Trust by Design”
 - Accountability: AI systems should be accountable for actions and outputs and usage of data sets. See [AI Program](/goto/aiprogram/)
 
-References
+**References**  
   - [Vischer on legal aspects of AI](https://www.vischer.com/en/artificial-intelligence/)
   - [Summary of AI Act by SIG](https://www.softwareimprovementgroup.com/eu-ai-act-summary/)
   - [Summary of US AI legislation by SIG](https://www.softwareimprovementgroup.com/us-ai-legislation-overview/)
@@ -269,10 +289,11 @@ Useful standards include:
 > Category: governance control  
 > Permalink: https://owaspai.org/goto/seceducate/
 
+**Description**  
 Security education for data scientists and development teams on AI threat awareness, including attacks on models. It is essential for all engineers, including data scientists, to attain a security mindset.
 
+**References**  
 Useful standards include:
-
   - ISO 27002 Control 6.3 Awareness training. Gap: covers this control fully, but lacks detail and needs to take into account the particularity: training material needs to cover AI security threats and controls
 
 ---
@@ -318,10 +339,13 @@ Useful standards include:
 > Category: development-time and runtime control    
 > Permalink: https://owaspai.org/goto/alloweddata/
 
+**Description**  
 Ensure allowed data, meaning: removing data (e.g. from a training set) that is prohibited for the intended purpose. This is particularly important if consent was not given and the data contains personal information collected for a different purpose. 
 
-Purpose: Apart from compliance, the purpose is to minimize the impact of data leakage or manipulation
+**Objective**  
+Apart from compliance, the purpose is to minimize the impact of data leakage or manipulation
 
+**References**  
 Useful standards include:
 
   - ISO/IEC 23894 (AI risk management) covers this in A.8 Privacy. Gap: covers this control fully, with a brief section on the idea
@@ -330,12 +354,16 @@ Useful standards include:
 > Category: development-time and runtime control    
 > Permalink: https://owaspai.org/goto/shortretain/
 
+**Description**  
 Short retain: Remove or anonymize data once it is no longer needed, or when legally required (e.g., due to privacy laws).
 
-Purpose: minimize the impact of data leakage or manipulation
+**Objective**  
+Minimize the impact of data leakage or manipulation
 
+**Implementation**  
 Limiting the retention period of data can be seen as a special form of data minimization. Privacy regulations typically require personal data to be removed when it is no longer needed for the purpose for which it was collected. Sometimes exceptions need to be made because of other rules (e.g. to keep a record of proof). Apart from these regulations, it is a general best practice to remove any sensitive data when it is no longer of use, to reduce the impact of a data leak.
-  
+
+**References**  
 Useful standards include:
 
   - Not covered yet in ISO/IEC standards.
@@ -394,7 +422,7 @@ Anonymity is not an absolute concept, but a statistical one. Even if someone's i
 
 Distorting training data can make it effectively uncrecognizable, which of course needs to be weighed against the negative effect on model performance that this typically creates. See also [TRAINDATADISTORTION](/goto/traindatadistortion/) which is about distortion against data poisoning and [EVASIONROBUSTMODEL](/goto/evasionrobustmodel/) for distortion against evasion attacks. Together with this control OBFUSCATETRAININGDATA, these are all approaches that distort training data, but for different purposes.
 
-**References:**  
+**References**  
 - [SF-PATE: Scalable, Fair, and Private Aggregation of Teacher Ensembles](https://arxiv.org/abs/2204.05157)
 - [Differentially Private Objective Perturbation: Beyond Smoothness and Convexity](https://arxiv.org/abs/1909.01783v1)
 - [Data Masking with Privacy Guarantees]([https://arxiv.org/abs/1909.01783v1](https://arxiv.org/abs/1901.02185))
@@ -408,10 +436,13 @@ Useful standards include:
 > Category: development-time and runtime control    
 > Permalink: https://owaspai.org/goto/discrete/
 
+**Description**  
 Minimize access to technical details that could help attackers.
 
-Purpose: reduce the information available to attackers, which can assist them in selecting and tailoring their attacks, thereby lowering the probability of a successful attack.
+**Objective**  
+Reduce the information available to attackers, which can assist them in selecting and tailoring their attacks, thereby lowering the probability of a successful attack.
 
+**Implementation**  
 Minimizing and protecting technical details can be achieved by incorporating such details as an asset into information security management. This will ensure proper asset management, data classification, awareness education, policy, and inclusion in risk analysis.
 
 Note: this control needs to be weighed against the [AITRANSPARENCY](#aitransparency) control that requires to be more open about technical aspects of the model. The key is to minimize information that can help attackers while being transparent.
@@ -422,9 +453,8 @@ For example:
   - When choosing a model type or model implementation, take into account that there is an advantage of having technology with which attackers are less familiar
   - Minimize technical details in model output
 
-
+**References**  
 Useful standards include:
-
   - ISO 27002 Control 5.9: Inventory of information and other associated assets. Gap: covers this control fully, with the particularity that technical data science details can be sensitive. .
   - See [OpenCRE on data classification and handling](https://www.opencre.org/cre/074-873). Gap: idem
   - [MITRE ATlAS Acquire Public ML Artifacts](https://atlas.mitre.org/techniques/AML.T0002)
@@ -460,12 +490,25 @@ Example: LLMs (GenAI), just like most AI models, induce their results based on t
 > Category: runtime control    
 > Permalink: https://owaspai.org/goto/oversight/
 
-Description: Oversight of model behaviour by humans or automated (using logic in the form of rules).
-  
-Objective: Detect unwanted model behavior and correct or halt the execution of a model's decision.
+**Description**  
+Oversight of model behaviour by humans or automated (using logic in the form of rules).
 
+**Objective**  
+Detect unwanted model behavior and correct or halt the execution of a model's decision.
+
+**Applicability**  
 A separate form of oversight is [MODEL ALIGNMENT](/goto/modelalignment/) which intends to constrain model behaviour through training, fine tuning, and system prompts. This is treated as a separate control because the effectiveness is limited and therefore no guarantee.
 
+**Implementation**  
+Designing automated systems that require some level of human engagement or regularly update the human operator on the system's status can help maintain situational awareness and ensure safer operations. When automated oversight may not be enough to prevent unacceptable outcomes, systems can be designed to escalate to human review. In such cases, the review is typically carried out by individuals who are qualified or appropriately instructed. This escalation is often triggered by rules that flag suspicious or high-risk situations.
+  
+Examples:
+  - Logic preventing the trunk of a car from opening while the car is moving, even if the driver seems to request it
+  - Requesting user confirmation before sending a large number of emails as instructed by a model
+  - Another form of human oversight is allowing users to undo or revert actions initiated by the AI system, such as reversing changes made to a file
+  - A special form of guardrails is censoring unwanted output of GenAI models (e.g. violent, unethical)
+
+**Limitations**  
 **Limitations of automated oversight:**
 The properties of wanted or unwanted model behavior often cannot be entirely specified, limiting the effectiveness of guardrails.
 
@@ -474,15 +517,7 @@ The alternative to guardrails is to apply human oversight. This is of course mor
 For human operators or drivers of automated systems like self-driving cars, staying actively involved or having a role in the control loop helps maintain situational awareness. This involvement can prevent complacency and ensures that the human operator is ready to take over control if the automated system fails or encounters a scenario it cannot handle. However, maintaining situational awareness can be challenging with high levels of automation due to the "out-of-the-loop" phenomenon, where the human operator may become disengaged from the task at hand, leading to slower response times or decreased effectiveness in managing unexpected situations.
 In other words: If you as a user are not involved actively in performing a task, then you lose understanding of whether it is correct or what the impact can be. If you then only need to confirm something by saying 'go ahead' or 'cancel', a badly informed 'go ahead' is easy to pick.
 
-Designing automated systems that require some level of human engagement or regularly update the human operator on the system's status can help maintain situational awareness and ensure safer operations. When automated oversight may not be enough to prevent unacceptable outcomes, systems can be designed to escalate to human review. In such cases, the review is typically carried out by individuals who are qualified or appropriately instructed. This escalation is often triggered by rules that flag suspicious or high-risk situations.
-  
-Examples:
-
-  - Logic preventing the trunk of a car from opening while the car is moving, even if the driver seems to request it
-  - Requesting user confirmation before sending a large number of emails as instructed by a model
-  - Another form of human oversight is allowing users to undo or revert actions initiated by the AI system, such as reversing changes made to a file
-  - A special form of guardrails is censoring unwanted output of GenAI models (e.g. violent, unethical)
-
+**References**  
 Useful standards include:
 
   - ISO/IEC 42001 B.9.3 defines controls for human oversight and decisions regarding autonomy. Gap: covers this control partly (human oversight only, not business logic)
@@ -492,9 +527,10 @@ Useful standards include:
 > Category: runtime information security control    
 > Permalink: https://owaspai.org/goto/leastmodelprivilege/
 
+**Description**  
 Least model privilege: Minimize what a model can do (trigger actions or access data), to prevent harm in case the model is manipulated, or makes a mistake by itself. 
 
-**Requirements:**
+**Implementation**
 - Honor limitations of the served: Execute actions of AI systems with the rights and privileges of the user or service being served. This ensures that no actions are invoked and no data is retrieved outside authorizations.
 - Task-based minimization: Take the served-limitation a step further by reducing actions that the model can potentially trigger, and what they can be triggered on, to the minimum necessary for the reasonably foreseeable use cases. See below for the flexibility balance. The purpose of this is _blast radius control_: to limit the attack surface in case the AI model is compromised, or in case the AI model makes a mistake. This requires mechanisms that may not be offered by the Identity and Access Management in place, such as: ephemeral tokens, dynamic permissions, and narrow permission control at scale, combined with trust establishment and potential revocation across different domains. 
 - Avoid implementing authorization in Generative AI instructions, as these are vulnerable to hallucinations and manipulation (e.g., prompt injection). This is especially applicable in Agentic AI. This includes the prevention of Generative AI outputting commands that include references to the user context as it would open up the opportunity to escalate privileges by manipulating that output.
@@ -515,8 +551,7 @@ One of the most powerful things to let AI agents do is to execute code. That is 
 - Removing commands (e.g. deleting them from a deployed operating system
 - Sand boxing the code execution by for example network segmentation, to minimize the attack surface of commands
 
-
-Useful references include:
+**References** 
 
   - ISO 27002 control 8.2 Privileged access rights. Gap: covers this control fully, with the particularity that privileges assigned to autonomous model decisions need to be assigned with the risk of unwanted model behaviour in mind.
   - [OpenCRE on least privilege](https://www.opencre.org/cre/368-633) Gap: idem
@@ -570,10 +605,12 @@ Therefore, alignment should be seen as a probabilistic, model-internal control t
 > Category: runtime control    
 > Permalink: https://owaspai.org/goto/aitransparency/
 
+**Description**  
 AI transparency: By being transparent with users about the rough workings of the model, its training process, and the general expected accuracy and reliability of the AI system's output, people can adjust their reliance ([OWASP for LLM 09](https://llmtop10.com/llm09/)) on it accordingly. The simplest form of this is to inform users that an AI model is being involved. Transparency here is about providing abstract information regarding the model and is therefore something else than _explainability_.
 
 See the [DISCRETE](#discrete) control for the balance between being transparent and being discrete about the model. 
 
+**References**  
 Useful standards include:
 
   - ISO/IEC 42001 B.7.2 describes data management to support transparency. Gap: covers this control minimally, as it only covers the data management part.
@@ -649,10 +686,12 @@ Useful standards include:
 > Category: runtime data science control  
 > Permalink: https://owaspai.org/goto/explainability/
 
+**Description**  
 Explainability: Explaining how individual model decisions are made, a field referred to as Explainable AI (XAI), can aid in gaining user trust in the model. In some cases, this can also prevent overreliance, for example, when the user observes the simplicity of the 'reasoning' or even errors in that process. See [this Stanford article on explainability and overreliance](https://hai.stanford.edu/news/ai-overreliance-problem-are-explanations-solution). Explanations of how a model works can also aid security assessors to evaluate AI security risks of a model.
 
 #### #UNWANTEDBIASTESTING 
 > Category: runtime data science control  
 > Permalink: https://owaspai.org/goto/unwantedbiastesting/
 
+**Description**  
 Unwanted bias testing: By doing test runs of the model to measure unwanted bias, unwanted behaviour caused by an attack can be detected. The details of bias detection fall outside the scope of this document as it is not a security concern - other than that, an attack on model behaviour can cause bias.
