@@ -141,8 +141,10 @@ Useful standards include:
 > Category: development-time information security control  
 > Permalink: https://owaspai.org/goto/segregatedata/
 
+**Description**  
 Segregate data: store sensitive development data (training or test data, model parameters, technical documentation) in separated areas with restricted access. Each separate area can then be hardened accordingly and access granted to only those that need to work with that data directly.
 
+**Implementation**  
 Examples of areas in which training data can be segregated:
 1. External - for when training data is obtained externally
 2. Application development environment: for application engineers that perhaps need to work with the actual training data, but require different access rights (e.g., don't need to change it)
@@ -152,6 +154,7 @@ Examples of areas in which training data can be segregated:
 
 For more development environment security, see [DEVSECURITY](/goto/devsecurity/).
 
+**References**  
 Useful standards include:
 
 - ISO 27002 control 8.31 Separation of development, test and production environments. Gap: covers this control partly - the particularity is that the development environment typically has the sensitive data instead of the production environment - which is typically the other way around in non-AI systems. Therefore it helps to restrict access to that data within the development environment. Even more: within the development environment further segregation can take place to limit access to only those who need the data for their work, as some developers will not be processing data.
@@ -161,8 +164,10 @@ Useful standards include:
 > Category: development-time information security control  
 > Permalink: https://owaspai.org/goto/confcompute/
 
+**Description**  
 Confidential compute: If available and possible, use features of the data science execution environment to hide training data and model parameters from model engineers - even while it is in use.
 
+**References**  
 Useful standards include:
 
 - Not covered yet in ISO/IEC standards
@@ -170,13 +175,15 @@ Useful standards include:
 #### #FEDERATEDLEARNING
 > Category: development-time AI engineer control  
 > Permalink: https://owaspai.org/goto/federatedlearning/
- 
+
+**Description**  
 Federated learning can be applied when a training set is distributed over different organizations, preventing the data from needing to be collected in a central place. This decreases the risk of all data leaking and increases the risk of some data leaking.
 
 Federated Learning is a decentralized Machine Learning architecture wherein a number of clients (e.g., sensor or mobile devices) participate in collaborative, decentralized, asynchronous training, which is orchestrated and aggregated by a controlling central server. Advantages of Federated Learning include reduced central compute, and the potential for preservation of privacy, since training data may remain local to the client.
 
 Broadly, Federated Learning generally consists of four high-level steps: First, there is a server-to-client broadcast; next, local models are updated on the client; once trained, local models are then returned to the central server; and finally, the central server updates via model aggregation.
 
+**Implementation**  
 **Federated machine learning benefits & use cases**  
 Federated machine learning may offer significant benefits for organizations in several domains, including regulatory compliance, enhanced privacy, scalability and bandwidth, and other user/client considerations.  
 - **Regulatory compliance**. In federated machine learning, data collection is decentralized, which may allow for greater ease of regulatory compliance. Decentralization of data may be especially beneficial for international organizations, where data transfer across borders may be unlawful.
@@ -192,7 +199,7 @@ Federated machine learning may offer significant benefits for organizations in s
 - **Broadcast Latency & Security**. Efficient communication across a federated network introduces additional challenges. While strategies exist to minimize broadcast phase latency, they must also take into consideration potential data security risks. Because models are vulnerable during transmission phases, any communication optimizations must account for data security in transit.
 - **Querying the data creates a risk**. When collected data is stored on multiple clients, central data queries may be required for analysis work, next to Federated learning. Such queries would need the server to have access to the data at all clients, creating a security risk. In order to analyse the data without collecting it, various Privacy-preserving techniques exist, including cryptographic and information-theoretic strategies, such as Secure Function Evaluation (SFE), also known as Secure Multi-Party Computation (SMC/SMPC). However, all approaches entail tradeoffs between privacy and utility.
 
-References:
+**References**  
 
 - Boenisch, Franziska, Adam Dziedzic, Roei Schuster, Ali Shahin Shamsabadi, Ilia Shumailov, and Nicolas Papernot. "When the curious abandon honesty: Federated learning is not private." In 2023 IEEE 8th European Symposium on Security and Privacy (EuroS&P), pp. 175-199. IEEE, (2023). [Link](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10190537&casa_token=pN_XbcDtMXUAAAAA:ob2oBgMHHMDT37J0VTwRH_bZAnHGCqdIcX5ozCJt3IsgHlAPkDjvBmjksUbmjaQSls-jB0U)
 - Sun, Gan, Yang Cong, Jiahua Dong, Qiang Wang and Ji Liu. “Data Poisoning Attacks on Federated Machine Learning.” IEEE Internet of Things Journal 9 (2020): 11365-11375. [Link](https://arxiv.org/pdf/2004.10020.pdf)
