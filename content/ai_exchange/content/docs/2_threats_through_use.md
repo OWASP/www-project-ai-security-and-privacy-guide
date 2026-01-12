@@ -1159,6 +1159,7 @@ Unfortunately there is no watertight way to guarantee that instructions in untru
 >Category: group of threats through use  
 >Permalink: https://owaspai.org/goto/disclosureuse/
 
+**Description**  
 Impact: Confidentiality breach of sensitive training data.
 
 The model discloses sensitive training data or is abused to do so.
@@ -1167,6 +1168,7 @@ The model discloses sensitive training data or is abused to do so.
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/disclosureuseoutput/
 
+**Description**  
 The output of the model may contain sensitive data from the training set, for example a large language model (GenAI) generating output including personal data that was part of its training set. Furthermore, GenAI can output other types of sensitive data, such as copyrighted text or images (see [Copyright](/goto/copyright/)). Once training data is in a GenAI model, original variations in access rights cannot be controlled anymore. ([OWASP for LLM 02](https://genai.owasp.org/llmrisk/llm02/))
 
 The disclosure is caused by an unintentional fault of including this data, and exposed through normal use or through provocation by an attacker using the system. See [MITRE ATLAS - LLM Data Leakage](https://atlas.mitre.org/techniques/AML.T0057)
@@ -1236,7 +1238,6 @@ Providing models with instructions not to disclose certain data (for example via
 - Some sensitive disclosures may be subtle or context-dependent and difficult to detect automatically.
 - Attackers may attempt to obfuscate output o circumvent detection (e.g. base64 encoding a token)
 
-
 **References**
 
 Useful standards include:
@@ -1247,6 +1248,7 @@ Useful standards include:
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/modelinversionandmembership/
 
+**Description**  
 Model inversion (or _data reconstruction_) occurs when an attacker reconstructs a part of the training set by intensive experimentation during which the input is optimized to maximize indications of confidence level in the output of the model.
 
 ![](/images/inversion3.png)
@@ -1255,7 +1257,7 @@ Membership inference is presenting a model with input data that identifies somet
 
 ![](/images/membership3.png)
 
-References:
+**References**  
 
 - [Article on membership inference](https://medium.com/disaitek/demystifying-the-membership-inference-attack-e33e510a0c39)
 
@@ -1278,8 +1280,10 @@ The more details a model is able to learn, the more it can store information on 
 >Category: development-time data science control for threats through use  
 >Permalink: https://owaspai.org/goto/smallmodel/
 
+**Description**  
 Small model: overfitting (storing individual training samples) can be prevented by keeping the model small so it is not able to store detail at the level of individual training set samples.
 
+**References**  
 Useful standards include:
 
   - Not covered yet in ISO/IEC standards
@@ -1290,17 +1294,12 @@ Useful standards include:
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/modeltheftuse/
 
+**Description**  
 Impact: Confidentiality breach of model parameters, which can result in intellectual model theft and/or allowing to perform model attacks on the stolen model that normally would be mitigated by rate limiting, access control, or detection mechanisms.
 
 This attack is known as model stealing attack or model extraction attack or model exfiltration attack. It occurs when an attacker collects inputs and outputs of an existing model and uses those combinations to train a new model, in order to replicate the original model. Alternative ways of model theft are [development time model theft](/goto/devmodelleak/) and [direct runtime model theft](/goto/runtimemodeltheft/).
 
 ![](/images/theft3.png)
-
-References
-
-- [Article on model theft through use](https://www.mlsecurity.ai/post/what-is-model-stealing-and-why-it-matters)
-- ['Thieves on Sesame street' on model theft of large language models](https://arxiv.org/abs/1910.12366) (GenAI)
-
 
 **Controls:**
 
@@ -1313,18 +1312,26 @@ References
 - Controls for model theft through use specifically:
   - [#MODEL WATERMARKING](/goto/modelwatermarking/) to enable post-theft ownership verification when residual risk remains - discussed below
 
+**References**  
+
+- [Article on model theft through use](https://www.mlsecurity.ai/post/what-is-model-stealing-and-why-it-matters)
+- ['Thieves on Sesame street' on model theft of large language models](https://arxiv.org/abs/1910.12366) (GenAI)
+
+
+
 
 #### #MODEL WATERMARKING
 >Category: development-time AI engineer control for threats through use  
 >Permalink: https://owaspai.org/goto/modelwatermarking/
 
+**Description**  
 Model Watermarking: embed a hidden, secret marker into a trained model so that, if a suspected copy appears elsewhere, the original owner can verify that the model was derived from their system. This is used to demonstrate ownership after a model has been stolen or replicated, rather than to prevent the theft itself.
 
 Watermarking techniques should be designed to remain detectable even if the model is modified (for example through fine-tuning or pruning) and to avoid ambiguity where multiple parties could plausibly claim ownership of the same model.
 
 In addition to its technical role, watermarking supports intellectual property protection by enabling post-hoc attribution of stolen or misused models, which can be critical for legal claims, contractual enforcement, and regulatory investigations. As part of a layered security strategy, watermarking complements preventive controls by providing accountability and ownership assurance when other defenses fail.
 
-References:
+**References**  
 - [USENIX: Entangled Watermarks as a Defense against Model Extraction](https://www.usenix.org/conference/usenixsecurity21/presentation/jia)
 
 ---
@@ -1333,7 +1340,8 @@ References:
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/airesourceexhaustion/
 
-Description: specific input to the model leads to resource exhaustion, which can be the depletion of funds or availability issues (system being very slow or unresponsive, also called _denial of service_). The failure occurs from frequency, volume, or the content of the input. See [MITRE ATLAS - Denial of ML service](https://atlas.mitre.org/techniques/AML.T0029).
+**Description**  
+Specific input to the model leads to resource exhaustion, which can be the depletion of funds or availability issues (system being very slow or unresponsive, also called _denial of service_). The failure occurs from frequency, volume, or the content of the input. See [MITRE ATLAS - Denial of ML service](https://atlas.mitre.org/techniques/AML.T0029).
 
 Impact: Loss of money or the AI systems is unavailable, leading to issues with processes, organizations or individuals that depend on the AI system (e.g. business continuity issues, safety issues in process control, unavailability of services)
 
@@ -1357,8 +1365,10 @@ Examples:
 >Category: runtime information security control for threats through use  
 >Permalink: https://owaspai.org/goto/dosinputvalidation/
 
+**Description**  
 Denial-of-service input validation: input validation and sanitization to reject or correct malicious (e.g. very large) content
 
+**References**  
 Useful standards include:
 
   - ISO 27002 has no control for this
@@ -1370,8 +1380,10 @@ Useful standards include:
 >Category: runtime information security control for threats through use  
 >Permalink: https://owaspai.org/goto/limitresources/
 
+**Description**  
 Limit resource usage for a single model input, to prevent resource overuse.
 
+**References**  
 Useful standards include:
 
   - ISO 27002 has no control for this, except for Monitoring (covered in Controls for threats through use)
@@ -1385,6 +1397,7 @@ Useful standards include:
 >Category: control details  
 >Permalink: https://owaspai.org/goto/culturesensitivealignment/
 
+**Description**  
 In the context of large language models (LLMs), alignment refers to the process of ensuring that the model's behavior and outputs are consistent with human values, intentions, and ethical standards. See [#MODEL ALIGNMENT](/goto/modelalignment/).
 
 There are nuances towards what is considered an appropriate input or output depending on jurisdictions. Certain news or events in history that are considered sensible topics for public discussion in one country might be considered taboo in another. This also means a prompt injection could be interpreted as successful and therefore unsafe if a model divulges information or mentions topics that shouldn’t be discussed.
@@ -1490,7 +1503,7 @@ Explicitly informing the user of any refusal to interpret the given input should
 Given that model explainability is mandated in many jurisdictions, application developers whose projects do not require the full verbosity of an untuned large language model may benefit from implementing a neutral response. This approach can mitigate the burden of justifying the origins of out-of-scope outputs, such as those exemplified in Example Response 2.
 
 
-References:
+**References**
 
   1. Zhang, et al. (2024). Verbosity ≠ Veracity: Demystify Verbosity Compensation Behavior of Large Language Models.
   2. Arora, et al. (2022). Probing Pre-Trained Language Models for Cross-Cultural Differences in Values.
