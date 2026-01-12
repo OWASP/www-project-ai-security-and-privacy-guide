@@ -727,18 +727,15 @@ PMLR, 2018.
 >Category: development-time data science control for threats through use  
 >Permalink: https://owaspai.org/goto/trainadversarial/
 
+**Description**  
 Train adversarial:  Introducing adversarial examples into the training set and using them to train the model to be more robust against evasion attacks and/or data poisoning. First, adversarial examples are generated using one or more specific adversarial attack methods that have been defined in advance. These attacks are employed to create adversarial examples, such as using the PGD attack in Madry Adversarial Training. 
 
+**Implementation**  
 By definition, the model produces the wrong output for these adversarial  examples. By introducing adversarial examples into the training set with the correct output, the model is essentially corrected. i.e., it is less affected by the perturbation from the adversarial attacks (in the production phase), and it may be able to generalize better over the data used in the production environment. In other words, by training the model on adversarial examples, it learns not to overly rely on subtle patterns in the data that might burden the model's ability to predict/generalize well.
 
 Note that adversarial samples may also be used as  poisoned data, in which cases training with adversarial samples also mitigates data poisoning risk. On the other hand, it is important to note that generating the adversarial examples creates significant training overhead, does not scale well with model complexity / input dimension, can lead to overfitting and may not generalize well to new attack methods.
 
-Useful standards include:
-
-- Not covered yet in ISO/IEC standards
-- ENISA Securing Machine Learning Algorithms Annex C: “Add some adversarial examples to the training dataset”
-
-References:
+**References**  
 
 - For a general summary of adversarial training, see Bai et al.
 - Goodfellow, I.J.; Shlens, J.; Szegedy, C. Explaining and harnessing adversarial examples. arXiv 2014, arXiv:1412.6572.
@@ -746,6 +743,11 @@ References:
 - Papernot, N.; Mcdaniel, P. Extending defensive distillation. arXiv 2017, arXiv:1705.05264.
 - Vaishnavi, Pratik, Kevin Eykholt, and Amir Rahmati. “Transferring adversarial robustness through robust representation matching.” 31st USENIX Security Symposium (USENIX Security 22). 2022.
 - Tsipras, D., Santurkar, S., Engstrom, L., Turner, A., & Madry, A. (2018). Robustness may be at odds with accuracy. arXiv preprint arXiv:1805.12152.
+
+Useful standards include:
+
+- Not covered yet in ISO/IEC standards
+- ENISA Securing Machine Learning Algorithms Annex C: “Add some adversarial examples to the training dataset”
 
 
 #### #INPUT DISTORTION
