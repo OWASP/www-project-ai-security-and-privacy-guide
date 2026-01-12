@@ -28,6 +28,7 @@ These are the controls for threats through use in general - more specific contro
 >Category: runtime information security control for threats through use  
 >Permalink: https://owaspai.org/goto/monitoruse/
 
+**Description**  
 Monitor use: observe, correlate, and log model usage (date, time, user), inputs, outputs, and system behavior to identify events or patterns that may indicate a cybersecurity incident. This can be used to reconstruct incidents, and make it part of the existing incident detection process - extended with AI-specific methods, including:
 
   - improper functioning of the model (see [CONTINUOUSVALIDATION](/goto/continuousvalidation/) and [UNWANTEDBIASTESTING](/goto/unwantedbiastesting/))
@@ -57,7 +58,7 @@ It is particularly relevant when:
 
 In some deployments, implementation may be more appropriate at the deployer or platform layer, provided monitoring requirements are clearly communicated.
 
-**Implementation Options**
+**Implementation**
 
   **- Event and signal monitoring:**
   
@@ -258,12 +259,12 @@ Typical inference volumes for attack feasibility:
 
 Unlike traditional IT rate limiting (which protects performance), here it primarily mitigates security threats to AI systems through experimentation. It does come with extra benefits like stability, cost control and DoS resilience. 
 
-**Limitations:**
+**Limitations**
 
   - Low-frequency or single-try attacks (e.g., prompt injection or indirect leakage) remain unaffected. 
   - Attackers may circumvent limits by parallel access or multi-instance use, or through a transferability attack (link).
 
-**References:**
+**References**
  - [Article on token bucket and leaky bucket rate limiting](https://medium.com/@apurvaagrawal_95485/token-bucket-vs-leaky-bucket-1c25b388436c)
  - [OWASP Cheat sheet on denial of service, featuring rate limiting](https://cheatsheetseries.owasp.org/cheatsheets/Denial_of_Service_Cheat_Sheet.html)
 
@@ -294,7 +295,7 @@ Exceptions may apply when:
 
 If implementation is more practical for the deployer than the provider, this responsibility should be explicitly documented in accordance with risk management policies. 
 
-**Implementation Options**
+**Implementation**
 
 1. **Authenticate users:** Actors accessing model inference are typically authenticated (e.g., user accounts, API Keys, tokens).
 2. **Apply least privilege:** Grant access only to functions or models necessary for each user’s role or purpose.
@@ -339,7 +340,7 @@ For protection of trained model artifacts, see “Model Confidentiality” in th
 
 Complement this control with #RATE LIMIT #MONITORUSE and incident response (#SECPROGRAM)
 
-**References:**
+**References**
   - Technical access control: ISO 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: covers this control fully
   - [OpenCRE on technical access control](https://www.opencre.org/cre/724-770)
   - [OpenCRE on centralized access control](https://www.opencre.org/cre/117-371)
@@ -357,7 +358,7 @@ Address unusual input as it is indicative of malicious activity. Response can va
 **Applicability**  
 Anomalous input is suspicious for every attack that happens through use, because attackers obviously behave differently than normal users do. However, detecting anomalous input has strong limitations (see below) and therefore its applicability depends on the successful detection rate on the one hand and on the other hand: 1) implementation effort, 2_ performance penalty, and 3_ the number of false positives which can hinder users, security operations or both. Only a representative test can provide the required insight. This can be achieved by testing the detection on normal use, and setting a threshold at a level where the false positive rate is still acceptable. 
 
-**Implementation:**
+**Implementation**
 
 We use an example of a machine learning system designed for a self-driving car to illustrate these approaches.
 
@@ -404,7 +405,7 @@ Another example of how to implement this is similarity-based analysis: Comparing
 **Open Set Recognition (OSR) - a way to perform Anomaly Detection):**  
 Classifying known classes while identifying and rejecting unknown classes during testing. OSR is a way to perform anomaly detection, as it involves recognizing when an instance does not belong to any of the learned categories. This recognition makes use of the decision boundaries of the model.
 
-**Example: **  
+**Example:**  
 During operation, the system identifies various known objects such as cars, trucks, pedestrians, and bicycles. However, when it encounters an unrecognized object, such as a fallen tree, it must classify it as “unknown”. Open set recognition is critical because the system must be able to recognize that this object doesn’t fit into any of its known categories.
 
 **Novelty Detection (ND) - OOD input that is recognized as not malicious:**  
@@ -413,10 +414,10 @@ OOD input data can sometimes be recognized as not malicious and relevant or of i
 **Example:**  
 The system has been trained on various car models. However, it has never seen a newly released model. When it encounters a new model on the road, novelty detection recognizes it as a new car type it hasn’t seen, but understands it’s still a car, a novel instance within a known category.
 
-**Risk-Reduction Guidance:**  
+**Risk-Reduction Guidance**  
 Detecting anomalous input is critical to maintaining model integrity, addressing potential concept drift, and preventing adversarial attacks that may take advantage of model behaviors on out of distribution data. 
 
-**Particularity:**  
+**Particularity**  
 Unlike detection mechanisms in conventional systems that rely on predefined rules or signatures, AI systems often rely on statistical or behavioral detection  methods such as presented here. In other words, AI systems typically rely more on pattern-based detection in contrast to  rule-based detection.
 
 **Limitations**  
@@ -424,7 +425,7 @@ Not all anomalous input is malicious, and not all malicious input is anomalous. 
 
 For evasion attacks, detecting anomalous input is often ineffective because adversarial samples are specifically designed to appear similar to normal input by definition. As a result, many evasion attacks will not be detected by deviation-based methods. Some forms of evasion, such as adversarial patches, may still produce detectable anomalies.
 
-**References:**  
+**References**  
 - Hendrycks, Dan, and Kevin Gimpel. “A baseline for detecting misclassified and out-of-distribution examples in neural networks.” arXiv preprint arXiv:1610.02136 (2016). ICLR 2017.
 - Yang, Jingkang, et al. “Generalized out-of-distribution detection: A survey.” arXiv preprint arXiv:2110.11334 (2021).
 - Khosla, Prannay, et al. “Supervised contrastive learning.” Advances in neural information processing systems 33 (2020): 18661-18673.
@@ -438,11 +439,11 @@ Useful standards include:
 >Category: runtime AI engineer control for threats through use
 >Permalink: https://owaspai.org/goto/unwantedinputserieshandling/ 
 
-**Description:**  
+**Description**  
 Unwanted input series handling: Implement tools to detect and respond to suspicious or unwanted patterns across a series of inputs, which may indicate abuse, reconnaissance, or multi-step attacks.
 This control focuses on behavior across multiple inputs, rather than adversarial properties of a single sample.
 
-**Objective:**  
+**Objective**  
 Unwanted input series handling aims to identify suspicious behavior that emerges only when multiple inputs are analyzed together. Many attacks, such as model inversion, evasion search, or model theft through use, rely on iterative probing rather than a single malicious input. Detecting these patterns helps surface reconnaissance, abuse, and multi-step attacks that would otherwise appear benign at the individual input level.
 Secondary benefits include improved abuse monitoring, better attribution of malicious behavior, and stronger signals for investigation and response.
 
@@ -450,7 +451,7 @@ Secondary benefits include improved abuse monitoring, better attribution of mali
 This control is most applicable to systems that allow repeated interaction over time, such as APIs, chat-based models, or decision services exposed to external users. It is especially relevant when attackers can submit many inputs from the same actor, source, or session.
 Unwanted input series handling is less applicable in environments where inputs are isolated, rate-limited by design, or physically constrained. Its effectiveness depends on the ability to reliably group inputs by actor, source, or context.
 
-**Implementation Options:**  
+**Implementation**  
 The main concepts of detecting series of  unwanted inputs include:
 - **Statistical analysis of input series:** Adversarial attacks often follow certain patterns, which can be analysed by looking at input on a per-user basis. 
     - Examples:
@@ -546,11 +547,11 @@ In AI systems, confidence values are not just user-facing explanations. They can
   - Not covered yet in ISO/IEC standards
 
 
-
 ## 2.1. Evasion
 >Category: group of threats through use  
 >Permalink: https://owaspai.org/goto/evasion/
 
+**Description**  
 Evasion: an attacker fools the model by crafting input to mislead it into performing its task incorrectly. Evasion attacks force a model to make a wrong decision by feeding it carefully crafted inputs (adversarial examples). The model behaves correctly on normal data but fails on these malicious inputs.
 
 This is different from a Prompt injection(link) attack which inputs manipulative instructions (instead of data) to make the model perform its task incorrectly.
@@ -670,10 +671,13 @@ Useful standards include:
 >Category: development-time data science control for threats through use  
 >Permalink: https://owaspai.org/goto/evasionrobustmodel/
 
+**Description**  
 Evasion-robust model: choose an evasion-robust model design, configuration and/or training approach to maximize resilience against evasion.
 
+**Objective**  
 A robust model in the light of evasion is a model that does not display significant changes in output for minor changes in input. Adversarial examples are inputs that result in an unwanted result, where the input is a minor change of an input that leads to a wanted result.
 
+**Implementation**  
 Reinforcing adversarial robustness is an experimental process where model robustness is measured in order to determine countermeasures. Measurement takes place by trying minor input deviations to detect meaningful outcome variations that undermine the model's reliability. If these variations are undetectable to the human eye but can produce false or incorrect outcome descriptions, they may also significantly undermine the model's reliability. Such cases indicate the lack of model resilience to input variance results in sensitivity to evasion attacks and require detailed investigation.  
 Adversarial robustness (the sensitivity to adversarial examples) can be assessed with tools like [IBM Adversarial Robustness Toolbox](https://research.ibm.com/projects/adversarial-robustness-toolbox), [CleverHans](https://github.com/cleverhans-lab/cleverhans), or [Foolbox](https://github.com/bethgelab/foolbox).
 
@@ -691,16 +695,7 @@ Robustness issues can be addressed by:
 Regarding the defensive approaches which focus on model architecture and design we may collectively describe them as  part of a broader evasion-robust model design strategy. Some of the most commonly used methods are kTWA, gated batch norm layers and ensembles to name a few, yet they are still prone to attacks by highly determined threat actors.
 Not to mention that the combination of different defensive strategies : combining gradient masking with ensembles may result in better robustness. 
 
-
-  Useful standards include:
-
-  - ISO/IEC TR 24029 (Assessment of the robustness of neural networks) Gap: this standard discusses general robustness and does not discuss robustness against adversarial inputs explicitly.
-
-  - ENISA Securing Machine Learning Algorithms Annex C: "Choose and define a more resilient model design"
-
-  - ENISA Securing Machine Learning Algorithms Annex C: "Reduce the information given by the model"
-
-  References:
+**References**  
 
   -  Xiao, Chang, Peilin Zhong, and Changxi Zheng. "Enhancing Adversarial
 Defense by k-Winners-Take-All." 8th International Conference on Learning
@@ -719,22 +714,28 @@ gradients give a false sense of security: Circumventing defenses to
 adversarial examples." International conference on machine learning.
 PMLR, 2018.
 
+  Useful standards include:
+
+  - ISO/IEC TR 24029 (Assessment of the robustness of neural networks) Gap: this standard discusses general robustness and does not discuss robustness against adversarial inputs explicitly.
+
+  - ENISA Securing Machine Learning Algorithms Annex C: "Choose and define a more resilient model design"
+
+  - ENISA Securing Machine Learning Algorithms Annex C: "Reduce the information given by the model"
+
+
 #### #TRAIN ADVERSARIAL
 >Category: development-time data science control for threats through use  
 >Permalink: https://owaspai.org/goto/trainadversarial/
 
+**Description**  
 Train adversarial:  Introducing adversarial examples into the training set and using them to train the model to be more robust against evasion attacks and/or data poisoning. First, adversarial examples are generated using one or more specific adversarial attack methods that have been defined in advance. These attacks are employed to create adversarial examples, such as using the PGD attack in Madry Adversarial Training. 
 
+**Implementation**  
 By definition, the model produces the wrong output for these adversarial  examples. By introducing adversarial examples into the training set with the correct output, the model is essentially corrected. i.e., it is less affected by the perturbation from the adversarial attacks (in the production phase), and it may be able to generalize better over the data used in the production environment. In other words, by training the model on adversarial examples, it learns not to overly rely on subtle patterns in the data that might burden the model's ability to predict/generalize well.
 
 Note that adversarial samples may also be used as  poisoned data, in which cases training with adversarial samples also mitigates data poisoning risk. On the other hand, it is important to note that generating the adversarial examples creates significant training overhead, does not scale well with model complexity / input dimension, can lead to overfitting and may not generalize well to new attack methods.
 
-Useful standards include:
-
-- Not covered yet in ISO/IEC standards
-- ENISA Securing Machine Learning Algorithms Annex C: “Add some adversarial examples to the training dataset”
-
-References:
+**References**  
 
 - For a general summary of adversarial training, see Bai et al.
 - Goodfellow, I.J.; Shlens, J.; Szegedy, C. Explaining and harnessing adversarial examples. arXiv 2014, arXiv:1412.6572.
@@ -743,13 +744,20 @@ References:
 - Vaishnavi, Pratik, Kevin Eykholt, and Amir Rahmati. “Transferring adversarial robustness through robust representation matching.” 31st USENIX Security Symposium (USENIX Security 22). 2022.
 - Tsipras, D., Santurkar, S., Engstrom, L., Turner, A., & Madry, A. (2018). Robustness may be at odds with accuracy. arXiv preprint arXiv:1805.12152.
 
+Useful standards include:
+
+- Not covered yet in ISO/IEC standards
+- ENISA Securing Machine Learning Algorithms Annex C: “Add some adversarial examples to the training dataset”
+
 
 #### #INPUT DISTORTION
 >Category: runtime data science control for threats through use  
 >Permalink: https://owaspai.org/goto/inputdistortion/
 
+**Description**  
 Input distortion: The process of slightly modifying and/or adding noise to the input with the intent of distorting the adversarial attack, causing it to fail, while maintaining sufficient model correctness. Modification can be done by  adding noise (randomization), smoothing or JPEG compression.
 
+**Implementation**  
 Input distortion defenses are effective against both evasion attacks and data poisoning attacks.
 
   **Input distortion against Evasion Attacks**
@@ -769,13 +777,7 @@ Input distortion defenses are effective against both evasion attacks and data po
 
 See [DETECTADVERSARIALINPUT](https://owaspai.org/docs/2_threats_through_use/#detectadversarialinput) for an approach where the distorted input is used for detecting an adversarial attack.
 
-Useful standards include:
-
-  - Not covered yet in ISO/IEC standards
-
-  - ENISA Securing Machine Learning Algorithms Annex C: "Apply modifications on inputs"
-
-References:
+**References**  
   - Weilin Xu, David Evans, Yanjun Qi. Feature Squeezing: Detecting Adversarial Examples in Deep Neural Networks. 2018 Network and Distributed System Security Symposium. 18-21 February, San Diego, California.
   - Das, Nilaksh, et al. "Keeping the bad guys out: Protecting and vaccinating deep learning with jpeg compression." arXiv preprint arXiv:1705.02900 (2017).
   - He, Warren, et al. "Adversarial example defense: Ensembles of weak defenses are not strong." 11th USENIX workshop on offensive technologies (WOOT 17). 2017.
@@ -785,21 +787,21 @@ References:
   - Athalye, Anish, et al. "Synthesizing robust adversarial examples." International conference on machine learning. PMLR, 2018.
   - Athalye, Anish, Nicholas Carlini, and David Wagner. "Obfuscated gradients give a false sense of security: Circumventing defenses to adversarial examples." International conference on machine learning. PMLR, 2018.
 
+Useful standards include:
+
+  - Not covered yet in ISO/IEC standards
+
+  - ENISA Securing Machine Learning Algorithms Annex C: "Apply modifications on inputs"
+
   
 #### #ADVERSARIAL ROBUST DISTILLATION
 >Category: development-time data science control for threats through use  
 >Permalink: https://owaspai.org/goto/adversarialrobustdistillation/
 
+**Description**  
 Adversarial-robust distillation: defensive distillation involves training a student model to replicate the softened outputs of the *teacher* model, increasing the resilience of the *student* model to adversarial examples by smoothing the decision boundaries and making the model less sensitive to small perturbations in the input. Care must be taken when considering defensive distillation techniques, as security concerns have arisen about their effectiveness.
 
-Useful standards include:
-
-  - Not covered yet in ISO/IEC standards
-
-  - ENISA Securing Machine Learning Algorithms Annex C: "Choose and define a more resilient model design"
- 
- References
-
+**References**  
   - Papernot, Nicolas, et al. "Distillation as a defense to adversarial
 perturbations against deep neural networks." 2016 IEEE symposium on
 security and privacy (SP). IEEE, 2016.
@@ -807,13 +809,22 @@ security and privacy (SP). IEEE, 2016.
   - Carlini, Nicholas, and David Wagner. "Defensive distillation is not
 robust to adversarial examples." arXiv preprint arXiv:1607.04311 (2016).
 
+Useful standards include:
+
+  - Not covered yet in ISO/IEC standards
+
+  - ENISA Securing Machine Learning Algorithms Annex C: "Choose and define a more resilient model design"
+ 
+ 
 ### 2.1.1. Closed-box evasion
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/closedboxevasion/
 
+**Description**  
 Black box or closed-box attacks are methods where an attacker crafts an input to exploit a model without having any internal knowledge or access to that model's implementation, including code, training set, parameters, and architecture. The term "black box" reflects the attacker's perspective, viewing the model as a 'closed box' whose internal workings are unknown. This approach often requires experimenting with how the model responds to various inputs, as the attacker navigates this lack of transparency to identify and leverage potential vulnerabilities.
 Since the attacker does not have access to the inner workings of the model, he cannot calculate the internal model gradients to efficiently create the adversarial inputs - in contrast to white-box or open-box attacks (see 2.1.2. Open-box evasion).
 
+**Implementation**  
 Black box attack strategies are:
 
 - Query-Based Attacks:
@@ -825,7 +836,12 @@ These attacks are categorized based on the type of output the model provides:
  
 - Transferability-Based Attacks: A special kind of black box attack without querying the target model, but finding effective attack inputs using a similar model. See link to Transferability-based evasion attacks.
 
-References:
+**Controls**
+
+- See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
+- See [controls for threats through use](/goto/threatsuse/)
+
+**References**  
 
 - Andriushchenko, Maksym, et al. "Square attack: a query-efficient
 black-box adversarial attack via random search." European conference on
@@ -846,20 +862,18 @@ Proceedings of the 10th ACM workshop on artificial intelligence and security. 20
 - Guo, Chuan, et al. "Simple black-box adversarial attacks." International
 Conference on Machine Learning. PMLR, 2019.
 
-**Controls:**
 
-- See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
-- See [controls for threats through use](/goto/threatsuse/)
 
 ### 2.1.2. Open-box evasion
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/openboxevasion/
 
+**Description**  
 In open-box or white-box attacks, the attacker knows the architecture, parameters, and weights of the target model. Therefore, the attacker has the ability to create input data designed to introduce errors in the model's predictions. A famous example in this domain is the Fast Gradient Sign Method (FGSM) developed by Goodfellow et al. which demonstrates the efficiency of white-box attacks. FGSM operates by calculating a perturbation $p$ for a given image $x$ and it's label $l$, following the equation $p = \varepsilon \textnormal{sign}(\nabla_x J(\theta, x, l))$, where $\nabla_x J(\cdot, \cdot, \cdot)$ is the gradient of the cost function with respect to the input, computed via backpropagation. The model's parameters are denoted by $\theta$ and $\varepsilon$ is a scalar defining the perturbation's magnitude. Even attacks against certified defenses are possible.
 
 In contrast to white-box attacks, black-box attacks operate without direct access to the inner workings of the model and therefore without access to the gradients. Instead of exploiting detailed knowledge, black-box attackers must rely on output observations to infer how to effectively craft adversarial examples.
 
-**Controls:**
+**Controls**
 
 - See [General controls](/goto/generalcontrols/):
   - Especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
@@ -869,7 +883,7 @@ In contrast to white-box attacks, black-box attacks operate without direct acces
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
 
 
-References:
+**References**
 
 - Goodfellow, Ian J., Jonathon Shlens, and Christian Szegedy. "Explaining and harnessing adversarial examples." arXiv preprint arXiv:1412.6572 (2014).
 - Madry, Aleksander, et al. "Towards deep learning models resistant to
@@ -880,6 +894,7 @@ adversarial attacks." arXiv preprint arXiv:1706.06083 (2017).
 
 ### 2.1.3 Transferability-based evasion attacks
 
+**Description**  
 Attackers can execute a transferability-based attack in a closed-box situation by first creating adversarial examples using a surrogate model: a copy or approximation of the closed-box target model, and then applying these adversarial examples to the target model.  The surrogate model can be a model from another supplier that performs a similar task (e.g., recognize traffic signs), or a model that the attacker trained based on available or self-collected or self-labeled data.
 
 The advantage of a surrogate model is that it may expose its internals (e.g., because it's open source), allowing a white-box attack. But even closed models (e.g., an API in the cloud) may be beneficial in case detection mechanisms and rate limiting are less strict than the target model - making a closed-box attack easier and quicker to perform, 
@@ -890,7 +905,7 @@ To maximize similarity and therefore the effectiveness of the attack, one approa
 
 The ultimate surrogate model to perform an open-box attack on and transfer that to the target model is of course the target model itself. If the attacker manages to steal that using model theft development time(link) or model theft runtime (link) - the transfer attack equals an open-box attack.
 
-Controls:
+**Controls**  
 
 Controls for [threats through use](https://owaspai.org/goto/threatsuse/):
 
@@ -899,7 +914,7 @@ Controls for [threats through use](https://owaspai.org/goto/threatsuse/):
 - Train Adversarial
 - Input Distortion
 
-References:
+**References**  
 
 - Klause, Gerrit, and Niklas Bunzel. "The Relationship Between Network Similarity and Transferability of Adversarial Attacks." arXiv preprint arXiv:2501.18629 (2025).
 - Zhao, Zhiming, et al. "Enhancing Adversarial Transferability via Self-Ensemble Feature Alignment." Proceedings of the 2025 International Conference on Multimedia Retrieval. 2025.
@@ -911,16 +926,17 @@ References:
 
 ### 2.1.4 Gray-box evasion attacks
 
+**Description**  
 Gray-box adversarial evasion attacks occupy a middle ground between white-box and black-box adversarial attacks, where the attacker possesses partial knowledge of the target system like its architecture, training data, but lacks complete access/knowledge to its inner workings (e.g. gradients). In these attacks, the adversary leverages limited information to craft input perturbations designed to mislead machine learning models, by exploiting surrogate models (transferability) or improving known black-box attacks with the given knowledge. Gray-box attacks can be more efficient and effective due to the additional insights available. This approach is particularly relevant in real-world scenarios where full model transparency is rare, but some information may be accessible.
 
-Controls:
-
+**Controls**
 Controls for [threats through use](https://owaspai.org/goto/threatsuse/): See Closed-box and Transferability-based attacks
 
 ### 2.1.5. Evasion after data poisoning
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/evasionafterpoison/
 
+**Description**  
 After training data has been poisoned (see [data poisoning section](/goto/datapoison/)), specific input  (called _backdoors_ or _triggers_) can lead to unwanted model output.
 
 ---
@@ -929,6 +945,7 @@ After training data has been poisoned (see [data poisoning section](/goto/datapo
 >Category: group of threats through use  
 >Permalink: https://owaspai.org/goto/promptinjection/
 
+**Description**  
 Prompt injection attacks involve maliciously crafting or manipulating instructions in input prompts, directly or indirectly, in order to exploit vulnerabilities in model processing capabilities or to trick them into executing unintended actions.  
 This section discusses the two types of prompt injection and the mitigation controls:
 - [Direct prompt injection](/goto/directpromptinjection/)
@@ -968,7 +985,7 @@ Multimodal prompt injection can be:
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
 - Controls for [prompt injection](/goto/promptinjection/):
   - [#PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/) to handle any suspicious input or output - see below
-  
+
 
 #### #PROMPT INJECTION I/O HANDLING
 > Category: runtime AI engineer controls against input threats  
@@ -1027,6 +1044,7 @@ This control does not replace access control, rate limiting, or monitoring, but 
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/directpromptinjection/
 
+**Description**  
 Direct prompt injection: a user tries to fool a Generative AI (eg. a Large Language Model) by presenting prompts that make it behave in unwanted ways. It can be seen as social engineering of a generative AI. This is different from an [evasion attack](/goto/evasion/) which inputs manipulated data (instead of instructions) to make the model perform its task incorrectly.
 
 Impact: Obtaining information from the AI that is offensive, confidential, could grant certain legal rights, or triggers unauthorized functionality. Note that the person providing the prompt is the one receiving this information. The model itself is typically not altered, so this attack does not affect anyone else outside of the user (i.e., the attacker). The exception is when a model works with a shared context between users that can be influenced by user instructions.
@@ -1049,13 +1067,7 @@ Example 5: The process of trying prompt injection can be automated, searching fo
 
 Example 6: When an attacker manages to retrieve system instructions provided by Developers through crafted input prompts, in order to later help craft prompt injections that circumvent the protections in those system prompts. (known as System prompt leakage, Refer [System Prompt Leakage](https://genai.owasp.org/llmrisk/llm072025-system-prompt-leakage/)).
 
-
-References:
-- [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.T0051)
-- [OWASP for LLM 01](https://genai.owasp.org/llmrisk/llm01/)
-- [OWASP CHeat sheets on Prompt injection prevention](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html)
-
-**Controls:**
+**Controls**
 
 The same as for all prompt injection:
 
@@ -1066,7 +1078,14 @@ The same as for all prompt injection:
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
 - Controls for [prompt injection](/goto/promptinjection/):
-  - [#PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/) to handle any suspicious input or output 
+  - [#PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/) to handle any suspicious input or output
+
+**References**  
+- [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.T0051)
+- [OWASP for LLM 01](https://genai.owasp.org/llmrisk/llm01/)
+- [OWASP CHeat sheets on Prompt injection prevention](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html)
+
+
   
 ---
 
@@ -1074,6 +1093,7 @@ The same as for all prompt injection:
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/indirectpromptinjection/
 
+**Description**  
 Indirect prompt injection: a third party fools a large language model (GenAI) through the inclusion of (often hidden) instructions as part of a text that is inserted into a prompt by an application, causing unintended actions or answers by the LLM (GenAI). This is similar to remote code execution.
 
 Impact: Getting unwanted answers or actions (see [Agentic AI](/goto/agenticaithreats/)) from instructions in untrusted input that has been inserted in a prompt.
@@ -1088,13 +1108,7 @@ Mappings
 - [OWASP Top 10 for LLM 01](https://genai.owasp.org/llmrisk/llm01/)
 - [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.T0051)
 
-References
-- [Illustrative blog by Simon Willison](https://simonwillison.net/2023/Apr/14/worst-that-can-happen/)
-- [the NCC Group discussion](https://research.nccgroup.com/2022/12/05/exploring-prompt-injection-attacks/)
-- [How Microsoft defends against indirect prompt injection](https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks)
-- [Design Patterns for Securing LLM Agents against Prompt Injections](https://arxiv.org/html/2506.08837v3)
-
-**Controls:**
+**Controls**
 
 - See [General controls](/goto/generalcontrols/):
   - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) with highlights [MODEL ALIGNMENT](/goto/modelalignment/), [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/).
@@ -1108,11 +1122,18 @@ References
 - Specifically for INDIRECT prompt injection:
   - [#INPUT SEGREGEGATION](/goto/inputsegregation/) - discussed below
 
+**References**  
+- [Illustrative blog by Simon Willison](https://simonwillison.net/2023/Apr/14/worst-that-can-happen/)
+- [the NCC Group discussion](https://research.nccgroup.com/2022/12/05/exploring-prompt-injection-attacks/)
+- [How Microsoft defends against indirect prompt injection](https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks)
+- [Design Patterns for Securing LLM Agents against Prompt Injections](https://arxiv.org/html/2506.08837v3)
+
 
 #### #INPUT SEGREGATION
 > Category: runtime information security control against application security threats  
 > Permalink: https://owaspai.org/goto/inputsegregation/
 
+**Description**  
 Input segregation: clearly separate/delimit/delineate untrusted data when inserting it into a prompt and instruct the model to ignore instructions in that data. Use consistent and hard to spoof markers. One way to do this is to pass inputs as structured fields using a structured format such as JSON. Some platforms offer integrated mechanisms for segregation (e.g. ChatML for OpenAI API calls and Langchain prompt formatters).
 
 For example the prompt:  
@@ -1138,6 +1159,7 @@ Unfortunately there is no watertight way to guarantee that instructions in untru
 >Category: group of threats through use  
 >Permalink: https://owaspai.org/goto/disclosureuse/
 
+**Description**  
 Impact: Confidentiality breach of sensitive training data.
 
 The model discloses sensitive training data or is abused to do so.
@@ -1146,6 +1168,7 @@ The model discloses sensitive training data or is abused to do so.
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/disclosureuseoutput/
 
+**Description**  
 The output of the model may contain sensitive data from the training set, for example a large language model (GenAI) generating output including personal data that was part of its training set. Furthermore, GenAI can output other types of sensitive data, such as copyrighted text or images (see [Copyright](/goto/copyright/)). Once training data is in a GenAI model, original variations in access rights cannot be controlled anymore. ([OWASP for LLM 02](https://genai.owasp.org/llmrisk/llm02/))
 
 The disclosure is caused by an unintentional fault of including this data, and exposed through normal use or through provocation by an attacker using the system. See [MITRE ATLAS - LLM Data Leakage](https://atlas.mitre.org/techniques/AML.T0057)
@@ -1215,7 +1238,6 @@ Providing models with instructions not to disclose certain data (for example via
 - Some sensitive disclosures may be subtle or context-dependent and difficult to detect automatically.
 - Attackers may attempt to obfuscate output o circumvent detection (e.g. base64 encoding a token)
 
-
 **References**
 
 Useful standards include:
@@ -1226,6 +1248,7 @@ Useful standards include:
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/modelinversionandmembership/
 
+**Description**  
 Model inversion (or _data reconstruction_) occurs when an attacker reconstructs a part of the training set by intensive experimentation during which the input is optimized to maximize indications of confidence level in the output of the model.
 
 ![](/images/inversion3.png)
@@ -1234,7 +1257,7 @@ Membership inference is presenting a model with input data that identifies somet
 
 ![](/images/membership3.png)
 
-References:
+**References**  
 
 - [Article on membership inference](https://medium.com/disaitek/demystifying-the-membership-inference-attack-e33e510a0c39)
 
@@ -1257,8 +1280,10 @@ The more details a model is able to learn, the more it can store information on 
 >Category: development-time data science control for threats through use  
 >Permalink: https://owaspai.org/goto/smallmodel/
 
+**Description**  
 Small model: overfitting (storing individual training samples) can be prevented by keeping the model small so it is not able to store detail at the level of individual training set samples.
 
+**References**  
 Useful standards include:
 
   - Not covered yet in ISO/IEC standards
@@ -1269,17 +1294,12 @@ Useful standards include:
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/modeltheftuse/
 
+**Description**  
 Impact: Confidentiality breach of model parameters, which can result in intellectual model theft and/or allowing to perform model attacks on the stolen model that normally would be mitigated by rate limiting, access control, or detection mechanisms.
 
 This attack is known as model stealing attack or model extraction attack or model exfiltration attack. It occurs when an attacker collects inputs and outputs of an existing model and uses those combinations to train a new model, in order to replicate the original model. Alternative ways of model theft are [development time model theft](/goto/devmodelleak/) and [direct runtime model theft](/goto/runtimemodeltheft/).
 
 ![](/images/theft3.png)
-
-References
-
-- [Article on model theft through use](https://www.mlsecurity.ai/post/what-is-model-stealing-and-why-it-matters)
-- ['Thieves on Sesame street' on model theft of large language models](https://arxiv.org/abs/1910.12366) (GenAI)
-
 
 **Controls:**
 
@@ -1292,18 +1312,26 @@ References
 - Controls for model theft through use specifically:
   - [#MODEL WATERMARKING](/goto/modelwatermarking/) to enable post-theft ownership verification when residual risk remains - discussed below
 
+**References**  
+
+- [Article on model theft through use](https://www.mlsecurity.ai/post/what-is-model-stealing-and-why-it-matters)
+- ['Thieves on Sesame street' on model theft of large language models](https://arxiv.org/abs/1910.12366) (GenAI)
+
+
+
 
 #### #MODEL WATERMARKING
 >Category: development-time AI engineer control for threats through use  
 >Permalink: https://owaspai.org/goto/modelwatermarking/
 
+**Description**  
 Model Watermarking: embed a hidden, secret marker into a trained model so that, if a suspected copy appears elsewhere, the original owner can verify that the model was derived from their system. This is used to demonstrate ownership after a model has been stolen or replicated, rather than to prevent the theft itself.
 
 Watermarking techniques should be designed to remain detectable even if the model is modified (for example through fine-tuning or pruning) and to avoid ambiguity where multiple parties could plausibly claim ownership of the same model.
 
 In addition to its technical role, watermarking supports intellectual property protection by enabling post-hoc attribution of stolen or misused models, which can be critical for legal claims, contractual enforcement, and regulatory investigations. As part of a layered security strategy, watermarking complements preventive controls by providing accountability and ownership assurance when other defenses fail.
 
-References:
+**References**  
 - [USENIX: Entangled Watermarks as a Defense against Model Extraction](https://www.usenix.org/conference/usenixsecurity21/presentation/jia)
 
 ---
@@ -1312,7 +1340,8 @@ References:
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/airesourceexhaustion/
 
-Description: specific input to the model leads to resource exhaustion, which can be the depletion of funds or availability issues (system being very slow or unresponsive, also called _denial of service_). The failure occurs from frequency, volume, or the content of the input. See [MITRE ATLAS - Denial of ML service](https://atlas.mitre.org/techniques/AML.T0029).
+**Description**  
+Specific input to the model leads to resource exhaustion, which can be the depletion of funds or availability issues (system being very slow or unresponsive, also called _denial of service_). The failure occurs from frequency, volume, or the content of the input. See [MITRE ATLAS - Denial of ML service](https://atlas.mitre.org/techniques/AML.T0029).
 
 Impact: Loss of money or the AI systems is unavailable, leading to issues with processes, organizations or individuals that depend on the AI system (e.g. business continuity issues, safety issues in process control, unavailability of services)
 
@@ -1336,8 +1365,10 @@ Examples:
 >Category: runtime information security control for threats through use  
 >Permalink: https://owaspai.org/goto/dosinputvalidation/
 
+**Description**  
 Denial-of-service input validation: input validation and sanitization to reject or correct malicious (e.g. very large) content
 
+**References**  
 Useful standards include:
 
   - ISO 27002 has no control for this
@@ -1349,8 +1380,10 @@ Useful standards include:
 >Category: runtime information security control for threats through use  
 >Permalink: https://owaspai.org/goto/limitresources/
 
+**Description**  
 Limit resource usage for a single model input, to prevent resource overuse.
 
+**References**  
 Useful standards include:
 
   - ISO 27002 has no control for this, except for Monitoring (covered in Controls for threats through use)
@@ -1364,6 +1397,7 @@ Useful standards include:
 >Category: control details  
 >Permalink: https://owaspai.org/goto/culturesensitivealignment/
 
+**Description**  
 In the context of large language models (LLMs), alignment refers to the process of ensuring that the model's behavior and outputs are consistent with human values, intentions, and ethical standards. See [#MODEL ALIGNMENT](/goto/modelalignment/).
 
 There are nuances towards what is considered an appropriate input or output depending on jurisdictions. Certain news or events in history that are considered sensible topics for public discussion in one country might be considered taboo in another. This also means a prompt injection could be interpreted as successful and therefore unsafe if a model divulges information or mentions topics that shouldn’t be discussed.
@@ -1469,7 +1503,7 @@ Explicitly informing the user of any refusal to interpret the given input should
 Given that model explainability is mandated in many jurisdictions, application developers whose projects do not require the full verbosity of an untuned large language model may benefit from implementing a neutral response. This approach can mitigate the burden of justifying the origins of out-of-scope outputs, such as those exemplified in Example Response 2.
 
 
-References:
+**References**
 
   1. Zhang, et al. (2024). Verbosity ≠ Veracity: Demystify Verbosity Compensation Behavior of Large Language Models.
   2. Arora, et al. (2022). Probing Pre-Trained Language Models for Cross-Cultural Differences in Values.
