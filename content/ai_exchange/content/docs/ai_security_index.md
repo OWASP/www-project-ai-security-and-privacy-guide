@@ -1,5 +1,7 @@
 ---
 title: Index
+heroTitle: "Index"
+heroText: "Cickable topics."
 weight: 9
 ---
 >Permalink: https://owaspai.org/goto/index/
