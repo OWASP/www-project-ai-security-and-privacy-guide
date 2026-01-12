@@ -820,9 +820,11 @@ Useful standards include:
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/closedboxevasion/
 
+**Description**  
 Black box or closed-box attacks are methods where an attacker crafts an input to exploit a model without having any internal knowledge or access to that model's implementation, including code, training set, parameters, and architecture. The term "black box" reflects the attacker's perspective, viewing the model as a 'closed box' whose internal workings are unknown. This approach often requires experimenting with how the model responds to various inputs, as the attacker navigates this lack of transparency to identify and leverage potential vulnerabilities.
 Since the attacker does not have access to the inner workings of the model, he cannot calculate the internal model gradients to efficiently create the adversarial inputs - in contrast to white-box or open-box attacks (see 2.1.2. Open-box evasion).
 
+**Implementation**  
 Black box attack strategies are:
 
 - Query-Based Attacks:
@@ -834,7 +836,12 @@ These attacks are categorized based on the type of output the model provides:
  
 - Transferability-Based Attacks: A special kind of black box attack without querying the target model, but finding effective attack inputs using a similar model. See link to Transferability-based evasion attacks.
 
-References:
+**Controls**
+
+- See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
+- See [controls for threats through use](/goto/threatsuse/)
+
+**References**  
 
 - Andriushchenko, Maksym, et al. "Square attack: a query-efficient
 black-box adversarial attack via random search." European conference on
@@ -855,20 +862,18 @@ Proceedings of the 10th ACM workshop on artificial intelligence and security. 20
 - Guo, Chuan, et al. "Simple black-box adversarial attacks." International
 Conference on Machine Learning. PMLR, 2019.
 
-**Controls:**
 
-- See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
-- See [controls for threats through use](/goto/threatsuse/)
 
 ### 2.1.2. Open-box evasion
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/openboxevasion/
 
+**Description**  
 In open-box or white-box attacks, the attacker knows the architecture, parameters, and weights of the target model. Therefore, the attacker has the ability to create input data designed to introduce errors in the model's predictions. A famous example in this domain is the Fast Gradient Sign Method (FGSM) developed by Goodfellow et al. which demonstrates the efficiency of white-box attacks. FGSM operates by calculating a perturbation $p$ for a given image $x$ and it's label $l$, following the equation $p = \varepsilon \textnormal{sign}(\nabla_x J(\theta, x, l))$, where $\nabla_x J(\cdot, \cdot, \cdot)$ is the gradient of the cost function with respect to the input, computed via backpropagation. The model's parameters are denoted by $\theta$ and $\varepsilon$ is a scalar defining the perturbation's magnitude. Even attacks against certified defenses are possible.
 
 In contrast to white-box attacks, black-box attacks operate without direct access to the inner workings of the model and therefore without access to the gradients. Instead of exploiting detailed knowledge, black-box attackers must rely on output observations to infer how to effectively craft adversarial examples.
 
-**Controls:**
+**Controls**
 
 - See [General controls](/goto/generalcontrols/):
   - Especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
@@ -878,7 +883,7 @@ In contrast to white-box attacks, black-box attacks operate without direct acces
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
 
 
-References:
+**References**
 
 - Goodfellow, Ian J., Jonathon Shlens, and Christian Szegedy. "Explaining and harnessing adversarial examples." arXiv preprint arXiv:1412.6572 (2014).
 - Madry, Aleksander, et al. "Towards deep learning models resistant to
@@ -889,6 +894,7 @@ adversarial attacks." arXiv preprint arXiv:1706.06083 (2017).
 
 ### 2.1.3 Transferability-based evasion attacks
 
+**Description**  
 Attackers can execute a transferability-based attack in a closed-box situation by first creating adversarial examples using a surrogate model: a copy or approximation of the closed-box target model, and then applying these adversarial examples to the target model.  The surrogate model can be a model from another supplier that performs a similar task (e.g., recognize traffic signs), or a model that the attacker trained based on available or self-collected or self-labeled data.
 
 The advantage of a surrogate model is that it may expose its internals (e.g., because it's open source), allowing a white-box attack. But even closed models (e.g., an API in the cloud) may be beneficial in case detection mechanisms and rate limiting are less strict than the target model - making a closed-box attack easier and quicker to perform, 
@@ -899,7 +905,7 @@ To maximize similarity and therefore the effectiveness of the attack, one approa
 
 The ultimate surrogate model to perform an open-box attack on and transfer that to the target model is of course the target model itself. If the attacker manages to steal that using model theft development time(link) or model theft runtime (link) - the transfer attack equals an open-box attack.
 
-Controls:
+**Controls**  
 
 Controls for [threats through use](https://owaspai.org/goto/threatsuse/):
 
@@ -908,7 +914,7 @@ Controls for [threats through use](https://owaspai.org/goto/threatsuse/):
 - Train Adversarial
 - Input Distortion
 
-References:
+**References**  
 
 - Klause, Gerrit, and Niklas Bunzel. "The Relationship Between Network Similarity and Transferability of Adversarial Attacks." arXiv preprint arXiv:2501.18629 (2025).
 - Zhao, Zhiming, et al. "Enhancing Adversarial Transferability via Self-Ensemble Feature Alignment." Proceedings of the 2025 International Conference on Multimedia Retrieval. 2025.
@@ -920,16 +926,17 @@ References:
 
 ### 2.1.4 Gray-box evasion attacks
 
+**Description**  
 Gray-box adversarial evasion attacks occupy a middle ground between white-box and black-box adversarial attacks, where the attacker possesses partial knowledge of the target system like its architecture, training data, but lacks complete access/knowledge to its inner workings (e.g. gradients). In these attacks, the adversary leverages limited information to craft input perturbations designed to mislead machine learning models, by exploiting surrogate models (transferability) or improving known black-box attacks with the given knowledge. Gray-box attacks can be more efficient and effective due to the additional insights available. This approach is particularly relevant in real-world scenarios where full model transparency is rare, but some information may be accessible.
 
-Controls:
-
+**Controls**
 Controls for [threats through use](https://owaspai.org/goto/threatsuse/): See Closed-box and Transferability-based attacks
 
 ### 2.1.5. Evasion after data poisoning
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/evasionafterpoison/
 
+**Description**  
 After training data has been poisoned (see [data poisoning section](/goto/datapoison/)), specific input  (called _backdoors_ or _triggers_) can lead to unwanted model output.
 
 ---
@@ -938,6 +945,7 @@ After training data has been poisoned (see [data poisoning section](/goto/datapo
 >Category: group of threats through use  
 >Permalink: https://owaspai.org/goto/promptinjection/
 
+**Description**  
 Prompt injection attacks involve maliciously crafting or manipulating instructions in input prompts, directly or indirectly, in order to exploit vulnerabilities in model processing capabilities or to trick them into executing unintended actions.  
 This section discusses the two types of prompt injection and the mitigation controls:
 - [Direct prompt injection](/goto/directpromptinjection/)
@@ -977,7 +985,7 @@ Multimodal prompt injection can be:
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
 - Controls for [prompt injection](/goto/promptinjection/):
   - [#PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/) to handle any suspicious input or output - see below
-  
+
 
 #### #PROMPT INJECTION I/O HANDLING
 > Category: runtime AI engineer controls against input threats  
@@ -1036,6 +1044,7 @@ This control does not replace access control, rate limiting, or monitoring, but 
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/directpromptinjection/
 
+**Description**  
 Direct prompt injection: a user tries to fool a Generative AI (eg. a Large Language Model) by presenting prompts that make it behave in unwanted ways. It can be seen as social engineering of a generative AI. This is different from an [evasion attack](/goto/evasion/) which inputs manipulated data (instead of instructions) to make the model perform its task incorrectly.
 
 Impact: Obtaining information from the AI that is offensive, confidential, could grant certain legal rights, or triggers unauthorized functionality. Note that the person providing the prompt is the one receiving this information. The model itself is typically not altered, so this attack does not affect anyone else outside of the user (i.e., the attacker). The exception is when a model works with a shared context between users that can be influenced by user instructions.
@@ -1058,13 +1067,7 @@ Example 5: The process of trying prompt injection can be automated, searching fo
 
 Example 6: When an attacker manages to retrieve system instructions provided by Developers through crafted input prompts, in order to later help craft prompt injections that circumvent the protections in those system prompts. (known as System prompt leakage, Refer [System Prompt Leakage](https://genai.owasp.org/llmrisk/llm072025-system-prompt-leakage/)).
 
-
-References:
-- [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.T0051)
-- [OWASP for LLM 01](https://genai.owasp.org/llmrisk/llm01/)
-- [OWASP CHeat sheets on Prompt injection prevention](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html)
-
-**Controls:**
+**Controls**
 
 The same as for all prompt injection:
 
@@ -1075,7 +1078,14 @@ The same as for all prompt injection:
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
 - Controls for [prompt injection](/goto/promptinjection/):
-  - [#PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/) to handle any suspicious input or output 
+  - [#PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/) to handle any suspicious input or output
+
+**References**  
+- [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.T0051)
+- [OWASP for LLM 01](https://genai.owasp.org/llmrisk/llm01/)
+- [OWASP CHeat sheets on Prompt injection prevention](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html)
+
+
   
 ---
 
@@ -1083,6 +1093,7 @@ The same as for all prompt injection:
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/indirectpromptinjection/
 
+**Description**  
 Indirect prompt injection: a third party fools a large language model (GenAI) through the inclusion of (often hidden) instructions as part of a text that is inserted into a prompt by an application, causing unintended actions or answers by the LLM (GenAI). This is similar to remote code execution.
 
 Impact: Getting unwanted answers or actions (see [Agentic AI](/goto/agenticaithreats/)) from instructions in untrusted input that has been inserted in a prompt.
@@ -1097,13 +1108,7 @@ Mappings
 - [OWASP Top 10 for LLM 01](https://genai.owasp.org/llmrisk/llm01/)
 - [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.T0051)
 
-References
-- [Illustrative blog by Simon Willison](https://simonwillison.net/2023/Apr/14/worst-that-can-happen/)
-- [the NCC Group discussion](https://research.nccgroup.com/2022/12/05/exploring-prompt-injection-attacks/)
-- [How Microsoft defends against indirect prompt injection](https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks)
-- [Design Patterns for Securing LLM Agents against Prompt Injections](https://arxiv.org/html/2506.08837v3)
-
-**Controls:**
+**Controls**
 
 - See [General controls](/goto/generalcontrols/):
   - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) with highlights [MODEL ALIGNMENT](/goto/modelalignment/), [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/).
@@ -1117,11 +1122,18 @@ References
 - Specifically for INDIRECT prompt injection:
   - [#INPUT SEGREGEGATION](/goto/inputsegregation/) - discussed below
 
+**References**  
+- [Illustrative blog by Simon Willison](https://simonwillison.net/2023/Apr/14/worst-that-can-happen/)
+- [the NCC Group discussion](https://research.nccgroup.com/2022/12/05/exploring-prompt-injection-attacks/)
+- [How Microsoft defends against indirect prompt injection](https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks)
+- [Design Patterns for Securing LLM Agents against Prompt Injections](https://arxiv.org/html/2506.08837v3)
+
 
 #### #INPUT SEGREGATION
 > Category: runtime information security control against application security threats  
 > Permalink: https://owaspai.org/goto/inputsegregation/
 
+**Description**  
 Input segregation: clearly separate/delimit/delineate untrusted data when inserting it into a prompt and instruct the model to ignore instructions in that data. Use consistent and hard to spoof markers. One way to do this is to pass inputs as structured fields using a structured format such as JSON. Some platforms offer integrated mechanisms for segregation (e.g. ChatML for OpenAI API calls and Langchain prompt formatters).
 
 For example the prompt:  
