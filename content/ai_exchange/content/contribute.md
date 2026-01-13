@@ -479,6 +479,12 @@ weight: 1
                         <td class="px-6 py-4 text-gray-700"></td>
                     </tr>
                     <tr class="odd:bg-[#F4F2F2] even:bg-white">
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Venkata Sai Kishore Modalavalasa (Sai)</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">Straiker</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">US</td>
+                        <td class="px-6 py-4 text-gray-700">Incident detection, massive editor work in transfering controls research</td>
+                    </tr>
+                    <tr class="odd:bg-[#F4F2F2] even:bg-white">
                         <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Wei Wei</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">IBM</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">Germany</td>
