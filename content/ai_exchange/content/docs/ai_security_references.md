@@ -51,7 +51,7 @@ References on specific topics can be found throughout the content of AI Exchange
 - [ISO/IEC 20547-4 Big data security](https://www.iso.org/standard/71278.html)
 - [IEEE 2813 Big Data Business Security Risk Assessment](https://standards.ieee.org/ieee/2813/7535/)
 - [Awesome MLSecOps references](https://github.com/RiccardoBiosas/awesome-MLSecOps)
-- [Awesome AI security references[(https://github.com/ottosulin/awesome-ai-security?tab=readme-ov-file)
+- [Awesome AI security references](https://github.com/ottosulin/awesome-ai-security?tab=readme-ov-file)
 - [OffSec ML Playbook](https://wiki.offsecml.com/)
 - [MIT AI Risk Repository](https://airisk.mit.edu/)
 - [Failure Modes in Machine Learning by Microsoft](https://learn.microsoft.com/en-us/security/engineering/failure-modes-in-machine-learning)
