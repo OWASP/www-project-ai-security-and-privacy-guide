@@ -55,7 +55,7 @@ sidebar:
         <p class="text-gray-700 text-sm mb-2">
           Engage with the OWASP AI team through various platforms. Connect with us on the OWASP Slack workspace in the #project-ai-community channel.
         </p>
-        <a href="https://owasp.slack.com/join/shared_invite/zt-3iwx0wk01-vLwSQy1NfkD0Cv5UJeMbwQ#/shared-invite/email" target="_blank" class="text-green-600 text-sm font-medium hover:underline">
+        <a href="https://owasp.org/slack/invite" target="_blank" class="text-green-600 text-sm font-medium hover:underline">
           Learn more →
         </a>
       </div>
