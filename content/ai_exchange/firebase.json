@@ -14,6 +14,11 @@
         "type": 301
       },
       {
+        "source": "/goto/toc/",
+        "destination": "/docs/ai_security_overview/#table-of-contents",
+        "type": 301
+      },
+      {
         "source": "/goto/summary/",
         "destination": "/docs/ai_security_overview/#how-to-organize-ai-security",
         "type": 301
