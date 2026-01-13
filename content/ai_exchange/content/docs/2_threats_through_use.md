@@ -978,7 +978,7 @@ Multimodal prompt injection can be:
   
 **Controls for all forms of prompt injection:**
 - See [General controls](/goto/generalcontrols/):
-  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) is inmportant, with key controls [MODEL ALIGNMENT](/goto/modelalignment/), [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/), given that prompt injection is hard to prevent.
+  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) is important, with key controls [MODEL ALIGNMENT](/goto/modelalignment/), [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/), given that prompt injection is hard to prevent.
 - Controls for [threats through use](/goto/threatsuse/), to limit the user set, oversee use and, prevent experiments that require many interactions:
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
@@ -1072,7 +1072,7 @@ Example 6: When an attacker manages to retrieve system instructions provided by 
 The same as for all prompt injection:
 
 - See [General controls](/goto/generalcontrols/):
-  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) is inmportant, with key controls [MODEL ALIGNMENT](/goto/modelalignment/), [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/), given that prompt injection is hard to prevent.
+  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) is important, with key controls [MODEL ALIGNMENT](/goto/modelalignment/), [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/), given that prompt injection is hard to prevent.
 - Controls for [threats through use](/goto/threatsuse/), to limit the user set, oversee use and, prevent experiments that require many interactions:
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
@@ -1112,7 +1112,7 @@ Mappings
 **Controls**
 
 - See [General controls](/goto/generalcontrols/):
-  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) is inmportant, with key controls [MODEL ALIGNMENT](/goto/modelalignment/), [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/), given that prompt injection is hard to prevent.
+  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) is important, with key controls [MODEL ALIGNMENT](/goto/modelalignment/), [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/), given that prompt injection is hard to prevent.
 - Controls for [threats through use](/goto/threatsuse/), to limit the user set, oversee use and, prevent experiments that require many interactions:
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
