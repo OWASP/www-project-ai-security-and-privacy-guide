@@ -9,8 +9,10 @@ weight: 1
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/about/
 
+If you want to jump right into the content, head on to the [Table of contents](/goto/toc/) or [How to use this document](/goto/document/).  
+
 **Summary**  
-Welcome to the go-to single resource for AI security & privacy - over 300 pages of practical advice and references on protecting AI, and data-centric systems from threats - where AI consists of Analytical AI, Discriminative AI, Generative AI and heuristic systems. This content serves as key bookmark for practitioners, and is contributed actively and substantially to international standards such as ISO/IEC and the AI Act through official standard partnerships. Through broad collaboration with key institutes and SDOs, the _Exchange_ represents the consensus on AI security and privacy.
+Welcome to the go-to comprehensive resource for AI security & privacy - over 300 pages of practical advice and references on protecting AI, and data-centric systems from threats - where AI consists of ALL AI" Analytical AI, Discriminative AI, Generative AI and heuristic systems. This content serves as key bookmark for practitioners, and is contributed actively and substantially to international standards such as ISO/IEC and the AI Act through official standard partnerships. Through broad collaboration with key institutes and SDOs, the _Exchange_ represents the consensus on AI security and privacy.
 
  <p class="text-center">
   <a href="https://youtu.be/kQC7ouDB_z8" target="_blank" rel="noopener noreferrer">
@@ -26,7 +28,7 @@ Welcome to the go-to single resource for AI security & privacy - over 300 pages 
 
 
 **Details**  
-The OWASP AI Exchange has open sourced the global discussion on the security and privacy of AI and data-centric systems. It is an open collaborative OWASP project to advance the development of AI security & privacy standards, by providing a comprehensive framework of AI threats, controls, and related best practices. Through a unique official liaison partnership, this content is feeding into standards for the EU AI Act (50 pages contributed), ISO/IEC 27090 (AI security, 70 pages contributed), ISO/IEC 27091 (AI privacy), and [OpenCRE](https://opencre.org) - which we are currently preparing to provide the AI Exchange content through the security chatbot [OpenCRE-Chat](https://opencre.org/chatbot).
+The OWASP AI Exchange has open sourced the global discussion on the security and privacy of AI and data-centric systems. It is an open collaborative OWASP Flagship project to advance the development of AI security & privacy standards, by providing a comprehensive framework of AI threats, controls, and related best practices. Through a unique official liaison partnership, this content is feeding into standards for the EU AI Act (70 pages contributed), ISO/IEC 27090 (AI security, 70 pages contributed), ISO/IEC 27091 (AI privacy), and [OpenCRE](https://opencre.org) - which we are currently preparing to provide the AI Exchange content through the security chatbot [OpenCRE-Chat](https://opencre.org/chatbot).
 
 Data-centric systems can be divided into AI systems and 'big data' systems that don't have an AI model (e.g., data warehousing, BI, reporting, big data) to which many of the threats and controls in the AI Exchange are relevant: data poisoning, data supply chain management, data pipeline security, etc.
 
@@ -79,6 +81,41 @@ The AI Exchange achieves:
 All aspects above make the Exchange the go-to resource for practitioners, users, and training institutes - effectively and informally making the AI Exchange the standard in AI security.
 
 NOTE: Producing and continuously updating a comprehensive and coherent quality resource requires a strong coordinated approach. It is much harder than an approach of every person for themselves. But necessary.
+
+## Table of contents
+>Category: discussion  
+>Permalink: https://owaspai.org/goto/toc/
+
+* [AI Security Overview](docs/ai_security_overview/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [About the AI Exchange](https://owaspai.org/goto/about/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Organize AI](https://owaspai.org/goto/organize/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [How to use this document](https://owaspai.org/goto/document/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Essentials](https://owaspai.org/goto/essentials/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Threats](https://owaspai.org/goto/threatsoverview/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Threat matrix](https://owaspai.org/goto/aisecuritymatrix/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Controls](https://owaspai.org/goto/controlsoverview/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Periodic table of threats and controls](https://owaspai.org/goto/periodictable/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Risk analysis](https://owaspai.org/goto/riskanalysis/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [How about ...](https://owaspai.org/docs/ai_security_overview/#how-about-)  
+
+* [Deep dive into threats and controls:](https://owaspai.org/goto/navigator/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [1. General controls](/docs/1_general_controls)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.1 Governance controls](https://owaspai.org/goto/governancecontrols/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.2 Data limitation](https://owaspai.org/goto/datalimit/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.3 Limit unwanted behaviour](https://owaspai.org/goto/limitunwanted/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [2. Threats through use and controls](/docs/2_threats_through_use/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [3. Development-time threats and controls](/docs/3_development_time_threats/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [4. Runtime application security threats and controls](/docs/4_runtime_application_security_threats/)  
+
+* [AI security testing](/docs/5_testing/)
+
+* [AI privacy](/goto/aiprivacy/)  
+
+* [References](/docs/ai_security_references/)
+
+* [Index](/docs/ai_security_index/)
+
+
 
 ## Relevant OWASP AI initiatives
 >Category: discussion  
