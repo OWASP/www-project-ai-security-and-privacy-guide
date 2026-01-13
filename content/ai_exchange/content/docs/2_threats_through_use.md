@@ -978,8 +978,8 @@ Multimodal prompt injection can be:
   
 **Controls for all forms of prompt injection:**
 - See [General controls](/goto/generalcontrols/):
-  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) with highlights [MODEL ALIGNMENT](/goto/modelalignment/), [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/).
-- Controls for [threats through use](/goto/threatsuse/):
+  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) is inmportant, with key controls [MODEL ALIGNMENT](/goto/modelalignment/), [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/), given that prompt injection is hard to prevent.
+- Controls for [threats through use](/goto/threatsuse/), to limit the user set, oversee use and, prevent experiments that require many interactions:
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
@@ -1072,13 +1072,14 @@ Example 6: When an attacker manages to retrieve system instructions provided by 
 The same as for all prompt injection:
 
 - See [General controls](/goto/generalcontrols/):
-  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) with highlights [MODEL ALIGNMENT](/goto/modelalignment/), [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/).
-- Controls for [threats through use](/goto/threatsuse/):
+  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) is inmportant, with key controls [MODEL ALIGNMENT](/goto/modelalignment/), [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/), given that prompt injection is hard to prevent.
+- Controls for [threats through use](/goto/threatsuse/), to limit the user set, oversee use and, prevent experiments that require many interactions:
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
 - Controls for [prompt injection](/goto/promptinjection/):
-  - [#PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/) to handle any suspicious input or output
+  - [#PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/) to handle any suspicious input or output - see below
+
 
 **References**  
 - [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.T0051)
@@ -1111,16 +1112,15 @@ Mappings
 **Controls**
 
 - See [General controls](/goto/generalcontrols/):
-  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) with highlights [MODEL ALIGNMENT](/goto/modelalignment/), [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/).
-- Controls for [threats through use](/goto/threatsuse/):
-  - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output - and for INDIRECT prompt injection: looking primarily at the untrusted data that is inserted in the prompt
+  - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) is inmportant, with key controls [MODEL ALIGNMENT](/goto/modelalignment/), [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/), given that prompt injection is hard to prevent.
+- Controls for [threats through use](/goto/threatsuse/), to limit the user set, oversee use and, prevent experiments that require many interactions:
+  - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
 - Controls for [prompt injection](/goto/promptinjection/):
   - [#PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/) to handle any suspicious input or output - see below
-  - [#MODEL ALIGNMENT](/goto/modelalignment/) done by mostly model makers to try to make the model behave
 - Specifically for INDIRECT prompt injection:
-  - [#INPUT SEGREGEGATION](/goto/inputsegregation/) - discussed below
+  - [#INPUT SEGREGEGATION](/goto/inputsegregation/) -  to clearly deliniated untrusted input, discussed below
 
 **References**  
 - [Illustrative blog by Simon Willison](https://simonwillison.net/2023/Apr/14/worst-that-can-happen/)
