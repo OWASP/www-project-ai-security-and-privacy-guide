@@ -218,14 +218,14 @@ The AI exchange covers both heuristic artificial intelligence (e.g., expert syst
 You can see the high-level structure on the [main page](https://owaspai.org). On larger screens you can see the structure of pages on the left sidebar and the structure within the current page on the right. On smaller screens you can view these structures through the menu. There is also a section with the most importent topics in a [Table of contents](/goto/toc/).
 
 The main structure is made of the following pages:  
-- (0) [AI security overview - this page](/docs/ai_security_overview), contains an overview of AI security and discussions of various topics.
-- (1) [General controls, such as AI governance](/goto/generalcontrols/)
-- (2) [Threats through use, such as evasion attacks](/goto/threatsuse/)
-- (3) [Development-time threats, such as data poisoning](/goto/developmenttime/)
-- (4) [Runtime security threats, such as insecure output](/goto/runtimeappsec/)
-- (5) [AI security testing](/goto/testing/)
-- (6) [AI privacy](/goto/aiprivacy)
-- (7) [References](/goto/references/)
+  (0) [AI security overview - this page](/docs/ai_security_overview), contains an overview of AI security and discussions of various topics.
+  (1) [General controls, such as AI governance](/goto/generalcontrols/)
+  (2) [Threats through use, such as evasion attacks](/goto/threatsuse/)
+  (3) [Development-time threats, such as data poisoning](/goto/developmenttime/)
+  (4) [Runtime security threats, such as insecure output](/goto/runtimeappsec/)
+  (5) [AI security testing](/goto/testing/)
+  (6) [AI privacy](/goto/aiprivacy)
+  (7) [References](/goto/references/)
 
 This page (AI security overview) will continue with discussions about:
 - A high-level overview of threats
@@ -383,13 +383,13 @@ In the AI Exchange we focus on AI-specific threats and their corresponding contr
 The below diagram puts the controls in the AI Exchange into groups and places these groups in the right lifecycle with the corresponding threats.
 [![](/images/threatscontrols.png)](/images/threatscontrols.png)
 The groups of controls form a summary of how to address AI security (controls are in capitals):
-- 1. **AI Governance**: integrate AI comprehensively into your information security and software development lifecycle processes, not just by addressing AI risks, but by embedding AI considerations across the entire lifecycle:  
+- **AI Governance**(1): integrate AI comprehensively into your information security and software development lifecycle processes, not just by addressing AI risks, but by embedding AI considerations across the entire lifecycle:  
    > [AI PROGRAM](/goto/aiprogram/ ), [SEC PROGRAM](/goto/secprogram/), [DEV PROGRAM](/goto/devprogram/), [SECDEV PROGRAM](/goto/secdevprogram/), [CHECK COMPLIANCE](/goto/checkcompliance/), [SEC EDUCATE](/goto/seceducate/)
-- 2. **Extend supply chain management** with data and model governance:
+- **Extend supply chain management**(2) with data and model governance:
    > [SUPPLY CHAIN MANAGE](/goto/supplychainmanage/)
-- 4. **Minimize/obfuscate data:** Limit the amount of data at rest and in transit. Also, limit data storage time, development-time and runtime:
+- **Minimize/obfuscate data:**(4) Limit the amount of data at rest and in transit. Also, limit data storage time, development-time and runtime:
    > ([DATA MINIMIZE](/goto/dataminimize/), [ALLOWED DATA](/goto/alloweddata/), [SHORT RETAIN](/goto/shortretain/), [OBFUSCATE TRAINING DATA](/goto/obfuscatetrainingdata/))
-- 2. Apply conventional **technical security controls**, since an AI system is an IT system:
+- Apply conventional **technical security controls**(2), since an AI system is an IT system:
     - Apply standard **conventional security controls** (e.g., 15408, ASVS, OpenCRE, ISO 27001 Annex A, NIST SP800-53) to the complete AI system and don't forget the new AI-specific assets :
       - Development-time: model & data storage, model & data supply chain, data science documentation:  
         > [DEV SECURITY](/goto/devsecurity/), [SEGREGATE DATA](/goto/segregatedata/), [DISCRETE](/goto/discrete/)
@@ -399,12 +399,12 @@ The groups of controls form a summary of how to address AI security (controls ar
       > [MONITOR USE](/goto/monitoruse/), [MODEL ACCESS CONTROL](/goto/modelaccesscontrol/), [RATE LIMIT](/goto/ratelimit/)
     - Adopt **new** IT security controls:  
       > [CONF COMPUTE](/goto/confcompute/), [MODEL OBFUSCATION](/goto/modelobfuscation/), [INPUT SEGREGATION](/goto/inputsegregation/)
-- 3. Apply **AI engineer security controls** :
-    - 3a Data/model engineering controls as part of development:  
+- Apply **AI engineer security controls**(3) :
+    - Data/model engineering controls(3a) as part of development:  
       > [FEDERATED LEARNING](/goto/federatedlearning/), [CONTINUOUS VALIDATION](/goto/continuousvalidation/), [UNWANTED BIAS TESTING](/goto/unwantedbiastesting/), [EVASION ROBUST MODEL](/goto/evasionrobustmodel/), [POISON ROBUST MODEL](/goto/poisonrobustmodel/), [TRAIN ADVERSARIAL](/goto/trainadversarial/), [TRAIN DATA DISTORTION](/goto/traindatadistortion/), [ADVERSARIAL ROBUST DISTILLATION](/goto/adversarialrobustdistillation/), [MODEL ENSEMBLE](/goto/modelensemble/), [MORE TRAINDATA](/goto/moretraindata/), [SMALL MODEL](/goto/smallmodel/), [DATA QUALITY CONTROL](/goto/dataqualitycontrol/), [MODEL ALIGNMENT](/goto/modelalignment/)
-    - 3b Model I/O handling during runtime to filter and detect attacks:  
+    - Model I/O handling(3b) during runtime to filter and detect attacks:  
       > [ANOMALOUS INPUT HANDLING](/goto/anomalousinputhandling/), [EVASION INPUT HANDLING](/goto/evasioninputhandling/), [UNWANTED INPUT SERIES HANDLING](/goto/unwantedinputserieshandling/), [PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/), [DOS INPUT VALIDATION](/goto/dosinputvalidation/), [INPUT DISTORTION](/goto/inputdistortion/), [SENSITIVE OUTPUT HANDLING](/goto/sensitiveoutputhandling/), [OBSCURE CONFIDENCE](/goto/obscureconfidence/)
-5. **Limit model behaviour** as the model can behave in unwanted ways - unintentionally or by manipulation:  
+**Limit model behaviour**(5) as the model can behave in unwanted ways - unintentionally or by manipulation:  
    > [OVERSIGHT](/goto/oversight/), [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/), [MODEL ALIGNMENT](/goto/modelalignment), [AI TRANSPARENCY](/goto/aitransparency/), [EXPLAINABILITY](/goto/explainability/), [CONTINUOUS VALIDATION](/goto/continuousvalidation/), [UNWANTED BIAS TESTING](/goto/unwantedbiastesting/)
 
 All threats and controls are explored in more detail in the corresponding threat sections of the AI Exchange.
