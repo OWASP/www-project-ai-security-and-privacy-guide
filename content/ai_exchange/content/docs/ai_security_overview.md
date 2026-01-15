@@ -218,14 +218,14 @@ The AI exchange covers both heuristic artificial intelligence (e.g., expert syst
 You can see the high-level structure on the [main page](https://owaspai.org). On larger screens you can see the structure of pages on the left sidebar and the structure within the current page on the right. On smaller screens you can view these structures through the menu. There is also a section with the most importent topics in a [Table of contents](/goto/toc/).
 
 The main structure is made of the following pages:  
-- 0) [AI security overview - this page](/docs/ai_security_overview), contains an overview of AI security and discussions of various topics.
-- 1) [General controls, such as AI governance](/goto/generalcontrols/)
-- 2) [Threats through use, such as evasion attacks](/goto/threatsuse/)
-- 3) [Development-time threats, such as data poisoning](/goto/developmenttime/)
-- 4) [Runtime security threats, such as insecure output](/goto/runtimeappsec/)
-- 5) [AI security testing](/goto/testing/)
-- 6) [AI privacy](/goto/aiprivacy)
-- 7) [References](/goto/references/)
+- (0) [AI security overview - this page](/docs/ai_security_overview), contains an overview of AI security and discussions of various topics.
+- (1) [General controls, such as AI governance](/goto/generalcontrols/)
+- (2) [Threats through use, such as evasion attacks](/goto/threatsuse/)
+- (3) [Development-time threats, such as data poisoning](/goto/developmenttime/)
+- (4) [Runtime security threats, such as insecure output](/goto/runtimeappsec/)
+- (5) [AI security testing](/goto/testing/)
+- (6) [AI privacy](/goto/aiprivacy)
+- (7) [References](/goto/references/)
 
 This page (AI security overview) will continue with discussions about:
 - A high-level overview of threats
