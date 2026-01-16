@@ -373,10 +373,10 @@ Clickable version, based on the [Periodic table](/goto/periodictable/):
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/controlsoverview/
 
-### Select and implement controls with care
-The AI exchange lists a number of controls to mitigate risks of attack. Be aware that many of the controls are expensive to implement and are subject to trade-offs with other machine learning properties that can affect accuracy and normal operations of the model. Particularly, controls that involve changes to the learning process and data distributions can have un-intented downstream side-effects, and must be considered and introduced with care.
+**Select and implement controls with care**  
+The AI exchange lists a number of controls to mitigate risks of attack. Be aware that many of the controls are expensive to implement and are subject to trade-offs with other AI properties that can affect accuracy and normal operations of the model. Particularly, controls that involve changes to the learning process and data distributions can have un-intented downstream side-effects, and must be considered and introduced with care.
 
-### Scope of controls
+**Scope of controls**
 In the AI Exchange we focus on AI-specific threats and their corresponding controls. Some of the controls are AI-specific (e.g., adding noise to the training set) and others are not (e.g., encrypting the training database). We refer to the latter as 'conventional controls'. The Exchange focuses on the details of the AI-specific controls because the details of conventional controls are specified elsewhere - see for example [OpenCRE](https://opencre.org). We do provide AI-specific aspects of those controls, for example that protection of model parameters can be implemented using a Trusted Execution Environment.
 
 ### Threat model with controls - general
@@ -405,7 +405,7 @@ The groups of controls form a summary of how to address AI security (controls ar
     - Model I/O handling(3b) during runtime to filter and detect attacks:  
       > [ANOMALOUS INPUT HANDLING](/goto/anomalousinputhandling/), [EVASION INPUT HANDLING](/goto/evasioninputhandling/), [UNWANTED INPUT SERIES HANDLING](/goto/unwantedinputserieshandling/), [PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/), [DOS INPUT VALIDATION](/goto/dosinputvalidation/), [INPUT DISTORTION](/goto/inputdistortion/), [SENSITIVE OUTPUT HANDLING](/goto/sensitiveoutputhandling/), [OBSCURE CONFIDENCE](/goto/obscureconfidence/)
 - **Limit model behaviour**(5) as the model can behave in unwanted ways - unintentionally or by manipulation:  
-   > [OVERSIGHT](/goto/oversight/), [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/), [MODEL ALIGNMENT](/goto/modelalignment), [AI TRANSPARENCY](/goto/aitransparency/), [EXPLAINABILITY](/goto/explainability/), [CONTINUOUS VALIDATION](/goto/continuousvalidation/), [UNWANTED BIAS TESTING](/goto/unwantedbiastesting/)
+   > [OVERSIGHT](/goto/oversight/), [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/), [MODEL ALIGNMENT](/goto/modelalignment/), [AI TRANSPARENCY](/goto/aitransparency/), [EXPLAINABILITY](/goto/explainability/), [CONTINUOUS VALIDATION](/goto/continuousvalidation/), [UNWANTED BIAS TESTING](/goto/unwantedbiastesting/)
 
 All threats and controls are explored in more detail in the corresponding threat sections of the AI Exchange.
 
