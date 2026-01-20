@@ -445,7 +445,7 @@ Reduce the information available to attackers, which can assist them in selectin
 **Implementation**  
 Minimizing and protecting technical details can be achieved by incorporating such details as an asset into information security management. This will ensure proper asset management, data classification, awareness education, policy, and inclusion in risk analysis.
 
-Note: this control needs to be weighed against the [AITRANSPARENCY](#aitransparency) control that requires to be more open about technical aspects of the model. The key is to minimize information that can help attackers while being transparent.
+Note: this control needs to be weighed against the [AITRANSPARENCY](#aitransparency) control that nay require to be more open about technical aspects of the model. The key is to minimize information that can help attackers while being transparent.
 
 For example:
 
@@ -606,15 +606,24 @@ Therefore, alignment should be seen as a probabilistic, model-internal control t
 > Permalink: https://owaspai.org/goto/aitransparency/
 
 **Description**  
-AI transparency: By being transparent with users about the rough workings of the model, its training process, and the general expected accuracy and reliability of the AI system's output, people can adjust their reliance ([OWASP for LLM 09](https://llmtop10.com/llm09/)) on it accordingly. The simplest form of this is to inform users that an AI model is being involved. Transparency here is about providing abstract information regarding the model and is therefore something else than _explainability_.
+AI transparency: Informing users on the AI system's properties to enable them to adjust how they rely on it, what data they are willing to send to it, and what additional mitigations to apply. These AI system properties can include:
+- Rough working of the model
+- The training approach
+- Type of data used and the source
+- Expected accuracy and robustness of the AI system's output
+- Any residual (security) risks
+
+Note that transparency here is about providing abstract information regarding the AI system and is therefore something else than _explainability_ of model decisions. The simplest form of transparencey is to inform users that an AI model is being involved. This is for example required by the EU AI Act for chatbots.
 
 See the [DISCRETE](#discrete) control for the balance between being transparent and being discrete about the model. 
 
+Example: Informing users that when they choose an agent to perform a task, that the agent could be manipulated if it reads untrusted data and what consequences that could have (residual security risk) - followed by a recommendation to configure the permissions of the agent to the minimal set for the task.
+
 **References**  
-Useful standards include:
 
   - ISO/IEC 42001 B.7.2 describes data management to support transparency. Gap: covers this control minimally, as it only covers the data management part.
   - Not covered further in ISO/IEC standards.
+  - [OWASP top 10 for LLM 09 on over-reliance](https://llmtop10.com/llm09/)
 
 #### #CONTINUOUSVALIDATION
 > Category: runtime data science control  
