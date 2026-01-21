@@ -243,12 +243,12 @@ How to understand the bigger picture of AI security? What is different for AI?
 AI deals with a new set of threats and therefore requires new controls. Let's go through them.
 
 **New threats (overview [here](/goto/threatsoverview/)):**
-  1. **[Model input threats](/goto/threatsuse/)**:
+  - **[Model input threats](/goto/threatsuse/)**:
     - [Evasion](/goto/evasion/): Misleading a model by crafting data to force wrong decisions
     - [Prompt injection](/goto/promptinjection/): Misleading a model by crafting instructions to manipulate behaviour
     - [Extracting from the model](/goto/disclosureuse/): training data, augmentation data, or input
     - [Extracting of the model](/goto/modeltheftuse/) by querying the model
-  2. **New suppliers** introduce threats of corrupted external [data](/goto/datapoison/), [models](/goto/supplymodelpoison/), and [model hosting](/goto/readymademodel/)
+  - **New suppliers** introduce threats of corrupted external [data](/goto/datapoison/), [models](/goto/supplymodelpoison/), and [model hosting](/goto/readymademodel/)
   - **New AI assets** with conventional threats, notably:
     - Training data / augmentation data - can leak and ([poisoning](/goto/datapoison/)) this data manipulates model behaviour
     - Model - can leak during [development](/goto/devmodelleak/) or [runtime](/goto/runtimemodeltheft/) or can be [poisoned](/goto/devmodelpoison/)[ning](/goto/runtimemodelpoison/)
