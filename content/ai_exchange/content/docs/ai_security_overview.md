@@ -239,32 +239,37 @@ This page (AI security overview) will continue with discussions about:
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/essentials/
 
-The upcoming sections discuss AI security threats and corresponding controls. Below are the main insights to understand the bigger picture of AI security. What is different for AI systems?  
-Many experts and organizations contributed to this overview. This included close collaboration with SANS Institute - ensuring alignment with SANS’ Critical AI security guidelines, as part of the ongoing collaboration between SANS and the AI Exchange to share expertise and support broad education.
+How to understand the bigger picture of AI security? What is different for AI?  
+AI deals with a new set of threats and therefore requires new controls. Let's go through them.
 
 **New threats (overview [here](/goto/threatsoverview/)):**
-  - **[Model input threats](/goto/threatsuse/)**:
+  1. **[Model input threats](/goto/threatsuse/)**:
     - [Evasion](/goto/evasion/): Misleading a model by crafting data to force wrong decisions
     - [Prompt injection](/goto/promptinjection/): Misleading a model by crafting instructions to manipulate behaviour
     - [Extracting from the model](/goto/disclosureuse/): training data, augmentation data, or input
     - [Extracting of the model](/goto/modeltheftuse/) by querying the model
-  - **New suppliers** providing corrupted external [data](/goto/datapoison/), [models](/goto/supplymodelpoison/), and [model hosting](/goto/readymademodel/)
+  2. **New suppliers** introduce threats of corrupted external [data](/goto/datapoison/), [models](/goto/supplymodelpoison/), and [model hosting](/goto/readymademodel/)
   - **New AI assets** with conventional threats, notably:
-    - Training data / augmentation data (changing it manipulates model behaviour - [data poisoning](/goto/datapoison/))
-    - Model ([model](/goto/devmodelleak/) [theft](/goto/runtimemodeltheft/) or [poisoning](/goto/devmodelpoison/)[ning](/goto/runtimemodelpoison/))
-    - Input ([leak](/goto/leakinput/))
-    - Output (containing [injection attacks](/goto/insecureoutput/))
+    - Training data / augmentation data - can leak and ([poisoning](/goto/datapoison/)) this data manipulates model behaviour
+    - Model - can leak during [development](/goto/devmodelleak/) or [runtime](/goto/runtimemodeltheft/) or can be [poisoned](/goto/devmodelpoison/)[ning](/goto/runtimemodelpoison/)
+    - Input - can [leak](/goto/leakinput/)
+    - Output - can contain [injection attacks](/goto/insecureoutput/)
     
 **New controls (overview [here](/goto/controlsoverview/)):**
-- Specific **AI engineer controls**, to work against poisoning and model input attacks - next to conventional controls. This category is divided into **Data/model engineering** and **Model I/O handling** for filtering, stopping or alerting to suspicious input or output. It is typically the territory of AI experts e.g. data scientists with elements from mathematics, statistics, linguistics and machine learning.
+- Specific **AI engineer controls**, to work against poisoning and model input attacks - next to conventional controls. This category is divided into **Data/model engineering** during development and **Model I/O handling** for runtime filtering, stopping or alerting to suspicious input or output. It is typically the territory of AI experts e.g. data scientists with elements from mathematics, statistics, linguistics and machine learning.
 - **[Monitoring](/goto/monitoruse/)** of model performance and inference - extending model I/O handing and overlooking general usage of the AI system
 - **Impact limitation controls** (because of zero model trust: assume a model can be misled, make mistakes, or leak data):
   - [Minimize or obfuscate sensitive data](/goto/datalimit/)
-  - [Limit model behaviour](/goto/limitunwanted/) (e.g., [oversight](/goto/oversight/), [least model privilege](/goto/leastmodelprivilege/), [model alignment](/goto/modelalignment))
+  - [Limit model behaviour](/goto/limitunwanted/) (e.g., [oversight](/goto/oversight/), [least model privilege](/goto/leastmodelprivilege/), and [model alignment](/goto/modelalignment))
+
+
+Many experts and organizations contributed to this overview of essentials - including close collaboration with SANS Institute, ensuring alignment with SANS’ Critical AI security guidelines. SANS and the AI Exchange have an ongoing collaboration to share expertise and support broad education.
 
 (*) Note: Attackers that have a similar model (or a copy) can typically craft misleading input efficiently and without being noticed
 
 [![](/images/essentials5.png)](/images/essentials5.png)
+
+The upcoming sections discuss AI security threats and corresponding controls. 
 
 ---
 
