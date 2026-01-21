@@ -491,7 +491,7 @@ Example: LLMs (GenAI), just like most AI models, induce their results based on t
 > Permalink: https://owaspai.org/goto/oversight/
 
 **Description**  
-Oversight of model behaviour by humans or automated (using logic in the form of rules).
+Oversight of model behaviour by humans or automated (using logic in the form of rules), where human oversight can provide more intelligent validation given the involved common sense and human domain knowledge.
 
 **Objective**  
 Detect unwanted model behavior and correct or halt the execution of a model's decision.
@@ -513,8 +513,13 @@ Examples:
 The properties of wanted or unwanted model behavior often cannot be entirely specified, limiting the effectiveness of guardrails.
 
 **Limitations of human oversight:**
-The alternative to guardrails is to apply human oversight. This is of course more costly and slower, but allows for more intelligent validation given the involved common sense and human domain knowledge - provided that the person performing the oversight actually has the required knowledge.
-For human operators or drivers of automated systems like self-driving cars, staying actively involved or having a role in the control loop helps maintain situational awareness. This involvement can prevent complacency and ensures that the human operator is ready to take over control if the automated system fails or encounters a scenario it cannot handle. However, maintaining situational awareness can be challenging with high levels of automation due to the "out-of-the-loop" phenomenon, where the human operator may become disengaged from the task at hand, leading to slower response times or decreased effectiveness in managing unexpected situations.
+The downsides of human oversight aare:
+1. More costly and slower
+2. The risk of 'approval fatigue' where humans are overwhelmed by approval requests, especially if the large majority of those are okay.
+3. Lack of expertise to judge
+4. Lack of involvement in the situation to make the judgement - which is a form of lack of expertis
+
+Ad.4: Regarding lack of involvement: for human operators or drivers of automated systems like self-driving cars, staying actively involved or having a role in the control loop helps maintain situational awareness. This involvement can prevent complacency and ensures that the human operator is ready to take over control if the automated system fails or encounters a scenario it cannot handle. However, maintaining situational awareness can be challenging with high levels of automation due to the "out-of-the-loop" phenomenon, where the human operator may become disengaged from the task at hand, leading to slower response times or decreased effectiveness in managing unexpected situations.
 In other words: If you as a user are not involved actively in performing a task, then you lose understanding of whether it is correct or what the impact can be. If you then only need to confirm something by saying 'go ahead' or 'cancel', a badly informed 'go ahead' is easy to pick.
 
 **References**  
