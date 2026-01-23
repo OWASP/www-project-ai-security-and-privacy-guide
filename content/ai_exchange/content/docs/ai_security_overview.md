@@ -239,8 +239,8 @@ This page (AI security overview) will continue with discussions about:
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/essentials/
 
-How to understand the bigger picture of AI security? What is different for AI?  
-AI deals with a new set of threats and therefore requires new controls. Let's go through them.
+This section discusses the essentials of AI security. It serves as THE starting point to understand the bigger picture of the topic?  
+What makes AI special when it comes to security? Well, it deals with a new set of threats and therefore requires new controls. Let's go through them.
 
 **New threats (overview [here](/goto/threatsoverview/)):**
   - **[Model input threats](/goto/threatsuse/)**:
@@ -250,8 +250,8 @@ AI deals with a new set of threats and therefore requires new controls. Let's go
     - [Extracting of the model](/goto/modeltheftuse/) by querying the model
   - **New suppliers** introduce threats of corrupted external [data](/goto/datapoison/), [models](/goto/supplymodelpoison/), and [model hosting](/goto/readymademodel/)
   - **New AI assets** with conventional threats, notably:
-    - Training data / augmentation data - can leak and ([poisoning](/goto/datapoison/)) this data manipulates model behaviour
-    - Model - can leak during [development](/goto/devmodelleak/) or [runtime](/goto/runtimemodeltheft/) or can be [poisoned](/goto/devmodelpoison/)[ning](/goto/runtimemodelpoison/)
+    - Training data / augmentation data - can leak and [poisoning](/goto/datapoison/) this data manipulates model behaviour
+    - Model - can suffer from [leaking during development](/goto/devmodelleak/) or [leaking during runtime](/goto/runtimemodeltheft/) and when it comes to ingegrity: from [poisoning during development](/goto/devmodelpoison/) or [poisoning during runtime](/goto/runtimemodelpoison/)
     - Input - can [leak](/goto/leakinput/)
     - Output - can contain [injection attacks](/goto/insecureoutput/)
     
@@ -263,13 +263,13 @@ AI deals with a new set of threats and therefore requires new controls. Let's go
   - [Limit model behaviour](/goto/limitunwanted/) (e.g., [oversight](/goto/oversight/), [least model privilege](/goto/leastmodelprivilege/), and [model alignment](/goto/modelalignment))
 
 
-Many experts and organizations contributed to this overview of essentials - including close collaboration with SANS Institute, ensuring alignment with SANS’ Critical AI security guidelines. SANS and the AI Exchange have an ongoing collaboration to share expertise and support broad education.
-
 (*) Note: Attackers that have a similar model (or a copy) can typically craft misleading input efficiently and without being noticed
 
 [![](/images/essentials5.png)](/images/essentials5.png)
 
-The upcoming sections discuss AI security threats and corresponding controls. 
+Many experts and organizations contributed to this overview of essentials - including close collaboration with SANS Institute, ensuring alignment with SANS’ Critical AI security guidelines. SANS and the AI Exchange have an ongoing collaboration to share expertise and support broad education.
+
+The upcoming sections provide overviews of AI security threats and controls.
 
 ---
 
