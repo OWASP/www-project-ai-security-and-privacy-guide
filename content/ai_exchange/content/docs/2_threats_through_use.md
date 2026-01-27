@@ -346,7 +346,7 @@ Complement this control with #RATE LIMIT #MONITORUSE and incident response (#SEC
   - [OpenCRE on centralized access control](https://www.opencre.org/cre/117-371)
 
 #### #ANOMALOUS INPUT HANDLING
->Category: runtime AI engineer control for threats through use
+>Category: runtime AI engineer control for threats through use  
 >Permalink: https://owaspai.org/goto/anomalousinputhandling/ 
 
 **Description**  
@@ -436,7 +436,7 @@ Useful standards include:
 - ENISA Securing Machine Learning Algorithms Annex C: “Ensure that the model is sufficiently resilient to the environment in which it will operate.”
 
 #### #UNWANTED INPUT SERIES HANDLING
->Category: runtime AI engineer control for threats through use
+>Category: runtime AI engineer control for threats through use  
 >Permalink: https://owaspai.org/goto/unwantedinputserieshandling/ 
 
 **Description**  
@@ -494,7 +494,7 @@ See also [#ANOMALOUS INPUT HANDLING](/goto/anomalous input handling/) for detect
 
 
 #### #OBSCURE CONFIDENCE 
->Category: runtime AI engineer control for input threats
+>Category: runtime AI engineer control for input threats  
 >Permalink: https://owaspai.org/goto/obscureconfidence/
 
 **Description**
@@ -606,7 +606,7 @@ An evasion attack typically consists of first searching for the inputs that misl
 
 
 #### #EVASION INPUT HANDLING
->Category: runtime AI engineer control for threats through use
+>Category: runtime AI engineer control for threats through use  
 >Permalink: https://owaspai.org/goto/evasioninputhandling/ 
 
 **Description**  
@@ -1186,7 +1186,7 @@ The disclosure is caused by an unintentional fault of including this data, and e
   - [#FILTER SENSITIVE MODEL OUTPUT](/goto/filtersensitivemodeloutput/) - discussed below
 
 #### #SENSITIVE OUTPUT HANDLING
->Category: runtime information security control for input threats
+>Category: runtime information security control for input threats  
 >Permalink: https://owaspai.org/goto/sensitiveoutputhandling/
 
 **Description**
