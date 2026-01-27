@@ -668,7 +668,7 @@ Useful standards include:
 
 
 #### #EVASION ROBUST MODEL
->Category: development-time data science control for threats through use  
+>Category: development-time AI engineer control for threats through use  
 >Permalink: https://owaspai.org/goto/evasionrobustmodel/
 
 **Description**  
@@ -724,7 +724,7 @@ PMLR, 2018.
 
 
 #### #TRAIN ADVERSARIAL
->Category: development-time data science control for threats through use  
+>Category: development-time AI engineer control for threats through use  
 >Permalink: https://owaspai.org/goto/trainadversarial/
 
 **Description**  
@@ -751,7 +751,7 @@ Useful standards include:
 
 
 #### #INPUT DISTORTION
->Category: runtime data science control for threats through use  
+>Category: runtime AI engineer control for threats through use  
 >Permalink: https://owaspai.org/goto/inputdistortion/
 
 **Description**  
@@ -795,7 +795,7 @@ Useful standards include:
 
   
 #### #ADVERSARIAL ROBUST DISTILLATION
->Category: development-time data science control for threats through use  
+>Category: development-time AI engineer control for threats through use  
 >Permalink: https://owaspai.org/goto/adversarialrobustdistillation/
 
 **Description**  
@@ -1277,7 +1277,7 @@ The more details a model is able to learn, the more it can store information on 
 
 
 #### #SMALL MODEL 
->Category: development-time data science control for threats through use  
+>Category: development-time AI engineer control for threats through use  
 >Permalink: https://owaspai.org/goto/smallmodel/
 
 **Description**  
