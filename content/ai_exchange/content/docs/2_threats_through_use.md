@@ -641,8 +641,9 @@ Unlike traditional input validation (e.g. SQL injection), evasion input handling
 Adversarial examples may be crafted to evade both the primary model and dedicated detectors. Some detection techniques introduce additional computational overhead or reduce model accuracy. Physical-world attacks, such as adversarial patches, are especially challenging due to environmental noise and variability. This control does not prevent attackers from repeatedly probing the model to refine evasion strategies.
 
 **References**
+- [Survey of adversarial attack and defense](https://www.mdpi.com/2079-9292/11/8/1283)
 - [Feature squeezing](https://arxiv.org/pdf/1704.01155.pdf) (IDBT) compares the output of the model against the output based on a distortion of the input that reduces the level of detail. This is done by reducing the number of features or reducing the detail of certain features (e.g. by smoothing). This approach is like [INPUTDISTORTION](https://owaspai.org/docs/2_threats_through_use/#inputdistortion), but instead of just changing the input to remove any adversarial data, the model is also applied to the original input and then used to compare it, as a detection mechanism.
-- [MagNet](https://arxiv.org/abs/1705.09064) and [here](https://www.mdpi.com/2079-9292/11/8/1283)
+- [MagNet](https://arxiv.org/abs/1705.09064)
 - [DefenseGAN](https://arxiv.org/abs/1805.06605) and Goodfellow, I.; Pouget-Abadie, J.; Mirza, M.; Xu, B.; Warde-Farley, D.; Ozair, S.; Courville, A.; Bengio, Y. Generative adversarial networks. Commun. ACM 2020, 63, 139–144.
 - [Local intrinsic dimensionality](https://www.ijcai.org/proceedings/2021/0437.pdf)
 - Hendrycks, Dan, and Kevin Gimpel. “Early methods for detecting adversarial images.” arXiv preprint arXiv:1608.00530 (2016).
@@ -760,7 +761,7 @@ Input distortion: The process of slightly modifying and/or adding noise to the i
 **Implementation**  
 Input distortion defenses are effective against both evasion attacks and data poisoning attacks.
 
-  **Input distortion against Evasion Attacks**
+  **Input distortion against Evasion Attacks**  
   Evasion attacks rely on specific inputs that have been carefully prepared to give unwanted output. By distorting this input, chances are that the attack fails. Because all input is distorted, this can reduce model correctness. A way around that is to first use input without distortion and then one or  more distortions of that input. If the results deviate strongly, it would indicate an evasion attack. In that case, the output of the distorted input can be used and optionally an alert generated. In all other cases, the undistorted input can be used, yielding the most correct result.
   
   In addition, distorted input also hinders attackers searching for adversarial samples, where they  rely on gradients. However, there are ways in which attackers can work around this. A specific defense method called Random Transformations (RT) introduces enough randomness into the input data to make it computationally difficult for attackers to create adversarial examples. This randomness is typically achieved by applying a random subset of input transformations with random parameters. Since multiple transformations are applied to each input sample, the model's accuracy on regular data might drop, so the model needs to be retrained with these random transformations in place.
