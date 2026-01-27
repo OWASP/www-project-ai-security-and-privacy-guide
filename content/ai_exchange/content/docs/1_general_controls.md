@@ -369,7 +369,7 @@ Useful standards include:
   - Not covered yet in ISO/IEC standards.
 
 #### #OBFUSCATETRAININGDATA
-> Category: development-time data science control    
+> Category: development-time AI engineer control    
 > Permalink: https://owaspai.org/goto/obfuscatetrainingdata/
 
 **Description**  
@@ -565,7 +565,7 @@ One of the most powerful things to let AI agents do is to execute code. That is 
 
 
 #### #MODEL ALIGNMENT
-> Category: development-time and runtime AI engineer control against unwanted GenAI model behaviour 
+> Category: development-time and runtime AI engineer control
 > Permalink: https://owaspai.org/goto/modelalignment/
 
 **Description and objective**  
@@ -608,7 +608,7 @@ Therefore, alignment should be seen as a probabilistic, model-internal control t
 
 
 #### #AITRANSPARENCY
-> Category: runtime control    
+> Category: governance and runtime control    
 > Permalink: https://owaspai.org/goto/aitransparency/
 
 **Description**  
@@ -632,7 +632,7 @@ Example: Informing users that when they choose an agent to perform a task, that 
   - [OWASP top 10 for LLM 09 on over-reliance](https://llmtop10.com/llm09/)
 
 #### #CONTINUOUSVALIDATION
-> Category: runtime data science control  
+> Category: development-time and runtime AI engineer control  
 > Permalink: https://owaspai.org/goto/continuousvalidation/
 
 **Description**  
@@ -698,14 +698,14 @@ Useful standards include:
 
 
 #### #EXPLAINABILITY 
-> Category: runtime data science control  
+> Category: runtime AI engineer control  
 > Permalink: https://owaspai.org/goto/explainability/
 
 **Description**  
 Explainability: Explaining how individual model decisions are made, a field referred to as Explainable AI (XAI), can aid in gaining user trust in the model. In some cases, this can also prevent overreliance, for example, when the user observes the simplicity of the 'reasoning' or even errors in that process. See [this Stanford article on explainability and overreliance](https://hai.stanford.edu/news/ai-overreliance-problem-are-explanations-solution). Explanations of how a model works can also aid security assessors to evaluate AI security risks of a model.
 
 #### #UNWANTEDBIASTESTING 
-> Category: runtime data science control  
+> Category: development-time and runtime AI engineer control  
 > Permalink: https://owaspai.org/goto/unwantedbiastesting/
 
 **Description**  
