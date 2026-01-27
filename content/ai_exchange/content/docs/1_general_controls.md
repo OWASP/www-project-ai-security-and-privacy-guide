@@ -336,7 +336,7 @@ Useful standards include:
   - Not covered yet in ISO/IEC standards.
 
 #### #ALLOWEDDATA 
-> Category: development-time and runtime control    
+> Category: development-time and runtime control  
 > Permalink: https://owaspai.org/goto/alloweddata/
 
 **Description**  
@@ -565,7 +565,7 @@ One of the most powerful things to let AI agents do is to execute code. That is 
 
 
 #### #MODEL ALIGNMENT
-> Category: development-time and runtime AI engineer control
+> Category: development-time and runtime AI engineer control  
 > Permalink: https://owaspai.org/goto/modelalignment/
 
 **Description and objective**  
