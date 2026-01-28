@@ -73,7 +73,7 @@ A systematic approach to AI security testing involves a few key steps:
 > Permalink: https://owaspai.org/goto/testingpromptinjection/
 
 **Test description**  
-Testing for resistance against Prompt injection is done by presenting crafted data for assessing the effects (e.g., triggering unwanted actions, offensive outputs, sensitive data disclosure).  
+Testing for resistance against Prompt injection is done by presenting a carefully crafted set of inputs with instructions to achieve unwanted model behaviour (e.g., triggering unwanted actions, offensive outputs, sensitive data disclosure) and evaluating the corresponding risks.  
 This covers the following threats:
 - [Direct prompt injection](/goto/directpromptinjection/)
 - [Indirect prompt injection](/goto/indirectpromptinjection/) 
