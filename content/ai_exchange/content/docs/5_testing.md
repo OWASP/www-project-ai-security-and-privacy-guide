@@ -88,7 +88,7 @@ Collect a base set of crafted instructions that represent the state of the art f
 Remove the input attacks for which the risk would be accepted (see Evaluation step), but keep these aside for when context and risk appetite evolve.
 
 **(2) Tailor attacks**  
-Tailor the collected and selected input attacks where possible to the context and add input attacks when necessary. The goal is to to make attacks as effective and harmful as possible:
+Tailor the collected and selected input attacks where possible to the context and add input attacks when necessary. This is a creative process that requires understanding of the system and its context, to craft effective attacks with as much harm as possible:
 - Try to extract data that have been identified as sensitive assets that could be in the output (e.g., phone numbers, API tokens) - stemming from training data, model input and augmentation data.
 - Try to achieve output that in the context would be considered as unacceptable (see Evaluation step).
 - In case there is downstream processing (e.g., actions that are triggered, or other agents), tailor or craft attacks to abuse this processing. For example: abuse a tool to send email for exfiltrating sensitive data. This requires thorough analysis of potential attack flows, especially in agentic AI where agent behaviour is complex and hard to predict. Such tailorization would typically require tailoring the detection mechanisms as well, as they may want to detect beyond what is in model output: state changes, or privilege escalation, or the triggering of certain unwanted actions. For downstream effects, detections downstream typically are more effective than trying to scan model output.
