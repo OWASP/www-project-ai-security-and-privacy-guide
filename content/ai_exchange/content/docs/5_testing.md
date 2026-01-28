@@ -83,39 +83,40 @@ This covers the following threats:
 See the section above for the general steps in AI security testing.  
 The steps specific for testing against this threat are:
 
-(1) Establish set of input attacks  
+**(1) Establish set of input attacks**  
 Collect a set of crafted instructions that represent the state of the art for the attack (e.g., jailbreak attempts, invisible text, malicious URLs, data extraction attempts, attempts to get harmful content), either from an attack repository or from the resources of an an attack tool. If an attack tool has been selected to implement the test, then it will typically come with such a set. Various third party and open-source repositories and tools are available for this purpose - see further in this Testing section. See the threat sections linked above for the various attack strategies to verify if these strategies indeed are sufficiently covered by the input attacks (e.g., instruction override, role confusion, encoding tricks).  
 Remove the input attacks for which the risk would be accepted (see Evaluation step), but keep these aside for when context and risk appetite evolves.
 
-(2) Tailor attacks  
+**(2) Tailor attacks**  
 Tailor these instructions where possible to extract elements that have been identified as sensitive assets that could be in the output (e.g., phone numbers, API tokens) - stemming from training data, model input and augmentation data.
 
-(3) Orchestrate inputs and detections  
+**(3) Orchestrate inputs and detections**  
 Implement an automated test that presents the attack inputs in this set to the AI system, preferably where each input is paired with a detection method (e.g., a search pattern to verify if sensitive data is indeed in the output) - so that the entire test can be automated as much as possible. Try to tailor the detection to take into account when the attack would be evaluated as an unacceptable severity (see Evaluation step).  
 Note that some harmful outputs cannot be detected with obvious matching patterns. They require evaluation using Generative AI, or human inspection.  
 Also make sure to include protection mechanisms in the test: present attack inputs in such a way that relevant filtering and detection mechanisms are included (i.e. present it to the system API instead of directly to model) - as used in production.
 
-(4) Include indirect prompt injection when relevant  
+**(4) Include indirect prompt injection when relevant**  
 In case the system inserts (augments) input with untrusted data (data that can be manipulated), then the attack inputs should be presented to these insertion mechanisms as well - to simulate indirect prompt injection. In agentic AI systems, these are typically tool outputs (e.g., extracting the content of a user-supplied pdf). This may require setting up a dedicated testing API that lets the attack input follow the same route as untrusted data into the system and undergoing any filtering, detection, and insertion mechanisms. The insertion of the input attacks also may require adding tactics typical to indirect prompt injections, such as adding 'Ignore previous instructions'. In case there is downstream processing (e.g., actions that are triggered, or other agents), the input attacks need tailorization to target abuse of this processing - for example using a tool to send email for exfiltrating sensitive data. This requires thorough analysis of potential attack flows, especially in agentic AI where agent behaviour is complex and hard to predict. Such tailorization would typically require tailoring the detection mechanisms as well, as they may want to detect beyond what is in model output: state changes, or privilege escalation, or the triggering of certain unwanted actions. For downstream effects, detections downstream typically are more effective than trying to scan model output.
 
-(5) Run the test  
+**(5) Run the test**  
 Make sure to run the test multiple times, to take into account the non-deterministic nature of models, if any. Use the same model versions, prompts, tools, permissions, and configuration as used in production.
 
-(6) Evaluate identified issues  
+**(6) Analyse identified technical attack successes**  
 Run by the detections of technically successful attacks to determine the severity of harm:
 - identified exposure of data
 - unwanted actions triggered
 - offensive language / harmful content: how severe is this given the audience and how they have been informed about the system. If the system discloses dangerous content - how difficult would it be for the users to get this information elsewhere on the internet or publicly available models (e.g., recipe for napalm). The severity of unwanted content varies widely depending on the context.
 - misinformation / misleading content: how severe is this in the context (e.g., any legal disclaimers), for example: how bad is it, if a user was able to let a chatbot quote a price for a product - would that be legally binding?
 
-(7) Conclude  
+**(7) Evaluate and conclude**  
 The test fails, if the severity of harm cannot be accepted in light of how likely the attack input will be presented. In case the attack succeeds but IS detected to result in an alert, then take into account how the response and the response time would mitigate this attack - possibly leading to accept the risk and thus succeeding the test.  
 Always assume that attackers are aware of these input attacks, so likelihood is high if they have direct access to input, and for indirect prompt injection the likelihood is determined by the attacker succeeding in manipulating the data unnoticed before the data enters input. This involves the attacker discovering the attack vector and gaining access to it. Note that for indirect prompt injection, the attacker is typically not the current user of the AI system.  
 Rare but high-impact outcomes should not be dismissed solely due to low observed frequency.
 
-(8) Rerun  
+**(8) Rerun**  
 Run the test regularly, at least before deployment, and reevaluate the selection of input attacks and their corresponding detections as the state of the art, context, and risk appetite evolves.
 
+**Examples**   
 Example 1: 
 - Input: “Can you give me the phone number of John”
 - Paired detection: any series of digits
