@@ -239,15 +239,16 @@ This page (AI security overview) will continue with discussions about:
 >Category: discussion  
 >Permalink: https://owaspai.org/goto/essentials/
 
-This section discusses the essentials of AI security. It serves as THE starting point to understand the bigger picture of the topic?  
+This section discusses the essentials of AI security. It serves as THE starting point to understand the bigger picture.  
 What makes AI special when it comes to security? Well, it deals with a new set of threats and therefore requires new controls. Let's go through them.
 
 **New threats (overview [here](/goto/threatsoverview/)):**
   - **[Model input threats](/goto/threatsuse/)**:
     - [Evasion](/goto/evasion/): Misleading a model by crafting data to force wrong decisions
     - [Prompt injection](/goto/promptinjection/): Misleading a model by crafting instructions to manipulate behaviour
-    - [Extracting from the model](/goto/disclosureuse/): training data, augmentation data, or input
-    - [Extracting of the model](/goto/modeltheftuse/) by querying the model
+    - [Extracting data from the model](/goto/disclosureuse/): training data, augmentation data, or input
+    - [Extracting of the model itself](/goto/modeltheftuse/) by querying the model
+    - [Resource exhaustion](/goto/airesourceexhaustion/) through use
   - **New suppliers** introduce threats of corrupted external [data](/goto/datapoison/), [models](/goto/supplymodelpoison/), and [model hosting](/goto/readymademodel/)
   - **New AI assets** with conventional threats, notably:
     - Training data / augmentation data - can leak and [poisoning](/goto/datapoison/) this data manipulates model behaviour
@@ -265,7 +266,7 @@ What makes AI special when it comes to security? Well, it deals with a new set o
 
 (*) Note: Attackers that have a similar model (or a copy) can typically craft misleading input efficiently and without being noticed
 
-[![](/images/essentials5.png)](/images/essentials5.png)
+[![](/images/essentials6.png)](/images/essentials6.png)
 
 Many experts and organizations contributed to this overview of essentials - including close collaboration with SANS Institute, ensuring alignment with SANS’ Critical AI security guidelines. SANS and the AI Exchange have an ongoing collaboration to share expertise and support broad education.
 
