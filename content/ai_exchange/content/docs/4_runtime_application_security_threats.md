@@ -162,7 +162,7 @@ Model input confidentiality: see [SECDEVPROGRAM](/goto/secdevprogram/) to attain
 Impact: Confidentiality breach of sensitive augmentation data
 
 Augmentation data (background information added to a prompt) is typically stored in _vector databases_. This increases the attack surface for any sensitive data, since it's stored outside its regular storage with the regular protection (e.g., company reports) and therefore requires additional protection.   
-See [Leak sensitive input data](goto/leakinput/) for how augmentation data can leak when it's added to the prompt. The best practice is to assume that augmentation data can leak to the output, so the access rights for that data need to align with the rights of the user(s) that can see the output.
+See [Leak sensitive input data](/goto/leakinput/) for how augmentation data can leak when it's added to the prompt. The best practice is to assume that augmentation data can leak to the output, so the access rights for that data need to align with the rights of the user(s) that can see the output.
 
 **Controls**
 - See [General controls](/goto/generalcontrols/)
