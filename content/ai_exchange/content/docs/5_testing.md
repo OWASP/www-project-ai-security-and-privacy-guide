@@ -70,7 +70,7 @@ A systematic approach to AI security testing involves a few key steps:
 
 ### Testing against Prompt injection
 > Category: AI security test  
-> Permalink: https://owaspai.org/goto/promptinjectiontesting/
+> Permalink: https://owaspai.org/goto/testingpromptinjection/
 
 **Test description**  
 Testing for resistance against Prompt injection is done by presenting crafted data for assessing the effects (e.g., triggering unwanted actions, offensive outputs, sensitive data disclosure).  
