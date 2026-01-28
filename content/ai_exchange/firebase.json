@@ -609,6 +609,11 @@
         "type": 301
       },
       {
+        "source": "/goto/testingpromptinjection/",
+        "destination": "/docs/5_testing/#testing-against-prompt-injection",
+        "type": 301
+      },
+      {
         "source": "/goto/aiprivacy/",
         "destination": "/docs/6_privacy",
         "type": 301
