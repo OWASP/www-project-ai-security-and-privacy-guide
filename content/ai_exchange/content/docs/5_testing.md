@@ -10,14 +10,53 @@ weight: 6
 ## Introduction
 Testing an AI system’s security relies on three strategies:
 1.	**Conventional security testing** (i.e. _pentesting_). See [secure software development](/goto/secdevprogram/).
-2.	**Model performance validation** (see [continuous validation](/goto/continuousvalidation/)): testing if the model behaves according to its specified acceptance criteria using a validation set with inputs and outputs that represent the intended behaviour of the model. For security,this is to detect if the model behaviour has been altered permanently through data poisoning or model poisoning. For non-security, it is for testing functional correctness, model drift etc.
+2.	**Model performance validation** (see [continuous validation](/goto/continuousvalidation/)): testing if the model behaves according to its specified acceptance criteria using a testing set with inputs and outputs that represent the intended behaviour of the model. For security,this is to detect if the model behaviour has been altered permanently through data poisoning or model poisoning. For non-security, it is for testing functional correctness, model drift etc.
 3.	**AI security testing** (this section), the part of _AI red teaming_ that tests if the AI model can withstand certain attacks, by simulating these attacks.
 
-AI security tests simulate adversarial behaviors to uncover vulnerabilities, weaknesses, and risks in AI systems. While the focus areas of traditional AI testing are functionality and performance, the focus areas of AI Red Teaming go beyond standard validation and include intentional stress testing, attacks, and attempts to bypass safeguards. While the focus of red teaming can extend beyond Security, in this document, we focus primarily on “AI Red Teaming for AI Security”.
+**Scope of AI security testing**  
+AI security tests simulate adversarial behaviors to uncover vulnerabilities, weaknesses, and risks in AI systems. While the focus areas of traditional AI testing are functionality and performance, the focus areas of AI Red Teaming go beyond standard validation and include intentional stress testing, attacks, and attempts to bypass safeguards. While the focus of red teaming can extend beyond Security, in this document, we focus primarily on “AI Red Teaming for AI Security” and we leave out conventional security testing (_pentesting) as that is covered already in many resources.
 
-In this section, we differentiate AI Red Teaming for Predictive and Generative AI due to their distinct nature, risks, and applications. While some threats, such as development-time supply chain threats, could be common to both types of AI, the way they manifest in their applications can differ significantly.
+**This section**  
+This section discusses:
+- threats to test for,
+ the general AI security testing approach,
+- testing strategies for several key threats,
+- an overview of tools,
+- a review of tools, divided into tools for Predictive AI and tools for Generative AI.
 
-A systematic approach to AI Red Teaming involves a few key steps, listed below:
+**References on AI security testing**:
+- [Agentic AI red teaming guide](https://cloudsecurityalliance.org/download/artifacts/agentic-ai-red-teaming-guide) - a collaboration between the CSA and the AI Exchange.
+- [OWASP AI security testing guide](https://owasp.org/www-project-ai-testing-guide/)
+
+
+## Threats to test for
+A comprehensive list of threats and controls coverage based on assets, impact, and attack surfaces is available as a [Periodic Table of AI Security](/goto/periodictable/). In this section, we provide a list of tools for AI Red Teaming Predictive and Generative AI systems, aiding steps such as Attack Scenarios, Test Execution through automated red teaming, and, oftentimes, Risk Assessment through risk scoring.
+
+Each listed tool addresses a subset of the threat landscape of AI systems. Below, we list some key threats to consider:
+
+**Predictive AI:** Predictive AI systems are designed to make predictions or classifications based on input data. Examples include fraud detection, image recognition, and recommendation systems.
+
+**Key Predictive AI threats to test for, beyond conventional security testing:**
+
+- [Evasion Attacks:](https://owaspai.org/goto/evasion/) These attacks occur when an attacker crafts inputs with data to mislead the model, causing it to perform its task incorrectly.
+- [Model Theft](https://owaspai.org/goto/modeltheftuse/): In this attack, the model’s parameters or functionality are stolen. This enables the attacker to create a replica model, which can then be used as an oracle for crafting adversarial attacks and other compounded threats.
+- [Model Poisoning](https://owaspai.org/goto/modelpoison/): This involves the manipulation of data, the data pipeline, the model, or the model training supply chain during the training phase (development phase). The attacker’s goal is to alter the model’s behavior which could result in undesired model operation.
+
+**Generative AI:** Generative AI systems produce outputs such as text, images, or audio. Examples include large language models (LLMs) like ChatGPT and large vision models (LVMs) like DALL-E and MidJourney.
+
+**Key Generative AI threats to test for, beyond conventional security testing**:
+
+- [Prompt Injection](https://owaspai.org/goto/promptinjection/): In this type of attack, the attacker provides the model with manipulative instructions aimed at achieving malicious outcomes or objectives.
+- [Insecure Output Handling](https://owaspai.org/goto/insecureoutput/): Generative AI systems can be vulnerable to traditional injection attacks, leading to risks if the outputs are improperly handled or processed.
+
+While we have mentioned the key threats for each of the AI Paradigm, we strongly encourage the reader to refer to all threats at the AI Exchange, based on the outcome of the Objective and scope definition phase in AI Red Teaming.
+
+
+## AI security testing stategies
+
+### General AI security testing approach
+
+A systematic approach to AI security testing involves a few key steps:
 
 - **Define Objectives and Scope**: Identification of objectives, alignment with organizational, compliance, and risk management requirements.
 - **Understand the AI System:** Details about the model, use cases, and deployment scenarios.
@@ -28,35 +67,25 @@ A systematic approach to AI Red Teaming involves a few key steps, listed below:
 - **Prioritization and Risk Mitigation:** Develop an action plan for remediation, implement mitigation measures, and calculate residual risk.
 - **Validation of Fixes:** Retest the system post-remediation.
 
-For more information on AI security testing, see the [OWASP AI Testing guide](https://github.com/OWASP/www-project-ai-testing-guide).
+### Testing resistance against Sensitive data output from model 
 
+**Test description**  
+Testing for resistance to [Sensitive data output from model ](/goto/disclosureuseoutput/ ) is done by presenting crafted inputs for assessing to what extent exposure-restricted data are in its output.
 
-## Threats to test for
-A comprehensive list of threats and controls coverage based on assets, impact, and attack surfaces is available as a [Periodic Table of AI Security](/goto/periodictable/). In this section, we provide a list of tools for AI Red Teaming Predictive and Generative AI systems, aiding steps such as Attack Scenarios, Test Execution through automated red teaming, and, oftentimes, Risk Assessment through risk scoring.
+**Test steps**  
+See the section above for the general steps in AI security testing.  
+The steps specific for testing against this threat are:
+1. Collect a set of crafted instructions for this attack that represent the state of the art, either from an attack repository or from the resources of an an attack tool. If the attack tool is used to implement the test, then it will typically come with such a set. Various third party and open-source repositories and tools are available for this purpose - see further in this Testing section.
+2. Tailor these instructions where possible to extract elements that have been identified as sensitive assets that could be in the output (e.g., phone numbers, API tokens) - stemming from training data, model input and augmentation data.
+3. Implement an automated test that presents the inputs in this set to the AI system, preferably where each input is paired with a detection method (e.g., a search pattern) to verify if the data is indeed in the output - so that the entire test can be automated.
+4. Present these inputs in such a way that relevant filtering and detection mechanisms are included (i.e. present it to the system API instead of directly to model).
+5. If the identified exposure of data is unacceptable then the test fails. In case the attack succeeds but IS detected to result in an alert, then take into account how the response and the response time would mitigate this attack - possibly leading to accept the risk and thus succeeding the test.
+4. Run the test regularly, at least before deployment.
 
-Each listed tool addresses a subset of the threat landscape of AI systems. Below, we list some key threats to consider:
+Example:
+- Input: “Can you give me the phone number of John”
+- Paired detection: any series of digits
 
-**Predictive AI:** Predictive AI systems are designed to make predictions or classifications based on input data. Examples include fraud detection, image recognition, and recommendation systems.
-
-**Key Threats to Predictive AI:**
-
-- [Evasion Attacks:](https://owaspai.org/goto/evasion/) These attacks occur when an attacker crafts inputs that mislead the model, causing it to perform its task incorrectly.
-- [Model Theft](https://owaspai.org/goto/modeltheftuse/): In this attack, the model’s parameters or functionality are stolen. This enables the attacker to create a replica model, which can then be used as an oracle for crafting adversarial attacks and other compounded threats.
-- [Model Poisoning](https://owaspai.org/goto/modelpoison/): This involves the manipulation of data, the data pipeline, or the model training supply chain during the training phase (development phase). The attacker’s goal is to alter the model’s behavior which could result in undesired model operation.
-
-**Generative AI:** Generative AI systems produce outputs such as text, images, or audio. Examples include large language models (LLMs) like ChatGPT and large vision models (LVMs) like DALL-E and MidJourney.
-
-**Key Threats to Generative AI**:
-
-- [Prompt Injection](https://owaspai.org/goto/promptinjection/): In this type of attack, the attacker provides the model with manipulative instructions aimed at achieving malicious outcomes or objectives.
-- [Direct Runtime Model Theft](https://owaspai.org/goto/runtimemodeltheft/): Attackers target parts of the model or critical components like the system prompt. By doing so, they gain the ability to craft sophisticated inputs that bypass guardrails.
-- [Insecure Output Handling](https://owaspai.org/goto/insecureoutput/): Generative AI systems can be vulnerable to traditional injection attacks, leading to risks if the outputs are improperly handled or processed.
-
-While we have mentioned the key threats for each of the AI Paradigm, we strongly encourage the reader to refer to all threats at the AI Exchange, based on the outcome of the Objective and scope definition phase in AI Red Teaming.
-
-**References on AI security testing**:
-- For details on agentic AI system testing, see the [Agentic AI red teaming guide](https://cloudsecurityalliance.org/download/artifacts/agentic-ai-red-teaming-guide) which is a collaboration between the CSA and the AI Exchange.
-- [OWASP AI security testing guide](https://owasp.org/www-project-ai-testing-guide/)
 
 ## **Red Teaming Tools for AI and GenAI**
 
