@@ -21,6 +21,7 @@ h1 {
 }
 .docs-main ol, .docs-main ul, .docs-main menu {
     list-style: initial !important;
+    padding-left: 1rem !important;
     margin-left: 1rem !important;
     margin-bottom: 1rem !important;
 }
