@@ -614,6 +614,16 @@
         "type": 301
       },
       {
+        "source": "/goto/testingtoolspredictiveai/",
+        "destination": "/docs/5_testing/#open-source-tools-for-predictive-ai-red-teaming",
+        "type": 301
+      },
+      {
+        "source": "/goto/testingtoolsgenai/",
+        "destination": "/docs/5_testing/#open-source-tools-for-generative-ai-red-teaming",
+        "type": 301
+      },
+      {
         "source": "/goto/aiprivacy/",
         "destination": "/docs/6_privacy",
         "type": 301
