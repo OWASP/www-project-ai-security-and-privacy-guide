@@ -243,27 +243,27 @@ This section discusses the essentials of AI security. It serves as THE starting 
 What makes AI special when it comes to security? Well, it deals with a new set of threats and therefore requires new controls. Let's go through them.
 
 **New threats** (overview [here](/goto/threatsoverview/)):
-  1. **[Model input threats](/goto/threatsuse/)**:
+  - **[Model input threats](/goto/threatsuse/)**:
     - [Evasion](/goto/evasion/): Misleading a model by crafting data to force wrong decisions
     - [Prompt injection](/goto/promptinjection/): Misleading a model by crafting instructions to manipulate behaviour
     - [Extracting data from the model](/goto/disclosureuse/): training data, augmentation data, or input
     - [Extracting of the model itself](/goto/modeltheftuse/) by querying the model
     - [Resource exhaustion](/goto/airesourceexhaustion/) through use
-  2. **New suppliers** introduce threats of corrupted external [data](/goto/datapoison/), [models](/goto/supplymodelpoison/), and [model hosting](/goto/readymademodel/)
-  3. **New AI assets** with conventional threats, notably:
-    - Training data / augmentation data - can leak and [poisoning](/goto/datapoison/) this data manipulates model behaviour
-    - Model - can suffer from [leaking during development](/goto/devmodelleak/) or [leaking during runtime](/goto/runtimemodeltheft/) and when it comes to ingegrity: from [poisoning during development](/goto/devmodelpoison/) or [poisoning during runtime](/goto/runtimemodelpoison/)
-    - Input - can [leak](/goto/leakinput/)
-    - Output - can contain [injection attacks](/goto/insecureoutput/)
+  - **New suppliers** introduce threats of corrupted external [data](/goto/datapoison/), [models](/goto/supplymodelpoison/), and [model hosting](/goto/readymademodel/)
+  - **New AI assets** with conventional threats, notably:
+   - Training data / augmentation data - can leak and [poisoning](/goto/datapoison/) this data manipulates model behaviour
+   - Model - can suffer from [leaking during development](/goto/devmodelleak/) or [leaking during runtime](/goto/runtimemodeltheft/) and when it comes to ingegrity: from [poisoning during development](/goto/devmodelpoison/) or [poisoning during runtime](/goto/runtimemodelpoison/)
+   - Input - can [leak](/goto/leakinput/)
+   - Output - can contain [injection attacks](/goto/insecureoutput/)
     
 **New controls** (overview [here](/goto/controlsoverview/)):
 
-1. Extend existing [Governance](/goto/aiprogram/), [Risk](/goto/riskanalysis/) and [Compliance](/goto/checkcompliance/) - in order to secure AI, you need overview, analysis, policy, training, and responsibilities
-2. Extend existing **conventional security controls** to protect the AI-specific assets
-3. Extend [Supply chain management](/goto/supplychainmanage/) to incorporate obtaining data, models, and hosting
-4. Specific **AI engineer controls**, to work against poisoning and model input attacks - next to conventional controls. This category is divided into **Data/model engineering** during development and **Model I/O handling** for runtime filtering, stopping or alerting to suspicious input or output. It is typically the territory of AI experts e.g. data scientists with elements from mathematics, statistics, linguistics and machine learning.
-5. **[Monitoring](/goto/monitoruse/)** of model performance and inference - extending model I/O handing and overlooking general usage of the AI system
-6. **Impact limitation controls** (because of zero model trust: assume a model can be misled, make mistakes, or leak data):
+- Extend existing [Governance](/goto/aiprogram/), [Risk](/goto/riskanalysis/) and [Compliance](/goto/checkcompliance/) - in order to secure AI, you need overview, analysis, policy, training, and responsibilities
+- Extend existing **conventional security controls** to protect the AI-specific assets
+- Extend [Supply chain management](/goto/supplychainmanage/) to incorporate obtaining data, models, and hosting
+- Specific **AI engineer controls**, to work against poisoning and model input attacks - next to conventional controls. This category is divided into **Data/model engineering** during development and **Model I/O handling** for runtime filtering, stopping or alerting to suspicious input or output. It is typically the territory of AI experts e.g. data scientists with elements from mathematics, statistics, linguistics and machine learning.
+- **[Monitoring](/goto/monitoruse/)** of model performance and inference - extending model I/O handing and overlooking general usage of the AI system
+- **Impact limitation controls** (because of zero model trust: assume a model can be misled, make mistakes, or leak data):
   - [Minimize or obfuscate sensitive data](/goto/datalimit/)
   - [Limit model behaviour](/goto/limitunwanted/) (e.g., [oversight](/goto/oversight/), [least model privilege](/goto/leastmodelprivilege/), and [model alignment](/goto/modelalignment))
 
