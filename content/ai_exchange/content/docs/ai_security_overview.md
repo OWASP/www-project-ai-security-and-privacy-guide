@@ -251,10 +251,10 @@ What makes AI special when it comes to security? Well, it deals with a new set o
     - [Resource exhaustion](/goto/airesourceexhaustion/) through use
   - **New suppliers** introduce threats of corrupted external [data](/goto/datapoison/), [models](/goto/supplymodelpoison/), and [model hosting](/goto/readymademodel/)
   - **New AI assets** with conventional threats, notably:
-   - Training data / augmentation data - can leak and [poisoning](/goto/datapoison/) this data manipulates model behaviour
-   - Model - can suffer from [leaking during development](/goto/devmodelleak/) or [leaking during runtime](/goto/runtimemodeltheft/) and when it comes to ingegrity: from [poisoning during development](/goto/devmodelpoison/) or [poisoning during runtime](/goto/runtimemodelpoison/)
-   - Input - can [leak](/goto/leakinput/)
-   - Output - can contain [injection attacks](/goto/insecureoutput/)
+    - Training data / augmentation data - can leak and [poisoning](/goto/datapoison/) this data manipulates model behaviour
+    - Model - can suffer from [leaking during development](/goto/devmodelleak/) or [leaking during runtime](/goto/runtimemodeltheft/) and when it comes to ingegrity: from [poisoning during development](/goto/devmodelpoison/) or [poisoning during runtime](/goto/runtimemodelpoison/)
+    - Input - can [leak](/goto/leakinput/)
+    - Output - can contain [injection attacks](/goto/insecureoutput/)
     
 **New controls** (overview [here](/goto/controlsoverview/)):
 
