@@ -24,6 +24,9 @@ h1 {
     margin-left: 1rem !important;
     margin-bottom: 1rem !important;
 }
+.docs-main ol {
+    list-style-type: decimal !important;
+}
 .nav-container .nav-container-blur {
     /* backdrop-filter: blur(10px); */
     /* background-color: rgba(0, 0, 0, 0.7); */
