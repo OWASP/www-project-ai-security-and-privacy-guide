@@ -243,18 +243,18 @@ This section discusses the essentials of AI security. It serves as THE starting 
 What makes AI special when it comes to security? Well, it deals with a new set of threats and therefore requires new controls. Let's go through them.
 
 **New threats** (overview [here](/goto/threatsoverview/)):
-  - **[Model input threats](/goto/threatsuse/)**:
-    - [Evasion](/goto/evasion/): Misleading a model by crafting data to force wrong decisions
-    - [Prompt injection](/goto/promptinjection/): Misleading a model by crafting instructions to manipulate behaviour
-    - [Extracting data from the model](/goto/disclosureuse/): training data, augmentation data, or input
-    - [Extracting of the model itself](/goto/modeltheftuse/) by querying the model
-    - [Resource exhaustion](/goto/airesourceexhaustion/) through use
-  - **New suppliers** introduce threats of corrupted external [data](/goto/datapoison/), [models](/goto/supplymodelpoison/), and [model hosting](/goto/readymademodel/)
-  - **New AI assets** with conventional threats, notably:
-    - Training data / augmentation data - can leak and [poisoning](/goto/datapoison/) this data manipulates model behaviour
-    - Model - can suffer from [leaking during development](/goto/devmodelleak/) or [leaking during runtime](/goto/runtimemodeltheft/) and when it comes to ingegrity: from [poisoning during development](/goto/devmodelpoison/) or [poisoning during runtime](/goto/runtimemodelpoison/)
-    - Input - can [leak](/goto/leakinput/)
-    - Output - can contain [injection attacks](/goto/insecureoutput/)
+  1. **[Model input threats](/goto/threatsuse/)**:  
+      - [Evasion](/goto/evasion/): Misleading a model by crafting data to force wrong decisions
+      - [Prompt injection](/goto/promptinjection/): Misleading a model by crafting instructions to manipulate behaviour
+      - [Extracting data from the model](/goto/disclosureuse/): training data, augmentation data, or input
+      - [Extracting of the model itself](/goto/modeltheftuse/) by querying the model
+      - [Resource exhaustion](/goto/airesourceexhaustion/) through use
+  2. **New suppliers** introduce threats of corrupted external [data](/goto/datapoison/), [models](/goto/supplymodelpoison/), and [model hosting](/goto/readymademodel/)
+  3. **New AI assets** with conventional threats, notably:  
+      - Training data / augmentation data - can leak and [poisoning](/goto/datapoison/) this data manipulates model behaviour
+      - Model - can suffer from [leaking during development](/goto/devmodelleak/) or [leaking during runtime](/goto/runtimemodeltheft/) and when it comes to ingegrity: from [poisoning during development](/goto/devmodelpoison/) or [poisoning during runtime](/goto/runtimemodelpoison/)
+      - Input - can [leak](/goto/leakinput/)
+      - Output - can contain [injection attacks](/goto/insecureoutput/)
     
 **New controls** (overview [here](/goto/controlsoverview/)):
 
