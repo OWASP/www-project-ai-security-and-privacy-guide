@@ -3,7 +3,7 @@
 layout: col-sidebar
 title: OWASP AI Exchange
 tags: AIsecpri AI security privacy requirements guide machinelearning algorithms
-level: 2
+level: 4
 type: documentation
 pitch: Guidance on designing, creating, testing, and procuring secure and privacy-preserving AI systems
 
