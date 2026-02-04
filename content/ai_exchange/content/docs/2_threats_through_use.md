@@ -1193,6 +1193,8 @@ Mappings
   - [#PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/) to handle any suspicious input or output - see below
 - Specifically for INDIRECT prompt injection:
   - [#INPUT SEGREGEGATION](/goto/inputsegregation/) -  to clearly deliniated untrusted input, discussed below
+ 
+See the [seven layers section](/goto/promptinjectionsevenlayers/) on how these controls form layers of protection. After model alignment and filtering and detection, it should be assumed that prompt injection can still happen and therefore it is critical that _blast radius control_ is performed.
 
 **References**  
 - [Illustrative blog by Simon Willison](https://simonwillison.net/2023/Apr/14/worst-that-can-happen/)
