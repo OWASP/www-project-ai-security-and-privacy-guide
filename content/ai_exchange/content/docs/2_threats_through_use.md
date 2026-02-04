@@ -1104,7 +1104,7 @@ Context is determined by the task an agent is assigned to (e.g., review merge re
 
 Example: An email summarizer has one agent orchestrating the workflow and another agent summarizing. The latter should have no rights (e.g., access to the mail server).
 
-![](/images/sevenlayers.png)
+![](/images/sevenlayers.jpeg)
 
 
 #### #PROMPT INJECTION I/O HANDLING
