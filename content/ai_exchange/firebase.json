@@ -329,6 +329,11 @@
         "type": 301
       },
       {
+        "source": "/goto/promptinjectionsevenlayers/",
+        "destination": "/docs/2_threats_through_use/##seven-layers-of-prompt-injection-protection",
+        "type": 301
+      },
+      {
         "source": "/goto/indirectpromptinjection/",
         "destination": "/docs/2_threats_through_use/#222-indirect-prompt-injection",
         "type": 301
