@@ -7,6 +7,14 @@ weight: 5
 > Category: group of runtime threats  
 > Permalink: https://owaspai.org/goto/runtimeappsec/
 
+An AI system is an IT system, so at runtime it can be vulnerable to any security attack - for example to break into the application's user database. These attacks, and their countermeasures are covered in many other resources. This section focuses only on what is AI-specific.  
+
+[Section 2](/goto/threatsuse/) covers runtime attacks that are not conventrionl: attacks performed through inference - by using the system and providing model input. [Section 3](/goto/developmenttime/) covers attacks during development-time.  
+
+So, this section covers conventional application security attacks that have AI-specific consequences. For example: changing model behaviour by hacking into a runtime database of augmentation data. The details of how these attacks are performed are covered in many other resources. This section focuses on the AI-specific consequences and the categories of controls required. In-depth coverage of controls against conventional attacks are covered in many other resources. This section focuses on AI-specific aspects of these controls, such as the option of using a Trusted Execution Environment for models.  
+
+The subsections cover non-AI-specific threats, model poisoning, model theft, insecure output handling, leaking input data, and attacks on augmentation data.
+
 ## 4.1. Non AI-specific application security threats
 > Category: group of runtime threats  
 > Permalink: https://owaspai.org/goto/generalappsecthreats/
