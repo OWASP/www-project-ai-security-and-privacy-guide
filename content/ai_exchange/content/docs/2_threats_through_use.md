@@ -1067,7 +1067,7 @@ Invest an effort to sanitize, filter, and detect prompt injection, to the point 
 
 Flaw: New ways to circumvent these defenses will continue to appear, and detection of prompt injection is difficult, with substantial risk of false positives and false negatives.
 
-To determine when you have done enough, tailored @@testingis critical to understand the limitations of I/O handling, and what harm an attack could realistically cause – so to prioritize further protection using other layers. Typically, detection opportunity is limited – which requires acceptance that prompt injection can come through and therefore that blast radius control using the other layers is critical.
+To determine when you have done enough, [tailored testing](/goto/testingpromptinjection/) is critical to understand the limitations of I/O handling, and what harm an attack could realistically cause – so to prioritize further protection using other layers. Typically, detection opportunity is limited – which requires acceptance that prompt injection can come through and therefore that blast radius control using the other layers is critical.
 
 The rest of the layers essentially represent ‘blast radius control’. It is good to assume that despite alignment and I/O handling, prompt injection can succeed, so the best strategy is to ensure that as little harm as possible is done.
 
