@@ -491,7 +491,7 @@ Example: LLMs (GenAI), just like most AI models, induce their results based on t
 > Permalink: https://owaspai.org/goto/oversight/
 
 **Description**  
-Oversight of model behaviour by humans or automated mechhanisms (using logic in the form of rules), where human oversight provides not only more intelligent validation through common sense and domain knowledge, but also clear accountability for devisions and outcomes.
+Oversight of model behaviour by humans or automated mechanisms (e.g.,using rules), where human oversight provides not only more intelligent validation through common sense and domain knowledge, but also clear accountability for devisions and outcomes.
 
 **Objective**  
 Detect unwanted model behavior and respond to it. Responses include correcting, halting execution, deferring to an (other) human-in-the-loop, or issueing an alert to be investigated.
