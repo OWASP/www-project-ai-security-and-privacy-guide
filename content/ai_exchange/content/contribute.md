@@ -312,6 +312,14 @@ weight: 1
                         <td class="px-6 py-4 text-gray-700">Improved supply chain management</td>
                     </tr>
                     <tr class="odd:bg-[#F4F2F2] even:bg-white">
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Andrew Stokes
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">Pebl
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">US</td>
+                        <td class="px-6 py-4 text-gray-700">Added selective amnesia</td>
+                    </tr>
+                    <tr class="odd:bg-[#F4F2F2] even:bg-white">
                         <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Angie Qarry
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">QDeepTech
@@ -364,7 +372,15 @@ weight: 1
                             Susanna Cox</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">OTW</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">US</td>
-                        <td class="px-6 py-4 text-gray-700">Federated learning and many more</td>
+                        <td class="px-6 py-4 text-gray-700">Federated learning, testing, and much more</td>
+                    </tr>
+                    <tr class="odd:bg-[#F4F2F2] even:bg-white">
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Elias Sørensen
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">Kantega
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">Norway</td>
+                        <td class="px-6 py-4 text-gray-700">Many clarifications and improvements throughtout</td>
                     </tr>
                     <tr class="odd:bg-[#F4F2F2] even:bg-white">
                         <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Eoin Wickens
@@ -383,11 +399,27 @@ weight: 1
                         <td class="px-6 py-4 text-gray-700"></td>
                     </tr>
                     <tr class="odd:bg-[#F4F2F2] even:bg-white">
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Iryna Schwindt
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">Germany</td>
+                        <td class="px-6 py-4 text-gray-700">Testing section</td>
+                    </tr>
+                    <tr class="odd:bg-[#F4F2F2] even:bg-white">
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Jolly Trivedi
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">Finland</td>
+                        <td class="px-6 py-4 text-gray-700">Testing section and editing work</td>
+                    </tr>
+                    <tr class="odd:bg-[#F4F2F2] even:bg-white">
                         <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">
                             John Sotiropoulos</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">Kainos</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">UK</td>
-                        <td class="px-6 py-4 text-gray-700">Liaison to several institutes</td>
+                        <td class="px-6 py-4 text-gray-700">Previously: Liaison to several institutes</td>
                     </tr>
                     <tr class="odd:bg-[#F4F2F2] even:bg-white">
                         <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Manish Garg
@@ -395,6 +427,14 @@ weight: 1
                         <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">VE3</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">UK</td>
                         <td class="px-6 py-4 text-gray-700">Runtime model protection</td>
+                    </tr>
+                    <tr class="odd:bg-[#F4F2F2] even:bg-white">
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Maryam Alhasmei
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400"></td>
+                        <td class="px-6 py-4 text-gray-700">Testing section</td>
                     </tr>
                     <tr class="odd:bg-[#F4F2F2] even:bg-white">
                         <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Marko Lihter
@@ -412,6 +452,14 @@ weight: 1
                         <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">Germany</td>
                         <td class="px-6 py-4 text-gray-700">data science discussion and references around
                             evasion attacks</td>
+                    </tr>
+                    <tr class="odd:bg-[#F4F2F2] even:bg-white">
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Rajiv Bahl
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">India</td>
+                        <td class="px-6 py-4 text-gray-700">Testing section</td>
                     </tr>
                     <tr class="odd:bg-[#F4F2F2] even:bg-white">
                         <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Rocky
@@ -497,6 +545,14 @@ weight: 1
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">Greece</td>
                         <td class="px-6 py-4 text-gray-700">evasion robustness</td>
+                    </tr>
+                    <tr class="odd:bg-[#F4F2F2] even:bg-white">
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Yuvaraj Govindarjulu
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">AI Shield
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">India</td>
+                        <td class="px-6 py-4 text-gray-700">Testing section and harmonization lead</td>
                     </tr>
                     <tr class="odd:bg-[#F4F2F2] even:bg-white">
                         <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Zoe
