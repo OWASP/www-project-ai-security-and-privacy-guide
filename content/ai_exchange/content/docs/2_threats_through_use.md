@@ -1084,14 +1084,14 @@ Implement logic to check for suspicious activity in context. Such detections can
 Flaw: Reactive oversight helps but acts only after behavior emerges. Preventive privilege controls are far more effective - see layers below.
 
 
-**Layer 5 – User-based [least privilege](/goto/modelleastprivilege/)**  
+**Layer 5 – User-based [least privilege](/goto/leastmodelprivilege/)**  
 Give agentic AI the rights of the individual being served, assigned in advance. An email summarizer should only be able to access the user’s emails.
 
 Flaw: While sensible, users are often permitted far more than an agent actually needs, unnecessarily increasing the blast radius.
 
 
-**Layer 6 – Intent-based [least privilege](/goto/modelleastprivilege/)**  
-Give agentic AI the rights required for its specific task, assigned in advance, in addition to user-based rights.
+**Layer 6 – Intent-based [least privilege](/goto/leastmodelprivilege/)**  
+Give agentic AI the rights required for its specific task, assigned in advance, and assigned based on dynamic context, in addition to user-based rights.
 
 Example: An email summarizer should only be able to read emails. If it needs to send a summary as well, that is where human oversight can be introduced—allowing the user to review the summary and the list of recipients.
 
