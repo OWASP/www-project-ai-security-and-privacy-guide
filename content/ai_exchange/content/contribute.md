@@ -462,6 +462,15 @@ weight: 1
                         <td class="px-6 py-4 text-gray-700">Testing section</td>
                     </tr>
                     <tr class="odd:bg-[#F4F2F2] even:bg-white">
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Rock Lambros</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">US
+                        </td>
+                        <td class="px-6 py-4 text-gray-700">TBA
+                        </td>
+                    </tr>
+                    <tr class="odd:bg-[#F4F2F2] even:bg-white">
                         <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Rocky
                             Heckman</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">Cyber Dynamo
