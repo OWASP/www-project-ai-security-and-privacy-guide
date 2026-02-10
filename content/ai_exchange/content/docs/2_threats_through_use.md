@@ -130,7 +130,7 @@ Detection mechanisms benefit from being paired with predefined response actions 
 Response actions may vary depending on the certainty of detection, the threat type, and the potential impact, and can include:
 
   **- Immediate containment**
-    - stopping the current inference or workflow when confidence of malicious activity is high,
+    - stopping the current inference or workflow or system (i.e. _kill switch_) when confidence of malicious activity is high,
     - sanitizing input or output (for example trimming prompts, removing sensitive content, or normalizing input) and continuing execution,
     - switching to a more conservative operating mode, such as reduced functionality, additional filtering, or temporary human oversight.
       
@@ -141,7 +141,7 @@ Response actions may vary depending on the certainty of detection, the threat ty
     - throttling, rate-limiting, or suspending suspicious accounts or sessions,
     - restricting or disabling tools and functions that could cause harm,
     - Add noise to the output to disturb possible attacks
-    - rolling back models or data to a known-good state when compromise is suspected.
+    - rolling back models or data to a known-good state when compromise is suspected and/or when the current state has been disrupted.
       
   **- Broader response actions**
     - informing users when AI system may be unreliable or compromised,
