@@ -46,6 +46,23 @@ When doing impact analysis on AI initiatives, consider at least the following:
 - Can unwanted behaviour be sufficiently contained by mitigations (see Controls to limit unwanted behaviour)?
 - See Risk management under [SECPROGRAM](/goto/secprogram/) for security-specific risk analysis, also involving privacy.
 
+**Quickstart**  
+A typical first iteration for AI governance in organizations consists of the following:
+1. Raise attention and awareness at board level, when needed
+2. Form a group of stakeholders and assign responsibilities
+3. Identify laws and regulations
+4. Send out a survey to make an inventory of current AI use, AI ideas, any concerns, and indiduals with AI expertise
+5. Evaluate these AI applications and ideas
+6. Perform a risk analysis and establish a first policy
+7. Implement policy as much as possible in tools and procedures
+8. Initiate an AI literacy program, based on the policy implementation plan
+
+**Bare minimum start**
+The very minimum first thing you can do for AI governance, focused on security:
+1. Make an inventory of current AI use and AI ideas.
+2. Perform [risk analysis](/goto/riskanalysis/) on them to identify threats, controls and who's responsible for them.
+3. Continue with step 2 of the GUARD program, presented in the [How to organize](/goto/organize/) section.
+
 **Particularity**  
 In general risk management it may help to keep in mind the following particularities of AI:
 1. Inductive instead of deductive, meaning that being wrong is part of the game for machine learning models, which can lead to harm
