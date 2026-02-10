@@ -59,6 +59,7 @@ In general risk management it may help to keep in mind the following particulari
 
 **References**  
 
+ - [AI Governance library](https://www.aigl.blog/)
  - [UNESCO on AI ethics and governance](https://www.unesco.org/ethics-ai/en)
  - [GenAI security project LLM AI Cybersecurity & governance checklist](https://genai.owasp.org/resource/llm-applications-cybersecurity-and-governance-checklist-english/)
    
