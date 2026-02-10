@@ -383,7 +383,7 @@ weight: 1
                         <td class="px-6 py-4 text-gray-700"></td>
                     </tr>
                     <tr class="odd:bg-[#F4F2F2] even:bg-white">
-                        <td class="px-6 py-4 whitespace-nowrap font-bold text-gray-900 border-r border-gray-400">
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">
                             John Sotiropoulos</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">Kainos</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">UK</td>
