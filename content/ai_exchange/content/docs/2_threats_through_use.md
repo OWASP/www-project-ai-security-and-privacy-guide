@@ -1062,7 +1062,7 @@ Tell models to behave and to be robust against manipulation through pre-training
 Flaw: Models remain easy to mislead out of the box and after providing them with instructions, so additional controls are required.
 
 
-**Layer 2 – [Prompt injection I/O handling](goto/promptinjectioniohandling/) (aka ‘defense’)**  
+**Layer 2 – [Prompt injection I/O handling](/goto/promptinjectioniohandling/) (aka ‘defense’)**  
 Invest an effort to sanitize, filter, and detect prompt injection, to the point where the other layers become more effective.
 
 Flaw: New ways to circumvent these defenses will continue to appear, and detection of prompt injection is difficult, with substantial risk of false positives and false negatives.
@@ -1091,14 +1091,14 @@ Flaw: While sensible, users are often permitted far more than an agent actually 
 
 
 **Layer 6 – Intent-based [least privilege](/goto/leastmodelprivilege/)**  
-Give agentic AI the rights required for its specific task, assigned in advance, and assigned based on dynamic context, in addition to user-based rights.
+Give agentic AI the rights required for its specific task, assigned in advance, in addition to user-based rights.
 
 Example: An email summarizer should only be able to read emails. If it needs to send a summary as well, that is where human oversight can be introduced—allowing the user to review the summary and the list of recipients.
 
 Flaw: The intent of an agent or flow is not always known in advance, creating the risk of assigning too many privileges to anticipate the use case with the most needs. Furthermore, agentic flows often involve multiple agents, and not all of them require the full set of privileges needed to achieve the higher-level goal.
 
 
-**Layer 7 – Just-in-time [authorization](/goto/modelleastprivilege/)**  
+**Layer 7 – Just-in-time [authorization](/goto/leastmodelprivilege/)**  
 Give each agent only the rights required at that moment, based on the context (subtask and the circumstances).  
 Context is determined by the task an agent is assigned to (e.g., review merge request), or by the data that enters the flow. The latter could involve a mechanism that hardens privileges the moment untrusted data enters the flow.
 
