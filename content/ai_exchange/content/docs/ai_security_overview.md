@@ -168,10 +168,10 @@ The five steps - G.U.A.R.D - to organize AI security as an organization are:
 1. **Govern**  
   Start implementing general AI Governance so the organization can manage AI: know where it is applied, what people's responsibilities are, establish policies, do impact assessment, arrange [compliance](/goto/checkcompliance/), organize [education](/goto/seceducate/), etcetera. See [#AI Program](/goto/aiprogram/) for guidance, including a quickstart. This is a general AI management process - not just security.
 2. **Understand**  
-   - Based on the inventory of your applications of AI and AI ideas, understand which threats apply, using the decision tree in the [risk analysis section](/goto/riskanalysis).
+   - Based on the inventory of your applications of AI and AI ideas, understand which threats apply, using the decision tree in the [risk analysis section](/goto/riskanalysis/).
    - Then make sure engineers and security professionals understand those relevant threats and their contols, using the guidance of the relevant [threat sections](/goto/threatsoverview/) and the corresponding [process controls and technical controls](/goto/periodictable/).
    - Use the courses and resources in the [references section](/goto/references/) to support the understanding.
-   - Distinguish between controls that your organization has to implement, and those that are the responsbility of your supplier. Make the latter category part of your [supply chain management]).
+   - Distinguish between controls that your organization has to implement, and those that are the responsbility of your supplier. Make the latter category part of your [supply chain management])(/goto/supplychainmanage/).
 3. **Adapt**  
     - [Adapt your security practices](/goto/secprogram/) to include AI security assets, threats and controls from this document.
     - Adapt your threat modelling to include the [AI security threat model](/goto/riskanalysis/) approach and do cross-team threat modelling, involving all engineers.
