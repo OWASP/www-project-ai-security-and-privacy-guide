@@ -524,15 +524,17 @@ It is the nature of AI models that they can be wrong. In addition, they can be m
     - A special category of sensitive data: system prompts, as they can be used by attackers to circumvent prompt injection protection in such prompts. 
     - Suspicious function calls.  Ideally, the privileges of an AI model are already hardened to the task (see [#LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/)), in which case detection comes down to issuing an alert once a model attempts to execute an action for which it has no permissions. In addition, the stategy can include the detection of unusual function calls in the context, issuing alerts for further investigation, or asking for approval by a human in the loop. Manipulation of function flow is commonly referred to as _application flow perturbation_. An advanced way to detect manipulated workflows is to perform rule-based sanity checks during steps, e.g. verify whether certain safety checks of filters were executed before processing data. 
 - Apply **Grounding checks** if recognizing unwanted output based on context is too difficult to catch in rules, and the detection of malicious input is insufficent. The idea of grounding checks is to let a separate Generative AI model decide if an input or output is off-topic or escalates capabilities (e.g. a LLM powered food recipes app suddenly is trying to send emails). This takes the use of LLMs to detect suspicious input and output a step further by including context. This is required in case GenAI-based recognition is insufficient to cover certain attack scenarios (see above).
-- Implement appropriate general detection and response mechanisms as presented in [#MONITOR USE](/goto/monitoruse/).
-- For checks that require accountability and/or more expertise and common sense, present the behaviour for a human to approve. This can be the result of a logic rule that in specific circumstances escalates to a human-in-the-loop.
-- Ensure the human performing the oversight is qualified, instructed, motivated, and not suffering from so-called _approval fatigue_: the result of having to approve many actions that are mostly in order. 
+- Implement appropriate general detection and response mechanisms as presented in [#MONITOR USE](/goto/monitoruse/) where part of the response can be to involve a human-in-the-loop.
+- Include as part of response options **rollback mechanisms** to enable oversight to go back to a certain state after system malfunction or manipulation has been observed and the state of the system cannot be trusted, or has been disrupted.
+- For checks that require accountability and/or more expertise and common sense, present the behaviour for a **human** to approve. This can be the result of a logic rule that in specific circumstances escalates to a human-in-the-loop.
+- Ensure that the **human oversight is appropriate**: the human is qualified, instructed, motivated, and not suffering from so-called _approval fatigue_: the result of having to approve many actions that are mostly in order.
+
 
 A separate form of oversight is [MODEL ALIGNMENT](/goto/modelalignment/) which intends to constrain model behaviour through training, fine tuning, and system prompts. This is treated as a separate control because the effectiveness is limited and therefore no guarantee.
 
 Examples:
   - Logic preventing the trunk of a car from opening while the car is moving, even if the driver seems to request it
-  - Logic signaling an alert when a software programming tool is making a series of updates to multiple projects in one go.
+  - Logic signaling an alert when a software programming tool is making a series of updates to multiple projects in one go, after which the alert is processes by a human who can then decide to further investigate and/or to take action, which can include shutting down the complete system to prevent further harm
   - Requesting user confirmation before sending a large number of emails as instructed by a model
   - Another form of human oversight is allowing users to undo or revert actions initiated by the AI system, such as reversing changes made to a file
   - A special form of guardrails is censoring unwanted output of GenAI models (e.g. violent, unethical)
