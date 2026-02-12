@@ -614,6 +614,7 @@ As mentioned above, it is essential to minimize actions that the model can poten
 
 **Description and objective**  
 In the context of Generative AI (e.g., LLMs), alignment refers to the process of ensuring that the model's behavior and outputs are consistent with human values, intentions, and ethical standards.  
+
 Controls external to the model to manage model behaviour are: 
 - [OVERSIGHT](/goto/oversight/): conventional mechanisms responding to the actual outcome of the model
 - [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/): conventional mechanisms that put boundaries on what the model can affect
@@ -635,7 +636,7 @@ Achieving the goal of model alignment involves multiple layers:
 
     Even if the model is aligned during training, its actual behavior during use is also influenced by:
     - System prompts / instruction prompts
-    - Guardrails built into the AI system and external tools that oversee or control responses (like content filters or output constraints) - see [#PROMPT INJECTION IO HANDLING](/goto/promptinjectioniohandling/) and [#OVERSIGHT](/goto/oversight/)
+    - Guardrails built into the AI system and external tools that oversee or control responses (like content filters or output constraints) - see the external controls mentioned above
 
 See [the appendix on culture-sensitive alignment](/goto/culturesensitivealignment/).
 
