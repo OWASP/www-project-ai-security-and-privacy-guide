@@ -1471,6 +1471,8 @@ Examples:
 **Description**  
 Denial-of-service input validation: input validation and sanitization to reject or correct malicious (e.g. very large) content
 
+Follow the guidance in [#MONITOR USE](/goto/monitoruse/) regarding detection considerations and response options.
+
 **References**  
 Useful standards include:
 
