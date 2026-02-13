@@ -373,7 +373,7 @@ Clickable version, based on the [Periodic table](/goto/periodictable/):
 <tr><td rowspan="3">Training data Confidentiality</td><td rowspan="2">Runtime - Model use</td><td><a href="/goto/disclosureuseoutput/">Sensitive data output from model</a></td></tr>
 <tr><td><a href="/goto/modelinversionandmembership/">Model inversion / Membership inference</a></td></tr>
 <tr><td>Development - Engineering environment</td><td><a href="/goto/devdataleak/">Developmen-time data leak</a></td></tr>
-<tr><td rowspan="3">Model confidentiality</td><td>Runtime - Model use</td><td><a href="/goto/modeltheftuse/">Model theft through use</a> (input-output harvesting)</td></tr>
+<tr><td rowspan="3">Model confidentiality</td><td>Runtime - Model use</td><td><a href="/goto/modelexfiltration/">Model exfiltration</a> (input-output harvesting)</td></tr>
 <tr><td>Runtime - Break into deployed model</td><td><a href="/goto/runtimemodeltheft/">Direct model theft runtime</a></td></tr>
 <tr><td>Development - Engineering environment</td><td><a href="/goto/devmodelleak/">Model theft development-time</a></td></tr>
 <tr><td>Model behaviour Availability</td><td>Model use</td><td><a href="/goto/airesourceexhaustion/">AI resource exhaustion</a></td></tr>
@@ -500,7 +500,7 @@ Note that [general governance controls](/goto/governancecontrols/) apply to all 
 <tr><td rowspan="3">Training data Confidentiality</td><td rowspan="2">Runtime - Model use</td><td><a href="/goto/disclosureuseoutput/">Data disclosure in model output</a></td><td><a href="/goto/datalimit/">Sensitive data limitation</a> (data minimize, short retain, obfuscate training data) plus:<br><br><a href="/goto/monitoruse/">Monitor</a>, <a href="/goto/ratelimit/">rate limit</a>, <a href="/goto/modelaccesscontrol/">model access control</a> plus:<br><br><a href="/goto/sensitiveoutputhandling/">Sensitive output handling</a></td></tr>
 <tr><td><a href="/goto/modelinversionandmembership/">Model inversion / Membership inference</a></td><td><a href="/goto/datalimit/">Sensitive data limitation</a> (data minimize, short retain, obfuscate training data) plus:<br><br><a href="/goto/monitoruse/">Monitor</a>, <a href="/goto/ratelimit/">rate limit</a>, <a href="/goto/modelaccesscontrol/">model access control</a> plus:<br><br<a href="/goto/unwantedinputserieshandling/">Unwanted input series handling</a>, ><a href="/goto/obscureconfidence/">Obscure confidence</a>, <a href="/goto/smallmodel/">Small model</a></td></tr>
 <tr><td>Development - Engineering environment</td><td><a href="/goto/devdataleak/">Training data leaks</a></td><td><a href="/goto/datalimit/">Sensitive data limitation</a> (data minimize, short retain, obfuscate training data) plus:<br><br><a href="/goto/devsecurity/">Development environment security</a>, <a href="/goto/segregatedata/">data segregation</a>, <a href="/goto/federatedlearning/">federated learning</a></td></tr>
-<tr><td rowspan="3">Model confidentiality</td><td>Runtime - Model use</td><td><a href="/goto/modeltheftuse/">Model theft through use</a> (input-output harvesting)</td><td><a href="/goto/monitoruse/">Monitor</a>, <a href="/goto/ratelimit/">rate limit</a>, <a href="/goto/modelaccesscontrol/">model access control</a> plus: <br><br><a href="/goto/unwantedinputserieshandling/">Unwanted input series handling</a></td></tr>
+<tr><td rowspan="3">Model confidentiality</td><td>Runtime - Model use</td><td><a href="/goto/modelexfiltration/">Model exfiltration</a> (input-output harvesting)</td><td><a href="/goto/monitoruse/">Monitor</a>, <a href="/goto/ratelimit/">rate limit</a>, <a href="/goto/modelaccesscontrol/">model access control</a> plus: <br><br><a href="/goto/unwantedinputserieshandling/">Unwanted input series handling</a></td></tr>
 <tr><td>Runtime - Break into deployed model</td><td><a href="/goto/runtimemodeltheft/">Direct model theft runtime</a></td><td><a href="/goto/runtimemodelconfidentiality/">Runtime model confidentiality</a>, <a href="/goto/modelobfuscation/">Model obfuscation</a></td></tr>
 <tr><td>Development - Engineering environment</td><td><a href="/goto/devmodelleak/">Model theft development-time</a></td><td><a href="/goto/devsecurity/">Development environment security</a>, <a href="/goto/segregatedata/">data segregation</a>, <a href="/goto/federatedlearning/">federated learning</a></td></tr>
 <tr><td>Model behaviour Availability</td><td>Model use</td><td><a href="/goto/airesourceexhaustion/">AI resource exhaustion</a> (model resource depletion)</td><td><a href="/goto/monitoruse/">Monitor</a>, <a href="/goto/ratelimit/">rate limit</a>, <a href="/goto/modelaccesscontrol/">model access control</a> plus:<br><br><a href="/goto/dosinputvalidation/">Dos input validation</a>, <a href="/goto/limitresources/">limit resources</a></td></tr>
@@ -606,10 +606,10 @@ Discovering potential risks that could impact the organization requires the tech
 
   Question: Do you train/finetune the model yourself?
   - If yes, is the model regarded as  intellectual property? Then you need to protect against:
-    - [Model theft through use](/goto/modeltheftuse/)
-    - [Model theft development-time](/goto/devmodelleak/)
+    - [Model exfiltration](/goto/modelexfiltration/)
+    - [Direct model theft development-time](/goto/devmodelleak/)
     - [Source code/configuration leak](/goto/devcodeleak/)
-    - [Runtime model theft](/goto/runtimemodeltheft/)
+    - [Direct runtime model theft](/goto/runtimemodeltheft/)
       
  **Identify risks of leaking input data**
  
@@ -702,7 +702,7 @@ A helpful way to look at AI is to see it as consisting of machine learning (the 
 This document focuses on machine learning. Nevertheless, here is a quick summary of the machine learning threats from this document that also apply to heuristic systems:
 
 - Model evasion is also possible with heuristic models, as attackers may try to find loopholes or weaknesses in the defined rules.
-- Model theft through use - it is possible to train a machine learning model based on input/output combinations from a heuristic model.
+- Model exfiltration - it is possible to train a machine learning model based on input/output combinations from a heuristic model.
 - Overreliance in use - heuristic systems can also be relied on too much. The applied knowledge can be false.
 - Both data poisoning and model poisoning can occur by tampering with the data used to enhance knowledge, or by manipulating the rules either during development or at runtime.
 - Leaks of data used for analysis or testing can still be an issue.
