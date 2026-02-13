@@ -506,6 +506,8 @@ Different methods can be used to detect anomalous or poisoned samples, including
 - Reject on Negative Impact (RONI), which evaluates the impact of individual samples on model performance, and
 - gradient fingerprinting, which compares the influence of samples during retraining.
 
+See the [#ANOMALOUS INPUT HANDLING](/goto/anomalousinputhandling/) control for more details.
+
 The appropriateness of a method depends on the poisoning threat model and can be assessed through targeted testing, including poisoned dataset benchmarks and resistance testing.
 
 Detected anomalies can be handled in different ways depending on the degree of deviation:
