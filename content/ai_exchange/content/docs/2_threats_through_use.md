@@ -6,7 +6,7 @@ weight: 3
 ---
 ## 2.0. Input threats - introduction
 >Category: group of input threats  
->Permalink: https://owaspai.org/goto/threatsuse/
+>Permalink: https://owaspai.org/goto/inputthreats/
 
 Input threats (also called "threats through use", “inference-time attacks”, or “runtime adversarial attacks”) occur when an attacker crafts inputs to a deployed AI system to achieve malicious goals.
 
