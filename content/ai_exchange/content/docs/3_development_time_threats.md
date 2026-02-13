@@ -726,6 +726,8 @@ This threat applies if the model represents intellectual property (i.e., a trade
   - [#SEGREGATE DATA](/goto/segregatedata/) to create parts of the development environment with extra protection
   - [#CONF COMPUTE](/goto/confcompute/) for denying access to where sensitive data is processed
   - [#SUPPLY CHAIN MANAGE](/goto/supplychainmanage/) specifically protects model attributes
+- Specifically for model theft:
+  - [#MODEL WATERMARKING](/goto/modelwatermarking/) 
 
   
 ### 3.2.3. Source code/configuration leak
