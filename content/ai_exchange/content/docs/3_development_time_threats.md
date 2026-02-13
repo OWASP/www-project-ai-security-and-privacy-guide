@@ -216,19 +216,25 @@ Useful standards include:
 
 **Description**  
 Supply chain management focuses on managing the supply chain to minimize the security risk from externally obtained elements. In conventional software engineering these elements are source code or software components (e.g., open source). AI supply chains differ from conventional software supply chains in several ways:  
-1. supplied elements can also include data, models, fine-tuning artifacts (eg: LoRA modules) and development-time tooling;
-2. software components may be executed development-time instead of runtime when the AI system is in production;
-3. as explained in the development-time threats, there are new vulnerable assets during AI development: training data and model parameters - which can fall victim to software components running development-time.
+1. **three new supplies**: data, models, and model hosting. Note that models can also be delivered in the form of finetuning artifacts (e.g., LoRA modules);
+2. new **AI-specific development tooling** is typically required;
+3. some of these tools are **executed development-time** instead of runtime when the AI system is in production, introducing risks of development-time assets being attacked if these tools are corrupted (including training data and model parameters).
 
 Because of these characteristics, classic supply chain management may not fully cover AI development environments, particularly notebook-based workflows and MLOps tooling.
 
 **Objective**  
-The objective of supply chain management in AI systems is to reduce the risk of malicious or accidental compromise of data, models, and development environments by improving visibility, verification, and governance across the AI system lifecycle. Compromises could lead to manipulated model behavior, unwanted secrets or output copyrighted material.  
-Effective supply chain management helps:
-- identify compromised or untrustworthy data and models before use,
-- detect unauthorized modifications to AI assets,
-- limit the blast radius of third-party or upstream security failures,
-- support informed risk decisions when relying on external suppliers.
+The objective of supply chain management in AI systems is to reduce the risk of corrupted, compromised, outdated, or mismanaged externally provided components and services. This includes supplied assets such as data, models, libraries, and tools, as well as hosted AI models and AI services operated by third parties. Risk reduction is achieved through verification, continuous monitoring, and governance of these components and their providers across the AI system lifecycle. Compromises or misconfigurations could lead to unwanted model behavior, data exfiltration, service disruption, or loss of control over critical functionality.
+
+Effective AI supply chain management helps to:
+- identify compromised, poisoned, or untrustworthy data, models, and externally provided AI services before use,
+- detect unauthorized modifications to AI assets, APIs, model endpoints, or service configurations,
+- assess and monitor risks introduced by hosted foundation models and third-party AI providers,
+- limit the blast radius of upstream security failures, service outages, or malicious model updates,
+- manage the impact of provider-driven changes, such as silent model updates or altered system behavior,
+- enforce data handling requirements when using external AI services (e.g., training use, retention, logging),
+- ensure traceability of which external models or services were used in which system version,
+- support informed risk decisions when relying on external suppliers and AI service providers.
+
 
 **Applicability**  
 This control applies throughout the AI system lifecycle, particularly during data acquisition, model sourcing, training, fine-tuning, and integration phases. 
@@ -243,9 +249,9 @@ Risk management determines when deeper governance or verification is warranted, 
 **Implementation**  
 
 **Implementation of provenance, record keeping, and traceability**  
-The AI supply chain can be complex. Just like with obtained source code or software components, data or models may involve multiple suppliers. For example: a model is trained by one vendor and then fine-tuned by another vendor. Or: an AI system contains multiple models, one is a model that has been fine-tuned with data from source X, using a base model from vendor A that claims data is used from sources Y and Z, where the data from source Z was labeled by vendor B. Because of this supply chain complexity, data and model provenance is a helpful activity. The Software Bill Of Materials (SBOM) becomes the AI Bill Of Materials (AIBOM) or Model Bill of Material (MBOM).  
+The AI supply chain can be complex. Just like with obtained source code or software components, data, models and model hosting may involve multiple suppliers. For example: a model is trained by one vendor and then fine-tuned by another vendor. Or: an AI system contains multiple models, one is a model that has been fine-tuned with data from source X, using a base model from vendor A that claims data is used from sources Y and Z, where the data from source Z was labeled by vendor B. Because of this supply chain complexity, data and model provenance is a helpful activity. 
 
-Maintaining structured records for AI-specific assets helps establish provenance and accountability across the supply chain. Relevant information may include:
+Maintaining structured records for AI-specific assets and services helps establish provenance and accountability across the supply chain. Relevant information includes:
 - origin and versioning of models and datasets (provenance) including pre-trained model lineage,
 - checksums or hashes to identify specific instances,
 - training data sources and augmentation steps and data used to augment training data,
@@ -266,7 +272,7 @@ Supply chain management benefits from verifying the integrity and authenticity o
 
 Monitoring for known vulnerabilities affecting supplied models, data pipelines, and dependencies, based on regular review of relevant security advisories and communications, allows teams to respond to newly discovered risks in a timely manner, informed by severity and exploitability, through updates, containment, or compensating controls. These activities can be integrated into broader vulnerability management and incident response processes (see #[DEVSECURITY](/goto/devsecurity/)).
 
-**Implementation of supplier evaluation and security assessment of supplied models**  
+**Implementation of supplier evaluation and security assessment of supplied models and model hosting**  
 Evaluating the trustworthiness of suppliers (external vendors or internal teams) helps contextualize supply chain risk. This may include reviewing:
 - reputation,
 - activity,
