@@ -699,7 +699,9 @@ GenAI models are often hosted in the cloud, sometimes managed by an external par
 **Description**  
 Unauthorized access to model attributes (e.g., parameters, weights, architecture) through stealing data from the development environment, including the supply chain. This can occur via insider access, compromised repositories, or weak storage controls
 
-Impact: Exposure of model attributes makes it easier for attackers to craft or perform input attacks, such as evasion attacks or model inversion. 
+Impact:  Confidentiality breach of the model (i.e., model parameters), which can be:
+- intellectual property theft (e.g., by a competitor)
+- and/or a way to perform input attacks on the copied model, circumventing protections. These protections include rate limiting, access control, and detection mechanisms. This can be done for [all input attacks](/goto/inputthreats/) that extract data, and for the preparation of [evasion](/goto/evasion/) or [prompt injection](/goto/promptinjection): experimenting to find attack inputs that work.
 
 Alternative ways of model theft are [model theft through use](/goto/modeltheftuse/) and [direct runtime model theft](/goto/runtimemodeltheft/).
 
