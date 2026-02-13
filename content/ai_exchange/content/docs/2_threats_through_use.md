@@ -24,8 +24,8 @@ Threats on this page:
 
 These are the controls for threats through use in general - more specific controls are discussed in the subsections for the various types of attacks:
 - See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/) and [Sensitive data limitation](/goto/dataminimize/)
-- The below control(s), each marked with a # and a short name in capitals:
-    - [#MONITOR USER](/goto/monitoruse/)
+- The controls discussed below:
+    - [#MONITOR USE](/goto/monitoruse/)
     - [#RATE LIMIT](/goto/ratelimit/)
     - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/)
     - [#ANOMALOUS INPUT HANDLING](/goto/anomalousinputhandling/)
@@ -270,7 +270,7 @@ Unlike traditional IT rate limiting (which protects performance), here it primar
 **Limitations**
 
   - Low-frequency or single-try attacks (e.g., prompt injection or indirect leakage) remain unaffected. 
-  - Attackers may circumvent limits by parallel access or multi-instance use, or through a transferability attack (link).
+  - Attackers may circumvent limits by parallel access or multi-instance use, or through a [transferability attack](/goto/transferattack/).
 
 **References**
  - [Article on token bucket and leaky bucket rate limiting](https://medium.com/@apurvaagrawal_95485/token-bucket-vs-leaky-bucket-1c25b388436c)
@@ -586,9 +586,11 @@ AI models that take a prompt as input (e.g. GenAI) suffer from an additional thr
 
 **Types of Evasion**  
 The following sections discuss the various types of Evasion, where attackers have different access to knowledge:
-- [Closed box Evasion](/goto/closedboxevasion/)
-- [Open box Evasion](/goto/openboxevasion/)
-- [Transfer attack](/goto/transferattack)
+- [Closed box Evasion](/goto/closedboxevasion/) - when no access to model internals
+- [Open box Evasion](/goto/openboxevasion/) - when knowing the model internals
+- [Transfer attack](/goto/transferattack) - preparing attack inputs using a similar model
+- [Gray box Evasion](/goto/grayboxevasion/) - when knowing some of the model internals
+- [Evasion after poisoning](/goto/evasionafterpoison/) - presenting an input that has been planted in the model as a backdoor
 
 **Examples**  
 
@@ -606,7 +608,7 @@ Example 4: by altering a few words, an attacker succeeds in posting an offensive
 See [MITRE ATLAS - Evade ML model](https://atlas.mitre.org/techniques/AML.T0015)
 
 **Controls for evasion**  
-An evasion attack typically consists of first searching for the inputs that mislead the model, and then applying it. That initial search can be very intensive, as it requires trying many variations of input. Therefore, limiting access to the model with for example rate limiting mitigates the risk, but still leaves the possibility of using a so-called [transfer attack](/goto/ (see -link to transfer attacks to search for the inputs in another, similar model.  
+An evasion attack typically consists of first searching for the inputs that mislead the model, and then applying it. That initial search can be very intensive, as it requires trying many variations of input. Therefore, limiting access to the model with for example rate limiting mitigates the risk, but still leaves the possibility of using a so-called [transfer attack](/goto/transferattack/) to search for the inputs in another, similar model.  
 
 - See [General controls](/goto/generalcontrols/):
   - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/).
@@ -858,6 +860,8 @@ See [Evasion section](/goto/evasion/) for the controls.
 
 **References**  
 
+- [Practical black box attacks, Papernot et al](https://arxiv.org/abs/1602.02697))
+
 - Andriushchenko, Maksym, et al. "Square attack: a query-efficient
 black-box adversarial attack via random search." European conference on
 computer vision. Cham: Springer International Publishing, 2020.
@@ -901,6 +905,8 @@ adversarial attacks." arXiv preprint arXiv:1706.06083 (2017).
 - Eykholt, Kevin, et al. "Robust physical-world attacks on deep learning visual classification." Proceedings of the IEEE conference on computer vision and pattern recognition. 2018.
 
 ### 2.1.3 Transferability-based evasion attacks
+>Category: threat through use  
+>Permalink: https://owaspai.org/goto/transferattack/
 
 **Description**  
 Attackers can execute a transferability-based attack in a closed-box situation by first creating adversarial examples using a surrogate model: a copy or approximation of the closed-box target model, and then applying these adversarial examples to the target model.  The surrogate model can be:
@@ -916,7 +922,7 @@ The advantage of a surrogate model is that it exposes its internals (with the ex
 The goal is to create adversarial examples that will ‘hopefully’ transfer to the original target model, even though the surrogate may be internally different from the target. Because the task is similar, it can be expected that the decision boundaries in the model are similar. The likelihood of a successful transfer is generally higher when the surrogate model closely resembles the target model in terms of complexity and structure. The ultimate surrogate model is of course the target model itself. However, it’s noted that even attacks developed using simpler surrogate models tend to transfer effectively. 
 
 **Controls**  
-See [Evasion section](/goto/evasion/) for the controls.
+See [Evasion section](/goto/evasion/) for the controls, with the exception of controls that protect against the search of adversarial samples (rate limit, unwanted input series handling, and obscure confidence).
 
 
 **References**  
@@ -930,19 +936,21 @@ See [Evasion section](/goto/evasion/) for the controls.
 - Papernot, Nicolas, et al. “Practical black-box attacks against machine learning.” Proceedings of the 2017 ACM on Asia conference on computer and communications security. 2017.
 
 ### 2.1.4 Gray-box evasion attacks
+>Category: threat through use  
+>Permalink: https://owaspai.org/goto/grayboxevasion/
 
 **Description**  
-Gray-box adversarial evasion attacks occupy a middle ground between white-box and black-box adversarial attacks, where the attacker possesses partial knowledge of the target system like its architecture, training data, but lacks complete access/knowledge to its inner workings (e.g. gradients). In these attacks, the adversary leverages limited information to craft input perturbations designed to mislead machine learning models, by exploiting surrogate models (transferability) or improving known black-box attacks with the given knowledge. Gray-box attacks can be more efficient and effective due to the additional insights available. This approach is particularly relevant in real-world scenarios where full model transparency is rare, but some information may be accessible.
+Gray-box adversarial evasion attacks occupy a middle ground between [open-box](/goto/openboxevasion] and [closed-box](/goto/closedboxevasion/) attacks, where the attacker possesses partial knowledge of the target system like its architecture, training data, but lacks complete access/knowledge to its inner workings (e.g. gradients). In these attacks, the adversary leverages limited information to craft input perturbations designed to mislead machine learning models, by exploiting surrogate models (transferability) or improving known closed-box attacks with the given knowledge. Gray-box attacks can be more efficient and effective due to the additional insights available. This approach is particularly relevant in real-world scenarios where full model transparency is rare, but some information may be accessible.
 
-**Controls**
-Controls for [threats through use](https://owaspai.org/goto/threatsuse/): See Closed-box and Transferability-based attacks
+**Controls**  
+See [Evasion section](/goto/evasion/) for the controls.
 
 ### 2.1.5. Evasion after data poisoning
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/evasionafterpoison/
 
 **Description**  
-After training data has been poisoned (see [data poisoning section](/goto/datapoison/)), specific input  (called _backdoors_ or _triggers_) can lead to unwanted model output.
+After training data has been poisoned (see [data poisoning section](/goto/datapoison/)), specific input  (called _backdoors_ or _triggers_) can lead to unwanted model output. The difference with other types of Evasion attacks is that the vulnerability is not a natural property of the trained model, but a manipulated one.
 
 ---
 
