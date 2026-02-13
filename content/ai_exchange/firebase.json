@@ -425,17 +425,17 @@
       },
       {
         "source": "/goto/modelwatermarking/",
-        "destination": "/docs/2_threats_through_use/#model-watermarking/",
+        "destination": "/docs/2_threats_through_use/#model-watermarking",
         "type": 301
       },
       {
         "source": "/goto/denialmodelservice/",
-        "destination": "/docs/2_threats_through_use/#25-ai-resource-exhaustion/",
+        "destination": "/docs/2_threats_through_use/#25-ai-resource-exhaustion",
         "type": 301
       },
       {
         "source": "/goto/airesourceexhaustion/",
-        "destination": "/docs/2_threats_through_use/#25-ai-resource-exhaustion/",
+        "destination": "/docs/2_threats_through_use/#25-ai-resource-exhaustion",
         "type": 301
       },
       {
