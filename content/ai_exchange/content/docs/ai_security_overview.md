@@ -27,7 +27,7 @@ weight: 1
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.1 Governance controls](https://owaspai.org/goto/governancecontrols/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.2 Data limitation](https://owaspai.org/goto/datalimit/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.3 Limit unwanted behaviour](https://owaspai.org/goto/limitunwanted/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [2. Threats through use and controls](/docs/2_threats_through_use/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [2. Threats through use (input attacks) and controls](/docs/2_threats_through_use/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Prompt injection protection](https://owaspai.org/goto/promptinjectionsevenlayers/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [3. Development-time threats and controls](/docs/3_development_time_threats/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [4. Runtime application security threats and controls](/docs/4_runtime_application_security_threats/)  
@@ -225,7 +225,7 @@ You can see the high-level structure on the [main page](https://owaspai.org). On
 The main structure is made of the following pages:  
   (0) [AI security overview - this page](/docs/ai_security_overview), contains an overview of AI security and discussions of various topics.
   (1) [General controls, such as AI governance](/goto/generalcontrols/)
-  (2) [Threats through use, such as evasion attacks](/goto/threatsuse/)
+  (2) [Threats through use (input attacks), such as evasion attacks](/goto/threatsuse/
   (3) [Development-time threats, such as data poisoning](/goto/developmenttime/)
   (4) [Runtime security threats, such as insecure output](/goto/runtimeappsec/)
   (5) [AI security testing](/goto/testing/)
