@@ -10,7 +10,7 @@ weight: 2
 > Category: group of controls  
 > Permalink: https://owaspai.org/goto/governancecontrols/
 
-#### #AIPROGRAM
+#### #AI PROGRAM
 > Category: governance control  
 > Permalink: https://owaspai.org/goto/aiprogram/
 
@@ -84,10 +84,10 @@ Useful standards include:
  - ISO/IEC 42001 AI management system. Gap: covers this control fully.
  - [US Federal Reserve SR 11-07: Guidance on Model Risk Management](https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm): supervisory guidance for banking organizations and supervisors.
 
-42001 is about extending your risk management system - it focuses on governance. ISO 5338 (see #[DEVPROGRAM](#devprogram) below) is about extending your software lifecycle practices - it focuses on engineering and everything around it. ISO 42001 can be seen as a management system for the governance of responsible AI in an organization, similar to how ISO 27001 is a management system for information security. ISO 42001 doesn't go into the lifecycle processes. For example, it does not discuss how to train models, how to do data lineage, continuous validation, versioning of AI models, project planning challenges, and how and when exactly sensitive data is used in engineering.
+42001 is about extending your risk management system - it focuses on governance. ISO 5338 (see #[DEV PROGRAM](#devprogram) below) is about extending your software lifecycle practices - it focuses on engineering and everything around it. ISO 42001 can be seen as a management system for the governance of responsible AI in an organization, similar to how ISO 27001 is a management system for information security. ISO 42001 doesn't go into the lifecycle processes. For example, it does not discuss how to train models, how to do data lineage, continuous validation, versioning of AI models, project planning challenges, and how and when exactly sensitive data is used in engineering.
 
 
-#### #SECPROGRAM 
+#### #SEC PROGRAM 
 > Category: governance control  
 > Permalink: https://owaspai.org/goto/secprogram/
 
@@ -171,7 +171,7 @@ Useful standards include:
     - [GenAI security project LLM and GenAI Security Center of Excellence guide](https://genai.owasp.org/resource/llm-and-generative-ai-security-center-of-excellence-guide/)
       
 
-#### #SECDEVPROGRAM
+#### #SEC DEV PROGRAM
 > Category: governance control  
 > Permalink: https://owaspai.org/goto/secdevprogram/
 
@@ -204,7 +204,7 @@ Particularities for AI in software development, and how to address them:
   - Evaluate code for the percentage of code for automated testing. Industry average is 43% (SIG benchmark report 2023). An often cited recommendation is 80%. Research shows that automated testing in AI engineering is often neglected (SIG benchmark report 2023), as the performance of the AI model is mistakenly regarded as the ground truth of correctness.
 
 - Model performance testing is essential
-  - Run AI-specific dynamic performance tests before deployment (see [#CONTINUOUSVALIDATION](/goto/continuousvalidation/)):
+  - Run AI-specific dynamic performance tests before deployment (see [#CONTINUOUS VALIDATION](/goto/continuousvalidation/)):
   - Run security tests (e.g. data poisoning payloads, prompt injection payloads, adversarial robustness testing). See the [testing section](/goto/testing/).
   - Run continual automated validation of the model, including discrimination bias measurement and the detection of staleness: the input space changing over time, causing the training set to get out of date
 - Model deployment is a new aspect to AI and it may offer  specific protection measures such as obfuscation, encryption, integrity checks or a Trusted Execution Environment.
@@ -224,7 +224,7 @@ Useful standards include:
 - See [OpenCRE on secure software development processes](https://www.opencre.org/cre/616-305) with notable links to NIST SSDF and OWASP SAMM. Gap: covers this control fully, with said particularity
 
 
-#### #DEVPROGRAM 
+#### #DEV PROGRAM 
 > Category: governance control  
 > Permalink: https://owaspai.org/goto/devprogram/
 
@@ -262,7 +262,7 @@ Useful standards include:
   - [ISO/IEC 27002](https://www.iso.org/standard/75652.html) control 5.37 Documented operating procedures. Gap: covers this control minimally - this covers only a very small part of the control
   - [OpenCRE on documentation of function](https://www.opencre.org/cre/162-655) Gap: covers this control minimally
 
-#### #CHECKCOMPLIANCE 
+#### #CHECK COMPLIANCE 
 > Category: governance control  
 > Permalink: https://owaspai.org/goto/checkcompliance/
 
@@ -305,7 +305,7 @@ Useful standards include:
   - ISO/IEC 27090 (AI security) and 27091 (AI privacy) are both in development at the moment of writing (Oct 2025), and likely come out in 2026. The AI Exchange has contributed substantial content to the 27090.
   - prEN 18282 is the European standard for AI Security - brought forward by CEN/CENELEC and with a substantial part contributed by the AI Exchange. Exchange founder Rob van der Veer is liaison officer for the official partnership between the AI Exchange and CEN/CENELEC/ISO, as well as co-editor for 18282. The standard has been in development for almost two years at the moment of writing (Oct 2025) and expected to go into public enquiry early 2026, and be published in 2026.
 
-#### #SECEDUCATE
+#### #SEC EDUCATE
 > Category: governance control  
 > Permalink: https://owaspai.org/goto/seceducate/
 
@@ -324,7 +324,7 @@ Useful standards include:
 
 The impact of security threats on confidentiality and integrity can be reduced by limiting the data attack surface, meaning that the amount and the variety of data is reduced as much as possible, as well as the duration in which it is kept. This section describes several controls to apply this limitation.
 
-#### #DATAMINIMIZE
+#### #DATA MINIMIZE
 > Category: development-time and runtime control  
 > Permalink: https://owaspai.org/goto/dataminimize/
 
@@ -355,7 +355,7 @@ AI models often tolerate reduced feature sets and incomplete data better than tr
 Useful standards include:
   - Not covered yet in ISO/IEC standards.
 
-#### #ALLOWEDDATA 
+#### #ALLOWED DATA 
 > Category: development-time and runtime control  
 > Permalink: https://owaspai.org/goto/alloweddata/
 
@@ -370,7 +370,7 @@ Useful standards include:
 
   - ISO/IEC 23894 (AI risk management) covers this in A.8 Privacy. Gap: covers this control fully, with a brief section on the idea
 
-#### #SHORTRETAIN
+#### #SHORT RETAIN
 > Category: development-time and runtime control    
 > Permalink: https://owaspai.org/goto/shortretain/
 
@@ -388,7 +388,7 @@ Useful standards include:
 
   - Not covered yet in ISO/IEC standards.
 
-#### #OBFUSCATETRAININGDATA
+#### #OBFUSCATE TRAINING DATA
 > Category: development-time AI engineer control    
 > Permalink: https://owaspai.org/goto/obfuscatetrainingdata/
 
@@ -465,7 +465,7 @@ Reduce the information available to attackers, which can assist them in selectin
 **Implementation**  
 Minimizing and protecting technical details can be achieved by incorporating such details as an asset into information security management. This will ensure proper asset management, data classification, awareness education, policy, and inclusion in risk analysis.
 
-Note: this control needs to be weighed against the [AITRANSPARENCY](#aitransparency) control that nay require to be more open about technical aspects of the model. The key is to minimize information that can help attackers while being transparent.
+Note: this control needs to be weighed against the [#AI TRANSPARENCY](/goto/aitransparency/) control that nay require to be more open about technical aspects of the model. The key is to minimize information that can help attackers while being transparent.
 
 For example:
 
@@ -561,7 +561,7 @@ Useful standards include:
   - ISO/IEC 42001 B.9.3 defines controls for human oversight and decisions regarding autonomy. Gap: covers this control partly (human oversight only, not business logic)
   - Not covered further in ISO/IEC standards.
 
-#### #LEASTMODELPRIVILEGE
+#### #LEAST MODEL PRIVILEGE
 > Category: runtime information security control    
 > Permalink: https://owaspai.org/goto/leastmodelprivilege/
 
@@ -654,7 +654,7 @@ Disadvantages of Model alignment:
 Therefore, alignment should be seen as a probabilistic, model-internal control that must be combined with deterministic, external mechanisms for high-risk or regulated use cases.
 
 
-#### #AITRANSPARENCY
+#### #AI TRANSPARENCY
 > Category: governance and runtime control    
 > Permalink: https://owaspai.org/goto/aitransparency/
 
@@ -678,7 +678,7 @@ Example: Informing users that when they choose an agent to perform a task, that 
   - Not covered further in ISO/IEC standards.
   - [OWASP top 10 for LLM 09 on over-reliance](https://llmtop10.com/llm09/)
 
-#### #CONTINUOUSVALIDATION
+#### #CONTINUOUS VALIDATION
 > Category: development-time and runtime AI engineer control  
 > Permalink: https://owaspai.org/goto/continuousvalidation/
 
@@ -751,7 +751,7 @@ Useful standards include:
 **Description**  
 Explainability: Explaining how individual model decisions are made, a field referred to as Explainable AI (XAI), can aid in gaining user trust in the model. In some cases, this can also prevent overreliance, for example, when the user observes the simplicity of the 'reasoning' or even errors in that process. See [this Stanford article on explainability and overreliance](https://hai.stanford.edu/news/ai-overreliance-problem-are-explanations-solution). Explanations of how a model works can also aid security assessors to evaluate AI security risks of a model.
 
-#### #UNWANTEDBIASTESTING 
+#### #UNWANTED BIAS TESTING 
 > Category: development-time and runtime AI engineer control  
 > Permalink: https://owaspai.org/goto/unwantedbiastesting/
 
