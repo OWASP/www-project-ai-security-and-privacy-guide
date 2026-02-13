@@ -96,7 +96,7 @@ menu:
     - name: "1. General controls"
       pageRef: /docs/1_general_controls
       weight: 2
-    - name: "2. Threats through use"
+    - name: "2. Input threats"
       pageRef: /docs/2_threats_through_use
       weight: 3
     - name: "3. Development-time threats"
