@@ -216,9 +216,10 @@ Useful standards include:
 
 **Description**  
 Supply chain management focuses on managing the supply chain to minimize the security risk from externally obtained elements. In conventional software engineering these elements are source code or software components (e.g., open source). AI supply chains differ from conventional software supply chains in several ways:  
-1. **three new supplies**: data, models, and model hosting. Note that models can also be delivered in the form of finetuning artifacts (e.g., LoRA modules);
-2. new **AI-specific development tooling** is typically required;
-3. some of these tools are **executed development-time** instead of runtime when the AI system is in production, introducing risks of development-time assets being attacked if these tools are corrupted (including training data and model parameters).
+1. **three new supplied assets**: data, models, and model hosting. Note that models can also be delivered in the form of finetuning artifacts (e.g., LoRA modules);
+2. They supply chain may include the **own organization** instead of just third parties. For example, data and models may come from different departments and sources. This effectively makes supply chain management include for example _data provenance_.
+3. new **AI-specific development tooling** is typically required;
+4. some of these tools are **executed development-time** instead of runtime when the AI system is in production, introducing risks of development-time assets being attacked if these tools are corrupted (including training data and model parameters).
 
 Because of these characteristics, classic supply chain management may not fully cover AI development environments, particularly notebook-based workflows and MLOps tooling.
 
