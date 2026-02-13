@@ -239,6 +239,11 @@
         "type": 301
       },
       {
+        "source": "/goto/inputthreats/",
+        "destination": "/docs/2_threats_through_use/",
+        "type": 301
+      },
+      {
         "source": "/goto/monitoruse/",
         "destination": "/docs/2_threats_through_use/#monitor-use",
         "type": 301
