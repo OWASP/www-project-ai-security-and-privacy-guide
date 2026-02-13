@@ -8,21 +8,29 @@ weight: 3
 >Category: group of threats through use  
 >Permalink: https://owaspai.org/goto/threatsuse/
 
-Threats through use (also called “input attacks”, “inference-time attacks”, or “runtime adversarial attacks”) occur when an attacker crafts inputs to a deployed AI system to achieve malicious goals such as:
+Threats through use (also called “input attacks”, “inference-time attacks”, or “runtime adversarial attacks”) occur when an attacker crafts inputs to a deployed AI system to achieve malicious goals.
 
-- Bypassing decisions (evasion)
-- Extracting sensitive information (model inversion, membership inference, sensitive data disclosure)
-- Stealing the model itself via queries (model theft through use)
-- Hijacking behaviour in GenAI systems (prompt injection)
-- Causing resource exhaustion or system malfunction
+Threats on this page:
+- [Evasion](/goto/evasion/) - Bypassing decisions 
+- [Prompt injection](/goto/promptinjection/) - Manipulating behaviour of GenAI systems
+- Sensitive data extraction:
+    - [Sensitive data output from model](/goto/disclosureoutput)
+    - [Model inversion and Membership inference](/goto/modelinversionandmembership)
+- [Model theft through use](/goto/modeltheftuse/)
+- [AI Resource exhaustion](/goto/airesourceexhaustion)
 
-These attacks and how to protect against them will be discussed in the following subsections.
 
-**Controls for threats through use**
+**Controls for threats through use in general**
 
 These are the controls for threats through use in general - more specific controls are discussed in the subsections for the various types of attacks:
 - See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/) and [Sensitive data limitation](/goto/dataminimize/)
-- The below control(s), each marked with a # and a short name in capitals
+- The below control(s), each marked with a # and a short name in capitals:
+    - [#MONITOR USER](/goto/monitoruse/)
+    - [#RATE LIMIT](/goto/ratelimit/)
+    - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/)
+    - [#ANOMALOUS INPUT HANDLING](/goto/anomalousinputhandling/)
+    - [#UNWANTED INPUT SERIES HANDLING](/goto/unwantedinputserieshandling/)
+    - [#OBCURE CONFIDENCE](/goto/obscureconfidence/)
 
 #### #MONITOR USE 
 >Category: runtime information security control for threats through use  
