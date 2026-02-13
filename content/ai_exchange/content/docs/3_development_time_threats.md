@@ -38,13 +38,7 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
   - [#SUPPLY CHAIN MANAGE](/goto/supplychainmanage/) especially to control where data and models come from
     
 
-#### #DEVDATAPROTECT
-> Category: information security control  
-> Permalink: https://owaspai.org/goto/devdataprotect/
-
-This control has been integrated with [#DEVSECURITY](/goto/devsecurity/).
-
-#### #DEVSECURITY
+#### #DEV SECURITY
 > Category: development-time information security control  
 > Permalink: https://owaspai.org/goto/devsecurity/
 
@@ -103,7 +97,7 @@ Integrity checks can be performed at various stages including build, deploy, and
 Integrity Checks - Build Stage  
   During the build stage, it is crucial to validate the integrity of the source code and dependencies to ensure that no unauthorized changes have been introduced. Techniques include:
   - Source Code Verification: Implementing code signing and checksums to verify the integrity of the source code. This ensures that the code has not been tampered with.
-  - Dependency Management: Regularly auditing and updating third-party libraries and dependencies to avoid vulnerabilities. Use tools like Software Composition Analysis (SCA) to automate this process. See [#SUPPLYCHAINMANAGE](/goto/supplychainmanage/).
+  - Dependency Management: Regularly auditing and updating third-party libraries and dependencies to avoid vulnerabilities. Use tools like Software Composition Analysis (SCA) to automate this process. See [#SUPPLY CHAIN MANAGE](/goto/supplychainmanage/).
   - Automated Testing: Employing continuous integration (CI) pipelines with automated tests to detect issues early in the development cycle. This includes unit tests, integration tests, and security tests.
  
   Example: A software company using CI pipelines can integrate automated security tools to scan for vulnerabilities in the codebase and dependencies, ensuring that only secure and verified code progresses through the pipeline.
@@ -119,7 +113,7 @@ Integrity Checks - Deploy Stage
 Supply Chain Management  
   Managing the AI supply chain involves securing the components and processes involved in developing and deploying AI systems. This includes:
   - Component Authenticity: Using cryptographic signatures to verify the authenticity and integrity of components received from suppliers. This prevents the introduction of malicious components into the system.
-  - For more details, see [#SUPPLYCHAINMANAGE](/goto/supplychainmanage/)
+  - For more details, see [#SUPPLY CHAIN MANAGE](/goto/supplychainmanage/)
  
   Example: An organization using pre-trained AI models from external vendors can require those vendors to provide cryptographic signatures for model files and detailed security assessments, ensuring the integrity and security of these models before integration.
 
@@ -137,7 +131,7 @@ Useful standards include:
 - ISO 27001 Information Security Management System does not cover development-environment security explicitly. Nevertheless, the information security management system is designed to take care of it, provided that the relevant assets and their threats are taken into account. Therefore it is important to add train/test/validation data, model parameters and technical documentation to the existing development environment asset list.
 
 
-#### #SEGREGATEDATA
+#### #SEGREGATE DATA
 > Category: development-time information security control  
 > Permalink: https://owaspai.org/goto/segregatedata/
 
@@ -160,7 +154,7 @@ Useful standards include:
 - ISO 27002 control 8.31 Separation of development, test and production environments. Gap: covers this control partly - the particularity is that the development environment typically has the sensitive data instead of the production environment - which is typically the other way around in non-AI systems. Therefore it helps to restrict access to that data within the development environment. Even more: within the development environment further segregation can take place to limit access to only those who need the data for their work, as some developers will not be processing data.
 - See the 'How' section above for further standard references
 
-#### #CONFCOMPUTE
+#### #CONF COMPUTE
 > Category: development-time information security control  
 > Permalink: https://owaspai.org/goto/confcompute/
 
@@ -172,7 +166,7 @@ Useful standards include:
 
 - Not covered yet in ISO/IEC standards
 
-#### #FEDERATEDLEARNING
+#### #FEDERATED LEARNING
 > Category: development-time AI engineer control  
 > Permalink: https://owaspai.org/goto/federatedlearning/
 
@@ -210,7 +204,7 @@ Useful standards include:
 
 - Not covered yet in ISO/IEC standards
 
-#### #SUPPLYCHAINMANAGE
+#### #SUPPLY CHAIN MANAGE
 > Category: development-time information security control  
 > Permalink: https://owaspai.org/goto/supplychainmanage/
 
@@ -271,7 +265,7 @@ Supply chain management benefits from verifying the integrity and authenticity o
 - content-addressable storage or verification at read time,
 - periodic integrity audits.
 
-Monitoring for known vulnerabilities affecting supplied models, data pipelines, and dependencies, based on regular review of relevant security advisories and communications, allows teams to respond to newly discovered risks in a timely manner, informed by severity and exploitability, through updates, containment, or compensating controls. These activities can be integrated into broader vulnerability management and incident response processes (see #[DEVSECURITY](/goto/devsecurity/)).
+Monitoring for known vulnerabilities affecting supplied models, data pipelines, and dependencies, based on regular review of relevant security advisories and communications, allows teams to respond to newly discovered risks in a timely manner, informed by severity and exploitability, through updates, containment, or compensating controls. These activities can be integrated into broader vulnerability management and incident response processes (see #[DEV SECURITY](/goto/devsecurity/)).
 
 **Implementation of supplier evaluation and security assessment of supplied models and model hosting**  
 Evaluating the trustworthiness of suppliers (external vendors or internal teams) helps contextualize supply chain risk. This may include reviewing:
@@ -378,7 +372,7 @@ Data and model poisoning can occur at various stages, as illustrated in the thre
 - Controls specific to broad model poisoning - discussed below
   - [MODELENSEMBLE](/goto/modelensemble/) so that if one of the models is poisoned, it can be contained
 
-#### #MODELENSEMBLE
+#### #MODEL ENSEMBLE
 > Category: development-time AI engineer control - including specific runtime implementation
 > Permalink: https://owaspai.org/goto/modelensemble/
 
@@ -408,7 +402,7 @@ An attacker manipulates data that the model uses to learn, in order to affect th
 - Several of the above attack types are very much possible if executed by an insider attacker
 
 
-The manipulated data can be training data, but also in-context-learning data that is used to augment the input (e.g., a prompt) to a model with information to use. Collaborative mitigations like [#FEDERATEDLEARNING](/goto/federatedlearning/) can reduce data centralization but require additional poisoning controls based on extension of attack surface.
+The manipulated data can be training data, but also in-context-learning data that is used to augment the input (e.g., a prompt) to a model with information to use. Collaborative mitigations like [#FEDERATED LEARNING](/goto/federatedlearning/) can reduce data centralization but require additional poisoning controls based on extension of attack surface.
 
 Example 1: an attacker breaks into a training set database to add images of houses and labels them as 'fighter planes', to mislead the camera system of an autonomous missile. The missile is then manipulated to attack houses. With a good test set this unwanted behaviour may be detected. However, the attacker can also perform so-called targeted data poisoning by making the poisoned data represent input that normally doesn't occur and therefore would not be in a testset. The attacker can then create that abnormal input in practice. In the previous example this could be houses with white crosses on the door.  See [MITRE ATLAS - Poison trainingdata](https://atlas.mitre.org/techniques/AML.T0020)
 
@@ -447,7 +441,7 @@ Sabotage data poisoning attacks are relatively easy to detect because they occur
 - [Clean-label Backdoor attacks by Turner et al](https://people.csail.mit.edu/madry/lab/cleanlabel.pdf)
 
 
-#### #MORETRAINDATA
+#### #MORE TRAIN DATA
 > Category: development-time AI engineer control - pre-training    
 > Permalink: https://owaspai.org/goto/moretraindata/
 
@@ -461,7 +455,7 @@ Useful standards include:
 
 - Not covered yet in ISO/IEC standards
 
-#### #DATAQUALITYCONTROL
+#### #DATA QUALITY CONTROL
 > Category: development-time AI engineer control - pre-training  
 > Permalink: https://owaspai.org/goto/dataqualitycontrol/
 
@@ -551,7 +545,7 @@ Useful standards include:
 - ISO/iEC 42001 B.7.4 briefly covers data quality for AI. Gap: idem as ISO 5259
 - Not further covered yet in ISO/IEC standards
 
-#### #TRAINDATADISTORTION
+#### #TRAIN DATA DISTORTION
 > Category: development-time AI-engineer control - pre-training  
 > Permalink: https://owaspai.org/goto/traindatadistortion/
 
@@ -585,7 +579,7 @@ This control can only be applied during training and therefore not to an already
 Useful standards include:  
 - Not covered yet in ISO/IEC standards
 
-#### #POISONROBUSTMODEL
+#### #POISON ROBUST MODEL
 > Category: development-time AI engineer control - post-training  
 > Permalink: https://owaspai.org/goto/poisonrobustmodel/
 
@@ -609,7 +603,7 @@ The general principle of reducing sensitivity to poisoned training data is to ma
 Useful standards include:
 - Not covered yet in ISO/IEC standards
 
-#### #TRAINADVERSARIAL
+#### #TRAIN ADVERSARIAL
 > Category: development-time AI engineer control - pre-training  
 > Permalink: https://owaspai.org/goto/trainadversarial/
 
@@ -641,7 +635,7 @@ Training data manipulation is referred to as [data poisoning](/goto/datapoison).
   - [#SEGREGATE DATA](/goto/segregatedata/) to create parts of the development environment with extra protection
   - [#CONF COMPUTE](/goto/confcompute/) for denying access to where sensitive data is processed
   - [#SUPPLY CHAIN MANAGE](/goto/supplychainmanage/) especially to control where data and models come from
-- Controls for model performance validation to detect deviation: [#CONTINUOUSVALIDATION](/goto/continuousvalidation/)
+- Controls for model performance validation to detect deviation: [#CONTINUOUS VALIDATION](/goto/continuousvalidation/)
 
 
 ### 3.1.3 Supply-chain model poisoning
