@@ -140,32 +140,32 @@
       },  
       {
         "source": "/goto/aiprogram/",
-        "destination": "/docs/1_general_controls/#aiprogram",
+        "destination": "/docs/1_general_controls/#ai-program",
         "type": 301
       },
       {
         "source": "/goto/secprogram/",
-        "destination": "/docs/1_general_controls/#secprogram",
+        "destination": "/docs/1_general_controls/#sec-program",
         "type": 301
       },
       {
         "source": "/goto/secdevprogram/",
-        "destination": "/docs/1_general_controls/#secdevprogram",
+        "destination": "/docs/1_general_controls/#sec-dev-program",
         "type": 301
       },
       {
         "source": "/goto/devprogram/",
-        "destination": "/docs/1_general_controls/#devprogram",
+        "destination": "/docs/1_general_controls/#dev-program",
         "type": 301
       },
       {
         "source": "/goto/checkcompliance/",
-        "destination": "/docs/1_general_controls/#checkcompliance",
+        "destination": "/docs/1_general_controls/#check-compliance",
         "type": 301
       },
       {
         "source": "/goto/seceducate/",
-        "destination": "/docs/1_general_controls/#seceducate",
+        "destination": "/docs/1_general_controls/#sec-educate",
         "type": 301
       },
       {
@@ -175,22 +175,22 @@
       },
       {
         "source": "/goto/dataminimize/",
-        "destination": "/docs/1_general_controls/#dataminimize",
+        "destination": "/docs/1_general_controls/#data-minimize",
         "type": 301
       },
       {
         "source": "/goto/alloweddata/",
-        "destination": "/docs/1_general_controls/#alloweddata",
+        "destination": "/docs/1_general_controls/#allowed-data",
         "type": 301
       },
       {
         "source": "/goto/shortretain/",
-        "destination": "/docs/1_general_controls/#shortretain",
+        "destination": "/docs/1_general_controls/#short-retain",
         "type": 301
       },
       {
         "source": "/goto/obfuscatetrainingdata/",
-        "destination": "/docs/1_general_controls/#obfuscatetrainingdata",
+        "destination": "/docs/1_general_controls/#obfuscate-training-data",
         "type": 301
       },
       {
@@ -210,17 +210,17 @@
       },
       {
         "source": "/goto/leastmodelprivilege/",
-        "destination": "/docs/1_general_controls/#leastmodelprivilege",
+        "destination": "/docs/1_general_controls/#least-model-privilege",
         "type": 301
       },
       {
         "source": "/goto/aitransparency/",
-        "destination": "/docs/1_general_controls/#aitransparency",
+        "destination": "/docs/1_general_controls/#ai-transparency",
         "type": 301
       },
       {
         "source": "/goto/continuousvalidation/",
-        "destination": "/docs/1_general_controls/#continuousvalidation",
+        "destination": "/docs/1_general_controls/#continuous-validation",
         "type": 301
       },
       {
@@ -230,7 +230,7 @@
       },
       {
         "source": "/goto/unwantedbiastesting/",
-        "destination": "/docs/1_general_controls/#unwantedbiastesting",
+        "destination": "/docs/1_general_controls/#unwanted-bias-testing",
         "type": 301
       },
       {
@@ -395,7 +395,7 @@
       },
       {
         "source": "/goto/sensitiveoutputhandling/",
-        "destination": "/docs/2_threats_through_use/#sensitiveoutputhandling",
+        "destination": "/docs/2_threats_through_use/#sensitive-output-handling",
         "type": 301
       },
       {
@@ -470,32 +470,32 @@
       },
       {
         "source": "/goto/devdataprotect/",
-        "destination": "/docs/3_development_time_threats/#devdataprotect",
+        "destination": "/docs/3_development_time_threats/#dev-security",
         "type": 301
       },
       {
         "source": "/goto/devsecurity/",
-        "destination": "/docs/3_development_time_threats/#devsecurity",
+        "destination": "/docs/3_development_time_threats/#dev-security",
         "type": 301
       },
       {
         "source": "/goto/segregatedata/",
-        "destination": "/docs/3_development_time_threats/#segregatedata",
+        "destination": "/docs/3_development_time_threats/#segregate-data",
         "type": 301
       },
       {
         "source": "/goto/confcompute/",
-        "destination": "/docs/3_development_time_threats/#confcompute",
+        "destination": "/docs/3_development_time_threats/#conf-compute",
         "type": 301
       },
       {
         "source": "/goto/federatedlearning/",
-        "destination": "/docs/3_development_time_threats/#federatedlearning",
+        "destination": "/docs/3_development_time_threats/#federated-learning",
         "type": 301
       },
       {
         "source": "/goto/supplychainmanage/",
-        "destination": "/docs/3_development_time_threats/#supplychainmanage",
+        "destination": "/docs/3_development_time_threats/#supply-chain-manage",
         "type": 301
       },
       {
@@ -505,7 +505,7 @@
       },
       {
         "source": "/goto/modelensemble/",
-        "destination": "/docs/3_development_time_threats/#modelensemble",
+        "destination": "/docs/3_development_time_threats/#model-ensemble",
         "type": 301
       },
       {
@@ -515,22 +515,22 @@
       },
       {
         "source": "/goto/moretraindata/",
-        "destination": "/docs/3_development_time_threats/#moretraindata",
+        "destination": "/docs/3_development_time_threats/#more-train-data",
         "type": 301
       },
       {
         "source": "/goto/dataqualitycontrol/",
-        "destination": "/docs/3_development_time_threats/#dataqualitycontrol",
+        "destination": "/docs/3_development_time_threats/#data-quality-control",
         "type": 301
       },
       {
         "source": "/goto/traindatadistortion/",
-        "destination": "/docs/3_development_time_threats/#traindatadistortion",
+        "destination": "/docs/3_development_time_threats/#train-data-distortion",
         "type": 301
       },
       {
         "source": "/goto/poisonrobustmodel/",
-        "destination": "/docs/3_development_time_threats/#poisonrobustmodel",
+        "destination": "/docs/3_development_time_threats/#poison-robust-model",
         "type": 301
       },
       {
@@ -585,12 +585,12 @@
       },
       {
         "source": "/goto/runtimemodelintegrity/",
-        "destination": "/docs/4_runtime_application_security_threats/#runtimemodelintegrity",
+        "destination": "/docs/4_runtime_application_security_threats/#runtime-model-integrity",
         "type": 301
       },
       {
         "source": "/goto/runtimemodeliointegrity/",
-        "destination": "/docs/4_runtime_application_security_threats/#runtimemodeliointegrity",
+        "destination": "/docs/4_runtime_application_security_threats/#runtime-model-io-integrity",
         "type": 301
       },
       {
@@ -600,12 +600,12 @@
       },
       {
         "source": "/goto/runtimemodelconfidentiality/",
-        "destination": "/docs/4_runtime_application_security_threats/#runtimemodelconfidentiality",
+        "destination": "/docs/4_runtime_application_security_threats/#runtime-model-confidentiality",
         "type": 301
       },
       {
         "source": "/goto/modelobfuscation/",
-        "destination": "/docs/4_runtime_application_security_threats/#modelobfuscation",
+        "destination": "/docs/4_runtime_application_security_threats/#model-obfuscation",
         "type": 301
       },
       {
@@ -615,7 +615,7 @@
       },
       {
         "source": "/goto/encodemodeloutput/",
-        "destination": "/docs/4_runtime_application_security_threats/#encodemodeloutput",
+        "destination": "/docs/4_runtime_application_security_threats/#encode-model-output",
         "type": 301
       },
       {
@@ -635,7 +635,17 @@
       },
       {
         "source": "/goto/modelinputconfidentiality/",
-        "destination": "/docs/4_runtime_application_security_threats/#modelinputconfidentiality",
+        "destination": "/docs/4_runtime_application_security_threats/#model-input-confidentiality",
+        "type": 301
+      },
+      {
+        "source": "/goto/augmentationdataconfidentiality/",
+        "destination": "/docs/4_runtime_application_security_threats/#augmentation-data-confidentiality",
+        "type": 301
+      },
+      {
+        "source": "/goto/augmentationdataintegrity/",
+        "destination": "/docs/4_runtime_application_security_threats/#augmentation-data-integrity",
         "type": 301
       },
       {
