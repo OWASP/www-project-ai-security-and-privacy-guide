@@ -305,17 +305,37 @@
       },
       {
         "source": "/goto/closedboxevasion/",
-        "destination": "/docs/2_threats_through_use/#211-closed-box-evasion",
+        "destination": "/docs/2_threats_through_use/#211-zero-knowledge-evasion",
+        "type": 301
+      },
+      {
+        "source": "/goto/zeroknowledgeevasion/",
+        "destination": "/docs/2_threats_through_use/#211-zero-knowledge-evasion",
         "type": 301
       },
       {
         "source": "/goto/openboxevasion/",
-        "destination": "/docs/2_threats_through_use/#212-open-box-evasion",
+        "destination": "/docs/2_threats_through_use/#212-percect-knowledge-evasion",
+        "type": 301
+      },
+      {
+        "source": "/goto/perfectknowledgeevasion/",
+        "destination": "/docs/2_threats_through_use/#212-percect-knowledge-evasion",
+        "type": 301
+      },
+      {
+        "source": "/goto/transferattack/",
+        "destination": "/docs/2_threats_through_use/#213-transferability-based-evasion",
+        "type": 301
+      },
+      {
+        "source": "/goto/partialknowledgeevasion/",
+        "destination": "/docs/2_threats_through_use/#214-partial-knowledge-evasion",
         "type": 301
       },
       {
         "source": "/goto/evasionafterpoison/",
-        "destination": "/docs/2_threats_through_use/#213-evasion-after-data-poisoning",
+        "destination": "/docs/2_threats_through_use/#215-evasion-after-data-poisoning",
         "type": 301
       },
       {
