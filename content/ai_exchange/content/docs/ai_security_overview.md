@@ -182,7 +182,7 @@ The five steps - G.U.A.R.D - to organize AI security as an organization are:
 4. **Reduce**  
   Reduce potential impact by [minimizing or obfuscating sensitive data](/goto/datalimit/) and [limiting the impact of unwanted behaviour](/goto/limitunwanted/) (e.g., managing privileges, guardrails, human oversight etc. Basically: apply Murphy's law. 
 5. **Demonstrate**  
-    Establish evidence of responsible AI security through transparency, testing, documentation, and communication. Prove to management, regulators, and clients that your AI systems are under control and that the applied safeguards work as intended.
+    Establish evidence of responsible AI security through transparency, [testing](/goto/testing/), documentation, and communication. Prove to management, regulators, and clients that your AI systems are under control and that the applied safeguards work as intended.
 
 And finally: think before you build an AI solution. AI can have fantastic benefits, but it always needs to be balanced with risks. Securing AI is typically harder than securing non-AI systems, first because it's relatively new, but also because there is a level of uncertainty in all data-driven technology. For example in the case of LLMs, we are dealing with the fluidity of natural language. LLMs essentially offer an unstable, undocumented interface with an unclear set of policies. That means that security measures applied to AI often cannot offer security properties to a standard you might be used to with other software. Consider whether AI is the appropriate technology choice for the problem you are trying to solve. Removing an unnecessary AI component eliminates all AI-related risks.  
 
