@@ -1425,6 +1425,9 @@ Watermarking techniques should be designed to remain detectable even if the mode
 
 In addition to its technical role, watermarking supports intellectual property protection by enabling post-hoc attribution of stolen or misused models, which can be critical for legal claims, contractual enforcement, and regulatory investigations. As part of a layered security strategy, watermarking complements preventive controls by providing accountability and ownership assurance when other defenses fail.
 
+**Limitations**  
+Watermarking can be effective evidence for direct model theft, but is limited for model exfiltration. This is because typical watermark approached are represented in data that would not by in distribution of the input data in such an attack. More advanced techniques exist (see references) that make watermarking entangled in typical input data and its output.
+
 **References**  
 - [USENIX: Entangled Watermarks as a Defense against Model Extraction](https://www.usenix.org/conference/usenixsecurity21/presentation/jia)
 
