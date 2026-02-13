@@ -952,6 +952,10 @@ See [Evasion section](/goto/evasion/) for the controls.
 **Description**  
 After training data has been poisoned (see [data poisoning section](/goto/datapoison/)), specific input  (called _backdoors_ or _triggers_) can lead to unwanted model output. The difference with other types of Evasion attacks is that the vulnerability is not a natural property of the trained model, but a manipulated one.
 
+**Controls**  
+- See [Evasion section](/goto/evasion/) for the controls, with the exception of controls that protect against the search of adversarial samples (rate limit, unwanted input series handling, and obscure confidence).
+- See the [Model poisoning section](/goto/modelpoison/) for the controls against model poisoning.
+
 ---
 
 ## 2.2 Prompt injection
