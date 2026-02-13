@@ -705,6 +705,9 @@ Impact:  Confidentiality breach of the model (i.e., model parameters), which can
 
 Alternative ways of model theft are [model theft through use](/goto/modeltheftuse/) and [direct runtime model theft](/goto/runtimemodeltheft/).
 
+**Risk identification**  
+This threat applies if the model represents intellectual property (i.e., a trade secret), or the risk of any input attack applies - with the exception of the model being publicly available because then there is no need to steal it.
+
 **Controls**
 
 - [General controls](/goto/generalcontrols/),
