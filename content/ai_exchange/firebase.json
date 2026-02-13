@@ -410,7 +410,12 @@
       },
       {
         "source": "/goto/modeltheftuse/",
-        "destination": "/docs/2_threats_through_use/#24-model-theft-through-use",
+        "destination": "/docs/2_threats_through_use/#24-model-exfiltration",
+        "type": 301
+      },
+      {
+        "source": "/goto/modelexfiltration/",
+        "destination": "/docs/2_threats_through_use/#24-model-exfiltration",
         "type": 301
       },
       {
