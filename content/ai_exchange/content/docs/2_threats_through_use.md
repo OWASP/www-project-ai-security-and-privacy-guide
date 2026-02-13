@@ -586,10 +586,10 @@ AI models that take a prompt as input (e.g. GenAI) suffer from an additional thr
 
 **Types of Evasion**  
 The following sections discuss the various types of Evasion, where attackers have different access to knowledge:
-- [Closed box Evasion](/goto/closedboxevasion/) - when no access to model internals
-- [Open box Evasion](/goto/openboxevasion/) - when knowing the model internals
+- [Zero-knowledge Evasion](/goto/zeroknowledgeevasion/) - when no access to model internals
+- [Perfect-knowledge Evasion](/goto/perfectknowledgeevasion/) - when knowing the model internals
 - [Transfer attack](/goto/transferattack) - preparing attack inputs using a similar model
-- [Gray box Evasion](/goto/grayboxevasion/) - when knowing some of the model internals
+- [Partial-knowledge Evasion](/goto/partialknowledgeevasion/) - when knowing some of the model internals
 - [Evasion after poisoning](/goto/evasionafterpoison/) - presenting an input that has been planted in the model as a backdoor
 
 **Examples**  
@@ -646,13 +646,13 @@ Evasion input handling is less effective in isolation when attackers adapt quick
 **Implementation**  
 
 The main concepts of detecting evasion input attacks include:
-  - **Statistical Methods:** Adversarial inputs often deviate from benign inputs in some statistical metric and can therefore be detected. Examples are utilizing the Principal Component Analysis (PCA), Bayesian     Uncertainty Estimation (BUE) or Structural Similarity Index Measure (SSIM). These techniques differentiate from statistical analysis of input series (see #UNWANTED INPUT SERIES HANDLING), as these statistical detectors decide if a sample is adversarial or not per input sample, such that these techniques are able to also detect transferred black box attacks.
+  - **Statistical Methods:** Adversarial inputs often deviate from benign inputs in some statistical metric and can therefore be detected. Examples are utilizing the Principal Component Analysis (PCA), Bayesian     Uncertainty Estimation (BUE) or Structural Similarity Index Measure (SSIM). These techniques differentiate from statistical analysis of input series (see #UNWANTED INPUT SERIES HANDLING), as these statistical detectors decide if a sample is adversarial or not per input sample, such that these techniques are able to also detect [transferred attacks](/goto/transferattack/).
   - **Detection Networks:** A detector network operates by analyzing the inputs or the behavior of the primary model to spot adversarial examples. These networks can either run as a preprocessing function or in parallel to the main model. To use a detector network as a preprocessing function, it has to be trained to differentiate between benign and adversarial samples, which is in itself a hard task. Therefore, it can rely on e.g. the original input or on statistical metrics. To train a detector network to run in parallel to the main model, typically, the detector is trained to distinguish between benign and adversarial inputs from the intermediate features of the main model’s hidden layer. Caution: Adversarial attacks could be crafted to circumvent the detector network and fool the main model.
   - **Input Distortion Based Techniques (IDBT)**: A function is used to modify the input to remove any adversarial data. The model is applied to both versions of the image, the original input and the modified version. The results are compared to detect possible attacks. See [INPUTDISTORTION](/goto/inputdistortion/).
   - **Detection of adversarial patches:** These patches are localized, often visible modifications that can even be placed in the real world. The techniques mentioned above can detect adversarial patches, yet they often require modification due to the unique noise pattern of these patches, particularly when they are used in real-world settings and processed through a camera. In these scenarios, the entire image includes benign camera noise (camera fingerprint), complicating the detection of the specially crafted adversarial patches.
 
 **Risk-Reduction Guidance**  
-Detecting evasion at the single-input level can reduce the success rate of adversarial examples, including transferred black-box attacks. Techniques such as statistical detection, detector networks, and input distortion can identify inputs that exploit model weaknesses even when they appear valid to humans.
+Detecting evasion at the single-input level can reduce the success rate of adversarial examples, including [transferred attacks](/goto/transferattack/). Techniques such as statistical detection, detector networks, and input distortion can identify inputs that exploit model weaknesses even when they appear valid to humans.
 However, adversarial attacks often evolve to bypass known detection methods. As a result, the risk reduction provided by this control depends on regular evaluation, adaptation, and combination with complementary defenses such as rate limiting, series-based detection, and model hardening.
 
 **Particularity**  
@@ -787,7 +787,7 @@ Input distortion defenses are effective against both evasion attacks and data po
   
   In addition, distorted input also hinders attackers searching for adversarial samples, where they  rely on gradients. However, there are ways in which attackers can work around this. A specific defense method called Random Transformations (RT) introduces enough randomness into the input data to make it computationally difficult for attackers to create adversarial examples. This randomness is typically achieved by applying a random subset of input transformations with random parameters. Since multiple transformations are applied to each input sample, the model's accuracy on regular data might drop, so the model needs to be retrained with these random transformations in place.
   
-  Note that black-box / closed-box attacks do not rely on the gradients and are therefore not affected by shattered gradients, as they do not use the gradients to calculate the attack. Black box attacks use only the input and the output of the model or whole AI system to calculate the adversarial input. For a more detailed discussion of these attacks, see Closed-box evasion.
+  Note that [zero-knowledge attacks](/goto/zeroknowledgeevasion/) do not rely on the gradients and are therefore not affected by shattered gradients, as they do not use the gradients to calculate the attack. Zero-knowledge attacks use only the input and the output of the model or whole AI system to calculate the adversarial input. 
 
   **Input Distortion against Data Poisoning Attacks**
 
@@ -838,16 +838,16 @@ Useful standards include:
   - ENISA Securing Machine Learning Algorithms Annex C: "Choose and define a more resilient model design"
  
  
-### 2.1.1. Closed-box evasion
+### 2.1.1. Zero-knowledge evasion
 >Category: threat through use  
->Permalink: https://owaspai.org/goto/closedboxevasion/
+>Permalink: https://owaspai.org/goto/zeroknowledgeevasion/
 
 **Description**  
-Black box or closed-box Evasion attacks are methods where an attacker crafts an input to exploit a model without having any internal knowledge or access to that model's implementation, including code, training set, parameters, and architecture. The term "black box" reflects the attacker's perspective, viewing the model as a 'closed box' whose internal workings are unknown. This approach often requires experimenting with how the model responds to various inputs, as the attacker navigates this lack of transparency to identify and leverage potential vulnerabilities.
-Since the attacker does not have access to the inner workings of the model, he cannot calculate the internal model gradients to efficiently create the adversarial inputs - in contrast to white-box or open-box attacks (see 2.1.2. Open-box evasion).
+Zero-knowledge, or black box or closed-box Evasion attacks are methods where an attacker crafts an input to exploit a model without having any internal knowledge or access to that model's implementation, including code, training set, parameters, and architecture. The term "black box" reflects the attacker's perspective, viewing the model as a 'closed box' whose internal workings are unknown. This approach often requires experimenting with how the model responds to various inputs, as the attacker navigates this lack of transparency to identify and leverage potential vulnerabilities.
+Since the attacker does not have access to the inner workings of the model, he cannot calculate the internal model gradients to efficiently create the adversarial inputs - in contrast to white-box or open-box attacks (see [Perfect-knowledge Evasion](/goto/perfectknowledgeevasion/)).
 
 **Implementation**  
-They closed-box attack strategy to find successful attack inputs is query-based:
+The zero-knowledge attack strategy to find successful attack inputs is query-based:
 
   An attacker systematically queries the target model using carefully designed inputs and observes the resulting outputs to search for variations of input that lead to a false decision of the model.
 This approach enables the attacker to indirectly reconstruct or estimate the model's decision boundaries, thereby facilitating the creation of inputs that can mislead the model.
@@ -883,14 +883,14 @@ Conference on Machine Learning. PMLR, 2019.
 
 
 
-### 2.1.2. Open-box evasion
+### 2.1.2. Perfect-knowledge evasion
 >Category: threat through use  
->Permalink: https://owaspai.org/goto/openboxevasion/
+>Permalink: https://owaspai.org/goto/perfectknowledgeevasion/
 
 **Description**  
-In open-box or white-box attacks, the attacker knows the architecture, parameters, and weights of the target model. Therefore, the attacker has the ability to create input data designed to introduce errors in the model's predictions. A famous example in this domain is the Fast Gradient Sign Method (FGSM) developed by Goodfellow et al. which demonstrates the efficiency of white-box attacks. FGSM operates by calculating a perturbation $p$ for a given image $x$ and it's label $l$, following the equation $p = \varepsilon \textnormal{sign}(\nabla_x J(\theta, x, l))$, where $\nabla_x J(\cdot, \cdot, \cdot)$ is the gradient of the cost function with respect to the input, computed via backpropagation. The model's parameters are denoted by $\theta$ and $\varepsilon$ is a scalar defining the perturbation's magnitude. Even attacks against certified defenses are possible.
+In perfect-knowledge or open-box or white-box attacks, the attacker knows the architecture, parameters, and weights of the target model. Therefore, the attacker has the ability to create input data designed to introduce errors in the model's predictions. A famous example in this domain is the Fast Gradient Sign Method (FGSM) developed by Goodfellow et al. which demonstrates the efficiency of white-box attacks. FGSM operates by calculating a perturbation $p$ for a given image $x$ and it's label $l$, following the equation $p = \varepsilon \textnormal{sign}(\nabla_x J(\theta, x, l))$, where $\nabla_x J(\cdot, \cdot, \cdot)$ is the gradient of the cost function with respect to the input, computed via backpropagation. The model's parameters are denoted by $\theta$ and $\varepsilon$ is a scalar defining the perturbation's magnitude. Even attacks against certified defenses are possible.
 
-In contrast to white-box attacks, black-box attacks operate without direct access to the inner workings of the model and therefore without access to the gradients. Instead of exploiting detailed knowledge, black-box attackers must rely on output observations to infer how to effectively craft adversarial examples.
+In contrast to perfect-knowledge attacks, zero-knowledge attacks operate without direct access to the inner workings of the model and therefore without access to the gradients. Instead of exploiting detailed knowledge, zero-knowledge attackers must rely on output observations to infer how to effectively craft adversarial examples.
 
 **Controls**  
 See [Evasion section](/goto/evasion/) for the controls.
@@ -909,15 +909,15 @@ adversarial attacks." arXiv preprint arXiv:1706.06083 (2017).
 >Permalink: https://owaspai.org/goto/transferattack/
 
 **Description**  
-Attackers can execute a transferability-based attack in a closed-box situation by first creating adversarial examples using a surrogate model: a copy or approximation of the closed-box target model, and then applying these adversarial examples to the target model.  The surrogate model can be:
-1. an open-box model from another supplier that performs a similar task (e.g., recognize traffic signs) - showing all its internals,
-2. a closed-box model from another supplier that performs a similar task - accessible through for example an API, (e.g., recognize traffic signs),
-3. an open-box model that the attacker trained based on available or self-collected or self-labeled data,
+Attackers can execute a transferability-based attack in a zero-knowledge situation by first creating adversarial examples using a surrogate model: a copy or approximation of the target model, and then applying these adversarial examples to the target model.  The surrogate model can be:
+1. a perfect-knowlegde model from another supplier that performs a similar task (e.g., recognize traffic signs) - showing all its internals,
+2. a zero-knowledge model from another supplier that performs a similar task - accessible through for example an API, (e.g., recognize traffic signs),
+3. a perfect-knowledge model that the attacker trained based on available or self-collected or self-labeled data,
 4. the exact target model that was stolen [development-time](/goto/devmodelleak/) or [runtime](/goto/runtimemodeltheft/),
 5. the exact target model obtained by purchasing or free downloading,
 6. a replica of the model, created by [Model theft through use attack])/goto/modeltheftuse/)
 
-The advantage of a surrogate model is that it exposes its internals (with the exception of the closed-box surrogate model), allowing an [Open box attack](/goto/openboxevasion). But even a closed models may be beneficial in case detection mechanisms and rate limiting are less strict than the target model - making a [closed-box attack](/goto/closedboxevasion/) easier and quicker to perform, 
+The advantage of a surrogate model is that it exposes its internals (with the exception of the zero-knowledge surrogate model), allowing an [Perfect-knowledge attack](/goto/perfectknowledgeevasion). But even a closed models may be beneficial in case detection mechanisms and rate limiting are less strict than the target model - making a [zero-knowledge attack](/goto/zeroknowledgeevasion/) easier and quicker to perform, 
 
 The goal is to create adversarial examples that will ‘hopefully’ transfer to the original target model, even though the surrogate may be internally different from the target. Because the task is similar, it can be expected that the decision boundaries in the model are similar. The likelihood of a successful transfer is generally higher when the surrogate model closely resembles the target model in terms of complexity and structure. The ultimate surrogate model is of course the target model itself. However, it’s noted that even attacks developed using simpler surrogate models tend to transfer effectively. 
 
@@ -935,12 +935,12 @@ See [Evasion section](/goto/evasion/) for the controls, with the exception of co
 - Papernot, Nicolas, Patrick McDaniel, and Ian Goodfellow. “Transferability in machine learning: from phenomena to black-box attacks using adversarial samples.” arXiv preprint arXiv:1605.07277 (2016).
 - Papernot, Nicolas, et al. “Practical black-box attacks against machine learning.” Proceedings of the 2017 ACM on Asia conference on computer and communications security. 2017.
 
-### 2.1.4 Gray-box evasion attacks
+### 2.1.4 Partial-knowledge evasion attacks
 >Category: threat through use  
->Permalink: https://owaspai.org/goto/grayboxevasion/
+>Permalink: https://owaspai.org/goto/partialknowledgeevasion/
 
 **Description**  
-Gray-box adversarial evasion attacks occupy a middle ground between [open-box](/goto/openboxevasion] and [closed-box](/goto/closedboxevasion/) attacks, where the attacker possesses partial knowledge of the target system like its architecture, training data, but lacks complete access/knowledge to its inner workings (e.g. gradients). In these attacks, the adversary leverages limited information to craft input perturbations designed to mislead machine learning models, by exploiting surrogate models (transferability) or improving known closed-box attacks with the given knowledge. Gray-box attacks can be more efficient and effective due to the additional insights available. This approach is particularly relevant in real-world scenarios where full model transparency is rare, but some information may be accessible.
+Partial-knowledge or gray-box adversarial evasion attacks occupy a middle ground between [perfect-knowledge](/goto/perfectknowledgeevasion] and [zero-knowledge](/goto/zeroknowledgeevasion/) attacks, where the attacker possesses partial knowledge of the target system like its architecture, training data, but lacks complete access/knowledge to its inner workings (e.g. gradients). In these attacks, the adversary leverages limited information to craft input perturbations designed to mislead machine learning models, by exploiting surrogate models (transferability) or improving known zero-knowledge attacks with the given knowledge. Partial-knowledge attacks can be more efficient and effective due to the additional insights available. This approach is particularly relevant in real-world scenarios where full model transparency is rare, but some information may be accessible.
 
 **Controls**  
 See [Evasion section](/goto/evasion/) for the controls.
