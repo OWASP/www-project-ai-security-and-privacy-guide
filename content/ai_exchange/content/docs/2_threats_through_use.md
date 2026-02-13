@@ -39,9 +39,9 @@ These are the controls for input threats in general - more specific controls are
 **Description**  
 Monitor use: observe, correlate, and log model usage (date, time, user), inputs, outputs, and system behavior to identify events or patterns that may indicate a cybersecurity incident. This can be used to reconstruct incidents, and make it part of the existing incident detection process - extended with AI-specific methods, including:
 
-  - improper functioning of the model (see [CONTINUOUSVALIDATION](/goto/continuousvalidation/) and [UNWANTEDBIASTESTING](/goto/unwantedbiastesting/))
-  - suspicious patterns of model use (e.g., high frequency - see [RATELIMIT](#ratelimit))
-  - suspicious inputs or series of inputs (see [ANOMALOUS INPUT HANDLING](/goto/anomalousinputhandling/). [UNWANTEDINPUTSERIESHANDLING](goto/unwantedinputserieshandling/) and [PROMPT INJECTION I/O handling](/goto/promptinjectioniohandling/))
+  - Improper functioning of the model (see [#CONTINUOUS VALIDATION](/goto/continuousvalidation/), [#UNWANTED BIAS TESTING](/goto/unwantedbiastesting/))
+  - Suspicious patterns of model use (e.g., high frequency - see [#RATE LIMIT](#ratelimit) and [#OVERSIGHT](/goto/oversight/)).
+  - Suspicious inputs or series of inputs (see [#ANOMALOUS INPUT HANDLING](/goto/anomalousinputhandling/), [#UNWANTED INPUT SERIES HANDLING](goto/unwantedinputserieshandling/), [#EVASION INPUT HANDLING](/goto/evasioninputhandling/) and [#PROMPT INJECTION I/O handling](/goto/promptinjectioniohandling/)).
 
 By adding details to logs on the version of the model used and the output, troubleshooting becomes easier. This control provides centralized visibility into how AI systems are used over time and across actors, sessions, and models.
 
@@ -221,13 +221,13 @@ By restricting the number and speed of model interactions, cost of attacks incre
 
 **Applicability**
 
-Defined by risk management (see #RISKANALYSIS). It is a primary control against many input threats. Natural rate limits can exist in systems whose context inherently restricts query rates (e.g., medical imaging or human supervised processes). Exceptions may apply when rate limiting would block intended safety-critical or real-time functions, such as:
+Defined by risk management (see [#RISK ANALYSIS](/goto/riskanalysis/)). It is a primary control against many input threats. Natural rate limits can exist in systems whose context inherently restricts query rates (e.g., medical imaging or human supervised processes). Exceptions may apply when rate limiting would block intended safety-critical or real-time functions, such as:
 
 - Emergency dispatch or medical triage models.
 - Cybersecurity monitoring that must analyze all traffic.
 - Real-time identity or fraud detection under strict latency constraints. 
 
-When rate limiting is impractical for the provider but feasible for the deployer, this responsibility must be clearly delegated and documented (see #SECPROGRAM)
+When rate limiting is impractical for the provider but feasible for the deployer, this responsibility must be clearly delegated and documented (see [#SEC PROGRAM](/goto/secprogram))
 
 **Implementation**
 
@@ -243,9 +243,9 @@ c. Optimize & Calibrate
     - Lower limits increase security but may affect user experience - tune for acceptable residual risk, possibly with the help of additional controls . 
 d. Detection & Response
     - Breaching a rate limit must trigger event logging and potential incident workflows. 
-    - Integrate with #MONITORUSE and incident response (see #SECPROGRAM)
+    - Integrate with [#MONITOR USE](/goto/monitoruse/) and incident response (see [#SEC PROGRAM](/goto/secprogram/))
     
-Complement this control with #MODEL ACCESS CONTROL, #MONITORUSE and detection mechanisms. 
+Complement this control with [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/), [#MONITORUSE])(/goto/monitoruse/) and detection mechanisms. 
 
 **Risk-Reduction Guidance**
 
@@ -346,7 +346,7 @@ For protection of trained model artifacts, see “Model Confidentiality” in th
   - Some attacks can occur within allowed sessions (e.g., indirect prompt injection).
   - Publicly available models remain vulnerable if alternative protections are not in place.
 
-Complement this control with #RATE LIMIT #MONITORUSE and incident response (#SECPROGRAM)
+Complement this control with [#RATE LIMIT](/goto/ratelimit/), [#MONITORUSE](/goto/monitoruse), and incident response ([#SEC PROGRAM](/goto/secprogram/)).
 
 **References**
   - Technical access control: ISO 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: covers this control fully
@@ -361,7 +361,7 @@ Complement this control with #RATE LIMIT #MONITORUSE and incident response (#SEC
 Anomalous input handling: implement tools to detect whether input is odd and potentially respond, where ‘odd’ means significantly different from the training data or even invalid - also called input validation - without knowledge on what malicious input looks like.
 
 **Objective**  
-Address unusual input as it is indicative of malicious activity. Response can vary between ignore, issue an alert, stop inference, or even take further steps to control the threat (see #monitor use for more details).
+Address unusual input as it is indicative of malicious activity. Response can vary between ignore, issue an alert, stop inference, or even take further steps to control the threat (see [#MONITOR USE](/goto/monitoruse/) use for more details).
 
 **Applicability**  
 Anomalous input is suspicious for every attack that happens through use, because attackers obviously behave differently than normal users do. However, detecting anomalous input has strong limitations (see below) and therefore its applicability depends on the successful detection rate on the one hand and on the other hand: 1) implementation effort, 2_ performance penalty, and 3_ the number of false positives which can hinder users, security operations or both. Only a representative test can provide the required insight. This can be achieved by testing the detection on normal use, and setting a threshold at a level where the false positive rate is still acceptable. 
@@ -470,7 +470,7 @@ The main concepts of detecting series of  unwanted inputs include:
          - A series of small deviations in the input space, indicating a possible attack such as a search to perform model inversion or an evasion attack. These attacks also typically have a series of inputs with a general increase of confidence value.          
           - Inputs that appear systematic (very random or very uniform or covering the entire input space) may indicate a model exfiltration attack.
 
-- **Behavior-based detection of anomalous input usage:** In addition to analysing individual inputs (see [#ANOMALOUS INPUT HANDLING](/goto/anomalousinputhandling/), the system may analyse inference usage patterns. A significantly higher-than-normal number of inferences by a single actor over a defined period of time can be treated as anomalous behavior and used as a signal to decide on a response. This detection complements input-based methods and aligns with principles described in rate limiting (see #RATE LIMIT).
+- **Behavior-based detection of anomalous input usage:** In addition to analysing individual inputs (see [#ANOMALOUS INPUT HANDLING](/goto/anomalousinputhandling/), the system may analyse inference usage patterns. A significantly higher-than-normal number of inferences by a single actor over a defined period of time can be treated as anomalous behavior and used as a signal to decide on a response. This detection complements input-based methods and aligns with principles described in rate limiting (see [#RATE LIMIT](/goto/ratelimit/)).
 
 - **Input optimization pattern detection:** Some attacks rely on repeatedly adjusting inputs to gradually achieve a successful outcome, such as finding an adversarial example, extracting sensitive behavior, or manipulating model responses. These attacks such as evasion attacks, model inversion attacks, sensitive training data output from instructions attack, often appear as a series of closely related inputs from the same actor, rather than a single malicious request. 
 
@@ -483,7 +483,7 @@ Detection approaches include:
 
 Considering similarity across a broader range of past inputs helps reduce evasion strategies where attackers alternate between probing inputs and unrelated requests to avoid detection.
 
-Signals from rate-based controls (see #RATE LIMIT), such as unusually frequent requests, can complement similarity analysis by providing additional context about suspicious optimization behavior.
+Signals from rate-based controls (see [#RATE LIMIT](/goto/ratelimit/), such as unusually frequent requests, can complement similarity analysis by providing additional context about suspicious optimization behavior.
 
 **Risk-Reduction Guidance**
 
@@ -501,7 +501,7 @@ Legitimate users may exhibit behavior similar to attack patterns, such as system
 
 **References**
 
-See also [#ANOMALOUS INPUT HANDLING](/goto/anomalous input handling/) for detecting abnormal input which can be an indication of adversarial input and #EVASION INPUT HANDLING for detecting single input evasion inputs. Useful standards include:
+See also [#ANOMALOUS INPUT HANDLING](/goto/anomalousinputhandling/) for detecting abnormal input which can be an indication of adversarial input and [#EVASION INPUT HANDLING](/goto/evasioninputhandling/) for detecting single input evasion inputs. Useful standards include:
 - Not covered yet in ISO/IEC standards
 
 
@@ -668,7 +668,7 @@ Adversarial examples may be crafted to evade both the primary model and dedicate
 
 **References**
 - [Survey of adversarial attack and defense](https://www.mdpi.com/2079-9292/11/8/1283)
-- [Feature squeezing](https://arxiv.org/pdf/1704.01155.pdf) (IDBT) compares the output of the model against the output based on a distortion of the input that reduces the level of detail. This is done by reducing the number of features or reducing the detail of certain features (e.g. by smoothing). This approach is like [INPUTDISTORTION](https://owaspai.org/docs/2_threats_through_use/#inputdistortion), but instead of just changing the input to remove any adversarial data, the model is also applied to the original input and then used to compare it, as a detection mechanism.
+- [Feature squeezing](https://arxiv.org/pdf/1704.01155.pdf) (IDBT) compares the output of the model against the output based on a distortion of the input that reduces the level of detail. This is done by reducing the number of features or reducing the detail of certain features (e.g. by smoothing). This approach is like [#INPUT DISTORTION](/goto/inputdistortion/), but instead of just changing the input to remove any adversarial data, the model is also applied to the original input and then used to compare it, as a detection mechanism.
 - [MagNet](https://arxiv.org/abs/1705.09064)
 - [DefenseGAN](https://arxiv.org/abs/1805.06605) and Goodfellow, I.; Pouget-Abadie, J.; Mirza, M.; Xu, B.; Warde-Farley, D.; Ozair, S.; Courville, A.; Bengio, Y. Generative adversarial networks. Commun. ACM 2020, 63, 139–144.
 - [Local intrinsic dimensionality](https://www.ijcai.org/proceedings/2021/0437.pdf)
@@ -802,7 +802,7 @@ Input distortion defenses are effective against both evasion attacks and data po
   
   Other Poisoning Features: When the poisoning feature is brittle, e.g. a high-frequency noise the input distortion removes or breaks the pattern as is the case for adversarial samples, for example, slight JPEG compression can neutralize high-frequency noise-based poisons. If the poisoning feature is more distinct or robust, such as visible patches in images, the defense must apply stronger or more varied transformations.  The randomness and strength of these transformations are key; if the same transformation is applied uniformly, the model might still learn the malicious pattern. Randomization also ensures that the model doesn't consistently encounter the same poisoned feature, reducing the risk that it will learn to associate it with certain outputs.
 
-See [DETECTADVERSARIALINPUT](https://owaspai.org/docs/2_threats_through_use/#detectadversarialinput) for an approach where the distorted input is used for detecting an adversarial attack.
+See [#EVASION INPUT HANDLING](/goto/evasioninputhandling/) for an approach where the distorted input is used for detecting an adversarial attack.
 
 **References**  
   - Weilin Xu, David Evans, Yanjun Qi. Feature Squeezing: Detecting Adversarial Examples in Deep Neural Networks. 2018 Network and Distributed System Security Symposium. 18-21 February, San Diego, California.
@@ -1578,7 +1578,7 @@ Unless the purpose of your AI project is intended to include or encourage this k
 The vagueness of words impact the effectiveness of language based guards. Unlike traditional engineering, the meaning of words are long known to drift through time in linguistics. Events will occur in real time and shift morality and ethics.
 To compensate for this weakness, lengthening the system prompt to increase precision is sometimes used ([#OVERSIGHT](/goto/oversight/)). 
 
-However, emerging news or events that are against a certain countries’ national values cannot be effectively addressed in real time. In these cases, red teaming techniques (#promptinputinvalidation) can be used. They are preferably continuously updated with concerns according to your region of interest in order to reveal the weaknesses of your LLM and use guardrails ([#FILTERSENSITIVEMODELOUTPUT](/goto/filtersensitivemodeloutput/), [#OVERSIGHT](/goto/oversight/)) to filter out the responses that are unwanted for additional protection.
+However, emerging news or events that are against a certain countries’ national values cannot be effectively addressed in real time. In these cases, red teaming techniques (#promptinputinvalidation) can be used. They are preferably continuously updated with concerns according to your region of interest in order to reveal the weaknesses of your LLM and use guardrails ([#FILTER SENSITIVE MODEL OUTPUT](/goto/filtersensitivemodeloutput/), [#OVERSIGHT](/goto/oversight/)) to filter out the responses that are unwanted for additional protection.
 
 ### Culture-aware explanation of output refusal
 
