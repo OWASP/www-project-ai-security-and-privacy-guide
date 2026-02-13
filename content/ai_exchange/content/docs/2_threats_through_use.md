@@ -5,7 +5,7 @@ heroText: "Attacks by crafting inputs to AI, and their countermeasures"
 weight: 3
 ---
 ## 2.0. Threats through use - introduction
->Category: group of threats through use  
+>Category: group of input threats  
 >Permalink: https://owaspai.org/goto/threatsuse/
 
 Threats through use (also called “input attacks”, “inference-time attacks”, or “runtime adversarial attacks”) occur when an attacker crafts inputs to a deployed AI system to achieve malicious goals.
@@ -33,7 +33,7 @@ These are the controls for threats through use in general - more specific contro
     - [#OBCURE CONFIDENCE](/goto/obscureconfidence/)
 
 #### #MONITOR USE 
->Category: runtime information security control for threats through use  
+>Category: runtime information security control for input threats  
 >Permalink: https://owaspai.org/goto/monitoruse/
 
 **Description**  
@@ -198,7 +198,7 @@ Useful standards include:
   - See [OpenCRE](https://www.opencre.org/cre/058-083). Idem
 
 #### #RATE LIMIT
->Category: runtime information security control for threats through use  
+>Category: runtime information security control for input threats  
 >Permalink: https://owaspai.org/goto/ratelimit/
 
 **Description**
@@ -281,7 +281,7 @@ Useful standards include:
   - See [OpenCRE](https://www.opencre.org/cre/630-573)
 
 #### #MODEL ACCESS CONTROL
->Category: runtime information security control for threats through use  
+>Category: runtime information security control for input threats  
 >Permalink: https://owaspai.org/goto/modelaccesscontrol/
 
 **Description**
@@ -354,7 +354,7 @@ Complement this control with #RATE LIMIT #MONITORUSE and incident response (#SEC
   - [OpenCRE on centralized access control](https://www.opencre.org/cre/117-371)
 
 #### #ANOMALOUS INPUT HANDLING
->Category: runtime AI engineer control for threats through use  
+>Category: runtime AI engineer control for input threats  
 >Permalink: https://owaspai.org/goto/anomalousinputhandling/ 
 
 **Description**  
@@ -444,7 +444,7 @@ Useful standards include:
 - ENISA Securing Machine Learning Algorithms Annex C: “Ensure that the model is sufficiently resilient to the environment in which it will operate.”
 
 #### #UNWANTED INPUT SERIES HANDLING
->Category: runtime AI engineer control for threats through use  
+>Category: runtime AI engineer control for input threats  
 >Permalink: https://owaspai.org/goto/unwantedinputserieshandling/ 
 
 **Description**  
@@ -556,7 +556,7 @@ In AI systems, confidence values are not just user-facing explanations. They can
 
 
 ## 2.1. Evasion
->Category: group of threats through use  
+>Category: group of input threats  
 >Permalink: https://owaspai.org/goto/evasion/
 
 **Description**  
@@ -627,7 +627,7 @@ An evasion attack typically consists of first searching for the inputs that misl
 
 
 #### #EVASION INPUT HANDLING
->Category: runtime AI engineer control for threats through use  
+>Category: runtime AI engineer control for input threats  
 >Permalink: https://owaspai.org/goto/evasioninputhandling/ 
 
 **Description**  
@@ -690,7 +690,7 @@ Useful standards include:
 
 
 #### #EVASION ROBUST MODEL
->Category: development-time AI engineer control for threats through use  
+>Category: development-time AI engineer control for input threats  
 >Permalink: https://owaspai.org/goto/evasionrobustmodel/
 
 **Description**  
@@ -746,7 +746,7 @@ PMLR, 2018.
 
 
 #### #TRAIN ADVERSARIAL
->Category: development-time AI engineer control for threats through use  
+>Category: development-time AI engineer control for input threats  
 >Permalink: https://owaspai.org/goto/trainadversarial/
 
 **Description**  
@@ -773,7 +773,7 @@ Useful standards include:
 
 
 #### #INPUT DISTORTION
->Category: runtime AI engineer control for threats through use  
+>Category: runtime AI engineer control for input threats  
 >Permalink: https://owaspai.org/goto/inputdistortion/
 
 **Description**  
@@ -817,7 +817,7 @@ Useful standards include:
 
   
 #### #ADVERSARIAL ROBUST DISTILLATION
->Category: development-time AI engineer control for threats through use  
+>Category: development-time AI engineer control for input threats  
 >Permalink: https://owaspai.org/goto/adversarialrobustdistillation/
 
 **Description**  
@@ -839,7 +839,7 @@ Useful standards include:
  
  
 ### 2.1.1. Zero-knowledge evasion
->Category: threat through use  
+>Category: input threat  
 >Permalink: https://owaspai.org/goto/zeroknowledgeevasion/
 
 **Description**  
@@ -884,7 +884,7 @@ Conference on Machine Learning. PMLR, 2019.
 
 
 ### 2.1.2. Perfect-knowledge evasion
->Category: threat through use  
+>Category: input threat  
 >Permalink: https://owaspai.org/goto/perfectknowledgeevasion/
 
 **Description**  
@@ -905,7 +905,7 @@ adversarial attacks." arXiv preprint arXiv:1706.06083 (2017).
 - Eykholt, Kevin, et al. "Robust physical-world attacks on deep learning visual classification." Proceedings of the IEEE conference on computer vision and pattern recognition. 2018.
 
 ### 2.1.3 Transferability-based evasion
->Category: threat through use  
+>Category: input threat  
 >Permalink: https://owaspai.org/goto/transferattack/
 
 **Description**  
@@ -936,7 +936,7 @@ See [Evasion section](/goto/evasion/) for the controls, with the exception of co
 - Papernot, Nicolas, et al. “Practical black-box attacks against machine learning.” Proceedings of the 2017 ACM on Asia conference on computer and communications security. 2017.
 
 ### 2.1.4 Partial-knowledge evasion attacks
->Category: threat through use  
+>Category: input threat  
 >Permalink: https://owaspai.org/goto/partialknowledgeevasion/
 
 **Description**  
@@ -946,7 +946,7 @@ Partial-knowledge or gray-box adversarial evasion attacks occupy a middle ground
 See [Evasion section](/goto/evasion/) for the controls.
 
 ### 2.1.5. Evasion after data poisoning
->Category: threat through use  
+>Category: input threat  
 >Permalink: https://owaspai.org/goto/evasionafterpoison/
 
 **Description**  
@@ -959,7 +959,7 @@ After training data has been poisoned (see [data poisoning section](/goto/datapo
 ---
 
 ## 2.2 Prompt injection
->Category: group of threats through use  
+>Category: group of input threats  
 >Permalink: https://owaspai.org/goto/promptinjection/
 
 **Description**  
@@ -969,7 +969,7 @@ This section discusses the two types of prompt injection and the mitigation cont
 - [Indirect prompt injection](/goto/indirectpromptinjection/)
 
 ### 2.2.1. Direct prompt injection
->Category: threat through use  
+>Category: input threat  
 >Permalink: https://owaspai.org/goto/directpromptinjection/
 
 **Description**  
@@ -1174,7 +1174,7 @@ This control does not replace access control, rate limiting, or monitoring, but 
 ---
 
 ### 2.2.2 Indirect prompt injection
->Category: threat through use  
+>Category: input threat  
 >Permalink: https://owaspai.org/goto/indirectpromptinjection/
 
 **Description**  
@@ -1215,7 +1215,7 @@ See the [seven layers section](/goto/promptinjectionsevenlayers/) on how these c
 
 
 #### #INPUT SEGREGATION
-> Category: runtime information security control against application security threats  
+> Category: runtime information security control against input threats  
 > Permalink: https://owaspai.org/goto/inputsegregation/
 
 **Description**  
@@ -1241,7 +1241,7 @@ Unfortunately there is no watertight way to guarantee that instructions in untru
 ---
 
 ## 2.3. Sensitive data disclosure through use
->Category: group of threats through use  
+>Category: group of input threats  
 >Permalink: https://owaspai.org/goto/disclosureuse/
 
 **Description**  
@@ -1250,7 +1250,7 @@ Impact: Confidentiality breach of sensitive training data.
 The model discloses sensitive training data or is abused to do so.
 
 ### 2.3.1. Sensitive data output from model
->Category: threat through use  
+>Category: input threat  
 >Permalink: https://owaspai.org/goto/disclosureuseoutput/
 
 **Description**  
@@ -1330,7 +1330,7 @@ Useful standards include:
   - Not covered yet in ISO/IEC standards
 
 ### 2.3.2. Model inversion and Membership inference
->Category: threat through use  
+>Category: input threat  
 >Permalink: https://owaspai.org/goto/modelinversionandmembership/
 
 **Description**  
@@ -1362,7 +1362,7 @@ The more details a model is able to learn, the more it can store information on 
 
 
 #### #SMALL MODEL 
->Category: development-time AI engineer control for threats through use  
+>Category: development-time AI engineer control for input threats  
 >Permalink: https://owaspai.org/goto/smallmodel/
 
 **Description**  
@@ -1376,7 +1376,7 @@ Useful standards include:
 ---
 
 ## 2.4. Model exfiltration
->Category: threat through use  
+>Category: input threat  
 >Permalink: https://owaspai.org/goto/modelexfiltration/
 
 **Description**  
@@ -1415,7 +1415,7 @@ This threat applies if the model represents intellectual property (i.e., a trade
 
 
 #### #MODEL WATERMARKING
->Category: development-time AI engineer control for threats through use  
+>Category: development-time AI engineer control for input threats  
 >Permalink: https://owaspai.org/goto/modelwatermarking/
 
 **Description**  
@@ -1431,7 +1431,7 @@ In addition to its technical role, watermarking supports intellectual property p
 ---
 
 ## 2.5. AI resource exhaustion
->Category: threat through use  
+>Category: input threat  
 >Permalink: https://owaspai.org/goto/airesourceexhaustion/
 
 **Description**  
@@ -1456,7 +1456,7 @@ Examples:
 
   
 #### #DOS INPUT VALIDATION
->Category: runtime information security control for threats through use  
+>Category: runtime information security control for input threats  
 >Permalink: https://owaspai.org/goto/dosinputvalidation/
 
 **Description**  
@@ -1471,7 +1471,7 @@ Useful standards include:
 
 
 #### #LIMIT RESOURCES
->Category: runtime information security control for threats through use  
+>Category: runtime information security control for input threats  
 >Permalink: https://owaspai.org/goto/limitresources/
 
 **Description**  
