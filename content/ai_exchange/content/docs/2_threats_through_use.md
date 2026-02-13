@@ -1364,17 +1364,20 @@ Useful standards include:
 >Permalink: https://owaspai.org/goto/modeltheftuse/
 
 **Description**  
+This attack occurs when an attacker collects inputs and outputs of an existing model and uses those combinations to train a new model, in order to replicate the original model. These can be collected by either harvesting logs, or intercepting input and output, or by presenting large numbers of input variations and collecting the outputs.
+
 Impact:  Confidentiality breach of the model (i.e., model parameters), which can be:
 - intellectual property theft (e.g., by a competitor)
 - and/or a way to perform input attacks on the copied model, circumventing protections. These protections include rate limiting, access control, and detection mechanisms. These input attacks include mainly [evasion](/goto/evasion/) attacks. Other attacks require a much more detailed copy of the model - typically unfeasible to achieve using this form of model theft.
 
-This attack occurs when an attacker collects inputs and outputs of an existing model and uses those combinations to train a new model, in order to replicate the original model. These can be collected by either harvesting logs, or intercepting input and output, or by presenting large numbers of input variations and collecting the outputs.
-
 Alternative names: _model stealing attack_ or _model extraction attack_ or _model exfiltration attack_.
 
-Alternative ways of model theft, leading to an exact copy of the model, are [development time model theft](/goto/devmodelleak/) and [direct runtime model theft](/goto/runtimemodeltheft/).
+Alternative ways of model theft, which can lead to an exact copy of the model, are [development time model theft](/goto/devmodelleak/) and [direct runtime model theft](/goto/runtimemodeltheft/).
 
 ![](/images/theft3.png)
+
+**Risk identification:**  
+This threat applies if the model represents intellectual property (i.e., a trade secret), or the risk of evasion attacks applies - with the exception of the model being publicly available because then there is no need to steal it.
 
 **Controls:**
 
