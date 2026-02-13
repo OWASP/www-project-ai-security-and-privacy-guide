@@ -16,7 +16,7 @@ Threats on this page:
 - Sensitive data extraction:
     - [Sensitive data output from model](/goto/disclosureoutput)
     - [Model inversion and Membership inference](/goto/modelinversionandmembership)
-- [Model theft through use](/goto/modeltheftuse/)
+- [Model exfiltration](/goto/modelexfiltration/)
 - [AI Resource exhaustion](/goto/airesourceexhaustion)
 
 
@@ -215,7 +215,7 @@ To delay and discourage attackers who rely on many model interactions to:
 - Experiment with various direct and indirect prompt injection techniques to both exploit the system and/or study the attack behavior.
 - Attempt model inversion and/or membership inference.
 - Extract training data or model parameters, or
-- Copy or re-train a model via large scale harvesting (model theft)
+- Copy or re-train a model via large scale harvesting (model exfiltration)
 
 By restricting the number and speed of model interactions, cost of attacks increase (effort, time, resources) thereby making the attacks less practical and allowing an opportunity for detection and incident response.
 
@@ -258,7 +258,7 @@ Typical inference volumes for attack feasibility:
   - Adversarial patches (where small, localized changes are made to inputs): tens of queries
   - Transfer attacks: zero queries on the target model as the attacks can be performed on a similar surrogate model.
   - Membership inference: 1-many, depending on the dataset. For eg: known target vs scanning through a large list of possible individuals.
-  - Model theft (input-output replication): proportional to input-space diversity. 
+  - Model exfiltration (input-output replication): proportional to input-space diversity. 
   - Attacks that try to extract sensitive training data or manipulate models (like prompt injection): may involve dozens to hundreds of crafted inputs, but they don’t always rely on trial-and-error. In many cases, attackers can use standard, pre-designed inputs that are known to expose weaknesses.
 
 **Note:** Effective rate limiting can differ from configured limits due to mult-accounting or multi-model instances; consider this in the risk evaluation. 
@@ -452,7 +452,7 @@ Unwanted input series handling: Implement tools to detect and respond to suspici
 This control focuses on behavior across multiple inputs, rather than adversarial properties of a single sample.
 
 **Objective**  
-Unwanted input series handling aims to identify suspicious behavior that emerges only when multiple inputs are analyzed together. Many attacks, such as model inversion, evasion search, or model theft through use, rely on iterative probing rather than a single malicious input. Detecting these patterns helps surface reconnaissance, abuse, and multi-step attacks that would otherwise appear benign at the individual input level.
+Unwanted input series handling aims to identify suspicious behavior that emerges only when multiple inputs are analyzed together. Many attacks, such as model inversion, evasion search, or model exfiltration, rely on iterative probing rather than a single malicious input. Detecting these patterns helps surface reconnaissance, abuse, and multi-step attacks that would otherwise appear benign at the individual input level.
 Secondary benefits include improved abuse monitoring, better attribution of malicious behavior, and stronger signals for investigation and response.
 
 **Applicability**  
@@ -464,7 +464,7 @@ The main concepts of detecting series of  unwanted inputs include:
 - **Statistical analysis of input series:** Adversarial attacks often follow certain patterns, which can be analysed by looking at input on a per-user basis. 
     - Examples:
          - A series of small deviations in the input space, indicating a possible attack such as a search to perform model inversion or an evasion attack. These attacks also typically have a series of inputs with a general increase of confidence value.          
-          - Inputs that appear systematic (very random or very uniform or covering the entire input space) may indicate a model theft through use attack.
+          - Inputs that appear systematic (very random or very uniform or covering the entire input space) may indicate a model exfiltration attack.
 
 - **Behavior-based detection of anomalous input usage:** In addition to analysing individual inputs (see [#ANOMALOUS INPUT HANDLING](/goto/anomalousinputhandling/), the system may analyse inference usage patterns. A significantly higher-than-normal number of inferences by a single actor over a defined period of time can be treated as anomalous behavior and used as a signal to decide on a response. This detection complements input-based methods and aligns with principles described in rate limiting (see #RATE LIMIT).
 
@@ -511,11 +511,11 @@ Limit or hide confidence related information in model outputs so it cannot be us
 
 **Objective**
 
-The goal of obscuring confidence is to reduce the usefulness of model outputs for attackers who rely on confidence information to probe, analyze, or copy the model. Detailed confidence values can facilitate various attacks including model inversion, membership inference, evasion and model theft through use, by aiding in adversarial sample construction. Reducing this information makes these attacks harder, slower, and less reliable.
+The goal of obscuring confidence is to reduce the usefulness of model outputs for attackers who rely on confidence information to probe, analyze, or copy the model. Detailed confidence values can facilitate various attacks including model inversion, membership inference, evasion and model exfiltration, by aiding in adversarial sample construction. Reducing this information makes these attacks harder, slower, and less reliable.
 
 **Applicability**
 
-This control applies to AI systems where outputs include confidence scores, probabilities, likelihoods, or similar certainty indicators. Whether it is required should be determined through risk management, based on the likelihood of: Evasion attacks, Model Inversion or Membership inference attacks and Model theft through use. 
+This control applies to AI systems where outputs include confidence scores, probabilities, likelihoods, or similar certainty indicators. Whether it is required should be determined through risk management, based on the likelihood of: Evasion attacks, Model Inversion or Membership inference attacks and Model exfiltration. 
 
 The exception is when confidence information is essential for the system’s intended use (for example, in medical decision support or safety-critical decision-making confidence level is an important piece of information for users). In such cases, confidence information should still be minimized to the least amount necessary by incorporating techniques like rounding the number, adding noise.
 
@@ -915,7 +915,7 @@ Attackers can execute a transferability-based attack in a zero-knowledge situati
 3. a perfect-knowledge model that the attacker trained based on available or self-collected or self-labeled data,
 4. the exact target model that was stolen [development-time](/goto/devmodelleak/) or [runtime](/goto/runtimemodeltheft/),
 5. the exact target model obtained by purchasing or free downloading,
-6. a replica of the model, created by [Model theft through use attack])/goto/modeltheftuse/)
+6. a replica of the model, created by [Model exfiltration attack])/goto/modelexfiltration/)
 
 The advantage of a surrogate model is that it exposes its internals (with the exception of the zero-knowledge surrogate model), allowing an [Perfect-knowledge attack](/goto/perfectknowledgeevasion). But even a closed models may be beneficial in case detection mechanisms and rate limiting are less strict than the target model - making a [zero-knowledge attack](/goto/zeroknowledgeevasion/) easier and quicker to perform, 
 
@@ -1375,9 +1375,9 @@ Useful standards include:
 
 ---
 
-## 2.4. Model theft through use
+## 2.4. Model exfiltration
 >Category: threat through use  
->Permalink: https://owaspai.org/goto/modeltheftuse/
+>Permalink: https://owaspai.org/goto/modelexfiltration/
 
 **Description**  
 This attack occurs when an attacker collects inputs and outputs of an existing model and uses those combinations to train a new model, in order to replicate the original model. These can be collected by either harvesting logs, or intercepting input and output, or by presenting large numbers of input variations and collecting the outputs.
@@ -1388,7 +1388,7 @@ Impact:  Confidentiality breach of the model (i.e., model parameters), which can
 
 Alternative names: _model stealing attack_ or _model extraction attack_ or _model exfiltration attack_.
 
-Alternative ways of model theft, which can lead to an exact copy of the model, are [development time model theft](/goto/devmodelleak/) and [direct runtime model theft](/goto/runtimemodeltheft/).
+Alternative ways of model theft, which can lead to an exact copy of the model, are [direct development time model theft](/goto/devmodelleak/) and [direct runtime model theft](/goto/runtimemodeltheft/).
 
 ![](/images/theft3.png)
 
@@ -1403,13 +1403,13 @@ This threat applies if the model represents intellectual property (i.e., a trade
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker presenting many inputs in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
   - [#OBSCURE CONFIDENCE](/goto/obscureconfidence/) to limit information that the attacker can use
-- Controls for model theft through use specifically:
+- Controls for model exfiltration specifically:
   - [#MODEL WATERMARKING](/goto/modelwatermarking/) to enable post-theft ownership verification when residual risk remains - discussed below
 
 **References**  
 
-- [Article on model theft through use](https://www.mlsecurity.ai/post/what-is-model-stealing-and-why-it-matters)
-- ['Thieves on Sesame street' on model theft of large language models](https://arxiv.org/abs/1910.12366) (GenAI)
+- [Article on model exfiltration](https://www.mlsecurity.ai/post/what-is-model-stealing-and-why-it-matters)
+- ['Thieves on Sesame street' on model exfiltation of large language models](https://arxiv.org/abs/1910.12366) (GenAI)
 
 
 
