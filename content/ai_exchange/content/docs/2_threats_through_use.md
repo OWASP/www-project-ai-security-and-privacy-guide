@@ -368,6 +368,8 @@ Anomalous input is suspicious for every attack that happens through use, because
 
 **Implementation**
 
+Follow the guidance in [#MONITOR USE](/goto/monitoruse/) regarding detection considerations and response options.
+
 We use an example of a machine learning system designed for a self-driving car to illustrate these approaches.
 
 **Types of anomaly detection**  
@@ -460,6 +462,8 @@ This control is most applicable to systems that allow repeated interaction over 
 Unwanted input series handling is less applicable in environments where inputs are isolated, rate-limited by design, or physically constrained. Its effectiveness depends on the ability to reliably group inputs by actor, source, or context.
 
 **Implementation**  
+Follow the guidance in [#MONITOR USE](/goto/monitoruse/) regarding detection considerations and response options.
+
 The main concepts of detecting series of  unwanted inputs include:
 - **Statistical analysis of input series:** Adversarial attacks often follow certain patterns, which can be analysed by looking at input on a per-user basis. 
     - Examples:
@@ -644,6 +648,7 @@ This control is most applicable to models exposed to untrusted or adversarial en
 Evasion input handling is less effective in isolation when attackers adapt quickly or when attacks rely primarily on multi-step probing across many inputs. In such cases, it is best used alongside controls that monitor input series, usage patterns, or access behavior.
 
 **Implementation**  
+Follow the guidance in [#MONITOR USE](/goto/monitoruse/) regarding detection considerations and response options.
 
 The main concepts of detecting evasion input attacks include:
   - **Statistical Methods:** Adversarial inputs often deviate from benign inputs in some statistical metric and can therefore be detected. Examples are utilizing the Principal Component Analysis (PCA), Bayesian     Uncertainty Estimation (BUE) or Structural Similarity Index Measure (SSIM). These techniques differentiate from statistical analysis of input series (see #UNWANTED INPUT SERIES HANDLING), as these statistical detectors decide if a sample is adversarial or not per input sample, such that these techniques are able to also detect [transferred attacks](/goto/transferattack/).
@@ -1296,6 +1301,7 @@ Sensitive output handling is applicable in case:
 - **Log:** Logging of detections is key, and if confidence in the detection is low, it can be marked with an alert to pick up later.
 - **Detect recitation of training data:** Where feasible, recitation checks can be applied to identify whether long strings or sequences in model output appear in an indexed set of training data, including pretraining and fine-tuning datasets. This can help identify unintended memorization and potential data leakage.
 - **Use GenAI for detection**: In case natural language allows for too many variations, synonyms, and indirect phrasing, then semantic interpretation using language models can complement rules-based approaches and improve robustness. A variant of this is to use [#MODEL ALIGNMENT](/goto/modelalignment/) (e.g., system prompts) to prevent sensitive output - which suffers from inherent limitations.
+- Follow the guidance in [#MONITOR USE](/goto/monitoruse/) regarding detection considerations and response options.
 
 Implementation may be done by the provider of the model - for example to filter sensitive training data. If the AI system that uses the model provides input (perhaps incloding augmentation data) that includes sensitive data, the AI system can implement its own sensitive output handling, in case this input may leak into the output.
 
