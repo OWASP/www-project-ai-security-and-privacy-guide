@@ -443,7 +443,7 @@ The following deployment options apply for ready-made models:
 
 **Self-hosted**
 
-The diagram below shows threats and controls in a self-hosting situation.
+The diagram below shows threats and controls of a ready-made model in a self-hosting situation.
 
 [![AI Security Threats and controls - GenAI as-is](/images/threatscontrols2-readymodel-selfhosted.png)](/images/threatscontrols-readymodel2-selfhosted.png)
 
@@ -476,7 +476,7 @@ your data leaves your environment in readable form.
 When weighing this risk, compare it fairly: the vendor may still protect that environment better than you can protect your own.
 
 
-The diagram below shows threats and controls in an externally hosted situation.
+The diagram below shows threats and controls of a ready-made model in an externally hosted situation.
 
 [![AI Security Threats and controls - GenAI as-is](/images/threatscontrols2-readymodel-hosted.png)](/images/threatscontrols2-readymodel-hosted.png)
 
