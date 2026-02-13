@@ -904,7 +904,7 @@ adversarial attacks." arXiv preprint arXiv:1706.06083 (2017).
 - Hirano, Hokuto, and Kazuhiro Takemoto. "Simple iterative method for generating targeted universal adversarial perturbations." Algorithms 13.11 (2020): 268.
 - Eykholt, Kevin, et al. "Robust physical-world attacks on deep learning visual classification." Proceedings of the IEEE conference on computer vision and pattern recognition. 2018.
 
-### 2.1.3 Transferability-based evasion attacks
+### 2.1.3 Transferability-based evasion
 >Category: threat through use  
 >Permalink: https://owaspai.org/goto/transferattack/
 
