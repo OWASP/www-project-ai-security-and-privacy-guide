@@ -402,25 +402,27 @@ The below diagram puts the controls in the AI Exchange into groups and places th
 The groups of controls form a summary of how to address AI security (controls are in capitals):
 - **AI Governance**(1): integrate AI comprehensively into your information security and software development lifecycle processes, not just by addressing AI risks, but by embedding AI considerations across the entire lifecycle:  
    > [AI PROGRAM](/goto/aiprogram/ ), [SEC PROGRAM](/goto/secprogram/), [DEV PROGRAM](/goto/devprogram/), [SECDEV PROGRAM](/goto/secdevprogram/), [CHECK COMPLIANCE](/goto/checkcompliance/), [SEC EDUCATE](/goto/seceducate/)
-- **Extend supply chain management**(2) with data and model governance:
+- **Extend supply chain management**(2) with governance of data, models and model hosting:
    > [SUPPLY CHAIN MANAGE](/goto/supplychainmanage/)
-- **Minimize/obfuscate data:**(4) Limit the amount of data at rest and in transit. Also, limit data storage time, development-time and runtime:
-   > ([DATA MINIMIZE](/goto/dataminimize/), [ALLOWED DATA](/goto/alloweddata/), [SHORT RETAIN](/goto/shortretain/), [OBFUSCATE TRAINING DATA](/goto/obfuscatetrainingdata/))
-- Apply conventional **technical security controls**(2), since an AI system is an IT system:
+- Apply conventional **security controls**(2), since an AI system is an IT system:
     - Apply standard **conventional security controls** (e.g., 15408, ASVS, OpenCRE, ISO 27001 Annex A, NIST SP800-53) to the complete AI system and don't forget the new AI-specific assets :
       - Development-time: model & data storage, model & data supply chain, data science documentation:  
         > [DEV SECURITY](/goto/devsecurity/), [SEGREGATE DATA](/goto/segregatedata/), [DISCRETE](/goto/discrete/)
-      - Runtime: model storage, model use, plug-ins, and model input/output:  
-        > [RUNTIME MODEL INTEGRITY](/goto/runtimemodelintegrity/), [RUNTIME MODEL IO INTEGRITY](/goto/runtimemodeliointegrity/), [RUNTIME MODEL CONFIDENTIALITY](/goto/runtimemodelconfidentiality/), [MODEL INPUT CONFIDENTIALITY](/goto/modelinputconfidentiality/), [ENCODE MODEL OUTPUT](/goto/encodemodeloutput/), [LIMIT RESOURCES](/goto/limitresources/)
+      - Runtime: model storage, model use, augmentation data, and model input/output:  
+        > [RUNTIME MODEL INTEGRITY](/goto/runtimemodelintegrity/), [RUNTIME MODEL IO INTEGRITY](/goto/runtimemodeliointegrity/), [RUNTIME MODEL CONFIDENTIALITY](/goto/runtimemodelconfidentiality/), [MODEL INPUT CONFIDENTIALITY](/goto/modelinputconfidentiality/), [ENCODE MODEL OUTPUT](/goto/encodemodeloutput/), [LIMIT RESOURCES](/goto/limitresources/), [AUGMENTATION DATA CONFIDENTIALITY](/gotot/augmentationdataconfidentiality/), [AUGMENTATION DATA INTEGRITY](/gotot/augmentationdataintgegrity/)
     - **Adapt** conventional IT security controls to make them more suitable for AI (e.g., which usage patterns to monitor for):  
       > [MONITOR USE](/goto/monitoruse/), [MODEL ACCESS CONTROL](/goto/modelaccesscontrol/), [RATE LIMIT](/goto/ratelimit/)
     - Adopt **new** IT security controls:  
       > [CONF COMPUTE](/goto/confcompute/), [MODEL OBFUSCATION](/goto/modelobfuscation/), [INPUT SEGREGATION](/goto/inputsegregation/)
-- Apply **AI engineer security controls**(3) :
-    - Data/model engineering controls(3a) as part of development:  
-      > [FEDERATED LEARNING](/goto/federatedlearning/), [CONTINUOUS VALIDATION](/goto/continuousvalidation/), [UNWANTED BIAS TESTING](/goto/unwantedbiastesting/), [EVASION ROBUST MODEL](/goto/evasionrobustmodel/), [POISON ROBUST MODEL](/goto/poisonrobustmodel/), [TRAIN ADVERSARIAL](/goto/trainadversarial/), [TRAIN DATA DISTORTION](/goto/traindatadistortion/), [ADVERSARIAL ROBUST DISTILLATION](/goto/adversarialrobustdistillation/), [MODEL ENSEMBLE](/goto/modelensemble/), [MORE TRAINDATA](/goto/moretraindata/), [SMALL MODEL](/goto/smallmodel/), [DATA QUALITY CONTROL](/goto/dataqualitycontrol/), [MODEL ALIGNMENT](/goto/modelalignment/)
-    - Model I/O handling(3b) during runtime to filter and detect attacks:  
+- Apply specialized **AI engineer security controls**(3) :
+    - GenAI model engineering controls(3a) to control behaviour as part of development:
+      > [MODEL ALIGNMENT](/goto/modelalignment/)
+    - Data/model engineering controls(3b) as part of development:  
+      > [FEDERATED LEARNING](/goto/federatedlearning/), [CONTINUOUS VALIDATION](/goto/continuousvalidation/), [UNWANTED BIAS TESTING](/goto/unwantedbiastesting/), [EVASION ROBUST MODEL](/goto/evasionrobustmodel/), [POISON ROBUST MODEL](/goto/poisonrobustmodel/), [TRAIN ADVERSARIAL](/goto/trainadversarial/), [TRAIN DATA DISTORTION](/goto/traindatadistortion/), [ADVERSARIAL ROBUST DISTILLATION](/goto/adversarialrobustdistillation/), [MODEL ENSEMBLE](/goto/modelensemble/), [MORE TRAINDATA](/goto/moretraindata/), [SMALL MODEL](/goto/smallmodel/), [DATA QUALITY CONTROL](/goto/dataqualitycontrol/)
+    - Model I/O handling(3c) during runtime to filter and detect attacks:  
       > [ANOMALOUS INPUT HANDLING](/goto/anomalousinputhandling/), [EVASION INPUT HANDLING](/goto/evasioninputhandling/), [UNWANTED INPUT SERIES HANDLING](/goto/unwantedinputserieshandling/), [PROMPT INJECTION I/O HANDLING](/goto/promptinjectioniohandling/), [DOS INPUT VALIDATION](/goto/dosinputvalidation/), [INPUT DISTORTION](/goto/inputdistortion/), [SENSITIVE OUTPUT HANDLING](/goto/sensitiveoutputhandling/), [OBSCURE CONFIDENCE](/goto/obscureconfidence/)
+- **Minimize/obfuscate data:**(4) Limit the amount of sensitive data at rest and in transit. Also, limit data storage time, development-time and runtime:
+   > ([DATA MINIMIZE](/goto/dataminimize/), [ALLOWED DATA](/goto/alloweddata/), [SHORT RETAIN](/goto/shortretain/), [OBFUSCATE TRAINING DATA](/goto/obfuscatetrainingdata/))
 - **Limit model behaviour**(5) as the model can behave in unwanted ways - unintentionally or by manipulation:  
    > [OVERSIGHT](/goto/oversight/), [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/), [MODEL ALIGNMENT](/goto/modelalignment/), [AI TRANSPARENCY](/goto/aitransparency/), [EXPLAINABILITY](/goto/explainability/), [CONTINUOUS VALIDATION](/goto/continuousvalidation/), [UNWANTED BIAS TESTING](/goto/unwantedbiastesting/)
 
