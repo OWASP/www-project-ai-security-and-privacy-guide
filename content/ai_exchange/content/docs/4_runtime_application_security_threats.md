@@ -91,7 +91,9 @@ This threat applies if the model represents intellectual property (i.e., a trade
 
 **Controls**
 
-- See [General controls](/goto/generalcontrols/)
+- [General controls](/goto/generalcontrols/),
+  - especially [Sensitive data limitation](/goto/dataminimize/)
+- [#MODEL WATERMARKING](/goto/modelwatermarking/)
 - The below control(s), each marked with a # and a short name in capitals
   
 #### #RUNTIMEMODELCONFIDENTIALITY
