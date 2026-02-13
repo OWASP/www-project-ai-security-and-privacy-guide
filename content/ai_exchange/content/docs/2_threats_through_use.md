@@ -14,10 +14,10 @@ Threats on this page:
 - [Evasion](/goto/evasion/) - Bypassing decisions 
 - [Prompt injection](/goto/promptinjection/) - Manipulating behaviour of GenAI systems
 - Sensitive data extraction:
-    - [Sensitive data output from model](/goto/disclosureoutput)
-    - [Model inversion and Membership inference](/goto/modelinversionandmembership)
+    - [Sensitive data output from model](/goto/disclosureoutput/)
+    - [Model inversion and Membership inference](/goto/modelinversionandmembership/)
 - [Model exfiltration](/goto/modelexfiltration/)
-- [AI Resource exhaustion](/goto/airesourceexhaustion)
+- [AI Resource exhaustion](/goto/airesourceexhaustion/)
 
 
 **Controls for input threats in general**
