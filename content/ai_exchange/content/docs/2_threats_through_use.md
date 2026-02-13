@@ -1,14 +1,14 @@
 ---
-title: 2. Threats through use
-heroTitle: "Threats through use"
+title: 2. Input threats
+heroTitle: "Input threats"
 heroText: "Attacks by crafting inputs to AI, and their countermeasures"
 weight: 3
 ---
-## 2.0. Threats through use - introduction
+## 2.0. Input threats - introduction
 >Category: group of input threats  
 >Permalink: https://owaspai.org/goto/threatsuse/
 
-Threats through use (also called “input attacks”, “inference-time attacks”, or “runtime adversarial attacks”) occur when an attacker crafts inputs to a deployed AI system to achieve malicious goals.
+Input threats (also called "threats through use", “inference-time attacks”, or “runtime adversarial attacks”) occur when an attacker crafts inputs to a deployed AI system to achieve malicious goals.
 
 Threats on this page:
 - [Evasion](/goto/evasion/) - Bypassing decisions 
@@ -20,9 +20,9 @@ Threats on this page:
 - [AI Resource exhaustion](/goto/airesourceexhaustion)
 
 
-**Controls for threats through use in general**
+**Controls for input threats in general**
 
-These are the controls for threats through use in general - more specific controls are discussed in the subsections for the various types of attacks:
+These are the controls for input threats in general - more specific controls are discussed in the subsections for the various types of attacks:
 - See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/) and [Sensitive data limitation](/goto/dataminimize/)
 - The controls discussed below:
     - [#MONITOR USE](/goto/monitoruse/)
@@ -221,7 +221,7 @@ By restricting the number and speed of model interactions, cost of attacks incre
 
 **Applicability**
 
-Defined by risk management (see #RISKANALYSIS). It is a primary control against many “threats through use”. Natural rate limits can exist in systems whose context inherently restricts query rates (e.g., medical imaging or human supervised processes). Exceptions may apply when rate limiting would block intended safety-critical or real-time functions, such as:
+Defined by risk management (see #RISKANALYSIS). It is a primary control against many input threats. Natural rate limits can exist in systems whose context inherently restricts query rates (e.g., medical imaging or human supervised processes). Exceptions may apply when rate limiting would block intended safety-critical or real-time functions, such as:
 
 - Emergency dispatch or medical triage models.
 - Cybersecurity monitoring that must analyze all traffic.
@@ -612,7 +612,7 @@ An evasion attack typically consists of first searching for the inputs that misl
 
 - See [General controls](/goto/generalcontrols/):
   - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/).
-- Controls for [threats through use](/goto/threatsuse/):
+- Controls for [input threats](/goto/inputthreats/):
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
@@ -1051,7 +1051,7 @@ Multimodal prompt injection can be:
 **Controls for all forms of prompt injection:**
 - See [General controls](/goto/generalcontrols/):
   - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) is important, with key controls [MODEL ALIGNMENT](/goto/modelalignment/), [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/), given that prompt injection is hard to prevent.
-- Controls for [threats through use](/goto/threatsuse/), to limit the user set, oversee use and, prevent experiments that require many interactions:
+- Controls for [input threats](/goto/inputthreats/), to limit the user set, oversee use and, prevent experiments that require many interactions:
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
@@ -1196,7 +1196,7 @@ Mappings
 
 - See [General controls](/goto/generalcontrols/):
   - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/) is important, with key controls [MODEL ALIGNMENT](/goto/modelalignment/), [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/) and [OVERSIGHT](/goto/oversight/), given that prompt injection is hard to prevent.
-- Controls for [threats through use](/goto/threatsuse/), to limit the user set, oversee use and, prevent experiments that require many interactions:
+- Controls for [input threats](/goto/inputthreats/), to limit the user set, oversee use and, prevent experiments that require many interactions:
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
@@ -1262,7 +1262,7 @@ The disclosure is caused by an unintentional fault of including this data, and e
 
 - See [General controls](/goto/generalcontrols/):
   - Especially [Sensitive data limitation](/goto/dataminimize/)
-- Controls for [threats through use](/goto/threatsuse/):
+- Controls for [input threats](/goto/inputthreats/):
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output - especially sensitive output
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
@@ -1352,7 +1352,7 @@ The more details a model is able to learn, the more it can store information on 
 
 - See [General controls](/goto/generalcontrols/):
   - Especially [Sensitive data limitation](/goto/dataminimize/)
-- Controls for [threats through use](/goto/threatsuse/):
+- Controls for [input threats](/goto/inputthreats/):
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input patterns
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
@@ -1398,7 +1398,7 @@ This threat applies if the model represents intellectual property (i.e., a trade
 **Controls:**
 
 - See [General controls](/goto/generalcontrols/):
-- Controls for [threats through use](/goto/threatsuse/):
+- Controls for [input threats](/goto/inputthreats/):
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input 
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker presenting many inputs in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
@@ -1446,7 +1446,7 @@ Examples:
 **Controls:**
 
 - See [General controls](/goto/generalcontrols/):
-- Controls for [threats through use](/goto/threatsuse/):
+- Controls for [input threats](/goto/inputthreats/):
   - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
   - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
@@ -1480,7 +1480,7 @@ Limit resource usage for a single model input, to prevent resource overuse.
 **References**  
 Useful standards include:
 
-  - ISO 27002 has no control for this, except for Monitoring (covered in Controls for threats through use)
+  - ISO 27002 has no control for this, except for Monitoring (covered in Controls for input threats)
   - Not covered yet in ISO/IEC standards
 
 
