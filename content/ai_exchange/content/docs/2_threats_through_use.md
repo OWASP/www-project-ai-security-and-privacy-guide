@@ -560,24 +560,37 @@ In AI systems, confidence values are not just user-facing explanations. They can
 >Permalink: https://owaspai.org/goto/evasion/
 
 **Description**  
-Evasion: an attacker fools the model by crafting input to mislead it into performing its task incorrectly. Evasion attacks force a model to make a wrong decision by feeding it carefully crafted inputs (adversarial examples). The model behaves correctly on normal data but fails on these malicious inputs.
+Evasion: an attacker fools an AI system by crafting input to mislead it into performing its task incorrectly. Evasion attacks force a model to make a wrong decision by feeding it carefully crafted inputs (adversarial examples). The model behaves correctly on normal data but fails on these malicious inputs. Example: adding small changes to a traffic sign to cause misinterpretation by an autonomous vehicle.
 
 This is different from a [Prompt injection](/goto/promptinjection/) attack which inputs manipulative instructions (instead of data) to make the model perform its task incorrectly.
 
-In evasion attacks on AI systems, adversaries craft **adversarial examples** to mislead models.
+Impact: Integrity of model behaviour is affected, leading to issues from unwanted model output (e.g., failing fraud detection, decisions leading to safety issues, reputation damage, liability).
+
+Types of goals of Evasion:
 - **Untargeted attacks** aim for any incorrect output (e.g., misclassifying a cat as anything else).
-- **Targeted attacks** force a specific wrong output (e.g., misclassifying a panda as a gibbon).
+- **Targeted attacks** force a specific wrong output (e.g., misclassifying a panda as a gibbon). Note that Evasion of a binary classifier (i.e. yes/no) belongs to both goals.
+
+**How to manipulate the input**  
+Ways to change the input for Evasion:
 - **Digital attacks** directly alter data like pixels or text in software.
 - **Physical attacks** modify real-world objects, such as adding stickers to signs or wearing adversarial clothing, which cameras then capture as fooled inputs.
+
+Types of input manipulation for Evasion:
 - **Diffuse perturbations** apply tiny, imperceptible noise across the entire input (hard for humans to notice).
 - **Localized patches** concentrate visible but innocuous-looking changes in one area (e.g., a small sticker), making them practical for physical-world attacks. 
-
-Impact: Integrity of model behaviour is affected, leading to issues from unwanted model output (e.g., failing fraud detection, decisions leading to safety issues, reputation damage, liability).
 
 A typical attacker's goal with evasion is to find out how to slightly change a certain input (say an image, or a text) to fool the model. The advantage of slight change is that it is harder to detect by humans or by an automated detection of unusual input, and it is typically easier to perform (e.g., slightly change an email message by adding a word so it still sends the same message, but it fools the model in for example deciding it is not a phishing message).  
 Such small changes (call 'perturbations') lead to a large (and false) modification of its outputs. The modified inputs are often called *adversarial examples*.  
 
-Evasion attacks can be categorized into physical (e.g., changing the real world to influence for example a camera image) and digital (e.g., changing a digital image). Furthermore, they can be categorized in either untargeted (any wrong output) and targeted (a specific wrong output). Note that Evasion of a binary classifier (i.e. yes/no) belongs to both categories.
+AI models that take a prompt as input (e.g. GenAI) suffer from an additional threat where manipulative instructions are provided - not to let the model perform its task correctly but for other goals, such as getting offensive answers by bypassing certain protections. This is typically referred to as [direct prompt injection](/goto/directpromptinjection/). 
+
+**Types of Evasion**  
+The following sections discuss the various types of Evasion, where attackers have different access to knowledge:
+- [Closed box Evasion](/goto/closedboxevasion/)
+- [Open box Evasion](/goto/openboxevasion/)
+- [Transfer attack](/goto/transferattack)
+
+**Examples**  
 
 Example 1: slightly changing traffic signs so that self-driving cars may be fooled.
 ![](/images/inputphysical.png)
@@ -589,13 +602,11 @@ Example 3: crafting an e-mail text by carefully choosing words to avoid triggeri
 
 Example 4: by altering a few words, an attacker succeeds in posting an offensive message on a public forum, despite a filter with a large language model being in place
 
-AI models that take a prompt as input (e.g. GenAI) suffer from an additional threat where manipulative instructions are provided - not to let the model perform its task correctly but for other goals, such as getting offensive answers by bypassing certain protections. This is typically referred to as [direct prompt injection](/goto/directpromptinjection/). 
-
+**References**  
 See [MITRE ATLAS - Evade ML model](https://atlas.mitre.org/techniques/AML.T0015)
 
-**Controls for evasion:**
-
-An evasion attack typically consists of first searching for the inputs that mislead the model, and then applying it. That initial search can be very intensive, as it requires trying many variations of input. Therefore, limiting access to the model with for example rate limiting mitigates the risk, but still leaves the possibility of using a so-called transfer attack (see -link to transfer attacks to search for the inputs in another, similar model.  
+**Controls for evasion**  
+An evasion attack typically consists of first searching for the inputs that mislead the model, and then applying it. That initial search can be very intensive, as it requires trying many variations of input. Therefore, limiting access to the model with for example rate limiting mitigates the risk, but still leaves the possibility of using a so-called [transfer attack](/goto/ (see -link to transfer attacks to search for the inputs in another, similar model.  
 
 - See [General controls](/goto/generalcontrols/):
   - Especially [limiting the impact of unwanted model behaviour](/goto/limitunwanted/).
@@ -607,10 +618,10 @@ An evasion attack typically consists of first searching for the inputs that misl
   - [#OBSCURE CONFIDENCE](/goto/obscureconfidence/) to limit information that the attacker can use
 - Specifically for evasion:
     - [#DETECT ADVERSARIAL INPUT](/goto/detectadversarialinput/) to find typical attack forms or multiple tries in a row - discussed below
-  - [#EVASION ROBUST MODEL](/goto/evasionrobustmodel/): choose an evasion-robust model design, configuration and/or training approach - discussed below
-  - [#TRAIN ADVERSARIAL](/goto/trainadversarial/): correcting the decision boundary of the model by injecting adversarial samples with correct output in the training set - discussed below
-  - [#INPUT DISTORTION](/goto/inputdistortion/): disturbing attempts to present precisely crafted input - discussed below
-  - [#ADVERSARIAL ROBUST DESTILLATION](/goto/adversarialrobustdestillation/): in essence trying to smooth decision boundaries - discussed below
+    - [#EVASION ROBUST MODEL](/goto/evasionrobustmodel/): choose an evasion-robust model design, configuration and/or training approach - discussed below
+    - [#TRAIN ADVERSARIAL](/goto/trainadversarial/): correcting the decision boundary of the model by injecting adversarial samples with correct output in the training set - discussed below
+    - [#INPUT DISTORTION](/goto/inputdistortion/): disturbing attempts to present precisely crafted input - discussed below
+    - [#ADVERSARIAL ROBUST DESTILLATION](/goto/adversarialrobustdestillation/): in essence trying to smooth decision boundaries - discussed below
 
 
 #### #EVASION INPUT HANDLING
@@ -830,25 +841,20 @@ Useful standards include:
 >Permalink: https://owaspai.org/goto/closedboxevasion/
 
 **Description**  
-Black box or closed-box attacks are methods where an attacker crafts an input to exploit a model without having any internal knowledge or access to that model's implementation, including code, training set, parameters, and architecture. The term "black box" reflects the attacker's perspective, viewing the model as a 'closed box' whose internal workings are unknown. This approach often requires experimenting with how the model responds to various inputs, as the attacker navigates this lack of transparency to identify and leverage potential vulnerabilities.
+Black box or closed-box Evasion attacks are methods where an attacker crafts an input to exploit a model without having any internal knowledge or access to that model's implementation, including code, training set, parameters, and architecture. The term "black box" reflects the attacker's perspective, viewing the model as a 'closed box' whose internal workings are unknown. This approach often requires experimenting with how the model responds to various inputs, as the attacker navigates this lack of transparency to identify and leverage potential vulnerabilities.
 Since the attacker does not have access to the inner workings of the model, he cannot calculate the internal model gradients to efficiently create the adversarial inputs - in contrast to white-box or open-box attacks (see 2.1.2. Open-box evasion).
 
 **Implementation**  
-Black box attack strategies are:
+They closed-box attack strategy to find successful attack inputs is query-based:
 
-- Query-Based Attacks:
-  In query-based black box attacks, an attacker systematically queries the target model using carefully designed inputs and observes the resulting outputs to search for variations of input that lead to a false decision of the model.
+  An attacker systematically queries the target model using carefully designed inputs and observes the resulting outputs to search for variations of input that lead to a false decision of the model.
 This approach enables the attacker to indirectly reconstruct or estimate the model's decision boundaries, thereby facilitating the creation of inputs that can mislead the model.
 These attacks are categorized based on the type of output the model provides:
   - Decision-based (or Label-based) attacks: where the model only reveals the top prediction label
-  - Score-based attacks: where the model discloses a score (like a softmax score), often in the form of a vector indicating the top-k predictions.In research typically models which output the whole vector are evaluated, but the output could also be restricted to e.g. top-10 vectors. The confidence scores provide more detailed feedback about how close the adversarial example is to succeeding, allowing for more precise adjustments. In a score-based scenario, an attacker can for example, approximate the gradient by evaluating the objective function values at two very close points.
- 
-- Transferability-Based Attacks: A special kind of black box attack without querying the target model, but finding effective attack inputs using a similar model. See link to Transferability-based evasion attacks.
+  - Score-based attacks: where the model discloses a score (like a softmax score), often in the form of a vector indicating the top-k predictions.In research typically models which output the whole vector are evaluated, but the output could also be restricted to e.g. top-10 vectors. The confidence scores provide more detailed feedback about how close the adversarial example is to succeeding, allowing for more precise adjustments. In a score-based scenario, an attacker can for example, approximate the gradient by evaluating the objective function values at two very close points. 
 
-**Controls**
-
-- See [General controls](/goto/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
-- See [controls for threats through use](/goto/threatsuse/)
+**Controls**  
+See [Evasion section](/goto/evasion/) for the controls.
 
 **References**  
 
@@ -882,15 +888,8 @@ In open-box or white-box attacks, the attacker knows the architecture, parameter
 
 In contrast to white-box attacks, black-box attacks operate without direct access to the inner workings of the model and therefore without access to the gradients. Instead of exploiting detailed knowledge, black-box attackers must rely on output observations to infer how to effectively craft adversarial examples.
 
-**Controls**
-
-- See [General controls](/goto/generalcontrols/):
-  - Especially [Limiting the effect of unwanted behaviour](/goto/limitunwanted/)
-- Controls for [threats through use](/goto/threatsuse/):
-  - [#MONITOR USE](/goto/monitoruse/) to detect suspicious input or output
-  - [#RATE LIMIT](/goto/ratelimit/) to limit the attacker trying numerous attack variants in a short time
-  - [#MODEL ACCESS CONTROL](/goto/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
-
+**Controls**  
+See [Evasion section](/goto/evasion/) for the controls.
 
 **References**
 
@@ -904,24 +903,21 @@ adversarial attacks." arXiv preprint arXiv:1706.06083 (2017).
 ### 2.1.3 Transferability-based evasion attacks
 
 **Description**  
-Attackers can execute a transferability-based attack in a closed-box situation by first creating adversarial examples using a surrogate model: a copy or approximation of the closed-box target model, and then applying these adversarial examples to the target model.  The surrogate model can be a model from another supplier that performs a similar task (e.g., recognize traffic signs), or a model that the attacker trained based on available or self-collected or self-labeled data.
+Attackers can execute a transferability-based attack in a closed-box situation by first creating adversarial examples using a surrogate model: a copy or approximation of the closed-box target model, and then applying these adversarial examples to the target model.  The surrogate model can be:
+1. an open-box model from another supplier that performs a similar task (e.g., recognize traffic signs) - showing all its internals,
+2. a closed-box model from another supplier that performs a similar task - accessible through for example an API, (e.g., recognize traffic signs),
+3. an open-box model that the attacker trained based on available or self-collected or self-labeled data,
+4. the exact target model that was stolen [development-time](/goto/devmodelleak/) or [runtime](/goto/runtimemodeltheft/),
+5. the exact target model obtained by purchasing or free downloading,
+6. a replica of the model, created by [Model theft through use attack])/goto/modeltheftuse/)
 
-The advantage of a surrogate model is that it may expose its internals (e.g., because it's open source), allowing a white-box attack. But even closed models (e.g., an API in the cloud) may be beneficial in case detection mechanisms and rate limiting are less strict than the target model - making a closed-box attack easier and quicker to perform, 
+The advantage of a surrogate model is that it exposes its internals (with the exception of the closed-box surrogate model), allowing an [Open box attack](/goto/openboxevasion). But even a closed models may be beneficial in case detection mechanisms and rate limiting are less strict than the target model - making a [closed-box attack](/goto/closedboxevasion/) easier and quicker to perform, 
 
-The goal is to create adversarial examples that will ‘hopefully’ transfer to the original target model, even though the surrogate may be internally different from the target. Because the task is similar, it can be expected that the decision boundaries in the model are similar. The likelihood of a successful transfer is generally higher when the surrogate model closely resembles the target model in terms of complexity and structure. However, it’s noted that even attacks developed using simpler surrogate models tend to transfer effectively. 
-
-To maximize similarity and therefore the effectiveness of the attack, one approach is to reverse-engineer a version of the target model, using a model theft in use attack (add link). This creates a surrogate that mirrors the target as closely as possible. This strategy is grounded in the rationale that many adversarial examples are inherently transferable across different models, particularly when they share similar architectures or training data. This method of attack, including the creation of a surrogate model through model theft, is detailed in resources such as [this article](https://arxiv.org/abs/1602.02697), which describes this approach in depth.
-
-The ultimate surrogate model to perform an open-box attack on and transfer that to the target model is of course the target model itself. If the attacker manages to steal that using model theft development time(link) or model theft runtime (link) - the transfer attack equals an open-box attack.
+The goal is to create adversarial examples that will ‘hopefully’ transfer to the original target model, even though the surrogate may be internally different from the target. Because the task is similar, it can be expected that the decision boundaries in the model are similar. The likelihood of a successful transfer is generally higher when the surrogate model closely resembles the target model in terms of complexity and structure. The ultimate surrogate model is of course the target model itself. However, it’s noted that even attacks developed using simpler surrogate models tend to transfer effectively. 
 
 **Controls**  
+See [Evasion section](/goto/evasion/) for the controls.
 
-Controls for [threats through use](https://owaspai.org/goto/threatsuse/):
-
-- DETECT ODD Input
-- DETECT Adversarial Input
-- Train Adversarial
-- Input Distortion
 
 **References**  
 
