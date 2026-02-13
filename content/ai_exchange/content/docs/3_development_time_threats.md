@@ -712,7 +712,7 @@ Impact:  Confidentiality breach of the model (i.e., model parameters), which can
 - intellectual property theft (e.g., by a competitor)
 - and/or a way to perform input attacks on the copied model, circumventing protections. These protections include rate limiting, access control, and detection mechanisms. This can be done for [all input attacks](/goto/inputthreats/) that extract data, and for the preparation of [evasion](/goto/evasion/) or [prompt injection](/goto/promptinjection): experimenting to find attack inputs that work.
 
-Alternative ways of model theft are [model theft through use](/goto/modeltheftuse/) and [direct runtime model theft](/goto/runtimemodeltheft/).
+Alternative ways of model theft are [model exfiltration](/goto/modelexfiltration/) and [direct runtime model theft](/goto/runtimemodeltheft/).
 
 **Risk identification**  
 This threat applies if the model represents intellectual property (i.e., a trade secret), or the risk of any input attack applies - with the exception of the model being publicly available because then there is no need to steal it.
