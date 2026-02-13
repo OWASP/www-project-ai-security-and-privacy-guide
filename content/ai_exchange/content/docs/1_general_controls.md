@@ -70,7 +70,7 @@ In general risk management it may help to keep in mind the following particulari
 3. Organizes its behaviour based on data, so data becomes a source of opportunity (e.g. complex real-world problem solving, adaptability) and of risk (e.g. unwanted bias, incompleteness, error, manipulation)
 4. Unfamiliar to organizations and to people, with the risk of implementation mistakes, underreliance, overreliance, and incorrect attribution of human tendencies
 5. Incomprehensible, resulting in trust issues
-6. New technical assets that form security threats (data/model supply chain, train data, model parameters, AI documentation)
+6. New technical assets that form security threats (data/model supply chain, train data, model parameters, augmentation data, AI documentation)
 7. Can listen and speak: communicate through natural language instead of user interfaces
 8. Can hear and see: have sound and vision recognition abilities
 
@@ -100,6 +100,7 @@ Ensures adequate mitigation of AI security risks through information security ma
 **Implementation**  
 Make sure to include AI-specific assets and the threats to them. The threats are covered in this resource and the assets are:
 - training data
+- validation data
 - test data
 - the model - often referred to as _model parameters_ (values that change when a model is trained)
 - hyperparameters
@@ -109,6 +110,7 @@ Make sure to include AI-specific assets and the threats to them. The threats are
 - intended model behaviour
 - data to train and test obtained from external sources
 - models to train and use from external sources
+- augmentation data that is inserted into the model input
 
 By incorporating these assets and the threats to them, the security program takes care of mitigating these risks. For example: by informing engineers in awareness training that they should not leave their documentation lying around. Or: by installing malware detection on engineer machines because of the high sensitivity of the training data that they work with. 
 
