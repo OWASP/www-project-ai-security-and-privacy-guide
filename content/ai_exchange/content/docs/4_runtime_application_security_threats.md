@@ -56,14 +56,14 @@ This threat involves manipulating the behavior of the model by altering the para
 - See [General controls](/goto/generalcontrols/)
 - The below control(s), each marked with a # and a short name in capitals
 
-#### #RUNTIMEMODELINTEGRITY
+#### #RUNTIME MODEL INTEGRITY
 > Category: runtime information security control against application security threats  
 > Permalink: https://owaspai.org/goto/runtimemodelintegrity/
 
 **Description**  
 Run-time model integrity: apply traditional application security controls to protect the storage of model parameters (e.g., access control, checksums, encryption) A Trusted Execution Environment can help to protect model integrity.
 
-#### #RUNTIMEMODELIOINTEGRITY
+#### #RUNTIME MODEL IO INTEGRITY
 > Category: runtime information security control against application security threats  
 > Permalink: https://owaspai.org/goto/runtimemodeliointegrity/
 
@@ -96,7 +96,7 @@ This threat applies if the model represents intellectual property (i.e., a trade
 - [#MODEL WATERMARKING](/goto/modelwatermarking/)
 - The below control(s), each marked with a # and a short name in capitals
   
-#### #RUNTIMEMODELCONFIDENTIALITY
+#### #RUNTIME MODEL CONFIDENTIALITY
 > Category: runtime information security control against application security threats  
 > Permalink: https://owaspai.org/goto/runtimemodelconfidentiality/
 
@@ -112,7 +112,7 @@ Side-Channel Mitigation Techniques:
 or acoustic leakage that might be exploited for side-channel attacks. See [Electromagnetic Shielding for Side-Channel Attack Countermeasures](https://ieeexplore.ieee.org/document/8015660)
 
 
-#### #MODELOBFUSCATION
+#### #MODEL OBFUSCATION
 > Category: runtime information security control against application security threats  
 > Permalink: https://owaspai.org/goto/modelobfuscation/
 
@@ -137,7 +137,7 @@ See [OWASP for LLM 05](https://genai.owasp.org/llmrisk/llm05/).
 
 - The below control(s), each marked with a # and a short name in capitals
 
-#### #ENCODEMODELOUTPUT
+#### #ENCODE MODEL OUTPUT
 > Category: runtime information security control against application security threats  
 > Permalink: https://owaspai.org/goto/encodemodeloutput/
 
@@ -161,7 +161,7 @@ GenAI models mostly live in the cloud - often managed by an external party, whic
 - See [General controls](/goto/generalcontrols/), in particular [Minimizing data](/goto/datalimit/)
 - The below control(s), each marked with a # and a short name in capitals
 
-#### #MODELINPUTCONFIDENTIALITY
+#### #MODEL INPUT CONFIDENTIALITY
 > Category: runtime information security control against application security threats  
 > Permalink: https://owaspai.org/goto/modelinputconfidentiality/
 
@@ -181,12 +181,21 @@ Augmentation data (ad hoc retrieved information inserted into a prompt), for exa
 See [Leak sensitive input data](/goto/leakinput/) for how augmentation data can leak when it's added to the prompt. The best practice is to assume that augmentation data can leak to the output, so the access rights for that data need to align with the rights of the user(s) that can see the output.  
 So-called _vectors_ that form a representation of augmentation data are typically vulnerable for extracting information and should therefore be included in protection.
 
-**Controls**
-- See [General controls](/goto/generalcontrols/)
-- The [security program](/goto/secprogram/),  [application security](/goto/secdevprogram/), [environment security](/goto/devsecurity/) and [data segregation](/goto/segregatedata/) - making sure Vector databases are included in the assets
-
 **References**
 - [Mitigating Security Risks in RAG LLM Applications, November 2023, CSA](https://cloudsecurityalliance.org/blog/2023/11/22/mitigating-security-risks-in-retrieval-augmented-generation-rag-llm-applications)
+
+**Controls**
+- See [General controls](/goto/generalcontrols/)
+- The below control(s), each marked with a # and a short name in capitals
+
+#### #AUGMENTATION DATA CONFIDENTIALITY
+> Category: runtime information security control against application security threats  
+> Permalink: https://owaspai.org/goto/augmentationdataconfidentiality/
+
+**Description**  
+See the [security program](/goto/secprogram/) and [application security](/goto/secdevprogram/), [development environment security](/goto/devsecurity/), and [data segregation](/goto/segregatedata/) to attain protect the confidentiality of transporting and storing agumentation data (e.g., access control, encryption, minimize retention).
+
+
 
 ---
 
@@ -200,11 +209,19 @@ Impact: Augmentation data is altered to manipulate model behaviour.
 
 Augmentation data (background information added to a prompt) is typically stored in _vector databases_. When augmentation data is manipulated (e.g., inserting false information), it can change the output of the model - making it very similar to [data poisoning](/goto/datapoison/).
 
-**Controls**
-- See [General controls](/goto/generalcontrols/)
-- The [security program](/goto/secprogram/),  [application security](/goto/secdevprogram/), [environment security](/goto/devsecurity/) and [data segregation](/goto/segregatedata/) - making sure Vector databases are included in the assets
-
 **References**
 - [Mitigating Security Risks in RAG LLM Applications, November 2023, CSA](https://cloudsecurityalliance.org/blog/2023/11/22/mitigating-security-risks-in-retrieval-augmented-generation-rag-llm-applications)
+
+**Controls**
+- See [General controls](/goto/generalcontrols/)
+- The below control(s), each marked with a # and a short name in capitals
+
+#### #AUGMENTATION DATA INTEGRITY
+> Category: runtime information security control against application security threats  
+> Permalink: https://owaspai.org/goto/augmentationdataintegrity/
+
+**Description**  
+See the [security program](/goto/secprogram/) and [application security](/goto/secdevprogram/), [development environment security](/goto/devsecurity/), and [data segregation](/goto/segregatedata/) to attain protect the integrity of transporting and storing agumentation data (e.g., access control, encryption, minimize retention).
+
 
 
