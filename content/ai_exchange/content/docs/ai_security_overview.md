@@ -308,7 +308,7 @@ In AI, we outline 6 types of impacts that align with three types of attacker goa
 The threats that create these impacts use different attack surfaces. For example: the confidentiality of training data can be compromised by hacking into the database during development, but it can also get leaked by a _membership inference attack_ that can find out whether a certain individual was in the train data, simply by feeding that person's data into the model and looking at the details of the model output.
 
 The diagram shows the threats as arrows. Each threat has a specific impact, indicated by letters referring to the Impact legend. The control overview section contains this diagram with groups of controls added.
-[![](/images/threats.png)](/images/threats.png)
+[![](/images/threats2.png)](/images/threats2.png)
 
 Note that some threats represent attacks consisting of several steps, and therefore present multiple threats in one, for example:
 —	An adversary performs a data poisoning attack by hacking into the training database and placing poisoned samples, and then after the data has been used for training, presents specific inputs to make use of the corrupted behaviour.
@@ -398,7 +398,7 @@ In the AI Exchange we focus on AI-specific threats and their corresponding contr
 
 ### Threat model with controls - general
 The below diagram puts the controls in the AI Exchange into groups and places these groups in the right lifecycle with the corresponding threats.
-[![](/images/threatscontrols.png)](/images/threatscontrols.png)
+[![](/images/threatscontrols2.png)](/images/threatscontrols2.png)
 The groups of controls form a summary of how to address AI security (controls are in capitals):
 - **AI Governance**(1): integrate AI comprehensively into your information security and software development lifecycle processes, not just by addressing AI risks, but by embedding AI considerations across the entire lifecycle:  
    > [AI PROGRAM](/goto/aiprogram/ ), [SEC PROGRAM](/goto/secprogram/), [DEV PROGRAM](/goto/devprogram/), [SECDEV PROGRAM](/goto/secdevprogram/), [CHECK COMPLIANCE](/goto/checkcompliance/), [SEC EDUCATE](/goto/seceducate/)
@@ -445,7 +445,7 @@ The following deployment options apply for ready-made models:
 
 The diagram below shows threats and controls in a self-hosting situation.
 
-[![AI Security Threats and controls - GenAI as-is](/images/threatscontrols-readymodel-selfhosted.png)](/images/threatscontrols-readymodel-selfhosted.png)
+[![AI Security Threats and controls - GenAI as-is](/images/threatscontrols2-readymodel-selfhosted.png)](/images/threatscontrols-readymodel2-selfhosted.png)
 
 
 **External-hosted**
@@ -478,7 +478,7 @@ When weighing this risk, compare it fairly: the vendor may still protect that en
 
 The diagram below shows threats and controls in an externally hosted situation.
 
-[![AI Security Threats and controls - GenAI as-is](/images/threatscontrols-readymodel-hosted.png)](/images/threatscontrols-readymodel-hosted.png)
+[![AI Security Threats and controls - GenAI as-is](/images/threatscontrols2-readymodel-hosted.png)](/images/threatscontrols2-readymodel-hosted.png)
 
 A typical challenge for organizations is to control the use of ready-made-models for general purpose Generative AI (e.g., ChatGPT), since employees typically can access many of them, even for free. Some of these models may not satisfy the organization's requirements for security and privacy. Still, employees can be very tempted to use them with the lack of a better alterative, sometimes referred to as _shadow AI_. The best solution for this problem is to provide a good alternative in the form of an AI model that has been deployed and configured in a secure and privacy-preserving way, of sufficient quality, and complying with the organization's values and policies. In addition, the risks of shadow AI need to be made very clear to users.
 
