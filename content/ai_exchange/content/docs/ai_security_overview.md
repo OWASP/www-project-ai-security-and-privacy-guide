@@ -223,13 +223,13 @@ The AI exchange covers both heuristic artificial intelligence (e.g., expert syst
 You can see the high-level structure on the [main page](https://owaspai.org). On larger screens you can see the structure of pages on the left sidebar and the structure within the current page on the right. On smaller screens you can view these structures through the menu. There is also a section with the most importent topics in a [Table of contents](/goto/toc/).
 
 The main structure is made of the following pages:  
-  (0) [AI security overview - this page](/docs/ai_security_overview), contains an overview of AI security and discussions of various topics.
+  (0) [AI security overview - this page](/goto/toc/), contains an overview of AI security and discussions of various topics.
   (1) [General controls, such as AI governance](/goto/generalcontrols/)
-  (2) [Input threats, such as evasion attacks](/goto/threatsuse/
+  (2) [Input threats, such as evasion attacks](/goto/inputthreats/)
   (3) [Development-time threats, such as data poisoning](/goto/developmenttime/)
   (4) [Runtime security threats, such as insecure output](/goto/runtimeappsec/)
   (5) [AI security testing](/goto/testing/)
-  (6) [AI privacy](/goto/aiprivacy)
+  (6) [AI privacy](/goto/aiprivacy/)
   (7) [References](/goto/references/)
 
 This page (AI security overview) will continue with discussions about:
@@ -270,7 +270,7 @@ What makes AI special when it comes to security? Well, it deals with a new set o
 - **[Monitoring](/goto/monitoruse/)** of model performance and inference - extending model I/O handing and overlooking general usage of the AI system
 - **Impact limitation controls** (because of zero model trust: assume a model can be misled, make mistakes, or leak data):
   - [Minimize or obfuscate sensitive data](/goto/datalimit/)
-  - [Limit model behaviour](/goto/limitunwanted/) (e.g., [oversight](/goto/oversight/), [least model privilege](/goto/leastmodelprivilege/), and [model alignment](/goto/modelalignment))
+  - [Limit model behaviour](/goto/limitunwanted/) (e.g., [oversight](/goto/oversight/), [least model privilege](/goto/leastmodelprivilege/), and [model alignment](/goto/modelalignment/))
 
 
 (*) Note: Attackers that have a similar model (or a copy) can typically craft misleading input efficiently and without being noticed
@@ -334,7 +334,7 @@ What does this mean for security?
 - Existing assumptions about things like trust boundaries and other established security measures might need to be revisited because agentic AI changes interconnectivity and data flows between system components.
 - Agents deployed with their own sets of permissions open up privilege escalation vectors because they are susceptible to becoming a confused deputy
 - The attack surface is wide, and the potential impact should not be underestimated.
-- Because of that, the known controls become even more important — such as security of inter-model communication (e.g., MCP), [traceability](/goto/monitoruse/), protecting memory integrity, [prompt injection defenses](/goto/promptinjectionm/), [rule-based / human oversight](/goto/oversight/), and [least model privilege](/goto/leastmodelprivilege/). See the [controls overview section](/goto/controlsoverview/).
+- Because of that, the known controls become even more important — such as security of inter-model communication (e.g., MCP), [traceability](/goto/monitoruse/), protecting memory integrity, [prompt injection defenses](/goto/promptinjection/), [rule-based / human oversight](/goto/oversight/), and [least model privilege](/goto/leastmodelprivilege/). See the [controls overview section](/goto/controlsoverview/).
 
 For leaking sensitive data in agentic AI, you need three things, also called the _lethal trifecta_:
 1. Data: Control of the attacker of data that find its way into an LLM at some point in the session of a user that has the desired access, to perform [indirect prompt injection](/goto/indirectpromptinjection/) 
@@ -409,7 +409,7 @@ The groups of controls form a summary of how to address AI security (controls ar
       - Development-time: model & data storage, model & data supply chain, data science documentation:  
         > [DEV SECURITY](/goto/devsecurity/), [SEGREGATE DATA](/goto/segregatedata/), [DISCRETE](/goto/discrete/)
       - Runtime: model storage, model use, augmentation data, and model input/output:  
-        > [RUNTIME MODEL INTEGRITY](/goto/runtimemodelintegrity/), [RUNTIME MODEL IO INTEGRITY](/goto/runtimemodeliointegrity/), [RUNTIME MODEL CONFIDENTIALITY](/goto/runtimemodelconfidentiality/), [MODEL INPUT CONFIDENTIALITY](/goto/modelinputconfidentiality/), [ENCODE MODEL OUTPUT](/goto/encodemodeloutput/), [LIMIT RESOURCES](/goto/limitresources/), [AUGMENTATION DATA CONFIDENTIALITY](/gotot/augmentationdataconfidentiality/), [AUGMENTATION DATA INTEGRITY](/gotot/augmentationdataintgegrity/)
+        > [RUNTIME MODEL INTEGRITY](/goto/runtimemodelintegrity/), [RUNTIME MODEL IO INTEGRITY](/goto/runtimemodeliointegrity/), [RUNTIME MODEL CONFIDENTIALITY](/goto/runtimemodelconfidentiality/), [MODEL INPUT CONFIDENTIALITY](/goto/modelinputconfidentiality/), [ENCODE MODEL OUTPUT](/goto/encodemodeloutput/), [LIMIT RESOURCES](/goto/limitresources/), [AUGMENTATION DATA CONFIDENTIALITY](/goto/augmentationdataconfidentiality/), [AUGMENTATION DATA INTEGRITY](/goto/augmentationdataintegrity/)
     - **Adapt** conventional IT security controls to make them more suitable for AI (e.g., which usage patterns to monitor for):  
       > [MONITOR USE](/goto/monitoruse/), [MODEL ACCESS CONTROL](/goto/modelaccesscontrol/), [RATE LIMIT](/goto/ratelimit/)
     - Adopt **new** IT security controls:  
@@ -445,7 +445,7 @@ The following deployment options apply for ready-made models:
 
 The diagram below shows threats and controls of a ready-made model in a self-hosting situation.
 
-[![AI Security Threats and controls - GenAI as-is](/images/threatscontrols2-readymodel-selfhosted.png)](/images/threatscontrols-readymodel2-selfhosted.png)
+[![AI Security Threats and controls - GenAI as-is](/images/threatscontrols2-readymodel-selfhosted.png)](/images/threatscontrols2-readymodel-selfhosted.png)
 
 
 **External-hosted**
@@ -535,7 +535,7 @@ There are quite a number of threats and controls described in this document. The
 **Risk management introduction**  
 Organizations classify their risks into several key areas: Strategic, Operational, Financial, Compliance, Reputation, Technology, Environmental, Social, and Governance (ESG). A threat becomes a risk when it exploits one or more vulnerabilities. AI threats, as discussed in this resource, can have significant impact across multiple risk domains. For example, adversarial attacks on AI systems can lead to disruptions in operations, distort financial models, and result in compliance issues.  See the [AI security matrix](/goto/aisecuritymatrix/) for an overview of AI related threats, risks and potential impact.
 
-General risk management for AI systems is typically driven by AI governance - see [AIPROGRAM](/goto/aiprogram/) and includes both risks BY relevant AI systems and risks to those systems. Security risk assessment is typically driven by the security management system - see [SECPROGRAM](/goto/secprogram) as this system is tasked to include AI assets, AI threats, and AI systems provided that these have been added to the corresponding repositories. ISO/IEC 27005 is the international standard for security risk management.
+General risk management for AI systems is typically driven by AI governance - see [AIPROGRAM](/goto/aiprogram/) and includes both risks BY relevant AI systems and risks to those systems. Security risk assessment is typically driven by the security management system - see [SECPROGRAM](/goto/secprogram/) as this system is tasked to include AI assets, AI threats, and AI systems provided that these have been added to the corresponding repositories. ISO/IEC 27005 is the international standard for security risk management.
 
 Organizations often adopt a Risk Management framework, commonly based on ISO 31000 or similar standards such as ISO 23894. These frameworks guide the process of managing risks through four key steps as outlined below:
 
@@ -670,7 +670,7 @@ A central tool in this process is the Risk Register, which serves as a comprehen
 ### 5. Arrange responsibility
 For each selected threat, determine who is responsible for addressing it. By default, the organization that builds and deploys the AI system is responsible, but building and deploying may be done by different organizations, and some parts of the building and deployment may be deferred to other organizations, e.g. hosting the model, or providing a cloud environment for the application to run. Some aspects are shared responsibilities.
 
-If some components of your AI system are hosted, then you share responsibility regarding all controls for the relevant threats with the hosting provider. This needs to be arranged with the provider by using a tool like the responsibility matrix. Components can be the model, model extensions, your application, or your infrastructure. See [Threat model of using a model as-is](#threat-model-with-controls---genai-as-is).
+If some components of your AI system are hosted, then you share responsibility regarding all controls for the relevant threats with the hosting provider. This needs to be arranged with the provider by using a tool like the responsibility matrix. Components can be the model, model extensions, your application, or your infrastructure. See [Threat model of a ready-made model](/goto/readymademodel/).
 
 If an external party is not open about how certain risks are mitigated, consider requesting this information and when this remains unclear you are faced with either 1) accept the risk, 2) or provide your own mitigations, or 3) avoid the risk, by not engaging with the third party.
 
@@ -756,7 +756,7 @@ What is mainly new to the threat landscape because of LLMs?
 - Regarding output: The fact that output can contain injection attacks, or can contain sensitive or copyrighted data is new (see [Copyright](/goto/copyright/)).
 - Overreliance is an issue. We let LLMs control and create things and may have too much trust in how correct they are, and also underestimate the risk of them being manipulated. The result is that attacks can have much impact.
 - Regarding training: Since the training sets are so large and based on public data, it is easier to perform data poisoning. Poisoned foundation models are also a big supply chain issue.
-- Just like any AI system, a generative AI system can trigger actions based on the output, but in the case of generative AI, the model output can contain function calls to perform actions (e.g. send mail) or trigger other AI systems. See [Agentic AI](/goto/agenticAIthreats/) for more details.
+- Just like any AI system, a generative AI system can trigger actions based on the output, but in the case of generative AI, the model output can contain function calls to perform actions (e.g. send mail) or trigger other AI systems. See [Agentic AI](/goto/agenticaithreats/) for more details.
 
 GenAI security particularities are:
 
@@ -799,7 +799,7 @@ Note that the UK Government drove an initiative through their DSIT department to
 - Model the threats to your system (DSIT principle 3):  
   See Risk analysis under #[SECURITY PROGRAM](/goto/secprogram/)
 - Design your system for security as well as functionality and performance (DSIT principle 2):  
-  #[AI PROGRAM](/goto/aiprogram/ ), #[SECURITY PROGRAM](/goto/secprogram/), #[DEVELOPMENT PROGRAM](/goto/devprogram/), #[SECURE DEVELOPMENT PROGRAM](/goto/secdevprogram/), #[CHECK COMPLIANCE](/goto/checkcompliance/), #[LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/), #[DISCRETE](/goto/discrete/), #[OBSCURE CONFIDENCE](/goto/obscureconfidence/), #[OVERSIGHT](/goto/oversight/), #[RATE LIMIT](/goto/ratelimit/),  #[DOS INPUT VALIDATION](/goto/dosinputvalidation/), #[LIMIT RESOURCES](/goto/limitresources/), #[MODEL ACCESS CONTROL](/goto/modelaccesscontrol/), #[AI TRANSPARENCY](/goto/aitransparency)
+  #[AI PROGRAM](/goto/aiprogram/ ), #[SECURITY PROGRAM](/goto/secprogram/), #[DEVELOPMENT PROGRAM](/goto/devprogram/), #[SECURE DEVELOPMENT PROGRAM](/goto/secdevprogram/), #[CHECK COMPLIANCE](/goto/checkcompliance/), #[LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/), #[DISCRETE](/goto/discrete/), #[OBSCURE CONFIDENCE](/goto/obscureconfidence/), #[OVERSIGHT](/goto/oversight/), #[RATE LIMIT](/goto/ratelimit/),  #[DOS INPUT VALIDATION](/goto/dosinputvalidation/), #[LIMIT RESOURCES](/goto/limitresources/), #[MODEL ACCESS CONTROL](/goto/modelaccesscontrol/), #[AI TRANSPARENCY](/goto/aitransparency/)
 - Consider security benefits and trade-offs when selecting your AI model  
   All development-time data science controls (currently 13), #[EXPLAINABILITY](/goto/explainability/)
 
@@ -825,7 +825,7 @@ Note that the UK Government drove an initiative through their DSIT department to
 - Release AI responsibly:  
   Part of #[DEVELOPMENT PROGRAM](/goto/devprogram/)
 - Make it easy for users to do the right things (DSIT principle 4, called Enable human responsibility for AI systems):  
-  Part of #[SECURITY PROGRAM](/goto/secprogram/), and also involving #[EXPLAINABILITY](/goto/explainability/), documenting prohibited use cases, and #[HUMAN OVERSIGHT](/goto/humanoversight))
+  Part of #[SECURITY PROGRAM](/goto/secprogram/), and also involving #[EXPLAINABILITY](/goto/explainability/), documenting prohibited use cases, and #[HUMAN OVERSIGHT](/goto/oversight/))
 
 4. Secure operation and maintenance
 
