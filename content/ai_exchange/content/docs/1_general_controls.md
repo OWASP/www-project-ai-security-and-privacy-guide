@@ -84,7 +84,7 @@ Useful standards include:
  - ISO/IEC 42001 AI management system. Gap: covers this control fully.
  - [US Federal Reserve SR 11-07: Guidance on Model Risk Management](https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm): supervisory guidance for banking organizations and supervisors.
 
-42001 is about extending your risk management system - it focuses on governance. ISO 5338 (see #[DEV PROGRAM](#devprogram) below) is about extending your software lifecycle practices - it focuses on engineering and everything around it. ISO 42001 can be seen as a management system for the governance of responsible AI in an organization, similar to how ISO 27001 is a management system for information security. ISO 42001 doesn't go into the lifecycle processes. For example, it does not discuss how to train models, how to do data lineage, continuous validation, versioning of AI models, project planning challenges, and how and when exactly sensitive data is used in engineering.
+42001 is about extending your risk management system - it focuses on governance. ISO 5338 (see #[DEV PROGRAM](/goto/devprogram/) below) is about extending your software lifecycle practices - it focuses on engineering and everything around it. ISO 42001 can be seen as a management system for the governance of responsible AI in an organization, similar to how ISO 27001 is a management system for information security. ISO 42001 doesn't go into the lifecycle processes. For example, it does not discuss how to train models, how to do data lineage, continuous validation, versioning of AI models, project planning challenges, and how and when exactly sensitive data is used in engineering.
 
 
 #### #SEC PROGRAM 
@@ -247,7 +247,7 @@ Related controls that are key parts of the development lifecycle:
 - [Secure development program](/goto/secdevprogram/)
 - [Supply chain management](/goto/supplychainmanage/)
 - [Continuous validation](/goto/continuousvalidation/)
-- [Unwanted bias testing](/goto/unwantedbiastesting)
+- [Unwanted bias testing](/goto/unwantedbiastesting/)
 
 The below interpretation diagram of ISO/IEC 5338 provides a good overview to get an idea of the topics involved.
 ![5338](/images/5338.png)
@@ -445,7 +445,7 @@ Distorting training data can make it effectively uncrecognizable, which of cours
 **References**  
 - [SF-PATE: Scalable, Fair, and Private Aggregation of Teacher Ensembles](https://arxiv.org/abs/2204.05157)
 - [Differentially Private Objective Perturbation: Beyond Smoothness and Convexity](https://arxiv.org/abs/1909.01783v1)
-- [Data Masking with Privacy Guarantees]([https://arxiv.org/abs/1909.01783v1](https://arxiv.org/abs/1901.02185))
+- [Data Masking with Privacy Guarantees](https://arxiv.org/abs/1901.02185)
 - Abadi, M., Chu, A., Goodfellow, I., McMahan, H. B., Mironov, I., Talwar, K., & Zhang, L. (2016). Deep learning with differential privacy. Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security, 308-318. [Link](https://doi.org/10.1145/2976749.2978318)
 - Dwork, C., & Roth, A. (2014). The Algorithmic Foundations of Differential Privacy. Foundations and Trends in Theoretical Computer Science. [Link](https://doi.org/10.1561/0400000042)
   
@@ -593,7 +593,7 @@ One of the most powerful things to let AI agents do is to execute code. That is 
 **Strategies for task-based minimization**  
 As mentioned above, it is essential to minimize actions that the model can potentially trigger, and what they can be triggered on. This needs to be minimized based on who or what is served (see above) and on the task. Strategies for task-based minimization include:
 - **Harden based on general intent**: Since agents and agentic systems typically don't have a single fixed task: at least minimize permissions based on the reasonably foreseeable use cases. 
-- **Harden based on prompt intent**: The orginal prompt to an agent contains intent. Mechanisms (typically LLM based) can interpret that and set permissions. This is where least privilege mechanisms start to overlap with what is presented under [#OVERSIGHT](/goto/oversight), including grounding checks. The difference is that the least privilege mechanism uses preventative permissions and the oversight mechanism is reactive. The effect is the same, and the advantage of permissions can be that they may serve as permissions for any subagents, which allows for inheritance of the context in the agentic flow.
+- **Harden based on prompt intent**: The orginal prompt to an agent contains intent. Mechanisms (typically LLM based) can interpret that and set permissions. This is where least privilege mechanisms start to overlap with what is presented under [#OVERSIGHT](/goto/oversight/), including grounding checks. The difference is that the least privilege mechanism uses preventative permissions and the oversight mechanism is reactive. The effect is the same, and the advantage of permissions can be that they may serve as permissions for any subagents, which allows for inheritance of the context in the agentic flow.
 - **Harden based on role assignment**: As soon as an agent or agentic flow is assigned to a specific task (e.g., an LLM assigned to review new code in the form of a merge request), the permissions can be minimized to the role to perform that task.
 - **Harden based on risk elevation**: Logic can be implemented to harden permissions the moment that certain input enters an agentic flow - from un untrusted agent, from an untrusted source (e.g., a public comment database), or the other way around: sensitive data entering the flow. From that moment, the logic can for example disable all actions that allow sending out sensitive data. This needs to be balanced of course with  whether the intent is still possible, and whether the inclusion of those risk elevating elements is reason to downgrade agentic capability.
 - **Downgrading subagents**: Have inter-agent calls include reduced permission sets, where possible.For example: an email handling agent calling another agent to summarize an email message. Such a hand-down mechanism is best performed outside the LLM because of reliability issues of the model. For example, _LangChain_ supports this mechanism using tools and subagents. However, fine-grained runtime permission handoff (like delegated scoped credentials) is not native.
@@ -620,7 +620,7 @@ In the context of Generative AI (e.g., LLMs), alignment refers to the process of
 Controls external to the model to manage model behaviour are: 
 - [OVERSIGHT](/goto/oversight/): conventional mechanisms responding to the actual outcome of the model
 - [LEAST MODEL PRIVILEGE](/goto/leastmodelprivilege/): conventional mechanisms that put boundaries on what the model can affect
-- [PROMPT INJECTION I/O handling](/goto/promptinjectioniohandling): detection mechanisms on input and output to prevent unwanted behaviour
+- [PROMPT INJECTION I/O handling](/goto/promptinjectioniohandling/): detection mechanisms on input and output to prevent unwanted behaviour
 
 The intent of Model alignment is achieve similar goals by baking it into the model itself, through training and instruction.
 
