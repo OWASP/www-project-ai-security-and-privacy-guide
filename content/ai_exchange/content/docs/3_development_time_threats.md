@@ -559,7 +559,7 @@ Distorting training data intends to make poisoned 'triggers' ineffective. Such a
 Distortion can be performed by e.g. adding noise (randomization), smoothing. For images, JPEG compression can be considered .
 See also [EVASIONROBUSTMODEL](/goto/evasionrobustmodel/) on adding noise against evasion attacks and [OBFUSCATETRAININGDATA](/goto/obfuscatetrainingdata/) to minimize data for confidentiality purposes - which can serve two purposes: privacy and data poisoning mitigation.
 
-A special form of train data distortion is complete removal of certain input fields. Technically, this is data minimization (see [DATAMINIMIZE](goto/dataminimize/)), but its purpose is not protecting the confidentiality of that data per se, but reducing the ability to memorize poisoned samples.
+A special form of train data distortion is complete removal of certain input fields. Technically, this is data minimization (see [DATAMINIMIZE](/goto/dataminimize/)), but its purpose is not protecting the confidentiality of that data per se, but reducing the ability to memorize poisoned samples.
 
 This control can only be applied during training and therefore not to an already pre-trained model.
 
