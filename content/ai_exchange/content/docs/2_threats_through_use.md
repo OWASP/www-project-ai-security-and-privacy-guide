@@ -41,7 +41,7 @@ Monitor use: observe, correlate, and log model usage (date, time, user), inputs,
 
   - Improper functioning of the model (see [#CONTINUOUS VALIDATION](/goto/continuousvalidation/), [#UNWANTED BIAS TESTING](/goto/unwantedbiastesting/))
   - Suspicious patterns of model use (e.g., high frequency - see [#RATE LIMIT](#ratelimit) and [#OVERSIGHT](/goto/oversight/)).
-  - Suspicious inputs or series of inputs (see [#ANOMALOUS INPUT HANDLING](/goto/anomalousinputhandling/), [#UNWANTED INPUT SERIES HANDLING](goto/unwantedinputserieshandling/), [#EVASION INPUT HANDLING](/goto/evasioninputhandling/) and [#PROMPT INJECTION I/O handling](/goto/promptinjectioniohandling/)).
+  - Suspicious inputs or series of inputs (see [#ANOMALOUS INPUT HANDLING](/goto/anomalousinputhandling/), [#UNWANTED INPUT SERIES HANDLING](/goto/unwantedinputserieshandling/), [#EVASION INPUT HANDLING](/goto/evasioninputhandling/) and [#PROMPT INJECTION I/O handling](/goto/promptinjectioniohandling/)).
 
 By adding details to logs on the version of the model used and the output, troubleshooting becomes easier. This control provides centralized visibility into how AI systems are used over time and across actors, sessions, and models.
 
@@ -592,7 +592,7 @@ AI models that take a prompt as input (e.g. GenAI) suffer from an additional thr
 The following sections discuss the various types of Evasion, where attackers have different access to knowledge:
 - [Zero-knowledge Evasion](/goto/zeroknowledgeevasion/) - when no access to model internals
 - [Perfect-knowledge Evasion](/goto/perfectknowledgeevasion/) - when knowing the model internals
-- [Transfer attack](/goto/transferattack) - preparing attack inputs using a similar model
+- [Transfer attack](/goto/transferattack/) - preparing attack inputs using a similar model
 - [Partial-knowledge Evasion](/goto/partialknowledgeevasion/) - when knowing some of the model internals
 - [Evasion after poisoning](/goto/evasionafterpoison/) - presenting an input that has been planted in the model as a backdoor
 
