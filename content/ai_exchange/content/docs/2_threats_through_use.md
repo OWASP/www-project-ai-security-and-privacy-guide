@@ -14,7 +14,7 @@ Threats on this page:
 - [Evasion](/goto/evasion/) - Bypassing decisions 
 - [Prompt injection](/goto/promptinjection/) - Manipulating behaviour of GenAI systems
 - Sensitive data extraction:
-    - [Sensitive data output from model](/goto/disclosureoutput/)
+    - [Sensitive data output from model](/goto/disclosureuseoutput/)
     - [Model inversion and Membership inference](/goto/modelinversionandmembership/)
 - [Model exfiltration](/goto/modelexfiltration/)
 - [AI Resource exhaustion](/goto/airesourceexhaustion/)
@@ -227,7 +227,7 @@ Defined by risk management (see [#RISK ANALYSIS](/goto/riskanalysis/)). It is a 
 - Cybersecurity monitoring that must analyze all traffic.
 - Real-time identity or fraud detection under strict latency constraints. 
 
-When rate limiting is impractical for the provider but feasible for the deployer, this responsibility must be clearly delegated and documented (see [#SEC PROGRAM](/goto/secprogram))
+When rate limiting is impractical for the provider but feasible for the deployer, this responsibility must be clearly delegated and documented (see [#SEC PROGRAM](/goto/secprogram/))
 
 **Implementation**
 
@@ -346,7 +346,7 @@ For protection of trained model artifacts, see “Model Confidentiality” in th
   - Some attacks can occur within allowed sessions (e.g., indirect prompt injection).
   - Publicly available models remain vulnerable if alternative protections are not in place.
 
-Complement this control with [#RATE LIMIT](/goto/ratelimit/), [#MONITORUSE](/goto/monitoruse), and incident response ([#SEC PROGRAM](/goto/secprogram/)).
+Complement this control with [#RATE LIMIT](/goto/ratelimit/), [#MONITORUSE](/goto/monitoruse/), and incident response ([#SEC PROGRAM](/goto/secprogram/)).
 
 **References**
   - Technical access control: ISO 27002 Controls 5.15, 5.16, 5.18, 5.3, 8.3. Gap: covers this control fully
@@ -627,7 +627,7 @@ An evasion attack typically consists of first searching for the inputs that misl
     - [#EVASION ROBUST MODEL](/goto/evasionrobustmodel/): choose an evasion-robust model design, configuration and/or training approach - discussed below
     - [#TRAIN ADVERSARIAL](/goto/trainadversarial/): correcting the decision boundary of the model by injecting adversarial samples with correct output in the training set - discussed below
     - [#INPUT DISTORTION](/goto/inputdistortion/): disturbing attempts to present precisely crafted input - discussed below
-    - [#ADVERSARIAL ROBUST DESTILLATION](/goto/adversarialrobustdestillation/): in essence trying to smooth decision boundaries - discussed below
+    - [#ADVERSARIAL ROBUST DISTILLATION](/goto/adversarialrobustdistillation/): in essence trying to smooth decision boundaries - discussed below
 
 
 #### #EVASION INPUT HANDLING
@@ -922,7 +922,7 @@ Attackers can execute a transferability-based attack in a zero-knowledge situati
 5. the exact target model obtained by purchasing or free downloading,
 6. a replica of the model, created by [Model exfiltration attack])/goto/modelexfiltration/)
 
-The advantage of a surrogate model is that it exposes its internals (with the exception of the zero-knowledge surrogate model), allowing an [Perfect-knowledge attack](/goto/perfectknowledgeevasion). But even a closed models may be beneficial in case detection mechanisms and rate limiting are less strict than the target model - making a [zero-knowledge attack](/goto/zeroknowledgeevasion/) easier and quicker to perform, 
+The advantage of a surrogate model is that it exposes its internals (with the exception of the zero-knowledge surrogate model), allowing an [Perfect-knowledge attack](/goto/perfectknowledgeevasion/). But even a closed models may be beneficial in case detection mechanisms and rate limiting are less strict than the target model - making a [zero-knowledge attack](/goto/zeroknowledgeevasion/) easier and quicker to perform, 
 
 The goal is to create adversarial examples that will ‘hopefully’ transfer to the original target model, even though the surrogate may be internally different from the target. Because the task is similar, it can be expected that the decision boundaries in the model are similar. The likelihood of a successful transfer is generally higher when the surrogate model closely resembles the target model in terms of complexity and structure. The ultimate surrogate model is of course the target model itself. However, it’s noted that even attacks developed using simpler surrogate models tend to transfer effectively. 
 
@@ -940,7 +940,7 @@ See [Evasion section](/goto/evasion/) for the controls, with the exception of co
 - Papernot, Nicolas, Patrick McDaniel, and Ian Goodfellow. “Transferability in machine learning: from phenomena to black-box attacks using adversarial samples.” arXiv preprint arXiv:1605.07277 (2016).
 - Papernot, Nicolas, et al. “Practical black-box attacks against machine learning.” Proceedings of the 2017 ACM on Asia conference on computer and communications security. 2017.
 
-### 2.1.4 Partial-knowledge evasion attacks
+### 2.1.4 Partial-knowledge evasion
 >Category: input threat  
 >Permalink: https://owaspai.org/goto/partialknowledgeevasion/
 
