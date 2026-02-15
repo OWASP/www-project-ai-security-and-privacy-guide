@@ -610,7 +610,12 @@
       },
       {
         "source": "/goto/runtimemodeltheft/",
-        "destination": "/docs/4_runtime_application_security_threats/#43-direct-runtime-model-theft",
+        "destination": "/docs/4_runtime_application_security_threats/#43-direct-runtime-model-leak",
+        "type": 301
+      },
+      {
+        "source": "/goto/runtimemodelleak/",
+        "destination": "/docs/4_runtime_application_security_threats/#43-direct-runtime-model-leak",
         "type": 301
       },
       {
