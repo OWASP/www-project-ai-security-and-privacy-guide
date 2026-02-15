@@ -172,7 +172,7 @@ Model input confidentiality: see [SECDEVPROGRAM](/goto/secdevprogram/) to attain
 
 ## 4.6. Direct augmentation data leak
 > Category: runtime conventional security threat  
-> Permalink: https://owaspai.org/goto/augmentationleak/
+> Permalink: https://owaspai.org/goto/augmentationdataleak/
 
 **Description**  
 Impact: Confidentiality breach of sensitive augmentation data through a conventional attack on the data at rest or in transit.
@@ -203,7 +203,7 @@ See the [security program](/goto/secprogram/) and [application security](/goto/s
 
 ## 4.7. Augmentation data manipulation
 > Category: runtime conventional security threat  
-> Permalink: https://owaspai.org/goto/augmentationmanipulation/
+> Permalink: https://owaspai.org/goto/augmentationdatamanipulation/
 
 **Description**  
 
