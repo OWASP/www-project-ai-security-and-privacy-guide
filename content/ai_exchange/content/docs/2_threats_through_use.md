@@ -918,7 +918,7 @@ Attackers can execute a transferability-based attack in a zero-knowledge situati
 1. a perfect-knowlegde model from another supplier that performs a similar task (e.g., recognize traffic signs) - showing all its internals,
 2. a zero-knowledge model from another supplier that performs a similar task - accessible through for example an API, (e.g., recognize traffic signs),
 3. a perfect-knowledge model that the attacker trained based on available or self-collected or self-labeled data,
-4. the exact target model that was stolen [development-time](/goto/devmodelleak/) or [runtime](/goto/runtimemodeltheft/),
+4. the exact target model that was stolen [development-time](/goto/devmodelleak/) or [runtime](/goto/runtimemodelleak/),
 5. the exact target model obtained by purchasing or free downloading,
 6. a replica of the model, created by [Model exfiltration attack])/goto/modelexfiltration/)
 
@@ -1394,7 +1394,7 @@ Impact:  Confidentiality breach of the model (i.e., model parameters), which can
 
 Alternative names: _model stealing attack_ or _model extraction attack_ or _model exfiltration attack_.
 
-Alternative ways of model theft, which can lead to an exact copy of the model, are [direct development time model theft](/goto/devmodelleak/) and [direct runtime model theft](/goto/runtimemodeltheft/).
+Alternative ways of model theft, which can lead to an exact copy of the model, are [direct development-time model leak](/goto/devmodelleak/) and [direct runtime model leak](/goto/runtimemodelleak/).
 
 ![](/images/theft3.png)
 
