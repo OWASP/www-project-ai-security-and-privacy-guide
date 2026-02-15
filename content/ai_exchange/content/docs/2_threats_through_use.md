@@ -14,7 +14,7 @@ Threats on this page:
 - [Evasion](/goto/evasion/) - Bypassing decisions 
 - [Prompt injection](/goto/promptinjection/) - Manipulating behaviour of GenAI systems
 - Sensitive data extraction:
-    - [Sensitive data output from model](/goto/disclosureuseoutput/)
+    - [Disclosure in model output](/goto/disclosureinoutput/)
     - [Model inversion and Membership inference](/goto/modelinversionandmembership/)
 - [Model exfiltration](/goto/modelexfiltration/)
 - [AI Resource exhaustion](/goto/airesourceexhaustion/)
@@ -1016,7 +1016,7 @@ i) Extremely long prompts
 Very long inputs can overwhelm the AI or make safety instructions less effective. Important warnings may be “lost” inside the large amount of text, both for the AI and for human reviewers.
 
 j) Training data extraction  
-Attempts to extract sensitive training data are addressed separately as [senstive data output from model](/goto/disclosureuseoutput/).
+Attempts to extract sensitive training data are addressed separately as [disclosure in model output](/goto/disclosureinoutput/).
 
 
 **Examples of prompt injection**  
@@ -1254,12 +1254,12 @@ Impact: Confidentiality breach of sensitive training data.
 
 The model discloses sensitive training data or is abused to do so.
 
-### 2.3.1. Sensitive data output from model
+### 2.3.1. Disclosure of sensitive data in model output
 >Category: input threat  
->Permalink: https://owaspai.org/goto/disclosureuseoutput/
+>Permalink: https://owaspai.org/goto/disclosureinoutput/
 
 **Description**  
-The output of the model may contain sensitive data from the training set, for example a large language model (GenAI) generating output including personal data that was part of its training set. Furthermore, GenAI can output other types of sensitive data, such as copyrighted text or images (see [Copyright](/goto/copyright/)). Once training data is in a GenAI model, original variations in access rights cannot be controlled anymore. ([OWASP for LLM 02](https://genai.owasp.org/llmrisk/llm02/))
+The output of the model may contain sensitive data from the training set or input (which may include augmentation data). For example, a large language model (GenAI) generating output including personal data that was part of its training set. Furthermore, GenAI can output other types of sensitive data, such as copyrighted text or images (see [Copyright](/goto/copyright/)). Once training data is in a GenAI model, original variations in access rights cannot be controlled anymore. ([OWASP for LLM 02](https://genai.owasp.org/llmrisk/llm02/))
 
 The disclosure is caused by an unintentional fault of including this data, and exposed through normal use or through provocation by an attacker using the system. See [MITRE ATLAS - LLM Data Leakage](https://atlas.mitre.org/techniques/AML.T0057)
 
