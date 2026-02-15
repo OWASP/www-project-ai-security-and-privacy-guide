@@ -555,7 +555,7 @@
       },
       {
         "source": "/goto/runtimeappsec/",
-        "destination": "/docs/4_runtime_conventional_security_threats/",
+        "destination": "/docs/4_runtime_application_security_threats/",
         "type": 301
       },
       {
