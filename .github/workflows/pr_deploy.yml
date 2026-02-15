@@ -1,8 +1,6 @@
 # Preview deploy for PRs. Uses pull_request_target so fork PRs can get a preview
 # after a maintainer approves (secrets are only available in base repo context).
 #
-# Repo owners: create an environment named "preview" in Settings → Environments
-# and add "Required reviewers" so fork PRs wait for approval before deploying.
 
 name: Deploy to Preview Channel
 
@@ -44,11 +42,11 @@ jobs:
           entryPoint: content/ai_exchange
 
   # PRs from forks: build and deploy only after a reviewer approves.
-  # Requires an environment "preview" with Required reviewers (Settings → Environments).
+  # Requires an environment "production" with Required reviewers (Settings → Environments).
   build_and_preview_fork:
     if: github.event.pull_request.head.repo.full_name != github.repository
     runs-on: ubuntu-latest
-    environment: preview
+    environment: production
     steps:
       - uses: actions/checkout@v2
         with:
