@@ -385,7 +385,12 @@
       },
       {
         "source": "/goto/disclosureuseoutput/",
-        "destination": "/docs/2_threats_through_use/#231-sensitive-data-output-from-model",
+        "destination": "/docs/2_threats_through_use/#231-disclosure-of-sensitive-data-in-output",
+        "type": 301
+      },
+      {
+        "source": "/goto/disclosureinoutput/",
+        "destination": "/docs/2_threats_through_use/#231-disclosure-of-sensitive-data-in-output",
         "type": 301
       },
       {
