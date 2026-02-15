@@ -1,37 +1,37 @@
 ---
-title: 4. Runtime application security threats
-heroTitle: "Runtime application security threats"
+title: 4. Runtime conventional security threats
+heroTitle: "Runtime conventional security threats"
 heroText: "Attacks to the AI system in operation apart from the input attacks, and protective controls"
 weight: 5
 ---
 > Category: group of runtime threats  
-> Permalink: https://owaspai.org/goto/runtimeappsec/
+> Permalink: https://owaspai.org/goto/runtimeconventionalsec/
 
-An AI system is an IT system, so at runtime it can be vulnerable to any security attack - for example to break into the application's user database. These attacks, and their countermeasures are covered in many other resources. This section focuses only on what is AI-specific.  
+An AI system is an IT system, so at runtime it can be vulnerable to any security attack - for example to break into the application's user database. These 'conventional' attacks to generic assets, and their countermeasures are covered in many other resources. This section focuses only on what is AI-specific.  
 
-[Section 2](/goto/threatsuse/) covers runtime attacks that are not conventrionl: attacks performed through inference - by using the system and providing model input. [Section 3](/goto/developmenttime/) covers attacks during development-time.  
+[Section 2](/goto/threatsuse/) covers runtime attacks that are AI-specific: attacks performed through inference - by using the system and providing model input. [Section 3](/goto/developmenttime/) covers attacks during development-time: mostly coventional attacks (e.g. breaking into a training database) with sometimes AI-specific consequences (e.g., changing model behaviour) plus AI-specific supply chain attacks.  
 
-So, this section covers conventional application security attacks that have AI-specific consequences. For example: changing model behaviour by hacking into a runtime database of augmentation data. The details of how these attacks are performed are covered in many other resources. This section focuses on the AI-specific consequences and the categories of controls required. In-depth coverage of controls against conventional attacks are covered in many other resources. This section focuses on AI-specific aspects of these controls, such as the option of using a Trusted Execution Environment for models.  
+So, this page covers conventional security attacks that have AI-specific consequences. For example: changing model behaviour by hacking into a runtime database of augmentation data. The details of how these attacks are performed are covered in many other resources. This section focuses on the AI-specific consequences and the categories of controls required. In-depth coverage of controls against conventional attacks are covered in many other resources. This section focuses on AI-specific aspects of these controls, such as the option of using a Trusted Execution Environment for models.  
 
 The subsections cover non-AI-specific threats, model poisoning, model theft, insecure output handling, leaking input data, and attacks on augmentation data.
 
-## 4.1. Non AI-specific application security threats
+## 4.1. Generic security threats
 > Category: group of runtime threats  
-> Permalink: https://owaspai.org/goto/generalappsecthreats/
+> Permalink: https://owaspai.org/goto/genericsecthreats/
 
 **Description**  
-Impact: Conventional application security threats can impact confidentiality, integrity and availability of all assets.
+Impact: Conventional security threats can impact confidentiality, integrity and availability of all assets.
 
 AI systems are IT systems and therefore can have security weaknesses and vulnerabilities that are not AI-specific such as SQL-Injection. Such topics are covered in depth by many sources and are out of scope for this publication.  
-Note: some controls in this document are application security controls that are not AI-specific, but applied to AI-specific threats (e.g., monitoring to detect model attacks).
+Note: some controls in this document are conventional security controls that are not AI-specific, but applied to AI-specific threats (e.g., monitoring to detect model attacks).
 
 **Controls**
 
 - See the [Governance controls](/goto/governancecontrols/) in the general section, in particular [SECDEVPROGRAM](/goto/secdevprogram/) to attain application security, and [SECPROGRAM](/goto/secprogram/) to attain information security in the organization.
-- Technical application security controls  
+- Technical conventional security controls  
   Useful standards include:
-  - See [OpenCRE on technical application security controls](https://www.opencre.org/cre/636-660)
-  - The ISO 27002 controls only partly cover technical application security controls, and on a high abstraction level
+  - See [OpenCRE on technical conventional security controls](https://www.opencre.org/cre/636-660)
+  - The ISO 27002 controls only partly cover technical conventional security controls, and on a high abstraction level
   - More detailed and comprehensive control overviews can be found in for example, Common criteria protection profiles (ISO/IEC 15408 with evaluation described in ISO 18045),
   - or in [OWASP ASVS](https://owasp.org/www-project-application-security-verification-standard/)
 - Operational security  
@@ -42,8 +42,8 @@ Note: some controls in this document are application security controls that are 
 
 ---
 
-## 4.2. Runtime model poisoning (manipulating the model itself or its input/output logic)
-> Category: runtime application security threat  
+## 4.2. Direct runtime model poisoning
+> Category: runtime conventional security threat  
 > Permalink: https://owaspai.org/goto/runtimemodelpoison/
 
 **Description**  
@@ -57,23 +57,23 @@ This threat involves manipulating the behavior of the model by altering the para
 - The below control(s), each marked with a # and a short name in capitals
 
 #### #RUNTIME MODEL INTEGRITY
-> Category: runtime information security control against application security threats  
+> Category: runtime information security control against conventional security threats  
 > Permalink: https://owaspai.org/goto/runtimemodelintegrity/
 
 **Description**  
-Run-time model integrity: apply traditional application security controls to protect the storage of model parameters (e.g., access control, checksums, encryption) A Trusted Execution Environment can help to protect model integrity.
+Run-time model integrity: apply traditional conventional security controls to protect the storage of model parameters (e.g., access control, checksums, encryption) A Trusted Execution Environment can help to protect model integrity.
 
 #### #RUNTIME MODEL IO INTEGRITY
-> Category: runtime information security control against application security threats  
+> Category: runtime information security control against conventional security threats  
 > Permalink: https://owaspai.org/goto/runtimemodeliointegrity/
 
 **Description**  
-Run-time model Input/Output integrity: apply traditional application security controls to protect the runtime manipulation of the model's input/output logic (e.g., protect against a man-in-the-middle attack)
+Run-time model Input/Output integrity: apply conventional security controls to protect the runtime manipulation of the model's input/output logic (e.g., protect against a man-in-the-middle attack)
 
 ---
 
 ## 4.3. Direct runtime model theft
-> Category: runtime application security threat  
+> Category: runtime conventional security threat  
 > Permalink: https://owaspai.org/goto/runtimemodeltheft/
 
 **Description**  
@@ -97,11 +97,11 @@ This threat applies if the model represents intellectual property (i.e., a trade
 - The below control(s), each marked with a # and a short name in capitals
   
 #### #RUNTIME MODEL CONFIDENTIALITY
-> Category: runtime information security control against application security threats  
+> Category: runtime information security control against conventional security threats  
 > Permalink: https://owaspai.org/goto/runtimemodelconfidentiality/
 
 **Description**  
-Run-time model confidentiality: see [SECDEVPROGRAM](/goto/secdevprogram/) to attain application security, with the focus on protecting the storage of model parameters (e.g., access control, encryption).  
+Run-time model confidentiality: see [SECDEVPROGRAM](/goto/secdevprogram/) to attain conventional security, with the focus on protecting the storage of model parameters (e.g., access control, encryption).  
 
 A Trusted Execution Environment can be highly effective in safeguarding the runtime environment, isolating model operations from potential threats, including side-channel hardware attacks like [DeepSniffer](https://sites.cs.ucsb.edu/~sherwood/pubs/ASPLOS-20-deepsniff.pdf). By ensuring that sensitive computations occur within this secure enclave,the TEE reduces the risk of attackers gaining useful information through side-channel methods.
 
@@ -113,7 +113,7 @@ or acoustic leakage that might be exploited for side-channel attacks. See [Elect
 
 
 #### #MODEL OBFUSCATION
-> Category: runtime information security control against application security threats  
+> Category: runtime information security control against conventional security threats  
 > Permalink: https://owaspai.org/goto/modelobfuscation/
 
 **Description**  
@@ -121,9 +121,9 @@ Model obfuscation: techniques to store the model in a complex and confusing way 
 
 ---
 
-## 4.4. Insecure output handling
-> Category: runtime application security threat  
-> Permalink: https://owaspai.org/goto/insecureoutput/
+## 4.4. Output contains injection
+> Category: runtime conventional security threat  
+> Permalink: https://owaspai.org/goto/outputcontainsinjection/
 
 **Description**  
 Impact: Textual model output may contain 'traditional' injection attacks such as XSS-Cross site scripting, which can create a vulnerability when processed (e.g., shown on a website, execute a command).
@@ -138,7 +138,7 @@ See [OWASP for LLM 05](https://genai.owasp.org/llmrisk/llm05/).
 - The below control(s), each marked with a # and a short name in capitals
 
 #### #ENCODE MODEL OUTPUT
-> Category: runtime information security control against application security threats  
+> Category: runtime information security control against conventional security threats  
 > Permalink: https://owaspai.org/goto/encodemodeloutput/
 
 **Description**  
@@ -147,7 +147,7 @@ Encode model output: apply output encoding on model output if it text. See [Open
 ---
 
 ## 4.5. Leak sensitive input data
-> Category: runtime application security threat  
+> Category: runtime conventional security threat  
 > Permalink: https://owaspai.org/goto/leakinput/
 
 **Description**  
@@ -162,17 +162,17 @@ GenAI models mostly live in the cloud - often managed by an external party, whic
 - The below control(s), each marked with a # and a short name in capitals
 
 #### #MODEL INPUT CONFIDENTIALITY
-> Category: runtime information security control against application security threats  
+> Category: runtime information security control against conventional security threats  
 > Permalink: https://owaspai.org/goto/modelinputconfidentiality/
 
 **Description**  
-Model input confidentiality: see [SECDEVPROGRAM](/goto/secdevprogram/) to attain application security, with the focus on protecting the transport and storage of model input (e.g., access control, encryption, minimize retention)
+Model input confidentiality: see [SECDEVPROGRAM](/goto/secdevprogram/) to attain conventional security, with the focus on protecting the transport and storage of model input (e.g., access control, encryption, minimize retention)
 
 ---
 
-## 4.6. Leak sensitive augmentation data
-> Category: runtime application security threat  
-> Permalink: https://owaspai.org/goto/leakaugmentation/
+## 4.6. Direct augmentation data theft
+> Category: runtime conventional security threat  
+> Permalink: https://owaspai.org/goto/augmentationtheft/
 
 **Description**  
 Impact: Confidentiality breach of sensitive augmentation data
@@ -189,7 +189,7 @@ So-called _vectors_ that form a representation of augmentation data are typicall
 - The below control(s), each marked with a # and a short name in capitals
 
 #### #AUGMENTATION DATA CONFIDENTIALITY
-> Category: runtime information security control against application security threats  
+> Category: runtime information security control against conventional security threats  
 > Permalink: https://owaspai.org/goto/augmentationdataconfidentiality/
 
 **Description**  
@@ -199,9 +199,9 @@ See the [security program](/goto/secprogram/) and [application security](/goto/s
 
 ---
 
-## 4.7. Manipulate augmentation data
-> Category: runtime application security threat  
-> Permalink: https://owaspai.org/goto/manipulateaugmentation/
+## 4.7. Augmentation data manipulation
+> Category: runtime conventional security threat  
+> Permalink: https://owaspai.org/goto/augmentationmanipulation/
 
 **Description**  
 
@@ -217,7 +217,7 @@ Augmentation data (background information added to a prompt) is typically stored
 - The below control(s), each marked with a # and a short name in capitals
 
 #### #AUGMENTATION DATA INTEGRITY
-> Category: runtime information security control against application security threats  
+> Category: runtime information security control against conventional security threats  
 > Permalink: https://owaspai.org/goto/augmentationdataintegrity/
 
 **Description**  
