@@ -1,16 +1,26 @@
+# Preview deploy for PRs. Uses pull_request_target so fork PRs can get a preview
+# after a maintainer approves (secrets are only available in base repo context).
+#
+# Repo owners: create an environment named "preview" in Settings → Environments
+# and add "Required reviewers" so fork PRs wait for approval before deploying.
+
 name: Deploy to Preview Channel
 
 on:
-  pull_request:
+  pull_request_target:
     paths:
-    - "content/**"
+      - "content/**"
 
 jobs:
-  build_and_preview:
+  # PRs from branches in this repo: build and deploy automatically.
+  build_and_preview_same_repo:
+    if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     environment: production
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: refs/pull/${{ github.event.pull_request.number }}/merge
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
@@ -18,9 +28,41 @@ jobs:
           extended: true
       - name: Build
         run: |
-         cd content/ai_exchange
-         hugo mod get github.com/imfing/hextra@v0.11.1
-         hugo --gc --minify
+          cd content/ai_exchange
+          hugo mod get github.com/imfing/hextra@v0.11.1
+          hugo --gc --minify
+      - name: Build search index (Pagefind)
+        run: npx pagefind --site public
+        working-directory: content/ai_exchange
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
+          expires: 3d
+          projectId: project-integration-standards
+          target: owasp-ai-exchange
+          entryPoint: content/ai_exchange
+
+  # PRs from forks: build and deploy only after a reviewer approves.
+  # Requires an environment "preview" with Required reviewers (Settings → Environments).
+  build_and_preview_fork:
+    if: github.event.pull_request.head.repo.full_name != github.repository
+    runs-on: ubuntu-latest
+    environment: preview
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: refs/pull/${{ github.event.pull_request.number }}/merge
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.147.0'
+          extended: true
+      - name: Build
+        run: |
+          cd content/ai_exchange
+          hugo mod get github.com/imfing/hextra@v0.11.1
+          hugo --gc --minify
       - name: Build search index (Pagefind)
         run: npx pagefind --site public
         working-directory: content/ai_exchange
