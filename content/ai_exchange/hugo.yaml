@@ -102,7 +102,7 @@ menu:
     - name: "3. Development-time threats"
       pageRef: /docs/3_development_time_threats
       weight: 4
-    - name: "4. Runtime application security threats"
+    - name: "4. Runtime conventional security threats"
       pageRef: /docs/4_runtime_application_security_threats
       weight: 5
     - name: "5. AI security testing"
