@@ -13,7 +13,7 @@ An AI system is an IT system, so at runtime it can be vulnerable to any security
 
 So, this page covers conventional security attacks that have AI-specific consequences. For example: changing model behaviour by hacking into a runtime database of augmentation data. The details of how these attacks are performed are covered in many other resources. This section focuses on the AI-specific consequences and the categories of controls required. In-depth coverage of controls against conventional attacks are covered in many other resources. This section focuses on AI-specific aspects of these controls, such as the option of using a Trusted Execution Environment for models.  
 
-The subsections cover non-AI-specific threats, model poisoning, model theft, insecure output handling, leaking input data, and attacks on augmentation data.
+The subsections cover non-AI-specific threats, model poisoning, model leak, insecure output handling, leaking input data, and attacks on augmentation data.
 
 ## 4.1. Generic security threats
 > Category: group of runtime threats  
@@ -72,16 +72,16 @@ Run-time model Input/Output integrity: apply conventional security controls to p
 
 ---
 
-## 4.3. Direct runtime model theft
+## 4.3. Direct runtime model leak
 > Category: runtime conventional security threat  
-> Permalink: https://owaspai.org/goto/runtimemodeltheft/
+> Permalink: https://owaspai.org/goto/runtimemodelleak/
 
 **Description**  
 Impact:  Confidentiality breach of the model (i.e., model parameters), which can be:
 - intellectual property theft (e.g., by a competitor)
 - and/or a way to perform input attacks on the copied model, circumventing protections. These protections include rate limiting, access control, and detection mechanisms. This can be done for [all input attacks](/goto/inputthreats/) that extract data, and for the preparation of [evasion](/goto/evasion/) or [prompt injection](/goto/promptinjection): experimenting to find attack inputs that work.
  
-This attack occurs when stealing model parameters from a live system by breaking into it (e.g., by gaining access to executables, memory or other storage/transfer of  parameter data in the production environment). This is different from [model exfiltration](/goto/modelexfiltration/) which goes through a number of steps to steal a model through normal use, hence the use of the word 'direct'. It is also different from [direct model theft development-time](/goto/devmodelleak/) from a lifecycle and attack surface perspective.
+This attack occurs when stealing model parameters from a live system by breaking into it (e.g., by gaining access to executables, memory or other storage/transfer of  parameter data in the production environment). This is different from [model exfiltration](/goto/modelexfiltration/) which goes through a number of steps to steal a model through normal use, hence the use of the word 'direct'. It is also different from [direct development-time model leak](/goto/devmodelleak/) from a lifecycle and attack surface perspective.
 
 This attack also includes _side-channel attacks_, where attackers do not necessarily steal the entire model but instead extract specific details about the model’s behaviour or internal state. By observing characteristics like response times, power consumption, or electromagnetic emissions during inference, attackers can infer sensitive information about the model. This type of attack can provide insights into the model's structure, the type of data it processes, or even specific parameter values, which may be leveraged for subsequent attacks or to replicate the model.
 
@@ -170,9 +170,9 @@ Model input confidentiality: see [SECDEVPROGRAM](/goto/secdevprogram/) to attain
 
 ---
 
-## 4.6. Direct augmentation data theft
+## 4.6. Direct augmentation data leak
 > Category: runtime conventional security threat  
-> Permalink: https://owaspai.org/goto/augmentationtheft/
+> Permalink: https://owaspai.org/goto/augmentationleak/
 
 **Description**  
 Impact: Confidentiality breach of sensitive augmentation data
