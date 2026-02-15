@@ -90,11 +90,10 @@
   </div>
 </header>
 
-<!-- Search Overlay -->
+<!-- Search Overlay (Pagefind) -->
 <div class="search-overlay" id="searchOverlay">
   <div class="search-container">
     <div class="search-header">
-      <input type="text" id="search-input" placeholder="Search articles, guides, and content..." autocomplete="off" />
       <button class="search-close" id="search-close" aria-label="Close search">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -102,7 +101,7 @@
         </svg>
       </button>
     </div>
-    <div id="search-results"></div>
+    <div id="pagefind-search" class="pagefind-search-container"></div>
   </div>
 </div>
 
@@ -499,28 +498,9 @@
 
 .search-header {
   display: flex;
+  justify-content: flex-end;
   gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.search-header input {
-  flex: 1;
-  padding: 1rem 1.5rem;
-  font-size: 1.25rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  color: white;
-  outline: none;
-}
-
-.search-header input:focus {
-  border-color: #4CAF50;
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.search-header input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1rem;
 }
 
 .search-close {
@@ -546,49 +526,18 @@
   height: 24px;
 }
 
-#search-results {
-  max-height: calc(100vh - 200px);
+/* Pagefind UI container - match overlay dark theme */
+.pagefind-search-container {
+  --pagefind-ui-scale: 1;
+  --pagefind-ui-primary: #4CAF50;
+  --pagefind-ui-text: #fff;
+  --pagefind-ui-background: rgba(255, 255, 255, 0.05);
+  --pagefind-ui-border: rgba(255, 255, 255, 0.2);
+  --pagefind-ui-border-width: 1px;
+  --pagefind-ui-border-radius: 8px;
+  --pagefind-ui-font: inherit;
+  max-height: calc(100vh - 180px);
   overflow-y: auto;
-}
-
-.search-result-item {
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.search-result-item:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: #4CAF50;
-}
-
-.search-result-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: white;
-  margin-bottom: 0.5rem;
-}
-
-.search-result-url {
-  font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 0.5rem;
-}
-
-.search-result-snippet {
-  font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.6;
-}
-
-.search-highlight {
-  background: rgba(76, 175, 80, 0.3);
-  padding: 2px 4px;
-  border-radius: 3px;
 }
 
 .mobile-search-btn {
@@ -599,6 +548,9 @@
   margin: 0;
 }
 </style>
+
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+<script src="/pagefind/pagefind-ui.js"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -649,115 +601,45 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Search Functionality
+// Search overlay + Pagefind UI
 document.addEventListener("DOMContentLoaded", () => {
   const searchToggle = document.getElementById("search-toggle");
   const searchOverlay = document.getElementById("searchOverlay");
   const searchClose = document.getElementById("search-close");
-  const searchInput = document.getElementById("search-input");
-  const searchResults = document.getElementById("search-results");
-  
-  let searchData = [];
 
-  // Load search data
-  fetch('/index.json')
-    .then(response => response.json())
-    .then(data => {
-      searchData = data.articles;
-    })
-    .catch(error => {
-      console.error('Error loading search data:', error);
+  if (typeof PagefindUI !== "undefined") {
+    new PagefindUI({
+      element: "#pagefind-search",
+      translations: { placeholder: "Search articles, guides, and content..." },
+      showSubResults: true,
+      showImages: false,
+      resetStyles: false,
+      autofocus: true
     });
+  }
 
-  // Open search
   if (searchToggle) {
     searchToggle.addEventListener("click", (e) => {
       e.preventDefault();
-      console.log("Search clicked");
       if (searchOverlay) {
         searchOverlay.classList.add("active");
-        if (searchInput) {
-          searchInput.focus();
-        }
         document.body.style.overflow = "hidden";
       }
     });
   }
 
-  // Close search
-  searchClose.addEventListener("click", () => {
-    searchOverlay.classList.remove("active");
-    searchInput.value = "";
-    searchResults.innerHTML = "";
-    document.body.style.overflow = "auto";
-  });
-
-  // Close search on escape key
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && searchOverlay.classList.contains("active")) {
+  if (searchClose) {
+    searchClose.addEventListener("click", () => {
       searchOverlay.classList.remove("active");
-      searchInput.value = "";
-      searchResults.innerHTML = "";
+      document.body.style.overflow = "auto";
+    });
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && searchOverlay && searchOverlay.classList.contains("active")) {
+      searchOverlay.classList.remove("active");
       document.body.style.overflow = "auto";
     }
   });
-
-  // Search functionality
-  searchInput.addEventListener("input", (e) => {
-    const query = e.target.value.toLowerCase().trim();
-    
-    if (query.length < 2) {
-      searchResults.innerHTML = "";
-      return;
-    }
-
-    const results = searchData
-      .map((article, index) => {
-        const titleMatch = article.title.toLowerCase().includes(query);
-        const contentMatch = article.content.toLowerCase().includes(query);
-        
-        if (titleMatch || contentMatch) {
-          // Get excerpt from content
-          const contentIndex = article.content.toLowerCase().indexOf(query);
-          const excerptStart = Math.max(0, contentIndex - 100);
-          const excerptEnd = Math.min(article.content.length, contentIndex + query.length + 100);
-          const excerpt = article.content.substring(excerptStart, excerptEnd);
-          
-          return {
-            title: article.title,
-            uri: article.uri,
-            excerpt: '...' + excerpt + '...',
-            query: query
-          };
-        }
-        return null;
-      })
-      .filter(item => item !== null)
-      .slice(0, 10); // Limit to 10 results
-
-    displayResults(results, query);
-  });
-
-  function displayResults(results, query) {
-    if (results.length === 0) {
-      searchResults.innerHTML = '<div class="text-center text-white opacity-50 py-8">No results found</div>';
-      return;
-    }
-
-    searchResults.innerHTML = results
-      .map(result => `
-        <div class="search-result-item" onclick="window.location.href='${result.uri}'">
-          <div class="search-result-title">${highlightText(result.title, query)}</div>
-          <div class="search-result-url">${result.uri}</div>
-          <div class="search-result-snippet">${highlightText(result.excerpt, query)}</div>
-        </div>
-      `)
-      .join("");
-  }
-
-  function highlightText(text, query) {
-    const regex = new RegExp(`(${query})`, 'gi');
-    return text.replace(regex, '<span class="search-highlight">$1</span>');
-  }
 });
 </script>

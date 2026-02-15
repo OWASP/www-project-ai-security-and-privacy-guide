@@ -19,6 +19,15 @@ h1 {
     font-weight: 700 !important;
     line-height: 1.2;
 }
+.docs-main ol, .docs-main ul, .docs-main menu {
+    list-style: initial !important;
+    padding-left: 1rem !important;
+    margin-left: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+.docs-main ol {
+    list-style-type: decimal !important;
+}
 .nav-container .nav-container-blur {
     /* backdrop-filter: blur(10px); */
     /* background-color: rgba(0, 0, 0, 0.7); */

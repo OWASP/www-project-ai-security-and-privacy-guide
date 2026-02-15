@@ -26,6 +26,9 @@ jobs:
          cd content/ai_exchange
          hugo mod get github.com/imfing/hextra@v0.7.3
          hugo --gc --minify
+      - name: Build search index (Pagefind)
+        run: npx pagefind --site public
+        working-directory: content/ai_exchange
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
