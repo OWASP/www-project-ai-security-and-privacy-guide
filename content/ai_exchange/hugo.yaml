@@ -11,6 +11,7 @@ outputs:
 module:
   imports:
     - path: github.com/imfing/hextra
+      version: v0.11.1
 
 
 
