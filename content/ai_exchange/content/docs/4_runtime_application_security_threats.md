@@ -195,7 +195,7 @@ An alternative way for augmentation data to leek is described in [input data lea
 > Permalink: https://owaspai.org/goto/augmentationdataconfidentiality/
 
 **Description**  
-See the [security program](/goto/secprogram/) and [application security](/goto/secdevprogram/), [development environment security](/goto/devsecurity/), and [data segregation](/goto/segregatedata/) to attain protect the confidentiality of transporting and storing agumentation data (e.g., access control, encryption, minimize retention).
+See the [security program](/goto/secprogram/) and [application security](/goto/secdevprogram/), [development environment security](/goto/devsecurity/), and [data segregation](/goto/segregatedata/) to protect the confidentiality of transporting and storing agumentation data (e.g., access control, encryption, minimize retention).
 
 
 
@@ -223,7 +223,7 @@ Augmentation data (background information added to a prompt) is typically stored
 > Permalink: https://owaspai.org/goto/augmentationdataintegrity/
 
 **Description**  
-See the [security program](/goto/secprogram/) and [application security](/goto/secdevprogram/), [development environment security](/goto/devsecurity/), and [data segregation](/goto/segregatedata/) to attain protect the integrity of transporting and storing agumentation data (e.g., access control, encryption, minimize retention).
+See the [security program](/goto/secprogram/) and [application security](/goto/secdevprogram/), [development environment security](/goto/devsecurity/), and [data segregation](/goto/segregatedata/) to protect the integrity of transporting and storing agumentation data (e.g., access control, encryption, minimize retention).
 
 
 
