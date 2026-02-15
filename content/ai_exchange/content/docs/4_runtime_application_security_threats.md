@@ -181,7 +181,7 @@ Augmentation data (ad hoc retrieved information inserted into a prompt), for exa
 
 So-called _vectors_ that form a representation of augmentation data are typically vulnerable for extracting information and should therefore be included in protection.
 
-An alternative way for augmentation data to leek is described in [Leak sensitive input data](/goto/leakinput/). The best practice is to assume that augmentation data can leak to the output, so the access rights for that data need to align with the rights of the user(s) that can see the output. 
+An alternative way for augmentation data to leek is described in [input data leak](/goto/inputdataleak/). The best practice is to assume that augmentation data can leak to the output, so the access rights for that data need to align with the rights of the user(s) that can see the output. 
 
 **References**
 - [Mitigating Security Risks in RAG LLM Applications, November 2023, CSA](https://cloudsecurityalliance.org/blog/2023/11/22/mitigating-security-risks-in-retrieval-augmented-generation-rag-llm-applications)
