@@ -4,100 +4,100 @@ heroTitle: "Index"
 heroText: "Cickable topics."
 weight: 9
 ---
->Permalink: https://owaspai.org/goto/index/
+>Permalink: https://owaspai.org/go/index/
 
-Find clickable topics in alphabetetical order below. For an overview of threats and their controls, see the [Periodic table of AI security](/goto/periodictable/).
+Find clickable topics in alphabetetical order below. For an overview of threats and their controls, see the [Periodic table of AI security](/go/periodictable/).
 
 ### A  
-[Adversarial attacks](/goto/evasion/)  
-[Agentic AI](/goto/agenticaithreats/)  
-[Alignment](/goto/modelalignment/)  
+[Adversarial attacks](/go/evasion/)  
+[Agentic AI](/go/agenticaithreats/)  
+[Alignment](/go/modelalignment/)  
 
 ### B  
-[Bias](/goto/unwantedbiastesting/)  
+[Bias](/go/unwantedbiastesting/)  
 
 ### C  
-[Compliance](/goto/checkcompliance/)  
-[Continuous validation](/goto/continuousvalidation/)  
+[Compliance](/go/checkcompliance/)  
+[Continuous validation](/go/continuousvalidation/)  
 [Contribute](/contribute)  
-[Controls](/goto/controlsoverview/)  
-[Copyright](/goto/copyright/)  
-[Cultural sensitivity](/goto/culturesensitivealignment/)  
+[Controls](/go/controlsoverview/)  
+[Copyright](/go/copyright/)  
+[Cultural sensitivity](/go/culturesensitivealignment/)  
 
 ### D  
-[Data and model governance](/goto/supplychainmanage/)  
-[Data disclosure in model output](/goto/disclosureuseoutput/)  
-[Data poisoning of train/finetune data](/goto/datapoison/)  
-[Denial of model service](/goto/denialmodelservice/)  
-[Direct prompt injection](/goto/directpromptinjection/)  
+[Data and model governance](/go/supplychainmanage/)  
+[Data disclosure in model output](/go/disclosureuseoutput/)  
+[Data poisoning of train/finetune data](/go/datapoison/)  
+[Denial of model service](/go/denialmodelservice/)  
+[Direct prompt injection](/go/directpromptinjection/)  
 
 ### E  
-[EU AI Act](/goto/checkcompliance/)  
-[Evasion](/goto/evasion/)  
-[Explainability](/goto/explainability/)  
+[EU AI Act](/go/checkcompliance/)  
+[Evasion](/go/evasion/)  
+[Explainability](/go/explainability/)  
 
 ### F  
-[Federated learning](/goto/federatedlearning/)  
+[Federated learning](/go/federatedlearning/)  
 
 ### G  
-[GDPR](/goto/aiprivacy/)  
-[Generative AI](/goto/genai/)  
-[Governance](/goto/governancecontrols/)  
+[GDPR](/go/aiprivacy/)  
+[Generative AI](/go/genai/)  
+[Governance](/go/governancecontrols/)  
 
 ### H  
 
 ### I  
-[Indirect prompt injection](/goto/indirectpromptinjection/)  
+[Indirect prompt injection](/go/indirectpromptinjection/)  
 
 ### J  
 ### K  
 
 ### L  
-[LLMs](/goto/genai/)  
-[Logging](/goto/monitoruse/)  
+[LLMs](/go/genai/)  
+[Logging](/go/monitoruse/)  
 
 ### M  
-[MCP](/goto/agenticaithreats/)  
-[Media](/goto/media/)  
-[Model alignment](/goto/modelalignment/)  
-[Model input leak](/goto/leakinput/)  
-[Model inversion / Membership inference](/goto/modelinversionandmembership/)  
-[Model output contains injection](/goto/insecureoutput)  
-[Model poisoning in development-environment](/goto/devmodelpoison/)  
-[Model poisoning in runtime](/goto/runtimemodelpoison/)  
-[Model poisoning through data poisoning of train/finetune data](/goto/datapoison/)  
-[Model theft directly in runtime](/goto/runtimemodeltheft/)  
-[Model poisoning in supply chain](/goto/supplymodelpoison/)  
-[Model theft in development-time](/goto/devmodelleak/)  
-[Model theft through use](/goto/modeltheftuse/)  
-[Monitoring](/goto/monitoruse/)  
+[MCP](/go/agenticaithreats/)  
+[Media](/go/media/)  
+[Model alignment](/go/modelalignment/)  
+[Model input leak](/go/leakinput/)  
+[Model inversion / Membership inference](/go/modelinversionandmembership/)  
+[Model output contains injection](/go/insecureoutput)  
+[Model poisoning in development-environment](/go/devmodelpoison/)  
+[Model poisoning in runtime](/go/runtimemodelpoison/)  
+[Model poisoning through data poisoning of train/finetune data](/go/datapoison/)  
+[Model theft directly in runtime](/go/runtimemodeltheft/)  
+[Model poisoning in supply chain](/go/supplymodelpoison/)  
+[Model theft in development-time](/go/devmodelleak/)  
+[Model theft through use](/go/modeltheftuse/)  
+[Monitoring](/go/monitoruse/)  
 
 ### N  
 
 ### O  
-[Oversight](/goto/oversight/)  
+[Oversight](/go/oversight/)  
 
 ### P  
-[Periodic table](/goto/periodictable/)  
-[Privacy](/goto/aiprivacy/)  
-[Prompt injection](/goto/promptinjection/)
+[Periodic table](/go/periodictable/)  
+[Privacy](/go/aiprivacy/)  
+[Prompt injection](/go/promptinjection/)
 
 ### Q  
 
 ### R  
-[Red teaming](/goto/testing/)  
-[References](/goto/references/)  
-[Responsible AI](/goto/responsibleai/)  
-[Risk analysis](/goto/riskanalysis/)  
+[Red teaming](/go/testing/)  
+[References](/go/references/)  
+[Responsible AI](/go/responsibleai/)  
+[Risk analysis](/go/riskanalysis/)  
 
 ### S  
-[Safety training](/goto/modelalignment/)  
+[Safety training](/go/modelalignment/)  
 [Sponsoring](/sponsor)  
-[Supply chain management](/goto/supplychainmanage/)  
+[Supply chain management](/go/supplychainmanage/)  
 
 ### T  
-[Testing](/goto/testing/)  
-[Threat modelling](/goto/riskanalysis/)  
-[Threats](/goto/threatsoverview/)  
-[Training data leaks](/goto/devdataleak/)  
-[Transparency](/goto/aitransparency/)  
+[Testing](/go/testing/)  
+[Threat modelling](/go/riskanalysis/)  
+[Threats](/go/threatsoverview/)  
+[Training data leaks](/go/devdataleak/)  
+[Transparency](/go/aitransparency/)  
