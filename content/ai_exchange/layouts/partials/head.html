@@ -15,12 +15,14 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({
-      delay: 0,
-      disable: 'phone',
+    document.addEventListener("DOMContentLoaded", function () {
+      try {
+        if (typeof AOS !== "undefined") AOS.init({ delay: 0, disable: "phone" });
+      } catch (e) {
+        console.warn("AOS.init failed:", e);
+      }
     });
   </script>
   {{- range .AlternativeOutputFormats -}}
   <link rel="alternate" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $.Site.Title }}" />
   {{- end -}}
-
