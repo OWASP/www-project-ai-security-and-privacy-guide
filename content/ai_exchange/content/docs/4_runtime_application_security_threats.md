@@ -79,7 +79,7 @@ Run-time model Input/Output integrity: apply conventional security controls to p
 **Description**  
 Impact:  Confidentiality breach of the model (i.e., model parameters), which can be:
 - intellectual property theft (e.g., by a competitor)
-- and/or a way to perform input attacks on the copied model, circumventing protections. These protections include rate limiting, access control, and detection mechanisms. This can be done for [all input attacks](/goto/inputthreats/) that extract data, and for the preparation of [evasion](/goto/evasion/) or [prompt injection](/goto/promptinjection): experimenting to find attack inputs that work.
+- and/or a way to perform input attacks on the copied model, circumventing protections. These protections include rate limiting, access control, and detection mechanisms. This can be done for [all input attacks](/goto/inputthreats/) that extract data, and for the preparation of [evasion](/goto/evasion/) or [prompt injection](/goto/promptinjection/): experimenting to find attack inputs that work.
  
 This attack occurs when stealing model parameters from a live system by breaking into it (e.g., by gaining access to executables, memory or other storage/transfer of  parameter data in the production environment). This is different from [model exfiltration](/goto/modelexfiltration/) which goes through a number of steps to steal a model through normal use, hence the use of the word 'direct'. It is also different from [direct development-time model leak](/goto/devmodelleak/) from a lifecycle and attack surface perspective.
 
