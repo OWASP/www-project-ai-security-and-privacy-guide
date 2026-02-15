@@ -248,18 +248,18 @@ This section discusses the essentials of AI security. It serves as THE starting 
 What makes AI special when it comes to security? Well, it deals with a new set of threats and therefore requires new controls. Let's go through them.
 
 **New threats** (overview [here](/goto/threatsoverview/)):
-  1. **[Model input threats](/goto/threatsuse/)**:  
+  1. **[Model input threats](/goto/inputthreats/)**:  
       - [Evasion](/goto/evasion/): Misleading a model by crafting data to force wrong decisions
       - [Prompt injection](/goto/promptinjection/): Misleading a model by crafting instructions to manipulate behaviour
       - [Extracting data from the model](/goto/disclosureuse/): training data, augmentation data, or input
-      - [Extracting of the model itself](/goto/modeltheftuse/) by querying the model
+      - [Extracting of the model itself](/goto/modelexfiltration/) by querying the model
       - [Resource exhaustion](/goto/airesourceexhaustion/) through use
   2. **New suppliers** introduce threats of corrupted external [data](/goto/datapoison/), [models](/goto/supplymodelpoison/), and [model hosting](/goto/readymademodel/)
   3. **New AI assets** with conventional threats, notably:  
       - Training data / augmentation data - can leak and [poisoning](/goto/datapoison/) this data manipulates model behaviour
-      - Model - can suffer from [leaking during development](/goto/devmodelleak/) or [leaking during runtime](/goto/runtimemodeltheft/) and when it comes to ingegrity: from [poisoning during development](/goto/devmodelpoison/) or [poisoning during runtime](/goto/runtimemodelpoison/)
-      - Input - can [leak](/goto/leakinput/)
-      - Output - can contain [injection attacks](/goto/insecureoutput/)
+      - Model - can suffer from [leaking during development](/goto/devmodelleak/) or [leaking during runtime](/goto/runtimemodelleak/) and when it comes to ingegrity: from [poisoning during development](/goto/devmodelpoison/) or [poisoning during runtime](/goto/runtimemodelpoison/)
+      - Input - can [leak](/goto/inputdataleak/)
+      - Output - can contain [injection attacks](/goto/outputcontainsconventionalinjection/)
     
 **New controls** (overview [here](/goto/controlsoverview/)):
 
@@ -367,20 +367,20 @@ Clickable version, based on the [Periodic table](/goto/periodictable/):
 <tr>                                         <td><a href="/goto/indirectpromptinjection/">Indirect prompt injection</a></td></tr>
 <tr>                                         <td><a href="/goto/evasion/">Evasion</a> (e.g., adversarial examples)</td></tr>
 <tr>                                         <td>Runtime - Break into deployed model</td><td><a href="/goto/runtimemodelpoison/">Model poisoning runtime</a> (reprogramming)</td></tr>
-<tr><td rowspan="2">Development -Engineering environment</td><td><a href="/goto/devmodelpoison/">Development-environment model poisoning</a></td></tr>
+<tr><td rowspan="2">Development -Engineering environment</td><td><a href="/goto/devmodelpoison/">Direct development-environment model poisoning</a></td></tr>
 <tr>                                         <td><a href="/goto/datapoison/">Data poisoning of train/finetune data</a></td></tr>
 <tr><td>Development - Supply chain</td><td><a href="/goto/supplymodelpoison/">Supply-chain model poisoning</a></td></tr>
-<tr><td rowspan="3">Training data Confidentiality</td><td rowspan="2">Runtime - Model use</td><td><a href="/goto/disclosureuseoutput/">Sensitive data output from model</a></td></tr>
+<tr><td rowspan="3">Training data Confidentiality</td><td rowspan="2">Runtime - Model use</td><td><a href="/goto/disclosureinoutput/">Sensitive data disclosure in model output</a></td></tr>
 <tr><td><a href="/goto/modelinversionandmembership/">Model inversion / Membership inference</a></td></tr>
 <tr><td>Development - Engineering environment</td><td><a href="/goto/devdataleak/">Developmen-time data leak</a></td></tr>
 <tr><td rowspan="3">Model confidentiality</td><td>Runtime - Model use</td><td><a href="/goto/modelexfiltration/">Model exfiltration</a> (input-output harvesting)</td></tr>
-<tr><td>Runtime - Break into deployed model</td><td><a href="/goto/runtimemodeltheft/">Direct model theft runtime</a></td></tr>
-<tr><td>Development - Engineering environment</td><td><a href="/goto/devmodelleak/">Model theft development-time</a></td></tr>
+<tr><td>Runtime - Break into deployed model</td><td><a href="/goto/runtimemodelleak/">Direct runtime model leak</a></td></tr>
+<tr><td>Development - Engineering environment</td><td><a href="/goto/devmodelleak/">Direct development-time model-leak</a></td></tr>
 <tr><td>Model behaviour Availability</td><td>Model use</td><td><a href="/goto/airesourceexhaustion/">AI resource exhaustion</a></td></tr>
-<tr><td>Model input data Confidentialiy</td><td>Runtime - All IT</td><td><a href="/goto/leakinput/">Leak sensitive input data</a></td></tr>
-<tr><td>Any asset, CIA</td><td>Runtime-All IT</td><td><a href="/goto/insecureoutput/">Model output contains injection</a></td></tr>
-<tr><td>Any asset, CIA</td><td>Runtime - All IT</td><td>Conventional runtime security attack on conventional asset</td></tr>
-<tr><td>Any asset, CIA</td><td>Runtime - All IT</td><td>Conventional attack on conventional supply chain</td></tr>
+<tr><td>Model input data Confidentialiy</td><td>Runtime - All IT</td><td><a href="/goto/inputdataleak/">Input data leak</a></td></tr>
+<tr><td>Any asset, CIA</td><td>Runtime-All IT</td><td><a href="/goto/outputcontainsconventionalinjection/">Output contains conventional injection</a></td></tr>
+<tr><td>Any asset, CIA</td><td>Runtime - All IT</td><td>Generic runtime security threats</td></tr>
+<tr><td>Any asset, CIA</td><td>Runtime - All IT</td><td>Generic development-environment and supply-chain threats</td></tr>
 </tbody></table>
 
 
@@ -495,21 +495,21 @@ Note that [general governance controls](/goto/governancecontrols/) apply to all 
 <tr><td rowspan="7">Model behaviour Integrity</td><td rowspan="3">Runtime -Model use (provide input/ read output)</td><td><a href="/goto/directpromptinjection/">Direct prompt injection</a></td><td><a href="/goto/limitunwanted/">Limit unwanted behavior</a>, <a href="/goto/monitoruse/">Monitor</a>, <a href="/goto/ratelimit/">rate limit</a>, <a href="/goto/modelaccesscontrol/">model access control</a> plus: <a href="/goto/promptinjectioniohandling/">Prompt injection I/O handling</a>, <a href="/goto/modelalignment/">Model alignment</a></td></tr>
 <tr>                                         <td><a href="/goto/indirectpromptinjection/">Indirect prompt injection</a></td><td><a href="/goto/limitunwanted/">Limit unwanted behavior</a>, <a href="/goto/promptinjectioniohandling/">Prompt injection I/O handling</a>, <a href="/goto/inputsegregation/">Input segregation</a></td></tr>
 <tr>                                         <td><a href="/goto/evasion/">Evasion</a> (e.g., adversarial examples)</td><td><a href="/goto/limitunwanted/">Limit unwanted behavior</a>, <a href="/goto/monitoruse/">Monitor</a>, <a href="/goto/ratelimit/">rate limit</a>, <a href="/goto/modelaccesscontrol/">model access control</a> plus:<br><br><a href="/goto/anomalousinputhandling/">Anomalous input handling</a>, <a href="/goto/evasioninputhandling/">Evasion input handling</a>, <a href="/goto/unwantedinputserieshandling/">Unwanted input series handling</a>, <a href="/goto/evasionrobustmodel/">evasion robust model</a>, <a href="/goto/trainadversarial/">train adversarial</a>, <a href="/goto/inputdistortion/">input distortion</a>, <a href="/goto/adversarialrobustdistillation/">adversarial robust distillation</a></td></tr>
-<tr>                                         <td>Runtime - Break into deployed model</td><td><a href="/goto/runtimemodelpoison/">Model poisoning runtime</a> (reprogramming)</td><td><a href="/goto/limitunwanted/">Limit unwanted behavior</a>, <a href="/goto/runtimemodelintegrity/">Runtime model integrity</a>, <a href="/goto/runtimemodeliointegrity/">runtime model input/output integrity</a></td></tr>
+<tr>                                         <td>Runtime - Break into deployed model</td><td><a href="/goto/runtimemodelpoison/">Direct runtime model poisoning</a> (reprogramming)</td><td><a href="/goto/limitunwanted/">Limit unwanted behavior</a>, <a href="/goto/runtimemodelintegrity/">Runtime model integrity</a>, <a href="/goto/runtimemodeliointegrity/">runtime model input/output integrity</a></td></tr>
 <tr><td rowspan="2">Development -Engineering environment</td><td><a href="/goto/devmodelpoison/">Development-environment model poisoning</a></td><td><a href="/goto/limitunwanted/">Limit unwanted behavior</a>, <a href="/goto/devsecurity/">Development environment security</a>, <a href="/goto/segregatedata/">data segregation</a>, <a href="/goto/federatedlearning/">federated learning</a>, <a href="/goto/supplychainmanage/">supply chain management</a> plus:<br><br><a href="/goto/modelensemble/">model ensemble</a></td></tr>
 <tr>                                         <td><a href="/goto/datapoison/">Data poisoning of train/finetune data</a></td><td><a href="/goto/limitunwanted/">Limit unwanted behavior</a>, <a href="/goto/devsecurity/">Development environment security</a>, <a href="/goto/segregatedata/">data segregation</a>, <a href="/goto/federatedlearning/">federated learning</a>, <a href="/goto/supplychainmanage/">supply chain management</a> plus:<br><br><a href="/goto/modelensemble/">model ensemble</a> plus:<br><br><a href="/goto/moretraindata/">More training data</a>, <a href="/goto/dataqualitycontrol/">data quality control</a>, <a href="/goto/traindatadistortion/">train data distortion</a>, <a href="/goto/poisonrobustmodel/">poison robust model</a>, <a href="/goto/trainadversarial/">train adversarial</a></td></tr>
 <tr><td>Development - Supply chain</td><td><a href="/goto/supplymodelpoison/">Supply-chain model poisoning</a></td><td><a href="/goto/limitunwanted/">Limit unwanted behavior</a>,<br>Supplier: <a href="/goto/devsecurity/">Development environment security</a>, <a href="/goto/segregatedata/">data segregation</a>, <a href="/goto/federatedlearning/">federated learning</a><br><br>Producer: <a href="/goto/supplychainmanage/">supply chain management</a> plus:<br><br><a href="/goto/modelensemble/">model ensemble</a></td></tr>
-<tr><td rowspan="3">Training data Confidentiality</td><td rowspan="2">Runtime - Model use</td><td><a href="/goto/disclosureuseoutput/">Data disclosure in model output</a></td><td><a href="/goto/datalimit/">Sensitive data limitation</a> (data minimize, short retain, obfuscate training data) plus:<br><br><a href="/goto/monitoruse/">Monitor</a>, <a href="/goto/ratelimit/">rate limit</a>, <a href="/goto/modelaccesscontrol/">model access control</a> plus:<br><br><a href="/goto/sensitiveoutputhandling/">Sensitive output handling</a></td></tr>
+<tr><td rowspan="3">Training data Confidentiality</td><td rowspan="2">Runtime - Model use</td><td><a href="/goto/disclosureinoutput/">Disclosure in output</a></td><td><a href="/goto/datalimit/">Sensitive data limitation</a> (data minimize, short retain, obfuscate training data) plus:<br><br><a href="/goto/monitoruse/">Monitor</a>, <a href="/goto/ratelimit/">rate limit</a>, <a href="/goto/modelaccesscontrol/">model access control</a> plus:<br><br><a href="/goto/sensitiveoutputhandling/">Sensitive output handling</a></td></tr>
 <tr><td><a href="/goto/modelinversionandmembership/">Model inversion / Membership inference</a></td><td><a href="/goto/datalimit/">Sensitive data limitation</a> (data minimize, short retain, obfuscate training data) plus:<br><br><a href="/goto/monitoruse/">Monitor</a>, <a href="/goto/ratelimit/">rate limit</a>, <a href="/goto/modelaccesscontrol/">model access control</a> plus:<br><br<a href="/goto/unwantedinputserieshandling/">Unwanted input series handling</a>, ><a href="/goto/obscureconfidence/">Obscure confidence</a>, <a href="/goto/smallmodel/">Small model</a></td></tr>
-<tr><td>Development - Engineering environment</td><td><a href="/goto/devdataleak/">Training data leaks</a></td><td><a href="/goto/datalimit/">Sensitive data limitation</a> (data minimize, short retain, obfuscate training data) plus:<br><br><a href="/goto/devsecurity/">Development environment security</a>, <a href="/goto/segregatedata/">data segregation</a>, <a href="/goto/federatedlearning/">federated learning</a></td></tr>
+<tr><td>Development - Engineering environment</td><td><a href="/goto/devdataleak/">Direct training data leak</a></td><td><a href="/goto/datalimit/">Sensitive data limitation</a> (data minimize, short retain, obfuscate training data) plus:<br><br><a href="/goto/devsecurity/">Development environment security</a>, <a href="/goto/segregatedata/">data segregation</a>, <a href="/goto/federatedlearning/">federated learning</a></td></tr>
 <tr><td rowspan="3">Model confidentiality</td><td>Runtime - Model use</td><td><a href="/goto/modelexfiltration/">Model exfiltration</a> (input-output harvesting)</td><td><a href="/goto/monitoruse/">Monitor</a>, <a href="/goto/ratelimit/">rate limit</a>, <a href="/goto/modelaccesscontrol/">model access control</a> plus: <br><br><a href="/goto/unwantedinputserieshandling/">Unwanted input series handling</a></td></tr>
-<tr><td>Runtime - Break into deployed model</td><td><a href="/goto/runtimemodeltheft/">Direct model theft runtime</a></td><td><a href="/goto/runtimemodelconfidentiality/">Runtime model confidentiality</a>, <a href="/goto/modelobfuscation/">Model obfuscation</a></td></tr>
-<tr><td>Development - Engineering environment</td><td><a href="/goto/devmodelleak/">Model theft development-time</a></td><td><a href="/goto/devsecurity/">Development environment security</a>, <a href="/goto/segregatedata/">data segregation</a>, <a href="/goto/federatedlearning/">federated learning</a></td></tr>
+<tr><td>Runtime - Break into deployed model</td><td><a href="/goto/runtimemodelleak/">Direct runtime model leak</a></td><td><a href="/goto/runtimemodelconfidentiality/">Runtime model confidentiality</a>, <a href="/goto/modelobfuscation/">Model obfuscation</a></td></tr>
+<tr><td>Development - Engineering environment</td><td><a href="/goto/devmodelleak/">Direct development-time model leak</a></td><td><a href="/goto/devsecurity/">Development environment security</a>, <a href="/goto/segregatedata/">data segregation</a>, <a href="/goto/federatedlearning/">federated learning</a></td></tr>
 <tr><td>Model behaviour Availability</td><td>Model use</td><td><a href="/goto/airesourceexhaustion/">AI resource exhaustion</a> (model resource depletion)</td><td><a href="/goto/monitoruse/">Monitor</a>, <a href="/goto/ratelimit/">rate limit</a>, <a href="/goto/modelaccesscontrol/">model access control</a> plus:<br><br><a href="/goto/dosinputvalidation/">Dos input validation</a>, <a href="/goto/limitresources/">limit resources</a></td></tr>
-<tr><td>Model input data Confidentialiy</td><td>Runtime - All IT</td><td><a href="/goto/leakinput/">Model input leak</a></td><td><a href="/goto/modelinputconfidentiality/">Model input confidentiality</a></td></tr>
-<tr><td>Any asset, CIA</td><td>Runtime-All IT</td><td><a href="/goto/insecureoutput/">Model output contains injection</a></td><td><a href="/goto/encodemodeloutput/">Encode model output</a></td></tr>
-<tr><td>Any asset, CIA</td><td>Runtime - All IT</td><td>Conventional runtime security attack on conventional asset</td><td>Conventional runtime security controls</td></tr>
-<tr><td>Any asset, CIA</td><td>Runtime - All IT</td><td>Conventional attack on conventional supply chain</td><td>Conventional supply chain management controls</td></tr>
+<tr><td>Model input data Confidentialiy</td><td>Runtime - All IT</td><td><a href="/goto/inputdataleak/">Input data leak</a></td><td><a href="/goto/modelinputconfidentiality/">Model input confidentiality</a></td></tr>
+<tr><td>Any asset, CIA</td><td>Runtime-All IT</td><td><a href="/goto/outputcontainsconventionalinjection/">Output contains convnetional injection</a></td><td><a href="/goto/encodemodeloutput/">Encode model output</a></td></tr>
+<tr><td>Any asset, CIA</td><td>Runtime - All IT</td><td>Generic runtime security threats</td><td>Conventional runtime security controls</td></tr>
+<tr><td>Any asset, CIA</td><td>Runtime - All IT</td><td>Generic development-environment and supply chain threats</td><td>Conventional development security and supply chain management controls</td></tr>
 </tbody></table>
 
 
@@ -609,9 +609,9 @@ Discovering potential risks that could impact the organization requires the tech
   Question: Do you train/finetune the model yourself?
   - If yes, is the model regarded as  intellectual property? Then you need to protect against:
     - [Model exfiltration](/goto/modelexfiltration/)
-    - [Direct model theft development-time](/goto/devmodelleak/)
+    - [Direct development-time model leak](/goto/devmodelleak/)
     - [Source code/configuration leak](/goto/devcodeleak/)
-    - [Direct runtime model theft](/goto/runtimemodeltheft/)
+    - [Direct runtime model leak](/goto/runtimemodelleak/)
       
  **Identify risks of leaking input data**
  
