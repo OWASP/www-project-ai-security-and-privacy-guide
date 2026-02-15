@@ -540,6 +540,37 @@
   overflow-y: auto;
 }
 
+/* Make each sub-result row (title + excerpt) one clickable block linking to the section */
+#pagefind-search .pagefind-ui__result-nested {
+  position: relative;
+}
+#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-excerpt {
+  position: relative;
+  z-index: 0;
+}
+
+/* Brief highlight on the element we scrolled to from ?highlight= */
+.search-highlight-scroll {
+  background: rgba(76, 175, 80, 0.2);
+  transition: background 1.5s ease-out;
+}
+
+/* Highlight the matched word itself from ?highlight= */
+.search-highlight-word {
+  background: rgba(255, 235, 59, 0.65);
+  padding: 0 0.1em;
+  border-radius: 2px;
+  transition: background 2s ease-out;
+}
+.search-highlight-word.fade-out {
+  background: transparent;
+}
+
 .mobile-search-btn {
   background: none;
   border: none;
@@ -553,11 +584,105 @@
 <script src="/pagefind/pagefind-ui.js"></script>
 
 <script>
+// Search overlay + Pagefind UI (run first on DOMContentLoaded so we're not blocked by other code)
+document.addEventListener("DOMContentLoaded", () => {
+  const searchToggle = document.getElementById("search-toggle");
+  const searchOverlay = document.getElementById("searchOverlay");
+  const searchClose = document.getElementById("search-close");
+
+  if (typeof PagefindUI !== "undefined") {
+    new PagefindUI({
+      element: "#pagefind-search",
+      translations: { placeholder: "Search articles, guides, and content..." },
+      showSubResults: true,
+      showImages: false,
+      resetStyles: false,
+      autofocus: true
+    });
+  }
+
+  // When clicking a result link, add current search query as ?highlight= so the destination page can scroll to the match
+  const pagefindSearch = document.getElementById("pagefind-search");
+  if (pagefindSearch) {
+    pagefindSearch.addEventListener("click", (e) => {
+      const link = e.target.closest("a[href]");
+      if (!link || !link.href || !pagefindSearch.contains(link)) return;
+      const searchInput = pagefindSearch.querySelector("input[type=\"search\"], input[type=\"text\"], .pagefind-ui__search-input, input");
+      const query = searchInput && searchInput.value && searchInput.value.trim();
+      // Prefer the matched term from the result (e.g. "foolbox" when user searched "foo") – Pagefind wraps it in <mark>
+      const resultRow = link.closest("li") || link.closest("[class*='result']") || link.parentElement;
+      const matchEl = resultRow && resultRow.querySelector("mark, .pagefind-highlight, [class*='highlight']");
+      const term = (matchEl && matchEl.textContent && matchEl.textContent.trim()) || query || (link.textContent && link.textContent.trim());
+      if (!term) return;
+      try {
+        const u = new URL(link.href);
+        if (u.origin !== location.origin) return;
+        u.searchParams.set("highlight", term);
+        e.preventDefault();
+        location.assign(u.toString());
+      } catch (_) {}
+    }, true);
+  }
+
+  function focusSearchInput() {
+    const input = pagefindSearch && pagefindSearch.querySelector("input[type=\"search\"], input[type=\"text\"], .pagefind-ui__search-input, input");
+    if (input) {
+      input.focus();
+      return true;
+    }
+    return false;
+  }
+
+  function openSearch() {
+    if (!searchOverlay) return;
+    searchOverlay.classList.add("active");
+    document.body.style.overflow = "hidden";
+    // Pagefind injects its input asynchronously: retry focus until it appears (up to ~600ms)
+    const tryFocus = (attempt) => {
+      if (focusSearchInput()) return;
+      if (attempt < 12) setTimeout(() => tryFocus(attempt + 1), 50);
+    };
+    setTimeout(() => tryFocus(0), 50);
+  }
+
+  if (searchToggle) {
+    searchToggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      openSearch();
+    });
+  }
+
+  if (searchClose) {
+    searchClose.addEventListener("click", () => {
+      searchOverlay.classList.remove("active");
+      document.body.style.overflow = "auto";
+    });
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && searchOverlay && searchOverlay.classList.contains("active")) {
+      searchOverlay.classList.remove("active");
+      document.body.style.overflow = "auto";
+      return;
+    }
+    if (e.key === "/" && searchOverlay && !searchOverlay.classList.contains("active")) {
+      const active = document.activeElement;
+      const inInput = active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA" || active.isContentEditable);
+      if (!inInput) {
+        e.preventDefault();
+        openSearch();
+      }
+    }
+  });
+});
+
+// Mobile menu (separate callback so a null ref here doesn't kill search)
 document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.querySelector(".hamburger");
   const mobileMenu = document.querySelector(".mobile-menu-overlay");
   const closeButton = document.querySelector(".mobile-menu-close");
   const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+  if (!hamburger || !mobileMenu || !closeButton) return;
 
   // Open mobile menu
   hamburger.addEventListener("click", () => {
@@ -601,45 +726,88 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Search overlay + Pagefind UI
-document.addEventListener("DOMContentLoaded", () => {
-  const searchToggle = document.getElementById("search-toggle");
-  const searchOverlay = document.getElementById("searchOverlay");
-  const searchClose = document.getElementById("search-close");
-
-  if (typeof PagefindUI !== "undefined") {
-    new PagefindUI({
-      element: "#pagefind-search",
-      translations: { placeholder: "Search articles, guides, and content..." },
-      showSubResults: true,
-      showImages: false,
-      resetStyles: false,
-      autofocus: true
-    });
-  }
-
-  if (searchToggle) {
-    searchToggle.addEventListener("click", (e) => {
-      e.preventDefault();
-      if (searchOverlay) {
-        searchOverlay.classList.add("active");
-        document.body.style.overflow = "hidden";
+// Scroll to first occurrence of ?highlight= text in page content (e.g. after opening a result from search)
+// Must run after DOM is ready so <main> and page content exist.
+var _scrollHighlightDebug = true;
+function getScrollParent(el) {
+  var style = window.getComputedStyle(el);
+  var overflowY = style.overflowY;
+  var overflowX = style.overflowX;
+  if ((overflowY === "auto" || overflowY === "scroll" || overflowX === "auto" || overflowX === "scroll") && el.scrollHeight > el.clientHeight) return el;
+  if (el.parentElement && el.parentElement !== document.body) return getScrollParent(el.parentElement);
+  return null;
+}
+function runScrollToHighlight() {
+  const params = new URLSearchParams(location.search);
+  const term = params.get("highlight");
+  if (!term || !term.trim()) return;
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  if (_scrollHighlightDebug) console.log("[scroll-highlight] runScrollToHighlight", { term: term, hasMain: !!document.querySelector("main"), mainChildCount: document.querySelector("main") && document.querySelector("main").childNodes.length });
+  // Prefer main content only so we don't match sidebar/TOC (e.g. first "Foolbox" in docs is in .docs-body, not in nav)
+  const container = document.querySelector(".docs-body") || document.querySelector(".docs-content") || document.querySelector("main.docs-main") || document.querySelector("main") || document.querySelector(".content") || document.querySelector("article") || document.body;
+  if (_scrollHighlightDebug) console.log("[scroll-highlight] container", { tagName: container && container.tagName, id: container && container.id, className: container && container.className });
+  const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, null, false);
+  const needle = term.trim().toLowerCase();
+  let node;
+  let found = false;
+  while ((node = walker.nextNode())) {
+    if (node.textContent.toLowerCase().includes(needle)) {
+      found = true;
+      var text = node.textContent;
+      var lower = text.toLowerCase();
+      var idx = lower.indexOf(needle);
+      if (idx !== -1) {
+        var matchedText = text.substring(idx, idx + term.trim().length);
+        var before = text.substring(0, idx);
+        var after = text.substring(idx + matchedText.length);
+        var span = document.createElement("span");
+        span.className = "search-highlight-word";
+        span.textContent = matchedText;
+        var frag = document.createDocumentFragment();
+        if (before) frag.appendChild(document.createTextNode(before));
+        frag.appendChild(span);
+        if (after) frag.appendChild(document.createTextNode(after));
+        node.parentNode.replaceChild(frag, node);
+        setTimeout(function () { span.classList.add("fade-out"); }, 20000);
       }
-    });
-  }
-
-  if (searchClose) {
-    searchClose.addEventListener("click", () => {
-      searchOverlay.classList.remove("active");
-      document.body.style.overflow = "auto";
-    });
-  }
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && searchOverlay && searchOverlay.classList.contains("active")) {
-      searchOverlay.classList.remove("active");
-      document.body.style.overflow = "auto";
+      var el = (span && span.parentElement) ? span.parentElement : node.parentElement;
+      while (el && el !== container && !/^(P|LI|TD|TH|DIV|H[1-6]|BLOCKQUOTE|PRE|SECTION)$/i.test(el.tagName)) el = el.parentElement;
+      if (_scrollHighlightDebug) console.log("[scroll-highlight] match", { elTag: el && el.tagName, scrollTarget: !!el && el !== document.body });
+      if (el && el !== document.body) {
+        el.classList.add("search-highlight-scroll");
+        setTimeout(function () { el.classList.remove("search-highlight-scroll"); }, 2000);
+        function doScroll() {
+          var scrollParent = getScrollParent(el);
+          if (scrollParent) {
+            var parentRect = scrollParent.getBoundingClientRect();
+            var elRect = el.getBoundingClientRect();
+            var scrollTop = elRect.top - parentRect.top + scrollParent.scrollTop - (parentRect.height / 2) + (elRect.height / 2);
+            scrollParent.scrollTop = Math.max(0, scrollTop);
+            if (_scrollHighlightDebug) console.log("[scroll-highlight] scrolled div", scrollParent.className || scrollParent.id || scrollParent.tagName, "scrollTop", scrollParent.scrollTop);
+          } else {
+            el.scrollIntoView({ behavior: "auto", block: "center" });
+            var rect = el.getBoundingClientRect();
+            var docScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            var targetY = rect.top + docScrollTop - (window.innerHeight / 2) + (rect.height / 2);
+            window.scrollTo({ top: Math.max(0, targetY), behavior: "auto" });
+            if (_scrollHighlightDebug) console.log("[scroll-highlight] scrolled window to", targetY);
+          }
+        }
+        requestAnimationFrame(function () { requestAnimationFrame(doScroll); });
+        setTimeout(doScroll, 100);
+        setTimeout(doScroll, 400);
+      }
+      break;
     }
-  });
-});
+  }
+  if (_scrollHighlightDebug) console.log("[scroll-highlight] found match?", found);
+  params.delete("highlight");
+  const clean = params.toString() ? location.pathname + "?" + params + location.hash : location.pathname + location.hash;
+  history.replaceState(null, "", clean);
+}
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", runScrollToHighlight);
+} else {
+  runScrollToHighlight();
+}
 </script>
