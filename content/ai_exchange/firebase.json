@@ -535,7 +535,7 @@
       },
       {
         "source": "/goto/devmodelpoison/",
-        "destination": "/docs/3_development_time_threats/#312-development-environment-model-poisoning",
+        "destination": "/docs/3_development_time_threats/#312-direct-development-time-model-poisoning",
         "type": 301
       },
       {
