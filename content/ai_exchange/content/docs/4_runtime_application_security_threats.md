@@ -146,12 +146,12 @@ Encode model output: apply output encoding on model output if it text. See [Open
 
 ---
 
-## 4.5. Leak sensitive input data
+## 4.5. Input data leak
 > Category: runtime conventional security threat  
-> Permalink: https://owaspai.org/goto/leakinput/
+> Permalink: https://owaspai.org/goto/inputdataleak/
 
 **Description**  
-Impact: Confidentiality breach of sensitive augmentation data through a conventional attack on the data at rest or in transit.
+Impact: Confidentiality breach of sensitive input data through a conventional attack on the data at rest or in transit.
 
 Input data can be sensitive (e.g., GenAI prompts) and can either leak through a failure or through an attack, such as a man-in-the-middle attack.  
 
@@ -175,7 +175,7 @@ Model input confidentiality: see [SECDEVPROGRAM](/goto/secdevprogram/) to attain
 > Permalink: https://owaspai.org/goto/augmentationleak/
 
 **Description**  
-Impact: Integrity breach of augmentation data through a conventional attack on the data at rest or in transit.
+Impact: Confidentiality breach of sensitive augmentation data through a conventional attack on the data at rest or in transit.
 
 Augmentation data (ad hoc retrieved information inserted into a prompt), for example for Retrieval Augmented Generation, is typically stored in _vector databases_. This increases the attack surface for any sensitive data, since it's stored outside its regular storage with the regular protection (e.g., company reports) and therefore requires additional protection.   
 
@@ -207,7 +207,7 @@ See the [security program](/goto/secprogram/) and [application security](/goto/s
 
 **Description**  
 
-Impact: Augmentation data is altered to manipulate model behaviour.
+Impact: Integrity breach of augmentation data through a conventional attack on the data at rest or in transit - leading to manipulated model behaviour.
 
 Augmentation data (background information added to a prompt) is typically stored in _vector databases_. When augmentation data is manipulated (e.g., inserting false information), it can change the output of the model - making it very similar to [data poisoning](/goto/datapoison/).
 
