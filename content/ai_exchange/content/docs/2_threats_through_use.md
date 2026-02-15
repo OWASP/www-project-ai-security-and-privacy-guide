@@ -40,7 +40,7 @@ These are the controls for input threats in general - more specific controls are
 Monitor use: observe, correlate, and log model usage (date, time, user), inputs, outputs, and system behavior to identify events or patterns that may indicate a cybersecurity incident. This can be used to reconstruct incidents, and make it part of the existing incident detection process - extended with AI-specific methods, including:
 
   - Improper functioning of the model (see [#CONTINUOUS VALIDATION](/goto/continuousvalidation/), [#UNWANTED BIAS TESTING](/goto/unwantedbiastesting/))
-  - Suspicious patterns of model use (e.g., high frequency - see [#RATE LIMIT](#ratelimit) and [#OVERSIGHT](/goto/oversight/)).
+  - Suspicious patterns of model use (e.g., high frequency - see [#RATE LIMIT](/goto/ratelimit/) and [#OVERSIGHT](/goto/oversight/)).
   - Suspicious inputs or series of inputs (see [#ANOMALOUS INPUT HANDLING](/goto/anomalousinputhandling/), [#UNWANTED INPUT SERIES HANDLING](/goto/unwantedinputserieshandling/), [#EVASION INPUT HANDLING](/goto/evasioninputhandling/) and [#PROMPT INJECTION I/O handling](/goto/promptinjectioniohandling/)).
 
 By adding details to logs on the version of the model used and the output, troubleshooting becomes easier. This control provides centralized visibility into how AI systems are used over time and across actors, sessions, and models.
@@ -1578,7 +1578,7 @@ Unless the purpose of your AI project is intended to include or encourage this k
 The vagueness of words impact the effectiveness of language based guards. Unlike traditional engineering, the meaning of words are long known to drift through time in linguistics. Events will occur in real time and shift morality and ethics.
 To compensate for this weakness, lengthening the system prompt to increase precision is sometimes used ([#OVERSIGHT](/goto/oversight/)). 
 
-However, emerging news or events that are against a certain countries’ national values cannot be effectively addressed in real time. In these cases, red teaming techniques (#promptinputinvalidation) can be used. They are preferably continuously updated with concerns according to your region of interest in order to reveal the weaknesses of your LLM and use guardrails ([#FILTER SENSITIVE MODEL OUTPUT](/goto/filtersensitivemodeloutput/), [#OVERSIGHT](/goto/oversight/)) to filter out the responses that are unwanted for additional protection.
+However, emerging news or events that are against a certain countries’ national values cannot be effectively addressed in real time. In these cases, red teaming techniques (see [Testing section](/goto/testing/)) can be used. They are preferably continuously updated with concerns according to your region of interest in order to reveal the weaknesses of your LLM and use guardrails (see [#OVERSIGHT](/goto/oversight/)) to filter out or alert to the responses that are unwanted for additional protection.
 
 ### Culture-aware explanation of output refusal
 
