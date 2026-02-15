@@ -121,12 +121,12 @@ Model obfuscation: techniques to store the model in a complex and confusing way 
 
 ---
 
-## 4.4. Output contains injection
+## 4.4. Output contains conventional injection
 > Category: runtime conventional security threat  
-> Permalink: https://owaspai.org/goto/outputcontainsinjection/
+> Permalink: https://owaspai.org/goto/outputcontainsconventionalinjection/
 
 **Description**  
-Impact: Textual model output may contain 'traditional' injection attacks such as XSS-Cross site scripting, which can create a vulnerability when processed (e.g., shown on a website, execute a command).
+Impact: Textual model output may contain conventional injection attacks such as XSS-Cross site scripting, which can create a vulnerability when processed (e.g., shown on a website, execute a command).
 
 This is like the standard output encoding issue, but the particularity is that the output of AI may include attacks such as XSS.
 
