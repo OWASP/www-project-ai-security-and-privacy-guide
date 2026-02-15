@@ -47,8 +47,8 @@ Each listed tool addresses a subset of the threat landscape of AI systems. Below
 **Key Generative AI threats to test for, beyond conventional security testing**:
 
 - [Prompt Injection](https://owaspai.org/goto/promptinjection/): In this type of attack, the attacker provides the model with manipulative instructions aimed at achieving malicious outcomes or objectives
-- [Sensitive data output from model ](/goto/disclosureuseoutput/): A form of prompt injection, aiming to let the model disclose sensitive data
-- [Insecure Output Handling](https://owaspai.org/goto/insecureoutput/): Generative AI systems can be vulnerable to traditional injection attacks, leading to risks if the outputs are improperly handled or processed.
+- [Sensitive data output from model ](/goto/disclosureinoutput/): A form of prompt injection, aiming to let the model disclose sensitive data
+- [Insecure Output Handling](https://owaspai.org/goto/outputconatinsconventionalinjection/): Generative AI systems can be vulnerable to traditional injection attacks, leading to risks if the outputs are improperly handled or processed.
 
 While we have mentioned the key threats for each of the AI Paradigm, we strongly encourage the reader to refer to all threats at the AI Exchange, based on the outcome of the Objective and scope definition phase in AI Red Teaming.
 
