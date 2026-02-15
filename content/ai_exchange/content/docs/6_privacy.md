@@ -5,7 +5,7 @@ heroText: "Apart from protecting personal data, AI systems have several responsi
 weight: 7
 ---
 > Category: discussion  
-> Permalink: https://owaspai.org/goto/aiprivacy/
+> Permalink: https://owaspai.org/go/aiprivacy/
 
 ## Introduction
 
