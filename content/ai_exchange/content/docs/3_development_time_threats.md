@@ -618,7 +618,7 @@ Find the corresponding control section [here, with the other controls against Ev
 - ['How to adversarially train against data poisoning'](https://arxiv.org/abs/2102.13624)
 - ['Is Adversarial Training Really a Silver Bullet for Mitigating Data Poisoning?'](https://openreview.net/forum?id=zKvm1ETDOq)
 
-### 3.1.2. Development-environment model poisoning
+### 3.1.2. Direct development-time model poisoning
 > Category: development-time threat  
 > Permalink: https://owaspai.org/goto/devmodelpoison/
 
