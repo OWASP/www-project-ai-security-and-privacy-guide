@@ -519,7 +519,7 @@ The navigator diagram below outlines the structure of the deep-dive section, ill
 {{< callout type="info" >}}
   Click on the image to get a PDF with clickable links.
 {{< /callout >}}
-[![](/images/owaspaioverviewv2.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspaioverviewpdfv3.pdf)
+[![](/images/owaspainavigator-thumb.png)](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/raw/main/assets/images/owaspainavigator.pdf)
 
 ---
 
