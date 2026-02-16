@@ -64,12 +64,12 @@ Find clickable topics in alphabetetical order below. For an overview of threats 
 [Model inversion / Membership inference](/go/modelinversionandmembership/)  
 [Model output contains injection](/go/insecureoutput)  
 [Model poisoning in development-environment](/go/devmodelpoison/)  
-[Model poisoning in runtime](/go/runtimemodelpoison/)  
+[Model poisoning at runtime](/go/runtimemodelpoison/)  
 [Model poisoning through data poisoning of train/finetune data](/go/datapoison/)  
-[Model theft directly in runtime](/go/runtimemodeltheft/)  
+[Model direct leak in runtime](/go/runtimemodelleak/)  
 [Model poisoning in supply chain](/go/supplymodelpoison/)  
-[Model theft in development-time](/go/devmodelleak/)  
-[Model theft through use](/go/modeltheftuse/)  
+[Model direct leak development-time](/go/devmodelleak/)  
+[Model exfiltration](/go/modeltheftuse/)  
 [Monitoring](/go/monitoruse/)  
 
 ### N  
