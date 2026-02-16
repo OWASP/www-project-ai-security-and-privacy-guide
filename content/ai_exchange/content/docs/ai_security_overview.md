@@ -354,7 +354,7 @@ Further links:
 >Permalink: https://owaspai.org/go/aisecuritymatrix/
 
 The AI security matrix below (click to enlarge) shows the key threats and risks, ordered by type and impact.
-[![](/images/OwaspAIsecuritymatix.png)](/images/OwaspAIsecuritymatix.png)
+[![](/images/OwaspAIsecuritymatix.png?v=2)](/images/OwaspAIsecuritymatix.png?v=2)
 
 Clickable version, based on the [Periodic table](/go/periodictable/):
 <table><thead>
