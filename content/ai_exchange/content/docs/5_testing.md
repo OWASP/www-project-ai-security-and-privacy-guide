@@ -39,7 +39,7 @@ Each listed tool addresses a subset of the threat landscape of AI systems. Below
 **Key Predictive AI threats to test for, beyond conventional security testing:**
 
 - [Evasion Attacks:](https://owaspai.org/go/evasion/) These attacks occur when an attacker crafts inputs with data to mislead the model, causing it to perform its task incorrectly.
-- [Model Theft](https://owaspai.org/go/modeltheftuse/): In this attack, the model’s parameters or functionality are stolen. This enables the attacker to create a replica model, which can then be used as an oracle for crafting adversarial attacks and other compounded threats.
+- [Model exfiltration](https://owaspai.org/go/modelexfiltration/): In this attack, the model’s parameters or functionality are stolen. This enables the attacker to create a replica model, which can then be used as an oracle for crafting adversarial attacks and other compounded threats.
 - [Model Poisoning](https://owaspai.org/go/modelpoison/): This involves the manipulation of data, the data pipeline, the model, or the model training supply chain during the training phase (development phase). The attacker’s goal is to alter the model’s behavior which could result in undesired model operation.
 
 **Generative AI:** Generative AI systems produce outputs such as text, images, or audio. Examples include large language models (LLMs) like ChatGPT and large vision models (LVMs) like DALL-E and MidJourney.
