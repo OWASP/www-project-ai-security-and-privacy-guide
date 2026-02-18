@@ -16,9 +16,23 @@
           "value": "no-store, no-cache, max-age=0, must-revalidate"
         }
       ]
+    },
+    {
+      "source": "/goto/**",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, no-cache, max-age=0, must-revalidate"
+        }
+      ]
     }
   ],
     "redirects": [
+      {
+        "source": "/goto/media/",
+        "destination": "/media",
+        "type": 302
+      },
       {
         "source": "/go/media/",
         "destination": "/media",
@@ -27,6 +41,11 @@
       {
         "source": "/go/toc/",
         "destination": "/docs/ai_security_overview/#table-of-contents",
+        "type": 302
+      },
+      {
+        "source": "/goto/summary/",
+        "destination": "/docs/ai_security_overview/#how-to-organize-ai-security",
         "type": 302
       },
       {
@@ -45,8 +64,18 @@
         "type": 302
       },
       {
+        "source": "/goto/essentials/",
+        "destination": "/docs/ai_security_overview/#ai-security-essentials",
+        "type": 302
+      },
+      {
         "source": "/go/essentials/",
         "destination": "/docs/ai_security_overview/#ai-security-essentials",
+        "type": 302
+      },
+      {
+        "source": "/goto/threatsoverview/",
+        "destination": "/docs/ai_security_overview/#threats-overview",
         "type": 302
       },
       {
@@ -55,10 +84,20 @@
         "type": 302
       },
       {
+        "source": "/goto/agenticaithreats/",
+        "destination": "/docs/ai_security_overview/#threats-to-agentic-ai",
+        "type": 302
+      },  
+      {
         "source": "/go/agenticaithreats/",
         "destination": "/docs/ai_security_overview/#threats-to-agentic-ai",
         "type": 302
       },  
+      {
+        "source": "/goto/aisecuritymatrix/",
+        "destination": "/docs/ai_security_overview/#ai-security-matrix",
+        "type": 302
+      },
       {
         "source": "/go/aisecuritymatrix/",
         "destination": "/docs/ai_security_overview/#ai-security-matrix",
@@ -67,6 +106,11 @@
       {
         "source": "/go/aisecuritymatrix",
         "destination": "/docs/ai_security_overview/#ai-security-matrix",
+        "type": 302
+      },
+      {
+        "source": "/goto/controlsoverview/",
+        "destination": "/docs/ai_security_overview/#controls-overview",
         "type": 302
       },
       {
@@ -80,8 +124,18 @@
         "type": 302
       },
       {
+        "source": "/goto/periodictable/",
+        "destination": "/docs/ai_security_overview/#periodic-table-of-ai-security",
+        "type": 302
+      },
+      {
         "source": "/go/periodictable/",
         "destination": "/docs/ai_security_overview/#periodic-table-of-ai-security",
+        "type": 302
+      },
+      {
+        "source": "/goto/navigator/",
+        "destination": "/docs/ai_security_overview/#structure-of-threats-and-controls-in-the-deep-dive-section",
         "type": 302
       },
       {
@@ -90,8 +144,18 @@
         "type": 302
       },
       {
+        "source": "/goto/about/",
+        "destination": "/docs/ai_security_overview/#about-the-ai-exchange",
+        "type": 302
+      },
+      {
         "source": "/go/about/",
         "destination": "/docs/ai_security_overview/#about-the-ai-exchange",
+        "type": 302
+      },
+      {
+        "source": "/goto/aiatowasp/",
+        "destination": "/docs/ai_security_overview/#relevant-owasp-ai-initiatives",
         "type": 302
       },
       {
@@ -100,8 +164,18 @@
         "type": 302
       },
       {
+        "source": "/goto/document/",
+        "destination": "/docs/ai_security_overview/#how-to-use-this-document",
+        "type": 302
+      },
+      {
         "source": "/go/document/",
         "destination": "/docs/ai_security_overview/#how-to-use-this-document",
+        "type": 302
+      },
+      {
+        "source": "/goto/riskanalysis/",
+        "destination": "/docs/ai_security_overview/#how-to-select-relevant-threats-and-controls-risk-analysis",
         "type": 302
       },
       {
@@ -127,6 +201,11 @@
       {
         "source": "/go/copyright/",
         "destination": "/docs/ai_security_overview/#how-about-copyright",
+        "type": 302
+      },
+      {
+        "source": "/goto/references/",
+        "destination": "/docs/ai_security_references/",
         "type": 302
       },
       {
@@ -215,8 +294,18 @@
         "type": 302
       },
       {
+        "source": "/goto/oversight/",
+        "destination": "/docs/1_general_controls/#oversight",
+        "type": 302
+      },
+      {
         "source": "/go/oversight/",
         "destination": "/docs/1_general_controls/#oversight",
+        "type": 302
+      },
+      {
+        "source": "/goto/leastmodelprivilege/",
+        "destination": "/docs/1_general_controls/#least-model-privilege",
         "type": 302
       },
       {
@@ -365,6 +454,11 @@
         "type": 302
       },
       {
+        "source": "/goto/promptinjectionsevenlayers/",
+        "destination": "/docs/2_threats_through_use/#seven-layers-of-prompt-injection-protection",
+        "type": 302
+      },
+      {
         "source": "/go/promptinjectionsevenlayers/",
         "destination": "/docs/2_threats_through_use/#seven-layers-of-prompt-injection-protection",
         "type": 302
@@ -376,6 +470,11 @@
       },
       {
         "source": "/go/promptinputvalidation/",
+        "destination": "/docs/2_threats_through_use/#prompt-injection-io-handling",
+        "type": 302
+      },
+      {
+        "source": "/goto/promptinjectioniohandling/",
         "destination": "/docs/2_threats_through_use/#prompt-injection-io-handling",
         "type": 302
       },
@@ -652,6 +751,11 @@
       {
         "source": "/go/encodemodeloutput/",
         "destination": "/docs/4_runtime_application_security_threats/#encode-model-output",
+        "type": 302
+      },
+      {
+        "source": "/goto/leakinput/",
+        "destination": "/docs/4_runtime_application_security_threats/#45-input-data-leak",
         "type": 302
       },
       {
