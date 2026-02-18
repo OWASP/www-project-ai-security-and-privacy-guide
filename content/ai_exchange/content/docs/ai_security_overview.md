@@ -168,7 +168,7 @@ The five steps - G.U.A.R.D - to organize AI security as an organization are:
   Start implementing general AI Governance so the organization can manage AI: know where it is applied, what people's responsibilities are, establish policies, do impact assessment, arrange [compliance](/go/checkcompliance/), organize [education](/go/seceducate/), etcetera. See [#AI Program](/go/aiprogram/) for guidance, including a quickstart. This is a general AI management process - not just security.
 2. **Understand**  
    - Based on the inventory of your applications of AI and AI ideas, understand which threats apply, using the decision tree in the [risk analysis section](/go/riskanalysis/).
-   - Then make sure engineers and security professionals understand those relevant threats and their contols, using the guidance of the relevant [threat sections](/go/threatsoverview/) and the corresponding [process controls and technical controls](/go/periodictable/).
+   - Then make sure engineers and security professionals understand those relevant threats and their controls, using the guidance of the relevant [threat sections](/go/threatsoverview/) and the corresponding [process controls and technical controls](/go/periodictable/). Note that most of these controls are familiar conventional security countermeasures, unless you are traininging your own model.
    - Use the courses and resources in the [references section](/go/references/) to support the understanding.
    - Distinguish between controls that your organization has to implement, and those that are the responsbility of your supplier. Make the latter category part of your [supply chain management])(/go/supplychainmanage/).
 3. **Adapt**  
@@ -287,7 +287,7 @@ The upcoming sections provide overviews of AI security threats and controls.
 >Permalink: https://owaspai.org/go/threatsoverview/
 
 ### Scope of Threats
-In the AI Exchange we focus on AI-specific threats, meaning threats to AI assets (see [#SEC PROGRAM](/go/secprogram/), such as model parameters. Threats to other assets are already covered in many other resources - for example the protection of a user database. AI systems are IT systems so they suffer from various security threats. Therefore, when securing AI systems, the AI Exchange needs to be seen as an extension of your existing security program: 
+In the AI Exchange we focus on AI-specific threats, meaning threats to AI assets (see [#SEC PROGRAM](/go/secprogram/), such as training data. Threats to other assets are already covered in many other resources - for example the protection of a user database. AI systems are IT systems so they suffer from various security threats. Therefore, when securing AI systems, the AI Exchange needs to be seen as an extension of your existing security program: 
 AI security = threats to AI-specific assets (AI Exchange) +threats to other assets (other resources)
 
 ### Threat Model
@@ -299,14 +299,14 @@ We distinguish between three types of threats:
 In AI, we outline 6 types of impacts that align with three types of attacker goals (disclose, deceive and disrupt):
 1. disclose: hurt confidentiality of train/test data
 2. disclose: hurt confidentiality of model Intellectual property (the _model parameters_ or the process and data that led to them)
-3. disclose: hurt confidentiality of input data
+3. disclose: hurt confidentiality of input or augmentation data
 4. deceive: hurt integrity of model behaviour (the model is manipulated to behave in an unwanted way and consequentially, deceive users)
 5. disrupt: hurt availability of the model (the model either doesn't work or behaves in an unwanted way - not to deceive users but to disrupt normal operations)
 6. disrupt/disclose: confidentiality, integrity, and availability of non AI-specific assets
 
 The threats that create these impacts use different attack surfaces. For example: the confidentiality of training data can be compromised by hacking into the database during development, but it can also get leaked by a _membership inference attack_ that can find out whether a certain individual was in the train data, simply by feeding that person's data into the model and looking at the details of the model output.
 
-The diagram shows the threats as arrows. Each threat has a specific impact, indicated by letters referring to the Impact legend. The control overview section contains this diagram with groups of controls added.
+The diagram shows the threats as arrows. Each threat has a specific impact, indicated by letters referring to the Impact legend. The [control overview section](/go/controlsoverview/) contains this diagram with groups of controls added.
 [![](/images/threats.png?v=2)](/images/threats.png?v=2)
 
 Note that some threats represent attacks consisting of several steps, and therefore present multiple threats in one, for example:
