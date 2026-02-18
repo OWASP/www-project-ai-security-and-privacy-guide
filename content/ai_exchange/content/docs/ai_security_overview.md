@@ -287,7 +287,7 @@ The upcoming sections provide overviews of AI security threats and controls.
 >Permalink: https://owaspai.org/go/threatsoverview/
 
 ### Scope of Threats
-In the AI Exchange we focus on AI-specific threats, meaning threats to AI assets (see [#SEC PROGRAM](/go/secprogram/), such as training data. Threats to other assets are already covered in many other resources - for example the protection of a user database. AI systems are IT systems so they suffer from various security threats. Therefore, when securing AI systems, the AI Exchange needs to be seen as an extension of your existing security program: 
+In the AI Exchange we focus on AI-specific threats, meaning threats to AI assets (see [#SEC PROGRAM](/go/secprogram/)), such as training data. Threats to other assets are already covered in many other resources - for example the protection of a user database. AI systems are IT systems so they suffer from various security threats. Therefore, when securing AI systems, the AI Exchange needs to be seen as an extension of your existing security program: 
 AI security = threats to AI-specific assets (AI Exchange) +threats to other assets (other resources)
 
 ### Threat Model
