@@ -609,6 +609,11 @@
         "type": 302
       },
       {
+        "source": "/goto/supplychainmanage/",
+        "destination": "/docs/3_development_time_threats/#supply-chain-manage",
+        "type": 302
+      },
+      {
         "source": "/go/supplychainmanage/",
         "destination": "/docs/3_development_time_threats/#supply-chain-manage",
         "type": 302
@@ -716,6 +721,11 @@
       {
         "source": "/go/runtimemodeliointegrity/",
         "destination": "/docs/4_runtime_application_security_threats/#runtime-model-io-integrity",
+        "type": 302
+      },
+      {
+        "source": "/goto/runtimemodeltheft/",
+        "destination": "/docs/4_runtime_application_security_threats/#43-direct-runtime-model-leak",
         "type": 302
       },
       {
