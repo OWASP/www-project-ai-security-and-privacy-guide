@@ -416,7 +416,7 @@ The groups of controls form a summary of how to address AI security (controls ar
 - Apply specialized **AI engineer security controls**(3) :
     - GenAI model engineering controls(3a) to control behaviour as part of development:
       > [MODEL ALIGNMENT](/go/modelalignment/)
-    - Data/model engineering controls(3b) as part of development:  
+    - Data/model engineering controls(3b) as part of model development:  
       > [FEDERATED LEARNING](/go/federatedlearning/), [CONTINUOUS VALIDATION](/go/continuousvalidation/), [UNWANTED BIAS TESTING](/go/unwantedbiastesting/), [EVASION ROBUST MODEL](/go/evasionrobustmodel/), [POISON ROBUST MODEL](/go/poisonrobustmodel/), [TRAIN ADVERSARIAL](/go/trainadversarial/), [TRAIN DATA DISTORTION](/go/traindatadistortion/), [ADVERSARIAL ROBUST DISTILLATION](/go/adversarialrobustdistillation/), [MODEL ENSEMBLE](/go/modelensemble/), [MORE TRAINDATA](/go/moretraindata/), [SMALL MODEL](/go/smallmodel/), [DATA QUALITY CONTROL](/go/dataqualitycontrol/)
     - Model I/O handling(3c) during runtime to filter and detect attacks:  
       > [ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling/), [EVASION INPUT HANDLING](/go/evasioninputhandling/), [UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling/), [PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling/), [DOS INPUT VALIDATION](/go/dosinputvalidation/), [INPUT DISTORTION](/go/inputdistortion/), [SENSITIVE OUTPUT HANDLING](/go/sensitiveoutputhandling/), [OBSCURE CONFIDENCE](/go/obscureconfidence/)
