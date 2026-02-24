@@ -1391,6 +1391,8 @@ This attack occurs when an attacker collects inputs and outputs of an existing m
 Impact:  Confidentiality breach of the model (i.e., model parameters), which can be:
 - intellectual property theft (e.g., by a competitor)
 - and/or a way to perform input attacks on the copied model, circumventing protections. These protections include rate limiting, access control, and detection mechanisms. These input attacks include mainly [evasion](/go/evasion/) attacks. Other attacks require a much more detailed copy of the model - typically unfeasible to achieve using this form of model theft.
+- and/or a way to strip a model from certain protection mechanism against producing harmful content. Antrhropic claimed in February 2026 that exfiltration attacks by competition could achieve this: creating models that are able to produce harmful content against the stakes of the original model makers.
+
 
 Alternative names: _model stealing attack_ or _model extraction attack_ or _model destillation_, or _model theft by use_. The technique of [ADVERSARIAL ROBUST DESTILLATION]/owaspai.org/go/adversarialrobustdistillation) is sometimes used by model developers to exfiltrate a _student_ model with the goal to make it more robust against attacks.
 
