@@ -1392,7 +1392,7 @@ Impact:  Confidentiality breach of the model (i.e., model parameters), which can
 - intellectual property theft (e.g., by a competitor)
 - and/or a way to perform input attacks on the copied model, circumventing protections. These protections include rate limiting, access control, and detection mechanisms. These input attacks include mainly [evasion](/go/evasion/) attacks. Other attacks require a much more detailed copy of the model - typically unfeasible to achieve using this form of model theft.
 
-Alternative names: _model stealing attack_ or _model extraction attack_ or _model exfiltration attack_.
+Alternative names: _model stealing attack_ or _model extraction attack_ or _model destillation_, or _model theft by use_. The technique of [ADVERSARIAL ROBUST DESTILLATION]/owaspai.org/go/adversarialrobustdistillation) is sometimes used by model developers to exfiltrate a _student_ model with the goal to make it more robust against attacks.
 
 Alternative ways of model theft, which can lead to an exact copy of the model, are [direct development-time model leak](/go/devmodelleak/) and [direct runtime model leak](/go/runtimemodelleak/).
 
@@ -1403,14 +1403,17 @@ This threat applies if the model represents intellectual property (i.e., a trade
 
 **Controls:**
 
-- See [General controls](/go/generalcontrols/):
+- See [General controls](/go/generalcontrols/), especially [#AI PROGRAM](/go/aiprogram/) for the governance necessary to identify and treat this risk.
 - Controls for [input threats](/go/inputthreats/):
-  - [#MONITOR USE](/go/monitoruse/) to detect suspicious input 
+  - [#MONITOR USE](/go/monitoruse/) to detect suspicious input and respond 
   - [#RATE LIMIT](/go/ratelimit/) to limit the attacker presenting many inputs in a short time
   - [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
-  - [#OBSCURE CONFIDENCE](/go/obscureconfidence/) to limit information that the attacker can use
+  - [#ANOMALOUS INPUT HANDLING](/go/anamlousinputhandling/) since model exfiltration techniques try to cover the input space, potentially introducing inputs that normally would not occur
+  - [#UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling/) to detect sequences that would indicate covering an input space methodically,
 - Controls for model exfiltration specifically:
-  - [#MODEL WATERMARKING](/go/modelwatermarking/) to enable post-theft ownership verification when residual risk remains - discussed below
+  - [#MODEL WATERMARKING](/go/modelwatermarking/) to enable post-theft ownership verification when residual risk remains - discussed below, although less effective for proving exfiltration than proving an actual copy of the model was used.
+ 
+If attackers are able to access the model and the model allows intensive use, then it is typically hard to protect against model exfiltration. Detection would come down to intensive use, covering a wide range of inputs, including anomalous ones. Such detections would always require further analysis, since this type of use may also be benign.
 
 **References**  
 
