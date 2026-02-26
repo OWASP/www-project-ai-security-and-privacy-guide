@@ -822,9 +822,14 @@ function runScrollToHighlight() {
             if (_scrollHighlightDebug) console.log("[scroll-highlight] scrolled window to", targetY);
           }
         }
-        requestAnimationFrame(function () { requestAnimationFrame(doScroll); });
-        setTimeout(doScroll, 100);
-        setTimeout(doScroll, 400);
+        
+        // ONLY hijack the scroll if there is NO hash anchor in the URL.
+        // If a hash exists (like a sub-result), let the browser jump to it natively!
+        if (!window.location.hash) {
+          requestAnimationFrame(function () { requestAnimationFrame(doScroll); });
+          setTimeout(doScroll, 100);
+          setTimeout(doScroll, 400);
+        }
       }
       break;
     }
