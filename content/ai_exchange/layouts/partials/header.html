@@ -540,59 +540,45 @@
   overflow-y: auto;
 }
 
-/* Clean, non-overlapping styles for Pagefind sub-results */
-#pagefind-search ul.pagefind-ui__result-nested {
-  padding: 0 !important;
-  margin-top: 1rem !important;
-}
-#pagefind-search li.pagefind-ui__result-nested {
-  position: relative !important;
+/* Final attempt to fix Pagefind sub-results overlap by forcing extreme block separation */
+#pagefind-search .pagefind-ui__result-nested {
   display: block !important;
-  padding: 0.75rem 1rem !important;
-  margin-bottom: 0.5rem !important;
-  background: rgba(255, 255, 255, 0.03);
-  border-left: 3px solid rgba(76, 175, 80, 0.5) !important;
-  border-radius: 4px;
-}
-#pagefind-search li.pagefind-ui__result-nested:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-title {
-  display: block !important;
-  margin: 0 0 0.4rem 0 !important;
-  line-height: 1.4 !important;
+  position: static !important;
+  margin: 1.5rem 0 1.5rem 1.5rem !important;
+  padding: 1rem !important;
+  border-left: 4px solid #4CAF50 !important;
+  background: rgba(255, 255, 255, 0.03) !important;
   height: auto !important;
+  min-height: 50px !important;
+  clear: both !important;
 }
-#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-link {
-  position: static !important; /* Crucial: reset the old absolute positioning */
-  display: inline-block !important;
-  color: #4CAF50 !important;
-  font-size: 1.05em !important;
-  font-weight: 600 !important;
-  text-decoration: none !important;
-}
-#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-link::before {
-  display: none !important;
-}
-/* Make the whole block clickable */
-#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-link::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 10;
-}
-#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-link:hover {
-  text-decoration: underline !important;
-}
+
+#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-title,
 #pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-excerpt {
   display: block !important;
-  position: relative !important;
-  z-index: 1 !important;
-  margin: 0 !important;
-  line-height: 1.5 !important;
+  position: static !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
   height: auto !important;
-  color: #bbb !important;
-  font-size: 0.9em !important;
+  margin: 0 0 0.8rem 0 !important;
+  padding: 0 !important;
+  line-height: 1.5 !important;
+  float: none !important;
+}
+
+#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-link {
+  display: block !important;
+  position: static !important;
+  color: #4CAF50 !important;
+  font-weight: 700 !important;
+  text-decoration: underline !important;
+}
+
+#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-link::before,
+#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-link::after {
+  content: none !important;
+  display: none !important;
 }
 
 /* Brief highlight on the element we scrolled to from ?highlight= */
