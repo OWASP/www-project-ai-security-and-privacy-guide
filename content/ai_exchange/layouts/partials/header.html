@@ -542,27 +542,48 @@
 
 /* Make each sub-result row (title + excerpt) more distinct and clickable */
 #pagefind-search .pagefind-ui__result-nested {
-  padding: 0.5rem 0 0.5rem 1.25rem !important;
-  border-left: 2px solid rgba(76, 175, 80, 0.3) !important;
-  margin-top: 0.25rem !important;
-  transition: background 0.2s ease;
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative !important;
+  padding: 0.75rem 1rem !important;
+  border-left: 3px solid rgba(76, 175, 80, 0.4) !important;
+  margin-top: 0.5rem !important;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
+  gap: 0.4rem !important;
 }
 #pagefind-search .pagefind-ui__result-nested:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
 }
 #pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-link {
+  position: static !important;
+  display: block !important;
   color: #4CAF50 !important;
-  font-size: 0.95em !important;
+  font-size: 1.05em !important;
   font-weight: 600 !important;
   text-decoration: none !important;
+  line-height: 1.4 !important;
+}
+#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-link::before {
+  display: none !important; /* Hide the default pagefind arrow to prevent overlap */
+}
+#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
 #pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-link:hover {
   text-decoration: underline !important;
 }
 #pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-excerpt {
-  color: #aaa !important;
-  font-size: 0.85em !important;
-  margin-top: 0.1rem !important;
+  position: relative !important;
+  z-index: 2 !important;
+  display: block !important;
+  color: #bbb !important;
+  font-size: 0.9em !important;
+  margin: 0 !important;
+  line-height: 1.5 !important;
 }
 
 /* Brief highlight on the element we scrolled to from ?highlight= */
