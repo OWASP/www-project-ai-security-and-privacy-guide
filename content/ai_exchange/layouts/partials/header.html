@@ -540,18 +540,29 @@
   overflow-y: auto;
 }
 
-/* Make each sub-result row (title + excerpt) one clickable block linking to the section */
+/* Make each sub-result row (title + excerpt) more distinct and clickable */
 #pagefind-search .pagefind-ui__result-nested {
-  position: relative;
+  padding: 0.5rem 0 0.5rem 1.25rem !important;
+  border-left: 2px solid rgba(76, 175, 80, 0.3) !important;
+  margin-top: 0.25rem !important;
+  transition: background 0.2s ease;
+}
+#pagefind-search .pagefind-ui__result-nested:hover {
+  background: rgba(255, 255, 255, 0.05);
 }
 #pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-link {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
+  color: #4CAF50 !important;
+  font-size: 0.95em !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+}
+#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-link:hover {
+  text-decoration: underline !important;
 }
 #pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-excerpt {
-  position: relative;
-  z-index: 0;
+  color: #aaa !important;
+  font-size: 0.85em !important;
+  margin-top: 0.1rem !important;
 }
 
 /* Brief highlight on the element we scrolled to from ?highlight= */
