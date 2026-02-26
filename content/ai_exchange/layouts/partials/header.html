@@ -540,18 +540,45 @@
   overflow-y: auto;
 }
 
-/* Make each sub-result row (title + excerpt) one clickable block linking to the section */
+/* Final attempt to fix Pagefind sub-results overlap by forcing extreme block separation */
 #pagefind-search .pagefind-ui__result-nested {
-  position: relative;
+  display: block !important;
+  position: static !important;
+  margin: 1.5rem 0 1.5rem 1.5rem !important;
+  padding: 1rem !important;
+  border-left: 4px solid #4CAF50 !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  height: auto !important;
+  min-height: 50px !important;
+  clear: both !important;
 }
-#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-link {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
+
+#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-title,
 #pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-excerpt {
-  position: relative;
-  z-index: 0;
+  display: block !important;
+  position: static !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 0 0.8rem 0 !important;
+  padding: 0 !important;
+  line-height: 1.5 !important;
+  float: none !important;
+}
+
+#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-link {
+  display: block !important;
+  position: static !important;
+  color: #4CAF50 !important;
+  font-weight: 700 !important;
+  text-decoration: underline !important;
+}
+
+#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-link::before,
+#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-link::after {
+  content: none !important;
+  display: none !important;
 }
 
 /* Brief highlight on the element we scrolled to from ?highlight= */
@@ -595,6 +622,8 @@ document.addEventListener("DOMContentLoaded", () => {
       element: "#pagefind-search",
       translations: { placeholder: "Search articles, guides, and content..." },
       showSubResults: true,
+      subResultsHierarchical: true,
+      highlightParam: "highlight",
       showImages: false,
       resetStyles: false,
       autofocus: true
@@ -793,9 +822,14 @@ function runScrollToHighlight() {
             if (_scrollHighlightDebug) console.log("[scroll-highlight] scrolled window to", targetY);
           }
         }
-        requestAnimationFrame(function () { requestAnimationFrame(doScroll); });
-        setTimeout(doScroll, 100);
-        setTimeout(doScroll, 400);
+        
+        // ONLY hijack the scroll if there is NO hash anchor in the URL.
+        // If a hash exists (like a sub-result), let the browser jump to it natively!
+        if (!window.location.hash) {
+          requestAnimationFrame(function () { requestAnimationFrame(doScroll); });
+          setTimeout(doScroll, 100);
+          setTimeout(doScroll, 400);
+        }
       }
       break;
     }
