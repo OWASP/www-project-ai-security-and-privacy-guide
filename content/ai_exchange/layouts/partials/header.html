@@ -43,6 +43,16 @@
 
     <!-- Header Actions -->
     <div class="header-actions">
+      <!-- Download PDF Button -->
+      <a href="/OWASP-AI-Exchange.pdf" class="download-pdf-btn desktop-only" title="Download Full PDF">
+        <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        <span>PDF</span>
+      </a>
+
       <!-- Desktop Social Icons -->
       <div class="social-icons desktop-social">
         {{ range .Site.Menus.social }}
@@ -153,11 +163,20 @@
             <circle cx="11" cy="11" r="8"></circle>
             <path d="m21 21-4.35-4.35"></path>
           </svg> Search
-        </button>
-      </li>
-    </ul>
-  </nav>
-
+                  </button>
+              </li>
+              <!-- Download PDF Link (Mobile) -->
+              <li class="mobile-nav-item">
+                <a href="/OWASP-AI-Exchange.pdf" class="mobile-nav-link text-center">
+                  <svg class="download-icon inline mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg> Download PDF
+                </a>
+              </li>
+            </ul>
+          </nav>
   <!-- Mobile Social Icons -->
   <div class="mobile-social-icons">
     {{ range .Site.Menus.social }}
@@ -207,6 +226,45 @@
   width: 20px;
   height: 20px;
   stroke: currentColor;
+}
+
+/* Download PDF Button Styles */
+.download-pdf-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.download-pdf-btn:hover {
+  background: #4CAF50;
+  border-color: #4CAF50;
+  color: white;
+}
+
+.download-icon {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 1024px) {
+  .download-pdf-btn span {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
 }
 
 /* Hamburger Button Styles */

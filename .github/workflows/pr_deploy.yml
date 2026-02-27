@@ -32,6 +32,10 @@ jobs:
       - name: Build search index (Pagefind)
         run: npx pagefind --site public
         working-directory: content/ai_exchange
+      - name: Generate PDF
+        run: |
+          npm ci
+          npm run build:pdf
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
@@ -64,6 +68,10 @@ jobs:
       - name: Build search index (Pagefind)
         run: npx pagefind --site public
         working-directory: content/ai_exchange
+      - name: Generate PDF
+        run: |
+          npm ci
+          npm run build:pdf
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"

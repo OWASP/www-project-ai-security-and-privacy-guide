@@ -4,7 +4,13 @@
   "scripts": {
     "build:site": "cd content/ai_exchange && npx hugo-extended@0.147.0 mod get github.com/imfing/hextra@v0.11.1 && npx hugo-extended@0.147.0 --gc --minify",
     "pagefind": "cd content/ai_exchange && npx pagefind --site public",
+    "build:pdf": "node scripts/generate-pdf.js",
     "serve": "npx serve content/ai_exchange/public -p 3000",
     "test:site": "npm run build:site && npm run pagefind && npm run serve"
+  },
+  "dependencies": {
+    "jsdom": "^28.1.0",
+    "pdf-lib": "^1.17.1",
+    "puppeteer": "^24.37.5"
   }
 }
