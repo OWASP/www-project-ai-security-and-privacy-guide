@@ -42,17 +42,26 @@ async function main() {
   const contentDiv = document.getElementById('content');
 
   // Add front page
+  const frontPageHtmlPath = path.join(__dirname, 'pdf_frontpage.html');
+  let frontPageContent = '';
+  if (fs.existsSync(frontPageHtmlPath)) {
+    frontPageContent = fs.readFileSync(frontPageHtmlPath, 'utf-8')
+      .replace(/\{\{ASSETS_DIR\}\}/g, path.join(__dirname, '../assets'))
+      .replace(/\{\{DATE\}\}/g, new Date().toLocaleDateString());
+  } else {
+    frontPageContent = `
+      <div style="text-align: center; margin-top: 100px;">
+        <img src="file://${path.join(__dirname, '../assets/images/aixlogo.jpg')}" style="max-width: 300px;"/>
+        <h1>OWASP AI Exchange</h1>
+        <p>Generated on: ${new Date().toLocaleDateString()}</p>
+      </div>
+      <div style="page-break-after: always;"></div>
+    `;
+  }
+
   const frontPage = document.createElement('div');
   frontPage.className = 'front-page';
-  frontPage.innerHTML = `
-    <div style="text-align: center; margin-top: 100px;">
-      <img src="file://${path.join(__dirname, '../assets/images/aixlogo.jpg')}" style="max-width: 300px;"/>
-      <h1>OWASP AI Security and Privacy Guide</h1>
-      <h2>AI Exchange</h2>
-      <p>Generated on: ${new Date().toLocaleDateString()}</p>
-    </div>
-    <div style="page-break-after: always;"></div>
-  `;
+  frontPage.innerHTML = frontPageContent;
   contentDiv.appendChild(frontPage);
 
   // TOC placeholder
