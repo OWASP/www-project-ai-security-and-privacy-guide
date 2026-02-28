@@ -65,12 +65,12 @@
       },
       {
         "source": "/goto/essentials/",
-        "destination": "/docs/ai_security_overview/#ai-security-essentials",
+        "destination": "/docs/ai_security_overview/#essentials-how-to-understand-the-basics-of-ai-security", 
         "type": 302
       },
       {
         "source": "/go/essentials/",
-        "destination": "/docs/ai_security_overview/#ai-security-essentials",
+        "destination": "/docs/ai_security_overview/#essentials-how-to-understand-the-basics-of-ai-security",
         "type": 302
       },
       {
