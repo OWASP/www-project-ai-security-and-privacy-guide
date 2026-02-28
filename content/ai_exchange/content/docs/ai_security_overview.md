@@ -5,7 +5,9 @@ heroText: "This page provides an introduction, high-over views of threats and co
 weight: 1
 ---
 
-## Table of contents
+## Introduction
+
+### Table of contents
 >Category: discussion  
 >Permalink: https://owaspai.org/go/toc/
 
@@ -38,7 +40,7 @@ weight: 1
 * [References](/docs/ai_security_references/)
 * [Index](/docs/ai_security_index/)
 
-## About the AI Exchange
+### About the AI Exchange
 >Category: discussion  
 >Permalink: https://owaspai.org/go/about/
 
@@ -116,7 +118,7 @@ All aspects above make the Exchange the go-to resource for practitioners, users,
 NOTE: Producing and continuously updating a comprehensive and coherent quality resource requires a strong coordinated approach. It is much harder than an approach of every person for themselves. But necessary.
 
 
-## Relevant OWASP AI initiatives
+### Relevant OWASP AI initiatives
 >Category: discussion  
 >Permalink: https://owaspai.org/go/aiatowasp/
 
@@ -156,7 +158,7 @@ What makes the Exchange special is FOUNDATION:
 - N – Networked - bridge between standards, researchers, and practitioners
 
 
-## How to use this Document
+### How to use this Document
 >Category: discussion  
 >Permalink: https://owaspai.org/go/document/
 
@@ -209,8 +211,11 @@ This page (AI security overview) will continue with discussions about:
 
 ---
 
+## High level view
 
-## How to organize AI Security
+This section discusses the main steps for adopting AI security in your organization, and for understanding the essentials of AI security.
+
+### How to organize AI Security
 >Category: discussion  
 >Permalink: https://owaspai.org/go/organize/
 
@@ -244,7 +249,7 @@ And finally: think before you build an AI solution. AI can have fantastic benefi
 ---
 
 
-## AI security essentials
+### Essentials: how to understand the basics of AI security
 >Category: discussion  
 >Permalink: https://owaspai.org/go/essentials/
 
