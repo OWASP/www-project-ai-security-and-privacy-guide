@@ -1130,3 +1130,7 @@ Disclaimer on the use of the Assessment:
 ***Tool Fit and Usage:***
 
 *The recommendations in this report should be considered based on your organization's specific use case, scale, and security posture. Some tools may offer advanced features that may not be necessary for smaller projects or environments, while others may be better suited to specific frameworks or security goals.*
+### Prompt-DLP Benchmark (Data Leakage)
+
+A neutral dataset + harness to measure **data leakage** and validate **redaction** controls across LLM/RAG/agents.  
+→ See: Prompt-DLP Benchmark & Redaction Recipes

@@ -1619,5 +1619,19 @@ Given that model explainability is mandated in many jurisdictions, application d
   2. Arora, et al. (2022). Probing Pre-Trained Language Models for Cross-Cultural Differences in Values.
   3. Wikipedia contributors. (2025, February 2). Semantic Change. Wikipedia: The Free Encyclopedia. https://en.wikipedia.org/wiki/Semantic_change
 
+### Prompt-DLP Benchmark & Redaction Recipes
+
+A neutral benchmark and mitigation pack to **measure** and **reduce** sensitive data leakage in LLM, RAG, and agentic systems.
+
+- **Dataset:** curated prompts & contexts that trigger leakage.
+- **Scoring harness:** metrics for Leakage Rate, Redaction Effectiveness, False Positive Rate.
+- **Redaction recipes:** deterministic masking, hashing, and pipeline YAML.
+
+**Get started:**  
+See assets/prompt_dlp_benchmark/README.md for usage, schemas, and CLI instructions.
+
+**Cross-reference:**  
+Also listed in AI Security Testing.
+
 
 
