@@ -148,10 +148,10 @@ async function main() {
   // Add styles
   const style = document.createElement('style');
   style.textContent = `
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 14px; line-height: 1.6; color: #333; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 16px; line-height: 1.6; color: #333; }
     h1, h2, h3, h4, h5 { color: #002843; break-after: avoid; page-break-after: avoid; }
-    h1 { font-size: 24px; margin-top: 2em; border-bottom: 1px solid #eee; padding-bottom: 0.5em; }
-    h2 { font-size: 20px; margin-top: 1.5em; }
+    h1 { font-size: 26px; margin-top: 2em; border-bottom: 1px solid #eee; padding-bottom: 0.5em; }
+    h2 { font-size: 22px; margin-top: 1.5em; }
     p, li { break-inside: avoid-page; }
     pre, code { background: #f4f4f4; padding: 2px 4px; border-radius: 4px; font-family: monospace; }
     pre { padding: 1em; white-space: pre-wrap; break-inside: avoid; }
