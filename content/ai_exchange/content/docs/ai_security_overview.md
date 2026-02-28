@@ -11,8 +11,8 @@ weight: 1
 
 * [AI Security Overview](/docs/ai_security_overview/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [About the AI Exchange](/go/about/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [How to use this document](/go/document/)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Organize AI](/go/organize/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [How to use this document](/go/document/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Essentials](/go/essentials/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Threats](/go/threatsoverview/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Threat matrix](/go/aisecuritymatrix/)  
@@ -155,6 +155,61 @@ What makes the Exchange special is FOUNDATION:
 - O – Open (any expert can contribute)
 - N – Networked - bridge between standards, researchers, and practitioners
 
+
+## How to use this Document
+>Category: discussion  
+>Permalink: https://owaspai.org/go/document/
+
+The AI Exchange is a single coherent resource on the security and privacy of AI systems, presented on this website, divided over several pages - containing threats, controls, guidelines, tests and references.
+
+**Ways to start, depending on your need:**
+- **Ask any question on AI Security**
+  Ask an AI security/privacy question based on the content of the Exchange: [AI Exchange AGENT](https://notebooklm.google.com/notebook/75840a00-78f8-454d-ad4d-9ac27ae4cf48) (uses Google service so requires Google account).
+- **Learn what the AI Exchange is**:  
+  See [About](https://owaspai.org/go/about/)
+- **Start AI security as organization**:  
+  See [How to organize AI security](https://owaspai.org/go/organize/)..
+- **Start AI security as individual**:  
+  See 'learn/lookup' below to familiarize yourself with the threats and controls or look in the [references section](/go/references/) for a large table with training material.
+- **Secure a system**:  
+   If you want your **AI system to be secure**, start with [risk analysis](/go/riskanalysis/) to guide you through a number of questions, resulting in the threats that apply. And when you click on those threats you'll find the controls (countermeasures) to check for, or to implement.
+- **Learn / look up**:  
+  - For the short story with the main insights in what is special about AI security: see the [AI Exchange essentials](/go/essentials/).
+  - If you prefer one document: download a [snapshot of the Exchange in pdf](/OWASP-AI-Exchange.pdf).
+  - To see a general overview and discussion of all **threats** from different angles, check the [AI threat model](/go/threatsoverview/) or the [AI security matrix](/go/aisecuritymatrix). In case you know the threat you need to protect against, find it in the overview of your choice and click to get more information and how to protect against it.
+  - To find out what to do against a specific threat, check the [controls overview](/go/controlsoverview/) or the [periodic table](/go/periodictable/) to find the right **controls**.
+  - To understand what controls to apply in different deployment models: have a look at the [section on ready-made models](/go/readymademodel/).
+  - To learn about **privacy** of AI systems, check [the privacy section](/go/aiprivacy/).
+  - Agentic AI aspects are covered throughout all content, plus a specific section [here](/go/agenticaithreats/).
+  - To look up a specific topic, use the search function or the [index](/go/index/).
+  - Looking for more information, or training material: see the [references](/go/references/).
+- **Test**:  
+  If you want to **test** the security of AI systems with tools, go to [the testing page](/go/testing/).
+
+The AI exchange covers both heuristic artificial intelligence (e.g., expert systems) and machine learning. This means that when we talk about an AI system, it can for example be a Large Language Model, a linear regression function, a rule-based system, or a lookup table based on statistics. Throughout this document, it is made clear which threats and controls play a role and when.
+
+**The structure**  
+You can see the high-level structure on the [main page](https://owaspai.org). On larger screens you can see the structure of pages on the left sidebar and the structure within the current page on the right. On smaller screens you can view these structures through the menu. There is also a section with the most importent topics in a [Table of contents](/go/toc/).
+
+The main structure is made of the following pages:  
+  (0) [AI security overview - this page](/go/toc/), contains an overview of AI security and discussions of various topics.  
+  (1) [General controls, such as AI governance](/go/generalcontrols/)  
+  (2) [Input threats, such as evasion attacks](/go/inputthreats/)  
+  (3) [Development-time threats, such as data poisoning](/go/developmenttime/)  
+  (4) [Runtime conventional security threats, such as leaking input](/go/runtimeconventionalsec/)  
+  (5) [AI security testing](/go/testing/)  
+  (6) [AI privacy](/go/aiprivacy/)  
+  (7) [References](/go/references/)
+
+This page (AI security overview) will continue with discussions about:
+- A high-level overview of threats
+- Various overviews of threats and controls: the matrix, the periodic table, and the navigator
+- Risk analysis to select relevant threats and controls
+- Various other topics: heuristic systems, responsible AI, generative AI, the NCSC/CISA guidelines, and copyright
+
+---
+
+
 ## How to organize AI Security
 >Category: discussion  
 >Permalink: https://owaspai.org/go/organize/
@@ -186,60 +241,8 @@ The five steps - G.U.A.R.D - to organize AI security as an organization are:
 
 And finally: think before you build an AI solution. AI can have fantastic benefits, but it always needs to be balanced with risks. Securing AI is typically harder than securing non-AI systems, first because it's relatively new, but also because there is a level of uncertainty in all data-driven technology. For example in the case of LLMs, we are dealing with the fluidity of natural language. LLMs essentially offer an unstable, undocumented interface with an unclear set of policies. That means that security measures applied to AI often cannot offer security properties to a standard you might be used to with other software. Consider whether AI is the appropriate technology choice for the problem you are trying to solve. Removing an unnecessary AI component eliminates all AI-related risks.  
 
-
 ---
 
-## How to use this Document
->Category: discussion  
->Permalink: https://owaspai.org/go/document/
-
-The AI Exchange is a single coherent resource on the security and privacy of AI systems, presented on this website, divided over several pages - containing threats, controls, guidelines, tests and references.
-
-**Ways to start, depending on your need:**
-- **Learn more what the AI Exchange is**:  
-  See [About](https://owaspai.org/go/about/)
-- **Start AI security as organization**:  
-  See [How to organize AI security](https://owaspai.org/go/organize/) for the key steps to get started as organization.
-- **Start AI security as individual**:  
-  See 'learn/lookup' below to familiarize yourself with the threats and controls or look in the [references section](/go/references/) for a large table with training material.
-- **Secure a system**:  
-   If you want your **AI system to be secure**, start with [risk analysis](/go/riskanalysis/) to guide you through a number of questions, resulting in the threats that apply. And when you click on those threats you'll find the controls (countermeasures) to check for, or to implement.
-- **Learn / look up**:  
-  - For the short story with the main insights in what is special about AI security: see the [AI Exchange essentials](/go/essentials/).
-  - Ask AI an AI security/privacy question based on the content of the Exchange: [here](https://notebooklm.google.com/notebook/75840a00-78f8-454d-ad4d-9ac27ae4cf48) (requires Google account).
-  - If you prefer one document: download a [snapshot of the Exchange in pdf](/OWASP-AI-Exchange.pdf).
-  - To see a general overview and discussion of all **threats** from different angles, check the [AI threat model](/go/threatsoverview/) or the [AI security matrix](/go/aisecuritymatrix). In case you know the threat you need to protect against, find it in the overview of your choice and click to get more information and how to protect against it.
-  - To find out what to do against a specific threat, check the [controls overview](/go/controlsoverview/) or the [periodic table](/go/periodictable/) to find the right **controls**.
-  - To understand what controls to apply in different deployment models: have a look at the [section on ready-made models](/go/readymademodel/).
-  - To learn about **privacy** of AI systems, check [the privacy section](/go/aiprivacy/).
-  - Agentic AI aspects are covered throughout all content, with a specific section [here](/go/agenticaithreats/).
-  - To look up a specific topic, use the search function or the [index](/go/index/).
-  - Looking for more information, or training material: see the [references](/go/references/).
-- **Test**:  
-  If you want to **test** the security of AI systems with tools, go to [the testing page](/go/testing/).
-
-The AI exchange covers both heuristic artificial intelligence (e.g., expert systems) and machine learning. This means that when we talk about an AI system, it can for example be a Large Language Model, a linear regression function, a rule-based system, or a lookup table based on statistics. Throughout this document, it is made clear which threats and controls play a role and when.
-
-**The structure**  
-You can see the high-level structure on the [main page](https://owaspai.org). On larger screens you can see the structure of pages on the left sidebar and the structure within the current page on the right. On smaller screens you can view these structures through the menu. There is also a section with the most importent topics in a [Table of contents](/go/toc/).
-
-The main structure is made of the following pages:  
-  (0) [AI security overview - this page](/go/toc/), contains an overview of AI security and discussions of various topics.  
-  (1) [General controls, such as AI governance](/go/generalcontrols/)  
-  (2) [Input threats, such as evasion attacks](/go/inputthreats/)  
-  (3) [Development-time threats, such as data poisoning](/go/developmenttime/)  
-  (4) [Runtime conventional security threats, such as leaking input](/go/runtimeconventionalsec/)  
-  (5) [AI security testing](/go/testing/)  
-  (6) [AI privacy](/go/aiprivacy/)  
-  (7) [References](/go/references/)
-
-This page (AI security overview) will continue with discussions about:
-- A high-level overview of threats
-- Various overviews of threats and controls: the matrix, the periodic table, and the navigator
-- Risk analysis to select relevant threats and controls
-- Various other topics: heuristic systems, responsible AI, generative AI, the NCSC/CISA guidelines, and copyright
-
----
 
 ## AI security essentials
 >Category: discussion  
