@@ -106,9 +106,9 @@ async function main() {
       
       const level = parseInt(h.tagName.substring(1));
       const li = document.createElement('li');
-      li.style.marginLeft = `\${(level - 1) * 20}px`;
+      li.style.marginLeft = `${(level - 1) * 20}px`;
       const a = document.createElement('a');
-      a.href = `#\${id}`;
+      a.href = `#${id}`;
       a.textContent = h.textContent.trim();
       li.appendChild(a);
       tocList.appendChild(li);
@@ -118,6 +118,18 @@ async function main() {
 
     contentDiv.appendChild(mainContent);
   }
+
+  // Resolve images
+  console.log('Resolving images...');
+  const imgs = document.querySelectorAll('img');
+  imgs.forEach(img => {
+    let src = img.getAttribute('src');
+    if (!src) return;
+    if (src.startsWith('http') || src.startsWith('data:') || src.startsWith('file:')) return;
+    
+    const cleanSrc = src.startsWith('/') ? src.substring(1) : src;
+    img.src = 'file://' + path.join(SITE_DIR, cleanSrc);
+  });
 
   // Resolve links
   console.log('Resolving links...');
@@ -170,7 +182,7 @@ async function main() {
   const finalHtml = fullHtml.serialize();
   const htmlPath = path.join(__dirname, 'print.html');
   fs.writeFileSync(htmlPath, finalHtml);
-  console.log(`HTML saved to \${htmlPath}`);
+  console.log(`HTML saved to ${htmlPath}`);
 
   console.log('Generating PDF with Puppeteer...');
   const browser = await puppeteer.launch({ headless: 'new', args: ['--no-sandbox', '--disable-setuid-sandbox'] });
@@ -188,12 +200,14 @@ async function main() {
       <div style="width: 100%; font-size: 10px; text-align: center; color: #777;">
         <span class="pageNumber"></span> / <span class="totalPages"></span>
       </div>`,
-    printBackground: true
+    printBackground: true,
+    generateDocumentOutline: true,
+    tagged: true
   });
   
   await browser.close();
-  console.log(`PDF saved to \${pdfPath}`);
-  console.log('PDF generation complete. Note: Bookmarks require pdf-lib logic which can be added if needed, but TOC provides navigation.');
+  console.log(`PDF saved to ${pdfPath}`);
+  console.log('PDF generation complete.');
 }
 
 main().catch(err => {
