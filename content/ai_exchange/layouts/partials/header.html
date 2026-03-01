@@ -656,19 +656,24 @@
   background: transparent;
 }
 
-/* Bar showing match count and next/previous (issue #137) */
+/* Bar showing match count and next/previous (issue #137) - fixed at bottom so always visible */
 .search-highlight-bar {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 0.75rem;
-  margin-bottom: 1rem;
-  background: rgba(76, 175, 80, 0.12);
-  border: 1px solid rgba(76, 175, 80, 0.35);
+  background: rgba(76, 175, 80, 0.95);
+  border: 1px solid rgba(76, 175, 80, 0.6);
   border-radius: 8px;
   font-size: 0.9rem;
   opacity: 0;
   transition: opacity 0.2s ease;
+  z-index: 9997;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 .search-highlight-bar-visible {
   opacity: 1;
@@ -910,7 +915,7 @@ function runScrollToHighlight() {
   if (!term || !term.trim()) return;
   const termTrimmed = term.trim();
   if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-  const container = document.querySelector(".docs-body") || document.querySelector(".docs-content") || document.querySelector("main.docs-main") || document.querySelector("main") || document.querySelector(".content") || document.querySelector("article") || document.body;
+  const container = document.querySelector("main")?.parentElement || document.querySelector(".docs-body") || document.querySelector(".docs-content") || document.querySelector("main.docs-main") || document.querySelector("main") || document.querySelector(".content") || document.querySelector("article") || document.body;
   if (!container) return;
   const needle = termTrimmed.toLowerCase();
   const regex = new RegExp(escapeRegex(termTrimmed), "gi");
@@ -935,7 +940,6 @@ function runScrollToHighlight() {
   }
 
   const allHighlightSpans = [];
-  let firstScrollElement = null;
 
   // Second pass: for each text node, wrap every occurrence in a span and replace the node
   textNodesToProcess.forEach(function (textNode) {
@@ -961,18 +965,26 @@ function runScrollToHighlight() {
     }
     if (frag.childNodes.length) {
       textNode.parentNode.replaceChild(frag, textNode);
-      if (!firstScrollElement && allHighlightSpans.length > 0) {
-        var el = allHighlightSpans[0].parentElement;
-        while (el && el !== container && !/^(P|LI|TD|TH|DIV|H[1-6]|BLOCKQUOTE|PRE|SECTION)$/i.test(el.tagName)) el = el.parentElement;
-        firstScrollElement = el;
-      }
     }
   });
 
-  // Fade out highlights after a delay (keep layout intact)
-  allHighlightSpans.forEach(function (span) {
-    setTimeout(function () { span.classList.add("fade-out"); }, 20000);
+  // Sort by visual position (top, then left) so first match is topmost on page (fixes TOC vs content order)
+  allHighlightSpans.sort(function (a, b) {
+    var ra = a.getBoundingClientRect();
+    var rb = b.getBoundingClientRect();
+    var diff = ra.top - rb.top;
+    if (diff !== 0) return diff;
+    return ra.left - rb.left;
   });
+
+  var firstScrollElement = null;
+  if (allHighlightSpans.length > 0) {
+    var el = allHighlightSpans[0].parentElement;
+    while (el && el !== container && !/^(P|LI|TD|TH|DIV|H[1-6]|BLOCKQUOTE|PRE|SECTION|NAV)$/i.test(el.tagName)) el = el.parentElement;
+    firstScrollElement = el;
+  }
+
+  // Highlights stay until user clicks Clear (no auto-fade)
 
   // Scroll to first occurrence and add brief scroll highlight
   if (firstScrollElement && firstScrollElement !== document.body) {
@@ -989,11 +1001,9 @@ function runScrollToHighlight() {
         firstScrollElement.scrollIntoView({ behavior: "auto", block: "center" });
       }
     }
-    if (!window.location.hash) {
-      requestAnimationFrame(function () { requestAnimationFrame(doScroll); });
-      setTimeout(doScroll, 100);
-      setTimeout(doScroll, 400);
-    }
+    requestAnimationFrame(function () { requestAnimationFrame(doScroll); });
+    setTimeout(doScroll, 100);
+    setTimeout(doScroll, 400);
   }
 
   // Optional: show match counter and next/previous navigation (issue #137 enhancements)
@@ -1035,22 +1045,27 @@ function runScrollToHighlight() {
     kbdHint.textContent = "↑↓ or Enter";
     bar.appendChild(kbdHint);
     bar.appendChild(closeBtn);
-    container.insertBefore(bar, container.firstChild);
+    document.body.appendChild(bar);
 
     let currentIndex = 0;
     function setCurrentIndex(i) {
       if (i < 0 || i >= allHighlightSpans.length) return;
-      allHighlightSpans[currentIndex].classList.remove("search-highlight-current");
+      var prev = allHighlightSpans[currentIndex];
+      if (prev && prev.isConnected) prev.classList.remove("search-highlight-current");
       currentIndex = i;
-      allHighlightSpans[currentIndex].classList.add("search-highlight-current");
+      var next = allHighlightSpans[currentIndex];
+      if (next && next.isConnected) next.classList.add("search-highlight-current");
       updateCountText(currentIndex);
       prevBtn.disabled = currentIndex === 0;
       nextBtn.disabled = currentIndex === allHighlightSpans.length - 1;
     }
     function scrollToIndex(i) {
       if (i < 0 || i >= allHighlightSpans.length) return;
+      var span = allHighlightSpans[i];
+      if (!span.isConnected) return; // span may have been removed by another script (e.g. AOS)
       setCurrentIndex(i);
-      allHighlightSpans[i].scrollIntoView({ behavior: "smooth", block: "center" });
+      // Use "auto" not "smooth" - smooth scroll can trigger AOS/other scripts during animation and remove highlights
+      span.scrollIntoView({ behavior: "auto", block: "center" });
     }
     setCurrentIndex(0);
 
@@ -1098,9 +1113,15 @@ function runScrollToHighlight() {
   const clean = params.toString() ? location.pathname + "?" + params + location.hash : location.pathname + location.hash;
   history.replaceState(null, "", clean);
 }
+function scheduleScrollToHighlight() {
+  // Run after layout (hash scroll, etc.) so sort-by-position and scroll target are correct
+  requestAnimationFrame(function () {
+    requestAnimationFrame(runScrollToHighlight);
+  });
+}
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", runScrollToHighlight);
+  document.addEventListener("DOMContentLoaded", scheduleScrollToHighlight);
 } else {
-  runScrollToHighlight();
+  scheduleScrollToHighlight();
 }
 </script>
