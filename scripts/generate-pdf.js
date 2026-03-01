@@ -6,6 +6,7 @@ const puppeteer = require('puppeteer');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 const SITE_DIR = path.join(PROJECT_ROOT, 'content/ai_exchange/public');
+const STATIC_DIR = path.join(PROJECT_ROOT, 'content/ai_exchange/static');
 const FIREBASE_JSON = path.join(PROJECT_ROOT, 'content/ai_exchange/firebase.json');
 
 const PAGES = [
@@ -20,10 +21,68 @@ const PAGES = [
   '/docs/ai_security_index/index.html'
 ];
 
-// Simple static file server
+// Resolve a URL path (e.g. /images/foo.png or /content/ai_exchange/public/images/foo.png) to a local file path.
+// Returns the path to use for serving, or null if not found. Tries public then static.
+// Known content mistakes: HTML sometimes references a filename that doesn't exist; we try the correct one.
+const IMAGE_ALIASES = {
+  'threatscontrols2-readymodel-hosted.png': 'threatscontrols-readymodel-hosted.png',
+};
+function resolveImagePath(urlPath) {
+  let clean = urlPath.replace(/^\//, '').split('?')[0];
+  const base = path.basename(clean);
+  if (IMAGE_ALIASES[base]) {
+    clean = clean.replace(base, IMAGE_ALIASES[base]);
+  }
+  if (clean.startsWith('content/ai_exchange/public/')) {
+    const p = path.join(PROJECT_ROOT, clean);
+    if (fs.existsSync(p)) return p;
+    const staticPath = path.join(PROJECT_ROOT, clean.replace('content/ai_exchange/public/', 'content/ai_exchange/static/'));
+    if (fs.existsSync(staticPath)) return staticPath;
+    return null;
+  }
+  if (clean.startsWith('content/ai_exchange/static/')) {
+    const p = path.join(PROJECT_ROOT, clean);
+    if (fs.existsSync(p)) return p;
+    const publicPath = path.join(PROJECT_ROOT, clean.replace('content/ai_exchange/static/', 'content/ai_exchange/public/'));
+    if (fs.existsSync(publicPath)) return publicPath;
+    return null;
+  }
+  if (clean.startsWith('assets/')) {
+    const p = path.join(PROJECT_ROOT, clean);
+    return fs.existsSync(p) ? p : null;
+  }
+  if (clean.startsWith('images/')) {
+    const inPublic = path.join(SITE_DIR, clean);
+    if (fs.existsSync(inPublic)) return inPublic;
+    const inStatic = path.join(STATIC_DIR, clean);
+    if (fs.existsSync(inStatic)) return inStatic;
+    return null;
+  }
+  return null;
+}
+
+// Simple static file server: strict path resolution, binary-safe for images
 function startServer(rootDir) {
   const server = http.createServer((req, res) => {
-    const filePath = path.join(rootDir, req.url === '/' ? 'index.html' : req.url);
+    let reqPath = req.url;
+    const queryIdx = reqPath.indexOf('?');
+    if (queryIdx !== -1) reqPath = reqPath.slice(0, queryIdx);
+    if (reqPath === '/') reqPath = '/index.html';
+    if (reqPath === '/favicon.ico') reqPath = '/content/ai_exchange/static/favicon.ico';
+
+    const relativePath = reqPath.replace(/^\//, '');
+    let filePath = path.join(rootDir, relativePath);
+
+    // If this looks like an image path we resolve, use resolveImagePath for consistent lookup
+    const normalized = relativePath.replace(/\\/g, '/');
+    if (normalized.startsWith('content/ai_exchange/') && /\.(png|jpg|jpeg|gif|svg|webp|ico)$/i.test(normalized)) {
+      const resolved = resolveImagePath(reqPath);
+      if (resolved) filePath = resolved;
+    } else if (normalized.startsWith('assets/') || normalized.startsWith('images/')) {
+      const resolved = resolveImagePath('/' + normalized);
+      if (resolved) filePath = resolved;
+    }
+
     const extname = String(path.extname(filePath)).toLowerCase();
     const mimeTypes = {
       '.html': 'text/html',
@@ -31,31 +90,29 @@ function startServer(rootDir) {
       '.css': 'text/css',
       '.json': 'application/json',
       '.png': 'image/png',
-      '.jpg': 'image/jpg',
+      '.jpg': 'image/jpeg',
+      '.jpeg': 'image/jpeg',
       '.gif': 'image/gif',
       '.svg': 'image/svg+xml',
+      '.webp': 'image/webp',
+      '.ico': 'image/x-icon',
     };
     const contentType = mimeTypes[extname] || 'application/octet-stream';
-    fs.readFile(filePath, (error, content) => {
-      if (error) {
-        if(error.code == 'ENOENT') {
-          res.writeHead(404, { 'Content-Type': 'text/html' });
-          res.end('404: File Not Found', 'utf-8');
-        } else {
-          res.writeHead(500);
-          res.end('Sorry, check with the site admin for error: '+error.code+' ..\n');
-        }
-      } else {
-        res.writeHead(200, { 'Content-Type': contentType });
-        res.end(content, 'utf-8');
+    const isText = /^(text\/|application\/json)/.test(contentType);
+
+    fs.readFile(filePath, (err, content) => {
+      if (err) {
+        res.writeHead(404, { 'Content-Type': 'text/plain' });
+        res.end('Not Found', 'utf-8');
+        return;
       }
+      res.writeHead(200, { 'Content-Type': contentType });
+      res.end(isText ? content.toString('utf-8') : content);
     });
   });
 
   return new Promise((resolve) => {
-    server.listen(0, '127.0.0.1', () => {
-      resolve(server);
-    });
+    server.listen(0, '127.0.0.1', () => resolve(server));
   });
 }
 
@@ -100,6 +157,19 @@ async function main() {
     frontPage.innerHTML = frontPageContent;
     contentDiv.appendChild(frontPage);
 
+    // Validate front page image exists
+    const frontPageImg = frontPage.querySelector('img');
+    if (frontPageImg) {
+      const src = frontPageImg.getAttribute('src') || '';
+      const pathOnly = src.split('?')[0];
+      if (pathOnly.startsWith('/assets') || pathOnly.startsWith('/images')) {
+        if (!resolveImagePath(pathOnly)) {
+          throw new Error(`Missing front page image: ${pathOnly}. Cannot generate PDF.`);
+        }
+        frontPageImg.setAttribute('src', `http://127.0.0.1:${port}${pathOnly}`);
+      }
+    }
+
     const tocDiv = document.createElement('div');
     tocDiv.id = 'table-of-contents';
     tocDiv.innerHTML = `<h1>Table of Contents</h1><ul id="toc-list"></ul>`;
@@ -140,23 +210,47 @@ async function main() {
         tocList.appendChild(li);
       });
 
-      // Now, resolve paths for the content we are about to append
+      // Resolve and validate image paths before appending; fail if any local image is missing
+      const missingImages = [];
       mainContent.querySelectorAll('img').forEach(img => {
         let src = img.getAttribute('src');
         if (!src) return;
-        
-        // Strip query strings for local file lookups
         const originalSrc = src.split('?')[0];
 
         if (originalSrc.startsWith('http')) {
-            // already absolute
+          // Rewrite owaspai.org/images/* to local so we can validate and serve
+          if (originalSrc.startsWith('https://owaspai.org/images/') || originalSrc.startsWith('http://owaspai.org/images/')) {
+            const localPath = '/images/' + originalSrc.replace(/^https?:\/\/owaspai\.org\/images\//, '');
+            const resolved = resolveImagePath(localPath);
+            if (!resolved) {
+              missingImages.push({ src: originalSrc, context: pagePath });
+            } else {
+              img.setAttribute('src', `http://127.0.0.1:${port}/content/ai_exchange/public${localPath}`);
+            }
+          }
         } else if (originalSrc.startsWith('//')) {
-            img.setAttribute('src', `https:${originalSrc}`);
+          img.setAttribute('src', `https:${originalSrc}`);
         } else if (originalSrc.startsWith('/')) {
-            // Path is relative to the project root
-            img.setAttribute('src', `http://127.0.0.1:${port}${originalSrc.startsWith('/assets') ? '' : '/content/ai_exchange/public'}${originalSrc}`);
+          const base = originalSrc.startsWith('/assets') ? '' : '/content/ai_exchange/public';
+          const localPathForResolve = base ? base + originalSrc : originalSrc;
+          const resolved = resolveImagePath(localPathForResolve);
+          if (originalSrc.startsWith('/assets') || originalSrc.startsWith('/images')) {
+            if (!resolved) {
+              missingImages.push({ src: originalSrc, context: pagePath });
+            } else {
+              img.setAttribute('src', `http://127.0.0.1:${port}${base || ''}${originalSrc}`);
+            }
+          } else {
+            if (resolved) img.setAttribute('src', `http://127.0.0.1:${port}${localPathForResolve}`);
+          }
         }
+        img.removeAttribute('loading');
       });
+
+      if (missingImages.length > 0) {
+        missingImages.forEach(({ src, context }) => console.error(`Missing image: ${src} (in ${context})`));
+        throw new Error(`Missing ${missingImages.length} image(s) on disk. Cannot generate PDF. Fix paths or add files.`);
+      }
 
       contentDiv.appendChild(mainContent);
     }
@@ -184,7 +278,8 @@ async function main() {
     h1, h2, h3, h4, h5 { color: #002843; page-break-after: avoid; }
     p, li { break-inside: avoid-page; }
     pre { white-space: pre-wrap; break-inside: avoid; }
-    table { width: 100%; border-collapse: collapse; margin-bottom: 1em; break-inside: auto; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 1em; break-inside: auto; border: 1px solid #333; }
+    table th, table td { border: 1px solid #333; padding: 0.4em 0.6em; text-align: left; }
     tr { break-inside: avoid; }
     img { max-width: 100%; height: auto; display: block; margin: 1em auto; }
     .front-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 90vh; page-break-after: always; }
@@ -200,7 +295,52 @@ async function main() {
     console.log('Generating PDF with Puppeteer...');
     const browser = await puppeteer.launch({ headless: 'new', args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-web-security'] });
     const page = await browser.newPage();
+
+    const failedUrls = []; // 404 or request failed
+    page.on('response', (response) => {
+      if (response.status() === 404) {
+        failedUrls.push({ url: response.url(), reason: '404 Not Found' });
+      }
+    });
+    page.on('requestfailed', (request) => {
+      const failure = request.failure();
+      failedUrls.push({ url: request.url(), reason: failure ? failure.errorText : 'request failed' });
+    });
+
     await page.goto(`http://127.0.0.1:${port}/scripts/print.html`, { waitUntil: 'networkidle0' });
+
+    // Wait for all images to load and decode
+    await page.evaluate(async () => {
+      const images = Array.from(document.querySelectorAll('img'));
+      await Promise.all(images.map((img) => {
+        if (img.complete && img.naturalWidth > 0) return Promise.resolve();
+        return new Promise((resolve) => {
+          img.onload = () => resolve();
+          img.onerror = () => resolve();
+          if (img.complete) resolve();
+        });
+      }));
+      return new Promise((r) => setTimeout(r, 300));
+    });
+
+    if (failedUrls.length > 0) {
+      console.error('Resource(s) failed to load (PDF generation aborted):');
+      failedUrls.forEach(({ url, reason }) => console.error(`  ${reason}: ${url}`));
+      await browser.close();
+      throw new Error(`${failedUrls.length} resource(s) failed to load. Aborting PDF generation.`);
+    }
+
+    const brokenImages = await page.evaluate(() => {
+      return Array.from(document.querySelectorAll('img'))
+        .filter((img) => img.naturalWidth === 0 || img.naturalHeight === 0)
+        .map((img) => img.src);
+    });
+    if (brokenImages.length > 0) {
+      console.error('Image(s) failed to decode (PDF generation aborted):');
+      brokenImages.forEach((src) => console.error(`  ${src}`));
+      await browser.close();
+      throw new Error(`${brokenImages.length} image(s) failed to load or decode. Aborting PDF generation.`);
+    }
 
     const pdfPath = path.join(SITE_DIR, 'OWASP-AI-Exchange.pdf');
     await page.pdf({
@@ -214,9 +354,11 @@ async function main() {
         generateDocumentOutline: true,
         tagged: true
     });
+    fs.copyFileSync(pdfPath, path.join(SITE_DIR, 'OWASP-AI-Exchange-Automated.pdf'));
     
     await browser.close();
     console.log(`PDF saved to ${pdfPath}`);
+    console.log(`PDF saved to ${path.join(SITE_DIR, 'OWASP-AI-Exchange-Automated.pdf')}`);
     console.log('PDF generation complete.');
 
   } finally {
