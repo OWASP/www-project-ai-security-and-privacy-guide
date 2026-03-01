@@ -940,7 +940,6 @@ function runScrollToHighlight() {
   }
 
   const allHighlightSpans = [];
-  let firstScrollElement = null;
 
   // Second pass: for each text node, wrap every occurrence in a span and replace the node
   textNodesToProcess.forEach(function (textNode) {
@@ -966,13 +965,24 @@ function runScrollToHighlight() {
     }
     if (frag.childNodes.length) {
       textNode.parentNode.replaceChild(frag, textNode);
-      if (!firstScrollElement && allHighlightSpans.length > 0) {
-        var el = allHighlightSpans[0].parentElement;
-        while (el && el !== container && !/^(P|LI|TD|TH|DIV|H[1-6]|BLOCKQUOTE|PRE|SECTION)$/i.test(el.tagName)) el = el.parentElement;
-        firstScrollElement = el;
-      }
     }
   });
+
+  // Sort by visual position (top, then left) so first match is topmost on page (fixes TOC vs content order)
+  allHighlightSpans.sort(function (a, b) {
+    var ra = a.getBoundingClientRect();
+    var rb = b.getBoundingClientRect();
+    var diff = ra.top - rb.top;
+    if (diff !== 0) return diff;
+    return ra.left - rb.left;
+  });
+
+  var firstScrollElement = null;
+  if (allHighlightSpans.length > 0) {
+    var el = allHighlightSpans[0].parentElement;
+    while (el && el !== container && !/^(P|LI|TD|TH|DIV|H[1-6]|BLOCKQUOTE|PRE|SECTION|NAV)$/i.test(el.tagName)) el = el.parentElement;
+    firstScrollElement = el;
+  }
 
   // Highlights stay until user clicks Clear (no auto-fade)
 
@@ -1040,17 +1050,22 @@ function runScrollToHighlight() {
     let currentIndex = 0;
     function setCurrentIndex(i) {
       if (i < 0 || i >= allHighlightSpans.length) return;
-      allHighlightSpans[currentIndex].classList.remove("search-highlight-current");
+      var prev = allHighlightSpans[currentIndex];
+      if (prev && prev.isConnected) prev.classList.remove("search-highlight-current");
       currentIndex = i;
-      allHighlightSpans[currentIndex].classList.add("search-highlight-current");
+      var next = allHighlightSpans[currentIndex];
+      if (next && next.isConnected) next.classList.add("search-highlight-current");
       updateCountText(currentIndex);
       prevBtn.disabled = currentIndex === 0;
       nextBtn.disabled = currentIndex === allHighlightSpans.length - 1;
     }
     function scrollToIndex(i) {
       if (i < 0 || i >= allHighlightSpans.length) return;
+      var span = allHighlightSpans[i];
+      if (!span.isConnected) return; // span may have been removed by another script (e.g. AOS)
       setCurrentIndex(i);
-      allHighlightSpans[i].scrollIntoView({ behavior: "smooth", block: "center" });
+      // Use "auto" not "smooth" - smooth scroll can trigger AOS/other scripts during animation and remove highlights
+      span.scrollIntoView({ behavior: "auto", block: "center" });
     }
     setCurrentIndex(0);
 
@@ -1098,9 +1113,15 @@ function runScrollToHighlight() {
   const clean = params.toString() ? location.pathname + "?" + params + location.hash : location.pathname + location.hash;
   history.replaceState(null, "", clean);
 }
+function scheduleScrollToHighlight() {
+  // Run after layout (hash scroll, etc.) so sort-by-position and scroll target are correct
+  requestAnimationFrame(function () {
+    requestAnimationFrame(runScrollToHighlight);
+  });
+}
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", runScrollToHighlight);
+  document.addEventListener("DOMContentLoaded", scheduleScrollToHighlight);
 } else {
-  runScrollToHighlight();
+  scheduleScrollToHighlight();
 }
 </script>
