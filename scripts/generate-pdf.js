@@ -3,6 +3,7 @@ const http = require('http');
 const path = require('path');
 const { JSDOM } = require('jsdom');
 const puppeteer = require('puppeteer');
+const { PDFDocument } = require('pdf-lib');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 const SITE_DIR = path.join(PROJECT_ROOT, 'content/ai_exchange/public');
@@ -27,6 +28,58 @@ const PAGES = [
 const IMAGE_ALIASES = {
   'threatscontrols2-readymodel-hosted.png': 'threatscontrols-readymodel-hosted.png',
 };
+
+function normalizeImgSrcForParity(src) {
+  if (!src) return '';
+  const s = src.split('?')[0].trim();
+  const m = s.match(/(images\/[^/]+|assets\/images\/[^/]+)$/);
+  return m ? m[1] : s.replace(/^https?:\/\/[^/]+/, '').replace(/^\/content\/ai_exchange\/(?:public|static)\//, '').replace(/^\//, '');
+}
+
+function assertContentParity(printHtmlPath) {
+  const printHtml = fs.readFileSync(printHtmlPath, 'utf-8');
+  const printDom = new JSDOM(printHtml);
+  const content = printDom.window.document.getElementById('content') || printDom.window.document.body;
+  const printImages = new Set();
+  content.querySelectorAll('img').forEach((img) => {
+    const norm = normalizeImgSrcForParity(img.getAttribute('src') || '');
+    if (norm) printImages.add(norm);
+  });
+  const printTables = content.querySelectorAll('table').length;
+
+  let totalWebsiteImages = 0;
+  const allWebsiteImageNorms = new Set();
+  let totalWebsiteTables = 0;
+
+  for (const pagePath of PAGES) {
+    const fullPath = path.join(SITE_DIR, pagePath);
+    if (!fs.existsSync(fullPath)) continue;
+    const html = fs.readFileSync(fullPath, 'utf-8');
+    const dom = new JSDOM(html);
+    const container = dom.window.document.querySelector('.docs-content') || dom.window.document.body;
+    container.querySelectorAll('img').forEach((img) => {
+      const norm = normalizeImgSrcForParity(img.getAttribute('src') || '');
+      if (norm) {
+        allWebsiteImageNorms.add(norm);
+        totalWebsiteImages++;
+      }
+    });
+    totalWebsiteTables += container.querySelectorAll('table').length;
+  }
+
+  const missingInPdf = [...allWebsiteImageNorms].filter((n) => !printImages.has(n));
+  if (missingInPdf.length > 0) {
+    throw new Error(`Content parity failed: images in website but missing from PDF: ${missingInPdf.join(', ')}`);
+  }
+  if (printImages.size < totalWebsiteImages) {
+    throw new Error(`Content parity failed: website has ${totalWebsiteImages} images, PDF has ${printImages.size}`);
+  }
+  if (printTables < totalWebsiteTables) {
+    throw new Error(`Content parity failed: website has ${totalWebsiteTables} tables, PDF has ${printTables}`);
+  }
+  console.log(`Content parity OK: ${printImages.size} images, ${printTables} tables`);
+}
+
 function resolveImagePath(urlPath) {
   let clean = urlPath.replace(/^\//, '').split('?')[0];
   const base = path.basename(clean);
@@ -196,7 +249,7 @@ async function main() {
         continue;
       }
       mainContent.querySelectorAll('a[title="Suggest an improvement via GitHub"]').forEach(el => el.remove());
-      const headings = mainContent.querySelectorAll('h1, h2, h3');
+      const headings = mainContent.querySelectorAll('h1, h2, h3, h4, h5');
       headings.forEach(h => {
         const id = h.id || h.textContent.trim().replace(/\s+/g, '-').toLowerCase();
         h.id = id;
@@ -272,18 +325,57 @@ async function main() {
         }
     });
 
+    // Mark wide tables (6+ cols = pdf-wide-table, 8+ cols = pdf-extra-wide)
+    contentDiv.querySelectorAll('table').forEach((table) => {
+      const colCount = table.querySelector('tr')?.querySelectorAll('th, td').length || 0;
+      if (colCount >= 8) table.classList.add('pdf-wide-table', 'pdf-extra-wide');
+      else if (colCount >= 6) table.classList.add('pdf-wide-table');
+    });
+
+    // Wrap images with captions (figcaption or alt)
+    contentDiv.querySelectorAll('img').forEach((img) => {
+      const parent = img.parentNode;
+      if (!parent || parent === contentDiv) return;
+      const fig = parent.closest('figure');
+      const existingCaption = fig ? fig.querySelector('figcaption') : null;
+      const captionText = existingCaption
+        ? existingCaption.textContent.trim()
+        : (img.getAttribute('alt') || '').trim();
+      if (!captionText) return;
+      if (fig && existingCaption) return;
+      const wrapper = document.createElement('figure');
+      wrapper.className = 'pdf-figure';
+      img.parentNode.insertBefore(wrapper, img);
+      wrapper.appendChild(img);
+      const cap = document.createElement('figcaption');
+      cap.className = 'pdf-figcaption';
+      cap.textContent = captionText;
+      wrapper.appendChild(cap);
+    });
+
     const style = document.createElement('style');
     style.textContent = `
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 16px; line-height: 1.6; color: #333; }
-    h1, h2, h3, h4, h5 { color: #002843; page-break-after: avoid; }
-    p, li { break-inside: avoid-page; }
-    pre { white-space: pre-wrap; break-inside: avoid; }
-    table { width: 100%; border-collapse: collapse; margin-bottom: 1em; break-inside: auto; border: 1px solid #333; }
-    table th, table td { border: 1px solid #333; padding: 0.4em 0.6em; text-align: left; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 15.5px; line-height: 1.65; color: #333; }
+    h1, h2, h3, h4, h5 { color: #002843; page-break-after: avoid; margin-top: 1.2em; margin-bottom: 0.6em; }
+    p, li { break-inside: avoid-page; margin-bottom: 0.8em; }
+    p { margin-top: 0.4em; }
+    pre { white-space: pre-wrap; break-inside: avoid; margin: 1em 0; padding: 0.8em; }
+    table { width: 100%; border-collapse: collapse; margin: 1.5em 0; break-inside: auto; border: 1px solid #333; }
+    table th, table td { border: 1px solid #333; padding: 0.6em 0.8em; text-align: left; }
     tr { break-inside: avoid; }
-    img { max-width: 100%; height: auto; display: block; margin: 1em auto; }
+    table.pdf-wide-table { font-size: 0.82em; table-layout: fixed; }
+    table.pdf-wide-table th, table.pdf-wide-table td { word-break: break-word; overflow-wrap: break-word; }
+    table.pdf-wide-table tr { break-inside: auto; }
+    table.pdf-extra-wide { font-size: 0.72em; }
+    table.pdf-extra-wide th, table.pdf-extra-wide td { padding: 0.35em 0.5em; }
+    .pdf-figure { margin: 2em auto; break-inside: avoid; }
+    .pdf-figure img { width: 100%; max-width: 100%; height: auto; display: block; margin: 0 auto; }
+    .pdf-figcaption { font-size: 0.9em; color: #555; text-align: center; margin-top: 0.6em; font-style: italic; }
+    img { width: 100%; max-width: 100%; height: auto; display: block; margin: 2em auto; }
     .front-page { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 90vh; page-break-after: always; }
     .docs-content { page-break-inside: avoid; }
+    blockquote { margin: 1em 0; padding: 0.6em 1em; }
+    ul, ol { margin: 0.6em 0; padding-left: 1.5em; }
   `;
     document.head.appendChild(style);
 
@@ -291,6 +383,8 @@ async function main() {
     const tempHtmlPath = path.join(PROJECT_ROOT, 'scripts', 'print.html');
     fs.writeFileSync(tempHtmlPath, finalHtml);
     console.log(`HTML saved to ${tempHtmlPath}`);
+
+    assertContentParity(tempHtmlPath);
 
     console.log('Generating PDF with Puppeteer...');
     const browser = await puppeteer.launch({ headless: 'new', args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-web-security'] });
@@ -354,11 +448,20 @@ async function main() {
         generateDocumentOutline: true,
         tagged: true
     });
-    fs.copyFileSync(pdfPath, path.join(SITE_DIR, 'OWASP-AI-Exchange-Automated.pdf'));
-    
     await browser.close();
+
+    const pdfBytes = fs.readFileSync(pdfPath);
+    const pdfDoc = await PDFDocument.load(pdfBytes);
+    pdfDoc.setTitle('OWASP AI Exchange');
+    pdfDoc.setAuthor('OWASP AI Exchange');
+    pdfDoc.setSubject('AI security and privacy - threats, controls, and best practices');
+    pdfDoc.setKeywords(['AI security', 'AI privacy', 'OWASP', 'threats', 'controls', 'machine learning', 'LLM']);
+    pdfDoc.setCreator('OWASP AI Exchange');
+    pdfDoc.setProducer('OWASP AI Exchange');
+    const modifiedPdfBytes = await pdfDoc.save();
+    fs.writeFileSync(pdfPath, modifiedPdfBytes);
+
     console.log(`PDF saved to ${pdfPath}`);
-    console.log(`PDF saved to ${path.join(SITE_DIR, 'OWASP-AI-Exchange-Automated.pdf')}`);
     console.log('PDF generation complete.');
 
   } finally {

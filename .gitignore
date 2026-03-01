@@ -21,3 +21,6 @@ go.work
 *.test
 *.out
 */firebase.json
+
+# Deprecated PDF output (we now only generate OWASP-AI-Exchange.pdf)
+OWASP-AI-Exchange-Automated.pdf

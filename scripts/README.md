@@ -2,6 +2,22 @@
 
 This directory contains the scripts and assets used to generate the OWASP AI Exchange PDF from the website's HTML content.
 
+## Running the Generator
+
+**Prerequisites:** The site must be built first. Either run the full build or build the site and search index:
+
+```bash
+# Full build (site + search + PDF) - recommended
+npm run build:all
+
+# Or step by step:
+npm run build:site    # Build Hugo site
+npm run pagefind     # Build search index
+npm run build:pdf    # Generate PDF (requires site to be built)
+```
+
+The PDF is saved to `content/ai_exchange/public/OWASP-AI-Exchange.pdf`.
+
 ## Modifying the PDF Look and Feel
 
 There are two main ways to customize the look and feel of the generated PDF:
@@ -28,12 +44,12 @@ For all other styling (fonts, colors, margins, table of contents, headers/footer
   - `headerTemplate` & `footerTemplate`: Customize the HTML used for the header and footer on each page. Note that the font sizes here are generally smaller and require inline styles.
   - `format`: Set the page format (e.g., `A4`, `Letter`).
 
-## Running the Generator
+- **PDF Metadata:** Title, author, subject, and keywords are set via pdf-lib after generation. Search for `pdfDoc.setTitle` in `generate-pdf.js` to modify.
 
-To generate the PDF manually, make sure you have run `npm install`, then execute:
+## Image Quality
 
-```bash
-node scripts/generate-pdf.js
-```
+For best PDF output, use source images at least **600–800 px wide**. Small images (e.g. 464–479 px) will be scaled up and may appear pixelated. Images in sections 2.1, 2.3, and 2.4 are currently below this threshold; replacing them with higher-resolution versions will improve quality.
 
-The resulting PDF will be saved to `content/ai_exchange/public/OWASP-AI-Exchange.pdf`.
+## Content Parity
+
+PDF generation includes a content parity check. It fails if images or tables in the assembled PDF content don't match the website. Fix any missing images or content mismatches before the PDF will generate successfully.
