@@ -656,19 +656,24 @@
   background: transparent;
 }
 
-/* Bar showing match count and next/previous (issue #137) */
+/* Bar showing match count and next/previous (issue #137) - fixed at bottom so always visible */
 .search-highlight-bar {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 0.75rem;
-  margin-bottom: 1rem;
-  background: rgba(76, 175, 80, 0.12);
-  border: 1px solid rgba(76, 175, 80, 0.35);
+  background: rgba(76, 175, 80, 0.95);
+  border: 1px solid rgba(76, 175, 80, 0.6);
   border-radius: 8px;
   font-size: 0.9rem;
   opacity: 0;
   transition: opacity 0.2s ease;
+  z-index: 9997;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 .search-highlight-bar-visible {
   opacity: 1;
@@ -910,7 +915,7 @@ function runScrollToHighlight() {
   if (!term || !term.trim()) return;
   const termTrimmed = term.trim();
   if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-  const container = document.querySelector(".docs-body") || document.querySelector(".docs-content") || document.querySelector("main.docs-main") || document.querySelector("main") || document.querySelector(".content") || document.querySelector("article") || document.body;
+  const container = document.querySelector("main")?.parentElement || document.querySelector(".docs-body") || document.querySelector(".docs-content") || document.querySelector("main.docs-main") || document.querySelector("main") || document.querySelector(".content") || document.querySelector("article") || document.body;
   if (!container) return;
   const needle = termTrimmed.toLowerCase();
   const regex = new RegExp(escapeRegex(termTrimmed), "gi");
@@ -969,10 +974,7 @@ function runScrollToHighlight() {
     }
   });
 
-  // Fade out highlights after a delay (keep layout intact)
-  allHighlightSpans.forEach(function (span) {
-    setTimeout(function () { span.classList.add("fade-out"); }, 20000);
-  });
+  // Highlights stay until user clicks Clear (no auto-fade)
 
   // Scroll to first occurrence and add brief scroll highlight
   if (firstScrollElement && firstScrollElement !== document.body) {
@@ -989,11 +991,9 @@ function runScrollToHighlight() {
         firstScrollElement.scrollIntoView({ behavior: "auto", block: "center" });
       }
     }
-    if (!window.location.hash) {
-      requestAnimationFrame(function () { requestAnimationFrame(doScroll); });
-      setTimeout(doScroll, 100);
-      setTimeout(doScroll, 400);
-    }
+    requestAnimationFrame(function () { requestAnimationFrame(doScroll); });
+    setTimeout(doScroll, 100);
+    setTimeout(doScroll, 400);
   }
 
   // Optional: show match counter and next/previous navigation (issue #137 enhancements)
@@ -1035,7 +1035,7 @@ function runScrollToHighlight() {
     kbdHint.textContent = "↑↓ or Enter";
     bar.appendChild(kbdHint);
     bar.appendChild(closeBtn);
-    container.insertBefore(bar, container.firstChild);
+    document.body.appendChild(bar);
 
     let currentIndex = 0;
     function setCurrentIndex(i) {
