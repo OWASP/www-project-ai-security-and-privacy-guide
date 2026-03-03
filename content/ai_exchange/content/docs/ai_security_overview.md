@@ -176,18 +176,22 @@ The AI Exchange is a single coherent resource on the security and privacy of AI 
 - **Secure a system**:  
    If you want your **AI system to be secure**, start with [risk analysis](/go/riskanalysis/) to guide you through a number of questions, resulting in the threats that apply. And when you click on those threats you'll find the controls (countermeasures) to check for, or to implement.
    Alternatively, you can let our [AGENT](https://notebooklm.google.com/notebook/75840a00-78f8-454d-ad4d-9ac27ae4cf48) ask YOU questions about your system and threat model for you. Use this prompt: "Can you look at the risk analysis section and ask me in a few iterations the relevant questions from that section about my AI system, to determine what threats apply to my system, according to the AI Exchange, and give me the permalinks of those threats as hyperlinks to click on?"
-- **Learn / look up**:  
-  - For the short story with the main insights in what is special about AI security: see the [AI Exchange essentials](/go/essentials/).
+- **Learn AI security**:  
+  - Step 1: First study the brief [AI security essentials](/go/essentials/) for the **big picture**.
+  - Step 2: **Select** the threats that are relevant to your practice, by looking at [risk analysis](/go/riskanalysis/) - or let AI interview you to find out (see above), or skip this step if you want to learn the complete threat picture.
+  - Step 3: If you're involved in **Agentic AI**, see the brief discussion of how [agentic threats](/go/agenticaithreats/) are covered.
+  - Step 4: If you run a **ready-made model**, have a look at the [threat model on ready-made models](/go/readymademodel/).
+  - Step 5: See your **threats** in their context ** in the [AI threat model](/go/threatsoverview/) and the [AI security matrix](/go/aisecuritymatrix).
+  - Step 6: Click on your relevant threats in that overview to to get more information and how to protect against it.
+  - Step 7: To find out what to do against a specific threat, check the **Controls** section of that threat, or the [periodic table](/go/periodictable/) which lists the controls for every threat.
+  - Step 8: To learn about the bigger picture how controls play a role, and interact: see the [controls overview](/go/controlsoverview/) 
+  - Step 9: If **privacy** is in scope for you: see [the privacy section](/go/aiprivacy/).
+  - Step 10: If you're involved in **testing**: see [the testing section](/go/testing/).
+  - To learn more about education programs, see [#SEC EDUCATE](/go/seceducate/)
   - If you prefer one document: download a [snapshot of the Exchange in pdf](/OWASP-AI-Exchange.pdf).
-  - To see a general overview and discussion of all **threats** from different angles, check the [AI threat model](/go/threatsoverview/) or the [AI security matrix](/go/aisecuritymatrix). In case you know the threat you need to protect against, find it in the overview of your choice and click to get more information and how to protect against it.
-  - To find out what to do against a specific threat, check the [controls overview](/go/controlsoverview/) or the [periodic table](/go/periodictable/) to find the right **controls**.
-  - To understand what controls to apply in different deployment models: have a look at the [section on ready-made models](/go/readymademodel/).
-  - To learn about **privacy** of AI systems, check [the privacy section](/go/aiprivacy/).
-  - Agentic AI aspects are covered throughout all content, plus a specific section [here](/go/agenticaithreats/).
+- **Lookup**:
   - To look up a specific topic, use the search function or the [index](/go/index/).
   - Looking for more information, or training material: see the [references](/go/references/).
-- **Test**:  
-  If you want to **test** the security of AI systems with tools, go to [the testing page](/go/testing/).
 
 The AI exchange covers both heuristic artificial intelligence (e.g., expert systems) and machine learning. This means that when we talk about an AI system, it can for example be a Large Language Model, a linear regression function, a rule-based system, or a lookup table based on statistics. Throughout this document, it is made clear which threats and controls play a role and when.
 
