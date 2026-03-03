@@ -310,7 +310,11 @@ Useful standards include:
 > Permalink: https://owaspai.org/go/seceducate/
 
 **Description**  
-Security education for data scientists and development teams on AI threat awareness, including attacks on models. It is essential for all engineers, including data scientists, to attain a security mindset.
+Education on AI security is a key prerequisite for AI engineers, development teams, and security professionals. The [section on how to organize AI Security](/go/organize/) presents the following steps to understand AI security:
+1. Based on the inventory of your applications of AI and AI ideas, understand which threats apply
+2. Then make sure engineers and security professionals understand those relevant threats and their controls. Note that most of these controls are familiar conventional security countermeasures, unless you are training your own model.
+3. Use the courses and resources in the [references](/go/references/) section to support the understanding.
+4. Distinguish between controls that your organization has to implement, and those that are the responsbility of your supplier. 
 
 **References**  
 Useful standards include:
