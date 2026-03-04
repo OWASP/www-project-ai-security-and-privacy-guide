@@ -11,7 +11,7 @@ An AI system is an IT system, so at runtime it can be vulnerable to any security
 
 [Section 2](/go/threatsuse/) covers runtime attacks that are AI-specific: attacks performed through inference - by using the system and providing model input. [Section 3](/go/developmenttime/) covers attacks during development-time: mostly coventional attacks (e.g. breaking into a training database) with sometimes AI-specific consequences (e.g., changing model behaviour) plus AI-specific supply chain attacks.  
 
-So, this page covers conventional security attacks that have AI-specific consequences. For example: changing model behaviour by hacking into a runtime database of augmentation data. The details of how these attacks are performed are covered in many other resources. This section focuses on the AI-specific consequences and the categories of controls required. In-depth coverage of controls against conventional attacks are covered in many other resources. This section focuses on AI-specific aspects of these controls, such as the option of using a Trusted Execution Environment for models.  
+So, this page covers conventional security attacks that have AI-specific consequences. For example: changing model behaviour by hacking into a runtime database of augmentation data (data that is added to the model input). The details of how these attacks are performed are covered in many other resources. This section focuses on the AI-specific consequences and the categories of controls required. In-depth coverage of controls against conventional attacks are covered in many other resources. This section focuses on AI-specific aspects of these controls, such as the option of using a Trusted Execution Environment for models.  
 
 The subsections cover non-AI-specific threats, model poisoning, model leak, insecure output handling, leaking input data, and attacks on augmentation data.
 
@@ -177,11 +177,13 @@ Model input confidentiality: see [SECDEVPROGRAM](/go/secdevprogram/) to attain c
 **Description**  
 Impact: Confidentiality breach of sensitive augmentation data through a conventional attack on the data at rest or in transit.
 
-Augmentation data (ad hoc retrieved information inserted into a prompt), for example for Retrieval Augmented Generation, is typically stored in _vector databases_. This increases the attack surface for any sensitive data, since it's stored outside its regular storage with the regular protection (e.g., company reports) and therefore requires additional protection.   
+Augmentation data (ad hoc retrieved information inserted into a prompt, such as system prompts, or documents), needs to be transfered and stored - for example for Retrieval Augmented Generation typically in _vector databases_. This increases the attack surface for any sensitive data, since it's stored outside its regular storage with the regular protection (e.g., company document archive) and therefore requires additional protection.   
 
 So-called _vectors_ that form a representation of augmentation data are typically vulnerable for extracting information and should therefore be included in protection.
 
-An alternative way for augmentation data to leek is described in [input data leak](/go/inputdataleak/). The best practice is to assume that augmentation data can leak to the output, so the access rights for that data need to align with the rights of the user(s) that can see the output. 
+Alternative ways for augmentation data to leak are:
+- [input data leak](/go/inputdataleak/)
+- [disclosure in output](/go/disclosureinoutput/) - it is best to assume that augmentation data can leak to the output, so the access rights for that data need to align with the rights of the user(s) that can see the output. 
 
 **References**
 - [Mitigating Security Risks in RAG LLM Applications, November 2023, CSA](https://cloudsecurityalliance.org/blog/2023/11/22/mitigating-security-risks-in-retrieval-augmented-generation-rag-llm-applications)
@@ -209,7 +211,7 @@ See the [security program](/go/secprogram/) and [application security](/go/secde
 
 Impact: Integrity breach of augmentation data through a conventional attack on the data at rest or in transit - leading to manipulated model behaviour.
 
-Augmentation data (background information added to a prompt) is typically stored in _vector databases_. When augmentation data is manipulated (e.g., inserting false information), it can change the output of the model - making it very similar to [data poisoning](/go/datapoison/).
+Augmentation data (background information added to a prompt) can be stored in _vector databases_ or _system prompt storage_. When augmentation data is manipulated (e.g., inserting false information), it can change the output of the model - making it very similar to [data poisoning](/go/datapoison/).
 
 **References**
 - [Mitigating Security Risks in RAG LLM Applications, November 2023, CSA](https://cloudsecurityalliance.org/blog/2023/11/22/mitigating-security-risks-in-retrieval-augmented-generation-rag-llm-applications)
