@@ -7,7 +7,8 @@
     "build:pdf": "node scripts/generate-pdf.js",
     "build:all": "npm run build:site && npm run pagefind && npm run build:pdf",
     "serve": "npx serve content/ai_exchange/public -p 3000",
-    "test:site": "npm run build:site && npm run pagefind && npm run serve"
+    "test:site": "npm run build:site && npm run pagefind && npm run serve",
+    "test:e2e": "node e2e/run.js"
   },
   "dependencies": {
     "jsdom": "^28.1.0",
