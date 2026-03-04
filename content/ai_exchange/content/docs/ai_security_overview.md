@@ -321,7 +321,7 @@ In AI, we outline 6 types of impacts that align with three types of attacker goa
 
 The threats that create these impacts use different attack surfaces. For example: the confidentiality of training data can be compromised by hacking into the database during development, but it can also get leaked by a _membership inference attack_ that can find out whether a certain individual was in the train data, simply by feeding that person's data into the model and looking at the details of the model output.
 
-The diagram shows the threats as arrows. Each threat has a specific impact, indicated by letters referring to the Impact legend. The [control overview section](/go/controlsoverview/) contains this diagram with groups of controls added.
+The diagram shows the threats as arrows. Each threat has a specific impact, indicated by letters referring to the Impact legend. The [control overview section](/go/controlsoverview/) contains this diagram with groups of controls added. For a list of the assets in this diagram, see [the security program subsection](/go/secprogram/).
 [![](/images/threats.png?v=2)](/images/threats.png?v=2)
 
 Note that some threats represent attacks consisting of several steps, and therefore present multiple threats in one, for example:
