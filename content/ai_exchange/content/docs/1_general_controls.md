@@ -110,7 +110,7 @@ Make sure to include AI-specific assets and the threats to them. The threats are
 - intended model behaviour
 - data to train and test obtained from external sources
 - models to train and use from external sources
-- augmentation data that is inserted into the model input
+- augmentation data that is automatically inserted into the model input (e.g. documents, system prompts)
 
 By incorporating these assets and the threats to them, the security program takes care of mitigating these risks. For example: by informing engineers in awareness training that they should not leave their documentation lying around. Or: by installing malware detection on engineer machines because of the high sensitivity of the training data that they work with. 
 
