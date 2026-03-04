@@ -968,7 +968,7 @@ function runScrollToHighlight() {
     }
   });
 
-  // Sort by visual position (top, then left) so first match is topmost on page (fixes TOC vs content order)
+  // Sort by visual position (top, then left) so first match is topmost on page
   allHighlightSpans.sort(function (a, b) {
     var ra = a.getBoundingClientRect();
     var rb = b.getBoundingClientRect();
@@ -978,8 +978,39 @@ function runScrollToHighlight() {
   });
 
   var firstScrollElement = null;
+  var scrollTargetSpan = null;
+
   if (allHighlightSpans.length > 0) {
-    var el = allHighlightSpans[0].parentElement;
+    // If URL has a hash (e.g. #threats-to-agentic-ai), scroll to first match IN that section (issue #150)
+    var hash = location.hash && location.hash.slice(1);
+    var sectionEl = hash && document.getElementById(hash);
+    if (sectionEl) {
+      var headingEl = sectionEl.closest("h1, h2, h3, h4, h5, h6") || sectionEl;
+      var headingLevel = headingEl ? parseInt((headingEl.tagName || "H6").replace(/\D/g, "") || 6, 10) : 6;
+      var sectionElements = [headingEl];
+      var sib = headingEl.nextElementSibling;
+      while (sib) {
+        var tag = (sib.tagName || "").toUpperCase();
+        if (/^H[1-6]$/.test(tag)) {
+          var lvl = parseInt(tag.replace(/\D/g, ""), 10);
+          if (lvl <= headingLevel) break;
+        }
+        sectionElements.push(sib);
+        sib = sib.nextElementSibling;
+      }
+      for (var i = 0; i < allHighlightSpans.length; i++) {
+        var sp = allHighlightSpans[i];
+        for (var j = 0; j < sectionElements.length; j++) {
+          if (sectionElements[j].contains(sp)) {
+            scrollTargetSpan = sp;
+            break;
+          }
+        }
+        if (scrollTargetSpan) break;
+      }
+    }
+    if (!scrollTargetSpan) scrollTargetSpan = allHighlightSpans[0];
+    var el = scrollTargetSpan.parentElement;
     while (el && el !== container && !/^(P|LI|TD|TH|DIV|H[1-6]|BLOCKQUOTE|PRE|SECTION|NAV)$/i.test(el.tagName)) el = el.parentElement;
     firstScrollElement = el;
   }
@@ -1047,7 +1078,9 @@ function runScrollToHighlight() {
     bar.appendChild(closeBtn);
     document.body.appendChild(bar);
 
-    let currentIndex = 0;
+    var initialIndex = scrollTargetSpan ? allHighlightSpans.indexOf(scrollTargetSpan) : 0;
+    if (initialIndex < 0) initialIndex = 0;
+    let currentIndex = initialIndex;
     function setCurrentIndex(i) {
       if (i < 0 || i >= allHighlightSpans.length) return;
       var prev = allHighlightSpans[currentIndex];
@@ -1067,7 +1100,7 @@ function runScrollToHighlight() {
       // Use "auto" not "smooth" - smooth scroll can trigger AOS/other scripts during animation and remove highlights
       span.scrollIntoView({ behavior: "auto", block: "center" });
     }
-    setCurrentIndex(0);
+    setCurrentIndex(initialIndex);
 
     prevBtn.addEventListener("click", function () { scrollToIndex(currentIndex - 1); });
     nextBtn.addEventListener("click", function () { scrollToIndex(currentIndex + 1); });
