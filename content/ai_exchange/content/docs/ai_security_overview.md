@@ -265,12 +265,12 @@ What makes AI special when it comes to security? Well, it deals with a new set o
   1. **[Model input threats](/go/inputthreats/)**:  
       - [Evasion](/go/evasion/): Misleading a model by crafting data to force wrong decisions
       - [Prompt injection](/go/promptinjection/): Misleading a model by crafting instructions to manipulate behaviour
-      - [Extracting data from the model](/go/disclosureinoutput/): training data, augmentation data, or input
+      - [Extracting data from the model](/go/disclosureinoutput/): training data, augmentation data (including system prompts), or input
       - [Extracting of the model itself](/go/modelexfiltration/) by querying the model
       - [Resource exhaustion](/go/airesourceexhaustion/) through use
   2. **New suppliers** introduce threats of corrupted external [data](/go/datapoison/), [models](/go/supplymodelpoison/), and [model hosting](/go/readymademodel/)
   3. **New AI assets** with conventional threats, notably:  
-      - Training data / augmentation data - can leak and [poisoning](/go/datapoison/) this data manipulates model behaviour
+      - Training data / augmentation data (e.g. system prompts) - can leak and [poisoning](/go/datapoison/) this data manipulates model behaviour
       - Model - can suffer from [leaking during development](/go/devmodelleak/) or [leaking during runtime](/go/runtimemodelleak/) and when it comes to ingegrity: from [poisoning during development](/go/devmodelpoison/) or [poisoning during runtime](/go/runtimemodelpoison/)
       - Input - can [leak](/go/inputdataleak/)
       - Output - can contain [injection attacks](/go/outputcontainsconventionalinjection/)
@@ -422,7 +422,7 @@ The groups of controls form a summary of how to address AI security (controls ar
     - Apply standard **conventional security controls** (e.g., 15408, ASVS, OpenCRE, ISO 27001 Annex A, NIST SP800-53) to the complete AI system and don't forget the new AI-specific assets :
       - Development-time: model & data storage, model & data supply chain, data science documentation:  
         > [DEV SECURITY](/go/devsecurity/), [SEGREGATE DATA](/go/segregatedata/), [DISCRETE](/go/discrete/)
-      - Runtime: model storage, model use, augmentation data, and model input/output:  
+      - Runtime: model storage, model use, augmentation data (including system prompts), and model input/output:  
         > [RUNTIME MODEL INTEGRITY](/go/runtimemodelintegrity/), [RUNTIME MODEL IO INTEGRITY](/go/runtimemodeliointegrity/), [RUNTIME MODEL CONFIDENTIALITY](/go/runtimemodelconfidentiality/), [MODEL INPUT CONFIDENTIALITY](/go/modelinputconfidentiality/), [ENCODE MODEL OUTPUT](/go/encodemodeloutput/), [LIMIT RESOURCES](/go/limitresources/), [AUGMENTATION DATA CONFIDENTIALITY](/go/augmentationdataconfidentiality/), [AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity/)
     - **Adapt** conventional IT security controls to make them more suitable for AI (e.g., which usage patterns to monitor for):  
       > [MONITOR USE](/go/monitoruse/), [MODEL ACCESS CONTROL](/go/modelaccesscontrol/), [RATE LIMIT](/go/ratelimit/)
@@ -590,10 +590,10 @@ Discovering potential risks that could impact the organization requires the tech
   Why not train/finetune a model yourself? There are many third party and open source models that may be able to perform the required task, perhaps after some fine tuning. Organizations often choose external GenAI models because they are typically general purpose, and training is difficult and expensive (often millions of dollars). Finetuning of generative AI is also not often performed by organizations given the cost of compute and the complexity involved. Some GenAI models can be obtained and run on your own infrastructure. The reasons for this can be lower cost (if it is an open source model), and the fact that sensitive input information does not have to be sent externally. A reason to use an externally hosted GenAI model can be the quality of the model.
  
  
-  Question: Does your system insert (augment) data to the input of your model, like for example in RAG (Retrieval Augmented Generation), or by  ?
+  Question: Does your system insert (augment) data to the input of your model, like for example in RAG (Retrieval Augmented Generation), or by having _system prompts_ (standard instructions to the model that are automatically added to the input) ?
   Yes:
-  - Then the inserted data plays a role in determining the model behaviour. This means you need to ask: Is this augmentation data untrusted (i.e. it may have been crafted by adversaries)? If Yes: it needs to be protected against [manipulation](/go/augmentationdatamanipulation/).
-  - Is this augmentation data stored in a datanbase where it is collected from various sources (e.g., a vector database)? If Yes: you need to protect against [leaking](/go/augmentationdataleak/)
+  - Then the inserted data plays a role in determining the model behaviour. If Yes: it needs to be protected against [manipulation](/go/augmentationdatamanipulation/) and if it is retrieved data that is untrusted (possibly manipulated), then [limiting unwanted model behaviour](/go/limitunwanted/) is a critical countermeasure.
+  - Is this augmentation data stored in a database for the purpose of the AI system (e.g., a vector database)? If Yes: you need to protect against [leaking](/go/augmentationdataleak/). Note that this also counts for system prompts, if they are sensitive.
 
   Question: Who runs the model?
   - The supplier runs the model: select a trustworthy supplier through [supply chain management](/go/supplychainmanage/), to make sure the deployed model cannot be manipulated ([runtime model poisoning](/go/runtimemodelpoison/)) - just the way you would expect any supplier to protect their running application from manipulation.
