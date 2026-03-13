@@ -1,1 +1,20 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AI Exchange – Categories</title><link>https://owaspai.org/categories/</link><description>Recent content in Categories on AI Exchange</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://owaspai.org/categories/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AI Exchange – Categories</title>
+    <link>http://localhost:1313/categories/</link>
+    <description>Recent content in Categories on AI Exchange</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>info@owaspai.org (OWASP AI Exchange)</managingEditor>
+    <webMaster>info@owaspai.org (OWASP AI Exchange)</webMaster>
+    
+	  <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+  </channel>
+</rss>

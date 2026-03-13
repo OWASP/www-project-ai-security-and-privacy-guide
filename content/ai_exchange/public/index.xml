@@ -1,1 +1,19 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AI Exchange –</title><link>https://owaspai.org/</link><description>Recent content on AI Exchange</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://owaspai.org/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AI Exchange – </title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on AI Exchange</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>info@owaspai.org (OWASP AI Exchange)</managingEditor>
+    <webMaster>info@owaspai.org (OWASP AI Exchange)</webMaster>
+    
+	  <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+      
+    
+    
+  </channel>
+</rss>

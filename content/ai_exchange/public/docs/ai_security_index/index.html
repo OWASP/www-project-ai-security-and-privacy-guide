@@ -3,16 +3,16 @@
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     
 
-<meta property="og:title" content="AI Exchange" />
+<meta property="og:title" content="Index – AI Exchange" />
 <meta property="og:description" content="Comprehensive guidance and alignment on how to protect AI against security threats - by professionals, for professionals." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/homepage_old/" />
-<meta property="og:image" content="https://owaspai.org/images/aix-og-logo.jpg" /><meta property="article:section" content="" />
+<meta property="og:url" content="http://localhost:1313/docs/ai_security_index/" />
+<meta property="og:image" content="https://owaspai.org/images/aix-og-logo.jpg" /><meta property="article:section" content="docs" />
 
    <meta charset="utf-8" />
   <script src="https://cdn.tailwindcss.com"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AI Exchange</title>
+  <title>Index | AI Exchange</title>
   <meta name="description" content="" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -885,108 +885,546 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
     <main id="main">
-<div class="">
+
+<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css"/>
+
+<section
+  class="intro-banner text-white py-12 mb-0 bg-cover bg-center bg-no-repeat"
+  style="background-image: url('/images/overview-hero.png')"
+>
+  <div class="container text-left bg-opacity-50 p-8 rounded-lg">
+    <h1 class="text-[46px] md:text-5xl font-bold mb-4">Index</h1>
+    <p class="text-lg text-gray-300 max-w-4xl">
+      Engage with the OWASP AI team through various platforms.
+    </p>
+      
+  </div>
+</section>
+
+<div class="docs-layout" x-data="{ openSidebar: false, openToc: false }">
+
   
-  <p align="center">
-<table style="border: none;">
-  <tr>
-    <td style="border: none;">
-      <img src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aixlogosml3-flag.jpg?raw=true" alt="OWASP AI Exchange Logo"/>
-    </td>
-    <td style="border: none;">
-      <a href="https://youtu.be/kQC7ouDB_z8" target="_blank" rel="noopener noreferrer">
-        <img width="177" height="123" src="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/assets/images/aixinfomercialthumbnail-small2.png?raw=true" style="border: none;"/>
-      </a>
-    </td>
-  </tr>
-</table>
-</p>
-<blockquote>
-<p>Welcome to the go-to resource for broad AI security &amp; privacy - over 200 pages of practical advice and references on protecting AI and data-centric systems from threats. This content serves as key bookmark for practitioners, and is contributing actively and substantially to international standards such as ISO/IEC and the AI Act through official standard partnerships. Through broad collaboration with key institutes and SDOs, the <em>Exchange</em> represents the consensus on AI security and privacy.<br>
-See the <a href="/goto/aiatowasp/" >overview of AI projects at OWASP</a>.</p>
+  <div class="md:hidden flex flex-col gap-3 p-4">
+    
+    <div class="bg-[#EEF3FF] rounded-xl shadow-sm">
+      <button
+        @click="openSidebar = !openSidebar"
+        class="w-full flex justify-between items-center text-gray-800 font-semibold px-5 py-3"
+      >
+        <span>AI Security Overview</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          :class="{'rotate-90': openSidebar}"
+          class="w-5 h-5 text-gray-600 transform transition-transform"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      
+      <div x-show="openSidebar" x-transition class="px-5 pb-3">
+        <ul class="flex flex-col text-left text-sm font-medium text-gray-700 space-y-2">
+          <li><a href="/docs/ai_security_overview/" class="hover:text-[#006284]">0. AI Security Overview </a></li>
+          <li><a href="/docs/1_general_controls/" class="hover:text-[#006284]">1. General Controls</a></li>
+          <li><a href="/docs/2_threats_through_use/" class="hover:text-[#006284]">2. Threats Through Use</a></li>
+          <li><a href="/docs/3_development_time_threats/" class="hover:text-[#006284]">3. Development-Time Threats</a></li>
+          <li><a href="/docs/4_runtime_application_security_threats/" class="hover:text-[#006284]">4. Runtime Application Security Threats</a></li>
+          <li><a href="/docs/5_testing/" class="hover:text-[#006284]">5. AI Security Testing</a></li>
+          <li><a href="/docs/6_privacy/" class="hover:text-[#006284]">6. AI Privacy</a></li>
+          <li><a href="/docs/ai_security_references/" class="hover:text-[#006284]">AI Security References</a></li>
+          <li><a href="/docs/" class="hover:text-[#006284]">Index</a></li>
+        </ul>
+      </div>
+    </div>
+
+    
+    <div class="bg-[#EEF3FF] rounded-xl shadow-sm">
+      <button
+        @click="openToc = !openToc"
+        class="w-full flex justify-between items-center text-gray-800 font-semibold px-5 py-3"
+      >
+        <span>Select Topics</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          :class="{'rotate-90': openToc}"
+          class="w-5 h-5 text-gray-600 transform transition-transform"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      
+      <div x-show="openToc" x-transition class="px-5 pb-3">
+        <div class="text-left text-sm text-gray-700 space-y-2">
+          <nav id="TableOfContents"></nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="hidden md:flex docs-sidebar-column">
+    <aside class="docs-sidebar p-0">
+      <div class="sidebar-container pt-6">
+        <nav class="sidebar-nav">
+          <ul class="flex flex-col">
+            <li><a href="/docs/ai_security_overview/" class="sidebar-nav-link "><span>0. AI Security Overview</span></a></li>
+            <li><a href="/docs/1_general_controls/" class="sidebar-nav-link "><span>1. General controls</span></a></li>
+            <li><a href="/docs/2_threats_through_use/" class="sidebar-nav-link "><span>2. Threats through use</span></a></li>
+            <li><a href="/docs/3_development_time_threats/" class="sidebar-nav-link "><span>3. Development-time threats</span></a></li>
+            <li><a href="/docs/4_runtime_application_security_threats/" class="sidebar-nav-link "><span>4. Runtime application security threats</span></a></li>
+            <li><a href="/docs/5_testing/" class="sidebar-nav-link "><span>5. AI security testing</span></a></li>
+            <li><a href="/docs/6_privacy/" class="sidebar-nav-link "><span>6. AI privacy</span></a></li>
+            <li><a href="/docs/ai_security_references/" class="sidebar-nav-link "><span>AI Security References</span></a></li>
+            <li><a href="/docs/" class="sidebar-nav-link "><span>Index</span></a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    
+  </div>
+
+  
+  <main class="docs-main">
+    <div class="docs-content">
+      <nav class="breadcrumbs">
+        <a href="/">Home</a>
+        <span class="breadcrumb-separator">></span>
+        <span class="current-page">Index</span>
+      </nav>
+      <h1 class="docs-title">Index</h1>
+      <div class="docs-body documentation">
+        <blockquote>
+<p>Permalink: <a href="https://owaspai.org/goto/index/" target="_blank" rel="noopener">https://owaspai.org/goto/index/</a></p>
 </blockquote>
-<div style="height: 10px;"></div>
+<p>Find clickable topics in alphabetetical order below. For an overview of threats and their controls, see the <a href="/goto/periodictable/" >Periodic table of AI security</a>.</p>
+<p>A<br>
+<a href="/goto/evasion/" >Adversarial attacks</a><br>
+<a href="/goto/agenticaithreats/" >Agentic AI</a><br>
+<a href="/goto/modelalignment/" >Alignment</a></p>
+<p>B<br>
+<a href="/goto/unwantedbiastesting/" >Bias</a></p>
+<p>C<br>
+<a href="/goto/checkcompliance/" >Compliance</a><br>
+<a href="/goto/continuousvalidation/" >Continuous validation</a><br>
+<a href="/contribute" >Contribute</a><br>
+<a href="/goto/controlsoverview/" >Controls</a><br>
+<a href="/goto/copyright/" >Copyright</a><br>
+<a href="/goto/culturesensitivealignment/" >Cultural sensitivity</a></p>
+<p>D<br>
+<a href="/goto/supplychainmanage/" >Data and model governance</a><br>
+<a href="/goto/disclosureuseoutput/" >Data disclosure in model output</a><br>
+<a href="/goto/datapoison/" >Data poisoning of train/finetune data</a><br>
+<a href="/goto/denialmodelservice/" >Denial of model service</a><br>
+<a href="/goto/directpromptinjection/" >Direct prompt injection</a></p>
+<p>E<br>
+<a href="/goto/checkcompliance/" >EU AI Act</a><br>
+<a href="/goto/evasion/" >Evasion</a><br>
+<a href="/goto/explainability/" >Explainability</a></p>
+<p>F<br>
+<a href="/goto/federatedlearning/" >Federated learning</a></p>
+<p>G<br>
+<a href="/goto/aiprivacy/" >GDPR</a><br>
+<a href="/goto/genai/" >Generative AI</a><br>
+<a href="/goto/governancecontrols/" >Governance</a></p>
+<p>I<br>
+<a href="/goto/indirectpromptinjection/" >Indirect prompt injection</a></p>
+<p>L<br>
+<a href="/goto/genai/" >LLMs</a><br>
+<a href="/goto/monitoruse/" >Logging</a></p>
+<p>M<br>
+<a href="/goto/agenticaithreats/" >MCP</a><br>
+<a href="/goto/media/" >Media</a><br>
+<a href="/goto/modelalignment/" >Model alignment</a><br>
+<a href="/goto/leakinput/" >Model input leak</a><br>
+<a href="/goto/modelinversionandmembership/" >Model inversion / Membership inference</a><br>
+<a href="/goto/insecureoutput" >Model output contains injection</a><br>
+<a href="/goto/devmodelpoison/" >Model poisoning in development-environment</a><br>
+<a href="/goto/runtimemodelpoison/" >Model poisoning in runtime</a><br>
+<a href="/goto/datapoison/" >Model poisoning through data poisoning of train/finetune data</a><br>
+<a href="/goto/runtimemodeltheft/" >Model theft directly in runtime</a><br>
+<a href="/goto/supplymodelpoison/" >Model poisoning in supply chain</a><br>
+<a href="/goto/devmodelleak/" >Model theft in development-time</a><br>
+<a href="/goto/modeltheftuse/" >Model theft through use</a><br>
+<a href="/goto/monitoruse/" >Monitoring</a></p>
+<p>O<br>
+<a href="/goto/oversight/" >Oversight</a></p>
+<p>P<br>
+<a href="/goto/periodictable/" >Periodic table</a><br>
+<a href="/goto/aiprivacy/" >Privacy</a><br>
+<a href="/goto/promptinjection/" >Prompt injection</a></p>
+<p>R<br>
+<a href="/goto/testing/" >Red teaming</a><br>
+<a href="/goto/references/" >References</a><br>
+<a href="/goto/responsibleai/" >Responsible AI</a><br>
+<a href="/goto/riskanalysis/" >Risk analysis</a></p>
+<p>S<br>
+<a href="/goto/modelalignment/" >Safety training</a><br>
+<a href="/sponsor" >Sponsoring</a><br>
+<a href="/goto/supplychainmanage/" >Supply chain management</a></p>
+<p>T<br>
+<a href="/goto/testing/" >Testing</a><br>
+<a href="/goto/riskanalysis/" >Threat modelling</a><br>
+<a href="/goto/threatsoverview/" >Threats</a><br>
+<a href="/goto/devdataleak/" >Training data leaks</a><br>
+<a href="/goto/aitransparency/" >Transparency</a></p>
 
+      </div>
+    </div>
+  </main>
 
-<div class="hextra-cards mt-4 gap-4 grid not-prose" style="--rows: 3;">
-    <a
-      class="hextra-card group flex flex-col justify-start overflow-hidden rounded-lg border border-gray-200 text-current no-underline dark:shadow-none hover:shadow-gray-100 dark:hover:shadow-none shadow-gray-100 active:shadow-sm active:shadow-gray-200 transition-all duration-200 hover:border-gray-300 bg-transparent shadow-sm dark:border-neutral-800 hover:bg-slate-50 hover:shadow-md dark:hover:border-neutral-700 dark:hover:bg-neutral-900"href="/goto/about/" ><span class="flex font-semibold items-start gap-2 text-gray-700 hover:text-gray-900 dark:text-neutral-200 dark:hover:text-neutral-50" style="padding: 0.5rem;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>About</span></a>
-    <a
-      class="hextra-card group flex flex-col justify-start overflow-hidden rounded-lg border border-gray-200 text-current no-underline dark:shadow-none hover:shadow-gray-100 dark:hover:shadow-none shadow-gray-100 active:shadow-sm active:shadow-gray-200 transition-all duration-200 hover:border-gray-300 bg-transparent shadow-sm dark:border-neutral-800 hover:bg-slate-50 hover:shadow-md dark:hover:border-neutral-700 dark:hover:bg-neutral-900"href="/connect" ><span class="flex font-semibold items-start gap-2 text-gray-700 hover:text-gray-900 dark:text-neutral-200 dark:hover:text-neutral-50" style="padding: 0.5rem;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>Connect with us!</span></a>
-    <a
-      class="hextra-card group flex flex-col justify-start overflow-hidden rounded-lg border border-gray-200 text-current no-underline dark:shadow-none hover:shadow-gray-100 dark:hover:shadow-none shadow-gray-100 active:shadow-sm active:shadow-gray-200 transition-all duration-200 hover:border-gray-300 bg-transparent shadow-sm dark:border-neutral-800 hover:bg-slate-50 hover:shadow-md dark:hover:border-neutral-700 dark:hover:bg-neutral-900"href="/contribute" ><span class="flex font-semibold items-start gap-2 text-gray-700 hover:text-gray-900 dark:text-neutral-200 dark:hover:text-neutral-50" style="padding: 0.5rem;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>Contribute</span></a>
-    <a
-      class="hextra-card group flex flex-col justify-start overflow-hidden rounded-lg border border-gray-200 text-current no-underline dark:shadow-none hover:shadow-gray-100 dark:hover:shadow-none shadow-gray-100 active:shadow-sm active:shadow-gray-200 transition-all duration-200 hover:border-gray-300 bg-transparent shadow-sm dark:border-neutral-800 hover:bg-slate-50 hover:shadow-md dark:hover:border-neutral-700 dark:hover:bg-neutral-900"href="/sponsor" ><span class="flex font-semibold items-start gap-2 text-gray-700 hover:text-gray-900 dark:text-neutral-200 dark:hover:text-neutral-50" style="padding: 0.5rem;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>Sponsor</span></a>
-    <a
-      class="hextra-card group flex flex-col justify-start overflow-hidden rounded-lg border border-gray-200 text-current no-underline dark:shadow-none hover:shadow-gray-100 dark:hover:shadow-none shadow-gray-100 active:shadow-sm active:shadow-gray-200 transition-all duration-200 hover:border-gray-300 bg-transparent shadow-sm dark:border-neutral-800 hover:bg-slate-50 hover:shadow-md dark:hover:border-neutral-700 dark:hover:bg-neutral-900"href="/media" ><span class="flex font-semibold items-start gap-2 text-gray-700 hover:text-gray-900 dark:text-neutral-200 dark:hover:text-neutral-50" style="padding: 0.5rem;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>Media</span></a>
-    <a
-      class="hextra-card group flex flex-col justify-start overflow-hidden rounded-lg border border-gray-200 text-current no-underline dark:shadow-none hover:shadow-gray-100 dark:hover:shadow-none shadow-gray-100 active:shadow-sm active:shadow-gray-200 transition-all duration-200 hover:border-gray-300 bg-transparent shadow-sm dark:border-neutral-800 hover:bg-slate-50 hover:shadow-md dark:hover:border-neutral-700 dark:hover:bg-neutral-900"href="/goto/periodictable/" ><span class="flex font-semibold items-start gap-2 text-gray-700 hover:text-gray-900 dark:text-neutral-200 dark:hover:text-neutral-50" style="padding: 0.5rem;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>Periodic table</span></a>
+  
+  <aside class="hidden md:block docs-toc docs-sidebar-column">
+    <div class="toc-container sticky">
+      <h3 class="toc-title py-2">On this page</h3>
+      <div class="toc-content bg-gradient-to-b from-[#CCF6CE] to-[#FDFBFB] border border-gray-300 rounded-lg p-4">
+        <nav id="TableOfContents"></nav>
+      </div>
+    </div>
+  </aside>
 </div>
 
-<table style="width: 100%;  border: 0; margin: 0; padding: 0;">
-  <tr style="border: 0;">
-    <td style="border: 0; text-align: center;">
-      <div style="display: inline-block; text-align: left;">
-<h2>Our Content</h2>
-<ul>
-<li>
-<p><a href="docs/ai_security_overview/" >AI Security Overview</a><br>
-        - <a href="https://owaspai.org/goto/about/" target="_blank" rel="noopener">About the AI Exchange</a><br>
-        - <a href="https://owaspai.org/goto/summary/" target="_blank" rel="noopener">Summary</a><br>
-        - <a href="https://owaspai.org/goto/document/" target="_blank" rel="noopener">How to use this document</a><br>
-        - <a href="https://owaspai.org/goto/threatsoverview/" target="_blank" rel="noopener">Threats</a><br>
-                <a href="https://owaspai.org/goto/aisecuritymatrix/" target="_blank" rel="noopener">Highlight: Threat matrix</a><br>
-        - <a href="https://owaspai.org/goto/controlsoverview/" target="_blank" rel="noopener">Controls</a><br>
-                <a href="https://owaspai.org/goto/periodictable/" target="_blank" rel="noopener">Highlight: Periodic table of threats and controls</a><br>
-        - <a href="https://owaspai.org/goto/riskanalysis/" target="_blank" rel="noopener">Risk analysis</a><br>
-        - <a href="https://owaspai.org/docs/ai_security_overview/#how-about-" target="_blank" rel="noopener">How about &hellip;</a></p>
-</li>
-<li>
-<p><a href="https://owaspai.org/goto/navigator/" target="_blank" rel="noopener">Deep dive into threats and controls:</a><br>
-        - <a href="/docs/1_general_controls" >1. General controls</a><br>
-                <a href="https://owaspai.org/goto/governancecontrols/" target="_blank" rel="noopener">1.1 Governance controls</a><br>
-                <a href="https://owaspai.org/goto/datalimit/" target="_blank" rel="noopener">1.2 Data limitation</a><br>
-                <a href="https://owaspai.org/goto/limitunwanted/" target="_blank" rel="noopener">1.3 Limit unwanted behaviour</a><br>
-        - <a href="/docs/2_threats_through_use/" >2. Threats through use and controls</a><br>
-        - <a href="/docs/3_development_time_threats/" >3. Development-time threats and controls</a><br>
-        - <a href="/docs/4_runtime_application_security_threats/" >4. Runtime application security threats and controls</a></p>
-</li>
-<li>
-<p><a href="/docs/5_testing/" >AI security testing</a></p>
-</li>
-<li>
-<p><a href="/goto/aiprivacy/" >AI privacy</a></p>
-</li>
-<li>
-<p><a href="/docs/ai_security_references/" >References</a></p>
-</li>
-</ul>
-<p>Content also available in <a href="OWASP-AI-Exchange.pdf" >pdf</a></p>
-</div>
-    </td>
-  </tr>
-</table>
-</div>
-<br>
-<hr>
-<b>Sponsors</b>
-<table style="border: none;">
-<tr style="border: none;">
-  <td style="border: none;"><a href="https://www.straiker.ai/" rel="noopener noreferrer" target="_blank"><img src="/images/sp_straiker.jpg" style="display: block; margin: auto;" alt="Straiker sponsor"></a></td>
-  <td style="border: none;"><a href="https://www.casco.com/" rel="noopener noreferrer" target="_blank"><img src="/images/sp_casco.png" style="display: block; margin: auto;" alt="Casco sponsor"></a></td>
-</tr>
-</table>
-<br>
-<hr>
-<b>AI Exchange is trusted by industry giants</b><br><br>
-<b>Dimitri van Zantvliet, Director Cybersecurity, Dutch Railways:</b><br>
-"A risk-based, context-aware approach—like the one OWASP Exchange champions—not only supports the responsible use of AI, but ensures that real threats are mitigated without burdening engineers with irrelevant checklists. We need standards written by those who build and defend these systems every day."<br>
-<p><b>Sri Manda, Chief Security &amp; Trust Officer at Peloton Interactive:</b><br>
-&ldquo;AI regulation is critical for protecting safety and security, and for creating a level playing field for vendors. The challenge is to remove legal uncertainty by making standards really clear, and to avoid unnecessary requirements by building in flexible compliance. I’m very happy to see that OWASP Exchange has taken on these challenges by bringing the security community to the table to ensure we get standards that work.”<br></p>
-<p><b>Prateek Kalasannavar, Staff AI Security Engineer, Lenovo:</b><br>
-“At Lenovo, we’re operationalizing AI product security at scale, from embedded inference on devices to large-scale cloud-hosted models. OWASP AI Exchange serves as a vital anchor for mapping evolving attack surfaces, codifying AI-specific testing methodologies, and driving community-aligned standards for AI risk mitigation. It bridges the gap between theory and engineering.”</p>
+<section id="contact-form" class="relative bg-[#EDF7ED] py-16">
+  <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-center text-[#1a1a2e] mb-16">
+      We are always happy to assist you!
+    </h2>
 
-</div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+      
+      <div>
+        
+        <div class="flex flex-wrap gap-4 mb-8">
+          <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions" target="_blank" class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow">
+            <i class="fab fa-github text-gray-700"></i>
+          </a>
+          <a href="https://owasp.slack.com/join/shared_invite/zt-3iwx0wk01-vLwSQy1NfkD0Cv5UJeMbwQ#/shared-invite/email" target="_blank" class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow">
+            <img src="/images/slack.png" alt="Slack" class="w-6 h-6" />
+          </a>
+          <a href="https://www.linkedin.com/company/owasp-ai-exchange/" target="_blank" class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow">
+            <i class="fab fa-linkedin-in text-blue-700"></i>
+          </a>
+          <a href="https://www.youtube.com/playlist?list=PLCZNSZ1gyRoD5droM_qyXYyBofj00x_zO" target="_blank" class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow">
+            <i class="fab fa-youtube text-red-600"></i>
+          </a>
+        </div>
+        <h3 class="text-2xl font-bold text-[#1a1a2e] mb-4">
+          Send us a message
+        </h3>
+        <p class="text-gray-500 leading-relaxed">
+          Have questions about AI security? Want to contribute to our mission?
+          We'd love to hear from you. Reach out through any of our channels or
+          use the contact form.
+        </p>
+      </div>
+
+      
+      <div>
+        
+        <div id="form-message" class="hidden mb-4 p-4 rounded-lg"></div>
+
+        
+        <div class="block md:hidden bg-white shadow-lg rounded-xl p-6">
+          <form id="contact-form-mobile" class="flex flex-col gap-6" novalidate>
+            <div class="grid grid-cols-1 gap-4">
+              <div>
+                <input id="mobile-first-name" name="first_name" type="text" placeholder="First Name*" required
+                  class="p-4 border border-gray-300 rounded-lg text-base w-full focus:outline-none focus:ring-2 focus:ring-green-500" />
+                <span class="error-message hidden text-red-600 text-sm mt-1"></span>
+              </div>
+              <div>
+                <input id="mobile-last-name" name="last_name" type="text" placeholder="Last Name*" required
+                  class="p-4 border border-gray-300 rounded-lg text-base w-full focus:outline-none focus:ring-2 focus:ring-green-500" />
+                <span class="error-message hidden text-red-600 text-sm mt-1"></span>
+              </div>
+            </div>
+            <div>
+              <input id="mobile-email" name="email" type="email" placeholder="Email Address*" required
+                class="p-4 border border-gray-300 rounded-lg text-base w-full focus:outline-none focus:ring-2 focus:ring-green-500" />
+              <span class="error-message hidden text-red-600 text-sm mt-1"></span>
+            </div>
+            <div>
+              <textarea id="mobile-message" name="message" placeholder="Message" rows="4"
+                class="p-4 border border-gray-300 rounded-lg text-base resize-vertical w-full focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+              <span class="error-message hidden text-red-600 text-sm mt-1"></span>
+            </div>
+            <button type="submit" id="mobile-submit-btn"
+              class="bg-green-500 text-white px-6 py-3 rounded-lg font-bold flex items-center justify-center gap-2 w-max hover:bg-green-600 transition disabled:opacity-50 disabled:cursor-not-allowed">
+              <span id="mobile-submit-text">Submit</span>
+              <span id="mobile-submit-arrow">→</span>
+              <span id="mobile-submit-loader" class="hidden">⏳</span>
+            </button>
+          </form>
+        </div>
+
+        
+        <form id="contact-form-desktop" class="hidden md:flex flex-col gap-6" novalidate>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <input id="desktop-first-name" name="first_name" type="text" placeholder="First Name*" required
+                class="p-4 border border-gray-300 rounded-lg text-base w-full focus:outline-none focus:ring-2 focus:ring-green-500" />
+              <span class="error-message hidden text-red-600 text-sm mt-1"></span>
+            </div>
+            <div>
+              <input id="desktop-last-name" name="last_name" type="text" placeholder="Last Name*" required
+                class="p-4 border border-gray-300 rounded-lg text-base w-full focus:outline-none focus:ring-2 focus:ring-green-500" />
+              <span class="error-message hidden text-red-600 text-sm mt-1"></span>
+            </div>
+          </div>
+          <div>
+            <input id="desktop-email" name="email" type="email" placeholder="Email Address*" required
+              class="p-4 border border-gray-300 rounded-lg text-base w-full focus:outline-none focus:ring-2 focus:ring-green-500" />
+            <span class="error-message hidden text-red-600 text-sm mt-1"></span>
+          </div>
+          <div>
+            <textarea id="desktop-message" name="message" placeholder="Message" rows="4"
+              class="p-4 border border-gray-300 rounded-lg text-base resize-vertical w-full focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+            <span class="error-message hidden text-red-600 text-sm mt-1"></span>
+          </div>
+          <button type="submit" id="desktop-submit-btn"
+            class="bg-green-500 text-white px-6 py-3 rounded-lg font-bold flex items-center justify-center gap-2 w-max hover:bg-green-600 transition disabled:opacity-50 disabled:cursor-not-allowed">
+            <span id="desktop-submit-text">Submit</span>
+            <span id="desktop-submit-arrow">→</span>
+            <span id="desktop-submit-loader" class="hidden">⏳</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  const API_URL = 'https://usabilitydesigns.com/calendar/send-mail.php';
+  
+  
+  const mobileForm = document.getElementById('contact-form-mobile');
+  const desktopForm = document.getElementById('contact-form-desktop');
+  const formMessage = document.getElementById('form-message');
+
+  
+  function validateField(field) {
+    const value = field.value.trim();
+    const fieldName = field.name;
+    let isValid = true;
+    let errorMsg = '';
+
+    
+    field.classList.remove('border-red-500');
+    const errorSpan = field.parentElement.querySelector('.error-message');
+    if (errorSpan) {
+      errorSpan.classList.add('hidden');
+      errorSpan.textContent = '';
+    }
+
+    
+    if (field.hasAttribute('required') && !value) {
+      isValid = false;
+      errorMsg = 'This field is required';
+    }
+
+    
+    if (fieldName === 'email' && value) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        isValid = false;
+        errorMsg = 'Please enter a valid email address';
+      }
+    }
+
+    
+    if (fieldName === 'first_name' && value && value.length < 2) {
+      isValid = false;
+      errorMsg = 'First name must be at least 2 characters';
+    }
+
+    if (fieldName === 'last_name' && value && value.length < 2) {
+      isValid = false;
+      errorMsg = 'Last name must be at least 2 characters';
+    }
+
+    
+    if (!isValid && errorSpan) {
+      field.classList.add('border-red-500');
+      errorSpan.textContent = errorMsg;
+      errorSpan.classList.remove('hidden');
+    }
+
+    return isValid;
+  }
+
+  function validateForm(form) {
+    const fields = form.querySelectorAll('input[required], textarea[required]');
+    let isFormValid = true;
+
+    fields.forEach(field => {
+      if (!validateField(field)) {
+        isFormValid = false;
+      }
+    });
+
+    
+    const emailField = form.querySelector('input[name="email"]');
+    if (emailField && emailField.value.trim()) {
+      if (!validateField(emailField)) {
+        isFormValid = false;
+      }
+    }
+
+    return isFormValid;
+  }
+
+  
+  function showMessage(message, isError = false) {
+    formMessage.textContent = message;
+    formMessage.className = isError 
+      ? 'mb-4 p-4 rounded-lg bg-red-100 border border-red-400 text-red-700' 
+      : 'mb-4 p-4 rounded-lg bg-green-100 border border-green-400 text-green-700';
+    formMessage.classList.remove('hidden');
+    
+    
+    formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    
+    if (!isError) {
+      setTimeout(() => {
+        formMessage.classList.add('hidden');
+      }, 5000);
+    }
+  }
+
+  
+  function setLoadingState(form, isLoading) {
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const submitText = form.querySelector('[id$="-submit-text"]');
+    const submitArrow = form.querySelector('[id$="-submit-arrow"]');
+    const submitLoader = form.querySelector('[id$="-submit-loader"]');
+
+    if (submitBtn) {
+      submitBtn.disabled = isLoading;
+    }
+    if (submitText) {
+      submitText.style.display = isLoading ? 'none' : 'inline';
+    }
+    if (submitArrow) {
+      submitArrow.style.display = isLoading ? 'none' : 'inline';
+    }
+    if (submitLoader) {
+      submitLoader.style.display = isLoading ? 'inline' : 'none';
+    }
+  }
+
+  
+  function resetForm(form) {
+    form.reset();
+    
+    form.querySelectorAll('.error-message').forEach(span => {
+      span.classList.add('hidden');
+      span.textContent = '';
+    });
+    form.querySelectorAll('input, textarea').forEach(field => {
+      field.classList.remove('border-red-500');
+    });
+  }
+
+  
+  async function handleSubmit(form, e) {
+    e.preventDefault();
+
+    
+    formMessage.classList.add('hidden');
+
+    
+    if (!validateForm(form)) {
+      showMessage('Please fill in all required fields correctly.', true);
+      return;
+    }
+
+    
+    const formDataObj = new FormData(form);
+    const data = {
+      first_name: formDataObj.get('first_name'),
+      last_name: formDataObj.get('last_name'),
+      email: formDataObj.get('email'),
+      message: formDataObj.get('message') || ''
+    };
+
+    
+    setLoadingState(form, true);
+
+    try {
+      
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      });
+
+      
+      let result;
+      const contentType = response.headers.get('content-type');
+      if (contentType && contentType.includes('application/json')) {
+        result = await response.json();
+      } else {
+        const text = await response.text();
+        try {
+          result = JSON.parse(text);
+        } catch (e) {
+          
+          if (response.ok) {
+            result = { success: true };
+          } else {
+            result = { success: false, error: 'Server error occurred' };
+          }
+        }
+      }
+
+      if (result.success) {
+        showMessage('Thank you! Your message has been sent successfully.', false);
+        resetForm(form);
+      } else {
+        showMessage(result.error || 'Failed to send message. Please try again later.', true);
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      showMessage('An error occurred while sending your message. Please try again later.', true);
+    } finally {
+      setLoadingState(form, false);
+    }
+  }
+
+  
+  if (mobileForm) {
+    mobileForm.addEventListener('submit', (e) => handleSubmit(mobileForm, e));
+    
+    
+    mobileForm.querySelectorAll('input, textarea').forEach(field => {
+      field.addEventListener('blur', () => validateField(field));
+    });
+  }
+
+  if (desktopForm) {
+    desktopForm.addEventListener('submit', (e) => handleSubmit(desktopForm, e));
+    
+    
+    desktopForm.querySelectorAll('input, textarea').forEach(field => {
+      field.addEventListener('blur', () => validateField(field));
+    });
+  }
+})();
+</script>
+
+
 </main>
     
     <script src="https://cdn.tailwindcss.com"></script>

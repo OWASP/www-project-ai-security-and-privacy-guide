@@ -2,6 +2,10 @@ baseURL: https://owaspai.org/
 languageCode: en-us
 title: AI Exchange
 
+author:
+  name: OWASP AI Exchange
+  email: info@owaspai.org
+
 outputs:
   home:
     - HTML
@@ -15,6 +19,9 @@ module:
 
 
 params:
+  author:
+    name: OWASP AI Exchange
+    email: info@owaspai.org
   og_image: https://owaspai.org/images/aix-og-logo.jpg
   og_description: Comprehensive guidance and alignment on how to protect AI against security threats - by professionals, for professionals.
   navbar:
