@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=62686&amp;path=livereload" data-no-instant defer></script>
     
 
 <meta property="og:title" content="Index – AI Exchange" />
 <meta property="og:description" content="Comprehensive guidance and alignment on how to protect AI against security threats - by professionals, for professionals." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/docs/ai_security_index/" />
+<meta property="og:url" content="http://localhost:62686/docs/ai_security_index/" />
 <meta property="og:image" content="https://owaspai.org/images/aix-og-logo.jpg" /><meta property="article:section" content="docs" />
 
    <meta charset="utf-8" />
@@ -19,16 +19,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css"/>
 
-  <link rel="stylesheet" href="/css/site.css" />
-  <link rel="stylesheet" href="/css/custom-style.css" />
+  <link rel="stylesheet" href="/css/site.css?v=2" />
+  <link rel="stylesheet" href="/css/custom-style.css?v=2" />
   <script src="/js/script.js"></script>
   
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({
-      delay: 0,
-      disable: 'phone',
+    document.addEventListener("DOMContentLoaded", function () {
+      try {
+        if (typeof AOS !== "undefined") AOS.init({ delay: 0, disable: "phone" });
+      } catch (e) {
+        console.warn("AOS.init failed:", e);
+      }
     });
   </script>
   </head>
@@ -104,6 +107,16 @@
     
     <div class="header-actions">
       
+      <a href="/OWASP-AI-Exchange.pdf" class="download-pdf-btn desktop-only" title="Download Full PDF">
+        <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        <span>PDF</span>
+      </a>
+
+      
       <div class="social-icons desktop-social">
         
           
@@ -174,7 +187,6 @@
 <div class="search-overlay" id="searchOverlay">
   <div class="search-container">
     <div class="search-header">
-      <input type="text" id="search-input" placeholder="Search articles, guides, and content..." autocomplete="off" />
       <button class="search-close" id="search-close" aria-label="Close search">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -182,7 +194,7 @@
         </svg>
       </button>
     </div>
-    <div id="search-results"></div>
+    <div id="pagefind-search" class="pagefind-search-container"></div>
   </div>
 </div>
 
@@ -260,11 +272,20 @@
             <circle cx="11" cy="11" r="8"></circle>
             <path d="m21 21-4.35-4.35"></path>
           </svg> Search
-        </button>
-      </li>
-    </ul>
-  </nav>
-
+                  </button>
+              </li>
+              
+              <li class="mobile-nav-item">
+                <a href="/OWASP-AI-Exchange.pdf" class="mobile-nav-link text-center">
+                  <svg class="download-icon inline mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg> Download PDF
+                </a>
+              </li>
+            </ul>
+          </nav>
   
   <div class="mobile-social-icons">
     
@@ -330,6 +351,45 @@
   width: 20px;
   height: 20px;
   stroke: currentColor;
+}
+
+ 
+.download-pdf-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.download-pdf-btn:hover {
+  background: #4CAF50;
+  border-color: #4CAF50;
+  color: white;
+}
+
+.download-icon {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 1024px) {
+  .download-pdf-btn span {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
 }
 
  
@@ -621,28 +681,9 @@
 
 .search-header {
   display: flex;
+  justify-content: flex-end;
   gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.search-header input {
-  flex: 1;
-  padding: 1rem 1.5rem;
-  font-size: 1.25rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  color: white;
-  outline: none;
-}
-
-.search-header input:focus {
-  border-color: #4CAF50;
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.search-header input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1rem;
 }
 
 .search-close {
@@ -668,49 +709,158 @@
   height: 24px;
 }
 
-#search-results {
-  max-height: calc(100vh - 200px);
+ 
+.pagefind-search-container {
+  --pagefind-ui-scale: 1;
+  --pagefind-ui-primary: #4CAF50;
+  --pagefind-ui-text: #fff;
+  --pagefind-ui-background: rgba(255, 255, 255, 0.05);
+  --pagefind-ui-border: rgba(255, 255, 255, 0.2);
+  --pagefind-ui-border-width: 1px;
+  --pagefind-ui-border-radius: 8px;
+  --pagefind-ui-font: inherit;
+  max-height: calc(100vh - 180px);
   overflow-y: auto;
 }
 
-.search-result-item {
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+ 
+#pagefind-search .pagefind-ui__result-nested {
+  display: block !important;
+  position: static !important;
+  margin: 1.5rem 0 1.5rem 1.5rem !important;
+  padding: 1rem !important;
+  border-left: 4px solid #4CAF50 !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  height: auto !important;
+  min-height: 50px !important;
+  clear: both !important;
+}
+
+#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-title,
+#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-excerpt {
+  display: block !important;
+  position: static !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 0 0.8rem 0 !important;
+  padding: 0 !important;
+  line-height: 1.5 !important;
+  float: none !important;
+}
+
+#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-link {
+  display: block !important;
+  position: static !important;
+  color: #4CAF50 !important;
+  font-weight: 700 !important;
+  text-decoration: underline !important;
+}
+
+#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-link::before,
+#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-link::after {
+  content: none !important;
+  display: none !important;
+}
+
+ 
+.search-highlight-scroll {
+  background: rgba(76, 175, 80, 0.2);
+  transition: background 1.5s ease-out;
+}
+
+ 
+.search-highlight-word {
+  background: rgba(255, 235, 59, 0.65);
+  padding: 0 0.1em;
+  border-radius: 2px;
+  transition: background 2s ease-out;
+}
+.search-highlight-word.fade-out {
+  background: transparent;
+}
+
+ 
+.search-highlight-bar {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(76, 175, 80, 0.95);
+  border: 1px solid rgba(76, 175, 80, 0.6);
   border-radius: 8px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 9997;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.search-highlight-bar-visible {
+  opacity: 1;
+}
+.search-highlight-count {
+  margin-right: 0.5rem;
+  font-weight: 500;
+}
+.search-highlight-prev,
+.search-highlight-next {
+  padding: 0.25rem 0.6rem;
+  font-size: 0.85rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  background: rgba(76, 175, 80, 0.25);
+  border: 1px solid rgba(76, 175, 80, 0.4);
+  border-radius: 4px;
+  color: inherit;
 }
-
-.search-result-item:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: #4CAF50;
+.search-highlight-prev:hover,
+.search-highlight-next:hover {
+  background: rgba(76, 175, 80, 0.35);
 }
-
-.search-result-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: white;
-  margin-bottom: 0.5rem;
+.search-highlight-prev:disabled,
+.search-highlight-next:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
-
-.search-result-url {
-  font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 0.5rem;
+.search-highlight-prev:disabled:hover,
+.search-highlight-next:disabled:hover {
+  background: rgba(76, 175, 80, 0.25);
 }
-
-.search-result-snippet {
-  font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.6;
+ 
+.search-highlight-word.search-highlight-current {
+  background: rgba(76, 175, 80, 0.75);
+  box-shadow: 0 0 0 1px rgba(76, 175, 80, 0.5);
 }
-
-.search-highlight {
-  background: rgba(76, 175, 80, 0.3);
-  padding: 2px 4px;
-  border-radius: 3px;
+.search-highlight-word.search-highlight-current.fade-out {
+  background: transparent;
+  box-shadow: none;
+}
+.search-highlight-close {
+  margin-left: auto;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid rgba(76, 175, 80, 0.4);
+  border-radius: 4px;
+  color: inherit;
+}
+.search-highlight-close:hover {
+  background: rgba(76, 175, 80, 0.2);
+}
+.search-highlight-bar .search-highlight-kbd-hint {
+  font-size: 0.75rem;
+  opacity: 0.85;
+  margin-left: 0.25rem;
+}
+@media (max-width: 640px) {
+  .search-highlight-bar .search-highlight-kbd-hint {
+    display: none;
+  }
 }
 
 .mobile-search-btn {
@@ -722,12 +872,111 @@
 }
 </style>
 
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+<script src="/pagefind/pagefind-ui.js"></script>
+
 <script>
+
+document.addEventListener("DOMContentLoaded", () => {
+  const searchToggle = document.getElementById("search-toggle");
+  const searchOverlay = document.getElementById("searchOverlay");
+  const searchClose = document.getElementById("search-close");
+
+  if (typeof PagefindUI !== "undefined") {
+    new PagefindUI({
+      element: "#pagefind-search",
+      translations: { placeholder: "Search articles, guides, and content..." },
+      showSubResults: true,
+      subResultsHierarchical: true,
+      highlightParam: "highlight",
+      showImages: false,
+      resetStyles: false,
+      autofocus: true
+    });
+  }
+
+  
+  const pagefindSearch = document.getElementById("pagefind-search");
+  if (pagefindSearch) {
+    pagefindSearch.addEventListener("click", (e) => {
+      const link = e.target.closest("a[href]");
+      if (!link || !link.href || !pagefindSearch.contains(link)) return;
+      const searchInput = pagefindSearch.querySelector("input[type=\"search\"], input[type=\"text\"], .pagefind-ui__search-input, input");
+      const query = searchInput && searchInput.value && searchInput.value.trim();
+      
+      const resultRow = link.closest("li") || link.closest("[class*='result']") || link.parentElement;
+      const matchEl = resultRow && resultRow.querySelector("mark, .pagefind-highlight, [class*='highlight']");
+      const term = (matchEl && matchEl.textContent && matchEl.textContent.trim()) || query || (link.textContent && link.textContent.trim());
+      if (!term) return;
+      try {
+        const u = new URL(link.href);
+        if (u.origin !== location.origin) return;
+        u.searchParams.set("highlight", term);
+        e.preventDefault();
+        location.assign(u.toString());
+      } catch (_) {}
+    }, true);
+  }
+
+  function focusSearchInput() {
+    const input = pagefindSearch && pagefindSearch.querySelector("input[type=\"search\"], input[type=\"text\"], .pagefind-ui__search-input, input");
+    if (input) {
+      input.focus();
+      return true;
+    }
+    return false;
+  }
+
+  function openSearch() {
+    if (!searchOverlay) return;
+    searchOverlay.classList.add("active");
+    document.body.style.overflow = "hidden";
+    
+    const tryFocus = (attempt) => {
+      if (focusSearchInput()) return;
+      if (attempt < 12) setTimeout(() => tryFocus(attempt + 1), 50);
+    };
+    setTimeout(() => tryFocus(0), 50);
+  }
+
+  if (searchToggle) {
+    searchToggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      openSearch();
+    });
+  }
+
+  if (searchClose) {
+    searchClose.addEventListener("click", () => {
+      searchOverlay.classList.remove("active");
+      document.body.style.overflow = "auto";
+    });
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && searchOverlay && searchOverlay.classList.contains("active")) {
+      searchOverlay.classList.remove("active");
+      document.body.style.overflow = "auto";
+      return;
+    }
+    if (e.key === "/" && searchOverlay && !searchOverlay.classList.contains("active")) {
+      const active = document.activeElement;
+      const inInput = active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA" || active.isContentEditable);
+      if (!inInput) {
+        e.preventDefault();
+        openSearch();
+      }
+    }
+  });
+});
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.querySelector(".hamburger");
   const mobileMenu = document.querySelector(".mobile-menu-overlay");
   const closeButton = document.querySelector(".mobile-menu-close");
   const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+  if (!hamburger || !mobileMenu || !closeButton) return;
 
   
   hamburger.addEventListener("click", () => {
@@ -772,116 +1021,267 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  const searchToggle = document.getElementById("search-toggle");
-  const searchOverlay = document.getElementById("searchOverlay");
-  const searchClose = document.getElementById("search-close");
-  const searchInput = document.getElementById("search-input");
-  const searchResults = document.getElementById("search-results");
-  
-  let searchData = [];
+
+var _scrollHighlightDebug = false;
+function escapeRegex(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+function getScrollParent(el) {
+  var style = window.getComputedStyle(el);
+  var overflowY = style.overflowY;
+  var overflowX = style.overflowX;
+  if ((overflowY === "auto" || overflowY === "scroll" || overflowX === "auto" || overflowX === "scroll") && el.scrollHeight > el.clientHeight) return el;
+  if (el.parentElement && el.parentElement !== document.body) return getScrollParent(el.parentElement);
+  return null;
+}
+function runScrollToHighlight() {
+  const params = new URLSearchParams(location.search);
+  const term = params.get("highlight");
+  if (!term || !term.trim()) return;
+  const termTrimmed = term.trim();
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  const container = document.querySelector("main")?.parentElement || document.querySelector(".docs-body") || document.querySelector(".docs-content") || document.querySelector("main.docs-main") || document.querySelector("main") || document.querySelector(".content") || document.querySelector("article") || document.body;
+  if (!container) return;
+  const needle = termTrimmed.toLowerCase();
+  const regex = new RegExp(escapeRegex(termTrimmed), "gi");
 
   
-  fetch('/index.json')
-    .then(response => response.json())
-    .then(data => {
-      searchData = data.articles;
-    })
-    .catch(error => {
-      console.error('Error loading search data:', error);
-    });
+  function isInsideCodeBlock(node) {
+    let p = node.parentElement;
+    while (p && p !== container) {
+      if (/^(PRE|CODE)$/i.test(p.tagName)) return true;
+      p = p.parentElement;
+    }
+    return false;
+  }
 
   
-  if (searchToggle) {
-    searchToggle.addEventListener("click", (e) => {
-      e.preventDefault();
-      console.log("Search clicked");
-      if (searchOverlay) {
-        searchOverlay.classList.add("active");
-        if (searchInput) {
-          searchInput.focus();
-        }
-        document.body.style.overflow = "hidden";
+  const textNodesToProcess = [];
+  const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, null, false);
+  let node;
+  while ((node = walker.nextNode())) {
+    if (isInsideCodeBlock(node)) continue;
+    if (node.textContent.toLowerCase().includes(needle)) textNodesToProcess.push(node);
+  }
+
+  const allHighlightSpans = [];
+
+  
+  textNodesToProcess.forEach(function (textNode) {
+    const text = textNode.textContent;
+    const frag = document.createDocumentFragment();
+    let lastEnd = 0;
+    let match;
+    regex.lastIndex = 0;
+    while ((match = regex.exec(text)) !== null) {
+      if (match.index > lastEnd) {
+        frag.appendChild(document.createTextNode(text.slice(lastEnd, match.index)));
       }
-    });
-  }
-
-  
-  searchClose.addEventListener("click", () => {
-    searchOverlay.classList.remove("active");
-    searchInput.value = "";
-    searchResults.innerHTML = "";
-    document.body.style.overflow = "auto";
-  });
-
-  
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && searchOverlay.classList.contains("active")) {
-      searchOverlay.classList.remove("active");
-      searchInput.value = "";
-      searchResults.innerHTML = "";
-      document.body.style.overflow = "auto";
+      const span = document.createElement("span");
+      span.className = "search-highlight-word";
+      span.setAttribute("data-search-highlight", "1");
+      span.textContent = match[0];
+      frag.appendChild(span);
+      allHighlightSpans.push(span);
+      lastEnd = regex.lastIndex;
+    }
+    if (lastEnd < text.length) {
+      frag.appendChild(document.createTextNode(text.slice(lastEnd)));
+    }
+    if (frag.childNodes.length) {
+      textNode.parentNode.replaceChild(frag, textNode);
     }
   });
 
   
-  searchInput.addEventListener("input", (e) => {
-    const query = e.target.value.toLowerCase().trim();
+  allHighlightSpans.sort(function (a, b) {
+    var ra = a.getBoundingClientRect();
+    var rb = b.getBoundingClientRect();
+    var diff = ra.top - rb.top;
+    if (diff !== 0) return diff;
+    return ra.left - rb.left;
+  });
+
+  var firstScrollElement = null;
+  var scrollTargetSpan = null;
+
+  if (allHighlightSpans.length > 0) {
     
-    if (query.length < 2) {
-      searchResults.innerHTML = "";
-      return;
-    }
-
-    const results = searchData
-      .map((article, index) => {
-        const titleMatch = article.title.toLowerCase().includes(query);
-        const contentMatch = article.content.toLowerCase().includes(query);
-        
-        if (titleMatch || contentMatch) {
-          
-          const contentIndex = article.content.toLowerCase().indexOf(query);
-          const excerptStart = Math.max(0, contentIndex - 100);
-          const excerptEnd = Math.min(article.content.length, contentIndex + query.length + 100);
-          const excerpt = article.content.substring(excerptStart, excerptEnd);
-          
-          return {
-            title: article.title,
-            uri: article.uri,
-            excerpt: '...' + excerpt + '...',
-            query: query
-          };
+    var hash = location.hash && location.hash.slice(1);
+    var sectionEl = hash && document.getElementById(hash);
+    if (sectionEl) {
+      var headingEl = sectionEl.closest("h1, h2, h3, h4, h5, h6") || sectionEl;
+      var headingLevel = headingEl ? parseInt((headingEl.tagName || "H6").replace(/\D/g, "") || 6, 10) : 6;
+      var sectionElements = [headingEl];
+      var sib = headingEl.nextElementSibling;
+      while (sib) {
+        var tag = (sib.tagName || "").toUpperCase();
+        if (/^H[1-6]$/.test(tag)) {
+          var lvl = parseInt(tag.replace(/\D/g, ""), 10);
+          if (lvl <= headingLevel) break;
         }
-        return null;
-      })
-      .filter(item => item !== null)
-      .slice(0, 10); 
-
-    displayResults(results, query);
-  });
-
-  function displayResults(results, query) {
-    if (results.length === 0) {
-      searchResults.innerHTML = '<div class="text-center text-white opacity-50 py-8">No results found</div>';
-      return;
+        sectionElements.push(sib);
+        sib = sib.nextElementSibling;
+      }
+      for (var i = 0; i < allHighlightSpans.length; i++) {
+        var sp = allHighlightSpans[i];
+        for (var j = 0; j < sectionElements.length; j++) {
+          if (sectionElements[j].contains(sp)) {
+            scrollTargetSpan = sp;
+            break;
+          }
+        }
+        if (scrollTargetSpan) break;
+      }
     }
-
-    searchResults.innerHTML = results
-      .map(result => `
-        <div class="search-result-item" onclick="window.location.href='${result.uri}'">
-          <div class="search-result-title">${highlightText(result.title, query)}</div>
-          <div class="search-result-url">${result.uri}</div>
-          <div class="search-result-snippet">${highlightText(result.excerpt, query)}</div>
-        </div>
-      `)
-      .join("");
+    if (!scrollTargetSpan) scrollTargetSpan = allHighlightSpans[0];
+    var el = scrollTargetSpan.parentElement;
+    while (el && el !== container && !/^(P|LI|TD|TH|DIV|H[1-6]|BLOCKQUOTE|PRE|SECTION|NAV)$/i.test(el.tagName)) el = el.parentElement;
+    firstScrollElement = el;
   }
 
-  function highlightText(text, query) {
-    const regex = new RegExp(`(${query})`, 'gi');
-    return text.replace(regex, '<span class="search-highlight">$1</span>');
+  
+
+  
+  if (firstScrollElement && firstScrollElement !== document.body) {
+    firstScrollElement.classList.add("search-highlight-scroll");
+    setTimeout(function () { firstScrollElement.classList.remove("search-highlight-scroll"); }, 2000);
+    function doScroll() {
+      var scrollParent = getScrollParent(firstScrollElement);
+      if (scrollParent) {
+        var parentRect = scrollParent.getBoundingClientRect();
+        var elRect = firstScrollElement.getBoundingClientRect();
+        var scrollTop = elRect.top - parentRect.top + scrollParent.scrollTop - (parentRect.height / 2) + (elRect.height / 2);
+        scrollParent.scrollTop = Math.max(0, scrollTop);
+      } else {
+        firstScrollElement.scrollIntoView({ behavior: "auto", block: "center" });
+      }
+    }
+    requestAnimationFrame(function () { requestAnimationFrame(doScroll); });
+    setTimeout(doScroll, 100);
+    setTimeout(doScroll, 400);
   }
-});
+
+  
+  if (allHighlightSpans.length > 0) {
+    const bar = document.createElement("div");
+    bar.className = "search-highlight-bar";
+    bar.setAttribute("role", "status");
+    bar.setAttribute("aria-live", "polite");
+    const countEl = document.createElement("span");
+    countEl.className = "search-highlight-count";
+    function updateCountText(index) {
+      countEl.textContent = allHighlightSpans.length === 1
+        ? "1 match found"
+        : "Match " + (index + 1) + " of " + allHighlightSpans.length;
+    }
+    updateCountText(0);
+    const prevBtn = document.createElement("button");
+    prevBtn.type = "button";
+    prevBtn.className = "search-highlight-prev";
+    prevBtn.setAttribute("aria-label", "Previous match");
+    prevBtn.textContent = "Previous";
+    const nextBtn = document.createElement("button");
+    nextBtn.type = "button";
+    nextBtn.className = "search-highlight-next";
+    nextBtn.setAttribute("aria-label", "Next match");
+    nextBtn.textContent = "Next";
+    const closeBtn = document.createElement("button");
+    closeBtn.type = "button";
+    closeBtn.className = "search-highlight-close";
+    closeBtn.setAttribute("aria-label", "Clear highlights");
+    closeBtn.textContent = "Clear";
+
+    bar.appendChild(countEl);
+    bar.appendChild(prevBtn);
+    bar.appendChild(nextBtn);
+    const kbdHint = document.createElement("span");
+    kbdHint.className = "search-highlight-kbd-hint";
+    kbdHint.setAttribute("aria-hidden", "true");
+    kbdHint.textContent = "↑↓ or Enter";
+    bar.appendChild(kbdHint);
+    bar.appendChild(closeBtn);
+    document.body.appendChild(bar);
+
+    var initialIndex = scrollTargetSpan ? allHighlightSpans.indexOf(scrollTargetSpan) : 0;
+    if (initialIndex < 0) initialIndex = 0;
+    let currentIndex = initialIndex;
+    function setCurrentIndex(i) {
+      if (i < 0 || i >= allHighlightSpans.length) return;
+      var prev = allHighlightSpans[currentIndex];
+      if (prev && prev.isConnected) prev.classList.remove("search-highlight-current");
+      currentIndex = i;
+      var next = allHighlightSpans[currentIndex];
+      if (next && next.isConnected) next.classList.add("search-highlight-current");
+      updateCountText(currentIndex);
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === allHighlightSpans.length - 1;
+    }
+    function scrollToIndex(i) {
+      if (i < 0 || i >= allHighlightSpans.length) return;
+      var span = allHighlightSpans[i];
+      if (!span.isConnected) return; 
+      setCurrentIndex(i);
+      
+      span.scrollIntoView({ behavior: "auto", block: "center" });
+    }
+    setCurrentIndex(initialIndex);
+
+    prevBtn.addEventListener("click", function () { scrollToIndex(currentIndex - 1); });
+    nextBtn.addEventListener("click", function () { scrollToIndex(currentIndex + 1); });
+    closeBtn.addEventListener("click", function () {
+      bar.remove();
+      allHighlightSpans.forEach(function (span) {
+        span.classList.remove("search-highlight-current", "fade-out");
+        var parent = span.parentNode;
+        if (parent) {
+          var text = document.createTextNode(span.textContent);
+          parent.replaceChild(text, span);
+          parent.normalize();
+        }
+      });
+      document.removeEventListener("keydown", onKeydown);
+    });
+
+    function onKeydown(e) {
+      if (!bar.isConnected) return;
+      var active = document.activeElement;
+      if (active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA" || active.isContentEditable)) return;
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        scrollToIndex(currentIndex + 1);
+      } else if (e.key === "Enter" && e.shiftKey) {
+        e.preventDefault();
+        scrollToIndex(currentIndex - 1);
+      } else if (e.key === "ArrowDown") {
+        e.preventDefault();
+        scrollToIndex(currentIndex + 1);
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        scrollToIndex(currentIndex - 1);
+      }
+    }
+    document.addEventListener("keydown", onKeydown);
+
+    setTimeout(function () { bar.classList.add("search-highlight-bar-visible"); }, 100);
+  }
+
+  if (_scrollHighlightDebug) console.log("[scroll-highlight] matches", allHighlightSpans.length);
+  params.delete("highlight");
+  const clean = params.toString() ? location.pathname + "?" + params + location.hash : location.pathname + location.hash;
+  history.replaceState(null, "", clean);
+}
+function scheduleScrollToHighlight() {
+  
+  requestAnimationFrame(function () {
+    requestAnimationFrame(runScrollToHighlight);
+  });
+}
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", scheduleScrollToHighlight);
+} else {
+  scheduleScrollToHighlight();
+}
 </script>
 
     <main id="main">
@@ -896,7 +1296,7 @@ document.addEventListener("DOMContentLoaded", () => {
   <div class="container text-left bg-opacity-50 p-8 rounded-lg">
     <h1 class="text-[46px] md:text-5xl font-bold mb-4">Index</h1>
     <p class="text-lg text-gray-300 max-w-4xl">
-      Engage with the OWASP AI team through various platforms.
+      Cickable topics.
     </p>
       
   </div>
@@ -912,7 +1312,7 @@ document.addEventListener("DOMContentLoaded", () => {
         @click="openSidebar = !openSidebar"
         class="w-full flex justify-between items-center text-gray-800 font-semibold px-5 py-3"
       >
-        <span>AI Security Overview</span>
+        <span>Other pages</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           :class="{'rotate-90': openSidebar}"
@@ -930,13 +1330,13 @@ document.addEventListener("DOMContentLoaded", () => {
         <ul class="flex flex-col text-left text-sm font-medium text-gray-700 space-y-2">
           <li><a href="/docs/ai_security_overview/" class="hover:text-[#006284]">0. AI Security Overview </a></li>
           <li><a href="/docs/1_general_controls/" class="hover:text-[#006284]">1. General Controls</a></li>
-          <li><a href="/docs/2_threats_through_use/" class="hover:text-[#006284]">2. Threats Through Use</a></li>
+          <li><a href="/docs/2_threats_through_use/" class="hover:text-[#006284]">2. Input Threats</a></li>
           <li><a href="/docs/3_development_time_threats/" class="hover:text-[#006284]">3. Development-Time Threats</a></li>
-          <li><a href="/docs/4_runtime_application_security_threats/" class="hover:text-[#006284]">4. Runtime Application Security Threats</a></li>
+          <li><a href="/docs/4_runtime_application_security_threats/" class="hover:text-[#006284]">4. Runtime Conventional Security Threats</a></li>
           <li><a href="/docs/5_testing/" class="hover:text-[#006284]">5. AI Security Testing</a></li>
           <li><a href="/docs/6_privacy/" class="hover:text-[#006284]">6. AI Privacy</a></li>
           <li><a href="/docs/ai_security_references/" class="hover:text-[#006284]">AI Security References</a></li>
-          <li><a href="/docs/" class="hover:text-[#006284]">Index</a></li>
+          <li><a href="/docs/ai_security_index" class="hover:text-[#006284]">Index</a></li>
         </ul>
       </div>
     </div>
@@ -947,7 +1347,7 @@ document.addEventListener("DOMContentLoaded", () => {
         @click="openToc = !openToc"
         class="w-full flex justify-between items-center text-gray-800 font-semibold px-5 py-3"
       >
-        <span>Select Topics</span>
+        <span>Topics on this page</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           :class="{'rotate-90': openToc}"
@@ -963,7 +1363,34 @@ document.addEventListener("DOMContentLoaded", () => {
       
       <div x-show="openToc" x-transition class="px-5 pb-3">
         <div class="text-left text-sm text-gray-700 space-y-2">
-          <nav id="TableOfContents"></nav>
+          <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#a">A</a></li>
+        <li><a href="#b">B</a></li>
+        <li><a href="#c">C</a></li>
+        <li><a href="#d">D</a></li>
+        <li><a href="#e">E</a></li>
+        <li><a href="#f">F</a></li>
+        <li><a href="#g">G</a></li>
+        <li><a href="#h">H</a></li>
+        <li><a href="#i">I</a></li>
+        <li><a href="#j">J</a></li>
+        <li><a href="#k">K</a></li>
+        <li><a href="#l">L</a></li>
+        <li><a href="#m">M</a></li>
+        <li><a href="#n">N</a></li>
+        <li><a href="#o">O</a></li>
+        <li><a href="#p">P</a></li>
+        <li><a href="#q">Q</a></li>
+        <li><a href="#r">R</a></li>
+        <li><a href="#s">S</a></li>
+        <li><a href="#t">T</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
         </div>
       </div>
     </div>
@@ -977,13 +1404,13 @@ document.addEventListener("DOMContentLoaded", () => {
           <ul class="flex flex-col">
             <li><a href="/docs/ai_security_overview/" class="sidebar-nav-link "><span>0. AI Security Overview</span></a></li>
             <li><a href="/docs/1_general_controls/" class="sidebar-nav-link "><span>1. General controls</span></a></li>
-            <li><a href="/docs/2_threats_through_use/" class="sidebar-nav-link "><span>2. Threats through use</span></a></li>
+            <li><a href="/docs/2_threats_through_use/" class="sidebar-nav-link "><span>2. Input threats</span></a></li>
             <li><a href="/docs/3_development_time_threats/" class="sidebar-nav-link "><span>3. Development-time threats</span></a></li>
-            <li><a href="/docs/4_runtime_application_security_threats/" class="sidebar-nav-link "><span>4. Runtime application security threats</span></a></li>
+            <li><a href="/docs/4_runtime_application_security_threats/" class="sidebar-nav-link "><span>4. Runtime conventional security threats</span></a></li>
             <li><a href="/docs/5_testing/" class="sidebar-nav-link "><span>5. AI security testing</span></a></li>
             <li><a href="/docs/6_privacy/" class="sidebar-nav-link "><span>6. AI privacy</span></a></li>
             <li><a href="/docs/ai_security_references/" class="sidebar-nav-link "><span>AI Security References</span></a></li>
-            <li><a href="/docs/" class="sidebar-nav-link "><span>Index</span></a></li>
+            <li><a href="/docs/ai_security_index" class="sidebar-nav-link "><span>Index</span></a></li>
           </ul>
         </nav>
       </div>
@@ -993,89 +1420,126 @@ document.addEventListener("DOMContentLoaded", () => {
   </div>
 
   
-  <main class="docs-main">
+  <main class="docs-main" data-pagefind-body>
     <div class="docs-content">
       <nav class="breadcrumbs">
         <a href="/">Home</a>
         <span class="breadcrumb-separator">></span>
         <span class="current-page">Index</span>
       </nav>
-      <h1 class="docs-title">Index</h1>
+      <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-6">
+        <h1 class="docs-title" style="margin-bottom: 0;">Index</h1>
+        
+        <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/edit/main/content/ai_exchange/content/docs%5cai_security_index.md"
+           class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-emerald-600 transition-colors mt-4 sm:mt-0"
+           target="_blank" rel="noopener noreferrer"
+           title="Suggest an improvement via GitHub">
+          <i class="fa-brands fa-github text-lg"></i>
+          <span class="font-medium underline decoration-1 underline-offset-4">Edit page</span>
+        </a>
+        
+      </div>
       <div class="docs-body documentation">
         <blockquote>
-<p>Permalink: <a href="https://owaspai.org/goto/index/" target="_blank" rel="noopener">https://owaspai.org/goto/index/</a></p>
+  <p>Permalink: <a href="https://owaspai.org/go/index/"target="_blank" rel="noopener">https://owaspai.org/go/index/</a></p>
+
 </blockquote>
-<p>Find clickable topics in alphabetetical order below. For an overview of threats and their controls, see the <a href="/goto/periodictable/" >Periodic table of AI security</a>.</p>
-<p>A<br>
-<a href="/goto/evasion/" >Adversarial attacks</a><br>
-<a href="/goto/agenticaithreats/" >Agentic AI</a><br>
-<a href="/goto/modelalignment/" >Alignment</a></p>
-<p>B<br>
-<a href="/goto/unwantedbiastesting/" >Bias</a></p>
-<p>C<br>
-<a href="/goto/checkcompliance/" >Compliance</a><br>
-<a href="/goto/continuousvalidation/" >Continuous validation</a><br>
-<a href="/contribute" >Contribute</a><br>
-<a href="/goto/controlsoverview/" >Controls</a><br>
-<a href="/goto/copyright/" >Copyright</a><br>
-<a href="/goto/culturesensitivealignment/" >Cultural sensitivity</a></p>
-<p>D<br>
-<a href="/goto/supplychainmanage/" >Data and model governance</a><br>
-<a href="/goto/disclosureuseoutput/" >Data disclosure in model output</a><br>
-<a href="/goto/datapoison/" >Data poisoning of train/finetune data</a><br>
-<a href="/goto/denialmodelservice/" >Denial of model service</a><br>
-<a href="/goto/directpromptinjection/" >Direct prompt injection</a></p>
-<p>E<br>
-<a href="/goto/checkcompliance/" >EU AI Act</a><br>
-<a href="/goto/evasion/" >Evasion</a><br>
-<a href="/goto/explainability/" >Explainability</a></p>
-<p>F<br>
-<a href="/goto/federatedlearning/" >Federated learning</a></p>
-<p>G<br>
-<a href="/goto/aiprivacy/" >GDPR</a><br>
-<a href="/goto/genai/" >Generative AI</a><br>
-<a href="/goto/governancecontrols/" >Governance</a></p>
-<p>I<br>
-<a href="/goto/indirectpromptinjection/" >Indirect prompt injection</a></p>
-<p>L<br>
-<a href="/goto/genai/" >LLMs</a><br>
-<a href="/goto/monitoruse/" >Logging</a></p>
-<p>M<br>
-<a href="/goto/agenticaithreats/" >MCP</a><br>
-<a href="/goto/media/" >Media</a><br>
-<a href="/goto/modelalignment/" >Model alignment</a><br>
-<a href="/goto/leakinput/" >Model input leak</a><br>
-<a href="/goto/modelinversionandmembership/" >Model inversion / Membership inference</a><br>
-<a href="/goto/insecureoutput" >Model output contains injection</a><br>
-<a href="/goto/devmodelpoison/" >Model poisoning in development-environment</a><br>
-<a href="/goto/runtimemodelpoison/" >Model poisoning in runtime</a><br>
-<a href="/goto/datapoison/" >Model poisoning through data poisoning of train/finetune data</a><br>
-<a href="/goto/runtimemodeltheft/" >Model theft directly in runtime</a><br>
-<a href="/goto/supplymodelpoison/" >Model poisoning in supply chain</a><br>
-<a href="/goto/devmodelleak/" >Model theft in development-time</a><br>
-<a href="/goto/modeltheftuse/" >Model theft through use</a><br>
-<a href="/goto/monitoruse/" >Monitoring</a></p>
-<p>O<br>
-<a href="/goto/oversight/" >Oversight</a></p>
-<p>P<br>
-<a href="/goto/periodictable/" >Periodic table</a><br>
-<a href="/goto/aiprivacy/" >Privacy</a><br>
-<a href="/goto/promptinjection/" >Prompt injection</a></p>
-<p>R<br>
-<a href="/goto/testing/" >Red teaming</a><br>
-<a href="/goto/references/" >References</a><br>
-<a href="/goto/responsibleai/" >Responsible AI</a><br>
-<a href="/goto/riskanalysis/" >Risk analysis</a></p>
-<p>S<br>
-<a href="/goto/modelalignment/" >Safety training</a><br>
-<a href="/sponsor" >Sponsoring</a><br>
-<a href="/goto/supplychainmanage/" >Supply chain management</a></p>
-<p>T<br>
-<a href="/goto/testing/" >Testing</a><br>
-<a href="/goto/riskanalysis/" >Threat modelling</a><br>
-<a href="/goto/threatsoverview/" >Threats</a><br>
-<a href="/goto/devdataleak/" >Training data leaks</a><br>
-<a href="/goto/aitransparency/" >Transparency</a></p>
+<p>Find clickable topics in alphabetetical order below. For an overview of threats and their controls, see the <a href="/go/periodictable/">Periodic table of AI security</a>.</p>
+<h3 id="a">A<span class="hx:absolute hx:-mt-20"></span>
+    <a href="#a" class="subheading-anchor" aria-label="Permalink for this section"></a></h3>
+<p><a href="/go/evasion/">Adversarial attacks</a><br>
+<a href="/go/agenticaithreats/">Agentic AI</a><br>
+<a href="/go/modelalignment/">Alignment</a></p>
+<h3 id="b">B<span class="hx:absolute hx:-mt-20"></span>
+    <a href="#b" class="subheading-anchor" aria-label="Permalink for this section"></a></h3>
+<p><a href="/go/unwantedbiastesting/">Bias</a></p>
+<h3 id="c">C<span class="hx:absolute hx:-mt-20"></span>
+    <a href="#c" class="subheading-anchor" aria-label="Permalink for this section"></a></h3>
+<p><a href="/go/checkcompliance/">Compliance</a><br>
+<a href="/go/continuousvalidation/">Continuous validation</a><br>
+<a href="/contribute/">Contribute</a><br>
+<a href="/go/controlsoverview/">Controls</a><br>
+<a href="/go/copyright/">Copyright</a><br>
+<a href="/go/culturesensitivealignment/">Cultural sensitivity</a></p>
+<h3 id="d">D<span class="hx:absolute hx:-mt-20"></span>
+    <a href="#d" class="subheading-anchor" aria-label="Permalink for this section"></a></h3>
+<p><a href="/go/supplychainmanage/">Data and model governance</a><br>
+<a href="/go/disclosureuseoutput/">Data disclosure in model output</a><br>
+<a href="/go/datapoison/">Data poisoning of train/finetune data</a><br>
+<a href="/go/denialmodelservice/">Denial of model service</a><br>
+<a href="/go/directpromptinjection/">Direct prompt injection</a></p>
+<h3 id="e">E<span class="hx:absolute hx:-mt-20"></span>
+    <a href="#e" class="subheading-anchor" aria-label="Permalink for this section"></a></h3>
+<p><a href="/go/checkcompliance/">EU AI Act</a><br>
+<a href="/go/evasion/">Evasion</a><br>
+<a href="/go/explainability/">Explainability</a></p>
+<h3 id="f">F<span class="hx:absolute hx:-mt-20"></span>
+    <a href="#f" class="subheading-anchor" aria-label="Permalink for this section"></a></h3>
+<p><a href="/go/federatedlearning/">Federated learning</a></p>
+<h3 id="g">G<span class="hx:absolute hx:-mt-20"></span>
+    <a href="#g" class="subheading-anchor" aria-label="Permalink for this section"></a></h3>
+<p><a href="/go/aiprivacy/">GDPR</a><br>
+<a href="/go/genai/">Generative AI</a><br>
+<a href="/go/governancecontrols/">Governance</a></p>
+<h3 id="h">H<span class="hx:absolute hx:-mt-20"></span>
+    <a href="#h" class="subheading-anchor" aria-label="Permalink for this section"></a></h3>
+<h3 id="i">I<span class="hx:absolute hx:-mt-20"></span>
+    <a href="#i" class="subheading-anchor" aria-label="Permalink for this section"></a></h3>
+<p><a href="/go/indirectpromptinjection/">Indirect prompt injection</a></p>
+<h3 id="j">J<span class="hx:absolute hx:-mt-20"></span>
+    <a href="#j" class="subheading-anchor" aria-label="Permalink for this section"></a></h3>
+<h3 id="k">K<span class="hx:absolute hx:-mt-20"></span>
+    <a href="#k" class="subheading-anchor" aria-label="Permalink for this section"></a></h3>
+<h3 id="l">L<span class="hx:absolute hx:-mt-20"></span>
+    <a href="#l" class="subheading-anchor" aria-label="Permalink for this section"></a></h3>
+<p><a href="/go/genai/">LLMs</a><br>
+<a href="/go/monitoruse/">Logging</a></p>
+<h3 id="m">M<span class="hx:absolute hx:-mt-20"></span>
+    <a href="#m" class="subheading-anchor" aria-label="Permalink for this section"></a></h3>
+<p><a href="/go/agenticaithreats/">MCP</a><br>
+<a href="/go/media/">Media</a><br>
+<a href="/go/modelalignment/">Model alignment</a><br>
+<a href="/go/leakinput/">Model input leak</a><br>
+<a href="/go/modelinversionandmembership/">Model inversion / Membership inference</a><br>
+<a href="/go/insecureoutput">Model output contains injection</a><br>
+<a href="/go/devmodelpoison/">Model poisoning in development-environment</a><br>
+<a href="/go/runtimemodelpoison/">Model poisoning at runtime</a><br>
+<a href="/go/datapoison/">Model poisoning through data poisoning of train/finetune data</a><br>
+<a href="/go/runtimemodelleak/">Model direct leak in runtime</a><br>
+<a href="/go/supplymodelpoison/">Model poisoning in supply chain</a><br>
+<a href="/go/devmodelleak/">Model direct leak development-time</a><br>
+<a href="/go/modeltheftuse/">Model exfiltration</a><br>
+<a href="/go/monitoruse/">Monitoring</a></p>
+<h3 id="n">N<span class="hx:absolute hx:-mt-20"></span>
+    <a href="#n" class="subheading-anchor" aria-label="Permalink for this section"></a></h3>
+<h3 id="o">O<span class="hx:absolute hx:-mt-20"></span>
+    <a href="#o" class="subheading-anchor" aria-label="Permalink for this section"></a></h3>
+<p><a href="/go/oversight/">Oversight</a></p>
+<h3 id="p">P<span class="hx:absolute hx:-mt-20"></span>
+    <a href="#p" class="subheading-anchor" aria-label="Permalink for this section"></a></h3>
+<p><a href="/go/periodictable/">Periodic table</a><br>
+<a href="/go/aiprivacy/">Privacy</a><br>
+<a href="/go/promptinjection/">Prompt injection</a></p>
+<h3 id="q">Q<span class="hx:absolute hx:-mt-20"></span>
+    <a href="#q" class="subheading-anchor" aria-label="Permalink for this section"></a></h3>
+<h3 id="r">R<span class="hx:absolute hx:-mt-20"></span>
+    <a href="#r" class="subheading-anchor" aria-label="Permalink for this section"></a></h3>
+<p><a href="/go/testing/">Red teaming</a><br>
+<a href="/go/references/">References</a><br>
+<a href="/go/responsibleai/">Responsible AI</a><br>
+<a href="/go/riskanalysis/">Risk analysis</a></p>
+<h3 id="s">S<span class="hx:absolute hx:-mt-20"></span>
+    <a href="#s" class="subheading-anchor" aria-label="Permalink for this section"></a></h3>
+<p><a href="/go/modelalignment/">Safety training</a><br>
+<a href="/sponsor/">Sponsoring</a><br>
+<a href="/go/supplychainmanage/">Supply chain management</a></p>
+<h3 id="t">T<span class="hx:absolute hx:-mt-20"></span>
+    <a href="#t" class="subheading-anchor" aria-label="Permalink for this section"></a></h3>
+<p><a href="/go/testing/">Testing</a><br>
+<a href="/go/riskanalysis/">Threat modelling</a><br>
+<a href="/go/threatsoverview/">Threats</a><br>
+<a href="/go/devdataleak/">Training data leaks</a><br>
+<a href="/go/aitransparency/">Transparency</a></p>
 
       </div>
     </div>
@@ -1086,7 +1550,34 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="toc-container sticky">
       <h3 class="toc-title py-2">On this page</h3>
       <div class="toc-content bg-gradient-to-b from-[#CCF6CE] to-[#FDFBFB] border border-gray-300 rounded-lg p-4">
-        <nav id="TableOfContents"></nav>
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#a">A</a></li>
+        <li><a href="#b">B</a></li>
+        <li><a href="#c">C</a></li>
+        <li><a href="#d">D</a></li>
+        <li><a href="#e">E</a></li>
+        <li><a href="#f">F</a></li>
+        <li><a href="#g">G</a></li>
+        <li><a href="#h">H</a></li>
+        <li><a href="#i">I</a></li>
+        <li><a href="#j">J</a></li>
+        <li><a href="#k">K</a></li>
+        <li><a href="#l">L</a></li>
+        <li><a href="#m">M</a></li>
+        <li><a href="#n">N</a></li>
+        <li><a href="#o">O</a></li>
+        <li><a href="#p">P</a></li>
+        <li><a href="#q">Q</a></li>
+        <li><a href="#r">R</a></li>
+        <li><a href="#s">S</a></li>
+        <li><a href="#t">T</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
       </div>
     </div>
   </aside>
@@ -1505,7 +1996,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <div class="text-center mb-6">
         <p class="text-sm">
-          Copyright © owasp.org 2025. All Rights Reserved.
+          Copyright © owasp.org 2026. All Rights Reserved.
         </p>
       </div>
 

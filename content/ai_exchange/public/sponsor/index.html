@@ -1,44 +1,2065 @@
-<!doctype html><html lang=en><head><meta property="og:title" content="AI Exchange"><meta property="og:description" content="Comprehensive guidance and alignment on how to protect AI against security threats - by professionals, for professionals."><meta property="og:type" content="article"><meta property="og:url" content="https://owaspai.org/sponsor/"><meta property="og:image" content="https://owaspai.org/images/aix-og-logo.jpg"><meta property="article:section" content><meta charset=utf-8><script src=https://cdn.tailwindcss.com></script><meta name=viewport content="width=device-width,initial-scale=1"><title>AI Exchange</title><meta name=description content><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css><link rel=stylesheet href="/css/site.css?v=2"><link rel=stylesheet href="/css/custom-style.css?v=2"><script src=/js/script.js></script>
-<link href=https://unpkg.com/aos@2.3.1/dist/aos.css rel=stylesheet><script src=https://unpkg.com/aos@2.3.1/dist/aos.js></script>
-<script>AOS.init({delay:0,disable:"phone"})</script></head><body><header class=main-header><div class=header-background></div><div class="container header-container"><div class=logo-section><a href=/ class=logo-link><img src=/images/Owasp-AI-Exchange-Logo.png alt="AI Exchange" class=site-logo width=Auto height=48></a></div><nav class="main-navigation desktop-nav"><ul class=nav-list><li class=nav-item><a href=/ class=nav-link>Home</a></li><li class=nav-item><a href=/docs/ai_security_overview/ class=nav-link>Content</a></li><li class=nav-item><a href=/media/ class=nav-link>Media</a></li><li class=nav-item><a href=/contribute/ class=nav-link>Contribute</a></li><li class=nav-item><a href=/connect/ class=nav-link>Connect</a></li><li class=nav-item><a href=/sponsor/ class="nav-link active">Sponsor</a></li></ul></nav><div class=header-actions><div class="social-icons desktop-social"><a href=https://github.com/OWASP/www-project-ai-security-and-privacy-guide class=social-link title=GitHub><svg class="social-icon" viewBox="0 0 24 24" fill="currentcolor"><path d="M12 0C5.374.0.0 5.373.0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931.0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176.0.0 1.008-.322 3.301 1.23A11.509 11.509.0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221.0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></a><a href=https://owasp.org/slack/invite class=social-link title=Slack><svg class="social-icon" viewBox="0 0 24 24" fill="currentcolor"><path d="M5.042 15.165a2.528 2.528.0 01-2.52 2.523A2.528 2.528.0 010 15.165a2.527 2.527.0 012.522-2.52h2.52v2.52zm1.271.0a2.527 2.527.0 012.521-2.52 2.527 2.527.0 012.521 2.52v6.313A2.528 2.528.0 018.834 24a2.528 2.528.0 01-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528.0 01-2.521-2.52A2.528 2.528.0 018.834.0a2.528 2.528.0 012.521 2.522v2.52H8.834zm0 1.271a2.528 2.528.0 012.521 2.521 2.528 2.528.0 01-2.521 2.521H2.522A2.528 2.528.0 010 8.834a2.528 2.528.0 012.522-2.521h6.312zM18.956 8.834a2.528 2.528.0 012.522-2.521A2.528 2.528.0 0124 8.834a2.528 2.528.0 01-2.522 2.521h-2.522V8.834zm-1.268.0a2.528 2.528.0 01-2.523 2.521 2.527 2.527.0 01-2.52-2.521V2.522A2.527 2.527.0 0115.165.0a2.528 2.528.0 012.523 2.522v6.312zM15.165 18.956a2.528 2.528.0 012.523 2.522A2.528 2.528.0 0115.165 24a2.527 2.527.0 01-2.52-2.522v-2.522h2.52zm0-1.268a2.527 2.527.0 01-2.52-2.523 2.526 2.526.0 012.52-2.52h6.313A2.527 2.527.0 0124 15.165a2.528 2.528.0 01-2.522 2.523h-6.313z"/></svg></a><a href=https://www.linkedin.com/company/owasp-ai-exchange/ class=social-link title=LinkedIn><svg class="social-icon" viewBox="0 0 24 24" fill="currentcolor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853.0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601.0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144.0-2.063-.926-2.063-2.065.0-1.138.92-2.063 2.063-2.063 1.14.0 2.064.925 2.064 2.063.0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225.0H1.771C.792.0.0.774.0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2.0 22.222.0h.003z"/></svg></a><a href="https://www.youtube.com/playlist?list=PLCZNSZ1gyRoD5droM_qyXYyBofj00x_zO" class=social-link title=Youtube><svg class="social-icon" viewBox="0 0 24 24" fill="currentcolor"><path d="M23.498 6.186A3.016 3.016.0 0021.376 4.05C19.505 3.545 12 3.545 12 3.545s-7.505.0-9.377.505A3.017 3.017.0 00.502 6.186C0 8.07.0 12 0 12s0 3.93.502 5.814a3.016 3.016.0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505.0 9.377-.505a3.015 3.015.0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a></div><button class=search-icon id=search-toggle aria-label=Search><svg class="search-svg" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
-<button class=hamburger aria-label="Toggle menu">
-<span></span>
-<span></span>
-<span></span></button></div></div></header><div class=search-overlay id=searchOverlay><div class=search-container><div class=search-header><button class=search-close id=search-close aria-label="Close search"><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><div id=pagefind-search class=pagefind-search-container></div></div></div><div class=mobile-menu-overlay id=mobileMenu><div class=mobile-menu-header><div class=mobile-logo-section><a href=/ class=mobile-logo-link><img src=/images/Owasp-AI-Exchange-Logo.png alt="AI Exchange" class=mobile-site-logo width=Auto height=48></a></div><button class=mobile-menu-close aria-label="Close menu"><svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><nav class=mobile-navigation><ul class=mobile-nav-list><li class=mobile-nav-item><a href=/ class=mobile-nav-link>Home</a></li><li class=mobile-nav-item><a href=/docs/ai_security_overview/ class=mobile-nav-link>Content</a></li><li class=mobile-nav-item><a href=/media/ class=mobile-nav-link>Media</a></li><li class=mobile-nav-item><a href=/contribute/ class=mobile-nav-link>Contribute</a></li><li class=mobile-nav-item><a href=/connect/ class=mobile-nav-link>Connect</a></li><li class=mobile-nav-item><a href=/sponsor/ class="mobile-nav-link active">Sponsor</a></li><li class=mobile-nav-item><button class="mobile-nav-link text-center mobile-search-btn" onclick='document.getElementById("search-toggle").click()'><svg class="search-svg inline" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg> Search</button></li></ul></nav><div class=mobile-social-icons><a href=https://github.com/OWASP/www-project-ai-security-and-privacy-guide class=mobile-social-link title=GitHub><svg class="mobile-social-icon" viewBox="0 0 24 24" fill="currentcolor"><path d="M12 0C5.374.0.0 5.373.0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931.0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176.0.0 1.008-.322 3.301 1.23A11.509 11.509.0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221.0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></a><a href=https://www.linkedin.com/company/owasp-ai-exchange/ class=mobile-social-link title=LinkedIn><svg class="mobile-social-icon" viewBox="0 0 24 24" fill="currentcolor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853.0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601.0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144.0-2.063-.926-2.063-2.065.0-1.138.92-2.063 2.063-2.063 1.14.0 2.064.925 2.064 2.063.0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225.0H1.771C.792.0.0.774.0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2.0 22.222.0h.003z"/></svg></a><a href="https://www.youtube.com/playlist?list=PLCZNSZ1gyRoD5droM_qyXYyBofj00x_zO" class=mobile-social-link title=Youtube><svg class="mobile-social-icon" viewBox="0 0 24 24" fill="currentcolor"><path d="M23.498 6.186A3.016 3.016.0 0021.376 4.05C19.505 3.545 12 3.545 12 3.545s-7.505.0-9.377.505A3.017 3.017.0 00.502 6.186C0 8.07.0 12 0 12s0 3.93.502 5.814a3.016 3.016.0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505.0 9.377-.505a3.015 3.015.0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a></div></div><style>.main-navigation.desktop-nav{display:flex}.search-icon{background:0 0;border:none;cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center}.search-icon:hover{opacity:.8}.search-svg{width:20px;height:20px;stroke:currentColor}.hamburger{display:none;flex-direction:column;justify-content:space-between;width:24px;height:18px;background:0 0;border:none;cursor:pointer;z-index:1001}.hamburger span{display:block;height:2px;width:100%;background:#fff;border-radius:2px;transition:all .3s ease}.hamburger.active span:nth-child(1){transform:rotate(45deg)translate(5px,5px)}.hamburger.active span:nth-child(2){opacity:0}.hamburger.active span:nth-child(3){transform:rotate(-45deg)translate(7px,-6px)}.mobile-menu-overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background:#002843;background-image:radial-gradient(circle at 25% 25%,rgba(255,255,255,.1) 1px,transparent 1px),radial-gradient(circle at 75% 75%,rgba(255,255,255,.1) 1px,transparent 1px),radial-gradient(circle at 50% 50%,rgba(255,255,255,.1) 1px,transparent 1px),radial-gradient(circle at 10% 90%,rgba(255,255,255,.1) 1px,transparent 1px),radial-gradient(circle at 90% 10%,rgba(255,255,255,.1) 1px,transparent 1px);background-size:50px 50px,80px 80px,60px 60px,40px 40px,70px 70px;z-index:9999;display:none;flex-direction:column;justify-content:space-between;padding:0;overflow:hidden}.mobile-menu-overlay.active{display:flex}.mobile-menu-header{display:flex;justify-content:space-between;align-items:center;padding:2rem 2rem 1rem;border-bottom:1px solid rgba(255,255,255,.1);position:relative}.mobile-menu-header::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:rgba(255,255,255,.2)}.mobile-logo-section{flex:1}.mobile-site-logo{height:48px;width:auto;filter:brightness(0)invert(1)}.mobile-site-title{color:#fff;font-size:1.5rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em}.mobile-site-title-link{text-decoration:none}.mobile-menu-close{background:0 0;border:none;cursor:pointer;padding:.5rem;border-radius:50%;transition:all .3s ease}.mobile-menu-close:hover{background:rgba(255,255,255,.1)}.close-icon{width:24px;height:24px;stroke:#fff;stroke-width:2}.mobile-navigation{flex:1;display:flex;align-items:center;justify-content:center;padding:2rem}.mobile-nav-list{list-style:none;margin:0;padding:0;width:100%;max-width:400px}.mobile-nav-item{margin:0}.mobile-nav-link{display:block;color:#fff;text-decoration:none;font-weight:500;font-size:1.25rem;padding:1.5rem 1rem;margin:.5rem 1rem;border-radius:8px;transition:all .3s ease;position:relative;text-align:center}.mobile-nav-link:hover{color:rgba(255,255,255,.8);background:rgba(255,255,255,.1)}.mobile-nav-link.active{background:#4caf50;color:#fff;font-weight:700}.mobile-nav-link.active:hover{background:#45a049;color:#fff}.mobile-social-icons{display:flex;justify-content:center;gap:2rem;padding:2rem;border-top:1px solid rgba(255,255,255,.1)}.mobile-social-link{color:#fff;text-decoration:none;transition:all .3s ease;display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.1)}.mobile-social-link:hover{color:#93c5fd;background:rgba(255,255,255,.2);transform:translateY(-2px)}.mobile-social-icon{width:24px;height:24px;fill:currentColor}@media(max-width:768px){.desktop-nav{display:none!important}.desktop-social{display:none!important}.hamburger{display:flex}.search-icon{display:flex}.header-container{flex-direction:row;justify-content:space-between;align-items:center;padding-left:1rem!important;padding-right:1.5rem!important}.logo-section{flex:1}.header-actions{display:flex;align-items:center;gap:1rem}.site-logo{height:40px;width:auto;filter:brightness(0)invert(1)}.site-title{font-size:1.25rem}}@media(min-width:769px){.mobile-menu-overlay{display:none!important}}.search-overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,.95);backdrop-filter:blur(10px);z-index:9998;display:none;padding:2rem}.search-overlay.active{display:flex;flex-direction:column}.search-container{max-width:800px;width:100%;margin:0 auto}.search-header{display:flex;justify-content:flex-end;gap:1rem;margin-bottom:1rem}.search-close{width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:8px;color:#fff;cursor:pointer;transition:all .3s ease}.search-close:hover{background:rgba(255,255,255,.2)}.search-close svg{width:24px;height:24px}.pagefind-search-container{--pagefind-ui-scale:1;--pagefind-ui-primary:#4CAF50;--pagefind-ui-text:#fff;--pagefind-ui-background:rgba(255, 255, 255, 0.05);--pagefind-ui-border:rgba(255, 255, 255, 0.2);--pagefind-ui-border-width:1px;--pagefind-ui-border-radius:8px;--pagefind-ui-font:inherit;max-height:calc(100vh - 180px);overflow-y:auto}.mobile-search-btn{background:0 0;border:none;cursor:pointer;width:100%;margin:0}</style><link href=/pagefind/pagefind-ui.css rel=stylesheet><script src=/pagefind/pagefind-ui.js></script>
-<script>document.addEventListener("DOMContentLoaded",()=>{const t=document.querySelector(".hamburger"),e=document.querySelector(".mobile-menu-overlay"),n=document.querySelector(".mobile-menu-close"),s=document.querySelectorAll(".mobile-nav-link");t.addEventListener("click",()=>{e.classList.add("active"),t.classList.add("active"),document.body.style.overflow="hidden"}),n.addEventListener("click",()=>{e.classList.remove("active"),t.classList.remove("active"),document.body.style.overflow="auto"}),s.forEach(n=>{n.addEventListener("click",()=>{e.classList.remove("active"),t.classList.remove("active"),document.body.style.overflow="auto"})}),e.addEventListener("click",n=>{n.target===e&&(e.classList.remove("active"),t.classList.remove("active"),document.body.style.overflow="auto")}),document.addEventListener("keydown",n=>{n.key==="Escape"&&e.classList.contains("active")&&(e.classList.remove("active"),t.classList.remove("active"),document.body.style.overflow="auto")})}),document.addEventListener("DOMContentLoaded",()=>{const t=document.getElementById("search-toggle"),e=document.getElementById("searchOverlay"),n=document.getElementById("search-close");typeof PagefindUI!="undefined"&&new PagefindUI({element:"#pagefind-search",translations:{placeholder:"Search articles, guides, and content..."},showSubResults:!0,showImages:!1,resetStyles:!1,autofocus:!0}),t&&t.addEventListener("click",t=>{t.preventDefault(),e&&(e.classList.add("active"),document.body.style.overflow="hidden")}),n&&n.addEventListener("click",()=>{e.classList.remove("active"),document.body.style.overflow="auto"}),document.addEventListener("keydown",t=>{t.key==="Escape"&&e&&e.classList.contains("active")&&(e.classList.remove("active"),document.body.style.overflow="auto")})})</script><main id=main><div><div><section class="intro-banner text-white py-8 md:py-8 mb-0 bg-cover bg-center bg-no-repeat" style=background-image:url(/images/herosponser.png)><div class="container text-left bg-opacity-50 p-8 rounded-lg"><h1 class="text-[46px] md:text-5xl font-bold mb-4">Sponsor the OWASP AI Exchange</h1><p class="text-lg text-gray-300 max-w-4xl">Join us in our mission to protect society from AI security issues by harnessing the
-collective wisdom of global experts. Together, we can drive the development of secure
-and trustworthy AI systems.</p><a href=#contactSection class="inline-block bg-[#4CAF50] hover:bg-emerald-700 text-white text-xl font-medium py-3 px-10 rounded-lg mt-[22px]">Sponsor Now</a></div></section><div class="container mx-auto pt-10 pb-0 px-10 max-w-8xl"><p class="text-lg text-gray-800 mb-4 leading-relaxed">The <span class=font-bold>OWASP AI Exchange</span> is at the global center of AI security standards and guidelines, serving as the ultimate resource for AI security practitioners and standard makers. The Exchange offers over 200 pages of practical advice and references on protecting AI and data-centric systems from security threats.</p><p class="text-lg text-gray-800 leading-relaxed">By sponsoring the <span class=font-bold>OWASP AI Exchange</span>, organizations have a unique opportunity to support and engage with a global community dedicated to advancing AI security understanding and practices.</p></div><div class="container mx-auto px-4 sm:px-8 rounded-2xl"><div class="relative w-full"><img src=/images/sponserbg.webp alt="Sponsor Graphic" class="w-full h-64 sm:h-80 md:h-96 object-cover rounded-t-xl"><div class="absolute inset-0 bg-black bg-opacity-30 rounded-t-xl"></div><div class="absolute inset-0 flex flex-col justify-center items-center text-center rounded-t-xl p-4 sm:p-6"><h2 class="text-lg sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-4 text-white">Support the Future of AI Security</h2><p class="text-xs sm:text-sm md:text-lg mb-3 sm:mb-5 text-white">Get involved: aruneesh.salhotra@owasp.org</p><a href=mailto:aruneesh.salhotra@owasp.org class="inline-block bg-green-600 text-white px-5 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-green-700 transition mb-3 sm:mb-5 text-sm sm:text-base">Sponsor Now</a><h3 class="text-base sm:text-xl md:text-2xl font-bold mb-2 sm:mb-4 text-white">Our Sponsors</h3><div class="flex justify-center items-center flex-wrap gap-4 sm:gap-12"><a href=https://www.straiker.ai/ target=_blank rel="noopener noreferrer"><img src=/images/straikerlogo.png alt="Straiker sponsor" class="h-8 sm:h-10 md:h-12 w-auto"></a>
-<a href=https://casco.com/ target=_blank rel="noopener noreferrer"><img src=/images/cascologo.png alt="Casco sponsor" class="h-10 sm:h-12 md:h-16 w-auto"></a>
-<a href=https://www.aisecurityacademy.ai/ target=_blank rel="noopener noreferrer"><img src=/images/ais-logo.png alt="AI Security Academy" class="h-10 sm:h-12 md:h-16 w-auto"></a></div></div></div><div class="p-5 sm:p-8 bg-[#006284] rounded-b-2xl"><h2 class="text-lg sm:text-2xl md:text-3xl font-bold mb-5 sm:mb-8 text-white text-center">Sponsorship benefits include</h2><div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-10 text-center md:text-left"><div><div class="flex flex-col md:flex-row items-center md:items-center mb-3"><i class="far fa-eye text-white text-3xl mr-4"></i><h4 class="text-base sm:text-lg md:text-xl font-bold text-white">Visibility</h4></div><p class="text-white text-sm sm:text-base leading-relaxed">Showcase your organization’s commitment to AI security within a network of industry leaders and experts.</p></div><div><div class="flex flex-col md:flex-row items-center md:items-center mb-3"><i class="far fa-handshake text-white text-3xl mr-4"></i><h4 class="text-base sm:text-lg md:text-xl font-bold text-white">Collaboration</h4></div><p class="text-white text-sm sm:text-base leading-relaxed">Participate in the development of global AI security guidelines, standards, and regulations.</p></div><div><div class="flex flex-col md:flex-row items-center md:items-center mb-3"><i class="far fa-lightbulb text-white text-3xl mr-4"></i><h4 class="text-base sm:text-lg md:text-xl font-bold text-white">Thought Leadership</h4></div><p class="text-white text-sm sm:text-base leading-relaxed">Contribute to key insights on AI threats, risks, and controls, positioning your organization as a leader in AI security.</p></div></div></div></div><div class="container mx-auto pt-0 px-4 md:px-8 max-w-8xl"><h2 class="text-4xl mb-10 md:text-5xl font-bold text-center text-gray-800">Project Sponsors</h2><div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8"><div class="relative bg-white rounded-lg shadow-[0_0_25px_1px_rgba(0,0,0,0.2)] overflow-hidden p-6 border border-gray-100 min-h-[341px] flex flex-col justify-between"><span class="absolute top-0 right-0 px-4 py-2 text-base font-bold uppercase rounded-bl-lg
-bg-yellow-400 text-yellow-900">Gold</span><div class="mb-4 flex-shrink-0"><img src=/images/sp_straiker-removebg-preview.png alt="Straker Logo" class="h-16 object-contain mt-9 mx-auto"></div><hr class="border-t border-gray-300 mb-[15px]"><div class=flex-grow><p class="text-base leading-relaxed mb-4">Transform cybersecurity by building AI-native security solutions to protect our customers from a spectrum of security & safety risks with AI applications & agents.</p></div><a href=https://www.straiker.ai/ target=_blank rel="noopener noreferrer" class="text-[#4CAF50] hover:text-emerald-800 text-sm font-semibold flex items-center mt-auto cursor-pointer transition-colors duration-200">Learn more ></a></div><div class="relative bg-white rounded-lg shadow-[0_0_25px_1px_rgba(0,0,0,0.2)] overflow-hidden p-6 border border-gray-100 min-h-[341px] flex flex-col justify-between"><span class="absolute top-0 right-0 px-4 py-2 text-base font-bold uppercase rounded-bl-lg
-bg-gray-300 text-gray-700">Silver</span><div class="mb-4 flex-shrink-0"><img src=/images/sp_casco-removebg-preview.png alt="Casco Logo" class="h-16 object-contain mt-9 mx-auto"></div><hr class="border-t border-gray-300 mb-[15px]"><div class=flex-grow><p class="text-base leading-relaxed mb-4">Casco validates security, safety, and accuracy of AI apps and agents. Continuously.</p></div><a href=https://casco.com/ target=_blank rel="noopener noreferrer" class="text-[#4CAF50] hover:text-emerald-800 text-sm font-semibold flex items-center mt-auto cursor-pointer transition-colors duration-200">Learn more ></a></div><div class="relative bg-white rounded-lg shadow-[0_0_25px_1px_rgba(0,0,0,0.2)] overflow-hidden p-6 border border-gray-100 min-h-[341px] flex flex-col justify-between"><span class="absolute top-0 right-0 px-4 py-2 text-base font-bold uppercase rounded-bl-lg
-bg-gray-300 text-gray-700">Silver</span><div class="mb-4 flex-shrink-0"><img src=/images/AISecurityAcademyLogo.png alt="AI Security Academy Logo" class="h-16 object-contain mt-9 mx-auto"></div><hr class="border-t border-gray-300 mb-[15px]"><div class=flex-grow><p class="text-base leading-relaxed mb-4">AI Security Academy is the world's first hands-on training platform dedicated to securing artificial intelligence.</p></div><a href=https://www.aisecurityacademy.ai/ target=_blank rel="noopener noreferrer" class="text-[#4CAF50] hover:text-emerald-800 text-sm font-semibold flex items-center mt-auto cursor-pointer transition-colors duration-200">Learn more ></a></div></div></div><div id=contactSection><section id=contact-form class="relative bg-[#EDF7ED] py-16"><div class="max-w-[1400px] mx-auto px-6 md:px-12"><h2 class="text-3xl md:text-4xl font-bold text-center text-[#1a1a2e] mb-16">We are always happy to assist you!</h2><div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start"><div><div class="flex flex-wrap gap-4 mb-8"><a href=https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions target=_blank class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow"><i class="fab fa-github text-gray-700"></i></a>
-<a href=https://owasp.slack.com/join/shared_invite/zt-3iwx0wk01-vLwSQy1NfkD0Cv5UJeMbwQ#/shared-invite/email target=_blank class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow"><img src=/images/slack.png alt=Slack class="w-6 h-6"></a>
-<a href=https://www.linkedin.com/company/owasp-ai-exchange/ target=_blank class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow"><i class="fab fa-linkedin-in text-blue-700"></i></a>
-<a href="https://www.youtube.com/playlist?list=PLCZNSZ1gyRoD5droM_qyXYyBofj00x_zO" target=_blank class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow"><i class="fab fa-youtube text-red-600"></i></a></div><h3 class="text-2xl font-bold text-[#1a1a2e] mb-4">Send us a message</h3><p class="text-gray-500 leading-relaxed">Have questions about AI security? Want to contribute to our mission?
-We'd love to hear from you. Reach out through any of our channels or
-use the contact form.</p></div><div><div id=form-message class="hidden mb-4 p-4 rounded-lg"></div><div class="block md:hidden bg-white shadow-lg rounded-xl p-6"><form id=contact-form-mobile class="flex flex-col gap-6" novalidate><div class="grid grid-cols-1 gap-4"><div><input id=mobile-first-name name=first_name type=text placeholder="First Name*" required class="p-4 border border-gray-300 rounded-lg text-base w-full focus:outline-none focus:ring-2 focus:ring-green-500">
-<span class="error-message hidden text-red-600 text-sm mt-1"></span></div><div><input id=mobile-last-name name=last_name type=text placeholder="Last Name*" required class="p-4 border border-gray-300 rounded-lg text-base w-full focus:outline-none focus:ring-2 focus:ring-green-500">
-<span class="error-message hidden text-red-600 text-sm mt-1"></span></div></div><div><input id=mobile-email name=email type=email placeholder="Email Address*" required class="p-4 border border-gray-300 rounded-lg text-base w-full focus:outline-none focus:ring-2 focus:ring-green-500">
-<span class="error-message hidden text-red-600 text-sm mt-1"></span></div><div><textarea id=mobile-message name=message placeholder=Message rows=4 class="p-4 border border-gray-300 rounded-lg text-base resize-vertical w-full focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
-<span class="error-message hidden text-red-600 text-sm mt-1"></span></div><button type=submit id=mobile-submit-btn class="bg-green-500 text-white px-6 py-3 rounded-lg font-bold flex items-center justify-center gap-2 w-max hover:bg-green-600 transition disabled:opacity-50 disabled:cursor-not-allowed">
-<span id=mobile-submit-text>Submit</span>
-<span id=mobile-submit-arrow>→</span>
-<span id=mobile-submit-loader class=hidden>⏳</span></button></form></div><form id=contact-form-desktop class="hidden md:flex flex-col gap-6" novalidate><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div><input id=desktop-first-name name=first_name type=text placeholder="First Name*" required class="p-4 border border-gray-300 rounded-lg text-base w-full focus:outline-none focus:ring-2 focus:ring-green-500">
-<span class="error-message hidden text-red-600 text-sm mt-1"></span></div><div><input id=desktop-last-name name=last_name type=text placeholder="Last Name*" required class="p-4 border border-gray-300 rounded-lg text-base w-full focus:outline-none focus:ring-2 focus:ring-green-500">
-<span class="error-message hidden text-red-600 text-sm mt-1"></span></div></div><div><input id=desktop-email name=email type=email placeholder="Email Address*" required class="p-4 border border-gray-300 rounded-lg text-base w-full focus:outline-none focus:ring-2 focus:ring-green-500">
-<span class="error-message hidden text-red-600 text-sm mt-1"></span></div><div><textarea id=desktop-message name=message placeholder=Message rows=4 class="p-4 border border-gray-300 rounded-lg text-base resize-vertical w-full focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
-<span class="error-message hidden text-red-600 text-sm mt-1"></span></div><button type=submit id=desktop-submit-btn class="bg-green-500 text-white px-6 py-3 rounded-lg font-bold flex items-center justify-center gap-2 w-max hover:bg-green-600 transition disabled:opacity-50 disabled:cursor-not-allowed">
-<span id=desktop-submit-text>Submit</span>
-<span id=desktop-submit-arrow>→</span>
-<span id=desktop-submit-loader class=hidden>⏳</span></button></form></div></div></div></section><script>(function(){const r="https://usabilitydesigns.com/calendar/send-mail.php",t=document.getElementById("contact-form-mobile"),n=document.getElementById("contact-form-desktop"),e=document.getElementById("form-message");function s(e){const t=e.value.trim(),i=e.name;let n=!0,o="";e.classList.remove("border-red-500");const s=e.parentElement.querySelector(".error-message");if(s&&(s.classList.add("hidden"),s.textContent=""),e.hasAttribute("required")&&!t&&(n=!1,o="This field is required"),i==="email"&&t){const e=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;e.test(t)||(n=!1,o="Please enter a valid email address")}return i==="first_name"&&t&&t.length<2&&(n=!1,o="First name must be at least 2 characters"),i==="last_name"&&t&&t.length<2&&(n=!1,o="Last name must be at least 2 characters"),!n&&s&&(e.classList.add("border-red-500"),s.textContent=o,s.classList.remove("hidden")),n}function c(e){const o=e.querySelectorAll("input[required], textarea[required]");let t=!0;o.forEach(e=>{s(e)||(t=!1)});const n=e.querySelector('input[name="email"]');return n&&n.value.trim()&&(s(n)||(t=!1)),t}function o(t,n=!1){e.textContent=t,e.className=n?"mb-4 p-4 rounded-lg bg-red-100 border border-red-400 text-red-700":"mb-4 p-4 rounded-lg bg-green-100 border border-green-400 text-green-700",e.classList.remove("hidden"),e.scrollIntoView({behavior:"smooth",block:"nearest"}),n||setTimeout(()=>{e.classList.add("hidden")},5e3)}function i(e,t){const n=e.querySelector('button[type="submit"]'),s=e.querySelector('[id$="-submit-text"]'),o=e.querySelector('[id$="-submit-arrow"]'),i=e.querySelector('[id$="-submit-loader"]');n&&(n.disabled=t),s&&(s.style.display=t?"none":"inline"),o&&(o.style.display=t?"none":"inline"),i&&(i.style.display=t?"inline":"none")}function l(e){e.reset(),e.querySelectorAll(".error-message").forEach(e=>{e.classList.add("hidden"),e.textContent=""}),e.querySelectorAll("input, textarea").forEach(e=>{e.classList.remove("border-red-500")})}async function a(t,n){if(n.preventDefault(),e.classList.add("hidden"),!c(t)){o("Please fill in all required fields correctly.",!0);return}const s=new FormData(t),a={first_name:s.get("first_name"),last_name:s.get("last_name"),email:s.get("email"),message:s.get("message")||""};i(t,!0);try{const n=await fetch(r,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(a)});let e;const s=n.headers.get("content-type");if(s&&s.includes("application/json"))e=await n.json();else{const t=await n.text();try{e=JSON.parse(t)}catch{n.ok?e={success:!0}:e={success:!1,error:"Server error occurred"}}}e.success?(o("Thank you! Your message has been sent successfully.",!1),l(t)):o(e.error||"Failed to send message. Please try again later.",!0)}catch(e){console.error("Form submission error:",e),o("An error occurred while sending your message. Please try again later.",!0)}finally{i(t,!1)}}t&&(t.addEventListener("submit",e=>a(t,e)),t.querySelectorAll("input, textarea").forEach(e=>{e.addEventListener("blur",()=>s(e))})),n&&(n.addEventListener("submit",e=>a(n,e)),n.querySelectorAll("input, textarea").forEach(e=>{e.addEventListener("blur",()=>s(e))}))})()</script></div></div></div></main><script src=https://cdn.tailwindcss.com></script>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css><link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Manrope:wght@600&family=Roboto:wght@500&display=swap" rel=stylesheet><script>tailwind.config={theme:{extend:{fontFamily:{inter:["Inter","sans-serif"],manrope:["Manrope","sans-serif"],roboto:["Roboto","sans-serif"]}}}}</script><footer class="bg-black text-white w-full"><div class="container mx-auto px-4 md:px-10 md:py-4"><div class=md:hidden><div class="text-center mb-4"><a href=/ class=inline-block><img src=/images/Owasp-AI-Exchange-Logo.png alt="AI Exchange" class="h-10 md:h-10 w-auto mx-auto mb-4 filter brightness-0 invert"></a><p class="text-sm opacity-90 max-w-md mx-auto">Advancing AI security through community collaboration and open-source resources.</p></div><div class="text-center mb-8"><ul class=space-y-3><li><a href=/ class="block text-base hover:text-gray-300 transition">Home</a></li><li><a href=/docs/ai_security_overview/ class="block text-base hover:text-gray-300 transition">Overview</a></li><li><a href=/media/ class="block text-base hover:text-gray-300 transition">Media</a></li><li><a href=/sponsor/ class="block text-base hover:text-gray-300 transition">Sponsor</a></li><li><a href=/contribute/ class="block text-base hover:text-gray-300 transition">Contribute</a></li><li><a href=/connect/ class="block text-base hover:text-gray-300 transition">Connect</a></li></ul></div><div class="border-t border-gray-600 mb-6"></div><div class="flex justify-center space-x-4 mb-6"><a href=https://github.com/OWASP/www-project-ai-security-and-privacy-guide target=_blank class="w-12 h-12 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition"><i class="fab fa-github text-lg"></i></a>
-<a href=https://owasp.slack.com/join/shared_invite/zt-3iwx0wk01-vLwSQy1NfkD0Cv5UJeMbwQ#/shared-invite/email target=_blank class="w-12 h-12 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition"><i class="fab fa-slack text-lg"></i></a>
-<a href=https://www.linkedin.com/company/owasp-ai-exchange/ target=_blank class="w-12 h-12 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition"><i class="fab fa-linkedin-in text-lg"></i></a>
-<a href="https://www.youtube.com/playlist?list=PLCZNSZ1gyRoD5droM_qyXYyBofj00x_zO" target=_blank class="w-12 h-12 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition"><i class="fab fa-youtube text-lg"></i></a></div><div class="border-t border-gray-600 mb-6"></div><div class="text-center mb-6"><p class=text-sm>Copyright © owasp.org 2026. All Rights Reserved.</p></div><div class=text-center><p class="text-sm mb-2">Designed & Developed by:</p><div class="flex items-center justify-center space-x-2"><img src=/images/usability.png alt="Usability Icon" class="h-6 w-auto">
-<a href=https://usabilitydesigns.com/ class="text-sm font-medium text-yellow-400 hover:text-yellow-300 transition">USABILITY DESIGNS</a></div></div></div><div class="hidden md:block py-4"><div class="flex justify-between items-start"><div class="flex flex-col logo-section"><a href=/ class=logo-link><img src=/images/Owasp-AI-Exchange-Logo.png alt="OWASP AI Exchange" class="site-logo h-[36px] w-auto"></a><ul class="flex space-x-6 mt-3 font-roboto text-[15px]"><li><a href=/ class=hover:text-white>Home</a></li><li><a href=/docs/ai_security_overview/ class=hover:text-white>Overview</a></li><li><a href=/media/ class=hover:text-white>Media</a></li><li><a href=/sponsor/ class=hover:text-white>Sponsor</a></li><li><a href=/contribute/ class=hover:text-white>Contribute</a></li><li><a href=/connect/ class=hover:text-white>Connect</a></li></ul></div><div class="flex space-x-3 mt-2"><a href=https://github.com/OWASP/www-project-ai-security-and-privacy-guide target=_blank class="w-8 h-8 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition"><i class="fab fa-github"></i></a>
-<a href=https://owasp.slack.com/join/shared_invite/zt-3iwx0wk01-vLwSQy1NfkD0Cv5UJeMbwQ#/shared-invite/email target=_blank class="w-8 h-8 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition"><i class="fab fa-slack"></i></a>
-<a href=https://www.linkedin.com/company/owasp-ai-exchange/ target=_blank class="w-8 h-8 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition"><i class="fab fa-linkedin-in"></i></a>
-<a href="https://www.youtube.com/playlist?list=PLCZNSZ1gyRoD5droM_qyXYyBofj00x_zO" target=_blank class="w-8 h-8 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition"><i class="fab fa-youtube"></i></a></div></div><div class="border-t border-gray-600 mt-3"></div><div class="flex w-full flex-row justify-between items-center pt-3"><p class="font-roboto text-[14px]">Copyright © owasp.org 2026. All Rights Reserved.</p><p class="flex gap-2 text-[12px] items-center">PROUDLY DESIGNED AND DEVELOPED BY:
-<img src=/images/usability.png alt="Usability Icon" class="h-4 inline-block">
-<a href=https://usabilitydesigns.com/ class=text-[#FFAE3C]>USABILITY DESIGNS</a></p></div></div></div></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=62686&amp;path=livereload" data-no-instant defer></script>
+    
+
+<meta property="og:title" content="AI Exchange" />
+<meta property="og:description" content="Comprehensive guidance and alignment on how to protect AI against security threats - by professionals, for professionals." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:62686/sponsor/" />
+<meta property="og:image" content="https://owaspai.org/images/aix-og-logo.jpg" /><meta property="article:section" content="" />
+
+   <meta charset="utf-8" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Exchange</title>
+  <meta name="description" content="" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css"/>
+
+  <link rel="stylesheet" href="/css/site.css?v=2" />
+  <link rel="stylesheet" href="/css/custom-style.css?v=2" />
+  <script src="/js/script.js"></script>
+  
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      try {
+        if (typeof AOS !== "undefined") AOS.init({ delay: 0, disable: "phone" });
+      } catch (e) {
+        console.warn("AOS.init failed:", e);
+      }
+    });
+  </script>
+  </head>
+  <body>
+    
+
+
+
+<header class="main-header">
+  <div class="header-background">
+    
+  </div>
+  
+  <div class="container header-container">
+    
+    <div class="logo-section">
+      
+        <a href="/" class="logo-link">
+          <img 
+            src="/images/Owasp-AI-Exchange-Logo.png" 
+            alt="AI Exchange"
+            class="site-logo"
+            width="Auto"
+            height="48"
+          />
+        </a>
+      
+    </div>
+
+    
+    <nav class="main-navigation desktop-nav">
+      <ul class="nav-list">
+        
+          <li class="nav-item">
+            <a href="/" class="nav-link ">
+              Home
+            </a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/docs/ai_security_overview/" class="nav-link ">
+              Content
+            </a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/media/" class="nav-link ">
+              Media
+            </a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/contribute/" class="nav-link ">
+              Contribute
+            </a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/connect/" class="nav-link ">
+              Connect
+            </a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="/sponsor/" class="nav-link active">
+              Sponsor
+            </a>
+          </li>
+        
+      </ul>
+    </nav>
+
+    
+    <div class="header-actions">
+      
+      <a href="/OWASP-AI-Exchange.pdf" class="download-pdf-btn desktop-only" title="Download Full PDF">
+        <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        <span>PDF</span>
+      </a>
+
+      
+      <div class="social-icons desktop-social">
+        
+          
+            
+          
+        
+          
+            <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide" class="social-link" title="GitHub">
+              
+                <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                </svg>
+              
+            </a>
+          
+        
+          
+            <a href="https://owasp.org/slack/invite" class="social-link" title="Slack">
+              
+                <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/>
+                </svg>
+              
+            </a>
+          
+        
+          
+            <a href="https://www.linkedin.com/company/owasp-ai-exchange/" class="social-link" title="LinkedIn">
+              
+                <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              
+            </a>
+          
+        
+          
+            <a href="https://www.youtube.com/playlist?list=PLCZNSZ1gyRoD5droM_qyXYyBofj00x_zO" class="social-link" title="Youtube">
+              
+                <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              
+            </a>
+          
+        
+      </div>
+
+      
+      <button class="search-icon" id="search-toggle" aria-label="Search">
+        <svg class="search-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </button>
+
+      
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-container">
+    <div class="search-header">
+      <button class="search-close" id="search-close" aria-label="Close search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div id="pagefind-search" class="pagefind-search-container"></div>
+  </div>
+</div>
+
+
+<div class="mobile-menu-overlay" id="mobileMenu">
+  <div class="mobile-menu-header">
+    
+    <div class="mobile-logo-section">
+      
+        <a href="/" class="mobile-logo-link">
+          <img 
+            src="/images/Owasp-AI-Exchange-Logo.png" 
+            alt="AI Exchange"
+            class="mobile-site-logo"
+            width="Auto"
+            height="48"
+          />
+        </a>
+      
+    </div>
+
+    
+    <button class="mobile-menu-close" aria-label="Close menu">
+      <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  
+  <nav class="mobile-navigation">
+    <ul class="mobile-nav-list">
+      
+        <li class="mobile-nav-item">
+          <a href="/" class="mobile-nav-link ">
+            Home
+          </a>
+        </li>
+      
+        <li class="mobile-nav-item">
+          <a href="/docs/ai_security_overview/" class="mobile-nav-link ">
+            Content
+          </a>
+        </li>
+      
+        <li class="mobile-nav-item">
+          <a href="/media/" class="mobile-nav-link ">
+            Media
+          </a>
+        </li>
+      
+        <li class="mobile-nav-item">
+          <a href="/contribute/" class="mobile-nav-link ">
+            Contribute
+          </a>
+        </li>
+      
+        <li class="mobile-nav-item">
+          <a href="/connect/" class="mobile-nav-link ">
+            Connect
+          </a>
+        </li>
+      
+        <li class="mobile-nav-item">
+          <a href="/sponsor/" class="mobile-nav-link active">
+            Sponsor
+          </a>
+        </li>
+      
+      
+      <li class="mobile-nav-item">
+        <button class="mobile-nav-link text-center mobile-search-btn" onclick="document.getElementById('search-toggle').click()">
+          <svg class="search-svg inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg> Search
+                  </button>
+              </li>
+              
+              <li class="mobile-nav-item">
+                <a href="/OWASP-AI-Exchange.pdf" class="mobile-nav-link text-center">
+                  <svg class="download-icon inline mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg> Download PDF
+                </a>
+              </li>
+            </ul>
+          </nav>
+  
+  <div class="mobile-social-icons">
+    
+      
+    
+      
+        <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide" class="mobile-social-link" title="GitHub">
+          
+            <svg class="mobile-social-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+            </svg>
+          
+        </a>
+      
+    
+      
+    
+      
+        <a href="https://www.linkedin.com/company/owasp-ai-exchange/" class="mobile-social-link" title="LinkedIn">
+          
+            <svg class="mobile-social-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          
+        </a>
+      
+    
+      
+        <a href="https://www.youtube.com/playlist?list=PLCZNSZ1gyRoD5droM_qyXYyBofj00x_zO" class="mobile-social-link" title="Youtube">
+          
+            <svg class="mobile-social-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+<style>
+ 
+.main-navigation.desktop-nav {
+  display: flex;
+}
+
+ 
+.search-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-icon:hover {
+  opacity: 0.8;
+}
+
+.search-svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+}
+
+ 
+.download-pdf-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.download-pdf-btn:hover {
+  background: #4CAF50;
+  border-color: #4CAF50;
+  color: white;
+}
+
+.download-icon {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 1024px) {
+  .download-pdf-btn span {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+ 
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+ 
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #002843;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 10% 90%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px, 80px 80px, 60px 60px, 40px 40px, 70px 70px;
+  z-index: 9999;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+  overflow: hidden;
+}
+
+.mobile-menu-overlay.active {
+  display: flex;
+}
+
+ 
+.mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2rem 1rem 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.mobile-menu-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.mobile-logo-section {
+  flex: 1;
+}
+
+.mobile-site-logo {
+  height: 48px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.mobile-site-title {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.mobile-site-title-link {
+  text-decoration: none;
+}
+
+.mobile-menu-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.close-icon {
+  width: 24px;
+  height: 24px;
+  stroke: white;
+  stroke-width: 2;
+}
+
+ 
+.mobile-navigation {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.mobile-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 400px;
+}
+
+.mobile-nav-item {
+  margin: 0;
+}
+
+.mobile-nav-link {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.25rem;
+  padding: 1.5rem 1rem;
+  margin: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  text-align: center;
+}
+
+.mobile-nav-link:hover {
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav-link.active {
+  background: #4CAF50;
+  color: white;
+  font-weight: 700;
+}
+
+.mobile-nav-link.active:hover {
+  background: #45a049;
+  color: white;
+}
+
+ 
+.mobile-social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-social-link {
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-social-link:hover {
+  color: #93c5fd;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.mobile-social-icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+ 
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  
+  .desktop-social {
+    display: none !important;
+  }
+  
+  .hamburger {
+    display: flex;
+  }
+  
+  .search-icon {
+    display: flex;
+  }
+  
+  .header-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1rem !important;
+    padding-right: 1.5rem !important;
+  }
+  
+  .logo-section {
+    flex: 1;
+  }
+  
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .site-logo {
+    height: 40px;
+    width: auto;
+    filter: brightness(0) invert(1);
+  }
+  
+  .site-title {
+    font-size: 1.25rem;
+  }
+}
+
+ 
+@media (min-width: 769px) {
+  .mobile-menu-overlay {
+    display: none !important;
+  }
+}
+
+ 
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 9998;
+  display: none;
+  padding: 2rem;
+}
+
+.search-overlay.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-container {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.search-header {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.search-close {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.search-close svg {
+  width: 24px;
+  height: 24px;
+}
+
+ 
+.pagefind-search-container {
+  --pagefind-ui-scale: 1;
+  --pagefind-ui-primary: #4CAF50;
+  --pagefind-ui-text: #fff;
+  --pagefind-ui-background: rgba(255, 255, 255, 0.05);
+  --pagefind-ui-border: rgba(255, 255, 255, 0.2);
+  --pagefind-ui-border-width: 1px;
+  --pagefind-ui-border-radius: 8px;
+  --pagefind-ui-font: inherit;
+  max-height: calc(100vh - 180px);
+  overflow-y: auto;
+}
+
+ 
+#pagefind-search .pagefind-ui__result-nested {
+  display: block !important;
+  position: static !important;
+  margin: 1.5rem 0 1.5rem 1.5rem !important;
+  padding: 1rem !important;
+  border-left: 4px solid #4CAF50 !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  height: auto !important;
+  min-height: 50px !important;
+  clear: both !important;
+}
+
+#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-title,
+#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-excerpt {
+  display: block !important;
+  position: static !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 0 0.8rem 0 !important;
+  padding: 0 !important;
+  line-height: 1.5 !important;
+  float: none !important;
+}
+
+#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-link {
+  display: block !important;
+  position: static !important;
+  color: #4CAF50 !important;
+  font-weight: 700 !important;
+  text-decoration: underline !important;
+}
+
+#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-link::before,
+#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-link::after {
+  content: none !important;
+  display: none !important;
+}
+
+ 
+.search-highlight-scroll {
+  background: rgba(76, 175, 80, 0.2);
+  transition: background 1.5s ease-out;
+}
+
+ 
+.search-highlight-word {
+  background: rgba(255, 235, 59, 0.65);
+  padding: 0 0.1em;
+  border-radius: 2px;
+  transition: background 2s ease-out;
+}
+.search-highlight-word.fade-out {
+  background: transparent;
+}
+
+ 
+.search-highlight-bar {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(76, 175, 80, 0.95);
+  border: 1px solid rgba(76, 175, 80, 0.6);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 9997;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.search-highlight-bar-visible {
+  opacity: 1;
+}
+.search-highlight-count {
+  margin-right: 0.5rem;
+  font-weight: 500;
+}
+.search-highlight-prev,
+.search-highlight-next {
+  padding: 0.25rem 0.6rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  background: rgba(76, 175, 80, 0.25);
+  border: 1px solid rgba(76, 175, 80, 0.4);
+  border-radius: 4px;
+  color: inherit;
+}
+.search-highlight-prev:hover,
+.search-highlight-next:hover {
+  background: rgba(76, 175, 80, 0.35);
+}
+.search-highlight-prev:disabled,
+.search-highlight-next:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.search-highlight-prev:disabled:hover,
+.search-highlight-next:disabled:hover {
+  background: rgba(76, 175, 80, 0.25);
+}
+ 
+.search-highlight-word.search-highlight-current {
+  background: rgba(76, 175, 80, 0.75);
+  box-shadow: 0 0 0 1px rgba(76, 175, 80, 0.5);
+}
+.search-highlight-word.search-highlight-current.fade-out {
+  background: transparent;
+  box-shadow: none;
+}
+.search-highlight-close {
+  margin-left: auto;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid rgba(76, 175, 80, 0.4);
+  border-radius: 4px;
+  color: inherit;
+}
+.search-highlight-close:hover {
+  background: rgba(76, 175, 80, 0.2);
+}
+.search-highlight-bar .search-highlight-kbd-hint {
+  font-size: 0.75rem;
+  opacity: 0.85;
+  margin-left: 0.25rem;
+}
+@media (max-width: 640px) {
+  .search-highlight-bar .search-highlight-kbd-hint {
+    display: none;
+  }
+}
+
+.mobile-search-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin: 0;
+}
+</style>
+
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+<script src="/pagefind/pagefind-ui.js"></script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+  const searchToggle = document.getElementById("search-toggle");
+  const searchOverlay = document.getElementById("searchOverlay");
+  const searchClose = document.getElementById("search-close");
+
+  if (typeof PagefindUI !== "undefined") {
+    new PagefindUI({
+      element: "#pagefind-search",
+      translations: { placeholder: "Search articles, guides, and content..." },
+      showSubResults: true,
+      subResultsHierarchical: true,
+      highlightParam: "highlight",
+      showImages: false,
+      resetStyles: false,
+      autofocus: true
+    });
+  }
+
+  
+  const pagefindSearch = document.getElementById("pagefind-search");
+  if (pagefindSearch) {
+    pagefindSearch.addEventListener("click", (e) => {
+      const link = e.target.closest("a[href]");
+      if (!link || !link.href || !pagefindSearch.contains(link)) return;
+      const searchInput = pagefindSearch.querySelector("input[type=\"search\"], input[type=\"text\"], .pagefind-ui__search-input, input");
+      const query = searchInput && searchInput.value && searchInput.value.trim();
+      
+      const resultRow = link.closest("li") || link.closest("[class*='result']") || link.parentElement;
+      const matchEl = resultRow && resultRow.querySelector("mark, .pagefind-highlight, [class*='highlight']");
+      const term = (matchEl && matchEl.textContent && matchEl.textContent.trim()) || query || (link.textContent && link.textContent.trim());
+      if (!term) return;
+      try {
+        const u = new URL(link.href);
+        if (u.origin !== location.origin) return;
+        u.searchParams.set("highlight", term);
+        e.preventDefault();
+        location.assign(u.toString());
+      } catch (_) {}
+    }, true);
+  }
+
+  function focusSearchInput() {
+    const input = pagefindSearch && pagefindSearch.querySelector("input[type=\"search\"], input[type=\"text\"], .pagefind-ui__search-input, input");
+    if (input) {
+      input.focus();
+      return true;
+    }
+    return false;
+  }
+
+  function openSearch() {
+    if (!searchOverlay) return;
+    searchOverlay.classList.add("active");
+    document.body.style.overflow = "hidden";
+    
+    const tryFocus = (attempt) => {
+      if (focusSearchInput()) return;
+      if (attempt < 12) setTimeout(() => tryFocus(attempt + 1), 50);
+    };
+    setTimeout(() => tryFocus(0), 50);
+  }
+
+  if (searchToggle) {
+    searchToggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      openSearch();
+    });
+  }
+
+  if (searchClose) {
+    searchClose.addEventListener("click", () => {
+      searchOverlay.classList.remove("active");
+      document.body.style.overflow = "auto";
+    });
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && searchOverlay && searchOverlay.classList.contains("active")) {
+      searchOverlay.classList.remove("active");
+      document.body.style.overflow = "auto";
+      return;
+    }
+    if (e.key === "/" && searchOverlay && !searchOverlay.classList.contains("active")) {
+      const active = document.activeElement;
+      const inInput = active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA" || active.isContentEditable);
+      if (!inInput) {
+        e.preventDefault();
+        openSearch();
+      }
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.querySelector(".hamburger");
+  const mobileMenu = document.querySelector(".mobile-menu-overlay");
+  const closeButton = document.querySelector(".mobile-menu-close");
+  const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+  if (!hamburger || !mobileMenu || !closeButton) return;
+
+  
+  hamburger.addEventListener("click", () => {
+    mobileMenu.classList.add("active");
+    hamburger.classList.add("active");
+    document.body.style.overflow = "hidden"; 
+  });
+
+  
+  closeButton.addEventListener("click", () => {
+    mobileMenu.classList.remove("active");
+    hamburger.classList.remove("active");
+    document.body.style.overflow = "auto"; 
+  });
+
+  
+  mobileNavLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+      hamburger.classList.remove("active");
+      document.body.style.overflow = "auto";
+    });
+  });
+
+  
+  mobileMenu.addEventListener("click", (e) => {
+    if (e.target === mobileMenu) {
+      mobileMenu.classList.remove("active");
+      hamburger.classList.remove("active");
+      document.body.style.overflow = "auto";
+    }
+  });
+
+  
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && mobileMenu.classList.contains("active")) {
+      mobileMenu.classList.remove("active");
+      hamburger.classList.remove("active");
+      document.body.style.overflow = "auto";
+    }
+  });
+});
+
+
+
+var _scrollHighlightDebug = false;
+function escapeRegex(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+function getScrollParent(el) {
+  var style = window.getComputedStyle(el);
+  var overflowY = style.overflowY;
+  var overflowX = style.overflowX;
+  if ((overflowY === "auto" || overflowY === "scroll" || overflowX === "auto" || overflowX === "scroll") && el.scrollHeight > el.clientHeight) return el;
+  if (el.parentElement && el.parentElement !== document.body) return getScrollParent(el.parentElement);
+  return null;
+}
+function runScrollToHighlight() {
+  const params = new URLSearchParams(location.search);
+  const term = params.get("highlight");
+  if (!term || !term.trim()) return;
+  const termTrimmed = term.trim();
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  const container = document.querySelector("main")?.parentElement || document.querySelector(".docs-body") || document.querySelector(".docs-content") || document.querySelector("main.docs-main") || document.querySelector("main") || document.querySelector(".content") || document.querySelector("article") || document.body;
+  if (!container) return;
+  const needle = termTrimmed.toLowerCase();
+  const regex = new RegExp(escapeRegex(termTrimmed), "gi");
+
+  
+  function isInsideCodeBlock(node) {
+    let p = node.parentElement;
+    while (p && p !== container) {
+      if (/^(PRE|CODE)$/i.test(p.tagName)) return true;
+      p = p.parentElement;
+    }
+    return false;
+  }
+
+  
+  const textNodesToProcess = [];
+  const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, null, false);
+  let node;
+  while ((node = walker.nextNode())) {
+    if (isInsideCodeBlock(node)) continue;
+    if (node.textContent.toLowerCase().includes(needle)) textNodesToProcess.push(node);
+  }
+
+  const allHighlightSpans = [];
+
+  
+  textNodesToProcess.forEach(function (textNode) {
+    const text = textNode.textContent;
+    const frag = document.createDocumentFragment();
+    let lastEnd = 0;
+    let match;
+    regex.lastIndex = 0;
+    while ((match = regex.exec(text)) !== null) {
+      if (match.index > lastEnd) {
+        frag.appendChild(document.createTextNode(text.slice(lastEnd, match.index)));
+      }
+      const span = document.createElement("span");
+      span.className = "search-highlight-word";
+      span.setAttribute("data-search-highlight", "1");
+      span.textContent = match[0];
+      frag.appendChild(span);
+      allHighlightSpans.push(span);
+      lastEnd = regex.lastIndex;
+    }
+    if (lastEnd < text.length) {
+      frag.appendChild(document.createTextNode(text.slice(lastEnd)));
+    }
+    if (frag.childNodes.length) {
+      textNode.parentNode.replaceChild(frag, textNode);
+    }
+  });
+
+  
+  allHighlightSpans.sort(function (a, b) {
+    var ra = a.getBoundingClientRect();
+    var rb = b.getBoundingClientRect();
+    var diff = ra.top - rb.top;
+    if (diff !== 0) return diff;
+    return ra.left - rb.left;
+  });
+
+  var firstScrollElement = null;
+  var scrollTargetSpan = null;
+
+  if (allHighlightSpans.length > 0) {
+    
+    var hash = location.hash && location.hash.slice(1);
+    var sectionEl = hash && document.getElementById(hash);
+    if (sectionEl) {
+      var headingEl = sectionEl.closest("h1, h2, h3, h4, h5, h6") || sectionEl;
+      var headingLevel = headingEl ? parseInt((headingEl.tagName || "H6").replace(/\D/g, "") || 6, 10) : 6;
+      var sectionElements = [headingEl];
+      var sib = headingEl.nextElementSibling;
+      while (sib) {
+        var tag = (sib.tagName || "").toUpperCase();
+        if (/^H[1-6]$/.test(tag)) {
+          var lvl = parseInt(tag.replace(/\D/g, ""), 10);
+          if (lvl <= headingLevel) break;
+        }
+        sectionElements.push(sib);
+        sib = sib.nextElementSibling;
+      }
+      for (var i = 0; i < allHighlightSpans.length; i++) {
+        var sp = allHighlightSpans[i];
+        for (var j = 0; j < sectionElements.length; j++) {
+          if (sectionElements[j].contains(sp)) {
+            scrollTargetSpan = sp;
+            break;
+          }
+        }
+        if (scrollTargetSpan) break;
+      }
+    }
+    if (!scrollTargetSpan) scrollTargetSpan = allHighlightSpans[0];
+    var el = scrollTargetSpan.parentElement;
+    while (el && el !== container && !/^(P|LI|TD|TH|DIV|H[1-6]|BLOCKQUOTE|PRE|SECTION|NAV)$/i.test(el.tagName)) el = el.parentElement;
+    firstScrollElement = el;
+  }
+
+  
+
+  
+  if (firstScrollElement && firstScrollElement !== document.body) {
+    firstScrollElement.classList.add("search-highlight-scroll");
+    setTimeout(function () { firstScrollElement.classList.remove("search-highlight-scroll"); }, 2000);
+    function doScroll() {
+      var scrollParent = getScrollParent(firstScrollElement);
+      if (scrollParent) {
+        var parentRect = scrollParent.getBoundingClientRect();
+        var elRect = firstScrollElement.getBoundingClientRect();
+        var scrollTop = elRect.top - parentRect.top + scrollParent.scrollTop - (parentRect.height / 2) + (elRect.height / 2);
+        scrollParent.scrollTop = Math.max(0, scrollTop);
+      } else {
+        firstScrollElement.scrollIntoView({ behavior: "auto", block: "center" });
+      }
+    }
+    requestAnimationFrame(function () { requestAnimationFrame(doScroll); });
+    setTimeout(doScroll, 100);
+    setTimeout(doScroll, 400);
+  }
+
+  
+  if (allHighlightSpans.length > 0) {
+    const bar = document.createElement("div");
+    bar.className = "search-highlight-bar";
+    bar.setAttribute("role", "status");
+    bar.setAttribute("aria-live", "polite");
+    const countEl = document.createElement("span");
+    countEl.className = "search-highlight-count";
+    function updateCountText(index) {
+      countEl.textContent = allHighlightSpans.length === 1
+        ? "1 match found"
+        : "Match " + (index + 1) + " of " + allHighlightSpans.length;
+    }
+    updateCountText(0);
+    const prevBtn = document.createElement("button");
+    prevBtn.type = "button";
+    prevBtn.className = "search-highlight-prev";
+    prevBtn.setAttribute("aria-label", "Previous match");
+    prevBtn.textContent = "Previous";
+    const nextBtn = document.createElement("button");
+    nextBtn.type = "button";
+    nextBtn.className = "search-highlight-next";
+    nextBtn.setAttribute("aria-label", "Next match");
+    nextBtn.textContent = "Next";
+    const closeBtn = document.createElement("button");
+    closeBtn.type = "button";
+    closeBtn.className = "search-highlight-close";
+    closeBtn.setAttribute("aria-label", "Clear highlights");
+    closeBtn.textContent = "Clear";
+
+    bar.appendChild(countEl);
+    bar.appendChild(prevBtn);
+    bar.appendChild(nextBtn);
+    const kbdHint = document.createElement("span");
+    kbdHint.className = "search-highlight-kbd-hint";
+    kbdHint.setAttribute("aria-hidden", "true");
+    kbdHint.textContent = "↑↓ or Enter";
+    bar.appendChild(kbdHint);
+    bar.appendChild(closeBtn);
+    document.body.appendChild(bar);
+
+    var initialIndex = scrollTargetSpan ? allHighlightSpans.indexOf(scrollTargetSpan) : 0;
+    if (initialIndex < 0) initialIndex = 0;
+    let currentIndex = initialIndex;
+    function setCurrentIndex(i) {
+      if (i < 0 || i >= allHighlightSpans.length) return;
+      var prev = allHighlightSpans[currentIndex];
+      if (prev && prev.isConnected) prev.classList.remove("search-highlight-current");
+      currentIndex = i;
+      var next = allHighlightSpans[currentIndex];
+      if (next && next.isConnected) next.classList.add("search-highlight-current");
+      updateCountText(currentIndex);
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === allHighlightSpans.length - 1;
+    }
+    function scrollToIndex(i) {
+      if (i < 0 || i >= allHighlightSpans.length) return;
+      var span = allHighlightSpans[i];
+      if (!span.isConnected) return; 
+      setCurrentIndex(i);
+      
+      span.scrollIntoView({ behavior: "auto", block: "center" });
+    }
+    setCurrentIndex(initialIndex);
+
+    prevBtn.addEventListener("click", function () { scrollToIndex(currentIndex - 1); });
+    nextBtn.addEventListener("click", function () { scrollToIndex(currentIndex + 1); });
+    closeBtn.addEventListener("click", function () {
+      bar.remove();
+      allHighlightSpans.forEach(function (span) {
+        span.classList.remove("search-highlight-current", "fade-out");
+        var parent = span.parentNode;
+        if (parent) {
+          var text = document.createTextNode(span.textContent);
+          parent.replaceChild(text, span);
+          parent.normalize();
+        }
+      });
+      document.removeEventListener("keydown", onKeydown);
+    });
+
+    function onKeydown(e) {
+      if (!bar.isConnected) return;
+      var active = document.activeElement;
+      if (active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA" || active.isContentEditable)) return;
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        scrollToIndex(currentIndex + 1);
+      } else if (e.key === "Enter" && e.shiftKey) {
+        e.preventDefault();
+        scrollToIndex(currentIndex - 1);
+      } else if (e.key === "ArrowDown") {
+        e.preventDefault();
+        scrollToIndex(currentIndex + 1);
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        scrollToIndex(currentIndex - 1);
+      }
+    }
+    document.addEventListener("keydown", onKeydown);
+
+    setTimeout(function () { bar.classList.add("search-highlight-bar-visible"); }, 100);
+  }
+
+  if (_scrollHighlightDebug) console.log("[scroll-highlight] matches", allHighlightSpans.length);
+  params.delete("highlight");
+  const clean = params.toString() ? location.pathname + "?" + params + location.hash : location.pathname + location.hash;
+  history.replaceState(null, "", clean);
+}
+function scheduleScrollToHighlight() {
+  
+  requestAnimationFrame(function () {
+    requestAnimationFrame(runScrollToHighlight);
+  });
+}
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", scheduleScrollToHighlight);
+} else {
+  scheduleScrollToHighlight();
+}
+</script>
+
+    <main id="main">
+
+<div class="" data-pagefind-body>
+<div class="">
+  
+  <!-- ---
+title: 'Sponsor the OWASP AI Exchange'
+excludeSearch: false
+---
+
+The OWASP AI Exchange is at the global center of AI security standards and guidelines, serving as the ultimate resource for AI security practitioners AND standard makers. The Exchange offers over 200 pages of practical advice and references on protecting AI and data-centric systems from security threats. 
+
+By sponsoring the OWASP AI Exchange, organizations have a unique opportunity to support and engage with a global community dedicated to advancing AI security understanding and practices. 
+
+Sponsorship benefits include:
+- **𝗩𝗶𝘀𝗶𝗯𝗶𝗹𝗶𝘁𝘆**: Showcase your organization's commitment to AI security within a network of industry leaders and experts.
+
+- **C𝗼𝗹𝗹𝗮𝗯𝗼𝗿𝗮𝘁𝗶𝗼𝗻**: Participate in the development of global AI security guidelines, standards, and regulations.
+
+- **𝗧𝗵𝗼𝘂𝗴𝗵𝘁 𝗟𝗲𝗮𝗱𝗲𝗿𝘀𝗵𝗶𝗽**: Contribute to a comprehensive overview of AI threats, risks, mitigations, and controls, positioning your organization at the forefront of AI security discourse.
+
+To learn more about the sponsorship opportunities and how your organization can get involved, please contact aruneesh.salhotra@owasp.org 
+
+Join us in our mission to protect society from AI security issues by harnessing the collective wisdom of global experts. Together, we can drive the development of secure and trustworthy AI systems.
+
+
+<hr>
+<b>Sponsors</b><br>
+<table style="border: none;">
+<tr style="border: none;">
+  <td style="border: none;"><a href="https://www.straiker.ai/" rel="noopener noreferrer" target="_blank"><img src="/images/sp_straiker.jpg" style="display: block; margin: auto;" alt="Straiker sponsor"></a></td>
+  <td style="border: none;"><a href="https://www.casco.com/" rel="noopener noreferrer" target="_blank"><img src="/images/sp_casco.png" style="display: block; margin: auto;" alt="Casco sponsor"></a></td>
+  <td style="border: none;"><a href="https://aisecurityacademy.ai/" rel="noopener noreferrer" target="_blank"><img src="/images/sp_academy3.png" style="display: block; margin: auto;" alt="AI Security academy sponsor"></a></td>
+</tr>
+</table> -->
+<div>
+<section
+  class="intro-banner text-white py-8 md:py-8 mb-0 bg-cover bg-center bg-no-repeat"
+  style="background-image: url('/images/herosponser.png')"
+>
+  <div class="container text-left bg-opacity-50 p-8 rounded-lg">
+    <h1 class="text-[46px] md:text-5xl font-bold mb-4">
+      Sponsor the OWASP AI Exchange
+    </h1>
+    <p class="text-lg text-gray-300 max-w-4xl">
+      Join us in our mission to protect society from AI security issues by harnessing the
+      collective wisdom of global experts. Together, we can drive the development of secure
+      and trustworthy AI systems.
+    </p>
+    <a href="#contactSection" class="inline-block bg-[#4CAF50] hover:bg-emerald-700 text-white text-xl font-medium py-3 px-10 rounded-lg mt-[22px]">
+      Sponsor Now
+    </a>
+  </div>
+</section>
+  <!-- Description Section (Centered Content) -->
+ <div class="container mx-auto pt-10 pb-0 px-10 max-w-8xl">
+    <p class="text-lg text-gray-800 mb-4 leading-relaxed">
+      The <span class="font-bold">OWASP AI Exchange</span> is at the global center of AI security standards and guidelines, serving as the ultimate resource for AI security practitioners and standard makers. The Exchange offers over 200 pages of practical advice and references on protecting AI and data-centric systems from security threats.
+    </p>
+    <p class="text-lg text-gray-800 leading-relaxed">
+      By sponsoring the <span class="font-bold">OWASP AI Exchange</span>, organizations have a unique opportunity to support and engage with a global community dedicated to advancing AI security understanding and practices.
+    </p>
+  </div>
+<!-- Sponsorship Section (Full Width Image + Overlay) -->
+ <div class="container mx-auto px-4 sm:px-8 rounded-2xl">
+  <div class="relative w-full">
+    <!-- Background Image -->
+    <img
+      src="/images/sponserbg.webp"
+      alt="Sponsor Graphic"
+      class="w-full h-64 sm:h-80 md:h-96 object-cover rounded-t-xl"
+    />
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-30 rounded-t-xl"></div>
+    <!-- Overlay Content -->
+    <div class="absolute inset-0 flex flex-col justify-center items-center text-center rounded-t-xl p-4 sm:p-6">
+      <h2 class="text-lg sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-4 text-white">
+        Support the Future of AI Security
+      </h2>
+      <p class="text-xs sm:text-sm md:text-lg mb-3 sm:mb-5 text-white">
+        Get involved: aruneesh.salhotra@owasp.org
+      </p>
+     <a href="mailto:aruneesh.salhotra@owasp.org" class="inline-block bg-green-600 text-white px-5 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-green-700 transition mb-3 sm:mb-5 text-sm sm:text-base">Sponsor Now</a>
+      <h3 class="text-base sm:text-xl md:text-2xl font-bold mb-2 sm:mb-4 text-white">
+        Our Sponsors
+      </h3>
+      <div class="flex justify-center items-center flex-wrap gap-4 sm:gap-12">
+        <a href="https://www.straiker.ai/" target="_blank" rel="noopener noreferrer">
+          <img
+            src="/images/straikerlogo.png"
+            alt="Straiker sponsor"
+            class="h-8 sm:h-10 md:h-12 w-auto"
+          />
+        </a>
+        <a href="https://casco.com/" target="_blank" rel="noopener noreferrer">
+          <img
+            src="/images/cascologo.png"
+            alt="Casco sponsor"
+            class="h-10 sm:h-12 md:h-16 w-auto"
+          />
+        </a>
+        <a href="https://www.aisecurityacademy.ai/" target="_blank" rel="noopener noreferrer">
+          <img
+            src="/images/ais-logo.png"
+            alt="AI Security Academy"
+            class="h-10 sm:h-12 md:h-16 w-auto"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- Sponsorship Benefits -->
+  <div class="p-5 sm:p-8 bg-[#006284] rounded-b-2xl">
+    <h2 class="text-lg sm:text-2xl md:text-3xl font-bold mb-5 sm:mb-8 text-white text-center">
+      Sponsorship benefits include
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-10 text-center md:text-left">
+      <!-- Visibility -->
+      <div>
+        <div class="flex flex-col md:flex-row items-center md:items-center mb-3">
+          <i class="far fa-eye text-white text-3xl mr-4"></i>
+          <!-- <img src="/images/Vector1.png" alt="Icon 1" class="h-6 sm:h-8 w-6 sm:w-8 mb-2 md:mb-0 md:mr-3" /> -->
+          <h4 class="text-base sm:text-lg md:text-xl font-bold text-white">Visibility</h4>
+        </div>
+        <p class="text-white text-sm sm:text-base leading-relaxed">
+          Showcase your organization’s commitment to AI security within a network of industry leaders and experts.
+        </p>
+      </div>
+      <!-- Collaboration -->
+      <div>
+        <div class="flex flex-col md:flex-row items-center md:items-center mb-3">
+          <i class="far fa-handshake text-white text-3xl mr-4"></i>
+          <!-- <img src="/images/Vector2.png" alt="Icon 2" class="h-6 sm:h-8 w-6 sm:w-8 mb-2 md:mb-0 md:mr-3" /> -->
+          <h4 class="text-base sm:text-lg md:text-xl font-bold text-white">Collaboration</h4>
+        </div>
+        <p class="text-white text-sm sm:text-base leading-relaxed">
+          Participate in the development of global AI security guidelines, standards, and regulations.
+        </p>
+      </div>
+      <!-- Thought Leadership -->
+      <div>
+        <div class="flex flex-col md:flex-row items-center md:items-center mb-3">
+          <i class="far fa-lightbulb text-white text-3xl mr-4"></i>
+          <!-- <img src="/images/Vector1.png" alt="Icon 3" class="h-6 sm:h-8 w-6 sm:w-8 mb-2 md:mb-0 md:mr-3" /> -->
+          <h4 class="text-base sm:text-lg md:text-xl font-bold text-white">Thought Leadership</h4>
+        </div>
+        <p class="text-white text-sm sm:text-base leading-relaxed">
+          Contribute to key insights on AI threats, risks, and controls, positioning your organization as a leader in AI security.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- Project Sponsors Section -->
+  <div class="container mx-auto pt-0 px-4 md:px-8 max-w-8xl">
+    <h2 class="text-4xl mb-10 md:text-5xl font-bold text-center text-gray-800">
+      Project Sponsors
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <div class="relative bg-white rounded-lg shadow-[0_0_25px_1px_rgba(0,0,0,0.2)] overflow-hidden p-6 border border-gray-100 min-h-[341px] flex flex-col justify-between">
+          
+          
+          <span class="absolute top-0 right-0 px-4 py-2 text-base font-bold uppercase rounded-bl-lg
+               bg-yellow-400 text-yellow-900
+              ">
+              Gold
+          </span>
+      
+          
+          <div class="mb-4 flex-shrink-0">
+              <img src="/images/sp_straiker-removebg-preview.png" alt="Straker Logo" class="h-16 object-contain mt-9 mx-auto">
+          </div>
+         <hr class="border-t border-gray-300 mb-[15px]">
+          
+          <div class="flex-grow">
+              <p class="text-base leading-relaxed mb-4">Transform cybersecurity by building AI-native security solutions to protect our customers from a spectrum of security &amp; safety risks with AI applications &amp; agents.</p>
+          </div>
+      
+          
+          <a 
+        href="https://www.straiker.ai/" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="text-[#4CAF50] hover:text-emerald-800 text-sm font-semibold flex items-center mt-auto cursor-pointer transition-colors duration-200"
+      >
+        Learn more &gt;
+      </a>
+      
+      
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <div class="relative bg-white rounded-lg shadow-[0_0_25px_1px_rgba(0,0,0,0.2)] overflow-hidden p-6 border border-gray-100 min-h-[341px] flex flex-col justify-between">
+          
+          
+          <span class="absolute top-0 right-0 px-4 py-2 text-base font-bold uppercase rounded-bl-lg
+               bg-gray-300 text-gray-700
+              ">
+              Silver
+          </span>
+      
+          
+          <div class="mb-4 flex-shrink-0">
+              <img src="/images/sp_casco-removebg-preview.png" alt="Casco Logo" class="h-16 object-contain mt-9 mx-auto">
+          </div>
+         <hr class="border-t border-gray-300 mb-[15px]">
+          
+          <div class="flex-grow">
+              <p class="text-base leading-relaxed mb-4">Casco validates security, safety, and accuracy of AI apps and agents. Continuously.</p>
+          </div>
+      
+          
+          <a 
+        href="https://casco.com/" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="text-[#4CAF50] hover:text-emerald-800 text-sm font-semibold flex items-center mt-auto cursor-pointer transition-colors duration-200"
+      >
+        Learn more &gt;
+      </a>
+      
+      
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <div class="relative bg-white rounded-lg shadow-[0_0_25px_1px_rgba(0,0,0,0.2)] overflow-hidden p-6 border border-gray-100 min-h-[341px] flex flex-col justify-between">
+          
+          
+          <span class="absolute top-0 right-0 px-4 py-2 text-base font-bold uppercase rounded-bl-lg
+               bg-gray-300 text-gray-700
+              ">
+              Silver
+          </span>
+      
+          
+          <div class="mb-4 flex-shrink-0">
+              <img src="/images/AISecurityAcademyLogo.png" alt="AI Security Academy Logo" class="h-16 object-contain mt-9 mx-auto">
+          </div>
+         <hr class="border-t border-gray-300 mb-[15px]">
+          
+          <div class="flex-grow">
+              <p class="text-base leading-relaxed mb-4">AI Security Academy is the world&#39;s first hands-on training platform dedicated to securing artificial intelligence.</p>
+          </div>
+      
+          
+          <a 
+        href="https://www.aisecurityacademy.ai/" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="text-[#4CAF50] hover:text-emerald-800 text-sm font-semibold flex items-center mt-auto cursor-pointer transition-colors duration-200"
+      >
+        Learn more &gt;
+      </a>
+      
+      
+      </div>
+    </div>
+  </div>
+  <!-- Contact Section -->
+  <div id="contactSection">
+    <section id="contact-form" class="relative bg-[#EDF7ED] py-16">
+      <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-[#1a1a2e] mb-16">
+          We are always happy to assist you!
+        </h2>
+    
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+          
+          <div>
+            
+            <div class="flex flex-wrap gap-4 mb-8">
+              <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/discussions" target="_blank" class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow">
+                <i class="fab fa-github text-gray-700"></i>
+              </a>
+              <a href="https://owasp.slack.com/join/shared_invite/zt-3iwx0wk01-vLwSQy1NfkD0Cv5UJeMbwQ#/shared-invite/email" target="_blank" class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow">
+                <img src="/images/slack.png" alt="Slack" class="w-6 h-6" />
+              </a>
+              <a href="https://www.linkedin.com/company/owasp-ai-exchange/" target="_blank" class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow">
+                <i class="fab fa-linkedin-in text-blue-700"></i>
+              </a>
+              <a href="https://www.youtube.com/playlist?list=PLCZNSZ1gyRoD5droM_qyXYyBofj00x_zO" target="_blank" class="w-10 h-10 bg-white rounded-md flex items-center justify-center shadow">
+                <i class="fab fa-youtube text-red-600"></i>
+              </a>
+            </div>
+            <h3 class="text-2xl font-bold text-[#1a1a2e] mb-4">
+              Send us a message
+            </h3>
+            <p class="text-gray-500 leading-relaxed">
+              Have questions about AI security? Want to contribute to our mission?
+              We'd love to hear from you. Reach out through any of our channels or
+              use the contact form.
+            </p>
+          </div>
+    
+          
+          <div>
+            
+            <div id="form-message" class="hidden mb-4 p-4 rounded-lg"></div>
+    
+            
+            <div class="block md:hidden bg-white shadow-lg rounded-xl p-6">
+              <form id="contact-form-mobile" class="flex flex-col gap-6" novalidate>
+                <div class="grid grid-cols-1 gap-4">
+                  <div>
+                    <input id="mobile-first-name" name="first_name" type="text" placeholder="First Name*" required
+                      class="p-4 border border-gray-300 rounded-lg text-base w-full focus:outline-none focus:ring-2 focus:ring-green-500" />
+                    <span class="error-message hidden text-red-600 text-sm mt-1"></span>
+                  </div>
+                  <div>
+                    <input id="mobile-last-name" name="last_name" type="text" placeholder="Last Name*" required
+                      class="p-4 border border-gray-300 rounded-lg text-base w-full focus:outline-none focus:ring-2 focus:ring-green-500" />
+                    <span class="error-message hidden text-red-600 text-sm mt-1"></span>
+                  </div>
+                </div>
+                <div>
+                  <input id="mobile-email" name="email" type="email" placeholder="Email Address*" required
+                    class="p-4 border border-gray-300 rounded-lg text-base w-full focus:outline-none focus:ring-2 focus:ring-green-500" />
+                  <span class="error-message hidden text-red-600 text-sm mt-1"></span>
+                </div>
+                <div>
+                  <textarea id="mobile-message" name="message" placeholder="Message" rows="4"
+                    class="p-4 border border-gray-300 rounded-lg text-base resize-vertical w-full focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+                  <span class="error-message hidden text-red-600 text-sm mt-1"></span>
+                </div>
+                <button type="submit" id="mobile-submit-btn"
+                  class="bg-green-500 text-white px-6 py-3 rounded-lg font-bold flex items-center justify-center gap-2 w-max hover:bg-green-600 transition disabled:opacity-50 disabled:cursor-not-allowed">
+                  <span id="mobile-submit-text">Submit</span>
+                  <span id="mobile-submit-arrow">→</span>
+                  <span id="mobile-submit-loader" class="hidden">⏳</span>
+                </button>
+              </form>
+            </div>
+    
+            
+            <form id="contact-form-desktop" class="hidden md:flex flex-col gap-6" novalidate>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <input id="desktop-first-name" name="first_name" type="text" placeholder="First Name*" required
+                    class="p-4 border border-gray-300 rounded-lg text-base w-full focus:outline-none focus:ring-2 focus:ring-green-500" />
+                  <span class="error-message hidden text-red-600 text-sm mt-1"></span>
+                </div>
+                <div>
+                  <input id="desktop-last-name" name="last_name" type="text" placeholder="Last Name*" required
+                    class="p-4 border border-gray-300 rounded-lg text-base w-full focus:outline-none focus:ring-2 focus:ring-green-500" />
+                  <span class="error-message hidden text-red-600 text-sm mt-1"></span>
+                </div>
+              </div>
+              <div>
+                <input id="desktop-email" name="email" type="email" placeholder="Email Address*" required
+                  class="p-4 border border-gray-300 rounded-lg text-base w-full focus:outline-none focus:ring-2 focus:ring-green-500" />
+                <span class="error-message hidden text-red-600 text-sm mt-1"></span>
+              </div>
+              <div>
+                <textarea id="desktop-message" name="message" placeholder="Message" rows="4"
+                  class="p-4 border border-gray-300 rounded-lg text-base resize-vertical w-full focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+                <span class="error-message hidden text-red-600 text-sm mt-1"></span>
+              </div>
+              <button type="submit" id="desktop-submit-btn"
+                class="bg-green-500 text-white px-6 py-3 rounded-lg font-bold flex items-center justify-center gap-2 w-max hover:bg-green-600 transition disabled:opacity-50 disabled:cursor-not-allowed">
+                <span id="desktop-submit-text">Submit</span>
+                <span id="desktop-submit-arrow">→</span>
+                <span id="desktop-submit-loader" class="hidden">⏳</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <script>
+    (function() {
+      const API_URL = 'https://usabilitydesigns.com/calendar/send-mail.php';
+      
+      
+      const mobileForm = document.getElementById('contact-form-mobile');
+      const desktopForm = document.getElementById('contact-form-desktop');
+      const formMessage = document.getElementById('form-message');
+    
+      
+      function validateField(field) {
+        const value = field.value.trim();
+        const fieldName = field.name;
+        let isValid = true;
+        let errorMsg = '';
+    
+        
+        field.classList.remove('border-red-500');
+        const errorSpan = field.parentElement.querySelector('.error-message');
+        if (errorSpan) {
+          errorSpan.classList.add('hidden');
+          errorSpan.textContent = '';
+        }
+    
+        
+        if (field.hasAttribute('required') && !value) {
+          isValid = false;
+          errorMsg = 'This field is required';
+        }
+    
+        
+        if (fieldName === 'email' && value) {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(value)) {
+            isValid = false;
+            errorMsg = 'Please enter a valid email address';
+          }
+        }
+    
+        
+        if (fieldName === 'first_name' && value && value.length < 2) {
+          isValid = false;
+          errorMsg = 'First name must be at least 2 characters';
+        }
+    
+        if (fieldName === 'last_name' && value && value.length < 2) {
+          isValid = false;
+          errorMsg = 'Last name must be at least 2 characters';
+        }
+    
+        
+        if (!isValid && errorSpan) {
+          field.classList.add('border-red-500');
+          errorSpan.textContent = errorMsg;
+          errorSpan.classList.remove('hidden');
+        }
+    
+        return isValid;
+      }
+    
+      function validateForm(form) {
+        const fields = form.querySelectorAll('input[required], textarea[required]');
+        let isFormValid = true;
+    
+        fields.forEach(field => {
+          if (!validateField(field)) {
+            isFormValid = false;
+          }
+        });
+    
+        
+        const emailField = form.querySelector('input[name="email"]');
+        if (emailField && emailField.value.trim()) {
+          if (!validateField(emailField)) {
+            isFormValid = false;
+          }
+        }
+    
+        return isFormValid;
+      }
+    
+      
+      function showMessage(message, isError = false) {
+        formMessage.textContent = message;
+        formMessage.className = isError 
+          ? 'mb-4 p-4 rounded-lg bg-red-100 border border-red-400 text-red-700' 
+          : 'mb-4 p-4 rounded-lg bg-green-100 border border-green-400 text-green-700';
+        formMessage.classList.remove('hidden');
+        
+        
+        formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    
+        
+        if (!isError) {
+          setTimeout(() => {
+            formMessage.classList.add('hidden');
+          }, 5000);
+        }
+      }
+    
+      
+      function setLoadingState(form, isLoading) {
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const submitText = form.querySelector('[id$="-submit-text"]');
+        const submitArrow = form.querySelector('[id$="-submit-arrow"]');
+        const submitLoader = form.querySelector('[id$="-submit-loader"]');
+    
+        if (submitBtn) {
+          submitBtn.disabled = isLoading;
+        }
+        if (submitText) {
+          submitText.style.display = isLoading ? 'none' : 'inline';
+        }
+        if (submitArrow) {
+          submitArrow.style.display = isLoading ? 'none' : 'inline';
+        }
+        if (submitLoader) {
+          submitLoader.style.display = isLoading ? 'inline' : 'none';
+        }
+      }
+    
+      
+      function resetForm(form) {
+        form.reset();
+        
+        form.querySelectorAll('.error-message').forEach(span => {
+          span.classList.add('hidden');
+          span.textContent = '';
+        });
+        form.querySelectorAll('input, textarea').forEach(field => {
+          field.classList.remove('border-red-500');
+        });
+      }
+    
+      
+      async function handleSubmit(form, e) {
+        e.preventDefault();
+    
+        
+        formMessage.classList.add('hidden');
+    
+        
+        if (!validateForm(form)) {
+          showMessage('Please fill in all required fields correctly.', true);
+          return;
+        }
+    
+        
+        const formDataObj = new FormData(form);
+        const data = {
+          first_name: formDataObj.get('first_name'),
+          last_name: formDataObj.get('last_name'),
+          email: formDataObj.get('email'),
+          message: formDataObj.get('message') || ''
+        };
+    
+        
+        setLoadingState(form, true);
+    
+        try {
+          
+          const response = await fetch(API_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+          });
+    
+          
+          let result;
+          const contentType = response.headers.get('content-type');
+          if (contentType && contentType.includes('application/json')) {
+            result = await response.json();
+          } else {
+            const text = await response.text();
+            try {
+              result = JSON.parse(text);
+            } catch (e) {
+              
+              if (response.ok) {
+                result = { success: true };
+              } else {
+                result = { success: false, error: 'Server error occurred' };
+              }
+            }
+          }
+    
+          if (result.success) {
+            showMessage('Thank you! Your message has been sent successfully.', false);
+            resetForm(form);
+          } else {
+            showMessage(result.error || 'Failed to send message. Please try again later.', true);
+          }
+        } catch (error) {
+          console.error('Form submission error:', error);
+          showMessage('An error occurred while sending your message. Please try again later.', true);
+        } finally {
+          setLoadingState(form, false);
+        }
+      }
+    
+      
+      if (mobileForm) {
+        mobileForm.addEventListener('submit', (e) => handleSubmit(mobileForm, e));
+        
+        
+        mobileForm.querySelectorAll('input, textarea').forEach(field => {
+          field.addEventListener('blur', () => validateField(field));
+        });
+      }
+    
+      if (desktopForm) {
+        desktopForm.addEventListener('submit', (e) => handleSubmit(desktopForm, e));
+        
+        
+        desktopForm.querySelectorAll('input, textarea').forEach(field => {
+          field.addEventListener('blur', () => validateField(field));
+        });
+      }
+    })();
+    </script>
+    
+
+  </div>
+</div>
+
+</div>
+</main>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Manrope:wght@600&family=Roboto:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              inter: ["Inter", "sans-serif"],
+              manrope: ["Manrope", "sans-serif"],
+              roboto: ["Roboto", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+
+<footer class="bg-black text-white w-full">
+  <div class="container mx-auto px-4 md:px-10 md:py-4"> 
+    
+    <div class="md:hidden">
+      
+      <div class="text-center mb-4">
+        
+          <a href="/" class="inline-block">
+            <img
+              src="/images/Owasp-AI-Exchange-Logo.png"
+              alt="AI Exchange"
+              class="h-10 md:h-10 w-auto mx-auto mb-4 filter brightness-0 invert"
+            />
+          </a>
+        
+        <p class="text-sm opacity-90 max-w-md mx-auto">
+          Advancing AI security through community collaboration and open-source resources.
+        </p>
+      </div>
+
+      
+      <div class="text-center mb-8">
+        <ul class="space-y-3">
+          <li><a href="/" class="block text-base hover:text-gray-300 transition">Home</a></li>
+          <li><a href="/docs/ai_security_overview/" class="block text-base hover:text-gray-300 transition">Overview</a></li>
+          <li><a href="/media/" class="block text-base hover:text-gray-300 transition">Media</a></li>
+          <li><a href="/sponsor/" class="block text-base hover:text-gray-300 transition">Sponsor</a></li>
+          <li><a href="/contribute/" class="block text-base hover:text-gray-300 transition">Contribute</a></li>
+          <li><a href="/connect/" class="block text-base hover:text-gray-300 transition">Connect</a></li>
+        </ul>
+      </div>
+
+      <div class="border-t border-gray-600 mb-6"></div>
+
+      <div class="flex justify-center space-x-4 mb-6">
+        <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide" target="_blank" class="w-12 h-12 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
+          <i class="fab fa-github text-lg"></i>
+        </a>
+        <a href="https://owasp.slack.com/join/shared_invite/zt-3iwx0wk01-vLwSQy1NfkD0Cv5UJeMbwQ#/shared-invite/email" target="_blank" class="w-12 h-12 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
+          <i class="fab fa-slack text-lg"></i>
+        </a>
+        <a href="https://www.linkedin.com/company/owasp-ai-exchange/" target="_blank" class="w-12 h-12 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
+          <i class="fab fa-linkedin-in text-lg"></i>
+        </a>
+        <a href="https://www.youtube.com/playlist?list=PLCZNSZ1gyRoD5droM_qyXYyBofj00x_zO" target="_blank" class="w-12 h-12 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
+          <i class="fab fa-youtube text-lg"></i>
+        </a>
+      </div>
+
+      <div class="border-t border-gray-600 mb-6"></div>
+
+      <div class="text-center mb-6">
+        <p class="text-sm">
+          Copyright © owasp.org 2026. All Rights Reserved.
+        </p>
+      </div>
+
+      <div class="text-center">
+        <p class="text-sm mb-2">Designed & Developed by:</p>
+        <div class="flex items-center justify-center space-x-2">
+          <img src="/images/usability.png" alt="Usability Icon" class="h-6 w-auto" />
+          <a href="https://usabilitydesigns.com/" class="text-sm font-medium text-yellow-400 hover:text-yellow-300 transition">
+            USABILITY DESIGNS
+          </a>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="hidden md:block py-4"> 
+      
+      <div class="flex justify-between items-start">
+        
+        <div class="flex flex-col logo-section">
+          
+          <a href="/" class="logo-link">
+            <img
+              src="/images/Owasp-AI-Exchange-Logo.png"
+              alt="OWASP AI Exchange"
+              class="site-logo h-[36px] w-auto"
+            />
+          </a>
+
+          
+          <ul class="flex space-x-6 mt-3 font-roboto text-[15px]">
+            <li><a href="/" class="hover:text-white">Home</a></li>
+            <li><a href="/docs/ai_security_overview/" class="hover:text-white">Overview</a></li>
+            <li><a href="/media/" class="hover:text-white">Media</a></li>
+            <li><a href="/sponsor/" class="hover:text-white">Sponsor</a></li>
+            <li><a href="/contribute/" class="hover:text-white">Contribute</a></li>
+            <li><a href="/connect/" class="hover:text-white">Connect</a></li>
+          </ul>
+        </div>
+
+        
+        <div class="flex space-x-3 mt-2">
+          <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide" target="_blank" class="w-8 h-8 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://owasp.slack.com/join/shared_invite/zt-3iwx0wk01-vLwSQy1NfkD0Cv5UJeMbwQ#/shared-invite/email" target="_blank" class="w-8 h-8 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
+            <i class="fab fa-slack"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/owasp-ai-exchange/" target="_blank" class="w-8 h-8 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://www.youtube.com/playlist?list=PLCZNSZ1gyRoD5droM_qyXYyBofj00x_zO" target="_blank" class="w-8 h-8 flex items-center justify-center border border-white rounded-full hover:bg-gray-800 transition">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-600 mt-3"></div>
+
+      
+      <div class="flex w-full flex-row justify-between items-center pt-3">
+        
+        <p class="font-roboto text-[14px]">
+          Copyright © owasp.org 2026. All Rights Reserved.
+        </p>
+        
+        <p class="flex gap-2 text-[12px] items-center">
+          PROUDLY DESIGNED AND DEVELOPED BY:
+          <img src="/images/usability.png" alt="Usability Icon" class="h-4 inline-block" />
+          <a href="https://usabilitydesigns.com/" class="text-[#FFAE3C]">USABILITY DESIGNS</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

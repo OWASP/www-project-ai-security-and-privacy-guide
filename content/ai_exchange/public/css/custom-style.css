@@ -13,6 +13,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     /* color: #0b1220; */
     margin: 0 0 10px 0;
+    scroll-margin-top: 100px; /* Offset for sticky header */
 }
 h1 {
     font-size: 3rem !important;
