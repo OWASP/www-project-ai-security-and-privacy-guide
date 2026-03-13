@@ -6,7 +6,7 @@ weight: 8
 ---
 ## References of the OWASP AI Exchange
 >Category: discussion  
->Permalink: https://owaspai.org/goto/references/
+>Permalink: https://owaspai.org/go/references/
 
 See the [Media page](/media) for several webinars and podcasts by and about the AI Exchange.  
 References on specific topics can be found throughout the content of AI Exchange. This references section therefore contains the broader publications.
@@ -30,7 +30,7 @@ References on specific topics can be found throughout the content of AI Exchange
 - [BIML LLM risk analysis - please register there](https://berryvilleiml.com/docs/BIML-LLM24.pdf)
 - [PLOT4ai threat library](https://plot4.ai/library)
 - [BSI AI recommendations including security aspects (Germany) - in English](https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/kuenstliche-intelligenz_node.html#doc916902bodyText8)
-- [NCSC UK / CISA Joint Guidelines](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development) - see [its mapping with the AI Exchange](/goto/jointguidelines/)
+- [NCSC UK / CISA Joint Guidelines](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development) - see [its mapping with the AI Exchange](/go/jointguidelines/)
 
 ## Overviews of AI Security/Privacy Incidents:
 ---
@@ -51,7 +51,7 @@ References on specific topics can be found throughout the content of AI Exchange
 - [ISO/IEC 20547-4 Big data security](https://www.iso.org/standard/71278.html)
 - [IEEE 2813 Big Data Business Security Risk Assessment](https://standards.ieee.org/ieee/2813/7535/)
 - [Awesome MLSecOps references](https://github.com/RiccardoBiosas/awesome-MLSecOps)
-- [Awesome AI security references[(https://github.com/ottosulin/awesome-ai-security?tab=readme-ov-file)
+- [Awesome AI security references](https://github.com/ottosulin/awesome-ai-security?tab=readme-ov-file)
 - [OffSec ML Playbook](https://wiki.offsecml.com/)
 - [MIT AI Risk Repository](https://airisk.mit.edu/)
 - [Failure Modes in Machine Learning by Microsoft](https://learn.microsoft.com/en-us/security/engineering/failure-modes-in-machine-learning)

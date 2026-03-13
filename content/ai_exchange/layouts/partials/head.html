@@ -8,19 +8,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css"/>
 
-  <link rel="stylesheet" href="/css/site.css" />
-  <link rel="stylesheet" href="/css/custom-style.css" />
+  <link rel="stylesheet" href="/css/site.css?v=2" />
+  <link rel="stylesheet" href="/css/custom-style.css?v=2" />
   <script src="/js/script.js"></script>
   <!-- CDNs -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({
-      delay: 0,
-      disable: 'phone',
+    document.addEventListener("DOMContentLoaded", function () {
+      try {
+        if (typeof AOS !== "undefined") AOS.init({ delay: 0, disable: "phone" });
+      } catch (e) {
+        console.warn("AOS.init failed:", e);
+      }
     });
   </script>
   {{- range .AlternativeOutputFormats -}}
   <link rel="alternate" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $.Site.Title }}" />
   {{- end -}}
-
