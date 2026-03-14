@@ -181,6 +181,9 @@ Join us in our mission to protect society from AI security issues by harnessing 
     </div>
   </div>
 
+<!-- Collaboration partners marquee -->
+  {{< collaboration-marquee >}}
+  
   <!-- Contact Section -->
   <div id="contactSection">
     {{< contact >}}

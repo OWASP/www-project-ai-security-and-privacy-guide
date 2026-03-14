@@ -1,0 +1,75 @@
+{{/* Collaboration logos marquee - add logo paths to hugo.yaml params.collaborationPartners when available */}}
+{{ $partners := .Site.Params.collaborationPartners | default (slice) }}
+{{ if $partners }}
+<div class="collab-marquee-section bg-white pt-0 pb-20 overflow-hidden">
+  <div class="container mx-auto px-4 py-0 sm:px-6 md:px-8">
+    <div class="text-center mb-8">
+      <strong class="text-2xl text-gray-900">Ongoing collaboration and alignment with:</strong>
+    </div>
+    <div class="collab-marquee-wrapper relative">
+      <div class="collab-marquee">
+        <div class="collab-marquee-track flex items-center">
+          {{ range $partners }}
+            <div class="collab-marquee-item flex-shrink-0 flex items-center justify-center">
+              {{ if .logo }}
+                {{ if .url }}
+                <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" nofollow class="block h-10 sm:h-12 md:h-14">
+                  <img src="{{ .logo }}" alt="{{ .name }}" class="h-full w-auto object-contain max-w-[140px] md:max-w-[180px]" loading="lazy" />
+                </a>
+                {{ else }}
+                <div class="block h-10 sm:h-12 md:h-14 grayscale opacity-80">
+                  <img src="{{ .logo }}" alt="{{ .name }}" class="h-full w-auto object-contain max-w-[140px] md:max-w-[180px]" loading="lazy" />
+                </div>
+                {{ end }}
+              {{ else }}
+                {{ if .url }}
+                <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" nofollow class="collab-marquee-text-badge inline-flex items-center px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium text-sm sm:text-base transition-colors duration-200 whitespace-nowrap">
+                  {{ .name }}
+                </a>
+                {{ else }}
+                <span class="collab-marquee-text-badge inline-flex items-center px-4 py-2 rounded-lg bg-gray-100 text-gray-700 font-medium text-sm sm:text-base whitespace-nowrap">
+                  {{ .name }}
+                </span>
+                {{ end }}
+              {{ end }}
+            </div>
+          {{ end }}
+          {{ range $partners }}
+            <div class="collab-marquee-item flex-shrink-0 flex items-center justify-center">
+              {{ if .logo }}
+                {{ if .url }}
+                <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" nofollow class="block h-10 sm:h-12 md:h-14">
+                  <img src="{{ .logo }}" alt="{{ .name }}" class="h-full w-auto object-contain max-w-[140px] md:max-w-[180px]" loading="lazy" />
+                </a>
+                {{ else }}
+                <div class="block h-10 sm:h-12 md:h-14 grayscale opacity-80">
+                  <img src="{{ .logo }}" alt="{{ .name }}" class="h-full w-auto object-contain max-w-[140px] md:max-w-[180px]" loading="lazy" />
+                </div>
+                {{ end }}
+              {{ else }}
+                {{ if .url }}
+                <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" nofollow class="collab-marquee-text-badge inline-flex items-center px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium text-sm sm:text-base transition-colors duration-200 whitespace-nowrap">
+                  {{ .name }}
+                </a>
+                {{ else }}
+                <span class="collab-marquee-text-badge inline-flex items-center px-4 py-2 rounded-lg bg-gray-100 text-gray-700 font-medium text-sm sm:text-base whitespace-nowrap">
+                  {{ .name }}
+                </span>
+                {{ end }}
+              {{ end }}
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+/* Marquee - seamless infinite: 2 identical copies, -50% scroll = perfect loop, 4rem gap between logos */
+.collab-marquee-wrapper { mask-image: linear-gradient(to right, transparent 0, black 3%, black 97%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0, black 3%, black 97%, transparent 100%); }
+.collab-marquee { overflow: hidden; user-select: none; width: 100%; }
+.collab-marquee-track { display: flex; flex-wrap: nowrap; flex-shrink: 0; gap: 4rem; animation: collab-marquee 50s linear infinite; will-change: transform; }
+.collab-marquee-track:hover { animation-play-state: paused; }
+@keyframes collab-marquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-180%, 0, 0); } }
+</style>
+{{ end }}
