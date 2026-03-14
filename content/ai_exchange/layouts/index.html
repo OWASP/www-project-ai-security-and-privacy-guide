@@ -12,27 +12,19 @@
     <div class="globe-graphic w-1/2 mb-0 md:block"></div>
 
     <div class="hero-content w-full md:w-1/2 text-center md:text-left">
-      <h1 class="text-4xl md:text-[50px] font-bold mb-8">
-        AI Exchange:<br>the world's AI security guide
+      <h1 class="text-4xl md:text-[40px] leading-[1.1] font-bold mb-6">
+        AI Exchange: the world's AI security guide
       </h1>
-      <p class="text-lg mb-8 leading-6 xs:leading-8">
-        <strong class="text-2xl">300+ pages</strong> of free, constantly-evolving, practical guidance on securing AI systems. It covers the fundamentals and represents the closest publicly available alignment of global expert consensus, feeding directly into the AI Act and ISO standards through a unique SDO partnership.<br>
-        We are an international open consortium of top level experts, using this Flagship OWASP project to serve as a bridge between practitioners, researchers, institutes, and policy makers.
+      <p class="text-md mb-4 leading-6 text-gray-300 xs:leading-8">
+        <strong class="text-2xl text-white">300+ pages</strong> of free, constantly-evolving, practical guidance on securing AI systems. It covers the fundamentals and represents the closest publicly available alignment of global expert consensus, feeding directly into the AI Act and ISO standards through a unique SDO partnership.<br>
       </p>
-      <p class="text-lg mb-8 leading-6 xs:leading-8">
+      <p class="text-md mb-4 leading-6 text-gray-300 xs:leading-8">We are an international open consortium of top level experts, using this Flagship OWASP project to serve as a bridge between practitioners, researchers, institutes, and policy makers.</p>
+      <p class="text-md mb-8 leading-6 xs:leading-8">
         <i>Technology with global impact requires global action.</i>
       </p>
       <div class="flex flex-col md:flex-row gap-4 flex-wrap justify-center md:justify-start">
-        <a
-          href="/docs/ai_security_overview/#how-to-use-this-document"
-          class="theme-blue-bg text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition w-full md:w-auto text-center"
-          >Get started</a
-        >
-        <a
-          href="https://notebooklm.google.com/notebook/75840a00-78f8-454d-ad4d-9ac27ae4cf48" target="_blank" rel="noopener noreferrer"
-          class="theme-green-bg text-white px-6 py-3 rounded-lg font-bold hover:bg-green-600 transition w-full md:w-auto text-center"
-          >Ask question (Google login)</a
-        >
+        <a href="/docs/ai_security_overview/#how-to-use-this-document" class="theme-blue-bg text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition w-full md:w-auto text-center">Get started</a>
+        <a href="https://notebooklm.google.com/notebook/75840a00-78f8-454d-ad4d-9ac27ae4cf48" target="_blank" rel="noopener noreferrer" class="theme-green-bg text-white px-6 py-3 rounded-lg font-bold hover:bg-green-600 transition w-full md:w-auto text-center">Ask question (Google login)</a>
       </div>
     </div>
   </div>
@@ -90,19 +82,10 @@
 
     <!-- Sponsorship Section (Full Width Image + Overlay) -->
  {{ partial "sponser-section.html" .}}
-
+ 
+  <!-- Collaboration partners marquee -->
+  {{ partial "collaboration-marquee.html" . }}
 </div>
-
-<!-- Collab section -->
-<div class="container mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16">
-  <!-- Heading -->
-  <div class="text-center mb-4 sm:mb-6">
-    <strong class="text-2xl">Ongoing collaboration and alignment with:</strong></br>
-    SANS Institute     Cloud Security Alliance     ISO/IEC     CEN/CENELEC     GenAI security project     NIST     MITRE     ENISA     CosAI     Alan Turing institute
-  </div>
-
-  </div>
-
 
 <!-- Contact Section -->
 {{ partial "contact-section.html" . }}

@@ -2,46 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:62686/docs/ai_security_overview/</loc>
+    <loc>http://localhost:1313/docs/ai_security_overview/</loc>
   </url><url>
-    <loc>http://localhost:62686/contribute/</loc>
+    <loc>http://localhost:1313/contribute/</loc>
   </url><url>
-    <loc>http://localhost:62686/docs/1_general_controls/</loc>
+    <loc>http://localhost:1313/docs/1_general_controls/</loc>
   </url><url>
-    <loc>http://localhost:62686/docs/2_threats_through_use/</loc>
+    <loc>http://localhost:1313/docs/2_threats_through_use/</loc>
   </url><url>
-    <loc>http://localhost:62686/docs/3_development_time_threats/</loc>
+    <loc>http://localhost:1313/docs/3_development_time_threats/</loc>
   </url><url>
-    <loc>http://localhost:62686/docs/4_runtime_application_security_threats/</loc>
+    <loc>http://localhost:1313/docs/4_runtime_application_security_threats/</loc>
   </url><url>
-    <loc>http://localhost:62686/docs/5_testing/</loc>
+    <loc>http://localhost:1313/docs/5_testing/</loc>
   </url><url>
-    <loc>http://localhost:62686/docs/6_privacy/</loc>
+    <loc>http://localhost:1313/docs/6_privacy/</loc>
   </url><url>
-    <loc>http://localhost:62686/docs/ai_security_references/</loc>
+    <loc>http://localhost:1313/docs/ai_security_references/</loc>
   </url><url>
-    <loc>http://localhost:62686/docs/ai_security_index/</loc>
+    <loc>http://localhost:1313/docs/ai_security_index/</loc>
   </url><url>
-    <loc>http://localhost:62686/</loc>
+    <loc>http://localhost:1313/</loc>
   </url><url>
-    <loc>http://localhost:62686/connect/</loc>
+    <loc>http://localhost:1313/connect/</loc>
   </url><url>
-    <loc>http://localhost:62686/homepage_old/</loc>
+    <loc>http://localhost:1313/homepage_old/</loc>
   </url><url>
-    <loc>http://localhost:62686/meetings/</loc>
+    <loc>http://localhost:1313/meetings/</loc>
   </url><url>
-    <loc>http://localhost:62686/sponsor/</loc>
+    <loc>http://localhost:1313/sponsor/</loc>
   </url><url>
-    <loc>http://localhost:62686/charter/</loc>
+    <loc>http://localhost:1313/charter/</loc>
   </url><url>
-    <loc>http://localhost:62686/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
   </url><url>
-    <loc>http://localhost:62686/docs/</loc>
+    <loc>http://localhost:1313/docs/</loc>
   </url><url>
-    <loc>http://localhost:62686/media/</loc>
+    <loc>http://localhost:1313/media/</loc>
   </url><url>
-    <loc>http://localhost:62686/media_old/</loc>
+    <loc>http://localhost:1313/media_old/</loc>
   </url><url>
-    <loc>http://localhost:62686/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
   </url>
 </urlset>
