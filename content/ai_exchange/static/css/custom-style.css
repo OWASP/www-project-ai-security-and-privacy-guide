@@ -70,18 +70,18 @@ h1 {
 .site-footer .container{padding:24px 20px}
 .content p{line-height:1.7;color:#222}
 .globe-graphic{
-    position:absolute;
-    bottom:0;
-    right:0;
-    width:500px;
-    height:500px;
-    background:url('../images/globe.webp') no-repeat bottom/contain;
-    pointer-events:none;
-    z-index:1;
+  position:absolute;
+  bottom:0;
+  right:0;
+  width:650px;
+  height:650px;
+  background:url('../images/globe.webp') no-repeat bottom/contain;
+  pointer-events:none;
+  z-index:1;
 }
 .hero-content {
     position:relative;
-    padding: 100px 0px 100px;
+    padding: 80px 0px 80px;
     width: 55%;
 }
 .intro-banner {

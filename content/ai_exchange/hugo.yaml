@@ -30,6 +30,38 @@ params:
   editURL:
     enable: true
     base: "https://github.com/OWASP/www-project-ai-security-and-privacy-guide/blob/main/content/ai_exchange/content"
+  # Collaboration partner logos for marquee (add logo paths to static/images/collaborators/ when available)
+  collaborationPartners:
+    - name: "SANS Institute"
+      logo: "/images/collaborators/sans_logo.svg"
+      url: "https://www.sans.org/"
+    - name: "Cloud Security Alliance"
+      logo: "/images/collaborators/CSA-logo.svg"
+      url: "https://cloudsecurityalliance.org/"
+    - name: "ISO/IEC"
+      logo: "/images/collaborators/iso-logo.svg"
+      url: "https://www.iso.org/"
+    - name: "CEN/CENELEC"
+      logo: "/images/collaborators/logo-cen-cenelec.svg"
+      url: "https://www.cencenelec.eu/"
+    - name: "GenAI security project"
+      logo: "/images/collaborators/GenAISecurityProject.webp"
+      url: "https://genai.owasp.org/"
+    - name: "NIST"
+      logo: "/images/collaborators/NIST_logo.svg"
+      url: "https://www.nist.gov/"
+    - name: "MITRE"
+      logo: "/images/collaborators/MITRE_logo.svg"
+      url: "https://www.mitre.org/"
+    - name: "ENISA"
+      logo: "/images/collaborators/enisa-logo.svg"
+      url: "https://www.enisa.europa.eu/"
+    - name: "CosAI"
+      logo: "/images/collaborators/cosAI_logo.webp"
+      url: "https://www.cosai.in/"
+    - name: "Alan Turing Institute"
+      logo: "/images/collaborators/TheAlanTurningInstitue_logo.svg"
+      url: "https://www.turing.ac.uk/"
   theme:
     # light | dark | system
     default: system
