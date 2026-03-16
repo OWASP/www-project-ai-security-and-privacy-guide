@@ -1,7 +1,7 @@
 {{/* Collaboration logos marquee - add logo paths to hugo.yaml params.collaborationPartners when available */}}
 {{ $partners := .Site.Params.collaborationPartners | default (slice) }}
 {{ if $partners }}
-<div class="collab-marquee-section bg-white pt-0 pb-20 overflow-hidden">
+<div class="collab-marquee-section bg-white py-12 overflow-hidden">
   <div class="container mx-auto px-4 py-0 sm:px-6 md:px-8">
     <div class="text-center mb-8">
       <strong class="text-2xl text-gray-900">Ongoing collaboration and alignment with:</strong>
