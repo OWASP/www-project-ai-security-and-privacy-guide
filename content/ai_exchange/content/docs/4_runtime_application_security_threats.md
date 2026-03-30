@@ -211,7 +211,7 @@ See the [security program](/go/secprogram/) and [application security](/go/secde
 
 Impact: Integrity breach of augmentation data through a conventional attack on the data at rest or in transit - leading to manipulated model behaviour.
 
-Augmentation data (background information added to a prompt) can be stored in _vector databases_ or _system prompt storage_. When augmentation data is manipulated (e.g., inserting false information), it can change the output of the model - making it very similar to [data poisoning](/go/datapoison/).
+Augmentation data (context information added to a prompt) can be stored in for example _vector databases_, _system prompt storage_, or the working memory of an agent. When augmentation data is manipulated (e.g., inserting false information), it can change the behaviour of the model - making it very similar to [data poisoning](/go/datapoison/).
 
 **References**
 - [Mitigating Security Risks in RAG LLM Applications, November 2023, CSA](https://cloudsecurityalliance.org/blog/2023/11/22/mitigating-security-risks-in-retrieval-augmented-generation-rag-llm-applications)
