@@ -172,7 +172,7 @@ The AI Exchange is a single coherent resource on the security and privacy of AI 
 - **Start AI security as organization**:  
   See [How to organize AI security](https://owaspai.org/go/organize/)..
 - **Start AI security as individual**:  
-  See 'learn/lookup' below to familiarize yourself with the threats and controls or look in the [references section](/go/references/) for a large table with training material.
+  See 'Learn AI security' below to familiarize yourself with the threats and controls or look in the [references section](/go/references/) for a large table with training material.
 - **Secure a system**:  
    If you want your **AI system to be secure**, start with [risk analysis](/go/riskanalysis/) to guide you through a number of questions, resulting in the threats that apply. And when you click on those threats you'll find the controls (countermeasures) to check for, or to implement.
    Alternatively, you can let our [AGENT](https://notebooklm.google.com/notebook/75840a00-78f8-454d-ad4d-9ac27ae4cf48) ask YOU questions about your system and threat model for you. Use this prompt: "Can you look at the risk analysis section and ask me in a few iterations the relevant questions from that section about my AI system, to determine what threats apply to my system, according to the AI Exchange, and give me the permalinks of those threats as hyperlinks to click on?"
