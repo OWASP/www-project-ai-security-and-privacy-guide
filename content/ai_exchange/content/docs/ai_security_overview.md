@@ -151,6 +151,8 @@ What makes the Exchange special is FOUNDATION:
 - O – Open (any expert can contribute)
 - N – Networked - bridge between standards, researchers, and practitioners
 
+The AI Exchange has strong and diverse collaboration with industry and institutes, for example a formal ongoing collaboration with SANS Institute to share expertise and support broad education.
+
 
 ### How to use this Document
 >Category: discussion  
@@ -252,8 +254,7 @@ And finally: think before you build an AI solution. AI can have fantastic benefi
 >Category: discussion  
 >Permalink: https://owaspai.org/go/essentials/
 
-This section discusses the essentials of AI security. It serves as THE starting point to understand the bigger picture.  
-What makes AI special when it comes to security? Well, it deals with a new set of threats and therefore requires new controls. Let's go through them.
+This section serves as THE starting point to understand the foundations of AI security, and was established in close collaboration with industry and institutes, including complete alignment with the [SANS Critical AI security guidelines](https://assets.contentstack.io/v3/assets/bltabe50a4554f8e97f/blte964a6eef293d57e/whitepaper-critical-ai-security-guidelines).
 
 **New threats** (overview [here](/go/threatsoverview/)):
   1. **[Model input threats](/go/inputthreats/)**:  
@@ -285,7 +286,7 @@ What makes AI special when it comes to security? Well, it deals with a new set o
 
 [![](/images/essentials6.png)](/images/essentials6.png)
 
-Many experts and organizations contributed to this overview of essentials - including close collaboration with SANS Institute, ensuring alignment with SANS’ Critical AI security guidelines. SANS and the AI Exchange have an ongoing collaboration to share expertise and support broad education.
+Many experts and organizations contributed to this overview of essentials - including close collaboration with SANS Institute, ensuring alignment with SANS’ [Critical AI security guidelines](https://assets.contentstack.io/v3/assets/bltabe50a4554f8e97f/blte964a6eef293d57e/whitepaper-critical-ai-security-guidelines). SANS and the AI Exchange have a formal ongoing collaboration to share expertise and support broad education.
 
 The upcoming sections provide overviews of AI security threats and controls.
 
