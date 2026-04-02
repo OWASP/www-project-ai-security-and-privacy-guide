@@ -23,14 +23,16 @@ Threats on this page:
 **Controls for input threats in general**
 
 These are the controls for input threats in general - more specific controls are discussed in the subsections for the various types of attacks:
-- See [General controls](/go/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/go/limitunwanted/) and [Sensitive data limitation](/go/dataminimize/)
-- The controls discussed below:
+- See [General controls](/go/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/go/limitunwanted/) and [Sensitive data limitation](/go/dataminimize/), depending on the attack
+- Depending on the attack: controls that protect against the model being stolen or copied (unless the model is publicly available): [direct development-time model leak](/go/devmodelleak/),  [direct runtime model leak](/go/runtimemodelleak/), and [model exfiltration](/go/modelexfiltration/) - as many input attacks become dramatically easier when the attacker can access model attributes.
+- The controls discussed below to limit access and volume, perform generic detection and reduce output information (unless the attacker can use a similar or same model to perform the attack):
     - [#MONITOR USE](/go/monitoruse/)
     - [#RATE LIMIT](/go/ratelimit/)
     - [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/)
     - [#ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling/)
     - [#UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling/)
-    - [#OBCURE CONFIDENCE](/go/obscureconfidence/)
+    - [#OBCURE CONFIDENCE](/go/obscureconfidence/) - as many attacks rely on rick output information
+ 
 
 #### #MONITOR USE 
 >Category: runtime information security control for input threats  
@@ -209,13 +211,12 @@ Limit the rate (frequency) of access to the model - preferably per actor (user, 
 **Objective**
 
 To delay and discourage attackers who rely on many model interactions to:
-[TODO: add links to the mentioned attacks]
-- Search for adversarial or evasion samples: pairs of (successful attack, unwanted output) data is useful for constructing evasion attacks and jailbreaks.
-- Perform data poisoning exploration and extract exposure-restricted data.
-- Experiment with various direct and indirect prompt injection techniques to both exploit the system and/or study the attack behavior.
-- Attempt model inversion and/or membership inference.
+- Search for [adversarial or evasion](/go/evasion/) samples: pairs of (successful attack, unwanted output) data is useful for constructing evasion attacks and jailbreaks.
+- Perform [data poisoning](/go/datapoison/) exploration and extract exposure-restricted data.
+- Experiment with various [direct and indirect prompt injection](/go/promptinjection/) techniques to both exploit the system and/or study the attack behavior.
+- Attempt [model inversion and/or membership inference](/go/modelinversionandmembership/).
 - Extract training data or model parameters, or
-- Copy or re-train a model via large scale harvesting (model exfiltration)
+- Copy or re-train a model via large scale harvesting ([model exfiltration](/go/modelexfiltration/))
 
 By restricting the number and speed of model interactions, cost of attacks increase (effort, time, resources) thereby making the attacks less practical and allowing an opportunity for detection and incident response.
 
@@ -612,7 +613,7 @@ Example 4: by altering a few words, an attacker succeeds in posting an offensive
 See [MITRE ATLAS - Evade ML model](https://atlas.mitre.org/techniques/AML.T0015)
 
 **Controls for evasion**  
-An evasion attack typically consists of first searching for the inputs that mislead the model, and then applying it. That initial search can be very intensive, as it requires trying many variations of input. Therefore, limiting access to the model with for example rate limiting mitigates the risk, but still leaves the possibility of using a so-called [transfer attack](/go/transferattack/) to search for the inputs in another, similar model.  
+An evasion attack typically consists of first searching for the inputs that mislead the model, and then applying it. That initial search can be very intensive, as it requires trying many variations of input. Therefore, limiting access to the model with for example rate limiting mitigates the risk, but still leaves the possibility of using a so-called [transfer attack](/go/transferattack/) to search for the inputs in another, similar or same model.  
 
 - See [General controls](/go/generalcontrols/):
   - Especially [limiting the impact of unwanted model behaviour](/go/limitunwanted/).
@@ -927,7 +928,12 @@ The advantage of a surrogate model is that it exposes its internals (with the ex
 The goal is to create adversarial examples that will ‘hopefully’ transfer to the original target model, even though the surrogate may be internally different from the target. Because the task is similar, it can be expected that the decision boundaries in the model are similar. The likelihood of a successful transfer is generally higher when the surrogate model closely resembles the target model in terms of complexity and structure. The ultimate surrogate model is of course the target model itself. However, it’s noted that even attacks developed using simpler surrogate models tend to transfer effectively. 
 
 **Controls**  
-See [Evasion section](/go/evasion/) for the controls, with the exception of controls that protect against the search of adversarial samples (rate limit, unwanted input series handling, and obscure confidence).
+See [Evasion section](/go/evasion/) for the controls,  
+
+minus: the controls that protect against the search of adversarial samples (rate limit, unwanted input series handling, and obscure confidence), as they don't protect against this search on the surrogate model,  
+
+plus: controls that protect against the model being stolen or copied (unless the model is publicly available): [direct development-time model leak](/go/devmodelleak/),  [direct runtime model leak](/go/runtimemodelleak/), and [model exfiltration](/go/modelexfiltration/).
+.
 
 
 **References**  
@@ -1365,6 +1371,7 @@ The more details a model is able to learn, the more it can store information on 
   - [#OBSCURE CONFIDENCE](/go/obscureconfidence/) to limit information that the attacker can use
 - Specifically for Model Inversion and Membership inference: 
   - [#SMALL MODEL](/go/smallmodel/) to limit the amount of information that can be retrieved - discussed below
+- Controls that protect against the model being stolen or copied: [direct development-time model leak](/go/devmodelleak/) and [direct runtime model leak](/go/runtimemodelleak/), since the attacks are much more efficient with full access to model attributes.
 
 
 #### #SMALL MODEL 
