@@ -54,7 +54,7 @@
         "type": 302
       },
       {
-        "source": "/go/organize/",
+        "source": "/goto/organize/",
         "destination": "/docs/ai_security_overview/#how-to-organize-ai-security",
         "type": 302
       },
@@ -95,11 +95,6 @@
       },  
       {
         "source": "/goto/aisecuritymatrix/",
-        "destination": "/docs/ai_security_overview/#ai-security-matrix",
-        "type": 302
-      },
-      {
-        "source": "/go/aisecuritymatrix/",
         "destination": "/docs/ai_security_overview/#ai-security-matrix",
         "type": 302
       },
@@ -184,6 +179,11 @@
         "type": 302
       },
       {
+        "source": "/goto/genai/",
+        "destination": "/docs/ai_security_overview/#how-about-generative-ai-eg-llm",
+        "type": 302
+      },
+      {
         "source": "/go/genai/",
         "destination": "/docs/ai_security_overview/#how-about-generative-ai-eg-llm",
         "type": 302
@@ -196,6 +196,11 @@
       {
         "source": "/go/responsibleai/",
         "destination": "/docs/ai_security_overview/#how-about-responsible-or-trustworthy-ai",
+        "type": 302
+      },
+      {
+        "source": "/goto/copyright/",
+        "destination": "/docs/ai_security_overview/#how-about-copyright",
         "type": 302
       },
       {
@@ -219,6 +224,11 @@
         "type": 302
       },
       {
+        "source": "/goto/generalcontrols/",
+        "destination": "/docs/1_general_controls/",
+        "type": 302
+      },
+      {
         "source": "/go/generalcontrols/",
         "destination": "/docs/1_general_controls/",
         "type": 302
@@ -228,6 +238,11 @@
         "destination": "/docs/1_general_controls/#11-general-governance-controls",
         "type": 302
       },  
+      {
+        "source": "/goto/aiprogram/",
+        "destination": "/docs/1_general_controls/#ai-program",
+        "type": 302
+      },
       {
         "source": "/go/aiprogram/",
         "destination": "/docs/1_general_controls/#ai-program",
@@ -249,6 +264,11 @@
         "type": 302
       },
       {
+        "source": "/goto/checkcompliance/",
+        "destination": "/docs/1_general_controls/#check-compliance",
+        "type": 302
+      },
+      {
         "source": "/go/checkcompliance/",
         "destination": "/docs/1_general_controls/#check-compliance",
         "type": 302
@@ -256,6 +276,11 @@
       {
         "source": "/go/seceducate/",
         "destination": "/docs/1_general_controls/#sec-educate",
+        "type": 302
+      },
+      {
+        "source": "/goto/datalimit/",
+        "destination": "/docs/1_general_controls/#12-general-controls-for-sensitive-data-limitation",
         "type": 302
       },
       {
@@ -289,6 +314,11 @@
         "type": 302
       },
       {
+        "source": "/goto/limitunwanted/",
+        "destination": "/docs/1_general_controls/#13-controls-to-limit-the-effects-of-unwanted-behaviour",
+        "type": 302
+      },
+      {
         "source": "/go/limitunwanted/",
         "destination": "/docs/1_general_controls/#13-controls-to-limit-the-effects-of-unwanted-behaviour",
         "type": 302
@@ -319,6 +349,11 @@
         "type": 302
       },
       {
+        "source": "/goto/continuousvalidation/",
+        "destination": "/docs/1_general_controls/#continuous-validation",
+        "type": 302
+      },
+      {
         "source": "/go/continuousvalidation/",
         "destination": "/docs/1_general_controls/#continuous-validation",
         "type": 302
@@ -334,6 +369,11 @@
         "type": 302
       },
       {
+        "source": "/goto/threatsuse/",
+        "destination": "/docs/2_threats_through_use/",
+        "type": 302
+      },
+      {
         "source": "/go/threatsuse/",
         "destination": "/docs/2_threats_through_use/",
         "type": 302
@@ -344,8 +384,18 @@
         "type": 302
       },
       {
+        "source": "/goto/monitoruse/",
+        "destination": "/docs/2_threats_through_use/#monitor-use",
+        "type": 302
+      },
+      {
         "source": "/go/monitoruse/",
         "destination": "/docs/2_threats_through_use/#monitor-use",
+        "type": 302
+      },
+      {
+        "source": "/goto/ratelimit/",
+        "destination": "/docs/2_threats_through_use/#rate-limit",
         "type": 302
       },
       {
@@ -354,8 +404,18 @@
         "type": 302
       },
       {
+        "source": "/goto/modelaccesscontrol/",
+        "destination": "/docs/2_threats_through_use/#model-access-control",
+        "type": 302
+      },
+      {
         "source": "/go/modelaccesscontrol/",
         "destination": "/docs/2_threats_through_use/#model-access-control",
+        "type": 302
+      },
+      {
+        "source": "/goto/detectoddinput/",
+        "destination": "/docs/2_threats_through_use/#anomalous-input-handling",
         "type": 302
       },
       {
@@ -374,6 +434,11 @@
         "type": 302
       },
       {
+        "source": "/goto/evasion/",
+        "destination": "/docs/2_threats_through_use/#21-evasion",
+        "type": 302
+      },
+      {
         "source": "/go/evasion/",
         "destination": "/docs/2_threats_through_use/#21-evasion",
         "type": 302
@@ -389,7 +454,17 @@
         "type": 302
       },
       {
+        "source": "/goto/evasionrobustmodel/",
+        "destination": "/docs/2_threats_through_use/#evasion-robust-model",
+        "type": 302
+      },
+      {
         "source": "/go/evasionrobustmodel/",
+        "destination": "/docs/2_threats_through_use/#evasion-robust-model",
+        "type": 302
+      },
+      {
+        "source": "/goto/evasionrobustmodel/",
         "destination": "/docs/2_threats_through_use/#evasion-robust-model",
         "type": 302
       },
@@ -444,8 +519,18 @@
         "type": 302
       },
       {
+        "source": "/goto/promptinjection/",
+        "destination": "/docs/2_threats_through_use/#22-prompt-injection",
+        "type": 302
+      },
+      {
         "source": "/go/promptinjection/",
         "destination": "/docs/2_threats_through_use/#22-prompt-injection",
+        "type": 302
+      },
+      {
+        "source": "/goto/directpromptinjection/",
+        "destination": "/docs/2_threats_through_use/#221-direct-prompt-injection",
         "type": 302
       },
       {
@@ -469,6 +554,16 @@
         "type": 302
       },
       {
+        "source": "/go/indirectpromptinjection/",
+        "destination": "/docs/2_threats_through_use/#222-indirect-prompt-injection",
+        "type": 302
+      },
+      {
+        "source": "/goto/promptinputvalidation/",
+        "destination": "/docs/2_threats_through_use/#prompt-injection-io-handling",
+        "type": 302
+      },
+      {
         "source": "/go/promptinputvalidation/",
         "destination": "/docs/2_threats_through_use/#prompt-injection-io-handling",
         "type": 302
@@ -481,6 +576,11 @@
       {
         "source": "/go/promptinjectioniohandling/",
         "destination": "/docs/2_threats_through_use/#prompt-injection-io-handling",
+        "type": 302
+      },
+      {
+        "source": "/goto/inputsegregation/",
+        "destination": "/docs/2_threats_through_use/#input-segregation",
         "type": 302
       },
       {
@@ -501,6 +601,11 @@
       {
         "source": "/go/disclosureinoutput/",
         "destination": "/docs/2_threats_through_use/#231-disclosure-of-sensitive-data-in-model-output",
+        "type": 302
+      },
+      {
+        "source": "/goto/filtersensitivemodeloutput/",
+        "destination": "/docs/2_threats_through_use/#sensitive-output-handling",
         "type": 302
       },
       {
@@ -544,6 +649,11 @@
         "type": 302
       },
       {
+        "source": "/goto/denialmodelservice/",
+        "destination": "/docs/2_threats_through_use/#25-ai-resource-exhaustion",
+        "type": 302
+      },
+      {
         "source": "/go/denialmodelservice/",
         "destination": "/docs/2_threats_through_use/#25-ai-resource-exhaustion",
         "type": 302
@@ -556,6 +666,11 @@
       {
         "source": "goto/culturesensitivealignment/",
         "destination": "/docs/2_threats_through_use/#appendix-culture-sensitive-alignment",
+        "type": 302
+      },
+      {
+        "source": "/goto/modelalignment/",
+        "destination": "/docs/1_general_controls/#model-alignment",
         "type": 302
       },
       {
@@ -604,6 +719,11 @@
         "type": 302
       },
       {
+        "source": "/goto/federatedlearning/",
+        "destination": "/docs/3_development_time_threats/#federated-learning",
+        "type": 302
+      },
+      {
         "source": "/go/federatedlearning/",
         "destination": "/docs/3_development_time_threats/#federated-learning",
         "type": 302
@@ -626,6 +746,11 @@
       {
         "source": "/go/modelensemble/",
         "destination": "/docs/3_development_time_threats/#model-ensemble",
+        "type": 302
+      },
+      {
+        "source": "/goto/datapoison/",
+        "destination": "/docs/3_development_time_threats/#311-data-poisoning",
         "type": 302
       },
       {
@@ -804,6 +929,11 @@
         "type": 302
       },
       {
+        "source": "/goto/testing/",
+        "destination": "/docs/5_testing",
+        "type": 302
+      },
+      {
         "source": "/go/testing/",
         "destination": "/docs/5_testing",
         "type": 302
@@ -823,6 +953,11 @@
         "destination": "/docs/5_testing/#open-source-tools-for-generative-ai-red-teaming",
         "type": 302
       },
+      {
+        "source": "/goto/aiprivacy/",
+        "destination": "/docs/6_privacy",
+        "type": 302
+      }
       {
         "source": "/go/aiprivacy/",
         "destination": "/docs/6_privacy",
