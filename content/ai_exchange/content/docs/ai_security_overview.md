@@ -596,7 +596,7 @@ Discovering potential risks that could impact the organization requires the tech
   - The supplier runs the model: select a trustworthy supplier through [supply chain management](/go/supplychainmanage/), to make sure the deployed model cannot be manipulated ([runtime model poisoning](/go/runtimemodelpoison/)) - just the way you would expect any supplier to protect their running application from manipulation.
   - You run the model: You need to protect against [runtime model poisoning](/go/runtimemodelpoison/) where attackers change the model that you have deployed.
 
- >  Question: Is the model (predictive AI or Generative AI) used in a classification task (e.g., spam or fraud detection)?
+ >  QUESTION: Is the model (predictive AI or Generative AI) used in a classification task (e.g., spam or fraud detection)?
   - Yes: Protect against an [evasion attack](/go/evasion/) in which a user tries to fool the model into a wrong decision using data (not instructions). Here, the level of risk is an important aspect to evaluate - see below. The risk of an evasion attack may be acceptable.
     
   In order to assess the level of risk for unwanted model behaviour through manipulation, consider what the motivation of an attacker could be. What could an attacker gain by for example sabotaging your model? Just a claim to fame? Could it be a disgruntled employee? Maybe a competitor? What could an attacker gain by a less conspicuous model behaviour attack, like an evasion attack or data poisoning with a trigger? Is there a scenario where an attacker benefits from fooling the model? An example where evasion IS interesting and possible: adding certain words in a spam email so that it is not recognized as such. An example where evasion is not interesting is when a patient gets a skin disease diagnosis based on a picture of the skin. The patient has no interest in a wrong decision, and also the patient typically has no control - well maybe by painting the skin. There are situations in which this CAN be of interest for the patient, for example to be eligible for compensation in case the (faked) skin disease was caused by certain restaurant food. This demonstrates that it all depends on the context whether a theoretical threat is a real threat or not. Depending on the probability and impact of the threats, and on the relevant policies, some threats may be accepted as risk. When not accepted, the level of risk is input to the strength of the controls. For example: if data poisoning can lead to substantial benefit for a group of attackers, then the training data needs to be given a high level of protection.
@@ -637,9 +637,9 @@ Discovering potential risks that could impact the organization requires the tech
   - Protect against [insecure output handling](/go/insecureoutput/), for example, when you display the output of the model on a website and the output contains malicious Javascript.
 
 > ALWAYS DO:
-Make sure to protect against [AI resource exhaustions](/go/denialmodelservice/) (actors overusing your AI causing availability problems and/or high cost)). If your model is run by a supplier, then certain countermeasures may already be in place to address this.
+  Make sure to protect against [AI resource exhaustions](/go/denialmodelservice/) (actors overusing your AI causing availability problems and/or high cost)). If your model is run by a supplier, then certain countermeasures may already be in place to address this.
 
-Since AI systems are software systems, they require appropriate conventional application security and operational security, apart from the AI-specific threats and controls mentioned in this section.
+  Since AI systems are software systems, they require appropriate conventional application security and operational security, apart from the AI-specific threats and controls mentioned in this section.
 
 ### 2. Evaluating Risks by Estimating Likelihood and Impact
 To determine the severity of a risk, it is necessary to assess the likelihood of the risk occurring and evaluating the potential consequences should the risk materialize.
