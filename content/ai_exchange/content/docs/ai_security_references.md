@@ -16,7 +16,6 @@ References on specific topics can be found throughout the content of AI Exchange
 - [OWASP GenAI security project](https://genai.owasp.org/)
 - [OWASP LLM top 10](https://genai.owasp.org/llm-top-10/)
 - [OWASP Agentic AI top 10](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/)
-- [OWASP LLM top 10](https://genai.owasp.org/)
 - [ENISA Cybersecurity threat landscape](https://www.enisa.europa.eu/publications/artificial-intelligence-cybersecurity-challenges)
 - [ENISA ML threats and countermeasures 2021](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
 - [MITRE ATLAS framework for AI threats](https://atlas.mitre.org/)
