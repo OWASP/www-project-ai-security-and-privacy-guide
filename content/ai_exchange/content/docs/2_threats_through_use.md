@@ -31,7 +31,7 @@ These are the controls for input threats in general - more specific controls are
     - [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/)
     - [#ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling/)
     - [#UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling/)
-    - [#OBCURE CONFIDENCE](/go/obscureconfidence/) - as many attacks rely on rick output information
+    - [#OBSCURE CONFIDENCE](/go/obscureconfidence/) - as many attacks rely on rich output information
  
 
 #### #MONITOR USE 
