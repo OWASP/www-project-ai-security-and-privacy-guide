@@ -13,8 +13,6 @@ module:
     - path: github.com/imfing/hextra
       version: v0.11.1
 
-
-
 params:
   author:
     name: OWASP AI Exchange
