@@ -12,7 +12,7 @@ weight: 1
 >Permalink: https://owaspai.org/go/toc/
 
 * [AI Security Overview](/docs/ai_security_overview/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [About the AI Exchange](/go/about/)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [About the AI Exchange](/go/about/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Roadmap](/go/roadmap/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [How to use this document](/go/document/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Organize AI](/go/organize/)  
@@ -156,7 +156,7 @@ The AI Exchange has strong and diverse collaboration with industry and institute
 
 
 ### AI Exchange roadmap
->Category: discussion
+>Category: discussion  
 >Permalink: https://owaspai.org/go/roadmap/
 
 Our **mission** is to be the global go-to resource for security and privacy practitioners working with AI and data-centric systems—bringing alignment and encouraging collaboration across initiatives. In doing so, we create a safe, open, and independent space where everyone can find and share insights.
@@ -181,7 +181,7 @@ assignment.
 scientists and developers.
 - Legislation: Tracking global laws and regulations.
 - Requirements: The group working on the AI Act and ISO 27090 contributions
-- - **Mathematical**: Ensuring completeness of the mathematical data science topics for AI robustness and
+- **Mathematical**: Ensuring completeness of the mathematical data science topics for AI robustness and
 security.
 
 **Strategic & Operational Workstreams**
