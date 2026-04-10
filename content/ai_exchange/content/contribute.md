@@ -182,6 +182,9 @@ weight: 1
         We value every contribution to our project, but it’s important to be aware of certain guidelines:
       </p>
       <p class="mb-4">
+        <span class="font-semibold">Consider the roadmap:</span> The <a href="/go/roadmap/">OWASP AI Exchange roadmap</a> leads the way on how we prioritize and organize contributions,
+      </p>
+      <p class="mb-4">
         <span class="font-semibold">Avoid Advertising:</span> The OWASP AI projects should not promote commercial tools, companies, or individuals. The focus should be on open-source tools.
       </p>
       <p class="mb-4">
