@@ -161,26 +161,20 @@ The AI Exchange has strong and diverse collaboration with industry and institute
 
 Our **mission** is to be the global go-to resource for security and privacy practitioners working with AI and data-centric systems—bringing alignment and encouraging collaboration across initiatives. In doing so, we create a safe, open, and independent space where everyone can find and share insights.
 
-**Content workstreams**
-- **Agentic AI**: A specialized stream extending the Exchange further with the emerging security challenges of autonomous
-multi-agent systems, led by Chris Cochran
-- **Harmonization** Mapping the Exchange to global frameworks
-including NIST (adversarial machine learning), MITRE ATLAS, and ETSI mitigations led
-by Rob van der Veer and Yuvaraj
-- **Step-by-Step Guide**: Providing organizations with a structured
-path to implement AI security processes, led by Aruneesh Salhotra.
-- **Red Teaming** (Testing): Extending the testing section and evaluating open-source tools
-for Predictive and Generative AI to withstand adversarial attack led by Behnaz Karimi
-- **EU AI Act Flow Back**: Integration of the extensive research the group did for the contributions to the EU AI Act security standard, led by Rob
-van der Veer
+**Priority content workstreams to deliver major update before summer 2026**
+- **Agentic AI**: Extending the Exchange further with the emerging security challenges of autonomous multi-agent systems, led by Chris Cochran
+- **Harmonization**: Solving gaps and mapping the Exchange to leading frameworks including NIST, MITRE ATLAS, and ETSI led by Rob van der Veer and Yuvaraj
+- **Red Teaming** (Testing): Extending the testing section and evaluating open-source tools for Predictive and Generative AI to withstand adversarial attack led by Behnaz Karimi
+- **EU AI Act Flow Back**: Integration of the extensive research the group did for the contributions to the EU AI Act security standard, led by Rob van der Veer
+- **Step-by-Step Guide**: Providing organizations with a structured path to implement AI security processes, led by Aruneesh Salhotra.
 
 **Specialized Project Groups**
-- Risk Analysis: Designing formal processes for AI risk assessment and responsibility
+- **Risk Analysis**: Designing formal processes for AI risk assessment and responsibility
 assignment.
-- Education Guidance: Providing training guidance and security mindsets for data
+- **Education Guidance**: Providing training guidance and security mindsets for data
 scientists and developers.
-- Legislation: Tracking global laws and regulations.
-- Requirements: The group working on the AI Act and ISO 27090 contributions
+- **Legislation**: Tracking global laws and regulations.
+- **Requirements**: The group working on the AI Act and ISO 27090 contributions
 - **Mathematical**: Ensuring completeness of the mathematical data science topics for AI robustness and
 security.
 
