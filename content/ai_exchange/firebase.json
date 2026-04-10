@@ -149,6 +149,11 @@
         "type": 302
       },
       {
+        "source": "/go/roadmap/",
+        "destination": "/docs/ai_security_overview/#ai-exchange-roadmap",
+        "type": 302
+      },
+      {
         "source": "/goto/aiatowasp/",
         "destination": "/docs/ai_security_overview/#relevant-owasp-ai-initiatives",
         "type": 302
