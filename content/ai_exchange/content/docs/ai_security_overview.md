@@ -12,7 +12,8 @@ weight: 1
 >Permalink: https://owaspai.org/go/toc/
 
 * [AI Security Overview](/docs/ai_security_overview/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [About the AI Exchange](/go/about/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [About the AI Exchange](/go/about/)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Roadmap](/go/roadmap/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [How to use this document](/go/document/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Organize AI](/go/organize/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Essentials](/go/essentials/)  
@@ -69,7 +70,7 @@ Data-centric systems can be divided into AI systems and 'big data' systems that 
 
 Security here means preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.
 
-Our **mission** is to be the go-to resource for security & privacy practitioners for AI and data-centric systems, to foster alignment, and drive collaboration among initiatives. By doing so, we provide a safe, open, and independent place to find and share insights for everyone. Follow [AI Exchange at LinkedIn](https://www.linkedin.com/company/owasp-ai-exchange/).
+Our **mission** is to be the global go-to resource for security and privacy practitioners working with AI and data-centric systems—bringing alignment and encouraging collaboration across initiatives. In doing so, we create a safe, open, and independent space where everyone can find and share insights. Follow [AI Exchange at LinkedIn](https://www.linkedin.com/company/owasp-ai-exchange/).
 
 **How it works**  
 The AI Exchange is displayed here at [owaspai.org](https://owaspai.org) and edited using a [GitHub repository](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/tree/main/content/ai_exchange/content) (see the links _Edit on Github_). It is an **open-source living publication** for the worldwide exchange of AI security & privacy expertise. It is structured as one coherent resource consisting of several sections under 'content', each represented by a page on this website.
@@ -153,6 +154,48 @@ What makes the Exchange special is FOUNDATION:
 
 The AI Exchange has strong and diverse collaboration with industry and institutes, for example a formal ongoing collaboration with SANS Institute to share expertise and support broad education.
 
+
+### AI Exchange roadmap
+>Category: discussion
+>Permalink: https://owaspai.org/go/roadmap/
+
+Our **mission** is to be the global go-to resource for security and privacy practitioners working with AI and data-centric systems—bringing alignment and encouraging collaboration across initiatives. In doing so, we create a safe, open, and independent space where everyone can find and share insights.
+
+**Content workstreams**
+- **Agentic AI**: A specialized stream extending the Exchange further with the emerging security challenges of autonomous
+multi-agent systems, led by Chris Cochran
+- **Harmonization** Mapping the Exchange to global frameworks
+including NIST (adversarial machine learning), MITRE ATLAS, and ETSI mitigations led
+by Rob van der Veer and Yuvaraj
+- **Step-by-Step Guide**: Providing organizations with a structured
+path to implement AI security processes, led by Aruneesh Salhotra.
+- **Red Teaming** (Testing): Extending the testing section and evaluating open-source tools
+for Predictive and Generative AI to withstand adversarial attack led by Behnaz Karimi
+- **EU AI Act Flow Back**: Integration of the extensive research the group did for the contributions to the EU AI Act security standard, led by Rob
+van der Veer
+
+**Specialized Project Groups**
+- Risk Analysis: Designing formal processes for AI risk assessment and responsibility
+assignment.
+- Education Guidance: Providing training guidance and security mindsets for data
+scientists and developers.
+- Legislation: Tracking global laws and regulations.
+- Requirements: The group working on the AI Act and ISO 27090 contributions
+- - **Mathematical**: Ensuring completeness of the mathematical data science topics for AI robustness and
+security.
+
+**Strategic & Operational Workstreams**
+- **Standards alignment**: Through engagements, partnerships, events, and mapping, drive alignment of standards when it comes to AI security. Goal: clarity for practitioners and supervisors. Led by Rob van der Veer and Aruneesh Salhotra
+- **Promotion & Outreach**: Development of global and regional marketing plans to drive
+community engagement and project visibility, led by Aruneesh Salhotra.
+- **Sponsorship & Fundraising**: Operational efforts to secure the necessary resources
+and funding to sustain project growth, led by Aruneesh Salhotra.
+Core Technical Workstreams
+  
+**Project Leadership Team**
+- Rob van der Veer: Project Founder and Lead Editor.
+- Aruneesh Salhotra: Leads Promotion, Collaboration, and Fundraising.
+- Behnaz Karimi: Leads Red Teaming, Training, and People Matters.
 
 ### How to use this Document
 >Category: discussion  
