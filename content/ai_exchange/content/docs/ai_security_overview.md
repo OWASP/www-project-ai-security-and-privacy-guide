@@ -598,17 +598,29 @@ Regularly sharing risk information with stakeholders to ensure awareness and con
 
 Let's go through the risk management steps one by one.
 
-### 1. Identifying  Risks - decision tree
-Discovering potential risks that could impact the organization requires the technical and business assessment of the applicable threats. In this document, we focus on AI-specific risks only - meaning risks to the AI-specific assets. The following section takes you through each type of risk impact, to identify the risks that apply in your case.
+### 1. Identifying  Risks - decision tree to threat model
+>Category: discussion  
+>Permalink: https://owaspai.org/go/threatmodel/
+
+Discovering potential risks the technical and domain context assessment of the applicable threats. In this document, we focus on AI-specific risks only - meaning risks to the AI-specific assets. The following section takes you through each type of risk impact, to identify the risks that apply in your case.
+
+In essence, this is a 'Threat modeling' process: the bridge between a list of threats and a set of concrete, prioritized risks.  
+The threats represent a catalogue of “things that could go wrong” but no clear view of what actually matters for your system. 
+What threat modeling really does, it answers three key questions:
+1. Which threats apply to this system?
+2. How could they realistically happen?
+3. What would the impact be here?
+
+The step after that is detailed in the following subsection 2: to look in more detail at likelihood and impact.
 
 **Identify risks of unwanted model behaviour**
 
   Regarding model behaviour, we focus on manipulation by attackers, as the scope of this document is security. Other sources of unwanted behavior are general inaccuracy (e.g., hallucinations) and/or unwanted bias regarding certain groups (discrimination).
     
-  This will always be an applicable threat, independent of your use-case, simply because the model behaviour matters by definition. Nevertheless, the risk level may sometimes be accepted as shown below.
+  This will always be an applicable general threat, independent of your use-case, simply because the model behaviour matters by definition. Nevertheless, the risk level may sometimes be accepted as shown below.
 
 > ALWAYS DO:
-  This means that you always need to have in place the following:
+  Since unwanted model behaviour is always a risk, you always need to have in place the following:
   - [General governance controls](/go/governancecontrols/) (e.g., maintaining a documented inventory of AI applications and implementing mechanisms to ensure appropriate oversight and accountability.)
   - [Controls to limit effects of unwanted model behaviour](/go/limitunwanted/) (e.g., human oversight when necessary, model least privilege for agents)
 
@@ -626,7 +638,7 @@ Discovering potential risks that could impact the organization requires the tech
     Why not train/finetune a model yourself? There are many third party and open source models that may be able to perform the required task, perhaps after some fine tuning. Organizations often choose external GenAI models because they are typically general purpose, and training is difficult and expensive (often millions of dollars). Finetuning of generative AI is also not often performed by organizations given the cost of compute and the complexity involved. Some GenAI models can be obtained and run on your own infrastructure. The reasons for this can be lower cost (if it is an open source model), and the fact that sensitive input information does not have to be sent externally. A reason to use an externally hosted GenAI model can be the quality of the model.
  
  
-  > QUESTION: Does your system insert (augment) data to the input of your model, like for example in RAG (Retrieval Augmented Generation), or by having _system prompts_ (standard instructions to the model that are automatically added to the input) ? If yes: 
+  > QUESTION: Does your system insert (augment) data to the input of your model, like for example in RAG (Retrieval Augmented Generation), or by inserting data from memory (e.g., stored state for an agent), or by having _system prompts_ (standard instructions to the model that are automatically added to the input) ? If yes: 
   
   - Consider the threat of [augmentation data manipulation](/go/augmentationdatamanipulation/) as this data plays a role in determining the model behaviour.
   - Is this augmentation data stored in a database for the purpose of the AI system (e.g., a vector database)? If Yes: you need to protect against [direct augmentation data leak](/go/augmentationdataleak/). Note that this also counts for system prompts, if they are sensitive.
@@ -638,6 +650,14 @@ Discovering potential risks that could impact the organization requires the tech
  >  QUESTION: Is the model (predictive AI or Generative AI) used in a classification task (e.g., spam or fraud detection)?
   - Yes: Consider the threat of an [evasion attack](/go/evasion/) in which a user tries to fool the model into a wrong decision using data (not instructions). Here, the level of risk is an important aspect to evaluate - see below. The risk of an evasion attack may be acceptable.
     
+**Analysing the risk of unwanted model behaviour**
+
+>  QUESTION: Can the model trigger actions (e.g., API calls depending on a model classification output, or an LLM agent that triggers actions or other agents? If Yes:
+  This typically increases the impact of the risks mentioned above, depending on the action. The action can for example be adding an entry to a database, but also closing a watertight door in a ship. The threat is for example prompt injection or augmentation data manipulation, but the risk is that this leads to a specific impact (e.g., exfiltrating data, or un unsafe action in the physical world.)
+
+>  QUESTION: IF the model triggers actions, is there an action that is able to send data so it can be seen by an adversary, and is there sensitive data accessible in the system by one of the agents or actions that is reachable by the manipulated agent? If Yes:
+  This combination of 1) manipulated model behaviour, 2) ability for the model to send data, and 3) ability for the model to access sensitive data is called the 'Lethal trifecta'. The impact is: data exfiltration. For more details, see [Agentic threats](/go/agenticaithreats/).
+  
   In order to assess the level of risk for unwanted model behaviour through manipulation, consider what the motivation of an attacker could be. What could an attacker gain by misleading your model? Just a claim to fame? Could it be a disgruntled employee? Maybe a competitor? What could an attacker gain by a less conspicuous model behaviour attack, like an evasion attack or data poisoning with a trigger? Is there a scenario where an attacker benefits from fooling the model? An example where evasion IS interesting and possible: adding certain words in a spam email so that it is not recognized as such. An example where evasion is not interesting is when a patient gets a skin disease diagnosis based on a picture of the skin. The patient has no interest in a wrong decision, and also the patient typically has no control - well maybe by painting the skin. There are situations in which this CAN be of interest for the patient, for example to be eligible for compensation in case the (faked) skin disease was caused by certain restaurant food. This demonstrates that it all depends on the context whether a theoretical threat is a real threat or not. Depending on the probability and impact of the threats, and on the relevant policies, some threats may be accepted as risk. When not accepted, the level of risk is input to the strength of the controls. For example: if data poisoning can lead to substantial benefit for a group of attackers, then the training data needs to be given a high level of protection.
 
  **Identify risks of leaking training data**
