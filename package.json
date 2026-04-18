@@ -2,13 +2,16 @@
   "name": "owasp-ai-exchange",
   "private": true,
   "scripts": {
-    "build:site": "cd content/ai_exchange && npx hugo-extended@0.147.0 mod get github.com/imfing/hextra@v0.11.1 && npx hugo-extended@0.147.0 --gc --minify",
+    "enrich:opencre": "node scripts/enrich-opencre-section-cre.js && node scripts/enrich-opencre-references.js",
+    "build:site": "npm run enrich:opencre && cd content/ai_exchange && npx hugo-extended@0.147.0 mod get github.com/imfing/hextra@v0.11.1 && npx hugo-extended@0.147.0 --gc --minify",
     "pagefind": "cd content/ai_exchange && npx pagefind --site public",
-    "build:pdf": "node scripts/generate-pdf.js",
+    "build:pdf": "npm run enrich:opencre && node scripts/generate-pdf.js",
     "build:all": "npm run build:site && npm run pagefind && npm run build:pdf",
     "serve": "npx serve content/ai_exchange/public -p 3000",
     "test:site": "npm run build:site && npm run pagefind && npm run serve",
-    "test:e2e": "node e2e/run.js"
+    "test:e2e": "node e2e/run.js",
+    "test": "node --test test/opencre-enrich/opencre-enrich.test.js",
+    "test:opencre-enrich": "node --test test/opencre-enrich/opencre-enrich.test.js"
   },
   "dependencies": {
     "jsdom": "^28.1.0",

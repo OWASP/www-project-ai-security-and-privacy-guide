@@ -75,6 +75,9 @@ In general risk management it may help to keep in mind the following particulari
 8. Can hear and see: have sound and vision recognition abilities
 
 **References**  
+<!-- OPENCRE_SECTION_CRE_START slug=aiprogram -->
+- [OpenCRE: AI management system](https://staging.opencre.org/cre/755-340)
+<!-- OPENCRE_SECTION_CRE_END slug=aiprogram -->
 
  - [AI Governance library](https://www.aigl.blog/)
  - [UNESCO on AI ethics and governance](https://www.unesco.org/ethics-ai/en)
@@ -294,6 +297,11 @@ Non-Security Compliance Considerations:
 - Accountability: AI systems should be accountable for actions and outputs and usage of data sets. See [AI Program](/go/aiprogram/)
 
 **References**  
+<!-- OPENCRE_SECTION_CRE_START slug=checkcompliance -->
+- [OpenCRE: AI compliance management](https://staging.opencre.org/cre/646-285)
+    referring to:
+    - [ENISA: sec. Table 5:: Assess the regulations and laws the ML application must comply with](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
+<!-- OPENCRE_SECTION_CRE_END slug=checkcompliance -->
   - [Vischer on legal aspects of AI](https://www.vischer.com/en/artificial-intelligence/)
   - [Summary of AI Act by SIG](https://www.softwareimprovementgroup.com/eu-ai-act-summary/)
   - [Summary of US AI legislation by SIG](https://www.softwareimprovementgroup.com/us-ai-legislation-overview/)
@@ -317,6 +325,12 @@ Education on AI security is a key prerequisite for AI engineers, development tea
 4. Distinguish between controls that your organization has to implement, and those that are the responsbility of your supplier. 
 
 **References**  
+<!-- OPENCRE_SECTION_CRE_START slug=seceducate -->
+- [OpenCRE: AI security Education](https://staging.opencre.org/cre/533-635)
+    referring to:
+    - [MITRE ATLAS: sec. AML.M0018: User Training](https://atlas.mitre.org/mitigations/AML.M0018)
+    - [ENISA: sec. Table 5:: Integrate ML specificities to awareness strategy and ensure all ML stakeholders are receiving it](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
+<!-- OPENCRE_SECTION_CRE_END slug=seceducate -->
 Useful standards include:
   - ISO 27002 Control 6.3 Awareness training. Gap: covers this control fully, but lacks detail and needs to take into account the particularity: training material needs to cover AI security threats and controls
 
@@ -356,6 +370,12 @@ Data minimization reduces confidentiality risk by limiting the presence of expos
 AI models often tolerate reduced feature sets and incomplete data better than traditional applications, enabling stronger minimization strategies without functional loss.
 
 **References**  
+<!-- OPENCRE_SECTION_CRE_START slug=dataminimize -->
+- [OpenCRE: Data minimization](https://staging.opencre.org/cre/058-443)
+    referring to:
+    - [ENISA: sec. Table 5:: Ensure that models respect differential privacy to a sufficient degree](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
+    - [NIST AI 100-2: sec. 2.4.5: Differential privacy](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
+<!-- OPENCRE_SECTION_CRE_END slug=dataminimize -->
 Useful standards include:
   - Not covered yet in ISO/IEC standards.
 
@@ -388,6 +408,9 @@ Minimize the impact of data leakage or manipulation
 Limiting the retention period of data can be seen as a special form of data minimization. Privacy regulations typically require personal data to be removed when it is no longer needed for the purpose for which it was collected. Sometimes exceptions need to be made because of other rules (e.g. to keep a record of proof). Apart from these regulations, it is a general best practice to remove any sensitive data when it is no longer of use, to reduce the impact of a data leak.
 
 **References**  
+<!-- OPENCRE_SECTION_CRE_START slug=shortretain -->
+- [OpenCRE: Training data retention management](https://staging.opencre.org/cre/858-745)
+<!-- OPENCRE_SECTION_CRE_END slug=shortretain -->
 Useful standards include:
 
   - Not covered yet in ISO/IEC standards.
@@ -447,6 +470,12 @@ Anonymity is not an absolute concept, but a statistical one. Even if someone's i
 Distorting training data can make it effectively uncrecognizable, which of course needs to be weighed against the negative effect on model performance that this typically creates. See also [TRAINDATADISTORTION](/go/traindatadistortion/) which is about distortion against data poisoning and [EVASIONROBUSTMODEL](/go/evasionrobustmodel/) for distortion against evasion attacks. Together with this control OBFUSCATETRAININGDATA, these are all approaches that distort training data, but for different purposes.
 
 **References**  
+<!-- OPENCRE_SECTION_CRE_START slug=obfuscatetrainingdata -->
+- [OpenCRE: Training data obfuscation](https://staging.opencre.org/cre/488-626)
+    referring to:
+    - [ETSI: sec. 6.4.2: Embedding privacy](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
+    - [ENISA: sec. Table 5:: Ensure that models respect differential privacy to a sufficient degree](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
+<!-- OPENCRE_SECTION_CRE_END slug=obfuscatetrainingdata -->
 - [SF-PATE: Scalable, Fair, and Private Aggregation of Teacher Ensembles](https://arxiv.org/abs/2204.05157)
 - [Differentially Private Objective Perturbation: Beyond Smoothness and Convexity](https://arxiv.org/abs/1909.01783v1)
 - [Data Masking with Privacy Guarantees](https://arxiv.org/abs/1901.02185)
@@ -478,6 +507,13 @@ For example:
   - Minimize technical details in model output
 
 **References**  
+<!-- OPENCRE_SECTION_CRE_START slug=discrete -->
+- [OpenCRE: Protection of technical AI information](https://staging.opencre.org/cre/818-434)
+    referring to:
+    - [ENISA: sec. Table 5:: Reduce the available information about the model](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
+    - [MITRE ATLAS: sec. AML.M0000: Limit Public Release of Information](https://atlas.mitre.org/mitigations/AML.M0000)
+    - [MITRE ATLAS: sec. AML.M0001: Limit Model Artifact Release](https://atlas.mitre.org/mitigations/AML.M0001)
+<!-- OPENCRE_SECTION_CRE_END slug=discrete -->
 Useful standards include:
   - ISO 27002 Control 5.9: Inventory of information and other associated assets. Gap: covers this control fully, with the particularity that technical data science details can be sensitive. .
   - See [OpenCRE on data classification and handling](https://www.opencre.org/cre/074-873). Gap: idem
@@ -560,6 +596,17 @@ Ad.4: Regarding lack of involvement: for human operators or drivers of automated
 In other words: If you as a user are not involved actively in performing a task, then you lose understanding of whether it is correct or what the impact can be. If you then only need to confirm something by saying 'go ahead' or 'cancel', a badly informed 'go ahead' is easy to pick.
 
 **References**  
+<!-- OPENCRE_SECTION_CRE_START slug=oversight -->
+- [OpenCRE: Automated AI oversight](https://staging.opencre.org/cre/205-522)
+    referring to:
+    - [MITRE ATLAS: sec. AML.M0020: Generative AI Guardrails](https://atlas.mitre.org/mitigations/AML.M0020)
+    - [NIST AI 100-2: sec. 3.4.5: An LLM moderator](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
+- [OpenCRE: Human AI oversight](https://staging.opencre.org/cre/202-604)
+    referring to:
+    - [MITRE ATLAS: sec. AML.M0030: Restrict AI Agent Tool Invocation on Untrusted Data](https://atlas.mitre.org/mitigations/AML.M0030)
+    - [MITRE ATLAS: sec. AML.M0029: Human In-the-Loop for AI Agent Actions](https://atlas.mitre.org/mitigations/AML.M0029)
+    - [NIST AI 100-2: sec. 3.4.5: Reinforcement learning from human feedback (RLHF)](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
+<!-- OPENCRE_SECTION_CRE_END slug=oversight -->
 Useful standards include:
 
   - ISO/IEC 42001 B.9.3 defines controls for human oversight and decisions regarding autonomy. Gap: covers this control partly (human oversight only, not business logic)
@@ -608,6 +655,14 @@ As mentioned above, it is essential to minimize actions that the model can poten
 
 
 **References** 
+<!-- OPENCRE_SECTION_CRE_START slug=leastmodelprivilege -->
+- [OpenCRE: Model action privilege minimization](https://staging.opencre.org/cre/220-442)
+    referring to:
+    - [MITRE ATLAS: sec. AML.M0028: AI Agent Tools Permissions Configuration](https://atlas.mitre.org/mitigations/AML.M0028)
+    - [MITRE ATLAS: sec. AML.M0026: Privileged AI Agent Permissions Configuration](https://atlas.mitre.org/mitigations/AML.M0026)
+    - [MITRE ATLAS: sec. AML.M0027: Single-User AI Agent Permissions Configuration](https://atlas.mitre.org/mitigations/AML.M0027)
+    - [ENISA: sec. Table 5:: Apply a RBAC model, respecting the least privileged principle](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
+<!-- OPENCRE_SECTION_CRE_END slug=leastmodelprivilege -->
 
   - ISO 27002 control 8.2 Privileged access rights. Gap: covers this control fully, with the particularity that privileges assigned to autonomous model decisions need to be assigned with the risk of unwanted model behaviour in mind.
   - [OpenCRE on least privilege](https://www.opencre.org/cre/368-633) Gap: idem
@@ -677,6 +732,9 @@ See the [DISCRETE](#discrete) control for the balance between being transparent 
 Example: Informing users that when they choose an agent to perform a task, that the agent could be manipulated if it reads untrusted data and what consequences that could have (residual security risk) - followed by a recommendation to configure the permissions of the agent to the minimal set for the task.
 
 **References**  
+<!-- OPENCRE_SECTION_CRE_START slug=aitransparency -->
+- [OpenCRE: AI user transparency](https://staging.opencre.org/cre/810-884)
+<!-- OPENCRE_SECTION_CRE_END slug=aitransparency -->
 
   - ISO/IEC 42001 B.7.2 describes data management to support transparency. Gap: covers this control minimally, as it only covers the data management part.
   - Not covered further in ISO/IEC standards.
@@ -740,6 +798,13 @@ If attackers are able to manipulate both the model and the test data, validation
 
 
 **References**
+<!-- OPENCRE_SECTION_CRE_START slug=continuousvalidation -->
+- [OpenCRE: AI model performance validation](https://staging.opencre.org/cre/547-824)
+    referring to:
+    - [MITRE ATLAS: sec. AML.M0008: Validate AI Model](https://atlas.mitre.org/mitigations/AML.M0008)
+    - [ENISA: sec. Table 5:: Define and monitor indicators for proper functioning of the model](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
+    - [ENISA: sec. Table 5:: Implement processes to maintain security levels of ML components over time](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
+<!-- OPENCRE_SECTION_CRE_END slug=continuousvalidation -->
 Useful standards include:
 - ISO 5338 (AI lifecycle) Continuous validation. Gap: covers this control fully
 - ISO/IEC 24029-2:2023 Artificial intelligence (AI) — Assessment of the robustness of neural networks

@@ -131,6 +131,12 @@ Impact: Textual model output may contain conventional injection attacks such as 
 This is like the standard output encoding issue, but the particularity is that the output of AI may include attacks such as XSS.
 
 **References**  
+<!-- OPENCRE_SECTION_CRE_START slug=outputcontainsconventionalinjection -->
+- [OpenCRE: Model output contains conventional injection](https://staging.opencre.org/cre/780-757)
+    referring to:
+    - [OWASP Top10 for LLM: sec. LLM05:2025: Improper Output Handling](https://genai.owasp.org/llmrisk/llm052025-improper-output-handling/)
+    - [MITRE ATLAS: sec. AML.T0051: LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.T0051)
+<!-- OPENCRE_SECTION_CRE_END slug=outputcontainsconventionalinjection -->
 See [OWASP for LLM 05](https://genai.owasp.org/llmrisk/llm05/).
 
 **Controls:**
@@ -186,6 +192,12 @@ Alternative ways for augmentation data to leak are:
 - [disclosure in output](/go/disclosureinoutput/) - it is best to assume that augmentation data can leak to the output, so the access rights for that data need to align with the rights of the user(s) that can see the output. 
 
 **References**
+<!-- OPENCRE_SECTION_CRE_START slug=augmentationdataleak -->
+- [OpenCRE: Augmentation data leak](https://staging.opencre.org/cre/173-554)
+    referring to:
+    - [MITRE ATLAS: sec. AML.T0036: Data from Information Repositories](https://atlas.mitre.org/techniques/AML.T0036)
+    - [NIST AI 100-2: sec. 3.2.2: Poisoning Attacks](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
+<!-- OPENCRE_SECTION_CRE_END slug=augmentationdataleak -->
 - [Mitigating Security Risks in RAG LLM Applications, November 2023, CSA](https://cloudsecurityalliance.org/blog/2023/11/22/mitigating-security-risks-in-retrieval-augmented-generation-rag-llm-applications)
 
 **Controls**
@@ -214,6 +226,12 @@ Impact: Integrity breach of augmentation data through a conventional attack on t
 Augmentation data (context information added to a prompt) can be stored in for example _vector databases_, _system prompt storage_, or the working memory of an agent. When augmentation data is manipulated (e.g., inserting false information), it can change the behaviour of the model - making it very similar to [data poisoning](/go/datapoison/).
 
 **References**
+<!-- OPENCRE_SECTION_CRE_START slug=augmentationdatamanipulation -->
+- [OpenCRE: Augmentation data manipulation](https://staging.opencre.org/cre/217-163)
+    referring to:
+    - [MITRE ATLAS: sec. AML.T0070: RAG Poisoning](https://atlas.mitre.org/techniques/AML.T0070)
+    - [NIST AI 100-2: sec. 3.4.2: Integrity Violations](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
+<!-- OPENCRE_SECTION_CRE_END slug=augmentationdatamanipulation -->
 - [Mitigating Security Risks in RAG LLM Applications, November 2023, CSA](https://cloudsecurityalliance.org/blog/2023/11/22/mitigating-security-risks-in-retrieval-augmented-generation-rag-llm-applications)
 
 **Controls**

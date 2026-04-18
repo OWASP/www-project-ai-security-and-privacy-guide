@@ -24,3 +24,6 @@ go.work
 
 # Deprecated PDF output (we now only generate OWASP-AI-Exchange.pdf)
 OWASP-AI-Exchange-Automated.pdf
+
+# OpenCRE section enrichment: generated reports (regenerate with npm run enrich:opencre)
+tmp/
