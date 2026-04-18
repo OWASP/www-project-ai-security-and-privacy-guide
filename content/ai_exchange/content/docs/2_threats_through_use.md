@@ -192,6 +192,7 @@ Additionally, Response actions introduce trade-offs. Overly aggressive responses
 **References** 
 <!-- OPENCRE_SECTION_CRE_START slug=monitoruse -->
 - [OpenCRE: Monitor inference](https://staging.opencre.org/cre/703-813)
+    referring to:
     - [ENISA: Define and monitor indicators for proper functioning of the model](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [MITRE ATLAS: AI Telemetry Logging](https://atlas.mitre.org/mitigations/AML.M0024)
 <!-- OPENCRE_SECTION_CRE_END slug=monitoruse -->
@@ -280,6 +281,7 @@ Unlike traditional IT rate limiting (which protects performance), here it primar
 **References**
 <!-- OPENCRE_SECTION_CRE_START slug=ratelimit -->
 - [OpenCRE: Rate limiting against AI input attacks](https://staging.opencre.org/cre/187-083)
+    referring to:
     - [ETSI: Limit the number of queries](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [NIST AI 100-2: Limiting user queries](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
     - [MITRE ATLAS: Restrict Number of AI Model Queries](https://atlas.mitre.org/mitigations/AML.M0004)
@@ -362,6 +364,7 @@ Complement this control with [#RATE LIMIT](/go/ratelimit/), [#MONITORUSE](/go/mo
 **References**
 <!-- OPENCRE_SECTION_CRE_START slug=modelaccesscontrol -->
 - [OpenCRE: Access control to AI inference](https://staging.opencre.org/cre/715-644)
+    referring to:
     - [ENISA: Ensure ML applications comply with identity management, authentication, and access control policies](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [MITRE ATLAS: Control Access to AI Models and Data in Production](https://atlas.mitre.org/mitigations/AML.M0019)
 <!-- OPENCRE_SECTION_CRE_END slug=modelaccesscontrol -->
@@ -454,6 +457,7 @@ For evasion attacks, detecting anomalous input is often ineffective because adve
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=anomalousinputhandling -->
 - [OpenCRE: Anomalous AI input handling](https://staging.opencre.org/cre/342-641)
+    referring to:
     - [ETSI: Adversarial example detection](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [ENISA: Implement tools to detect if a data point is an adversarial example or not](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [NIST AI 100-2: Randomized smoothing](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
@@ -525,6 +529,7 @@ Legitimate users may exhibit behavior similar to attack patterns, such as system
 **References**
 <!-- OPENCRE_SECTION_CRE_START slug=unwantedinputserieshandling -->
 - [OpenCRE: Unwanted AI input series handling](https://staging.opencre.org/cre/576-262)
+    referring to:
     - [ETSI: Adversarial example detection](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [ENISA: Implement tools to detect if a data point is an adversarial example or not](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [MITRE ATLAS: Adversarial Input Detection](https://atlas.mitre.org/mitigations/AML.M0015)
@@ -587,6 +592,7 @@ In AI systems, confidence values are not just user-facing explanations. They can
 **References**
 <!-- OPENCRE_SECTION_CRE_START slug=obscureconfidence -->
 - [OpenCRE: Obscuring confidence in AI output](https://staging.opencre.org/cre/010-108)
+    referring to:
     - [ETSI: Obfuscating confidence scores](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [ENISA: Reduce the information given by the model](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [MITRE ATLAS: Passive AI Output Obfuscation](https://atlas.mitre.org/mitigations/AML.M0002)
@@ -646,6 +652,7 @@ Example 4: by altering a few words, an attacker succeeds in posting an offensive
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=evasion -->
 - [OpenCRE: Evasion (e.g. adversarial examples)](https://staging.opencre.org/cre/370-877)
+    referring to:
     - [MITRE ATLAS: Evade AI Model](https://atlas.mitre.org/techniques/AML.T0015)
     - [ETSI: Evasion attacks](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [ENISA: Evasion](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
@@ -713,6 +720,7 @@ Adversarial examples may be crafted to evade both the primary model and dedicate
 **References**
 <!-- OPENCRE_SECTION_CRE_START slug=evasioninputhandling -->
 - [OpenCRE: Evasion attack input handling](https://staging.opencre.org/cre/761-417)
+    referring to:
     - [ETSI: Input restoration](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [ENISA: Implement tools to detect if a data point is an adversarial example or not](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [ENISA: Apply modifications on inputs](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
@@ -777,6 +785,7 @@ Not to mention that the combination of different defensive strategies : combinin
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=evasionrobustmodel -->
 - [OpenCRE: Evasion-preventing training](https://staging.opencre.org/cre/384-015)
+    referring to:
     - [ETSI: Model hardening](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [MITRE ATLAS: Model Hardening](https://atlas.mitre.org/mitigations/AML.M0003)
 <!-- OPENCRE_SECTION_CRE_END slug=evasionrobustmodel -->
@@ -822,6 +831,7 @@ Note that adversarial samples may also be used as  poisoned data, in which cases
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=trainadversarial -->
 - [OpenCRE: Adversarial training](https://staging.opencre.org/cre/408-838)
+    referring to:
     - [ETSI: Adversarial training](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [ENISA: Add some adversarial examples to the training dataset](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [NIST AI 100-2: Adversarial training](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
@@ -870,6 +880,7 @@ See [#EVASION INPUT HANDLING](/go/evasioninputhandling/) for an approach where t
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=inputdistortion -->
 - [OpenCRE: AI Input distortion](https://staging.opencre.org/cre/641-760)
+    referring to:
     - [ENISA: Apply modifications on inputs](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [NIST AI 100-2: Randomized smoothing](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
     - [MITRE ATLAS: Input Restoration](https://atlas.mitre.org/mitigations/AML.M0010)
@@ -900,6 +911,7 @@ Adversarial-robust distillation: defensive distillation involves training a stud
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=adversarialrobustdistillation -->
 - [OpenCRE: Adversarial robust distillation](https://staging.opencre.org/cre/467-215)
+    referring to:
     - [ETSI: Distillation network](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [ENISA: Use less easily transferable models](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [NIST AI 100-2: Adversarial training](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
@@ -1142,6 +1154,7 @@ Multimodal prompt injection can be:
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=directpromptinjection -->
 - [OpenCRE: Direct prompt injection](https://staging.opencre.org/cre/686-110)
+    referring to:
     - [OWASP Top10 for LLM: Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
     - [MITRE ATLAS: LLM Prompt Injection: Direct](https://atlas.mitre.org/techniques/AML.T0051/000)
     - [ENISA: Evasion](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
@@ -1256,6 +1269,7 @@ This control does not replace access control, rate limiting, or monitoring, but 
 **References**
 <!-- OPENCRE_SECTION_CRE_START slug=promptinjectioniohandling -->
 - [OpenCRE: Prompt injection I/O handling](https://staging.opencre.org/cre/843-475)
+    referring to:
     - [ETSI: Input restoration](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [NIST AI 100-2: Detection techniques](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
     - [MITRE ATLAS: Adversarial Input Detection](https://atlas.mitre.org/mitigations/AML.M0015)
@@ -1304,6 +1318,7 @@ See the [seven layers section](/go/promptinjectionsevenlayers/) on how these con
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=indirectpromptinjection -->
 - [OpenCRE: Indirect prompt injection](https://staging.opencre.org/cre/012-625)
+    referring to:
     - [OWASP Top10 for LLM: Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
     - [MITRE ATLAS: LLM Prompt Injection: Indirect](https://atlas.mitre.org/techniques/AML.T0051/001)
     - [ENISA: Evasion](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
@@ -1429,6 +1444,7 @@ Providing models with instructions not to disclose certain data (for example via
 **References**
 <!-- OPENCRE_SECTION_CRE_START slug=sensitiveoutputhandling -->
 - [OpenCRE: Sensitive AI output handling](https://staging.opencre.org/cre/204-272)
+    referring to:
     - [ENISA: Reduce the information given by the model](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [MITRE ATLAS: Generative AI Guardrails](https://atlas.mitre.org/mitigations/AML.M0020)
 <!-- OPENCRE_SECTION_CRE_END slug=sensitiveoutputhandling -->
@@ -1453,6 +1469,7 @@ Membership inference is presenting a model with input data that identifies somet
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=modelinversionandmembership -->
 - [OpenCRE: Model inversion / Membership inference](https://staging.opencre.org/cre/034-540)
+    referring to:
     - [OWASP Top10 for LLM: Sensitive Information Disclosure](https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/)
     - [MITRE ATLAS: Exfiltration via AI Inference API: Invert AI Model](https://atlas.mitre.org/techniques/AML.T0024/001)
     - [MITRE ATLAS: Exfiltration via AI Inference API: Infer Training Data Membership](https://atlas.mitre.org/techniques/AML.T0024/000)
@@ -1493,6 +1510,7 @@ Small model: overfitting (storing individual training samples) can be prevented 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=smallmodel -->
 - [OpenCRE: Model size reduction](https://staging.opencre.org/cre/788-323)
+    referring to:
     - [ETSI: Fine-pruning](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [NIST AI 100-2: Backdoor Poisoning](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
 <!-- OPENCRE_SECTION_CRE_END slug=smallmodel -->
@@ -1541,6 +1559,7 @@ If attackers are able to access the model and the model allows intensive use, th
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=modelexfiltration -->
 - [OpenCRE: Model exfiltration](https://staging.opencre.org/cre/141-385)
+    referring to:
     - [ETSI: Model stealing attacks](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [OWASP Top10 for ML: Model Theft](https://mltop10.info/ML05_2023-Model_Theft.html)
     - [MITRE ATLAS: Exfiltration via AI Inference API: Extract AI Model](https://atlas.mitre.org/techniques/AML.T0024/002)
@@ -1572,6 +1591,7 @@ Watermarking can be effective evidence for direct model theft, but is limited fo
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=modelwatermarking -->
 - [OpenCRE: Watermarking AI models](https://staging.opencre.org/cre/637-021)
+    referring to:
     - [ETSI: Watermarking](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
 <!-- OPENCRE_SECTION_CRE_END slug=modelwatermarking -->
 - [USENIX: Entangled Watermarks as a Defense against Model Extraction](https://www.usenix.org/conference/usenixsecurity21/presentation/jia)
@@ -1615,6 +1635,7 @@ Follow the guidance in [#MONITOR USE](/go/monitoruse/) regarding detection consi
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=dosinputvalidation -->
 - [OpenCRE: AI resource exhaustion input handling](https://staging.opencre.org/cre/108-316)
+    referring to:
     - [NIST AI 100-2: Availability Violations](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
 <!-- OPENCRE_SECTION_CRE_END slug=dosinputvalidation -->
 Useful standards include:

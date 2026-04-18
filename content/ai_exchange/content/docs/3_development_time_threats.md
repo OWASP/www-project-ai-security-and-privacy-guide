@@ -197,6 +197,7 @@ Federated machine learning may offer significant benefits for organizations in s
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=federatedlearning -->
 - [OpenCRE: Federated learning](https://staging.opencre.org/cre/661-440)
+    referring to:
     - [ENISA: Use federated learning to minimize risk of data breaches](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
 <!-- OPENCRE_SECTION_CRE_END slug=federatedlearning -->
 
@@ -327,6 +328,7 @@ Complex multi-party supply chains may make full traceability difficult, and trus
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=supplychainmanage -->
 - [OpenCRE: AI supply chain management](https://staging.opencre.org/cre/881-234)
+    referring to:
     - [ENISA: Ensure reliable sources are used](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [MITRE ATLAS: Verify AI Artifacts](https://atlas.mitre.org/mitigations/AML.M0014)
     - [MITRE ATLAS: AI Bill of Materials](https://atlas.mitre.org/mitigations/AML.M0023)
@@ -398,6 +400,7 @@ Ensemble learning is a term in machine learning used for using multiple learning
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=modelensemble -->
 - [OpenCRE: Ensemble AI models](https://staging.opencre.org/cre/146-871)
+    referring to:
     - [ETSI: Ensemble](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [ENISA: Choose and define a more resilient model design](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [MITRE ATLAS: Use Ensemble Methods](https://atlas.mitre.org/mitigations/AML.M0006)
@@ -455,6 +458,7 @@ Sabotage data poisoning attacks are relatively easy to detect because they occur
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=datapoison -->
 - [OpenCRE: Data poisoning of train/finetune/augmentation data](https://staging.opencre.org/cre/615-663)
+    referring to:
     - [OWASP Top10 for LLM: Data and Model Poisoning](https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/)
     - [MITRE ATLAS: Poison Training Data](https://atlas.mitre.org/techniques/AML.T0020)
     - [ETSI: Poisoning attacks](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
@@ -481,6 +485,7 @@ This control can only be applied during training and therefore not to an already
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=moretraindata -->
 - [OpenCRE: Benign train data increase](https://staging.opencre.org/cre/444-058)
+    referring to:
     - [ENISA: Enlarge the training dataset](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [NIST AI 100-2: Availability Poisoning](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
 <!-- OPENCRE_SECTION_CRE_END slug=moretraindata -->
@@ -569,6 +574,7 @@ Sophisticated attackers can design poisoned samples to blend into the normal dat
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=dataqualitycontrol -->
 - [OpenCRE: Data quality control](https://staging.opencre.org/cre/041-188)
+    referring to:
     - [ETSI: Enhance data quality](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [ENISA: Use methods to clean the training dataset from suspicious samples](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [MITRE ATLAS: Sanitize Training Data](https://atlas.mitre.org/mitigations/AML.M0007)
@@ -617,6 +623,7 @@ This control can only be applied during training and therefore not to an already
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=traindatadistortion -->
 - [OpenCRE: Train data distortion](https://staging.opencre.org/cre/567-025)
+    referring to:
     - [ETSI: Data sanitisation](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [ENISA: Use methods to clean the training dataset from suspicious samples](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [NIST AI 100-2: Availability Poisoning](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
@@ -645,6 +652,7 @@ The general principle of reducing sensitivity to poisoned training data is to ma
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=poisonrobustmodel -->
 - [OpenCRE: Benign fine-tuning and pruning](https://staging.opencre.org/cre/854-183)
+    referring to:
     - [ETSI: Fine-pruning](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [ENISA: Integrate poisoning control after the "model evaluation" phase](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [NIST AI 100-2: Backdoor Poisoning](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
@@ -668,6 +676,7 @@ Find the corresponding control section [here, with the other controls against Ev
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=trainadversarial -->
 - [OpenCRE: Adversarial training](https://staging.opencre.org/cre/408-838)
+    referring to:
     - [ETSI: Adversarial training](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [ENISA: Add some adversarial examples to the training dataset](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [NIST AI 100-2: Adversarial training](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)

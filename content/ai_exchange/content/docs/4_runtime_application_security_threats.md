@@ -133,6 +133,7 @@ This is like the standard output encoding issue, but the particularity is that t
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=outputcontainsconventionalinjection -->
 - [OpenCRE: Model output contains conventional injection](https://staging.opencre.org/cre/780-757)
+    referring to:
     - [OWASP Top10 for LLM: Improper Output Handling](https://genai.owasp.org/llmrisk/llm052025-improper-output-handling/)
     - [MITRE ATLAS: LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.T0051)
 <!-- OPENCRE_SECTION_CRE_END slug=outputcontainsconventionalinjection -->
@@ -193,6 +194,7 @@ Alternative ways for augmentation data to leak are:
 **References**
 <!-- OPENCRE_SECTION_CRE_START slug=augmentationdataleak -->
 - [OpenCRE: Augmentation data leak](https://staging.opencre.org/cre/173-554)
+    referring to:
     - [MITRE ATLAS: Data from Information Repositories](https://atlas.mitre.org/techniques/AML.T0036)
     - [NIST AI 100-2: Poisoning Attacks](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
 <!-- OPENCRE_SECTION_CRE_END slug=augmentationdataleak -->
@@ -226,6 +228,7 @@ Augmentation data (background information added to a prompt) can be stored in _v
 **References**
 <!-- OPENCRE_SECTION_CRE_START slug=augmentationdatamanipulation -->
 - [OpenCRE: Augmentation data manipulation](https://staging.opencre.org/cre/217-163)
+    referring to:
     - [MITRE ATLAS: RAG Poisoning](https://atlas.mitre.org/techniques/AML.T0070)
     - [NIST AI 100-2: Integrity Violations](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
 <!-- OPENCRE_SECTION_CRE_END slug=augmentationdatamanipulation -->

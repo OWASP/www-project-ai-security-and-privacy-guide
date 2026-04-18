@@ -234,6 +234,7 @@ describe('opencre-enrich / section CRE injection', () => {
     );
     assert.doesNotMatch(block, /owaspai\.org\/go\/ratelimit/);
     assert.equal((block.match(/etsi\.example\/x\.pdf/g) || []).length, 1);
+    assert.match(block, /referring to:/);
     assert.match(block, /^    - \[ETSI: 6\.3\.3\]/m);
   });
 });

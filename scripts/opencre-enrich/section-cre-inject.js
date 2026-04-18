@@ -59,21 +59,28 @@ async function makeSectionCreBlock(slug, creDocs, openCreBase, fetchCreById) {
       `- [OpenCRE: ${creLabel.replace(/\]/g, '\\]')}](${openCreBase}/cre/${encodeURIComponent(c.id)})`
     );
 
+    const bulletsForCre = [];
     const fullCre = fetchCreById ? await fetchCreById(c.id) : null;
-    if (!fullCre || !Array.isArray(fullCre.links)) continue;
+    if (fullCre && Array.isArray(fullCre.links)) {
+      for (const ln of fullCre.links) {
+        const doc = ln && ln.document;
+        if (!doc || doc.doctype !== 'Standard') continue;
+        if (isOwaspAiExchangeStandard(doc)) continue;
 
-    for (const ln of fullCre.links) {
-      const doc = ln && ln.document;
-      if (!doc || doc.doctype !== 'Standard') continue;
-      if (isOwaspAiExchangeStandard(doc)) continue;
+        const key = linkedStandardDedupeKey(doc);
+        if (!key || seenStandardKeys.has(key)) continue;
+        seenStandardKeys.add(key);
 
-      const key = linkedStandardDedupeKey(doc);
-      if (!key || seenStandardKeys.has(key)) continue;
-      seenStandardKeys.add(key);
-
-      const bullet = formatLinkedStandardBullet(doc);
-      if (!bullet) continue;
-      lines.push(`    ${bullet}`);
+        const bullet = formatLinkedStandardBullet(doc);
+        if (!bullet) continue;
+        bulletsForCre.push(bullet);
+      }
+    }
+    if (bulletsForCre.length > 0) {
+      lines.push('    referring to:');
+      for (const b of bulletsForCre) {
+        lines.push(`    ${b}`);
+      }
     }
   }
 
