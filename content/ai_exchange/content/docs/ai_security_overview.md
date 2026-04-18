@@ -605,7 +605,7 @@ Let's go through the risk management steps one by one.
 The AI Exchange presents a foundational framework of threats and controls. This catalog of threats can be used to identify the risks that apply to a specific AI system, depending on architecture, context, domain and use case.  
 NOTE: In this document, we focus on AI-specific risks only - meaning risks to the AI-specific assets.
 
-This subsectopmn takes you through each type of risk impact, and poses questions that will help to determine which threats apply. In addition, it provide guidance to translate that to risks.
+This subsection takes you through each type of risk impact, and poses questions that will help to determine which threats apply. In addition, it provides guidance to translate that to risks.
 
 In essence, this is a 'Threat modeling' process: the bridge between a list of threats and a set of concrete, prioritized risks.  
 The threats represent a catalogue of “things that could go wrong” and threat modeling answers three key questions:
