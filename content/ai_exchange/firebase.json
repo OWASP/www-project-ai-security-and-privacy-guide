@@ -184,6 +184,11 @@
         "type": 302
       },
       {
+        "source": "/go/threatmodel/",
+        "destination": "/docs/ai_security_overview/#1-identifying--risks---decision-tree-to-threat-model",
+        "type": 302
+      },
+      {
         "source": "/goto/genai/",
         "destination": "/docs/ai_security_overview/#how-about-generative-ai-eg-llm",
         "type": 302
