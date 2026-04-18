@@ -300,7 +300,7 @@ Non-Security Compliance Considerations:
 <!-- OPENCRE_SECTION_CRE_START slug=checkcompliance -->
 - [OpenCRE: AI compliance management](https://staging.opencre.org/cre/646-285)
     referring to:
-    - [ENISA: Assess the regulations and laws the ML application must comply with](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
+    - [ENISA: sec. Table 5:: Assess the regulations and laws the ML application must comply with](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
 <!-- OPENCRE_SECTION_CRE_END slug=checkcompliance -->
   - [Vischer on legal aspects of AI](https://www.vischer.com/en/artificial-intelligence/)
   - [Summary of AI Act by SIG](https://www.softwareimprovementgroup.com/eu-ai-act-summary/)
@@ -328,8 +328,8 @@ Education on AI security is a key prerequisite for AI engineers, development tea
 <!-- OPENCRE_SECTION_CRE_START slug=seceducate -->
 - [OpenCRE: AI security Education](https://staging.opencre.org/cre/533-635)
     referring to:
-    - [MITRE ATLAS: User Training](https://atlas.mitre.org/mitigations/AML.M0018)
-    - [ENISA: Integrate ML specificities to awareness strategy and ensure all ML stakeholders are receiving it](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
+    - [MITRE ATLAS: sec. AML.M0018: User Training](https://atlas.mitre.org/mitigations/AML.M0018)
+    - [ENISA: sec. Table 5:: Integrate ML specificities to awareness strategy and ensure all ML stakeholders are receiving it](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
 <!-- OPENCRE_SECTION_CRE_END slug=seceducate -->
 Useful standards include:
   - ISO 27002 Control 6.3 Awareness training. Gap: covers this control fully, but lacks detail and needs to take into account the particularity: training material needs to cover AI security threats and controls
@@ -373,8 +373,8 @@ AI models often tolerate reduced feature sets and incomplete data better than tr
 <!-- OPENCRE_SECTION_CRE_START slug=dataminimize -->
 - [OpenCRE: Data minimization](https://staging.opencre.org/cre/058-443)
     referring to:
-    - [ENISA: Ensure that models respect differential privacy to a sufficient degree](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
-    - [NIST AI 100-2: Differential privacy](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
+    - [ENISA: sec. Table 5:: Ensure that models respect differential privacy to a sufficient degree](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
+    - [NIST AI 100-2: sec. 2.4.5: Differential privacy](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
 <!-- OPENCRE_SECTION_CRE_END slug=dataminimize -->
 Useful standards include:
   - Not covered yet in ISO/IEC standards.
@@ -473,8 +473,8 @@ Distorting training data can make it effectively uncrecognizable, which of cours
 <!-- OPENCRE_SECTION_CRE_START slug=obfuscatetrainingdata -->
 - [OpenCRE: Training data obfuscation](https://staging.opencre.org/cre/488-626)
     referring to:
-    - [ETSI: Embedding privacy](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
-    - [ENISA: Ensure that models respect differential privacy to a sufficient degree](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
+    - [ETSI: sec. 6.4.2: Embedding privacy](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
+    - [ENISA: sec. Table 5:: Ensure that models respect differential privacy to a sufficient degree](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
 <!-- OPENCRE_SECTION_CRE_END slug=obfuscatetrainingdata -->
 - [SF-PATE: Scalable, Fair, and Private Aggregation of Teacher Ensembles](https://arxiv.org/abs/2204.05157)
 - [Differentially Private Objective Perturbation: Beyond Smoothness and Convexity](https://arxiv.org/abs/1909.01783v1)
@@ -510,9 +510,9 @@ For example:
 <!-- OPENCRE_SECTION_CRE_START slug=discrete -->
 - [OpenCRE: Protection of technical AI information](https://staging.opencre.org/cre/818-434)
     referring to:
-    - [ENISA: Reduce the available information about the model](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
-    - [MITRE ATLAS: Limit Public Release of Information](https://atlas.mitre.org/mitigations/AML.M0000)
-    - [MITRE ATLAS: Limit Model Artifact Release](https://atlas.mitre.org/mitigations/AML.M0001)
+    - [ENISA: sec. Table 5:: Reduce the available information about the model](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
+    - [MITRE ATLAS: sec. AML.M0000: Limit Public Release of Information](https://atlas.mitre.org/mitigations/AML.M0000)
+    - [MITRE ATLAS: sec. AML.M0001: Limit Model Artifact Release](https://atlas.mitre.org/mitigations/AML.M0001)
 <!-- OPENCRE_SECTION_CRE_END slug=discrete -->
 Useful standards include:
   - ISO 27002 Control 5.9: Inventory of information and other associated assets. Gap: covers this control fully, with the particularity that technical data science details can be sensitive. .
@@ -599,13 +599,13 @@ In other words: If you as a user are not involved actively in performing a task,
 <!-- OPENCRE_SECTION_CRE_START slug=oversight -->
 - [OpenCRE: Automated AI oversight](https://staging.opencre.org/cre/205-522)
     referring to:
-    - [MITRE ATLAS: Generative AI Guardrails](https://atlas.mitre.org/mitigations/AML.M0020)
-    - [NIST AI 100-2: An LLM moderator](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
+    - [MITRE ATLAS: sec. AML.M0020: Generative AI Guardrails](https://atlas.mitre.org/mitigations/AML.M0020)
+    - [NIST AI 100-2: sec. 3.4.5: An LLM moderator](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
 - [OpenCRE: Human AI oversight](https://staging.opencre.org/cre/202-604)
     referring to:
-    - [MITRE ATLAS: Restrict AI Agent Tool Invocation on Untrusted Data](https://atlas.mitre.org/mitigations/AML.M0030)
-    - [MITRE ATLAS: Human In-the-Loop for AI Agent Actions](https://atlas.mitre.org/mitigations/AML.M0029)
-    - [NIST AI 100-2: Reinforcement learning from human feedback (RLHF)](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
+    - [MITRE ATLAS: sec. AML.M0030: Restrict AI Agent Tool Invocation on Untrusted Data](https://atlas.mitre.org/mitigations/AML.M0030)
+    - [MITRE ATLAS: sec. AML.M0029: Human In-the-Loop for AI Agent Actions](https://atlas.mitre.org/mitigations/AML.M0029)
+    - [NIST AI 100-2: sec. 3.4.5: Reinforcement learning from human feedback (RLHF)](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
 <!-- OPENCRE_SECTION_CRE_END slug=oversight -->
 Useful standards include:
 
@@ -658,10 +658,10 @@ As mentioned above, it is essential to minimize actions that the model can poten
 <!-- OPENCRE_SECTION_CRE_START slug=leastmodelprivilege -->
 - [OpenCRE: Model action privilege minimization](https://staging.opencre.org/cre/220-442)
     referring to:
-    - [MITRE ATLAS: AI Agent Tools Permissions Configuration](https://atlas.mitre.org/mitigations/AML.M0028)
-    - [MITRE ATLAS: Privileged AI Agent Permissions Configuration](https://atlas.mitre.org/mitigations/AML.M0026)
-    - [MITRE ATLAS: Single-User AI Agent Permissions Configuration](https://atlas.mitre.org/mitigations/AML.M0027)
-    - [ENISA: Apply a RBAC model, respecting the least privileged principle](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
+    - [MITRE ATLAS: sec. AML.M0028: AI Agent Tools Permissions Configuration](https://atlas.mitre.org/mitigations/AML.M0028)
+    - [MITRE ATLAS: sec. AML.M0026: Privileged AI Agent Permissions Configuration](https://atlas.mitre.org/mitigations/AML.M0026)
+    - [MITRE ATLAS: sec. AML.M0027: Single-User AI Agent Permissions Configuration](https://atlas.mitre.org/mitigations/AML.M0027)
+    - [ENISA: sec. Table 5:: Apply a RBAC model, respecting the least privileged principle](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
 <!-- OPENCRE_SECTION_CRE_END slug=leastmodelprivilege -->
 
   - ISO 27002 control 8.2 Privileged access rights. Gap: covers this control fully, with the particularity that privileges assigned to autonomous model decisions need to be assigned with the risk of unwanted model behaviour in mind.
@@ -801,9 +801,9 @@ If attackers are able to manipulate both the model and the test data, validation
 <!-- OPENCRE_SECTION_CRE_START slug=continuousvalidation -->
 - [OpenCRE: AI model performance validation](https://staging.opencre.org/cre/547-824)
     referring to:
-    - [MITRE ATLAS: Validate AI Model](https://atlas.mitre.org/mitigations/AML.M0008)
-    - [ENISA: Define and monitor indicators for proper functioning of the model](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
-    - [ENISA: Implement processes to maintain security levels of ML components over time](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
+    - [MITRE ATLAS: sec. AML.M0008: Validate AI Model](https://atlas.mitre.org/mitigations/AML.M0008)
+    - [ENISA: sec. Table 5:: Define and monitor indicators for proper functioning of the model](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
+    - [ENISA: sec. Table 5:: Implement processes to maintain security levels of ML components over time](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
 <!-- OPENCRE_SECTION_CRE_END slug=continuousvalidation -->
 Useful standards include:
 - ISO 5338 (AI lifecycle) Continuous validation. Gap: covers this control fully

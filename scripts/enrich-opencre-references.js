@@ -4,6 +4,7 @@ const path = require('path');
 const { applyTopicAiEnrichment } = require('./opencre-enrich/injection');
 const { getOpenCreBaseUrl } = require('./opencre-enrich/config');
 const { openCreFetch } = require('./opencre-enrich/opencre-client');
+const { formatStandardLinkLabel } = require('./opencre-enrich/section-cre-inject');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 const DOCS_DIR = path.join(PROJECT_ROOT, 'content/ai_exchange/content/docs');
@@ -51,9 +52,10 @@ function toStandardUrl(item) {
 }
 
 function toStandardLabel(item) {
-  const name = item?.name ? String(item.name).trim() : 'OpenCRE Standard';
-  const section = item?.section ? String(item.section).trim() : '';
-  return section ? `${name}: ${section}` : name;
+  if (!item || item.doctype !== 'Standard') return '';
+  const name = item.name ? String(item.name).trim() : '';
+  if (!name) return 'OpenCRE Standard';
+  return formatStandardLinkLabel(item);
 }
 
 async function fetchTopicAiStandards() {

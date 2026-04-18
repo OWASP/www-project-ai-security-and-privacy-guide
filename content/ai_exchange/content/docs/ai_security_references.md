@@ -8,13 +8,13 @@ weight: 8
 <!-- OPENCRE_SECTION_CRE_START slug=references -->
 - [OpenCRE: Automated AI oversight](https://staging.opencre.org/cre/205-522)
     referring to:
-    - [MITRE ATLAS: Generative AI Guardrails](https://atlas.mitre.org/mitigations/AML.M0020)
-    - [NIST AI 100-2: An LLM moderator](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
+    - [MITRE ATLAS: sec. AML.M0020: Generative AI Guardrails](https://atlas.mitre.org/mitigations/AML.M0020)
+    - [NIST AI 100-2: sec. 3.4.5: An LLM moderator](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
 - [OpenCRE: Human AI oversight](https://staging.opencre.org/cre/202-604)
     referring to:
-    - [MITRE ATLAS: Restrict AI Agent Tool Invocation on Untrusted Data](https://atlas.mitre.org/mitigations/AML.M0030)
-    - [MITRE ATLAS: Human In-the-Loop for AI Agent Actions](https://atlas.mitre.org/mitigations/AML.M0029)
-    - [NIST AI 100-2: Reinforcement learning from human feedback (RLHF)](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
+    - [MITRE ATLAS: sec. AML.M0030: Restrict AI Agent Tool Invocation on Untrusted Data](https://atlas.mitre.org/mitigations/AML.M0030)
+    - [MITRE ATLAS: sec. AML.M0029: Human In-the-Loop for AI Agent Actions](https://atlas.mitre.org/mitigations/AML.M0029)
+    - [NIST AI 100-2: sec. 3.4.5: Reinforcement learning from human feedback (RLHF)](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
 <!-- OPENCRE_SECTION_CRE_END slug=references -->
 >Category: discussion  
 >Permalink: https://owaspai.org/go/references/

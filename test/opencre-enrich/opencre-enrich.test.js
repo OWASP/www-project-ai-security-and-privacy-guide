@@ -16,7 +16,11 @@ const {
   injectTopicAiStandards,
   applyTopicAiEnrichment,
 } = require('../../scripts/opencre-enrich/injection');
-const { makeSectionCreBlock } = require('../../scripts/opencre-enrich/section-cre-inject');
+const {
+  makeSectionCreBlock,
+  formatStandardLinkLabel,
+  formatLinkedStandardBullet,
+} = require('../../scripts/opencre-enrich/section-cre-inject');
 
 const fixturesDir = path.join(__dirname, 'fixtures');
 
@@ -138,6 +142,58 @@ describe('opencre-enrich / injection', () => {
   });
 });
 
+describe('opencre-enrich / formatStandardLinkLabel', () => {
+  it('includes sec. ref and section title (NIST-style sectionID)', () => {
+    const label = formatStandardLinkLabel({
+      name: 'NIST AI 100-2',
+      sectionID: 'Sec. 2.4.5',
+      section: 'Limiting user queries',
+    });
+    assert.equal(label, 'NIST AI 100-2: sec. 2.4.5: Limiting user queries');
+  });
+
+  it('numeric sectionID gets sec. prefix', () => {
+    const label = formatStandardLinkLabel({
+      name: 'ETSI',
+      sectionID: '6.3.3',
+      section: 'Limit the number of queries',
+    });
+    assert.equal(label, 'ETSI: sec. 6.3.3: Limit the number of queries');
+  });
+
+  it('appends subsection when present', () => {
+    const label = formatStandardLinkLabel({
+      name: 'Example',
+      sectionID: '1.2',
+      section: 'Parent clause',
+      subsection: 'Detail line',
+    });
+    assert.equal(label, 'Example: sec. 1.2: Parent clause: Detail line');
+  });
+
+  it('falls back to name and section when sectionID missing', () => {
+    const label = formatStandardLinkLabel({
+      name: 'Foo',
+      section: 'Only title',
+    });
+    assert.equal(label, 'Foo: Only title');
+  });
+
+  it('formatLinkedStandardBullet uses the same label rules', () => {
+    const line = formatLinkedStandardBullet({
+      doctype: 'Standard',
+      name: 'NIST AI 100-2',
+      sectionID: 'Sec. 2.4.5',
+      section: 'Limiting user queries',
+      hyperlink: 'https://csrc.nist.gov/pubs/ai/100/2/e2023/final',
+    });
+    assert.equal(
+      line,
+      '- [NIST AI 100-2: sec. 2.4.5: Limiting user queries](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)'
+    );
+  });
+});
+
 describe('opencre-enrich / section CRE injection', () => {
   it('stripSectionCreBlocks does not swallow blank lines after the machine block', () => {
     const md = [
@@ -188,7 +244,8 @@ describe('opencre-enrich / section CRE injection', () => {
       doctype: 'Standard',
       id: 'ETSI:dup:Limit:https://etsi.example/x.pdf',
       name: 'ETSI',
-      section: '6.3.3',
+      section: 'Limit the number of queries',
+      sectionID: '6.3.3',
       hyperlink: 'https://etsi.example/x.pdf',
       tags: ['source:etsi'],
     };
@@ -235,6 +292,9 @@ describe('opencre-enrich / section CRE injection', () => {
     assert.doesNotMatch(block, /owaspai\.org\/go\/ratelimit/);
     assert.equal((block.match(/etsi\.example\/x\.pdf/g) || []).length, 1);
     assert.match(block, /referring to:/);
-    assert.match(block, /^    - \[ETSI: 6\.3\.3\]/m);
+    assert.match(
+      block,
+      /^    - \[ETSI: sec\. 6\.3\.3: Limit the number of queries\]/m
+    );
   });
 });

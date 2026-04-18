@@ -28,6 +28,46 @@ function linkedStandardDedupeKey(doc) {
 }
 
 /**
+ * Structural reference from OpenCRE `sectionID` (e.g. "Sec. 2.4.5", "6.3.3", "V2.9.2").
+ * NIST-style "Sec. …" is normalized to lowercase "sec. …"; other IDs get a "sec. " prefix.
+ */
+function normalizeSectionRef(sectionID) {
+  const raw = String(sectionID).trim();
+  if (!raw) return '';
+  const secDot = /^Sec\.?\s*(.+)$/i.exec(raw);
+  if (secDot) {
+    return `sec. ${secDot[1].trim()}`;
+  }
+  return `sec. ${raw}`;
+}
+
+/**
+ * Human-readable link text for a linked Standard (name + optional structural ref + titles).
+ * @param {object} doc OpenCRE Standard document
+ */
+function formatStandardLinkLabel(doc) {
+  const name = doc.name ? String(doc.name).trim() : 'Standard';
+  const sectionText = doc.section ? String(doc.section).trim() : '';
+  const sid = doc.sectionID != null ? String(doc.sectionID).trim() : '';
+  const sub =
+    doc.subsection != null && String(doc.subsection).trim()
+      ? String(doc.subsection).trim()
+      : '';
+
+  const parts = [name];
+  if (sid) {
+    parts.push(normalizeSectionRef(sid));
+  }
+  if (sectionText) {
+    parts.push(sectionText);
+  }
+  if (sub) {
+    parts.push(sub);
+  }
+  return parts.join(': ');
+}
+
+/**
  * @param {object} doc Standard from CRE links
  * @returns {string|null} markdown line starting with "- [" or null if no URL
  */
@@ -35,9 +75,7 @@ function formatLinkedStandardBullet(doc) {
   if (!doc || doc.doctype !== 'Standard') return null;
   const url = doc.hyperlink ? String(doc.hyperlink).trim() : '';
   if (!url) return null;
-  const name = doc.name ? String(doc.name).trim() : 'Standard';
-  const sec = doc.section ? String(doc.section).trim() : '';
-  const label = sec ? `${name}: ${sec}` : name;
+  const label = formatStandardLinkLabel(doc);
   const safe = label.replace(/\]/g, '\\]');
   return `- [${safe}](${url})`;
 }
@@ -137,6 +175,8 @@ module.exports = {
   makeSectionCreBlock,
   linkedStandardDedupeKey,
   formatLinkedStandardBullet,
+  formatStandardLinkLabel,
+  normalizeSectionRef,
   injectSectionCreBlockAfterLine,
   applySectionCreJobs,
 };
