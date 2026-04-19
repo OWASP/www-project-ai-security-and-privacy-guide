@@ -619,14 +619,7 @@ The step after that is detailed in the following subsection 2: to look in more d
 
   Regarding model behaviour, we focus on manipulation by attackers, as the scope of this document is security. Other sources of unwanted behavior are general inaccuracy (e.g., hallucinations) and/or unwanted bias regarding certain groups (discrimination).
     
-  This will always be an applicable general threat, independent of your use-case, simply because the model behaviour matters by definition. Nevertheless, the risk level may sometimes be accepted as shown below.
-
-> ALWAYS DO:
-  Since unwanted model behaviour is always a risk, you always need to have in place the following:
-  - [General governance controls](/go/governancecontrols/) (e.g., maintaining a documented inventory of AI applications and implementing mechanisms to ensure appropriate oversight and accountability.)
-  - [Controls to limit effects of unwanted model behaviour](/go/limitunwanted/) (e.g., human oversight when necessary, model least privilege for agents)
-
-  > QUESTION: Is the model GenAI (e.g., a Large Language Model) and not classic machine learning or a heuristic model? If Yes:
+   > QUESTION: Is the model GenAI (e.g., a Large Language Model) and not classic machine learning or a heuristic model? If Yes:
   - Consider the threat of [direct prompt injection](/go/directpromptinjection/) in case a) an attacker can provide input to the model (e.g., a prompt), and b) the model could theoretically create output that results in harm - for example: offensive output, information leading to harm, or triggering harmful functions (Agentic AI).
     - For risk assessment of direct prompt injection, the first question is: has the model supplier done enough according to your risk appetite. For this, you can check tests that the supplier or others have performed, and when not available: have these tests done based on what harm means in your use case. What you accept, in other words: what you find too much effort in combination with too harmful, depends on your context. If a user wants the AI to say something offensive: do you regard it as a problem if that user succeeds in getting offended? Do you regard it as a problem if users can get a recipe to make poison - given that they can get this from many other AI's out there. See the linked prompt injection section for more details.
   - Consider the threat of [indirect prompt injection](/go/indirectpromptinjection/) when your system inserts untrusted data in a prompt e.g. you retrieve somebody's resume and include it in a prompt, or an agent retrieves data that is untrusted (i.e. may have been manipulated or placed by an attacker).
