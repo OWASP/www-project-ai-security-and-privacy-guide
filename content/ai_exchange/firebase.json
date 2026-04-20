@@ -115,7 +115,7 @@
       },
       {
         "source": "/go/readymademodel/",
-        "destination": "/docs/ai_security_overview/#threat-model-with-controls---ready-made-model",
+        "destination": "/docs/ai_security_overview/#threat-diagram-with-controls---ready-made-model",
         "type": 302
       },
       {
