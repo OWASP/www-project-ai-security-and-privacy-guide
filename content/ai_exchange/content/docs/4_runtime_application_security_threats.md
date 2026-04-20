@@ -130,6 +130,8 @@ Impact: Textual model output may contain conventional injection attacks such as 
 
 This is like the standard output encoding issue, but the particularity is that the output of AI may include attacks such as XSS.
 
+A special form of this threat is when it is used to exfiltrate data, for example when a model is manipulated to output javascript code that is executed and sends sensitive data to a third party. That sensitive data may als be packed into URLs in the output - for users to click on, or images to retrieve. That type of exfiltration is technically not an injection attack because no code is involved.
+
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=outputcontainsconventionalinjection -->
 - [OpenCRE: Model output contains conventional injection](https://staging.opencre.org/cre/780-757)
