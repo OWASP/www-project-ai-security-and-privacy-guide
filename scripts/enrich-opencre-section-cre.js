@@ -103,8 +103,11 @@ async function main() {
   try {
     catalog = await fetchOwaspAiExchangeCatalog(baseUrl);
   } catch (e) {
-    console.error('[opencre-section-cre]', e.message || e);
-    process.exit(1);
+    const msg = e && e.message ? e.message : String(e);
+    console.warn(
+      `[opencre-section-cre] OpenCRE unavailable after retries; skipping section enrichment and leaving content unchanged. (${msg})`
+    );
+    return;
   }
 
   const textSearchFn = (q) => textSearch(baseUrl, q);
