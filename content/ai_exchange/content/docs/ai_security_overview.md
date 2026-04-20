@@ -615,6 +615,17 @@ The threats represent a catalogue of “things that could go wrong” and threat
 
 The step after that is detailed in the following subsection 2: to look in more detail at likelihood and impact.
 
+The image below represents the AI Exchange threat modelling one-pager. It summarizes the step-by-step decision tree approach from this section. How to use:
+1. Walk by each threat 
+2. Base on the column ‘When’, detemin when that threat applies in theory
+3. If the threat applies in theory, use the column ‘Impact’ to help decide whether the risk needs to be treated or not, depending on the level of harm for the use case.
+
+For example: You don’t have to protect against model inversion attacks that try to steal your training data, if that data isn’t sensitive. It sounds obvious, but I’ve seen many cases of protections in place for threats that effectively don’t matter.
+
+Another example: If your agentic system uses an LLM, then it is in theory susceptible to indirect prompt injection: malicious instructions in untrusted data that  manipulate agent behaviour. But if your only concern is that sensitive company data leaks, and there is no way for the system to send data to an attacker (e.g., email), then this threat remains theoretical. The risk does not have to be treated.
+
+[![](/images/threatmodelonepager.png)](/images/threatmodelonepage.png)
+
 **Identify risks with the impact of unwanted model behaviour**
 
   Regarding model behaviour, we focus on manipulation by attackers, as the scope of this document is security. Other sources of unwanted behavior are general inaccuracy (e.g., hallucinations) and/or unwanted bias regarding certain groups (discrimination).
