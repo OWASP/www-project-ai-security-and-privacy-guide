@@ -10,7 +10,7 @@ Each run writes **`tmp/opencre-section-enrich-report.md`**. The report begins wi
 
 Full CRE nodes (including `links` to other standards) use:
 
-`GET {OPENCRE_BASE_URL}/rest/v1/id/<cre-id>` — e.g. `https://staging.opencre.org/rest/v1/id/123-456`
+`GET {OPENCRE_BASE_URL}/rest/v1/id/<cre-id>` — e.g. `https://opencre.org/rest/v1/id/123-456`
 
 Implemented as `fetchCreById(baseUrl, creId)` in [`opencre-client.js`](opencre-client.js). Section injection ([`section-cre-inject.js`](section-cre-inject.js)) uses that response to append linked standards under each CRE line (excluding OWASP AI Exchange); **deduplication is per reference block** by OpenCRE Standard `id`.
 
@@ -18,7 +18,7 @@ Implemented as `fetchCreById(baseUrl, creId)` in [`opencre-client.js`](opencre-c
 
 | Variable | Purpose |
 |----------|---------|
-| `OPENCRE_BASE_URL` / `OPENCRE_HOST` | OpenCRE API host (default `https://staging.opencre.org`) |
+| `OPENCRE_BASE_URL` / `OPENCRE_HOST` | OpenCRE API host (default `https://opencre.org`) |
 | `OPENCRE_SECTION_MATCH_THRESHOLD` | Minimum fuzzy/search score (0–1) to auto-inject CRE links (default `0.35`) |
 | `STRICT_OPENCRE_ENRICH` | Set to `1` to exit non-zero if any section is unmatched |
 | `OPENCRE_FETCH_MAX_ATTEMPTS` | Max HTTP attempts per OpenCRE call (default `5`) |

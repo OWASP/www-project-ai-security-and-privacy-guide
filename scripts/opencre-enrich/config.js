@@ -5,7 +5,7 @@ function getOpenCreBaseUrl() {
   const raw =
     process.env.OPENCRE_BASE_URL ||
     process.env.OPENCRE_HOST ||
-    'https://staging.opencre.org';
+    'https://opencre.org';
   return String(raw).replace(/\/$/, '');
 }
 

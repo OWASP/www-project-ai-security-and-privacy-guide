@@ -199,7 +199,7 @@ describe('opencre-enrich / section CRE injection', () => {
     const md = [
       '**References**',
       '<!-- OPENCRE_SECTION_CRE_START slug=x -->',
-      '- [OpenCRE: Test](https://staging.opencre.org/cre/1)',
+      '- [OpenCRE: Test](https://opencre.org/cre/1)',
       '<!-- OPENCRE_SECTION_CRE_END slug=x -->',
       '',
       '- manual',
@@ -212,7 +212,7 @@ describe('opencre-enrich / section CRE injection', () => {
     const md = [
       '**References**',
       '<!-- OPENCRE_SECTION_CRE_START slug=x -->',
-      '- [OpenCRE: T](https://staging.opencre.org/cre/1)',
+      '- [OpenCRE: T](https://opencre.org/cre/1)',
       '<!-- OPENCRE_SECTION_CRE_END slug=x -->',
       '',
       '- [Manual](https://example.org/m)',
@@ -230,12 +230,12 @@ describe('opencre-enrich / section CRE injection', () => {
     const block = await makeSectionCreBlock(
       'ratelimit',
       [{ id: '187-083', name: 'Rate limiting', tags: [] }],
-      'https://staging.opencre.org',
+      'https://opencre.org',
       async () => null
     );
     assert.match(
       block,
-      /\[OpenCRE: Rate limiting\]\(https:\/\/staging\.opencre\.org\/cre\/187-083\)/
+      /\[OpenCRE: Rate limiting\]\(https:\/\/opencre\.org\/cre\/187-083\)/
     );
   });
 
@@ -286,7 +286,7 @@ describe('opencre-enrich / section CRE injection', () => {
         { id: 'cre-a', name: 'A' },
         { id: 'cre-b', name: 'B' },
       ],
-      'https://staging.opencre.org',
+      'https://opencre.org',
       mockFetch
     );
     assert.doesNotMatch(block, /owaspai\.org\/go\/ratelimit/);

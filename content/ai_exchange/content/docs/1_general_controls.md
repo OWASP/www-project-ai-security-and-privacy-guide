@@ -76,7 +76,7 @@ In general risk management it may help to keep in mind the following particulari
 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=aiprogram -->
-- [OpenCRE: AI management system](https://staging.opencre.org/cre/755-340)
+- [OpenCRE: AI management system](https://opencre.org/cre/755-340)
 <!-- OPENCRE_SECTION_CRE_END slug=aiprogram -->
 
  - [AI Governance library](https://www.aigl.blog/)
@@ -298,7 +298,7 @@ Non-Security Compliance Considerations:
 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=checkcompliance -->
-- [OpenCRE: AI compliance management](https://staging.opencre.org/cre/646-285)
+- [OpenCRE: AI compliance management](https://opencre.org/cre/646-285)
     referring to:
     - [ENISA: sec. Table 5:: Assess the regulations and laws the ML application must comply with](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
 <!-- OPENCRE_SECTION_CRE_END slug=checkcompliance -->
@@ -326,7 +326,7 @@ Education on AI security is a key prerequisite for AI engineers, development tea
 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=seceducate -->
-- [OpenCRE: AI security Education](https://staging.opencre.org/cre/533-635)
+- [OpenCRE: AI security Education](https://opencre.org/cre/533-635)
     referring to:
     - [MITRE ATLAS: sec. AML.M0018: User Training](https://atlas.mitre.org/mitigations/AML.M0018)
     - [ENISA: sec. Table 5:: Integrate ML specificities to awareness strategy and ensure all ML stakeholders are receiving it](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
@@ -371,7 +371,7 @@ AI models often tolerate reduced feature sets and incomplete data better than tr
 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=dataminimize -->
-- [OpenCRE: Data minimization](https://staging.opencre.org/cre/058-443)
+- [OpenCRE: Data minimization](https://opencre.org/cre/058-443)
     referring to:
     - [ENISA: sec. Table 5:: Ensure that models respect differential privacy to a sufficient degree](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [NIST AI 100-2: sec. 2.4.5: Differential privacy](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
@@ -409,7 +409,7 @@ Limiting the retention period of data can be seen as a special form of data mini
 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=shortretain -->
-- [OpenCRE: Training data retention management](https://staging.opencre.org/cre/858-745)
+- [OpenCRE: Training data retention management](https://opencre.org/cre/858-745)
 <!-- OPENCRE_SECTION_CRE_END slug=shortretain -->
 Useful standards include:
 
@@ -471,7 +471,7 @@ Distorting training data can make it effectively uncrecognizable, which of cours
 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=obfuscatetrainingdata -->
-- [OpenCRE: Training data obfuscation](https://staging.opencre.org/cre/488-626)
+- [OpenCRE: Training data obfuscation](https://opencre.org/cre/488-626)
     referring to:
     - [ETSI: sec. 6.4.2: Embedding privacy](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [ENISA: sec. Table 5:: Ensure that models respect differential privacy to a sufficient degree](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
@@ -508,7 +508,7 @@ For example:
 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=discrete -->
-- [OpenCRE: Protection of technical AI information](https://staging.opencre.org/cre/818-434)
+- [OpenCRE: Protection of technical AI information](https://opencre.org/cre/818-434)
     referring to:
     - [ENISA: sec. Table 5:: Reduce the available information about the model](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [MITRE ATLAS: sec. AML.M0000: Limit Public Release of Information](https://atlas.mitre.org/mitigations/AML.M0000)
@@ -597,11 +597,11 @@ In other words: If you as a user are not involved actively in performing a task,
 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=oversight -->
-- [OpenCRE: Automated AI oversight](https://staging.opencre.org/cre/205-522)
+- [OpenCRE: Automated AI oversight](https://opencre.org/cre/205-522)
     referring to:
     - [MITRE ATLAS: sec. AML.M0020: Generative AI Guardrails](https://atlas.mitre.org/mitigations/AML.M0020)
     - [NIST AI 100-2: sec. 3.4.5: An LLM moderator](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
-- [OpenCRE: Human AI oversight](https://staging.opencre.org/cre/202-604)
+- [OpenCRE: Human AI oversight](https://opencre.org/cre/202-604)
     referring to:
     - [MITRE ATLAS: sec. AML.M0030: Restrict AI Agent Tool Invocation on Untrusted Data](https://atlas.mitre.org/mitigations/AML.M0030)
     - [MITRE ATLAS: sec. AML.M0029: Human In-the-Loop for AI Agent Actions](https://atlas.mitre.org/mitigations/AML.M0029)
@@ -656,7 +656,7 @@ As mentioned above, it is essential to minimize actions that the model can poten
 
 **References** 
 <!-- OPENCRE_SECTION_CRE_START slug=leastmodelprivilege -->
-- [OpenCRE: Model action privilege minimization](https://staging.opencre.org/cre/220-442)
+- [OpenCRE: Model action privilege minimization](https://opencre.org/cre/220-442)
     referring to:
     - [MITRE ATLAS: sec. AML.M0028: AI Agent Tools Permissions Configuration](https://atlas.mitre.org/mitigations/AML.M0028)
     - [MITRE ATLAS: sec. AML.M0026: Privileged AI Agent Permissions Configuration](https://atlas.mitre.org/mitigations/AML.M0026)
@@ -733,7 +733,7 @@ Example: Informing users that when they choose an agent to perform a task, that 
 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=aitransparency -->
-- [OpenCRE: AI user transparency](https://staging.opencre.org/cre/810-884)
+- [OpenCRE: AI user transparency](https://opencre.org/cre/810-884)
 <!-- OPENCRE_SECTION_CRE_END slug=aitransparency -->
 
   - ISO/IEC 42001 B.7.2 describes data management to support transparency. Gap: covers this control minimally, as it only covers the data management part.
@@ -799,7 +799,7 @@ If attackers are able to manipulate both the model and the test data, validation
 
 **References**
 <!-- OPENCRE_SECTION_CRE_START slug=continuousvalidation -->
-- [OpenCRE: AI model performance validation](https://staging.opencre.org/cre/547-824)
+- [OpenCRE: AI model performance validation](https://opencre.org/cre/547-824)
     referring to:
     - [MITRE ATLAS: sec. AML.M0008: Validate AI Model](https://atlas.mitre.org/mitigations/AML.M0008)
     - [ENISA: sec. Table 5:: Define and monitor indicators for proper functioning of the model](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
