@@ -28,7 +28,8 @@ function backoffDelayMs(attemptIndex, opts) {
 }
 
 function isRetryableHttpStatus(status) {
-  return [408, 429, 500, 502, 503, 504].includes(status);
+  // OpenCRE can intermittently return 530 from edge infrastructure; treat as transient.
+  return [408, 429, 500, 502, 503, 504, 530].includes(status);
 }
 
 /**
