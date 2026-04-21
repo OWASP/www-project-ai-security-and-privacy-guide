@@ -16,7 +16,7 @@ weight: 2
 
 **Description**  
 AI program: Install and execute a program to govern AI.  
-One could argue that this control is out of scope for cyber security, but it initiates action to get in control of AI security.
+One could argue that this control is out of scope for cybersecurity, but it initiates action to get in control of AI security.
 
 **Objective**  
 The objective of an AI Program is to take responsibility for AI as an organization and make sure that all AI initiatives are known and under control, including their security.
@@ -51,7 +51,7 @@ A typical first iteration for AI governance in organizations consists of the fol
 1. Raise attention and awareness at board level, when needed
 2. Form a group of stakeholders and assign responsibilities
 3. Identify laws and regulations
-4. Send out a survey to make an inventory of current AI use, AI ideas, any concerns, and indiduals with AI expertise
+4. Send out a survey to make an inventory of current AI use, AI ideas, any concerns, and individuals with AI expertise
 5. Evaluate these AI applications and ideas
 6. Perform a risk analysis and establish a first policy
 7. Implement policy as much as possible in tools and procedures
@@ -322,7 +322,7 @@ Education on AI security is a key prerequisite for AI engineers, development tea
 1. Based on the inventory of your applications of AI and AI ideas, understand which threats apply
 2. Then make sure engineers and security professionals understand those relevant threats and their controls. Note that most of these controls are familiar conventional security countermeasures, unless you are training your own model.
 3. Use the courses and resources in the [references](/go/references/) section to support the understanding.
-4. Distinguish between controls that your organization has to implement, and those that are the responsbility of your supplier. 
+4. Distinguish between controls that your organization has to implement, and those that are the responsibility of your supplier. 
 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=seceducate -->
@@ -498,7 +498,7 @@ Reduce the information available to attackers, which can assist them in selectin
 **Implementation**  
 Minimizing and protecting technical details can be achieved by incorporating such details as an asset into information security management. This will ensure proper asset management, data classification, awareness education, policy, and inclusion in risk analysis.
 
-Note: this control needs to be weighed against the [#AI TRANSPARENCY](/go/aitransparency/) control that nay require to be more open about technical aspects of the model. The key is to minimize information that can help attackers while being transparent.
+Note: this control needs to be weighed against the [#AI TRANSPARENCY](/go/aitransparency/) control that may require to be more open about technical aspects of the model. The key is to minimize information that can help attackers while being transparent.
 
 For example:
 
@@ -565,7 +565,7 @@ It is the nature of AI models that they can be wrong. In addition, they can be m
     - Sensitive data: see [SENSITIVE OUTPUT HANDLING](/go/sensitiveoutputhandling/) for the control to detect sensitive data (e.g. names, phone numbers, passwords, tokens). These detections can also be applied on the input of the model or on APIs that retrieve data to go into the model.
     - A special category of sensitive data: system prompts, as they can be used by attackers to circumvent prompt injection protection in such prompts. 
     - Suspicious function calls.  Ideally, the privileges of an AI model are already hardened to the task (see [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/)), in which case detection comes down to issuing an alert once a model attempts to execute an action for which it has no permissions. In addition, the stategy can include the detection of unusual function calls in the context, issuing alerts for further investigation, or asking for approval by a human in the loop. Manipulation of function flow is commonly referred to as _application flow perturbation_. An advanced way to detect manipulated workflows is to perform rule-based sanity checks during steps, e.g. verify whether certain safety checks of filters were executed before processing data. 
-- Apply **Grounding checks** if recognizing unwanted output based on context is too difficult to catch in rules, and the detection of malicious input is insufficent. The idea of grounding checks is to let a separate Generative AI model decide if an input or output is off-topic or escalates capabilities (e.g. a LLM powered food recipes app suddenly is trying to send emails). This takes the use of LLMs to detect suspicious input and output a step further by including context. This is required in case GenAI-based recognition is insufficient to cover certain attack scenarios (see above).
+- Apply **Grounding checks** if recognizing unwanted output based on context is too difficult to catch in rules, and the detection of malicious input is insufficient. The idea of grounding checks is to let a separate Generative AI model decide if an input or output is off-topic or escalates capabilities (e.g. a LLM powered food recipes app suddenly is trying to send emails). This takes the use of LLMs to detect suspicious input and output a step further by including context. This is required in case GenAI-based recognition is insufficient to cover certain attack scenarios (see above).
 - Implement appropriate general detection and response mechanisms as presented in [#MONITOR USE](/go/monitoruse/) where part of the response can be to involve a human-in-the-loop.
 - Include as part of response options **rollback mechanisms** to enable oversight to go back to a certain state after system malfunction or manipulation has been observed and the state of the system cannot be trusted, or has been disrupted.
 - For checks that require accountability and/or more expertise and common sense, present the behaviour for a **human** to approve. This can be the result of a logic rule that in specific circumstances escalates to a human-in-the-loop.

@@ -383,7 +383,7 @@ weight: 1
                         <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">Kantega
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">Norway</td>
-                        <td class="px-6 py-4 text-gray-700">Many clarifications and improvements throughtout</td>
+                        <td class="px-6 py-4 text-gray-700">Many clarifications and improvements throughout</td>
                     </tr>
                     <tr class="odd:bg-[#F4F2F2] even:bg-white">
                         <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Eoin Wickens
@@ -542,7 +542,7 @@ weight: 1
                         <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Venkata Sai Kishore Modalavalasa (Sai)</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">Straiker</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">US</td>
-                        <td class="px-6 py-4 text-gray-700">Incident detection, massive editor work in transfering controls research</td>
+                        <td class="px-6 py-4 text-gray-700">Incident detection, massive editor work in transferring controls research</td>
                     </tr>
                     <tr class="odd:bg-[#F4F2F2] even:bg-white">
                         <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Wei Wei</td>

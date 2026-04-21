@@ -86,7 +86,7 @@ The Exchange is for practitioners in security, privacy, engineering, testing, go
 **History**  
 The AI Exchange was founded in 2022 by [Rob van der Veer](https://www.linkedin.com/in/robvanderveer/) - bridge builder for security standards, Chief AI Officer at [Software Improvement Group](https://www.softwareimprovementgroup.com), with 33 years of experience in AI & security, lead author of ISO/IEC 5338 on AI lifecycle, founding father of OpenCRE, and currently working in ISO/IEC 27090, ISO/IEC 27091 and the EU AI act in CEN/CENELEC, where he was elected co-editor by the EU member states.
 
-The project started out as the 'AI security and privacy guide' in October 22 and was rebranded a year later as 'AI Exchange' to highlight the element of global collaboration. In March 2025 the AI Exchange was awarded the status of 'OWASP Flagship project' because of its critical importance, together with the ['GenAI Security Project'](https://genai.owasp.org/).
+The project started out as the 'AI security and privacy guide' on October 22 and was rebranded a year later as 'AI Exchange' to highlight the element of global collaboration. In March 2025 the AI Exchange was awarded the status of 'OWASP Flagship project' because of its critical importance, together with the ['GenAI Security Project'](https://genai.owasp.org/).
 
 **The AI Exchange is trusted by industry giants**
 
@@ -107,7 +107,7 @@ The vision of the AI Exchange is that the main challenge for people is to find t
 
 The AI Exchange achieves:
 - AUTHORITATIVE - active alignment with other resources through careful analysis and through close collaboration - particularly through substantial contribution to leading international standards at ISO/IEC and the AI Act - making sure the AI Exchange represents consensus. 
-- OPEN - Anybody that wants to, can contribute to the AI Exchange body of knowlesge, with strong quality assurance, including a screening process for Authors.
+- OPEN - Anybody that wants to, can contribute to the AI Exchange body of knowledge, with strong quality assurance, including a screening process for Authors.
 - FREE - Anybody that wants to, use can use it in any way. Free of copyright and attribution. 
 - COVERAGE - comprehensive guidance instead of a selected set of issues (like a top 10 which is more for awareness) - and about all AI and data-intensive systems. AI is much more than Generative AI.
 - UNIFIED - a coherent resource instead of a fragmented set of disconnected separate resources.
@@ -216,7 +216,7 @@ The AI Exchange is a single coherent resource on the security and privacy of AI 
   - Step 3: If you're involved in **Agentic AI**, see the brief discussion of how [agentic threats](/go/agenticaithreats/) are covered.
   - Step 4: If you run a **ready-made model**, have a look at the [threat model on ready-made models](/go/readymademodel/).
   - Step 5: See your **threats** in their context ** in the [AI threat model](/go/threatsoverview/) and the [AI security matrix](/go/aisecuritymatrix).
-  - Step 6: Click on your relevant threats in that overview to to get more information and how to protect against it.
+  - Step 6: Click on your relevant threats in that overview to get more information and how to protect against it.
   - Step 7: To find out what to do against a specific threat, check the **Controls** section of that threat, or the [periodic table](/go/periodictable/) which lists the controls for every threat.
   - Step 8: To learn about the bigger picture how controls play a role, and interact: see the [controls overview](/go/controlsoverview/) 
   - Step 9: If **privacy** is in scope for you: see [the privacy section](/go/aiprivacy/).
@@ -230,7 +230,7 @@ The AI Exchange is a single coherent resource on the security and privacy of AI 
 The AI exchange covers both heuristic artificial intelligence (e.g., expert systems) and machine learning. This means that when we talk about an AI system, it can for example be a Large Language Model, a linear regression function, a rule-based system, or a lookup table based on statistics. Throughout this document, it is made clear which threats and controls play a role and when.
 
 **The structure**  
-You can see the high-level structure on the [main page](https://owaspai.org). On larger screens you can see the structure of pages on the left sidebar and the structure within the current page on the right. On smaller screens you can view these structures through the menu. There is also a section with the most importent topics in a [Table of contents](/go/toc/).
+You can see the high-level structure on the [main page](https://owaspai.org). On larger screens you can see the structure of pages on the left sidebar and the structure within the current page on the right. On smaller screens you can view these structures through the menu. There is also a section with the most important topics in a [Table of contents](/go/toc/).
 
 The main structure is made of the following pages:  
   (0) [AI security overview - this page](/go/toc/), contains an overview of AI security and discussions of various topics.  
@@ -269,7 +269,7 @@ The five steps - G.U.A.R.D - to organize AI security as an organization are:
   Start implementing general AI Governance so the organization can manage AI: know where it is applied, what people's responsibilities are, establish policies, do impact assessment, arrange [compliance](/go/checkcompliance/), organize [education](/go/seceducate/), etcetera. See [#AI Program](/go/aiprogram/) for guidance, including a quickstart. This is a general AI management process - not just security.
 2. **Understand**  
    - Based on the inventory of your applications of AI and AI ideas, understand which threats apply, using the decision tree in the [risk analysis section](/go/riskanalysis/).
-   - Then make sure engineers and security professionals understand those relevant threats and their controls, using the guidance of the relevant [threat sections](/go/threatsoverview/) and the corresponding [process controls and technical controls](/go/periodictable/). Note that most of these controls are familiar conventional security countermeasures, unless you are traininging your own model.
+   - Then make sure engineers and security professionals understand those relevant threats and their controls, using the guidance of the relevant [threat sections](/go/threatsoverview/) and the corresponding [process controls and technical controls](/go/periodictable/). Note that most of these controls are familiar conventional security countermeasures, unless you are training your own model.
    - Use the courses and resources in the [references section](/go/references/) to support the understanding.
    - Distinguish between controls that your organization has to implement, and those that are the responsbility of your supplier. Make the latter category part of your [supply chain management](/go/supplychainmanage/).
 3. **Adapt**  
@@ -618,7 +618,7 @@ The step after that is detailed in the following subsection 2: to look in more d
 
 The image below represents the AI Exchange threat modelling one-pager. It summarizes the step-by-step decision tree approach from this section. How to use:
 1. Walk by each threat 
-2. Base on the column ‘When’, detemine when that threat applies in theory
+2. Base on the column ‘When’, determine when that threat applies in theory
 3. If the threat applies in theory, use the column ‘Impact’ to help decide whether the risk needs to be treated or not, depending on the level of harm for the use case.
 
 The result: you start big, but you end up with a relativey small list of risks to focus on. 
