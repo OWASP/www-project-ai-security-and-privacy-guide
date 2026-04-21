@@ -9,7 +9,7 @@ weight: 5
 
 An AI system is an IT system, so at runtime it can be vulnerable to any security attack - for example to break into the application's user database. These 'conventional' attacks to generic assets, and their countermeasures are covered in many other resources. This section focuses only on what is AI-specific.  
 
-[Section 2](/go/threatsuse/) covers runtime attacks that are AI-specific: attacks performed through inference - by using the system and providing model input. [Section 3](/go/developmenttime/) covers attacks during development-time: mostly coventional attacks (e.g. breaking into a training database) with sometimes AI-specific consequences (e.g., changing model behaviour) plus AI-specific supply chain attacks.  
+[Section 2](/go/threatsuse/) covers runtime attacks that are AI-specific: attacks performed through inference - by using the system and providing model input. [Section 3](/go/developmenttime/) covers attacks during development-time: mostly conventional attacks (e.g. breaking into a training database) with sometimes AI-specific consequences (e.g., changing model behaviour) plus AI-specific supply chain attacks.  
 
 So, this page covers conventional security attacks that have AI-specific consequences. For example: changing model behaviour by hacking into a runtime database of augmentation data (data that is added to the model input). The details of how these attacks are performed are covered in many other resources. This section focuses on the AI-specific consequences and the categories of controls required. In-depth coverage of controls against conventional attacks are covered in many other resources. This section focuses on AI-specific aspects of these controls, such as the option of using a Trusted Execution Environment for models.  
 
@@ -152,7 +152,7 @@ See [OWASP for LLM 05](https://genai.owasp.org/llmrisk/llm05/).
 > Permalink: https://owaspai.org/go/encodemodeloutput/
 
 **Description**  
-Encode model output: apply output encoding on model output if it text. See [OpenCRE on Output encoding and injection prevention](https://www.opencre.org/cre/161-451)
+Encode model output: apply output encoding on model output if it's text. See [OpenCRE on Output encoding and injection prevention](https://www.opencre.org/cre/161-451)
 
 ---
 
@@ -213,7 +213,7 @@ Alternative ways for augmentation data to leak are:
 > Permalink: https://owaspai.org/go/augmentationdataconfidentiality/
 
 **Description**  
-See the [security program](/go/secprogram/) and [application security](/go/secdevprogram/), [development environment security](/go/devsecurity/), and [data segregation](/go/segregatedata/) to protect the confidentiality of transporting and storing agumentation data (e.g., access control, encryption, minimize retention).
+See the [security program](/go/secprogram/) and [application security](/go/secdevprogram/), [development environment security](/go/devsecurity/), and [data segregation](/go/segregatedata/) to protect the confidentiality of transporting and storing augmentation data (e.g., access control, encryption, minimize retention).
 
 
 
@@ -247,7 +247,7 @@ Augmentation data (context information added to a prompt) can be stored in for e
 > Permalink: https://owaspai.org/go/augmentationdataintegrity/
 
 **Description**  
-See the [security program](/go/secprogram/) and [application security](/go/secdevprogram/), [development environment security](/go/devsecurity/), and [data segregation](/go/segregatedata/) to protect the integrity of transporting and storing agumentation data (e.g., access control, encryption, minimize retention).
+See the [security program](/go/secprogram/) and [application security](/go/secdevprogram/), [development environment security](/go/devsecurity/), and [data segregation](/go/segregatedata/) to protect the integrity of transporting and storing augmentation data (e.g., access control, encryption, minimize retention).
 
 
 
