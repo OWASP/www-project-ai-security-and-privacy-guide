@@ -53,7 +53,7 @@ Each listed tool addresses a subset of the threat landscape of AI systems. Below
 While we have mentioned the key threats for each of the AI Paradigm, we strongly encourage the reader to refer to all threats at the AI Exchange, based on the outcome of the Objective and scope definition phase in AI Red Teaming.
 
 
-## AI security testing stategies
+## AI security testing strategies
 
 ### General AI security testing approach
 
@@ -85,7 +85,7 @@ See the section above for the general steps in AI security testing.
 The steps specific for testing against this threat are:
 
 **(1) Establish set of relevant input attacks**  
-Collect a base set of crafted instructions that represent the state of the art for the attack (e.g., jailbreak attempts, invisible text, malicious URLs, data extraction attempts, attempts to get harmful content), either from an attack repository (see references) or from the resources of an an attack tool. If an attack tool has been selected to implement the test, then it will typically come with such a set. Various third party and open-source repositories and tools are available for this purpose - see further in our [Tool overview](/go/testingtoolsgenai/).  
+Collect a base set of crafted instructions that represent the state of the art for the attack (e.g., jailbreak attempts, invisible text, malicious URLs, data extraction attempts, attempts to get harmful content), either from an attack repository (see references) or from the resources of an attack tool. If an attack tool has been selected to implement the test, then it will typically come with such a set. Various third party and open-source repositories and tools are available for this purpose - see further in our [Tool overview](/go/testingtoolsgenai/).  
 Verify if the input attack set sufficiently covers the attack strategies described in the threat sections linked above (e.g., instruction override, role confusion, encoding tricks).  
 Remove the input attacks for which the risk would be accepted (see Evaluation step), but keep these aside for when context and risk appetite evolve.
 
@@ -124,7 +124,7 @@ Always assume that attackers are aware of these input attacks, so likelihood is 
 Rare but high-impact outcomes should not be dismissed solely due to low observed frequency.  
 
 The variation algorithm part of the test measures how much effort or computation is required to mislead detection. This robustness metric has a limited impact on the estimated risk. It mainly shows that an attacker would need to invest some effort, either manually or by using tooling. Given the widespread availability of such tools, some robustness will only defer attackers who do not put in any effort.  
-In other words, if an attack works and the system shows some robustness against variations, this mainly rules out attack scenarios where users are just playing around to see if the model slightly misbehaves, leading to reputation damage because the attack was too easy to achieve. For attacks with severe impact, this argument does not apply, as systems are expected to be resilient against it - even if attackers deliberatly invest effort to bypass defenses.
+In other words, if an attack works and the system shows some robustness against variations, this mainly rules out attack scenarios where users are just playing around to see if the model slightly misbehaves, leading to reputation damage because the attack was too easy to achieve. For attacks with severe impact, this argument does not apply, as systems are expected to be resilient against it - even if attackers deliberately invest effort to bypass defenses.
 
 
 **(9) Rerun**  

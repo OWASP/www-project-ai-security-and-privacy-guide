@@ -325,7 +325,7 @@ If implementation is more practical for the deployer than the provider, this res
    - **Use role-based and purpose-based permissions:** Define permissions for different groups (e.g., developers, testers, operators, end users) and grant access only for the tasks they must perform.
 3. **Apply defence-in-depth:**  Access control should be enforced at multiple layers of the AI system (API gateway, application layer, model endpoint) so that a single failure does not expose the model.
 4. **Log access events:** Record both successful and failed access attempts, considering privacy obligations when storing identifiers (e.g., IPs, device IDs).
-5. **Reduce the risk of multi-account abuse:** Attackers may create or use multiple accounts to avoid per-user rate limits. Increase the cost of account creation through measures such as multi-factor authentication, CAPTCHA, identity verification, or additional trust checks.
+5. **Reduce the risk of multi-account abuse:** Attackers may create or use multiple accounts to avoid per-user rate limits. Increase the cost of account creation through measures such as multifactor authentication, CAPTCHA, identity verification, or additional trust checks.
 6. **Detect and respond to suspicious activity:**
    - **Temporarily block the AI systems to the users after repeated failed authentication attempts.**
    - **Generate alerts for investigation of** suspicious **access behavior.**
@@ -697,7 +697,7 @@ Secondary benefits include improved robustness testing, better understanding of 
 **Applicability**  
 This control is most applicable to models exposed to untrusted or adversarial environments, such as computer vision systems, speech recognition, and security-sensitive classification tasks. It is particularly relevant when individual inputs can independently cause harm or unsafe behavior.
 
-Evasion input handling is less effective in isolation when attackers adapt quickly or when attacks rely primarily on multi-step probing across many inputs. In such cases, it is best used alongside controls that monitor input series, usage patterns, or access behavior.
+Evasion input handling is less effective in isolation when attackers adapt quickly or when attacks rely primarily on multistep probing across many inputs. In such cases, it is best used alongside controls that monitor input series, usage patterns, or access behavior.
 
 **Implementation**  
 Follow the guidance in [#MONITOR USE](/go/monitoruse/) regarding detection considerations and response options.
@@ -1003,7 +1003,7 @@ adversarial attacks." arXiv preprint arXiv:1706.06083 (2017).
 
 **Description**  
 Attackers can execute a transferability-based attack in a zero-knowledge situation by first creating adversarial examples using a surrogate model: a copy or approximation of the target model, and then applying these adversarial examples to the target model.  The surrogate model can be:
-1. a perfect-knowlegde model from another supplier that performs a similar task (e.g., recognize traffic signs) - showing all its internals,
+1. a perfect-knowledge model from another supplier that performs a similar task (e.g., recognize traffic signs) - showing all its internals,
 2. a zero-knowledge model from another supplier that performs a similar task - accessible through for example an API, (e.g., recognize traffic signs),
 3. a perfect-knowledge model that the attacker trained based on available or self-collected or self-labeled data,
 4. the exact target model that was stolen [development-time](/go/devmodelleak/) or [runtime](/go/runtimemodelleak/),
@@ -1071,7 +1071,7 @@ This section discusses the two types of prompt injection and the mitigation cont
 >Permalink: https://owaspai.org/go/directpromptinjection/
 
 **Description**  
-Direct prompt injection: a user tries to fool a Generative AI (eg. a Large Language Model) by presenting prompts that make it behave in unwanted ways. It can be seen as social engineering of a generative AI. This is different from an [evasion attack](/go/evasion/) which inputs manipulated data (instead of instructions) to make the model perform its task incorrectly.
+Direct prompt injection: a user tries to fool a Generative AI (e.g. a Large Language Model) by presenting prompts that make it behave in unwanted ways. It can be seen as social engineering of a generative AI. This is different from an [evasion attack](/go/evasion/) which inputs manipulated data (instead of instructions) to make the model perform its task incorrectly.
 
 Impact: Obtaining information from the AI that is offensive, confidential, could grant certain legal rights, or triggers unauthorized functionality. Note that the person providing the prompt is the one receiving this information. The model itself is typically not altered, so this attack does not affect anyone else outside of the user (i.e., the attacker). The exception is when a model works with a shared context between users that can be influenced by user instructions.
 
