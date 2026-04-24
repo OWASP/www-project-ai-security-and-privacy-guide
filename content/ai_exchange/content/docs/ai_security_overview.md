@@ -425,7 +425,7 @@ Clickable version, based on the [Periodic table](/go/periodictable/):
 <tr><td>Runtime - Break into deployed model</td><td><a href="/go/runtimemodelleak/">Direct runtime model leak</a></td></tr>
 <tr><td>Development - Engineering environment</td><td><a href="/go/devmodelleak/">Direct development-time model-leak</a></td></tr>
 <tr><td>Model behaviour Availability</td><td>Model use</td><td><a href="/go/airesourceexhaustion/">AI resource exhaustion</a></td></tr>
-<tr><td>Model input data Confidentialiy</td><td>Runtime - All IT</td><td><a href="/go/inputdataleak/">Input data leak</a></td></tr>
+<tr><td>Model input data Confidentiality</td><td>Runtime - All IT</td><td><a href="/go/inputdataleak/">Input data leak</a></td></tr>
 <tr><td>Any asset, CIA</td><td>Runtime-All IT</td><td><a href="/go/outputcontainsconventionalinjection/">Output contains conventional injection</a></td></tr>
 <tr><td>Any asset, CIA</td><td>Runtime - All IT</td><td>Generic runtime security threats</td></tr>
 <tr><td>Any asset, CIA</td><td>Runtime - All IT</td><td>Generic development-environment and supply-chain threats</td></tr>
@@ -439,7 +439,7 @@ Clickable version, based on the [Periodic table](/go/periodictable/):
 >Permalink: https://owaspai.org/go/controlsoverview/
 
 **Select and implement controls with care**  
-The AI exchange lists a number of controls to mitigate risks of attack. Be aware that many of the controls are expensive to implement and are subject to trade-offs with other AI properties that can affect accuracy and normal operations of the model. Particularly, controls that involve changes to the learning process and data distributions can have un-intented downstream side-effects, and must be considered and introduced with care.
+The AI exchange lists a number of controls to mitigate risks of attack. Be aware that many of the controls are expensive to implement and are subject to trade-offs with other AI properties that can affect accuracy and normal operations of the model. Particularly, controls that involve changes to the learning process and data distributions can have un-intended downstream side-effects, and must be considered and introduced with care.
 
 **Scope of controls**
 In the AI Exchange we focus on AI-specific threats and their corresponding controls. Some of the controls are AI-specific (e.g., adding noise to the training set) and others are not (e.g., encrypting the training database). We refer to the latter as 'conventional controls'. The Exchange focuses on the details of the AI-specific controls because the details of conventional controls are specified elsewhere - see for example [OpenCRE](https://opencre.org). We do provide AI-specific aspects of those controls, for example that protection of model parameters can be implemented using a Trusted Execution Environment.
@@ -621,7 +621,7 @@ The image below represents the AI Exchange threat modelling one-pager. It summar
 2. Base on the column ‘When’, determine when that threat applies in theory
 3. If the threat applies in theory, use the column ‘Impact’ to help decide whether the risk needs to be treated or not, depending on the level of harm for the use case.
 
-The result: you start big, but you end up with a relativey small list of risks to focus on. 
+The result: you start big, but you end up with a relatively small list of risks to focus on. 
 
 For example: You don’t have to protect against model inversion attacks that try to steal your training data, if that data isn’t sensitive. It sounds obvious, but I’ve seen many cases of protections in place for threats that effectively don’t matter.
 

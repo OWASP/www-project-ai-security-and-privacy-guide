@@ -6,7 +6,7 @@ weight: 9
 ---
 >Permalink: https://owaspai.org/go/index/
 
-Find clickable topics in alphabetetical order below. For an overview of threats and their controls, see the [Periodic table of AI security](/go/periodictable/).
+Find clickable topics in alphabetical order below. For an overview of threats and their controls, see the [Periodic table of AI security](/go/periodictable/).
 
 ### A  
 [Adversarial attacks](/go/evasion/)  

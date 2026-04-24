@@ -90,7 +90,7 @@ Verify if the input attack set sufficiently covers the attack strategies describ
 Remove the input attacks for which the risk would be accepted (see Evaluation step), but keep these aside for when context and risk appetite evolve.
 
 **(2) Tailor attacks**  
-If the AI system goes beyond a standard chatbot in a a generic situation, then the input attacks need to be tailored. I that case: tailor the collected and selected input attacks where possible to the context and add input attacks when necessary. This is a creative process that requires understanding of the system and its context, to craft effective attacks with as much harm as possible:
+If the AI system goes beyond a standard chatbot in a generic situation, then the input attacks need to be tailored. I that case: tailor the collected and selected input attacks where possible to the context and add input attacks when necessary. This is a creative process that requires understanding of the system and its context, to craft effective attacks with as much harm as possible:
 - Try to extract data that have been identified as sensitive assets that could be in the output (e.g., phone numbers, API tokens) - stemming from training data, model input and augmentation data.
 - Try to achieve output that in the context would be considered as unacceptable (see Evaluation step) - for example quoting prices in a car dealership chatbot.
 - In case there is downstream processing (e.g., actions that are triggered, or other agents), tailor or craft attacks to abuse this processing. For example: abuse a tool to send email for exfiltrating sensitive data. This requires thorough analysis of potential attack flows, especially in agentic AI where agent behaviour is complex and hard to predict. Such tailorization would typically require tailoring the detection mechanisms as well, as they may want to detect beyond what is in model output: state changes, or privilege escalation, or the triggering of certain unwanted actions. For downstream effects, detections downstream typically are more effective than trying to scan model output.
@@ -167,7 +167,7 @@ The below section will cover the tools for predictive AI, followed by the sectio
 > Permalink: https://owaspai.org/go/testingtoolspredictiveai/
 
 
-This sub section covers the following tools for security testing Predictive AI: Adversarial Robustness Toolbox (ART), Armory, Foolbox, DeepSec, and TextAttack.
+This subsection covers the following tools for security testing Predictive AI: Adversarial Robustness Toolbox (ART), Armory, Foolbox, DeepSec, and TextAttack.
 
 ### **Tool Name: The Adversarial Robustness Toolbox (ART)**
 
