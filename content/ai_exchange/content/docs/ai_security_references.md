@@ -22,6 +22,20 @@ weight: 8
 See the [Media page](/media) for several webinars and podcasts by and about the AI Exchange.  
 References on specific topics can be found throughout the content of AI Exchange. This references section therefore contains the broader publications.
 
+## 📚 Journal & Conference Papers
+
+> Publications authored or co-authored by members of the [OWASP AI Exchange](https://owaspai.org/) team.
+
+---
+
+| # | Title | Authors | Venue / Publisher | Year | DOI / Link |
+|---|-------|---------|-------------------|------|------------|
+| 1 | *Ransomware Attacks on AI Systems: a Cross-Domain Threat and Control Analysis* | *Behnaz Karimi, Yuvaraj Govindarajulu* | IEEE | *2026* | [10.1109/ISDFS69419.2026.11459071](https://ieeexplore.ieee.org/document/11459071) |
+| 2 | *Lifecycle-Integrated Security for AI-Cloud Convergence in Cyber-Physical Infrastructure* | *S M Zia Ur Rashid et. al* | IEEE | *2026* | [10.1109/ISDFS69419.2026.11458983](https://ieeexplore.ieee.org/abstract/document/11458983) |
+| 3 | *Securing Agentic AI: Threats, Risks and Mitigation* | *S M Zia Ur Rashid et. al* | Springer | *2026* | [10.1007/978-981-95-3701-3_44](https://link.springer.com/chapter/10.1007/978-981-95-3701-3_44) |
+
+---
+
 ## Overviews of AI Security Threats:
 ---
 - [OWASP GenAI security project](https://genai.owasp.org/)
@@ -66,7 +80,7 @@ References on specific topics can be found throughout the content of AI Exchange
 - [MIT AI Risk Repository](https://airisk.mit.edu/)
 - [Failure Modes in Machine Learning by Microsoft](https://learn.microsoft.com/en-us/security/engineering/failure-modes-in-machine-learning)
 
-## Learning and Training:
+## Education (Learning and Training):
 ---
 | Category                   | Title                                        | Description                                                                                       | Provider       | Content Type     | Level       | Cost                             | Link                                                                                         |
 |---------------------------|----------------------------------------------|---------------------------------------------------------------------------------------------------|----------------|------------------|-------------|----------------------------------|----------------------------------------------------------------------------------------------|
