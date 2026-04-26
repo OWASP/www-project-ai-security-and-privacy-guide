@@ -509,10 +509,10 @@ weight: 1
                     <tr class="odd:bg-[#F4F2F2] even:bg-white">
                         <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">S M Zia Ur
                             Rashid</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">Paycom</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">University of Tulsa</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">US</td>
-                        <td class="px-6 py-4 text-gray-700">AI red teaming and supply chain requirements
-                            project, learning and training resources table under references</td>
+                        <td class="px-6 py-4 text-gray-700">AI red teaming, security testing, threats and supply chain requirements
+                            project, learning and training resources</td>
                     </tr>
                     <tr class="odd:bg-[#F4F2F2] even:bg-white">
                         <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Sean Oesch
