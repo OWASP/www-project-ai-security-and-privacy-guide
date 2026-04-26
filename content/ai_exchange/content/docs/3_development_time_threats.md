@@ -256,7 +256,7 @@ Maintaining structured records for AI-specific assets and services helps establi
 - origin and versioning of models and datasets (provenance) including pre-trained model lineage,
 - checksums or hashes to identify specific instances,
 - training data sources and augmentation steps and data used to augment training data,
-- dependencies and environment requirements (e.g. hardware, frameworks, packages etc) relevant to security,
+- dependencies and environment requirements (e.g. hardware, frameworks, packages, etc.) relevant to security,
 - ownership, authorship, and responsible teams or suppliers.
 
 Such records are often referred to as Model Cards, AIBOMs, or MBOMs, and can complement traditional SBOM practices by including AI-specific artifacts. 
