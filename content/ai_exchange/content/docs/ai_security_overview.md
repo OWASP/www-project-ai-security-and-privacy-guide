@@ -221,7 +221,7 @@ The AI Exchange is a single coherent resource on the security and privacy of AI 
   - Step 8: To learn about the bigger picture how controls play a role, and interact: see the [controls overview](/go/controlsoverview/) 
   - Step 9: If **privacy** is in scope for you: see [the privacy section](/go/aiprivacy/).
   - Step 10: If you're involved in **testing**: see [the testing section](/go/testing/).
-  - Step 11: A great way to better understand AI threats is to act as an attacker, for which we recommend [PwnzzAI!](https://github.com/maryammouzarani2024/PwnzzAI): a hacking lab project with the Exchange as founding partner. A great exercise!
+  - Step 11: A great way to better understand AI threats is to act as an attacker, for which we recommend [PwnzzAI!](https://github.com/OWASP/PwnzzAI): a hacking lab project with the Exchange as founding partner. A great exercise!
   - To learn more about education programs, see [#SEC EDUCATE](/go/seceducate/)
   - If you prefer one document: download a [snapshot of the Exchange in pdf](/OWASP-AI-Exchange.pdf).
 - **Lookup**:
