@@ -572,7 +572,7 @@ It is the nature of AI models that they can be wrong. In addition, they can be m
 - Ensure that the **human oversight is appropriate**: the human is qualified, instructed, motivated, and not suffering from so-called _approval fatigue_: the result of having to approve many actions that are mostly in order.
 
 
-A separate form of oversight is [MODEL ALIGNMENT](/go/modelalignment/) which intends to constrain model behaviour through training, fine tuning, and system prompts. This is treated as a separate control because the effectiveness is limited and therefore no guarantee.
+A separate form of oversight is [MODEL ALIGNMENT](/go/modelalignment/) which intends to constrain model behaviour through training, fine-tuning, and system prompts. This is treated as a separate control because the effectiveness is limited and therefore no guarantee.
 
 Examples:
   - Logic preventing the trunk of a car from opening while the car is moving, even if the driver seems to request it

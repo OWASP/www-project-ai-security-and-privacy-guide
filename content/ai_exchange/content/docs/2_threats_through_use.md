@@ -478,11 +478,11 @@ Useful standards include:
 >Permalink: https://owaspai.org/go/unwantedinputserieshandling/ 
 
 **Description**  
-Unwanted input series handling: Implement tools to detect and respond to suspicious or unwanted patterns across a series of inputs, which may indicate abuse, reconnaissance, or multi-step attacks.
+Unwanted input series handling: Implement tools to detect and respond to suspicious or unwanted patterns across a series of inputs, which may indicate abuse, reconnaissance, or multistep attacks.
 This control focuses on behavior across multiple inputs, rather than adversarial properties of a single sample.
 
 **Objective**  
-Unwanted input series handling aims to identify suspicious behavior that emerges only when multiple inputs are analyzed together. Many attacks, such as model inversion, evasion search, or model exfiltration, rely on iterative probing rather than a single malicious input. Detecting these patterns helps surface reconnaissance, abuse, and multi-step attacks that would otherwise appear benign at the individual input level.
+Unwanted input series handling aims to identify suspicious behavior that emerges only when multiple inputs are analyzed together. Many attacks, such as model inversion, evasion search, or model exfiltration, rely on iterative probing rather than a single malicious input. Detecting these patterns helps surface reconnaissance, abuse, and multistep attacks that would otherwise appear benign at the individual input level.
 Secondary benefits include improved abuse monitoring, better attribution of malicious behavior, and stronger signals for investigation and response.
 
 **Applicability**  
@@ -1010,7 +1010,7 @@ Attackers can execute a transferability-based attack in a zero-knowledge situati
 5. the exact target model obtained by purchasing or free downloading,
 6. a replica of the model, created by [Model exfiltration attack])/go/modelexfiltration/)
 
-The advantage of a surrogate model is that it exposes its internals (with the exception of the zero-knowledge surrogate model), allowing an [Perfect-knowledge attack](/go/perfectknowledgeevasion/). But even a closed models may be beneficial in case detection mechanisms and rate limiting are less strict than the target model - making a [zero-knowledge attack](/go/zeroknowledgeevasion/) easier and quicker to perform, 
+The advantage of a surrogate model is that it exposes its internals (with the exception of the zero-knowledge surrogate model), allowing a [Perfect-knowledge attack](/go/perfectknowledgeevasion/). But even a closed models may be beneficial in case detection mechanisms and rate limiting are less strict than the target model - making a [zero-knowledge attack](/go/zeroknowledgeevasion/) easier and quicker to perform, 
 
 The goal is to create adversarial examples that will ‘hopefully’ transfer to the original target model, even though the surrogate may be internally different from the target. Because the task is similar, it can be expected that the decision boundaries in the model are similar. The likelihood of a successful transfer is generally higher when the surrogate model closely resembles the target model in terms of complexity and structure. The ultimate surrogate model is of course the target model itself. However, it’s noted that even attacks developed using simpler surrogate models tend to transfer effectively. 
 
@@ -1249,7 +1249,7 @@ This control is less applicable to closed systems with fixed inputs and tightly 
 - **Escape/neutralize instruction-like tokens**: Transform any tokens in untrusted data that may be mistaken for real by an AI model or parser, such as fences, role markers, XML/HTML Tags and tool calling tokens. This reduces accidental compliance but semantic injection still passes through.
 - **Delineate inserted untrusted data** - see [#INPUT SEGREGATION](/go/inputsegregation/) to increase the probability that all externally sourced or user-provided content is  treated as untrusted data not interpreted as instructions.
 - **Recognize manipulative instructions in input**: Detecting patterns that indicate attempts to manipulate model behavior through crafted instructions (e.g.: ‘forget previous instructions’ or 'retrieve password'). These patterns may appear in text, images, audio, metadata, retrieved data, or uploaded files, depending on the system’s supported modalities. This can also include the detection of resources that are either target of attack (e.g., a database name) or an address to extract data to (e.g., an unvalidated or blacklisted URL). Solutions typically combine multiple approaches to assess the likelihood of an attack, given the difficulty of the recognition task.
-- **Use flexible recognition mechanisms**. The flexibility of natural language makes it harder to apply input validation compared to strict syntax situations like SQL commands. To address this flexibility of natural language in prompt inputs, the best approach for high-risk situations is to utilize LLM-based detectors (LLM-as-a-judge) for the detection of malicious instructions in a more semantic way, instead of syntactic. However, it’s important to note that this method may come with higher latency, higher compute costs, potential license costs, security issues for sending prompts to an external service, and considerations regarding accuracy. If the downsides of LLM-as-a-judge are not in line with the risk level, other flexible detections can be implemented, based on pattern recognition. Depending on the context, these may require fine tuning. For example, for agents that already work with data  that contain instructions (e.g., support tickets).
+- **Use flexible recognition mechanisms**. The flexibility of natural language makes it harder to apply input validation compared to strict syntax situations like SQL commands. To address this flexibility of natural language in prompt inputs, the best approach for high-risk situations is to utilize LLM-based detectors (LLM-as-a-judge) for the detection of malicious instructions in a more semantic way, instead of syntactic. However, it’s important to note that this method may come with higher latency, higher compute costs, potential license costs, security issues for sending prompts to an external service, and considerations regarding accuracy. If the downsides of LLM-as-a-judge are not in line with the risk level, other flexible detections can be implemented, based on pattern recognition. Depending on the context, these may require fine-tuning. For example, for agents that already work with data  that contain instructions (e.g., support tickets).
 - **Apply input handling upstream**. By applying sanitization or detection as early as possible (e.g. when data is retrieved from an API), attacks are noticed sooner, the scope can be limited to untrusted data sources, obfuscation of instructions or sensitive data may be prevented, and AI components with less sophisticated I/O handling are protected. This also means that these techniques need to be applied to the output of the model if that output may ever become input to another model without such protections. If output is to be used in other command-interpreting tools, further encoding is needed - see [#ENCODE MODEL OUTPUT](/go/encodemodeloutput/).
 - **Detect unwanted output**: see [#OVERSIGHT](/go/oversight/) for detection of harmful content, sensitive data, suspicious actions and grounding checks. 
 - **Update detections constantly**: Make sure that techniques and patterns for detection of input/output are constantly updated by using external sources.  Since this is an arms race, the best strategy is to base this on an open source or third party resource. Popular tool providers at the time of writing include: Pangea, Hiddenlayer, AIShield, and Aiceberg. Popular open source packages for prompt injection detection are, in alphabetical order:
@@ -1462,7 +1462,7 @@ Sensitive output handling is applicable in case:
 - **Use GenAI for detection**: In case natural language allows for too many variations, synonyms, and indirect phrasing, then semantic interpretation using language models can complement rules-based approaches and improve robustness. A variant of this is to use [#MODEL ALIGNMENT](/go/modelalignment/) (e.g., system prompts) to prevent sensitive output - which suffers from inherent limitations.
 - Follow the guidance in [#MONITOR USE](/go/monitoruse/) regarding detection considerations and response options.
 
-Implementation may be done by the provider of the model - for example to filter sensitive training data. If the AI system that uses the model provides input (perhaps incloding augmentation data) that includes sensitive data, the AI system can implement its own sensitive output handling, in case this input may leak into the output.
+Implementation may be done by the provider of the model - for example to filter sensitive training data. If the AI system that uses the model provides input (perhaps including augmentation data) that includes sensitive data, the AI system can implement its own sensitive output handling, in case this input may leak into the output.
 
 **Risk-Reduction Guidance**
 
@@ -1486,7 +1486,7 @@ Providing models with instructions not to disclose certain data (for example via
 - Filtering relies on detection accuracy and may miss sensitive data that does not match known patterns.
 - False positives can cause serious system malfunction or prevent legitimate output.
 - Some sensitive disclosures may be subtle or context-dependent and difficult to detect automatically.
-- Attackers may attempt to obfuscate output o circumvent detection (e.g. base64 encoding a token)
+- Attackers may attempt to obfuscate output to circumvent detection (e.g. base64 encoding a token)
 
 **References**
 <!-- OPENCRE_SECTION_CRE_START slug=sensitiveoutputhandling -->
@@ -1581,7 +1581,7 @@ Impact:  Confidentiality breach of the model (i.e., model parameters), which can
 - and/or a way to strip a model from certain protection mechanism against producing harmful content. Antrhropic claimed in February 2026 that exfiltration attacks by competition could achieve this: creating models that are able to produce harmful content against the stakes of the original model makers.
 
 
-Alternative names: _model stealing attack_ or _model extraction attack_ or _model destillation_, or _model theft by use_. The technique of [ADVERSARIAL ROBUST DESTILLATION]/owaspai.org/go/adversarialrobustdistillation) is sometimes used by model developers to exfiltrate a _student_ model with the goal to make it more robust against attacks.
+Alternative names: _model stealing attack_ or _model extraction attack_ or _model distillation_, or _model theft by use_. The technique of [ADVERSARIAL ROBUST DESTILLATION]/owaspai.org/go/adversarialrobustdistillation) is sometimes used by model developers to exfiltrate a _student_ model with the goal to make it more robust against attacks.
 
 Alternative ways of model theft, which can lead to an exact copy of the model, are [direct development-time model leak](/go/devmodelleak/) and [direct runtime model leak](/go/runtimemodelleak/).
 
@@ -1617,7 +1617,7 @@ If attackers are able to access the model and the model allows intensive use, th
 <!-- OPENCRE_SECTION_CRE_END slug=modelexfiltration -->
 
 - [Article on model exfiltration](https://www.mlsecurity.ai/post/what-is-model-stealing-and-why-it-matters)
-- ['Thieves on Sesame street' on model exfiltation of large language models](https://arxiv.org/abs/1910.12366) (GenAI)
+- ['Thieves on Sesame street' on model exfiltration of large language models](https://arxiv.org/abs/1910.12366) (GenAI)
 
 
 
@@ -1634,7 +1634,7 @@ Watermarking techniques should be designed to remain detectable even if the mode
 In addition to its technical role, watermarking supports intellectual property protection by enabling post-hoc attribution of stolen or misused models, which can be critical for legal claims, contractual enforcement, and regulatory investigations. As part of a layered security strategy, watermarking complements preventive controls by providing accountability and ownership assurance when other defenses fail.
 
 **Limitations**  
-Watermarking can be effective evidence for direct model theft, but is limited for model exfiltration. This is because typical watermark approached are represented in data that would not by in distribution of the input data in such an attack. More advanced techniques exist (see references) that make watermarking entangled in typical input data and its output.
+Watermarking can be effective evidence for direct model theft, but is limited for model exfiltration. This is because typical watermark approached are represented in data that would not be in distribution of the input data in such an attack. More advanced techniques exist (see references) that make watermarking entangled in typical input data and its output.
 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=modelwatermarking -->
