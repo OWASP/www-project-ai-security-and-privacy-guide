@@ -383,7 +383,7 @@ What does this mean for security?
 - Agents deployed with their own sets of permissions open up privilege escalation vectors because they are susceptible to becoming a confused deputy
 - The attack surface is wide, and the potential impact should not be underestimated.
 - Because of that, the [known controls](/go/controlsoverview/) become even more important, divided into:
-  - Prevention: for example: security of inter-model communication (e.g., MCP), [protecting of memory integrity(/go/augmentationdataintegrity/], and [prompt injection defenses](/go/promptinjection/)
+  - Prevention: for example: security of inter-model communication (e.g., MCP), [protecting of memory integrity](/go/augmentationdataintegrity/), and [prompt injection defenses](/go/promptinjection/)
   - Blast radius control: [rule-based / human oversight](/go/oversight/) and [least model privilege](/go/leastmodelprivilege/)
   - Observability: [monitoring](/go/monitoruse/)
   
