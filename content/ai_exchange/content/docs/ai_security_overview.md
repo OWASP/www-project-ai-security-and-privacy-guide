@@ -382,7 +382,11 @@ What does this mean for security?
 - Existing assumptions about things like trust boundaries and other established security measures might need to be revisited because agentic AI changes interconnectivity and data flows between system components.
 - Agents deployed with their own sets of permissions open up privilege escalation vectors because they are susceptible to becoming a confused deputy
 - The attack surface is wide, and the potential impact should not be underestimated.
-- Because of that, the known controls become even more important — such as security of inter-model communication (e.g., MCP), [traceability](/go/monitoruse/), protecting memory integrity, [prompt injection defenses](/go/promptinjection/), [rule-based / human oversight](/go/oversight/), and [least model privilege](/go/leastmodelprivilege/). See the [controls overview section](/go/controlsoverview/).
+- Because of that, the [known controls](/go/controlsoverview/) become even more important, divided into:
+  — Prevention: for example: security of inter-model communication (e.g., MCP), [protecting of memory integrity(/go/augmentationdataintegrity/], and [prompt injection defenses](/go/promptinjection/)
+  - Blast radius control: [rule-based / human oversight](/go/oversight/) and [least model privilege](/go/leastmodelprivilege/)
+  - Observability: [monitoring](/go/monitoruse/)
+  
 
 For leaking sensitive data in agentic AI, you need three things, also called the _lethal trifecta_:
 1. Data: Control of the attacker of data that find its way into an LLM at some point in the session of a user that has the desired access, to perform [indirect prompt injection](/go/indirectpromptinjection/) 
