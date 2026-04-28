@@ -240,7 +240,7 @@ When rate limiting is impractical for the provider but feasible for the deployer
 
   a. Per-Actor Limiting
     - Track and limit inference frequency for each identifiable actor (authenticated user id, api key, session token)
-    - If identity is unavailable or not reliable (eg lack of access control) then approximate using IP or device fingerprint.
+    - If identity is unavailable or not reliable (e.g. lack of access control) then approximate using IP or device fingerprint.
     - Helps distinguish legitimate use from brute-force experimentation.
   b. Total-Use Limiting
     - Set an overall cap across all actors to mitigate distributed or collusive attacks. 

@@ -624,7 +624,7 @@ This control can only be applied during training and therefore not to an already
 <!-- OPENCRE_SECTION_CRE_START slug=traindatadistortion -->
 - [OpenCRE: Train data distortion](https://opencre.org/cre/567-025)
     referring to:
-    - [ETSI: sec. 5.2.2: Data sanitisation](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
+    - [ETSI: sec. 5.2.2: Data sanitization](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [ENISA: sec. Table 5:: Use methods to clean the training dataset from suspicious samples](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [NIST AI 100-2: sec. 2.3.1: Availability Poisoning](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
 <!-- OPENCRE_SECTION_CRE_END slug=traindatadistortion -->
