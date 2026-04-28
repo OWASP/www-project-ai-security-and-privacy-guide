@@ -267,7 +267,7 @@ While Artificial Intelligence (AI) offers tremendous opportunities, it also brin
 The five steps - G.U.A.R.D - to organize AI security as an organization are: 
 
 1. **Govern**  
-  Start implementing general AI Governance so the organization can manage AI: know where it is applied, what people's responsibilities are, establish policies, do impact assessment, arrange [compliance](/go/checkcompliance/), organize [education](/go/seceducate/), etcetera. See [#AI Program](/go/aiprogram/) for guidance, including a quickstart. This is a general AI management process - not just security.
+  Start implementing general AI Governance so the organization can manage AI: know where it is applied, what people's responsibilities are, establish policies, do impact assessment, arrange [compliance](/go/checkcompliance/), organize [education](/go/seceducate/), et cetera. See [#AI Program](/go/aiprogram/) for guidance, including a quickstart. This is a general AI management process - not just security.
 2. **Understand**  
    - Based on the inventory of your applications of AI and AI ideas, understand which threats apply, using the decision tree in the [risk analysis section](/go/riskanalysis/).
    - Then make sure engineers and security professionals understand those relevant threats and their controls, using the guidance of the relevant [threat sections](/go/threatsoverview/) and the corresponding [process controls and technical controls](/go/periodictable/). Note that most of these controls are familiar conventional security countermeasures, unless you are training your own model.
@@ -646,10 +646,10 @@ Another example: If your agentic system uses an LLM, then it is in theory suscep
   
   > QUESTION: Who trains/finetunes the model?
   - The supplier: consider the threat of[Supply chain model poisoning](/go/supplymodelpoison/): obtaining or working with a model that has been manipulated to behave in unintended ways.
-    - Mitigation guidance: This is done through proper [supply chain management](/go/supplychainmanage/) (e.g., selecting a trustworthy supplier and verifying the authenticity of the model). This is to gain assurance on the security posture of the provider, meaning the provider prevents model poisoning during development, including data poisoning, and uses uncompromised data. If the risk of data poisoning remains unacceptable, implementing post-training countermeasures can be an option if you have the expertise and if you have access to the model parameters (e.g., open source weights). See [POISONROBUSTMODEL](/go/poisonrobustmodel/). Note that providers are typically not very open about their security countermeasures, which means that it can be challenging to gain sufficient assurance. Regulations will hopefully help achieve more provider transparency. For more details, see [ready made models](/go/readymademodel/).
+    - Mitigation guidance: This is done through proper [supply chain management](/go/supplychainmanage/) (e.g., selecting a trustworthy supplier and verifying the authenticity of the model). This is to gain assurance on the security posture of the provider, meaning the provider prevents model poisoning during development, including data poisoning, and uses uncompromised data. If the risk of data poisoning remains unacceptable, implementing post-training countermeasures can be an option if you have the expertise and if you have access to the model parameters (e.g., open source weights). See [POISONROBUSTMODEL](/go/poisonrobustmodel/). Note that providers are typically not very open about their security countermeasures, which means that it can be challenging to gain sufficient assurance. Regulations will hopefully help achieve more provider transparency. For more details, see [ready-made models](/go/readymademodel/).
   - You: consider the threat of [data poisoning](/go/datapoison/) in the development environment or by obtaining poisoned data from a third party, and consider the threat of attackers altering your model directly using [direct development-time model poisoning](/go/devmodelpoison/).
 
-    Why not train/finetune a model yourself? There are many third party and open source models that may be able to perform the required task, perhaps after some fine tuning. Organizations often choose external GenAI models because they are typically general purpose, and training is difficult and expensive (often millions of dollars). Finetuning of generative AI is also not often performed by organizations given the cost of compute and the complexity involved. Some GenAI models can be obtained and run on your own infrastructure. The reasons for this can be lower cost (if it is an open source model), and the fact that sensitive input information does not have to be sent externally. A reason to use an externally hosted GenAI model can be the quality of the model.
+    Why not train/finetune a model yourself? There are many third party and open source models that may be able to perform the required task, perhaps after some fine-tuning. Organizations often choose external GenAI models because they are typically general purpose, and training is difficult and expensive (often millions of dollars). Fine-tuning of generative AI is also not often performed by organizations given the cost of compute and the complexity involved. Some GenAI models can be obtained and run on your own infrastructure. The reasons for this can be lower cost (if it is an open source model), and the fact that sensitive input information does not have to be sent externally. A reason to use an externally hosted GenAI model can be the quality of the model.
  
  
   > QUESTION: Does your system insert (augment) data to the input of your model, like for example in RAG (Retrieval Augmented Generation), or by inserting data from memory (e.g., stored state for an agent), or by having _system prompts_ (standard instructions to the model that are automatically added to the input) ? If yes: 
@@ -672,11 +672,11 @@ Another example: If your agentic system uses an LLM, then it is in theory suscep
 > QUESTION: IF the model triggers actions, is there an action that is able to send data so it can be seen by an adversary, and is there sensitive data accessible in the system by one of the agents or actions that is reachable by the manipulated agent? If Yes:
   - This combination of 1) manipulated model behaviour, 2) ability for the model to send data, and 3) ability for the model to access sensitive data is called the 'Lethal trifecta'. The impact is: data exfiltration. For more details, see [Agentic threats](/go/agenticaithreats/).
 
-NOTE: a special form of exfiltrating and sending data to an adversary is through [injecting exfiltration in model output](/go/outputcontainsconventionalinjection/): a model is manipulated to output sensitive data in code which sends out sensitive data. This can be javascript executed in a browser (XSS), but more simple: a link to an image on the server of an adversary, where the URL contains the sensitive data. Or in a similar fashio: the output containing a link for the user to click on, to that same server.
+NOTE: a special form of exfiltrating and sending data to an adversary is through [injecting exfiltration in model output](/go/outputcontainsconventionalinjection/): a model is manipulated to output sensitive data in code which sends out sensitive data. This can be javascript executed in a browser (XSS), but more simple: a link to an image on the server of an adversary, where the URL contains the sensitive data. Or in a similar fashion: the output containing a link for the user to click on, to that same server.
   
   In order to assess the level of risk for unwanted model behaviour through manipulation, consider what the motivation of an attacker could be. What could an attacker gain by misleading your model? Just a claim to fame? Could it be a disgruntled employee? Maybe a competitor? What could an attacker gain by a less conspicuous model behaviour attack, like an evasion attack or data poisoning with a trigger? Is there a scenario where an attacker benefits from fooling the model? An example where evasion IS interesting and possible: adding certain words in a spam email so that it is not recognized as such. An example where evasion is not interesting is when a patient gets a skin disease diagnosis based on a picture of the skin. The patient has no interest in a wrong decision, and also the patient typically has no control - well maybe by painting the skin. There are situations in which this CAN be of interest for the patient, for example to be eligible for compensation in case the (faked) skin disease was caused by certain restaurant food. This demonstrates that it all depends on the context whether a theoretical threat is a real threat or not. Depending on the probability and impact of the threats, and on the relevant policies, some threats may be accepted as risk. When not accepted, the level of risk is input to the strength of the controls. For example: if data poisoning can lead to substantial benefit for a group of attackers, then the training data needs to be given a high level of protection.
 
- **Identify risks with the impace of leaking training data**
+ **Identify risks with the impact of leaking training data**
 
  > QUESTION: Do you train/finetune the model yourself?
   - If yes, is the training data sensitive? If so, you need to consider the threats of:
@@ -1008,8 +1008,7 @@ Do generative AI models really look up existing work that may be copyrighted? In
 
 #### Mitigating Risk
 Organizations have several key strategies to mitigate the risk of copyright 
-infringement in their AI systems. Implementing them early can be much more cost 
-effective than fixing at later stages of AI system operations. While each comes with 
+infringement in their AI systems. Implementing them early can be much more cost-effective than fixing at later stages of AI system operations. While each comes with 
 certain financial and operating costs, the “hard savings” may result in a positive 
 outcome. These may include:  
 1. Taking measures to mitigate the output of certain training data. The OWASP AI Exchange covers this through the corresponding threat: [sensitive data disclosure in model output](/go/disclosureinoutput/).
@@ -1032,7 +1031,7 @@ confidentiality of the materials while preserving and maintaining trade secret
 status.
 7. Training for Employees: training employees on the significance and 
 importance of the organization’s AI IP policies along with implications on what
-IP infringement may be will help be more risk averse.
+IP infringement may be will help be more risk-averse.
 8. Compliance Monitoring Systems: an updated and properly utilized monitoring 
 system will help check against potential infringements by the AI system.
 9. Response Planning for IP Infringement: an active plan will help respond 
