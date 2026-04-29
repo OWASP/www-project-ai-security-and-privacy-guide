@@ -681,7 +681,7 @@ Controls external to the model to manage model behaviour are:
 - [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/): conventional mechanisms that put boundaries on what the model can affect
 - [PROMPT INJECTION I/O handling](/go/promptinjectioniohandling/): detection mechanisms on input and output to prevent unwanted behaviour
 
-The intent of Model alignment is achieve similar goals by baking it into the model itself, through training and instruction.
+The intent of Model alignment is to achieve similar goals by baking it into the model itself, through training and instruction.
 
 **Implementation**  
 Achieving the goal of model alignment involves multiple layers:  
