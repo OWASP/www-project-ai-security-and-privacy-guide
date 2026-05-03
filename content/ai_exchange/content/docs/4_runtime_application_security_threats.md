@@ -163,17 +163,16 @@ Encode model output: apply output encoding on model output if it's text. See [Op
 **Description**  
 Impact: Confidentiality breach of sensitive input data through a conventional attack on the data at rest or in transit.
 
-Input data can be sensitive (e.g., GenAI prompts) and can either leak through a failure or through an attack, such as a man-in-the-middle attack.  
+Input data (e.g., GenAI prompts) can be sensitiv and can either leak through a failure or through an attack, such as a man-in-the-middle attack.  
 
-If there is metadata to the input (e.g., identifying a user), this can increase the risk - for example when a sensitive conversation in prompts is linked to the user.
+The following factors can complicate this risk:
+1. Metadat. If there is metadata to the input (e.g., identifying a user), this can increase the risk - for example when a sensitive conversation in prompts is linked to the user.
+2. Cloud AI. When AI models run in the cloud (often the case for GenAI) then this risk needs special attention, especially if this is managed by an external party. Uput data will be unencrypted at inference time (when processed by the model). Therefore, it is critical that proper security measures are in place for the data in transit and at rest, and ideally the data is not retained at all. For security reasons, some third parties monitor and log the input, which is why it is critical to read the fine print and select the right license and configuration. Sometimes monitoring requires opt-out.
+3. Court orders. If input is stored at the third party, you run the risk of that data to be subject to a subpoena. 
+4. Agumented data. GenAI model input (prompts) can contain rich context information with sensitive data (e.g., company secrets). The latter issue occurs with *in context learning* or *Retrieval Augmented Generation(RAG)* (adding background information to a prompt): for example data from all reports ever written at a consultancy firm. First of all, this context information will travel with the prompt to the cloud, and second: the context information may likely leak to the output, so it's important to apply the access rights of the user to the retrieval of the context. For example: if a user from department X asks a question to an LLM - it should not retrieve context that department X has no access to, because that information may leak in the output.
+5. External services. Model actions may trigger other services, further spreading the input data. For example: when you ask a cloud AI to process your pdf document and the AI starts calling various services to help process the document. 
 
-When AI models run in the cloud then this risk needs special attention, especially if this is managed by an external party. 
-
-Generative AI models run an increased risk of leaking input data for several reasons: 
-1. GenAI models often run in the cloud, managed by a third party, and the input data will be unencrypted at inference time. Therefore, it is critical in those cases that proper security measures are in place for that data in transit and at rest, and ideally the data is not retained at all. For security reasons, some third parties monitor and log the input, which is why it is critical to read the fine print and select the right license and configuration. Sometimes monitoring requires opt-out.
-2. If input is stored at the third party, you run the risk of that data to be subject to a subpoena. 
-3. GenAI model input (prompts) can contain rich context information with sensitive data (e.g., company secrets). The latter issue occurs with *in context learning* or *Retrieval Augmented Generation(RAG)* (adding background information to a prompt): for example data from all reports ever written at a consultancy firm. First of all, this context information will travel with the prompt to the cloud, and second: the context information may likely leak to the output, so it's important to apply the access rights of the user to the retrieval of the context. For example: if a user from department X asks a question to an LLM - it should not retrieve context that department X has no access to, because that information may leak in the output. Also see [Risk analysis](https://owaspai.org/docs/ai_security_overview/#how-to-select-relevant-threats-and-controls-risk-analysis) on the responsibility aspect.
-
+See [Risk analysis](https://owaspai.org/docs/ai_security_overview/#how-to-select-relevant-threats-and-controls-risk-analysis) on responsible parties.
 
 **Controls**
 - See [General controls](/go/generalcontrols/), in particular [Minimizing data](/go/datalimit/)
