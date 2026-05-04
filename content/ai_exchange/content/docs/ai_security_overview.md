@@ -449,6 +449,19 @@ The AI exchange lists a number of controls to mitigate risks of attack. Be aware
 **Scope of controls**
 In the AI Exchange we focus on AI-specific threats and their corresponding controls. Some of the controls are AI-specific (e.g., adding noise to the training set) and others are not (e.g., encrypting the training database). We refer to the latter as 'conventional controls'. The Exchange focuses on the details of the AI-specific controls because the details of conventional controls are specified elsewhere - see for example [OpenCRE](https://opencre.org). We do provide AI-specific aspects of those controls, for example that protection of model parameters can be implemented using a Trusted Execution Environment.
 
+### Control group mapping table
+The table below gives practitioners a compact way to move from a common AI risk area to the relevant AI Exchange control groups. It complements the detailed [Periodic table of AI security](/go/periodictable/), which maps individual threat categories to specific controls.
+
+| Risk area | Typical concern | Primary control groups to review |
+| --- | --- | --- |
+| AI governance and accountability | Unknown AI use, unclear ownership, unmanaged risk decisions, or incomplete compliance coverage | [AI PROGRAM](/go/aiprogram/), [SEC PROGRAM](/go/secprogram/), [CHECK COMPLIANCE](/go/checkcompliance/), [SEC EDUCATE](/go/seceducate/) |
+| AI development lifecycle | AI engineering work is separated from secure development, software quality, model traceability, or risk management | [DEV PROGRAM](/go/devprogram/), [SECDEV PROGRAM](/go/secdevprogram/), [CONTINUOUS VALIDATION](/go/continuousvalidation/), [UNWANTED BIAS TESTING](/go/unwantedbiastesting/) |
+| Data and model supply chain | Untrusted data, third-party models, external hosting, or inherited vulnerabilities enter the AI system | [SUPPLY CHAIN MANAGE](/go/supplychainmanage/), [DATA QUALITY CONTROL](/go/dataqualitycontrol/), [MODEL ACCESS CONTROL](/go/modelaccesscontrol/), [RUNTIME MODEL INTEGRITY](/go/runtimemodelintegrity/) |
+| Sensitive data exposure | Training data, prompts, outputs, embeddings, logs, or augmentation data may reveal confidential or personal data | [DATA MINIMIZE](/go/dataminimize/), [ALLOWED DATA](/go/alloweddata/), [SHORT RETAIN](/go/shortretain/), [SENSITIVE OUTPUT HANDLING](/go/sensitiveoutputhandling/), [MODEL INPUT CONFIDENTIALITY](/go/modelinputconfidentiality/), [AUGMENTATION DATA CONFIDENTIALITY](/go/augmentationdataconfidentiality/) |
+| Manipulated model behavior | Adversarial inputs, prompt injection, poisoned data, or compromised models can change intended behavior | [OVERSIGHT](/go/oversight/), [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/), [PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling/), [ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling/), [EVASION INPUT HANDLING](/go/evasioninputhandling/), [POISON ROBUST MODEL](/go/poisonrobustmodel/) |
+| Runtime resilience and abuse | Attackers can exhaust resources, abuse model access, or create suspicious input patterns | [MONITOR USE](/go/monitoruse/), [RATE LIMIT](/go/ratelimit/), [DOS INPUT VALIDATION](/go/dosinputvalidation/), [LIMIT RESOURCES](/go/limitresources/), [UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling/) |
+| Ready-made or externally hosted models | The organization depends on a provider, external model hosting, or user-facing "shadow AI" alternatives | [SUPPLY CHAIN MANAGE](/go/supplychainmanage/), [MODEL ACCESS CONTROL](/go/modelaccesscontrol/), [DATA MINIMIZE](/go/dataminimize/), [ALLOWED DATA](/go/alloweddata/), [AI TRANSPARENCY](/go/aitransparency/) |
+
 ### Threat diagram with controls - general
 The below diagram puts the controls in the AI Exchange into groups and places these groups in the right lifecycle with the corresponding threats.
 [![](/images/threatscontrols.png?v=2)](/images/threatscontrols.png?v=2)
