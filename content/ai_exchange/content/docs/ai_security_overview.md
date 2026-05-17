@@ -269,18 +269,18 @@ The five steps - G.U.A.R.D - to organize AI security as an organization are:
 1. **Govern**  
   Start implementing general AI Governance so the organization can manage AI: know where it is applied, what people's responsibilities are, establish policies, do impact assessment, arrange [compliance](/go/checkcompliance/), organize [education](/go/seceducate/), et cetera. See [#AI Program](/go/aiprogram/) for guidance, including a quickstart. This is a general AI management process - not just security.
 2. **Understand**  
-   - Based on the inventory of your applications of AI and AI ideas, understand which threats apply, using the decision tree in the [risk analysis section](/go/riskanalysis/).
-   - Then make sure engineers and security professionals understand those relevant threats and their controls, using the guidance of the relevant [threat sections](/go/threatsoverview/) and the corresponding [process controls and technical controls](/go/periodictable/). Note that most of these controls are familiar conventional security countermeasures, unless you are training your own model.
+   - Based on the inventory of your applications of AI and AI ideas, understand which threats apply, using the decision tree in the [risk analysis section](/go/threatmodel/).
+   - Then make sure engineers and security professionals understand those relevant threats and their controls, using the guidance of the relevant [threat sections](/go/threatsoverview/) and the corresponding [process controls and technical controls](/go/periodictable/). Note that most of these controls are about familiar conventional security countermeasures, unless you are training your own model.
    - Use the courses and resources in the [references section](/go/references/) to support the understanding.
-   - Distinguish between controls that your organization has to implement, and those that are the responsibility of your supplier. Make the latter category part of your [supply chain management](/go/supplychainmanage/).
+   - Distinguish between controls that your organization has to implement, and those that are the responsibility of your supplier. Make the latter category part of your [supply chain management](/go/supplychainmanage/). See the [section on ready-made models](/go/readymademodel/) if you don't train your own models.
 3. **Adapt**  
     - [Adapt your security practices](/go/secprogram/) to include AI security assets, threats and controls from this document.
-    - Adapt your threat modelling to include the [AI security threat modeling](/go/threatmodel/) approach and do cross-team threat modelling, involving all engineers.
+    - Adapt your threat modelling to include the [AI security threat modeling](/go/threatmodel/) approach and do cross-team threat modelling, involving representation from all engineers.
     - Adapt your testing to include [AI-specific security testing](/go/testing/).
     - Adapt your supply chain management to include [data, model, and hosting management](/go/supplychainmanage/) and to make sure that your suppliers are taking care of the identified threats.
     - If you develop AI systems (even if you don't train your own models): Adapt your [software development practices](/go/devprogram/) and [secure development program](/go/secdevprogram/) to involve AI engineering activities. 
 4. **Reduce**  
-  Reduce potential impact by [minimizing or obfuscating sensitive data](/go/datalimit/) and [limiting the impact of unwanted behaviour](/go/limitunwanted/) (e.g., managing privileges, guardrails, human oversight etc. Basically: apply Murphy's law. 
+  Reduce potential impact by [minimizing or obfuscating sensitive data](/go/datalimit/) and [limiting the impact of unwanted behaviour](/go/limitunwanted/) (e.g., managing privileges, guardrails, human oversight etc. Basically: apply Murphy's law). This is critical because AI models can always be wrong or manipulated. 
 5. **Demonstrate**  
     Establish evidence of responsible AI security through transparency, [testing](/go/testing/), documentation, and communication. Prove to management, regulators, and clients that your AI systems are under control and that the applied safeguards work as intended.
 
