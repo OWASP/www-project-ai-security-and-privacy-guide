@@ -275,6 +275,7 @@ The five steps - G.U.A.R.D - to organize AI security as an organization are:
    - Distinguish between controls that your organization has to implement, and those that are the responsibility of your supplier. Make the latter category part of your [supply chain management](/go/supplychainmanage/). See the [section on ready-made models](/go/readymademodel/) if you don't train your own models.
 3. **Adapt**  
     - [Adapt your security practices](/go/secprogram/) to include AI security assets, threats and controls from this document. Also take into account that new regulation can be more outcome-based (e.g. the EU AI Act), instead of control-focused (like ISO/IEC 27001) which makes it important to extend the Information Security Management System with assurance processes for showing that risks have been sufficiently mitigated.
+    - Document risk assessment, control selection, the rationale, and the risk-mitigation evidence (a good idea in general, and mandatory for the AI Act.
     - Adapt your threat modelling to include the [AI security threat modeling](/go/threatmodel/) approach and do cross-team threat modelling, involving representation from all engineers.
     - Adapt your testing to include [AI-specific security testing](/go/testing/).
     - Adapt your supply chain management to include [data, model, and hosting management](/go/supplychainmanage/) and to make sure that your suppliers are taking care of the identified threats.
