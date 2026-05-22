@@ -103,6 +103,11 @@ For each monitored risk, criteria can be defined to identify suspicious patterns
   - Response context: output content, post-processing steps, filtering or blocking actions.
   - Logs are retained for a period sufficient to support analysis, in alignment with legal and contractual requirements.
 
+  **- Tamper-evident logging:**  
+  Logs only help post-incident if they can be shown to be unmodified after the fact. The completeness and accuracy concession in the Limitations subsection assumes the stored records are trustworthy on read-back, which is not automatic. A signed-receipt approach binds a hash of input, output, and processing context to a per-event signature, and pairs that signature with an independent time anchor (for example an RFC 3161 Time-Stamp Authority) so that "when" cannot be backdated by whoever holds the signing key. For operators with multi-year retention or regulated-sector audit horizons, plan now for hybrid or post-quantum signature schemes alongside classical ones. One open profile that sets out the receipt-format obligations under EU AI Act, DORA, and US sector regulations is described in [draft-marques-asqav-compliance-receipts-04](https://datatracker.ietf.org/doc/draft-marques-asqav-compliance-receipts/04/).
+  
+  *Affiliation disclosure: I edit the cited IETF draft.*
+
   **- Incident qualification and alerting:**  
   When suspicious behavior is detected, monitoring supports:
 
