@@ -546,6 +546,13 @@ Example: When Large Language Models (GenAI) can perform actions, the privileges 
 Example: LLMs (GenAI), just like most AI models, induce their results based on training data, meaning that they can make up things that are false. In addition, the training data can contain false or outdated information. At the same time, LLMs (GenAI) can come across as very confident about their output. These aspects make overreliance of LLM (GenAI) ([OWASP for LLM 09](https://llmtop10.com/llm09/)) a real risk, plus excessive agency as a result of that ([OWASP for LLM 08](https://llmtop10.com/llm08/)). Note that all AI models in principle can suffer from overreliance - not just Large Language Models.
 
 **Controls to limit the effects of unwanted model behaviour:**
+- [#OVERSIGHT](/go/OVERSIGHT/)
+- [#LEAST MODEL PRIVILEGE](/go/LEASTMODELPRIVILEGE/)
+- [#MODEL ALIGNMENT](/go/MODELALIGNMENT/)
+- [#AI TRANSPARENCY](/go/AITRANSPARENCY/)
+- [#CONTINUOUS VALIDATION](/go/CONTINUOUSVALIDATION/)
+- [#EXPLAINABILITY](/go/EXPLAINABILITY/)
+- [#UNWANTED BIAS TESTING](/go/UNWANTEDBIASTESTING/)
 
 #### #OVERSIGHT
 > Category: runtime control    
