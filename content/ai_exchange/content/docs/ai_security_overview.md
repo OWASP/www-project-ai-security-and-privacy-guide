@@ -571,8 +571,13 @@ Note that [general governance controls](/go/governancecontrols/) apply to all th
 >Category: discussion  
 >Permalink: https://owaspai.org/go/navigator/
 
-The next big pages in this resource are an extensive deep dive into all the AI security threats and their controls.  
-The navigator diagram below outlines the structure of the deep-dive section, illustrating the relationships between threats, controls, associated risks, and the types of controls applied. 
+The details of threats and controls are covered in four deep-dive sections, each on a next page at the Exchange, grouping the threats, and discussing the corresponding controls:
+- [1. General controls](/docs/1_general_controls)  
+- [2. Input threats and controls](/docs/2_threats_through_use/)  
+- [3. Development-time threats and controls](/docs/3_development_time_threats/)
+- [4. Runtime conventional security threats and controls](/docs/4_runtime_application_security_threats/)  
+
+The navigator diagram below outlines the structure of the deep-dive sections, illustrating the relationships between threats, controls, associated risks, and the types of controls applied. 
 {{< callout type="info" >}}
   Click on the image to get a PDF with clickable links.
 {{< /callout >}}
