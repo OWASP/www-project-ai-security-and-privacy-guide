@@ -340,7 +340,7 @@ The upcoming sections provide overviews of AI security threats and controls.
 In the AI Exchange we focus on AI-specific threats, meaning threats to AI assets (see [#SEC PROGRAM](/go/secprogram/)), such as training data. Threats to other assets are already covered in many other resources - for example the protection of a user database. AI systems are IT systems so they suffer from various security threats. Therefore, when securing AI systems, the AI Exchange needs to be seen as an extension of your existing security program: 
 AI security = threats to AI-specific assets (AI Exchange) +threats to other assets (other resources)
 
-### Threat Diagram
+### Threat map
 We distinguish between three types of threats:
 1. threats during development-time (when data is obtained and prepared, and the model is trained/obtained) - for example data poisoning
 2. input threats: through attackers using the model (through inference; providing input and getting the output) - for example prompt injection or evasion
@@ -356,7 +356,7 @@ In AI, we outline 6 types of impacts that align with three types of attacker goa
 
 The threats that create these impacts use different attack surfaces. For example: the confidentiality of training data can be compromised by hacking into the database during development, but it can also get leaked by a _membership inference attack_ that can find out whether a certain individual was in the train data, simply by feeding that person's data into the model and looking at the details of the model output.
 
-The diagram shows the threats as arrows. Each threat has a specific impact, indicated by letters referring to the Impact legend. The [control overview section](/go/controlsoverview/) contains this diagram with groups of controls added. For a list of the assets in this diagram, see [the security program subsection](/go/secprogram/).
+The map shows the threats as arrows. Each threat has a specific impact, indicated by letters referring to the Impact legend. The [control overview section](/go/controlsoverview/) contains this diagram with groups of controls added. For a list of the assets in this map, see [the security program subsection](/go/secprogram/).
 [![](/images/threats.png?v=2)](/images/threats.png?v=2)
 
 Note that some threats represent attacks consisting of several steps, and therefore present multiple threats in one, for example:
@@ -450,8 +450,8 @@ The AI exchange lists a number of controls to mitigate risks of attack. Be aware
 **Scope of controls**
 In the AI Exchange we focus on AI-specific threats and their corresponding controls. Some of the controls are AI-specific (e.g., adding noise to the training set) and others are not (e.g., encrypting the training database). We refer to the latter as 'conventional controls'. The Exchange focuses on the details of the AI-specific controls because the details of conventional controls are specified elsewhere - see for example [OpenCRE](https://opencre.org). We do provide AI-specific aspects of those controls, for example that protection of model parameters can be implemented using a Trusted Execution Environment.
 
-### Threat diagram with controls - general
-The below diagram puts the controls in the AI Exchange into groups and places these groups in the right lifecycle with the corresponding threats.
+### Threat map with controls - general
+The below map puts the controls in the AI Exchange into groups and places these groups in the right lifecycle with the corresponding threats.
 [![](/images/threatscontrols.png?v=2)](/images/threatscontrols.png?v=2)
 The groups of controls form a summary of how to address AI security (controls are in capitals):
 - **AI Governance**(1): integrate AI comprehensively into your information security and software development lifecycle processes, not just by addressing AI risks, but by embedding AI considerations across the entire lifecycle:  
@@ -482,7 +482,7 @@ The groups of controls form a summary of how to address AI security (controls ar
 
 All threats and controls are explored in more detail in the corresponding threat sections of the AI Exchange.
 
-### Threat diagram with controls - ready-made model
+### Threat map with controls - ready-made model
 >Category: discussion  
 >Permalink: https://owaspai.org/go/readymademodel/
 
@@ -497,7 +497,7 @@ The following deployment options apply for ready-made models:
 
 **Self-hosted**
 
-The diagram below shows threats and controls of a ready-made model in a self-hosting situation.
+The map below shows threats and controls of a ready-made model in a self-hosting situation.
 
 [![AI Security Threats and controls - GenAI as-is](/images/threatscontrols-readymodel-selfhosted.png?v=2)](/images/threatscontrols-readymodel-selfhosted.png?v=2)
 
@@ -530,7 +530,7 @@ your data leaves your environment in readable form.
 When weighing this risk, compare it fairly: the vendor may still protect that environment better than you can protect your own.
 
 
-The diagram below shows threats and controls of a ready-made model in an externally hosted situation.
+The map below shows threats and controls of a ready-made model in an externally hosted situation.
 
 [![AI Security Threats and controls - GenAI as-is](/images/threatscontrols-readymodel-hosted.png?v=2)](/images/threatscontrols-readymodel-hosted.png?v=2)
 
