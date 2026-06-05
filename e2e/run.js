@@ -58,6 +58,53 @@ async function testSearchHighlightSection(page) {
   if (!isInSection) throw new Error('Current highlight not in section');
 }
 
+async function testSearchSubResultClick(page) {
+  await page.goto(`${BASE_URL}/docs/ai_security_overview/`, { waitUntil: 'networkidle0' });
+  await page.click('#search-toggle');
+  await page.waitForSelector('.search-overlay.active', { timeout: 3000 });
+  const input = await page.waitForSelector(
+    'input[type="search"], .pagefind-ui__search-input, #pagefind-search input',
+    { timeout: 5000 }
+  );
+  await input.type('AIBOM', { delay: 50 });
+  await delay(2000);
+
+  const supplyChainLink = await page.waitForSelector(
+    '#pagefind-search a[href*="supply-chain-manage"]',
+    { timeout: 8000 }
+  );
+  const nestedRow = await supplyChainLink.evaluateHandle((link) =>
+    link.closest('.pagefind-ui__result-nested')
+  );
+  const nestedEl = nestedRow.asElement();
+  if (!nestedEl) throw new Error('Expected nested result row for supply-chain-manage');
+  const excerpt = await nestedEl.$('.pagefind-ui__result-excerpt');
+  if (!excerpt) throw new Error('Expected excerpt on supply-chain-manage sub-result');
+
+  await Promise.all([
+    page.waitForNavigation({ waitUntil: 'networkidle0' }),
+    excerpt.click(),
+  ]);
+
+  const url = page.url();
+  if (!url.includes('supply-chain-manage')) {
+    throw new Error(`Expected #supply-chain-manage section: ${url}`);
+  }
+  if (url.includes('dev-security')) {
+    throw new Error(`Should not land on #dev-security: ${url}`);
+  }
+
+  const inSection = await page.evaluate(() => {
+    const anchor = document.getElementById('supply-chain-manage');
+    if (!anchor) return false;
+    const heading = anchor.closest('h1, h2, h3, h4, h5, h6');
+    if (!heading) return false;
+    const rect = heading.getBoundingClientRect();
+    return rect.top < window.innerHeight && rect.bottom > 0;
+  });
+  if (!inSection) throw new Error('Page did not scroll to supply-chain-manage section');
+}
+
 async function testSearchFullFlow(page) {
   await page.goto(`${BASE_URL}/docs/ai_security_overview/`, { waitUntil: 'networkidle0' });
   await page.click('#search-toggle');
@@ -406,6 +453,9 @@ async function main() {
     );
     await run('2. Full search flow: search → click result → land in section', () =>
       testSearchFullFlow(page)
+    );
+    await run('2b. Sub-result click lands on correct section (issue #178)', () =>
+      testSearchSubResultClick(page)
     );
     await run('3. Highlight without hash scrolls to first match', () =>
       testHighlightNoHash(page)
