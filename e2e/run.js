@@ -86,6 +86,7 @@ async function testSearchSubResultClick(page) {
     excerpt.click(),
   ]);
 
+  await page.waitForSelector('.search-highlight-current', { timeout: 5000 });
   const url = page.url();
   if (!url.includes('supply-chain-manage')) {
     throw new Error(`Expected #supply-chain-manage section: ${url}`);
@@ -95,14 +96,21 @@ async function testSearchSubResultClick(page) {
   }
 
   const inSection = await page.evaluate(() => {
+    const current = document.querySelector('.search-highlight-current');
     const anchor = document.getElementById('supply-chain-manage');
-    if (!anchor) return false;
+    if (!current || !anchor) return false;
     const heading = anchor.closest('h1, h2, h3, h4, h5, h6');
     if (!heading) return false;
-    const rect = heading.getBoundingClientRect();
-    return rect.top < window.innerHeight && rect.bottom > 0;
+    if (heading.contains(current)) return true;
+    let next = heading.nextElementSibling;
+    while (next) {
+      if (/^H[1-6]$/.test((next.tagName || '').toUpperCase())) break;
+      if (next.contains(current)) return true;
+      next = next.nextElementSibling;
+    }
+    return false;
   });
-  if (!inSection) throw new Error('Page did not scroll to supply-chain-manage section');
+  if (!inSection) throw new Error('Highlight not in supply-chain-manage section');
 }
 
 async function testSearchFullFlow(page) {

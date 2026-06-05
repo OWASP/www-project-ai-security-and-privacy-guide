@@ -387,7 +387,8 @@ async function main() {
     assertContentParity(tempHtmlPath);
 
     console.log('Generating PDF with Puppeteer...');
-    const browser = await puppeteer.launch({ headless: 'new', args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-web-security'] });
+    const { launchOptions } = require('../e2e/puppeteer-chrome');
+    const browser = await puppeteer.launch(launchOptions(['--disable-web-security']));
     const page = await browser.newPage();
 
     const failedUrls = []; // 404 or request failed
