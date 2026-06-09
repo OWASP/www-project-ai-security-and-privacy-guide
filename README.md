@@ -32,6 +32,10 @@ npm run serve         # Serve at http://localhost:3000
 
 **If you get** `permission denied` **on** `/var/lib/snapd/void` **when using a system-installed Hugo:** that's the Snap sandbox. Either run `sudo snap install hugo --classic` or use the commands above—they use `npx hugo-extended` so no system Hugo is needed.
 
+### Analytics
+
+The live site uses [GoatCounter](https://www.goatcounter.com/) for privacy-friendly pageview statistics (which pages are read, not who is reading them). The tracking snippet lives in `content/ai_exchange/layouts/partials/analytics.html` and is included from `layouts/_default/baseof.html`. Dashboard access and weekly email reports are managed in the GoatCounter account (`aix.goatcounter.com`).
+
 ## Contributions
 
 The OWASP projects are an open source effort, and we enthusiastically welcome all forms of contributions and feedback.
