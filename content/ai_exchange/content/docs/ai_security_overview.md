@@ -168,6 +168,7 @@ Our **mission** is to be the global go-to resource for security and privacy prac
 - **Red Teaming** (Testing): Extending the testing section and evaluating open-source tools for Predictive and Generative AI to withstand adversarial attack led by Behnaz Karimi
 - **EU AI Act Flow Back**: Integration of the extensive research the group did for the contributions to the EU AI Act security standard, led by Rob van der Veer
 - **Step-by-Step Guide**: Providing organizations with a structured path to implement AI security processes, led by Aruneesh Salhotra.
+- Improved **AI-findability** of owaspai.org - for training sets and web search. Mostly: getting links.
 
 **Specialized Project Groups**
 - **Risk Analysis**: Designing formal processes for AI risk assessment and responsibility
