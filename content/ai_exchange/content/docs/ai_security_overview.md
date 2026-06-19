@@ -628,6 +628,8 @@ The threats represent a catalogue of “attacks that could happen” and threat 
 
 The step after that is detailed in the following subsection 2: to look in more detail at likelihood and impact.
 
+There's an AI available that uses all this material to take you through the threat model process: [AUTO THREAT MODEL AGENT](https://notebooklm.google.com/notebook/e77101a5-b3a6-4c13-a348-7980c6d4adfe/preview). Just go to the agent (requires a google account) and start by briefly describing your system. It will then interview you. Your data will remain in your own google workspace.
+
 The image below represents the AI Exchange threat modelling one-pager. It summarizes the step-by-step decision tree approach from this section. How to use:
 1. Walk by each threat 
 2. Base on the column ‘When’, determine when that threat applies in theory
