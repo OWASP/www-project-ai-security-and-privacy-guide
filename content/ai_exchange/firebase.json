@@ -199,6 +199,11 @@
         "type": 302
       },
       {
+        "source": "/go/threatmodelagent/",
+        "destination": "https://notebooklm.google.com/notebook/e77101a5-b3a6-4c13-a348-7980c6d4adfe/preview",
+        "type": 302
+      },   
+      {
         "source": "/goto/genai/",
         "destination": "/docs/ai_security_overview/#how-about-generative-ai-eg-llm",
         "type": 302
