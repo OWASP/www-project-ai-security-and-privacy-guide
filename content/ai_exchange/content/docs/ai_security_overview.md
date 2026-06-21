@@ -620,7 +620,7 @@ NOTE: In this document, we focus on AI-specific risks only - meaning risks to th
 
 This subsection takes you through each type of risk impact, and poses questions that will help to determine which threats apply. In addition, it provides guidance to translate that to risks.
 
-There's an AI available that uses all this material to take you through the threat model process: [THREAT MODEL ADVISOR](/go/threatmodeladvisor/). Just go to the agent (requires a google account) and start by briefly describing your system. It will then interview you. Your data will remain in your own google workspace.
+There's an AI available that uses all this material to take you through the threat model process: [THREAT MODEL ADVISOR](/go/threatmodeladvisor/). Just go to the advisor (requires a google account) and start by briefly describing your system. It will then interview you. Your data will remain in your own google workspace.
 
 In essence, this is a 'Threat modeling' process: the bridge between a list of threats and a set of concrete, prioritized risks.  
 The threats represent a catalogue of “attacks that could happen” and threat modeling answers three key questions:
