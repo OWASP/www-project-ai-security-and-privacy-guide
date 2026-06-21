@@ -199,7 +199,7 @@
         "type": 302
       },
       {
-        "source": "/go/threatmodelagent/",
+        "source": "/go/threatmodeladvisor/",
         "destination": "https://notebooklm.google.com/notebook/e77101a5-b3a6-4c13-a348-7980c6d4adfe/preview",
         "type": 302
       },   
