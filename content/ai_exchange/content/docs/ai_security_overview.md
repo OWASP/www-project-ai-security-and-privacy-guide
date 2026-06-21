@@ -210,7 +210,7 @@ The AI Exchange is a single coherent resource on the security and privacy of AI 
   See 'Learn AI security' below to familiarize yourself with the threats and controls or look in the [references section](/go/references/) for a large table with training material.
 - **Threat model your system, to learn how to secure it**:  
    If you want your **AI system to be secure**, start with [threat modeling](/go/threatmodel/) to guide you through a number of questions, resulting in the threats that apply. And when you click on those threats you'll find the controls (countermeasures) to check for, or to implement.
-   Alternatively, you can let our [THREAT MODEL ADVISOR](/go/threatmodeladvisor/) ask YOU questions about your system and threat model for you. Just go to the advisor (requires a google account) and start by briefly describing your system. Your data will remain in your own google workspace.
+   Alternatively, you can let our [THREAT ADVISOR](/go/threatadvisor/) ask YOU questions about your system and threat model for you. Just go to the advisor (requires a Google account) and start by briefly describing your system. Your data will remain in your own Google workspace.
 - **Learn AI security**:  
   - Step 1: First study the brief [AI security essentials](/go/essentials/) for the **big picture**.
   - Step 2: **Select** the threats that are relevant to your practice, by looking at [threat modeling](/go/threatmodel/) - or let AI interview you to find out (see above), or skip this step if you want to learn the complete threat picture.
@@ -620,7 +620,7 @@ NOTE: In this document, we focus on AI-specific risks only - meaning risks to th
 
 This subsection takes you through each type of risk impact, and poses questions that will help to determine which threats apply. In addition, it provides guidance to translate that to risks.
 
-There's an AI available that uses all this material to take you through the threat model process: [THREAT MODEL ADVISOR](/go/threatmodeladvisor/). Just go to the advisor (requires a google account) and start by briefly describing your system. It will then interview you. Your data will remain in your own google workspace.
+There's an AI available that uses all this material to take you through the threat model process: [THREAT ADVISOR](/go/threatadvisor/). Just go to the advisor (requires a Google account) and start by briefly describing your system. It will then interview you. Your data will remain in your own Google workspace.
 
 In essence, this is a 'Threat modeling' process: the bridge between a list of threats and a set of concrete, prioritized risks.  
 The threats represent a catalogue of “attacks that could happen” and threat modeling answers three key questions:
