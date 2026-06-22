@@ -204,6 +204,11 @@
         "type": 302
       },   
       {
+        "source": "/go/agent/",
+        "destination": "https://notebooklm.google.com/notebook/75840a00-78f8-454d-ad4d-9ac27ae4cf48",
+        "type": 302
+      },   
+      {
         "source": "/goto/genai/",
         "destination": "/docs/ai_security_overview/#how-about-generative-ai-eg-llm",
         "type": 302
