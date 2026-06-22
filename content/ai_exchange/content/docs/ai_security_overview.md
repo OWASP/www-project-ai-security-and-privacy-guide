@@ -641,7 +641,12 @@ For example: You don’t have to protect against model inversion attacks that tr
 
 Another example: If your agentic system uses an LLM, then it is in theory susceptible to indirect prompt injection: malicious instructions in untrusted data that  manipulate agent behaviour. But if your only concern is that sensitive company data leaks, and there is no way for the system to send data to an attacker (e.g., email), then this threat remains theoretical. The risk does not have to be treated.
 
-[![](/images/threatmodelonepager.png)](/images/threatmodelonepager.png)
+[![](/images/threatmodelonepager.png)](/images/threatmodelonepager.png)  
+Threat model one-pager.
+
+
+[![](/images/tn_threattree.png)](/images/threattree.png)  
+Threat model decision-tree, visualizing the approach below.
 
 **Identify risks with the impact of unwanted model behaviour**
 
