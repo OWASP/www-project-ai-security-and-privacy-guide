@@ -1109,6 +1109,93 @@ Notes:
 - Prompt Injection: Evaluates the robustness of generative AI models by exploiting weaknesses in prompt design, leading to undesired outputs or bypassing model safeguards.
 *[https://owaspai.org/go/promptinjection/](https://owaspai.org/go/promptinjection/)*
 
+### Tool Name: Agent Threat Rules (ATR)
+
+| **Tool Name: Agent Threat Rules (ATR)** |  |
+| --- | --- |
+| Developer/ Source | Agent Threat Rules (community) |
+| Github Reference | [GitHub - Agent-Threat-Rule/agent-threat-rules: Open detection rules for AI-agent threats](https://github.com/Agent-Threat-Rule/agent-threat-rules) |
+| Language | Python (`pyatr` on PyPI) |
+| Licensing | Open-source under the MIT License. |
+| Provides Mitigation | Prevention: No  Detection: Yes ✅ |
+| API Availability |  |
+
+| Factor | Details |
+| --- | --- |
+| **Popularity** | - **Source:** Open-source ruleset; see the live repository for the current rule count, releases, and stars. |
+|  | - **Trend:** Continuously updated, with frequent releases. |
+| **Community Support** | - **Documentation:** Each rule is YAML with test cases and framework mappings (OWASP LLM/Agentic Top 10, MITRE ATLAS/ATT&CK, NIST AI RMF). |
+|  | - **Discussion Forums:** GitHub issues. |
+| **Scalability** | - **Engine:** Deterministic, in-process pattern matching via the `pyatr` engine; no model call and no network required. |
+| **Integration** | - **Compatibility:** Scans agent inputs, tool/MCP arguments, and skill manifests; usable as a runtime guardrail or a CI check. |
+
+**Tool Rating**
+
+| **Criteria** | **High** | **Medium** | **Low** |
+| --- | --- | --- | --- |
+| **Popularity** |  | ✅ |  |
+| **Community Support** |  | ✅ |  |
+| **Scalability** | ✅ |  |  |
+| **Ease of Integration** | ✅ |  |  |
+
+**Data Modality**
+
+| Data Modality | Supported |
+| --- | --- |
+| Text | ✅ |
+| Image |  |
+| Audio |  |
+| Video |  |
+| Tabular data |  |
+
+**Machine Learning Tasks**
+
+| Task Type | Data Modality | Supported |
+| --- | --- | --- |
+| Classification | All (See Data modality section) | ✅ |
+| Object Detection | Computer Vision |  |
+| Speech Recognition | Audio |  |
+
+**Framework Applicability**
+
+| Framework / Tool | Category | Supported |
+| --- | --- | --- |
+| Tensorflow | DL, GenAI |  |
+| PyTorch | DL, GenAI |  |
+| Azure OpenAI | GenAI | ✅ |
+| Huggingface | ML, GenAI |  |
+| Azure managed endpoints | Machine Learning Deployment |  |
+| Cohere | GenAI |  |
+| Replicate Text Models | GenAI |  |
+| OpenAI API | GenAI | ✅ |
+| GGUF (Llama.cpp) | GenAI, Lightweight Inference |  |
+| OctoAI | GenAI |  |
+
+**OWASP AI Exchange Threat Coverage**
+
+| Topic | Coverage |
+| --- | --- |
+| Development time model poisoning |  |
+| Runtime model poisoning |  |
+| Model theft by use |  |
+| Training data poisoning |  |
+| Training data leak |  |
+| Runtime model theft |  |
+| Evasion (Tests model performance against adversarial inputs) |  |
+| Model inversion / Membership inference |  |
+| Denial of model service |  |
+| Direct prompt injection | ✅ |
+| Data disclosure |  |
+| Model input leak |  |
+| Indirect prompt injection | ✅ |
+| Development time model theft |  |
+| Output contains injection | ✅ |
+
+Notes:
+
+- Agent Threat Rules is an executable, regularly-updated detection ruleset for AI-agent threats (prompt injection, tool/MCP argument tampering, exfiltration, and malicious skill manifests), run via the open-source `pyatr` engine. See the live repository for the current rule count and framework mappings.
+- Prompt Injection: detects direct and indirect prompt-injection patterns and injection in agent or tool output. [*https://owaspai.org/go/promptinjection/*](https://owaspai.org/go/promptinjection/)
+
 ## Tool Ratings
 This section rates the discussed tools by Popularity, Community Support, Scalability and Integration.
 
