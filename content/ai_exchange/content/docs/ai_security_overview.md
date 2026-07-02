@@ -295,10 +295,10 @@ And finally: think before you build an AI solution. AI can have fantastic benefi
 >Category: discussion  
 >Permalink: https://owaspai.org/go/essentials/
 
-This section serves as THE starting point to understand the foundations of AI security, and was established in close collaboration with industry and institutes, including complete alignment with the [SANS Critical AI security guidelines](https://assets.contentstack.io/v3/assets/bltabe50a4554f8e97f/blte964a6eef293d57e/whitepaper-critical-ai-security-guidelines).
+This section serves as THE starting point to understand the foundations of AI security, and was established in close collaboration with industry and institutes, including complete alignment with the [SANS Critical AI security guidelines](https://assets.contentstack.io/v3/assets/bltabe50a4554f8e97f/blte964a6eef293d57e/whitepaper-critical-ai-security-guidelines) and formal standards ISO/IEC 27090 (AI security) and prEN18282 (Cybersecurity for the AI Act).
 
 
-#### New threats (overview [here](/go/threatsoverview/)):
+**New threats** (full overview [here](/go/threatsoverview/)):
   1. **[Model input threats](/go/inputthreats/)**:  
       - [Evasion](/go/evasion/): Misleading a model by crafting data to force wrong decisions
       - [Prompt injection](/go/promptinjection/): Misleading a model by crafting instructions to manipulate behaviour
@@ -312,10 +312,12 @@ This section serves as THE starting point to understand the foundations of AI se
       - Input - can [leak](/go/inputdataleak/)
       - Output - can contain [injection attacks](/go/outputcontainsconventionalinjection/)
 
-    
-#### New controls** (overview [here](/go/controlsoverview/)):
+Note: Attackers that obtain the model (or a similar one) can perform or prepare input attacks efficiently and without being noticed.
 
-The controls for AI security can be divided into four main categories and 8 sub categories, linking to a total of over 50 individual controls that are discussed in depth at the Exchange.
+    
+**New controls** (overview [here](/go/controlsoverview/)):
+
+The controls for AI security can be divided into four main categories and 8 sub categories, linking to over 50 individual controls discussed in depth at the Exchange.
 
 Manage:
 - Extend existing [Governance](/go/aiprogram/), [Risk](/go/riskanalysis/) and [Compliance](/go/checkcompliance/) - in order to secure AI, you need overview, analysis, policy, training, and responsibilities
@@ -329,12 +331,11 @@ Watch:
 - Apply **Model I/O handling** for runtime filtering, stopping or alerting to suspicious input or output. It is typically the territory of data and model engineers e.g. data scientists, involving elements from mathematics, statistics, linguistics and machine learning.
 - **[Monitoring](/go/monitoruse/)** of model performance and inference - extending model I/O handing and overlooking general usage of the AI system
 
-Limit (because of zero model trust: assume a model can be misled, make mistakes, or leak data):
+Limit:  
+(because of zero model trust: assume a model can be misled, make mistakes, or leak data)
   - [Minimize or obfuscate sensitive data](/go/datalimit/)
   - [Limit model behaviour](/go/limitunwanted/) (e.g., [oversight](/go/oversight/), [least model privilege](/go/leastmodelprivilege/), and [model alignment](/go/modelalignment/))
 
-
-(*) Note: Attackers that have a similar model (or a copy) can typically craft misleading input efficiently and without being noticed
 
 [![](/images/essentials6.png)](/images/essentials6.png)
 
