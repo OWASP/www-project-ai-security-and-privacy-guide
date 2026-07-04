@@ -232,6 +232,10 @@ Supply chain management focuses on managing the supply chain to minimize the sec
 
 Because of these characteristics, classic supply chain management may not fully cover AI development environments, particularly notebook-based workflows and MLOps tooling.
 
+**Agent tool integrations:** Agent connectors (MCP servers, skills, plugins, custom tool adapters) are supply-chain and dev-environment assets — verify provenance, pin versions, scan integration code, and reject API contract drift at runtime. Credentials belong in a secret manager, not in integration code or agent-readable configuration.
+
+**Third-party agents:** External agents are supply-chain entities — their training, configuration, and behaviour are not under your direct control. Before production access: define evaluation criteria (model provenance, data-governance attestation, behavioural testing in a [sandbox](/go/agentsandboxing/), injection resistance, declared tool scope); assign the **lowest trust / unknown reputation tier by default** (see [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/) behavioural trust and inter-agent trust); require contractual commitments on security testing, vulnerability disclosure, incident notification, and audit cooperation; and monitor with enhanced logging throughout operational lifetime, not only at onboarding.
+
 **Objective**  
 The objective of supply chain management in AI systems is to reduce the risk of corrupted, compromised, outdated, or mismanaged externally provided components and services. This includes supplied assets such as data, models, libraries, and tools, as well as hosted AI models and AI services operated by third parties. Risk reduction is achieved through verification, continuous monitoring, and governance of these components and their providers across the AI system lifecycle. Compromises or misconfigurations could lead to unwanted model behavior, data exfiltration, service disruption, or loss of control over critical functionality.
 
