@@ -34,6 +34,8 @@ An AI Program includes:
 - Organize [compliance](/go/checkcompliance/)
 - Incorporate AI assets in the [security program](/go/secprogram/)
 
+**Agentic governance note:** Agent deployments need ethical and operational boundaries (oversight tiers, prohibited autonomous actions, data-handling rules) documented in governance and reflected in technical policy — see [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/) policy enforcement and [responsible AI](/go/responsibleai/). Regulatory mapping (for example EU AI Act intended-purpose decomposition, compositional workflow describability) sits with [#CHECK COMPLIANCE](/go/checkcompliance/) and program governance, not in threat sections — see the agentic regulatory mapping table there.
+
 When doing impact analysis on AI initiatives, consider at least the following:
 - Note that an AI program is not just about risks TO AI, such as security risks - it is also about risks BY AI, such as threats to fairness, safety, etc.
 - Include laws and regulations, as the type of AI application may be prohibited (e.g. social scoring under the EU AI Act). See #[CHECKCOMPLIANCE](/go/checkcompliance/)
@@ -296,6 +298,24 @@ Non-Security Compliance Considerations:
 - Discrimination: a process must be included to review datasets to avoid and prevent any bias. See [Unwanted bias testing](/go/unwantedbiastesting/).
 - Transparency: ensure transparency in the AI system deployment, usage and proactive compliance with regulatory requirements; “Trust by Design”
 - Accountability: AI systems should be accountable for actions and outputs and usage of data sets. See [AI Program](/go/aiprogram/)
+
+**Agentic AI regulatory mapping (Flow-Back)**
+
+The Exchange documents **security controls and threats**. Deeper classification, provider-conversion, and prohibited-practice analysis for agentic systems belongs in the organisation's **compliance program** — not reproduced here. Use this map to connect Doc §7 regulatory overlays to the right home:
+
+| Topic (Doc §) | Typical obligation | Exchange security hook (if any) | Compliance program owner |
+|---------------|-------------------|--------------------------------|---------------------------|
+| Intended purpose / Annex III classification (12.7.1, 12.1.5) | EU AI Act Art 6 — system classification before deploy | [#AI PROGRAM](/go/aiprogram/) impact analysis | [#CHECK COMPLIANCE](/go/checkcompliance/) + legal |
+| Provider conversion / substantial modification (12.7.3, 12.9) | EU AI Act Art 3(23), Art 25 | — | Compliance / legal |
+| Prohibited practices (12.1.9 overlay) | EU AI Act Art 5 | — | Compliance / legal |
+| Pre-deployment describability / compositional workflows (12.1.1) | NIST AI RMF, MGF, ForHumanity scope spec | [#AI PROGRAM](/go/aiprogram/) + [#SEC DEV PROGRAM](/go/secdevprogram/) threat modelling | Compliance + architecture governance |
+| Logging & audit trail (12.8.1) | EU AI Act Art 12 | [#MONITOR USE](/go/monitoruse/) | Compliance + ISMS |
+| Serious incident / NIS2 timelines (12.9) | Art 73, NIS2 24h/72h/1-month | [#SEC PROGRAM](/go/secprogram/) + [#MONITOR USE](/go/monitoruse/) IR | Compliance + legal |
+| Human oversight at scale (12.13.1) | EU AI Act Art 14, MGF tiers | [#OVERSIGHT](/go/oversight/) operational tiers | Compliance + operations |
+| Transparency & automated decisions (12.13.3) | Art 13, Art 50, GDPR Art 22 | [#AI TRANSPARENCY](/go/aitransparency/), [#OVERSIGHT](/go/oversight/) operational disclosure | Compliance + privacy ([Privacy section](/go/aiprivacy/)) |
+| Data quality (12.1.7 overlay) | EU AI Act Art 10 | [#AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity/), dev-time data controls | Compliance + data governance |
+
+Rob's EU AI Act Flow-Back workstream remains the primary home for inline regulatory prose; this table is the Exchange cross-reference.
 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=checkcompliance -->
