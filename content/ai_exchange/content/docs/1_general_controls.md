@@ -217,6 +217,14 @@ Particularities for AI in software development, and how to address them:
   - Run continual automated validation of the model, including discrimination bias measurement and the detection of staleness: the input space changing over time, causing the training set to get out of date
 - Model deployment is a new aspect to AI and it may offer  specific protection measures such as obfuscation, encryption, integrity checks or a Trusted Execution Environment.
 
+**Agentic lifecycle security**
+
+- **Secure development:** Threat-model agentic architectures at design time — trust boundaries, tool integration surfaces, inter-agent paths, and external input surfaces; update the model when the architecture changes. Apply secure coding to orchestration, tool integration, and policy enforcement code; treat LLM-generated content (tool parameters, inter-agent messages, planning output) as untrusted input. Security-review system prompts, tool permission configurations, and inter-agent trust relationships as first-class artefacts. Include prompt-injection, tool-call validation, and policy-enforcement checks in CI/CD; document trust assumptions and residual risks for review and [incident investigation](/go/monitoruse/).
+
+- **Secure deployment:** Validate deployment artefacts against the approved specification (model version, tool access, permission scope, policy rules, [#MONITOR USE](/go/monitoruse/) integration) before activation. Launch with least-privilege defaults; additional permissions require explicit, logged authorisation. Do not serve production traffic until monitoring and alerting are receiving agent data. Use staged rollout (canary) for agent changes; store configurations in version-controlled infrastructure with drift detection against the approved spec.
+
+- **Secure decommissioning:** Treat agent retirement as a security event, not only an operational transition. Revoke credentials, tokens, and access grants immediately — do not rely on expiry alone. Seal the audit trail with a tamper-evident closure; review persistent memory and shared-store writes for retained sensitive data or [planted adversarial content](/go/augmentationdatamanipulation/) before finalising. Do not reuse a decommissioned agent's identity for a successor without explicit re-authorisation; remove orphaned tool integrations that still reference its credentials. Record decommission timestamp, revocation confirmation, memory disposition, audit seal, and authorising principal — see also [#AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity/) and [forensic analysis](/go/monitoruse/) under incident response.
+
 **Risk-Reduction guidance**  
 Depending on risk analysis, certain threats may require specific practices in the development lifecycle. These threats and controls are covered elsewhere in this document.
 
