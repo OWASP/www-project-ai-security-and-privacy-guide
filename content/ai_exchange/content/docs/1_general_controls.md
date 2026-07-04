@@ -363,6 +363,16 @@ Useful standards include:
 
 The impact of security threats on confidentiality and integrity can be reduced by limiting the data attack surface, meaning that the amount and the variety of data is reduced as much as possible, as well as the duration in which it is kept. This section describes several controls to apply this limitation.
 
+**Agent data access governance (agentic):** Autonomous agents retrieve, combine, and retain data across tool calls and sessions. Apply [#DATA MINIMIZE](/go/dataminimize/), [#ALLOWED DATA](/go/alloweddata/), and [#SHORT RETAIN](/go/shortretain/) with agent-specific enforcement:
+
+- **Classification at the access layer:** Tag data sources with classification labels; enforce restrictions in tool and data-access controls — not in LLM instructions.
+- **Purpose binding:** Bind each agent session to a declared purpose; block access to sources irrelevant to that purpose even when the agent is authorised in other contexts.
+- **Ephemeral context:** Clear data retrieved during a task at session end unless retention is explicitly authorised, logged, and policy-approved — pair with [#AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity/) where agents use persistent memory.
+- **Access logging:** Log every agent data access with agent identity, task context, data source, classification, and timestamp in tamper-evident storage — see [#MONITOR USE](/go/monitoruse/) agent action audit trail.
+- **Periodic recertification:** Review agent data permissions on a regular cycle (for example quarterly), using the same discipline as privileged human account reviews — see [security program](/go/secprogram/).
+
+**Limitations:** Does not address aggregation risk where individually authorised reads collectively enable profiling. Does not prevent manipulation of a source before access. Ephemeral context is hard to guarantee with shared vector stores or cross-session memory.
+
 #### #DATA MINIMIZE
 > Category: development-time and runtime control  
 > Permalink: https://owaspai.org/go/dataminimize/
