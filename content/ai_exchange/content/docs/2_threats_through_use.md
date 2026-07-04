@@ -1070,6 +1070,25 @@ This section discusses the two types of prompt injection and the mitigation cont
 - [Direct prompt injection](/go/directpromptinjection/)
 - [Indirect prompt injection](/go/indirectpromptinjection/)
 
+**Agentic prompt injection**  
+In agentic systems, user data and system commands share the same context plane — there is no parameterized-query equivalent. The dominant risk often shifts from safety violations (offensive or policy-breaking text) to **integrity compromises** where adversaries hijack agent **actions** through tools and side effects. See [Agentic AI](/go/agenticaithreats/) and the [seven layers of protection](/go/promptinjectionsevenlayers/).
+
+Beyond direct and indirect injection, agentic deployments add:
+
+- **In-context manipulation:** injection of adversarial content into the agent's active context window during a session. This overlaps [indirect prompt injection](/go/indirectpromptinjection/) when untrusted content is retrieved into the window; unlike one-shot injection, effects can accumulate across turns within the session unless context is reset.
+- **Stored injection:** a subclass of indirect injection where the payload persists in a data store (RAG index, shared documents, database) and is retrieved in later sessions — see also [augmentation data manipulation](/go/augmentationdatamanipulation/) and [data poisoning](/go/datapoison/).
+- **Multi-agent propagation:** a low-privileged agent is tricked into requesting a higher-privileged agent to perform an action on its behalf.
+
+**Structural mitigations for agentic systems:**
+
+- **Agentic Rule of Two:** until reliable model-layer refusal exists, an agent session should satisfy no more than two of: (A) processing untrustworthy inputs, (B) accessing sensitive systems or private data, (C) changing state or communicating externally. When all three are required, operate under human-in-the-loop supervision ([#OVERSIGHT](/go/oversight/)).
+- **Privilege-based data flow control (CaMeL):** attach capability metadata to values and restrict data and control flows with policies; convert user intent to sandboxed code steps rather than unconstrained natural-language tool calls.
+- **Instruction and data separation:** split context into commands versus data — see [#INPUT SEGREGATION](/go/inputsegregation/) and [#PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling/).
+- **Tool-boundary firewalls:** complementary firewalls at the agent-to-tool boundary — an input firewall limits private information reaching tool execution; an output firewall sanitises tool responses. These are typically lighter than dual-LLM architectures.
+- **Detection layers:** defences operate at text, model, and execution levels; execution-level detection (observing actual tool calls and side effects) is often the most reliable when confidentiality and integrity of actions matter.
+
+Static or model-only defences evaluated against fixed example attacks do not provide security guarantees against adaptive adversaries. Under current architectures, prompt injection is not solvable at the model layer alone. Rely on structural [blast radius control](/go/limitunwanted/) — [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/), [#OVERSIGHT](/go/oversight/), [#MONITOR USE](/go/monitoruse/) — rather than probabilistic filters over model output alone.
+
 ### 2.2.1. Direct prompt injection
 >Category: input threat  
 >Permalink: https://owaspai.org/go/directpromptinjection/
@@ -1082,6 +1101,8 @@ Impact: Obtaining information from the AI that is offensive, confidential, could
 Many Generative AI systems have been adjusted by their suppliers to behave (so-called _alignment_ or _safety training_), for example to prevent offensive language, or dangerous instructions. When prompt injection is  aimed at countering this, it is referred to as a *jailbreak attack*. Jailbreak attack strategies include:
 1. Abusing competing objectives. For example: if a model wants to be helpful, but also can't give you malicious instructions, then a prompt injection could abuse this by appealing to the helpfulness to still get the instructions.
 2. Using input that is not recognized by the alignment ('out of distribution') but IS resulting in an answer based on the training data ('in distribution'). For example: using special encoding that fools safety training, but still results in the unwanted output.
+
+**Agentic jailbreak (multi-turn):** In multi-turn agents, jailbreak is often a **session-level** problem — safety constraints that hold on turn one can degrade under incremental reframing across many turns (_crescendo_ patterns). Per-request safety checks may miss progressive constraint relaxation: an agent that refuses in turn one but complies by turn ten has been jailbroken across the session. Use session-level behavioural tracking ([#OVERSIGHT](/go/oversight/)) and include multi-turn paths in [testing](/go/testing/). This is distinct from **[agent escape](/go/agentescape/)** — exceeding the operational boundary through unauthorised tools, systems, or scope — which must be enforced at the infrastructure layer ([#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/)), not by alignment alone.
 
 Common forms (attack classes, strategies) of prompt injections include:
 
@@ -1166,7 +1187,7 @@ Multimodal prompt injection can be:
 - [OpenCRE: Direct prompt injection](https://opencre.org/cre/686-110)
     referring to:
     - [OWASP Top10 for LLM: sec. LLM01:2025: Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
-    - [MITRE ATLAS: sec. AML.T0051.000: LLM Prompt Injection: Direct](https://atlas.mitre.org/techniques/AML.T0051/000)
+    - [MITRE ATLAS: sec. AML.T0051.000: LLM Prompt Injection: Direct](https://atlas.mitre.org/techniques/AML.T0051.000)
     - [ENISA: sec. Table 3:: Evasion](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [BIML: sec. BIML-24(LLM): input:2: Prompt Injection](https://berryvilleiml.com/results/BIML-LLM24.pdf)
     - [NIST AI 100-2: sec. 3.3: Direct Prompt Injection Attacks](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
@@ -1298,6 +1319,8 @@ This control does not replace access control, rate limiting, or monitoring, but 
 **Description**  
 Indirect prompt injection: a third party fools a large language model (GenAI) through the inclusion of (often hidden) instructions as part of a text that is inserted into a prompt by an application, causing unintended actions or answers by the LLM (GenAI). This is similar to remote code execution.
 
+In agentic systems that retrieve external content, invoke tools, or share memory across sessions, indirect injection is typically the **dominant** threat class — every external source is an attack surface. Persistent payloads in RAG indexes or shared documents and [multi-agent propagation](/go/promptinjection/) (delegating to a higher-privileged agent) extend the classic pattern.
+
 Impact: Getting unwanted answers or actions (see [Agentic AI](/go/agenticaithreats/)) from instructions in untrusted input that has been inserted in a prompt.
 
 Example 1: let's say a chat application takes questions about car models. It turns a question into a prompt to a Large Language Model (LLM, a GenAI) by adding the text from the website about that car. If that website has been compromised with instructions invisible to the eye, those instructions are inserted into the prompt and may result in the user getting false or offensive information.
@@ -1332,7 +1355,7 @@ See the [seven layers section](/go/promptinjectionsevenlayers/) on how these con
 - [OpenCRE: Indirect prompt injection](https://opencre.org/cre/012-625)
     referring to:
     - [OWASP Top10 for LLM: sec. LLM01:2025: Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
-    - [MITRE ATLAS: sec. AML.T0051.001: LLM Prompt Injection: Indirect](https://atlas.mitre.org/techniques/AML.T0051/001)
+    - [MITRE ATLAS: sec. AML.T0051.001: LLM Prompt Injection: Indirect](https://atlas.mitre.org/techniques/AML.T0051.001)
     - [ENISA: sec. Table 3:: Evasion](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [BIML: sec. BIML-24(LLM): input:2: Prompt Injection](https://berryvilleiml.com/results/BIML-LLM24.pdf)
     - [NIST AI 100-2: sec. 3.4: Indirect Prompt Injection Attacks](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
@@ -1522,8 +1545,8 @@ Membership inference is presenting a model with input data that identifies somet
 - [OpenCRE: Model inversion / Membership inference](https://opencre.org/cre/034-540)
     referring to:
     - [OWASP Top10 for LLM: sec. LLM02:2025: Sensitive Information Disclosure: Inference-based data disclosure attacks](https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/)
-    - [MITRE ATLAS: sec. AML.T0024.001: Exfiltration via AI Inference API: Invert AI Model](https://atlas.mitre.org/techniques/AML.T0024/001)
-    - [MITRE ATLAS: sec. AML.T0024.000: Exfiltration via AI Inference API: Infer Training Data Membership](https://atlas.mitre.org/techniques/AML.T0024/000)
+    - [MITRE ATLAS: sec. AML.T0024.001: Exfiltration via AI Inference API: Invert AI Model](https://atlas.mitre.org/techniques/AML.T0024.001)
+    - [MITRE ATLAS: sec. AML.T0024.000: Exfiltration via AI Inference API: Infer Training Data Membership](https://atlas.mitre.org/techniques/AML.T0024.000)
     - [ETSI: sec. 6.4.1: Model inversion attacks](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [ETSI: sec. 6.4.2: Membership inference attacks](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [OWASP Top10 for ML: sec. ML03:2023: Model Inversion Attack](https://mltop10.info/ML03_2023-Model_Inversion_Attack.html)
@@ -1614,7 +1637,7 @@ If attackers are able to access the model and the model allows intensive use, th
     referring to:
     - [ETSI: sec. 6.1: Model stealing attacks](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [OWASP Top10 for ML: sec. ML05:2023: Model Theft](https://mltop10.info/ML05_2023-Model_Theft.html)
-    - [MITRE ATLAS: sec. AML.T0024.002: Exfiltration via AI Inference API: Extract AI Model](https://atlas.mitre.org/techniques/AML.T0024/002)
+    - [MITRE ATLAS: sec. AML.T0024.002: Exfiltration via AI Inference API: Extract AI Model](https://atlas.mitre.org/techniques/AML.T0024.002)
     - [BIML: sec. BIML-78(2020): model:5: Steal the Box](https://berryvilleiml.com/results/interactive)
     - [NIST AI 100-2: sec. 2.4.3: Model Extraction](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
     - [ENISA: sec. Table 3:: Model disclosure](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
@@ -1681,6 +1704,8 @@ Examples:
 
 **Description**  
 Denial-of-service input validation: input validation and sanitization to reject or correct malicious (e.g. very large) content
+
+**Agent tool parameters:** Apply the same discipline to LLM-generated tool arguments — size limits, reject path traversal and shell metacharacters, and block injection-driven tool execution loops via per-tool rate limits. See [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/) tool call validation.
 
 Follow the guidance in [#MONITOR USE](/go/monitoruse/) regarding detection considerations and response options.
 

@@ -13,7 +13,7 @@ An AI system is an IT system, so at runtime it can be vulnerable to any security
 
 So, this page covers conventional security attacks that have AI-specific consequences. For example: changing model behaviour by hacking into a runtime database of augmentation data (data that is added to the model input). The details of how these attacks are performed are covered in many other resources. This section focuses on the AI-specific consequences and the categories of controls required. In-depth coverage of controls against conventional attacks are covered in many other resources. This section focuses on AI-specific aspects of these controls, such as the option of using a Trusted Execution Environment for models.  
 
-The subsections cover non-AI-specific threats, model poisoning, model leak, insecure output handling, leaking input data, and attacks on augmentation data.
+The subsections cover non-AI-specific threats, model poisoning, model leak, insecure output handling, leaking input data, attacks on augmentation data, agent escape, and agent sandboxing.
 
 ## 4.1. Generic security threats
 > Category: group of runtime threats  
@@ -235,6 +235,14 @@ See the [security program](/go/secprogram/) and [application security](/go/secde
 Impact: Integrity breach of augmentation data through a conventional attack on the data at rest or in transit - leading to manipulated model behaviour.
 
 Augmentation data (context information added to a prompt) can be stored in for example _vector databases_, _system prompt storage_, or the working memory of an agent. When augmentation data is manipulated (e.g., inserting false information), it can change the behaviour of the model - making it very similar to [data poisoning](/go/datapoison/).
+
+**Agent memory and context manipulation** distinguishes three surfaces that need separate controls:
+
+1. **In-context manipulation:** adversarial content in the active context window during a session — typically an [indirect prompt injection](/go/indirectpromptinjection/) or [prompt injection I/O handling](/go/promptinjectioniohandling/) problem unless the session writes poisoned content onward.
+2. **Persistent memory poisoning:** corruption of vector stores, knowledge bases, or long-term agent memory retrieved across sessions — functionally similar to [RAG poisoning](https://atlas.mitre.org/techniques/AML.T0070) and development-time [data poisoning](/go/datapoison/) at the integrity layer, but at runtime in agent stores. Content written by one agent or session may be retrieved by another; a compromised write is a future read attack.
+3. **Cross-session state persistence:** adversarial content from one session surviving into the next through shared memory or state channels — a persistence mechanism even when the original injection vector was in-context.
+
+Example: A multi-agent customer support system uses a shared vector store for product knowledge. An adversary submits a support request containing a fabricated return policy. An agent stores a summary in the shared vector store. Subsequent agents return the fabricated policy to other customers until the entry is found and removed.
 
 **References**
 <!-- OPENCRE_SECTION_CRE_START slug=augmentationdatamanipulation -->

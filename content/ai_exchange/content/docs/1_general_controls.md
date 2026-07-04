@@ -541,6 +541,18 @@ Successfully mitigating unwanted model behaviour has its own threats:
 - Overreliance: the model is being trusted too much by users
 - Excessive agency: the model is being trusted too much by engineers and gets excessive functionality, permissions, or autonomy
 
+**Agentic autonomous decisions:** When agents can plan and execute with limited human involvement, impact shifts from incorrect output to unsafe or unauthorised **actions**. Typical impact patterns — from attacks, manipulation, or misconfiguration — include:
+
+- **Objective mis-specification and goal drift:** vague or proxy objectives lead agents to optimise the wrong metric (for example maximising ticket closure by suppressing alerts); long-running agents can accumulate small state or memory deviations away from intended policy.
+- **Goal hijacking:** adversaries redirect the agent's **overarching objective** (not just a single action) so subsequent planning serves attacker intent — often via [prompt injection](/go/promptinjection/) or memory manipulation. Anchor declared task objectives in infrastructure configuration the agent cannot modify; monitor intermediate outputs against the original goal ([#OVERSIGHT](/go/oversight/)); require human confirmation when scope changes beyond predefined bounds.
+- **Reward hacking and specification gaming:** agents exploit loopholes in metrics, rules, or evaluation pipelines rather than satisfying real goals; self-optimisation loops can reinforce shortcuts that bypass controls.
+- **Unbounded action space:** planners synthesise multi-step tool chains never explicitly reviewed, including combinations that bypass existing guardrails.
+- **Runaway escalation:** feedback loops from autonomous remediation (autoscaling, mass rollbacks, aggressive blocking) can overshoot or conflict with other agents or human operators.
+- **Cross-domain coupling:** a single routing, configuration, or feature-flag change can affect security controls, logging, or data flows elsewhere; many small correlated autonomous changes are harder to reason about and roll back than isolated human-driven changes.
+- **Accountability gaps:** without records of inputs, policy context, and chosen actions, harmful autonomous decisions are hard to explain, contest, or learn from.
+
+Steering autonomous decisions by altering perceived environment (RAG content, configuration, feature flags, logs) is typically an **attack vector** — see [prompt injection](/go/promptinjection/), [indirect prompt injection](/go/indirectpromptinjection/), and development-time poisoning threats — rather than a separate impact category. Mitigation is [blast radius control](/go/limitunwanted/) through [#OVERSIGHT](/go/oversight/), [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/), and [#MONITOR USE](/go/monitoruse/).
+
 Example: When Large Language Models (GenAI) can perform actions, the privileges around which actions and when become important ([OWASP for LLM 07](https://llmtop10.com/llm07/)).
 
 Example: LLMs (GenAI), just like most AI models, induce their results based on training data, meaning that they can make up things that are false. In addition, the training data can contain false or outdated information. At the same time, LLMs (GenAI) can come across as very confident about their output. These aspects make overreliance of LLM (GenAI) ([OWASP for LLM 09](https://llmtop10.com/llm09/)) a real risk, plus excessive agency as a result of that ([OWASP for LLM 08](https://llmtop10.com/llm08/)). Note that all AI models in principle can suffer from overreliance - not just Large Language Models.

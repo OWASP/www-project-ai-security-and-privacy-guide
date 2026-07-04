@@ -58,7 +58,7 @@ Data and models may have been obtained externally, just like software components
 Training data is in most cases only present during development-time, but there are exceptions:
   - A machine learning model may be continuously trained with data collected at runtime, which puts (part of the) training data in the runtime environment, where it also needs protection - as covered in this control section
   - For GenAI, information can be retrieved from a repository to be added to a prompt (_augmentation_), for example to inform a large language model about the context to take into account for an instruction or question. This principle is called _in-context learning_. For example [OpenCRE-chat](https://opencre.org/chatbot) uses a repository of requirements from security standards to add to a user question so that the large language model is more informed with background information. In the case of OpenCRE-chat this information is public, but in many cases the application of this so-called Retrieval Augmented Generation (RAG) will have a repository with company secrets or otherwise sensitive data. Organizations can benefit from unlocking their unique data, to be used by themselves, or to be provided as service or product. This is an attractive architecture because the alternative would be to train an LLM or to finetune it, which is expensive and difficult. A RAG approach may suffice. Effectively, this puts the repository data to the same use as training data is used: control the behaviour of the model. Therefore, the security controls that apply to train data, also apply to this run-time repository data. See [augmentation data manipulation](/go/augmentationdatamanipulation/).
-  - For GenAI, a special type of data to be added to input is a _system prompt_: instructions to the model regarding its behaviour. It is also used to _augment_ the input of the model, so it determines the model behaviour and therefore is an asset to protect. 
+  - For GenAI, a special type of data to be added to input is a _system prompt_: instructions to the model regarding its behaviour. It is also used to _augment_ the input of the model, so it determines the model behaviour and therefore is an asset to protect. For agentic deployments, extend the same rigour to RLHF feedback datasets, reward functions, and agent configuration files — version-control, access-restrict, and verify integrity at runtime.
 
 **Details on the how: protection strategies:**
 
@@ -271,7 +271,11 @@ Supply chain management benefits from verifying the integrity and authenticity o
 - content-addressable storage or verification at read time,
 - periodic integrity audits.
 
+**Agent component integrity:** Maintain a per-agent bill of materials (model versions, MCP servers, skills, plugins, libraries, configuration files). Sign components at origin; verify signatures in the deployment pipeline and reject deployments that fail verification or do not match the approved BOM. Monitor at runtime for unauthorised component changes (drift from deployed versions). Apply the same standards to third-party components; items without verifiable provenance should be treated as untrusted.
+
 Monitoring for known vulnerabilities affecting supplied models, data pipelines, and dependencies, based on regular review of relevant security advisories and communications, allows teams to respond to newly discovered risks in a timely manner, informed by severity and exploitability, through updates, containment, or compensating controls. These activities can be integrated into broader vulnerability management and incident response processes (see #[DEV SECURITY](/go/devsecurity/)).
+
+**Agent dependency vulnerability management:** Maintain a continuously updated inventory of agent dependencies — model providers, tool and MCP server endpoints, orchestration frameworks, and runtime libraries. Subscribe to advisories, automate scanning in CI/CD, and define severity-based remediation SLAs. When immediate patching is infeasible, apply compensating controls (restrict affected tools, narrow segmentation, increase monitoring, temporarily disable functionality). Note that vulnerability disclosure for model providers and MCP servers is less mature than for conventional software; periodic reviews should also retire deprecated or unmaintained components.
 
 **Implementation of supplier evaluation and security assessment of supplied models and model hosting**  
 Evaluating the trustworthiness of suppliers (external vendors or internal teams) helps contextualize supply chain risk. This may include reviewing:
@@ -355,6 +359,8 @@ Development-time model poisoning in the broad sense is when an attacker manipula
 1. [data poisoning](/go/datapoison/): an attacker manipulates training data, or data used for in-context learning.
 2. [development-environment model poisoning](/go/devmodelpoison/): an attacker manipulates model parameters, or other engineering elements that take part in creating the model, such as code, configuration or libraries.
 3. [supply-chain model poisoning](/go/supplymodelpoison/): using a supplied trained model which has been manipulated by an attacker.
+
+Agent fine-tuning and RLHF for autonomous agents follow these same poisoning paths; see [agentic development-time threats](/go/developmenttime/) above.
 
 Impact: Integrity of model behaviour is affected, leading to issues from unwanted model output (e.g., failing fraud detection, decisions leading to safety issues, reputation damage, liability).
 
@@ -624,7 +630,7 @@ This control can only be applied during training and therefore not to an already
 <!-- OPENCRE_SECTION_CRE_START slug=traindatadistortion -->
 - [OpenCRE: Train data distortion](https://opencre.org/cre/567-025)
     referring to:
-    - [ETSI: sec. 5.2.2: Data sanitization](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
+    - [ETSI: sec. 5.2.2: Data sanitisation](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [ENISA: sec. Table 5:: Use methods to clean the training dataset from suspicious samples](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [NIST AI 100-2: sec. 2.3.1: Availability Poisoning](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
 <!-- OPENCRE_SECTION_CRE_END slug=traindatadistortion -->
