@@ -1019,6 +1019,16 @@
         "type": 302
       },
       {
+        "source": "/go/agentescape/",
+        "destination": "/docs/4_runtime_application_security_threats/#48-agent-escape",
+        "type": 302
+      },
+      {
+        "source": "/go/agentsandboxing/",
+        "destination": "/docs/4_runtime_application_security_threats/#49-agent-sandboxing-and-isolation",
+        "type": 302
+      },
+      {
         "source": "/goto/testing/",
         "destination": "/docs/5_testing",
         "type": 302

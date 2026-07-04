@@ -262,7 +262,77 @@ Example: A multi-agent customer support system uses a shared vector store for pr
 > Permalink: https://owaspai.org/go/augmentationdataintegrity/
 
 **Description**  
-See the [security program](/go/secprogram/) and [application security](/go/secdevprogram/), [development environment security](/go/devsecurity/), and [data segregation](/go/segregatedata/) to protect the integrity of transporting and storing augmentation data (e.g., access control, encryption, minimize retention).
+Protect the integrity of augmentation data at rest and in transit — vector stores, system prompt storage, RAG indexes, and agent working or long-term memory. See the [security program](/go/secprogram/), [application security](/go/secdevprogram/), [development environment security](/go/devsecurity/), and [data segregation](/go/segregatedata/).
 
+**Objective**  
+Preserve trustworthy context for model and agent decisions. Manipulated augmentation data changes behaviour without altering model weights — see [augmentation data manipulation](/go/augmentationdatamanipulation/).
 
+**Implementation (agentic memory)**  
+- Treat vector store and shared agent memory content as an **untrusted external input surface** — apply the same sanitisation and segregation controls as for user messages and retrieved documents ([#PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling/), [#INPUT SEGREGATION](/go/inputsegregation/)).
+- **Memory provenance tracking:** record source, writer identity (agent or session), timestamp, and partition for each write; enables forensic reconstruction after [persistent memory poisoning](/go/augmentationdatamanipulation/).
+- **Integrity verification:** verify stored content before it enters an agent's active context; reject or quarantine entries failing checks.
+- **Memory access controls:** restrict which agents and sessions can read from and write to specific memory partitions; cross-agent memory access without explicit authorisation is lateral movement through shared state.
+- **Session-boundary sanitisation:** review and where appropriate reset agent context between tasks so adversarial in-context content does not influence the next task.
+- **Incident replay:** immutable append-only logs of memory state changes support replay at prior points — pair with [#MONITOR USE](/go/monitoruse/) logging fields for memory writes.
+- **Planning artefacts:** protect plan libraries, templates, and heuristics with integrity verification and access control; validate plans against policy before execution — see [agentic development-time threats](/go/developmenttime/).
 
+**Limitations**  
+Provenance and integrity checks add storage and latency. Distinguishing legitimate memory updates from adversarial poisoning at scale remains difficult — structural access control and write authorization limit blast radius when detection is uncertain.
+
+---
+
+## 4.8. Agent escape
+> Category: runtime conventional security threat (agentic)  
+> Permalink: https://owaspai.org/go/agentescape/
+
+**Description**  
+
+**Agent escape** is when an autonomous agent operates **outside its defined security boundary** — invoking tools it is not authorised to use, accessing systems outside its scope, or taking actions beyond its assigned task. This is distinct from **[jailbreak](/go/directpromptinjection/)**, which overrides safety constraints while remaining within the operational boundary (for example producing harmful content the agent was instructed to refuse). Jailbreak is primarily a reasoning-layer problem; escape is primarily a **policy enforcement** problem at the infrastructure layer. Conflating the two produces controls that are only partially effective against each.
+
+Impact: Unauthorised side effects despite (or after) alignment — data access, tool invocation, or configuration changes outside the agent's intended scope. Infrastructure-layer enforcement can block escape even when jailbreak succeeds at the reasoning layer.
+
+**Implementation**
+
+- Enforce capability-based access controls at the **backend** that restrict tool sets, data sources, and action space independently of LLM reasoning — see [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/). An agent that cannot invoke a tool because infrastructure denies access cannot escape into that tool regardless of jailbreak success.
+- Apply **role and scope boundary enforcement** at every tool invocation: verify the invoking agent's current task scope and authorised role permit the specific call. A valid tool call from an agent performing an out-of-scope task is an escape event even if the tool is individually authorised.
+- Pair with [#OVERSIGHT](/go/oversight/) for session-level jailbreak drift detection; escape prevention does not replace monitoring for progressive alignment bypass.
+- Include jailbreak and escape scenarios in [red teaming](/go/testing/) with explicit multi-turn and multi-session paths — single-turn jailbreak testing underestimates production agentic risk.
+
+Example: A code-execution agent is jailbroken across eight turns using incremental reframing that normalises exploratory system commands. By turn eight it attempts file-system enumeration it would have refused in turn one. A sandbox restriction blocking access outside the designated directory stops the command from producing output — jailbreak at the reasoning layer, escape blocked at infrastructure. Session drift monitoring flags progressive relaxation at turn five for human review.
+
+**Limitations**  
+Agents with very broad authorised scope can cause harm through jailbreak without technically escaping. Capability enforcement may be difficult to retrofit when tool access was historically managed in prompts alone.
+
+**Controls**
+- See [General controls](/go/generalcontrols/)
+- [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/), [#OVERSIGHT](/go/oversight/), [#MONITOR USE](/go/monitoruse/)
+- [Agent sandboxing and isolation](/go/agentsandboxing/)
+
+---
+
+## 4.9. Agent sandboxing and isolation
+> Category: runtime conventional security control (agentic)  
+> Permalink: https://owaspai.org/go/agentsandboxing/
+
+**Description**  
+Runtime operational control — not pre-deployment testing alone. Each live agent runs in a bounded environment (compute, memory, storage, network, IPC) so compromise, malfunction, or [prompt injection](/go/promptinjection/) cannot spread beyond its designated boundary.
+
+**Objective**  
+Contain blast radius: a hijacked agent must not access other agents' memory, credentials, or services, or exfiltrate data through uncontrolled network paths.
+
+**Implementation**
+
+- **Execution environment isolation (4.9.1):** Run each agent in a dedicated container, microVM, or OS-enforced sandbox with separate namespaces (PID, network, mount, UID). Read-only root with ephemeral writable layers discarded on termination. Apply mandatory access control (seccomp, AppArmor, SELinux) and disable unneeded capabilities (raw sockets, privilege escalation). Isolate shared model inference so one agent's context does not leak to another where feasible.
+- **Network segmentation (4.9.3):** Default-deny egress; permit only task-required endpoints. Route traffic through a monitored proxy or service mesh with allowlists and logging. Block direct agent-to-agent network paths — use an orchestration layer or message bus with auth and validation. Restrict DNS; segment agents processing untrusted content away from sensitive internal services.
+- **Platform enforcement:** Restrict spawning processes, filesystem access outside workspace, self-configuration changes, and host interaction. Monitor for escape indicators (unexpected syscalls, forbidden paths, non-permitted connections). Store tool credentials (MCP servers, APIs) **outside** the sandbox in a controlled credential store.
+- **Clean termination:** On task completion or forced stop, destroy transient state, cached data, and in-sandbox credentials.
+- **Resource quotas:** See [#LIMIT RESOURCES](/go/limitresources/) and [#RATE LIMIT](/go/ratelimit/) for per-agent CPU, memory, API volume, tool invocations, and wall-clock limits enforced by the platform — not by agent self-management.
+
+Pair with [agent escape](/go/agentescape/) prevention and [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/) for defence in depth.
+
+**Limitations**  
+Sandbox overhead scales with concurrent agents. Shared inference, credential, and policy services create implicit cross-agent channels. Container or hypervisor escape undermines containment. Segmentation cannot stop exfiltration through legitimately permitted APIs. OS-specific behaviour may weaken the same approach on different hosts.
+
+**Controls**
+- See [General controls](/go/generalcontrols/)
+- [#LIMIT RESOURCES](/go/limitresources/), [#RATE LIMIT](/go/ratelimit/), [#MONITOR USE](/go/monitoruse/)

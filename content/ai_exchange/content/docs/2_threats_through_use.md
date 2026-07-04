@@ -255,8 +255,10 @@ c. Optimize & Calibrate
 d. Detection & Response
     - Breaching a rate limit must trigger event logging and potential incident workflows. 
     - Integrate with [#MONITOR USE](/go/monitoruse/) and incident response (see [#SEC PROGRAM](/go/secprogram/))
+
+**Agent fleet rate limits:** Apply per-agent and per-session caps on tool invocations, outbound API calls, and orchestration steps — not only model inference frequency. Tighter limits for agents processing untrusted content. Terminate cleanly on hard limit breach with audit and alert. Complements [agent sandboxing](/go/agentsandboxing/) and runaway remediation controls under [#OVERSIGHT](/go/oversight/).
     
-Complement this control with [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/), [#MONITORUSE])(/go/monitoruse/) and detection mechanisms. 
+Complement this control with [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/), [#MONITORUSE](/go/monitoruse/) and detection mechanisms. 
 
 **Risk-Reduction Guidance**
 
@@ -1728,6 +1730,8 @@ Useful standards include:
 
 **Description**  
 Limit resource usage for a single model input, to prevent resource overuse.
+
+**Agent resource quotas (agentic):** Enforce hard platform-level caps per agent or session — CPU time, memory, disk I/O, network egress, tool invocations, and wall-clock execution time. Quotas must be enforced by containers, API gateways, or orchestration — not by the agent. On breach, terminate execution cleanly and log an audit event. Use tighter tiers for low-trust or untrusted-content workloads. Monitor fleet-wide consumption for correlated spikes or slow exhaustion attacks. See [agent sandboxing](/go/agentsandboxing/). Resource limits bound cost and availability impact; they do not prevent all harm within the allocated budget.
 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=limitresources -->
