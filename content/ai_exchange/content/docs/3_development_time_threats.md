@@ -36,8 +36,17 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
   - [#CONF COMPUTE](/go/confcompute/) for denying access to where sensitive data is processed
   - [#FEDERATED LEARNING](/go/federatedlearning/) to decreases the risk of all data leaking and as a side-effect: increase the risk of some data leaking
   - [#SUPPLY CHAIN MANAGE](/go/supplychainmanage/) especially to control where data and models come from
-    
 
+**Agentic development-time threats**
+
+For autonomous agents, development-time integrity extends beyond train/test data:
+
+- **Malicious agent training:** Agent backdoors and biased fine-tuning follow existing [data poisoning](/go/datapoison/), [development-environment model poisoning](/go/devmodelpoison/), and [supply-chain model poisoning](/go/supplymodelpoison/) paths — reproducible pipelines, chain-of-custody, adversarial pre-deployment testing. See §3.1; no duplicate mechanics here. **Detection during training:** monitor for statistical anomalies in training-data distribution, unexpected loss landscapes, and behavioural triggers that activate only under specific input patterns. **Baseline model weights:** capture approved weight checksums or fingerprints after training; compare before deploy and on update to detect adversarial weight manipulation (targeted label, clean-label, and related attacks).
+- **Agent behaviour manipulation:** Protect post-training shaping — system prompts, RLHF datasets, reward functions, agent configuration. Version-control and access-restrict; runtime integrity checks against approved versions; separate author, review, and deploy roles; stage-test with adversarial scenarios before production. System prompts are behaviour-shaping assets (see [#DEV SECURITY](/go/devsecurity/) below).
+- **Tool integration vulnerabilities:** MCP, skills, plugins, and bespoke tool connectors — audit for hardcoded credentials, insecure deserialisation, missing validation, and leaky error handling; validate API contracts at integration and runtime; store credentials in a secret manager, not agent-accessible config. Prefer a security-reviewed integration framework; see [#SUPPLY CHAIN MANAGE](/go/supplychainmanage/).
+- **Planning system poisoning:** Treat plan libraries, templates, and heuristics as integrity-protected artefacts; validate generated plans against policy before execution; monitor for anomalous plan complexity; log planning decisions. Runtime plan stores also fall under [#AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity/).
+
+    
 #### #DEV SECURITY
 > Category: development-time information security control  
 > Permalink: https://owaspai.org/go/devsecurity/
