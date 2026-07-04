@@ -142,6 +142,8 @@ Because AI has specific assets (e.g. training data), **AI-specific honeypots** a
 
 Monitoring and incident response are standard elements of security programs and AI can be included in it by understanding the relevant AI security assets, threats, and controls. The discussion of threats include detection mechanisms that become part of monitoring.
 
+**Agentic incident response:** Extend standard playbooks for autonomous agents — define incident criteria and assign roles (detection, triage, containment, communication, post-incident review) before deployment, not during an event. Link detection to infrastructure-level containment via [#MONITOR USE](/go/monitoruse/); harm may continue while investigators triage, so playbooks must not assume the agent will cooperate. Serious incidents may also trigger parallel regulatory obligations (for example EU AI Act Art 73 reporting and NIS2 notification timelines for in-scope entities) — coordinate technical response with [#CHECK COMPLIANCE](/go/checkcompliance/), not inside monitoring controls.
+
 Note that new regulation can be more outcome-based (e.g. the EU AI Act), instead of control-focused (like ISO/IEC 27001) which makes it important to extend the Information Security Management System with assurance processes for showing that risks have been sufficiently mitigated.
 
 **References**  

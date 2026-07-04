@@ -120,6 +120,8 @@ For each monitored risk, criteria can be defined to identify suspicious patterns
   - classifying the potential incident type,
   - assigning confidence or severity levels,
   - generating alerts for follow-up investigation when appropriate with sufficient information such as unique alert id, timestamp, threat classification, attack source, severity, request and response context,       description of observed behavior etc.
+  - **Agentic policy signals:** elevated policy denial rates, cumulative session limit approaches, or conflict-resolution events from a single agent or session (see [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/) policy enforcement).
+  - **Automated detection at agent speed:** Where agent autonomy outpaces human review, consider defensive monitoring agents or automated analysers that correlate signals, enforce policy, and trigger containment — complementary to human oversight ([#OVERSIGHT](/go/oversight/)), not a substitute. Scope and privilege such tooling carefully; a defensive agent is itself part of the attack surface.
 
   Decision rules can distinguish between:
 
@@ -148,6 +150,17 @@ For each monitored risk, criteria can be defined to identify suspicious patterns
 
 **- Incident Response and Containment**
 Detection mechanisms benefit from being paired with predefined response actions that limit harm, preserve evidence, and support recovery. For each detection used in the system, a corresponding response approach can be documented (e.g., incident response playbook - SOP), specifying when actions are automated, when follow-up is required, and what escalation paths apply.
+
+For agentic deployments, these response paths apply per session or workflow, not per single inference — a compromised agent may continue acting autonomously while investigators triage. Containment must work at the infrastructure layer (kill switch, credential revocation, tool restriction, session isolation) and should not depend on the agent cooperating.
+
+**Agentic incident lifecycle**
+
+- **Detection and triage:** Define incident criteria before deployment — policy violations, unexpected actions, unsafe outputs, unauthorised tool usage, goal deviation, and inter-agent contamination. Correlate signals from automated monitoring (behavioural anomalies, policy denials, agentic log fields above), user reports, and operator observation; no single source is sufficient. Classify by severity (impact on data, systems, or users), scope (single session, multi-agent workflow, platform-wide), and urgency (ongoing autonomous harm vs latent risk). Route critical incidents to automated containment, high-severity to immediate human review, and lower-severity events to queued investigation. Log detection events and triage decisions with timestamps, rationale, and assignee.
+
+- **Containment and eradication:** Pause, isolate, or terminate at the infrastructure layer; revoke credentials and restrict tools and data access so restrictions cannot be bypassed from agent context. Isolate compromised execution environments; disable risky automations, tool integrations, or inter-agent channels contributing to the incident. Identify and remove root causes (adversarial input, configuration error, model behaviour, compromised tool, [poisoned memory or context](/go/augmentationdatamanipulation/)). Clean harmful artefacts, reset to known-good configuration, validate safety before reactivation, and document every step for post-incident review and escalation under [#SEC PROGRAM](/go/secprogram/).
+
+- **Forensic analysis:** Apply forensic holds so log rotation does not destroy evidence. Preserve agent action logs, memory partitions, context-window snapshots, tool-call chains, and inter-agent messages (see agentic logging fields above). Reconstruct chronological timelines; replay memory from append-only stores where implemented. Correlate agent-level evidence with infrastructure authentication and policy-enforcement logs. Stated reasoning traces are model output, not guaranteed internal computation — reconstruct inputs, outputs, and actions, not hidden intent. Store evidence in tamper-evident form with chain of custody; distinguish established facts from inference and note evidence gaps.
+
 Response actions may vary depending on the certainty of detection, the threat type, and the potential impact, and can include:
 
   **- Immediate containment**
