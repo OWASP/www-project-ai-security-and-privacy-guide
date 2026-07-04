@@ -13,6 +13,7 @@ Input threats (also called "threats through use", “inference-time attacks”, 
 Threats on this page:
 - [Evasion](/go/evasion/) - Bypassing decisions 
 - [Prompt injection](/go/promptinjection/) - Manipulating behaviour of GenAI systems
+- [Agent message structure manipulation](/go/agentmessagestructuremanipulation/) - Forging or altering structured agent messages (GenAI / agentic)
 - Sensitive data extraction:
     - [Disclosure in model output](/go/disclosureinoutput/)
     - [Model inversion and Membership inference](/go/modelinversionandmembership/)
@@ -342,6 +343,21 @@ If implementation is more practical for the deployer than the provider, this res
    - **Temporarily block the AI systems to the users after repeated failed authentication attempts.**
    - **Generate alerts for investigation of** suspicious **access behavior.**
 7. Integrate with other controls:** Use authenticated identity for per-user rate limiting, anomaly detection and incident reconstruction.
+
+**Agentic authentication**  
+Agents authenticate without interactive challenges, at high frequency, across trust domains, and through delegation chains where the human principal is not directly present. Pair with [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/) for authorisation after identity is established.
+
+- **Cryptographic identity:** Require mutual TLS, signed tokens, or equivalent for agent-to-service and inter-agent interactions — not shared static API keys. Authenticate at **channel** (transport) and **message** (signed payloads) levels.
+- **Agent-to-service:** Use machine-to-machine protocols (for example OAuth 2.0 client credentials) with short-lived, automatically rotated tokens scoped to specific services and operations. Bind credentials to verified agent identity and execution environment; services must validate scope per request. Log auth successes and failures at the service boundary.
+- **Multi-agent trust:** Require mutual authentication before operational exchange. Apply **trust tiers** by provenance (same operator, verified external, unknown) with proportionate data and tool limits. Use a federation or trust broker for cross-domain verification; encode negotiated constraints in a signed interaction contract. Re-establish trust after model updates, capability changes, or operator changes. **No transitive trust** — A trusts B and B trusts C does not imply A trusts C.
+
+- **Behavioural trust and reputation (optional):** Identity and authentication establish _who_ an agent is; **reputation** indicates how reliably it has behaved over time — one input to trust decisions, not a replacement for [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/) or cryptographic identity. Where implemented: track per-agent behavioural metrics (policy compliance, schema conformance, anomaly rate, tool-use patterns) in a **tamper-evident log external to the agent**; allow signed attestations of history when initiating new interactions. Map **reputation tiers** to concrete access consequences — for example high-trust agents within authorised scope; standard-trust under normal controls; low-trust or **unknown/new** agents (including [third-party onboarding](/go/supplychainmanage/)) subject to parameter review, limited tool subsets, enhanced logging, and exclusion from sensitive workflows until history is earned. Apply **reputation decay** after inactivity or material change (model update, tool-set change, operator change, environment change) — post-change agents should not inherit pre-change trust. Use **reputation-based circuit breakers**: a sudden significant score drop restricts capabilities and alerts operators (see [#MONITOR USE](/go/monitoruse/) and [#OVERSIGHT](/go/oversight/)). Secure reputation scoring infrastructure as a high-value target. **Limitations:** cold-start for new agents; long-con gaming; scores may not transfer across task types or model versions; industry scoring methods are not yet standardised — treat reputation as supplementary to identity, policy, and monitoring.
+- **Inter-agent communication:** mTLS with strict validation; **message-level signing** (content, sender, recipient, timestamp) for end-to-end integrity past TLS terminators; nonces/sequence numbers for **replay protection**; application-layer encryption across trust domains; separate channels by trust level; reject messages failing protocol schema validation before they reach agent context. Log message metadata in tamper-evident storage. See [agent message structure manipulation](/go/agentmessagestructuremanipulation/).
+- **Delegation chains:** Propagate authentication context — downstream calls carry a verifiable reference to delegating agent identity and original human principal, not only the immediate agent credential.
+- **Credential lifecycle:** Automate issuance, rotation, and revocation via infrastructure; agents must not manage their own credential stores. Maintain real-time revocation (OCSP-equivalent) for immediate invalidation.
+- **Session management:** Bind each session to agent identity, task context, and credential set; non-transferable session tokens. Enforce absolute and inactivity timeouts; re-authenticate on long-running tasks. Track cumulative session actions (tool calls, data volume, privilege scope) and deny limit exceedance. Invalidate on anomaly, credential revocation, or material scope change. On termination, revoke credentials, clear session state, and emit a session audit summary. **Do not carry session state across task boundaries** — new task, new session with freshly scoped credentials (see [#AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity/) for persistent memory risks).
+
+**Limitations (agentic):** Authentication confirms identity, not intent — a [prompt-injected](/go/promptinjection/) authenticated agent still passes auth checks. Legacy services that only accept static keys remain a gap. Per-message auth adds latency in high-throughput multi-agent systems.
 
 **Risk-Reduction Guidance**
 
@@ -1400,6 +1416,7 @@ Applicability should be determined through risk management, based on how much un
 - **Add instructions to ignore commands within marked data**: Prompts can include explicit instructions indicating that any instructions found inside the marked section should be ignored.
 - **Inspect untrusted data for instruction-like patterns**: Before inserting untrusted data into prompts, the content can be inspected for instruction-like patterns or manipulative language. This allows the system to decide whether to allow the content as-is, transform it, or exclude it from the prompt (see [PROMPT INJECTION IO HANDLING](/go/promptinjectioniohandling/)).
 - **Ensure consistent use**: All components of the system that generate prompts must follow a standard marking and instruction scheme to avoid gaps in coverage.
+- **Orchestrator and sub-agent output:** In multi-agent systems, treat **all sub-agent responses and tool outputs** entering the orchestrator as untrusted data — validate schema and bounds before routing decisions; see [#OVERSIGHT](/go/oversight/) secure orchestration and [agent message structure manipulation](/go/agentmessagestructuremanipulation/).
 
 Example prompt with inserted data:  
 "TASK:  
@@ -1436,8 +1453,50 @@ Models may not always follow instructions to ignore certain segments.
 This control does not address direct prompt injection where the attacker provides top-level instructions. 
 
 **References**  
+<!-- OPENCRE_SECTION_CRE_START slug=inputsegregation -->
+- [OpenCRE: Prompt input segregation](https://opencre.org/cre/106-447)
+    referring to:
+    - [NIST AI 100-2: sec. 3.4.5: Filtering retrieved inputs](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
+<!-- OPENCRE_SECTION_CRE_END slug=inputsegregation -->
 - [Simon Willison’s article](https://simonwillison.net/2023/Apr/14/worst-that-can-happen/)
 - [NCC Group discussion](https://research.nccgroup.com/2022/12/05/exploring-prompt-injection-attacks/)
+
+---
+
+### 2.2.3 Agent message structure manipulation
+>Category: input threat  
+>Permalink: https://owaspai.org/go/agentmessagestructuremanipulation/
+
+**Description**  
+Agent message structure manipulation: an attacker forges, replays, or alters **structured messages** between agents, tools, and orchestration layers — changing task parameters, tool arguments, routing metadata, conversation state, or schema fields — so downstream components execute unintended actions. This is distinct from [indirect prompt injection](/go/indirectpromptinjection/), which smuggles instructions in untrusted *text content* inserted into a prompt. Here the attack targets the **message fabric** (protocol fields, envelopes, delegation chains), not natural-language instructions alone.
+
+This threat applies to multi-agent systems and to **single agentic flows** (for example a RAG agent that treats tool output or planner steps as trusted structured input).
+
+Impact: Goal hijacking, privilege escalation via confused deputy behaviour, cascading misinformation across agents, or triggering unauthorized tool actions — even when visible user prompts appear benign.
+
+**Examples**
+
+Example 1: An attacker impersonates an agent on a weakly authenticated channel and injects forged messages that change tool arguments in a downstream call.
+
+Example 2: A malicious tool response supplies valid JSON with manipulated field values (task ID, recipient, file path). The orchestrator treats it as ground truth and executes the wrong action.
+
+Example 3: In a single-agent RAG pipeline, poisoned structured metadata in a retrieved document chunk alters routing or parameter binding without classic prompt-injection prose.
+
+Example 4: LLM-to-LLM “prompt infection” where one corrupted message propagates through a conversation graph over multiple hops.
+
+**Controls**
+
+- See [General controls](/go/generalcontrols/), especially [limiting the impact of unwanted behaviour](/go/limitunwanted/) ([#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/), [#OVERSIGHT](/go/oversight/)).
+- Treat peer-agent, tool, and orchestrator messages as **untrusted input** (similar to indirect prompt injection), including in single-agent tool loops.
+- [#INPUT SEGREGATION](/go/inputsegregation/) and [#PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling/) — where structured payloads are embedded in prompts.
+- [#MODEL INPUT CONFIDENTIALITY](/go/modelinputconfidentiality/) and channel integrity (signing, mTLS, replay protection) for inter-agent communication.
+- [#MONITOR USE](/go/monitoruse/) with per-hop / correlation identifiers for multi-step agent traces.
+- [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/) delegation controls — signed tokens, full-chain validation, scope non-expansion.
+- Schema validation and deny-by-default parsing at tool and message boundaries.
+- **Multi-agent layer:** Individual agent controls (§1.3, [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/)) are necessary but not sufficient. Enforce communication security at infrastructure (mTLS, signed envelopes, replay protection); detect [collusion](/go/monitoruse/) via cross-agent correlation and aggregate limits; harden the [orchestrator](/go/oversight/) — sub-agent output is untrusted input ([#INPUT SEGREGATION](/go/inputsegregation/)). Emergent collective behaviour can violate policy even when each agent complies in isolation.
+
+**References**
+- Related: [Indirect prompt injection](/go/indirectpromptinjection/), [Agentic AI attention points](/go/agenticaithreats/)
 
 ---
 

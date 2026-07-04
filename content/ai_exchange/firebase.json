@@ -614,6 +614,16 @@
         "type": 302
       },
       {
+        "source": "/go/agentmessagestructuremanipulation/",
+        "destination": "/docs/2_threats_through_use/#223-agent-message-structure-manipulation",
+        "type": 302
+      },
+      {
+        "source": "/go/agentmessagestructuremanipulation/",
+        "destination": "/docs/2_threats_through_use/#223-agent-message-structure-manipulation",
+        "type": 302
+      },
+      {
         "source": "/goto/promptinputvalidation/",
         "destination": "/docs/2_threats_through_use/#prompt-injection-io-handling",
         "type": 302
