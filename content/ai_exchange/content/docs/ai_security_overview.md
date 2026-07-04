@@ -383,6 +383,15 @@ Note that some threats represent attacks consisting of several steps, and theref
 
 In Agentic AI, AI systems can take action instead of just present output, and sometimes act autonomously or communicate with other agents. Important note: these are still software systems and AI systems, so everything in the AI Exchange applies, but there are a few attention points. 
 
+**Agentic security architecture principles**
+
+Agentic systems move AI from consulted component to **operational actor** — planning, calling tools, coordinating with other agents, and adapting with limited oversight. These are security design constraints, not a separate control catalogue:
+
+- **Enforce at infrastructure, not in prompts.** Access control, policy, and containment belong in surrounding systems ([#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/), [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/), [agent sandboxing](/go/agentsandboxing/)), not in model instructions alone.
+- **Design for compositional behaviour.** An agent with access to many tools and multi-step chaining produces a vast space of possible workflows — you cannot fully pre-specify purpose, boundaries, and side effects at design time. Threat modelling and governance specification remain necessary, but **runtime** guardrails ([#MONITOR USE](/go/monitoruse/), [#OVERSIGHT](/go/oversight/), session and tool limits) are required because emergent execution paths cannot all be enumerated upfront. Where regulation assumes pre-deployment describability of every workflow, compositional agentic systems need explicit program handling — see [#CHECK COMPLIANCE](/go/checkcompliance/) agentic regulatory mapping.
+- **Assume cascade across layers.** Data, reasoning, tools, APIs, and peer agents form one compositional attack surface; a weakness at any layer can propagate to others.
+- **Bound blast radius by default.** Deny-by-default tool access, non-transferable sessions, and **no transitive trust** between agents limit harm when [prompt injection](/go/promptinjection/) or misalignment occurs.
+
 An example of Agentic AI is a set of voice assistants that can control your heating, send emails, and even invite more assistants into the conversation. That’s powerful—but you’d probably want it to check with you first before sending a thousand emails.  
 
 There are four typical properties of agentic AI:
