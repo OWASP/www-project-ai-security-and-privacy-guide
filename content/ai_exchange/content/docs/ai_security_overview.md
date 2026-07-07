@@ -314,6 +314,7 @@ This section serves as THE starting point to understand the foundations of AI se
 
 Note: Attackers that obtain the model (or a similar one) can perform or prepare input attacks efficiently and without being noticed.
 
+---
     
 **New controls** (overview [here](/go/controlsoverview/)):
 
@@ -321,7 +322,14 @@ The controls for AI security can be divided into four main categories and 8 sub 
 
 Manage:
 - Extend existing [Governance](/go/aiprogram/), [Risk](/go/riskanalysis/) and [Compliance](/go/checkcompliance/) - in order to secure AI, you need overview, analysis, policy, training, and responsibilities
+   > [AI PROGRAM](/go/aiprogram/ ), [DEV PROGRAM](/go/devprogram/), [CHECK COMPLIANCE](/go/checkcompliance/), [SEC EDUCATE](/go/seceducate/)
 - Extend existing **conventional security controls** to protect the AI-specific assets
+  - Mananeging security: 
+        > [SEC PROGRAM](/go/secprogram/), [SECDEV PROGRAM](/go/secdevprogram/)
+  - Development-time: model & data storage, model & data supply chain, data science documentation:  
+        > [DEV SECURITY](/go/devsecurity/), [SEGREGATE DATA](/go/segregatedata/), [DISCRETE](/go/discrete/)
+      - Runtime: model storage, model use, augmentation data (including system prompts), and model input/output:  
+        > [MODEL ACCESS CONTROL](/go/modelaccesscontrol/), [RUNTIME MODEL INTEGRITY](/go/runtimemodelintegrity/), [RUNTIME MODEL IO INTEGRITY](/go/runtimemodeliointegrity/), [RUNTIME MODEL CONFIDENTIALITY](/go/runtimemodelconfidentiality/), [MODEL INPUT CONFIDENTIALITY](/go/modelinputconfidentiality/), [ENCODE MODEL OUTPUT](/go/encodemodeloutput/), [LIMIT RESOURCES](/go/limitresources/), [AUGMENTATION DATA CONFIDENTIALITY](/go/augmentationdataconfidentiality/), [AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity/), > [CONF COMPUTE](/go/confcompute/), [MODEL OBFUSCATION](/go/modelobfuscation/)   
 - Extend [Supply chain management](/go/supplychainmanage/) to incorporate suppliers providing data, models, and hosting
 
 Have resilient models:
