@@ -318,33 +318,36 @@ Note: Attackers that obtain the model (or a similar one) can perform or prepare 
     
 **New controls** (overview [here](/go/controlsoverview/)):
 
-The essential controls for AI security can be divided into four main categories and 8 sub categories, linking to over 50 individual controls discussed in depth at the Exchange.
+The controls for AI security can be divided into four essential categories and 8 essential sub categories, linking to over 50 individual controls discussed in depth at the Exchange.
 
-Manage:
-- Extend existing Governance, Risk, and compliance - in order to secure AI, you need overview, analysis, policy, training, and responsibilities
+**Manage**:
+- Extend existing **Governance, Risk, and Compliance** - in order to secure AI, you need overview, analysis, policy, training, responsibilities, and control:
   > [AI PROGRAM](/go/aiprogram/ ), [DEV PROGRAM](/go/devprogram/), [CHECK COMPLIANCE](/go/checkcompliance/), [SEC EDUCATE](/go/seceducate/)
+- Extend **Supply chain management** to incorporate suppliers providing data, models, and hosting
+  > [Supply chain management](/go/supplychainmanage/)
 - Extend existing **conventional security controls** to protect the AI-specific assets
   - Managing security:
     > [SEC PROGRAM](/go/secprogram/), [SECDEV PROGRAM](/go/secdevprogram/)
-  - Development-time: model & data storage, model & data supply chain, data science documentation:
+  - Development-time (model, data, and documentation):
     > [DEV SECURITY](/go/devsecurity/), [SEGREGATE DATA](/go/segregatedata/), [DISCRETE](/go/discrete/)
-  - Runtime: model storage, model use, augmentation data (including system prompts), and model input/output:  
+  - Runtime: (model storage, model use, augmentation data (including system prompts), and model input/output):  
     > [MODEL ACCESS CONTROL](/go/modelaccesscontrol/), [RUNTIME MODEL INTEGRITY](/go/runtimemodelintegrity/), [RUNTIME MODEL IO INTEGRITY](/go/runtimemodeliointegrity/), [RUNTIME MODEL CONFIDENTIALITY](/go/runtimemodelconfidentiality/), [MODEL INPUT CONFIDENTIALITY](/go/modelinputconfidentiality/), [ENCODE MODEL OUTPUT](/go/encodemodeloutput/), [LIMIT RESOURCES](/go/limitresources/), [AUGMENTATION DATA CONFIDENTIALITY](/go/augmentationdataconfidentiality/), [AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity/), [CONF COMPUTE](/go/confcompute/), [MODEL OBFUSCATION](/go/modelobfuscation/)   
-- Extend Supply chain management to incorporate suppliers providing data, models, and hosting
-  > [Supply chain management](/go/supplychainmanage/)
 
-Have resilient models:
-- Apply **Data/model engineering** during model development to increase resilience against model input attacks. This is the area of data and model engineers. Input attacks include triggering poisoned models - which of course can also be mitigated by preventing the model being poisoned using conventional controls. 
+**Have resilient models**:
+- Apply **data/model engineering controls** during model development for resilience against input attacks. This is the work of data and model engineers. Input attacks include triggering poisoned models - which of course can also be mitigated by preventing the model being poisoned using conventional controls:
+  > [MODEL ALIGNMENT](/go/modelalignment/), [FEDERATED LEARNING](/go/federatedlearning/), [CONTINUOUS VALIDATION](/go/continuousvalidation/), [UNWANTED BIAS TESTING](/go/unwantedbiastesting/), [EVASION ROBUST MODEL](/go/evasionrobustmodel/), [POISON ROBUST MODEL](/go/poisonrobustmodel/), [TRAIN ADVERSARIAL](/go/trainadversarial/), [TRAIN DATA DISTORTION](/go/traindatadistortion/), [ADVERSARIAL ROBUST DISTILLATION](/go/adversarialrobustdistillation/), [MODEL ENSEMBLE](/go/modelensemble/), [MORE TRAINDATA](/go/moretraindata/), [SMALL MODEL](/go/smallmodel/), [DATA QUALITY CONTROL](/go/dataqualitycontrol/)
 
-Watch:
-- Apply **Model I/O handling** for runtime filtering, stopping or alerting to suspicious input or output. It is typically the territory of data and model engineers e.g. data scientists, involving elements from mathematics, statistics, linguistics and machine learning.
-- **[Monitoring](/go/monitoruse/)** of model performance and inference - extending model I/O handing and overlooking general usage of the AI system
+**Watch:**
+- Apply **Model I/O handling** for runtime filtering, stopping or alerting to suspicious input or output. It is typically the territory of data and model engineers e.g. data scientists, involving elements from mathematics, statistics, linguistics and machine learning:
+  > [ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling/), [EVASION INPUT HANDLING](/go/evasioninputhandling/), [UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling/), [PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling/), [DOS INPUT VALIDATION](/go/dosinputvalidation/), [INPUT DISTORTION](/go/inputdistortion/), [SENSITIVE OUTPUT HANDLING](/go/sensitiveoutputhandling/), [OBSCURE CONFIDENCE](/go/obscureconfidence/), [RATE LIMIT](/go/ratelimit/)
+ - **[Monitoring](/go/monitoruse/)** of model performance and inference - extending model I/O handing and overlooking general usage of the AI system:
+   > [MONITOR USE](/go/monitoruse/)
 
-Limit:  
-(because of zero model trust: assume a model can be misled, make mistakes, or leak data)
-  - [Minimize or obfuscate sensitive data](/go/datalimit/)
-  - [Limit model behaviour](/go/limitunwanted/) (e.g., [oversight](/go/oversight/), [least model privilege](/go/leastmodelprivilege/), and [model alignment](/go/modelalignment/))
-
+**Limit:**   
+  - **Minimize or obfuscate sensitive data** because a model can accidentally leak daa or be misled to:
+    > ([DATA MINIMIZE](/go/dataminimize/), [ALLOWED DATA](/go/alloweddata/), [SHORT RETAIN](/go/shortretain/), [OBFUSCATE TRAINING DATA](/go/obfuscatetrainingdata/))
+  - **Limit model behaviour**  because a model can accidentally make a mistake or be misled to:
+   > [OVERSIGHT](/go/oversight/), [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/), [AI TRANSPARENCY](/go/aitransparency/), [EXPLAINABILITY](/go/explainability/), [CONTINUOUS VALIDATION](/go/continuousvalidation/), [UNWANTED BIAS TESTING](/go/unwantedbiastesting/)
 
 [![](/images/essentials6.png)](/images/essentials6.png)
 
