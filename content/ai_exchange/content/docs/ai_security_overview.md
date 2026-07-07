@@ -299,7 +299,7 @@ This section serves as THE starting point to understand the foundations of AI se
 
 ---
 
-**New threats** (full overview [here](/go/threatsoverview/)):
+**AI-specific threats** (full overview [here](/go/threatsoverview/)):
   1. **[Model input threats](/go/inputthreats/)**:  
       - [Evasion](/go/evasion/): Misleading a model by crafting data to force wrong decisions
       - [Prompt injection](/go/promptinjection/): Misleading a model by crafting instructions to manipulate behaviour
@@ -317,7 +317,7 @@ Note: Attackers that obtain the model (or a similar one) can perform or prepare 
 
 ---
     
-**New controls** (overview [here](/go/controlsoverview/)):
+**AI-specific controls** (overview [here](/go/controlsoverview/)):
 
 The controls for AI security can be divided into four essential categories and 8 essential sub categories, linking to over 50 individual controls discussed in depth at the Exchange.
 
