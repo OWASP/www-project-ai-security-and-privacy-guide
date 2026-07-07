@@ -318,19 +318,20 @@ Note: Attackers that obtain the model (or a similar one) can perform or prepare 
     
 **New controls** (overview [here](/go/controlsoverview/)):
 
-The controls for AI security can be divided into four main categories and 8 sub categories, linking to over 50 individual controls discussed in depth at the Exchange.
+The essential controls for AI security can be divided into four main categories and 8 sub categories, linking to over 50 individual controls discussed in depth at the Exchange.
 
 Manage:
-- Extend existing [Governance](/go/aiprogram/), [Risk](/go/riskanalysis/) and [Compliance](/go/checkcompliance/) - in order to secure AI, you need overview, analysis, policy, training, and responsibilities
-   > [AI PROGRAM](/go/aiprogram/ ), [DEV PROGRAM](/go/devprogram/), [CHECK COMPLIANCE](/go/checkcompliance/), [SEC EDUCATE](/go/seceducate/)
+- Extend existing Governance, Risk, and compliance - in order to secure AI, you need overview, analysis, policy, training, and responsibilities
+  > [AI PROGRAM](/go/aiprogram/ ), [DEV PROGRAM](/go/devprogram/), [CHECK COMPLIANCE](/go/checkcompliance/), [SEC EDUCATE](/go/seceducate/)
 - Extend existing **conventional security controls** to protect the AI-specific assets
-  - Mananeging security: 
-        > [SEC PROGRAM](/go/secprogram/), [SECDEV PROGRAM](/go/secdevprogram/)
-  - Development-time: model & data storage, model & data supply chain, data science documentation:  
-        > [DEV SECURITY](/go/devsecurity/), [SEGREGATE DATA](/go/segregatedata/), [DISCRETE](/go/discrete/)
-      - Runtime: model storage, model use, augmentation data (including system prompts), and model input/output:  
-        > [MODEL ACCESS CONTROL](/go/modelaccesscontrol/), [RUNTIME MODEL INTEGRITY](/go/runtimemodelintegrity/), [RUNTIME MODEL IO INTEGRITY](/go/runtimemodeliointegrity/), [RUNTIME MODEL CONFIDENTIALITY](/go/runtimemodelconfidentiality/), [MODEL INPUT CONFIDENTIALITY](/go/modelinputconfidentiality/), [ENCODE MODEL OUTPUT](/go/encodemodeloutput/), [LIMIT RESOURCES](/go/limitresources/), [AUGMENTATION DATA CONFIDENTIALITY](/go/augmentationdataconfidentiality/), [AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity/), > [CONF COMPUTE](/go/confcompute/), [MODEL OBFUSCATION](/go/modelobfuscation/)   
-- Extend [Supply chain management](/go/supplychainmanage/) to incorporate suppliers providing data, models, and hosting
+  - Managing security:
+    > [SEC PROGRAM](/go/secprogram/), [SECDEV PROGRAM](/go/secdevprogram/)
+  - Development-time: model & data storage, model & data supply chain, data science documentation:
+    > [DEV SECURITY](/go/devsecurity/), [SEGREGATE DATA](/go/segregatedata/), [DISCRETE](/go/discrete/)
+  - Runtime: model storage, model use, augmentation data (including system prompts), and model input/output:  
+    > [MODEL ACCESS CONTROL](/go/modelaccesscontrol/), [RUNTIME MODEL INTEGRITY](/go/runtimemodelintegrity/), [RUNTIME MODEL IO INTEGRITY](/go/runtimemodeliointegrity/), [RUNTIME MODEL CONFIDENTIALITY](/go/runtimemodelconfidentiality/), [MODEL INPUT CONFIDENTIALITY](/go/modelinputconfidentiality/), [ENCODE MODEL OUTPUT](/go/encodemodeloutput/), [LIMIT RESOURCES](/go/limitresources/), [AUGMENTATION DATA CONFIDENTIALITY](/go/augmentationdataconfidentiality/), [AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity/), [CONF COMPUTE](/go/confcompute/), [MODEL OBFUSCATION](/go/modelobfuscation/)   
+- Extend Supply chain management to incorporate suppliers providing data, models, and hosting
+  > [Supply chain management](/go/supplychainmanage/)
 
 Have resilient models:
 - Apply **Data/model engineering** during model development to increase resilience against model input attacks. This is the area of data and model engineers. Input attacks include triggering poisoned models - which of course can also be mitigated by preventing the model being poisoned using conventional controls. 
