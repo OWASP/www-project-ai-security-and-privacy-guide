@@ -19,7 +19,7 @@ AI program: Install and execute a program to govern AI.
 One could argue that this control is out of scope for cybersecurity, but it initiates action to get in control of AI security.
 
 **Objective**  
-The objective of an AI Program is to take responsibility for AI as an organization and make sure that all AI initiatives are known and under control, including their security.
+The objective of an AI Program is to take responsibility for AI as an organization and make sure that all AI initiatives are known and under control, including their security. AI deployments need ethical and operational boundaries (oversight tiers, prohibited autonomous actions, data-handling rules) documented in governance and reflected in technical policy.
 
 **Implementation**  
 This governance challenge may seem daunting because of all the new things to take care of, but there are numerous existing controls in organizations already that can be extended to include AI (e.g. policies, risk analysis, impact analysis, inventory of used services etc.).  
@@ -33,8 +33,6 @@ An AI Program includes:
 - AI literacy (e.g. [training](/go/seceducate/)
 - Organize [compliance](/go/checkcompliance/)
 - Incorporate AI assets in the [security program](/go/secprogram/)
-
-**Agentic governance note:** Agent deployments need ethical and operational boundaries (oversight tiers, prohibited autonomous actions, data-handling rules) documented in governance and reflected in technical policy — see [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/) policy enforcement and [responsible AI](/go/responsibleai/). Regulatory mapping (for example EU AI Act intended-purpose decomposition, compositional workflow describability) sits with [#CHECK COMPLIANCE](/go/checkcompliance/) and program governance, not in threat sections — see the agentic regulatory mapping table there.
 
 When doing impact analysis on AI initiatives, consider at least the following:
 - Note that an AI program is not just about risks TO AI, such as security risks - it is also about risks BY AI, such as threats to fairness, safety, etc.
@@ -309,9 +307,9 @@ Non-Security Compliance Considerations:
 - Transparency: ensure transparency in the AI system deployment, usage and proactive compliance with regulatory requirements; “Trust by Design”
 - Accountability: AI systems should be accountable for actions and outputs and usage of data sets. See [AI Program](/go/aiprogram/)
 
-**Agentic AI regulatory mapping (Flow-Back)**
+**AI regulatory mapping**
 
-The Exchange documents **security controls and threats**. Deeper classification, provider-conversion, and prohibited-practice analysis for agentic systems belongs in the organisation's **compliance program** — not reproduced here. Use this map to connect Doc §7 regulatory overlays to the right home:
+The Exchange documents **security controls and threats**. Deeper classification, provider-conversion, and prohibited-practice analysis belongs in the organisation's **compliance program** — not reproduced here. Use this map to connect regulatory obligations to the right home:
 
 | Topic (Doc §) | Typical obligation | Exchange security hook (if any) | Compliance program owner |
 |---------------|-------------------|--------------------------------|---------------------------|
@@ -324,8 +322,6 @@ The Exchange documents **security controls and threats**. Deeper classification,
 | Human oversight at scale (12.13.1) | EU AI Act Art 14, MGF tiers | [#OVERSIGHT](/go/oversight/) operational tiers | Compliance + operations |
 | Transparency & automated decisions (12.13.3) | Art 13, Art 50, GDPR Art 22 | [#AI TRANSPARENCY](/go/aitransparency/), [#OVERSIGHT](/go/oversight/) operational disclosure | Compliance + privacy ([Privacy section](/go/aiprivacy/)) |
 | Data quality (12.1.7 overlay) | EU AI Act Art 10 | [#AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity/), dev-time data controls | Compliance + data governance |
-
-Rob's EU AI Act Flow-Back workstream remains the primary home for inline regulatory prose; this table is the Exchange cross-reference.
 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=checkcompliance -->
