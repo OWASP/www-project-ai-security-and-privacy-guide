@@ -11,6 +11,7 @@ Find clickable topics in alphabetical order below. For an overview of threats an
 ### A  
 [Adversarial attacks](/go/evasion/)  
 [Agentic AI](/go/agenticaithreats/)  
+[AI engineering](/go/aiengineeringprimer/)<br>
 [Alignment](/go/modelalignment/)  
 
 ### B  
