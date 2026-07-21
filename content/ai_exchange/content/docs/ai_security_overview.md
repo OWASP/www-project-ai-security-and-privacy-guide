@@ -424,6 +424,23 @@ See [Simon Willison’s excellent work](https://simonwillison.net/2025/Jun/16/th
 
 [Prompt injection](/go/promptinjection/) and mostly the [indirect](/go/indirectpromptinjection/) form is the key threat in most agentic AI systems. See the [seven layers section](/go/promptinjectionsevenlayers/) on how these controls form layers of protection. After model alignment and filtering and detection, it should be assumed that prompt injection can still happen and therefore it is critical that _blast radius control_ is performed.
 
+For teams that need a consistent way to name and track agentic failure modes across reviews and reports, VASP (Verified Agent Security Protocol) is an open taxonomy (CC BY 4.0) of ten runtime behavioural failure modes — at the configuration and architecture level rather than the model level — each mapped to a CWE:
+
+| ID | Failure mode | CWE |
+|---|---|---|
+| VAF-001 | Approval Gate Bypass | CWE-285 |
+| VAF-002 | Policy Bound Violation | CWE-284 |
+| VAF-003 | Prompt Injection Tool Reachability | CWE-77 |
+| VAF-004 | Goal Divergence Under Distribution Shift | CWE-682 |
+| VAF-005 | Tool Scope Escalation | CWE-269 |
+| VAF-006 | Context Window Constraint Drop | CWE-119 |
+| VAF-007 | Multi-Agent Collusion Path | CWE-362 |
+| VAF-008 | PII Exfiltration via Unguarded Output | CWE-359 |
+| VAF-009 | RAG Retrieval Poisoning | CWE-346 |
+| VAF-010 | Persistent Memory Bias Accumulation | CWE-400 |
+
+Each mode is stated as a formal SMT (Z3) proof condition over the agent's configuration, where SAT means the vulnerable configuration is reachable and UNSAT means it has been ruled out. This makes the taxonomy usable as a checklist and as a machine-checkable specification. Full standard: [VASP](https://vasp-standard.vercel.app) (CC BY 4.0).
+
 Further links:
 - For more details on the agentic AI threats, see the [Agentic AI threats and mitigations, from the GenAI security project](https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/).
 - For a more general discussion of Agentic AI, see [this article from Chip Huyen](https://huyenchip.com/2025/01/07/agents.html).
