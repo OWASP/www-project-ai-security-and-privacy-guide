@@ -326,6 +326,14 @@ weight: 1
                         <td class="px-6 py-4 text-gray-700">Many clarifications and improvements throughout</td>
                     </tr>
                     <tr class="odd:bg-[#F4F2F2] even:bg-white">
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Enes Deniz
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">Turkey</td>
+                        <td class="px-6 py-4 text-gray-700">AI engineering primer for security professionals</td>
+                    </tr>
+                    <tr class="odd:bg-[#F4F2F2] even:bg-white">
                         <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Eoin Wickens
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">HiddenLayer
