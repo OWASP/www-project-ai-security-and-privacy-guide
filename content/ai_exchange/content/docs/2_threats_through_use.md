@@ -105,7 +105,15 @@ For each monitored risk, criteria can be defined to identify suspicious patterns
 
   **- Secure logging:**  
   [Security best pracices for logging](https://www.opencre.org/cre/842-876) need to be applied.  
-  A good example of such a best practice is 'tamper-evident logging', to verify whether logs have been unmodified post-incident. A signed-receipt approach binds a hash of input, output, and processing context to a per-event signature, and pairs that signature with an independent time anchor (for example an RFC 3161 Time-Stamp Authority) so that "when" cannot be backdated by whoever holds the signing key. Operators with multi-year retention or regulated-sector audit horizons should plan now for hybrid or post-quantum signature schemes alongside classical ones. One open profile that sets out the receipt-format obligations under EU AI Act, DORA, and US sector regulations is described in [draft-marques-asqav-compliance-receipts-04](https://datatracker.ietf.org/doc/draft-marques-asqav-compliance-receipts/04/).
+  A good example of such a best practice is 'tamper-evident logging', to verify whether logs have been unmodified post-incident. A signed-receipt approach binds a hash of input, output, and processing context to a per-event signature, and pairs that signature with an independent time anchor (for example an RFC 3161 Time-Stamp Authority) so that "when" cannot be backdated by whoever holds the signing key.
+
+  Three aspects make tamper-evident logging more important, and harder, for AI than for conventional applications:
+
+  - Non-deterministic output. The same input can produce different outputs, so a signature over the response alone proves little. The receipt needs to bind the input and the processing context (such as model version and parameters) together with the output, so the recorded behavior can be reproduced and reasoned about later.
+  - Long retention horizons. Regulations such as EU AI Act Article 12 and DORA Article 28 expect record-keeping over multiple years. Signatures that must remain verifiable that far out turn post-quantum and hybrid signature planning into a near-term design choice rather than a distant one.
+  - Agent-to-principal binding. For agentic systems it matters who acted under whose authority, and which model and tools were available when the action was signed. General logging guidance rarely captures this, yet it is central to attributing and investigating agent behavior.
+
+  One open profile that sets out receipt-format obligations under the EU AI Act, DORA, and US sector regulations is described in [draft-marques-asqav-compliance-receipts](https://datatracker.ietf.org/doc/draft-marques-asqav-compliance-receipts/).
   
   **- Incident qualification and alerting:**  
   When suspicious behavior is detected, monitoring supports:
