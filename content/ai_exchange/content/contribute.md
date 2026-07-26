@@ -473,6 +473,12 @@ weight: 1
                             creation, various textual improvements</td>
                     </tr>
                     <tr class="odd:bg-[#F4F2F2] even:bg-white">
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Musaab Hasan</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400"></td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">United Arab Emirates</td>
+                        <td class="px-6 py-4 text-gray-700">Contributed the table 'From general risks to controls'</td>
+                    </tr>
+                    <tr class="odd:bg-[#F4F2F2] even:bg-white">
                         <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Niklas
                             Bunzel</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">Fraunhofer
