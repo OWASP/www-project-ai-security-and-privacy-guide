@@ -1,7 +1,7 @@
 {{- /*
   Contributors hall of fame — reads a simple tab-separated file.
 
-  Edit  data/contributors.tsv  to add or change contributors:
+  Edit  content/contributors.tsv  to add or change contributors:
     * One contributor per line.
     * Columns are separated by a TAB:  Name <TAB> Company <TAB> Country <TAB> Contributions <TAB> Lead
     * No quotes, and no field names to repeat.
@@ -12,7 +12,7 @@
   To use a different separator (e.g. a pipe), change $sep below to "|".
 */ -}}
 {{- $sep := "\t" -}}
-{{- $raw := os.ReadFile "data/contributors.tsv" -}}
+{{- $raw := os.ReadFile "content/contributors.tsv" -}}
 {{- $raw = replace $raw "\r" "" -}}
 {{- $lines := split (trim $raw "\n") "\n" -}}
 <style>
@@ -37,7 +37,7 @@
 <div class="overflow-x-auto shadow-lg border border-gray-400 rounded-lg">
   <table class="hof">
     <thead>
-      <tr><th>Name</th><th>Company</th><th>Country</th><th>Contributions</th></tr>
+      <tr><th>Name</th><th>Affiliation</th><th>Country</th><th>Contributions</th></tr>
     </thead>
     <tbody>
       {{- range after 1 $lines }}
