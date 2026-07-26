@@ -178,7 +178,7 @@ weight: 1
       Contributers hall of fame
     </h2>
     {{< contributors >}}
-    To propose an update for the above hall of fame, it can be edited <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/edit/main/content/ai_exchange/content/contributors.tsv">here</a>.
+    <br>To propose an update for the above hall of fame, it can be edited <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/edit/main/content/ai_exchange/content/contributors.tsv"  class="text-gray-600 font-medium underline>here</a>.
   </div>
 </div>
 
@@ -192,7 +192,7 @@ weight: 1
         We value every contribution to our project, but it’s important to be aware of certain guidelines:
       </p>
       <p class="mb-4">
-        <span class="font-semibold">Consider the roadmap:</span> The <a href="/go/roadmap/ class="text-gray-600 font-medium underline">OWASP AI Exchange roadmap</a> leads the way on how we prioritize and organize contributions,
+        <span class="font-semibold">Consider the roadmap:</span> The <a href="/go/roadmap/" class="text-gray-600 font-medium underline>OWASP AI Exchange roadmap</a> leads the way on how we prioritize and organize contributions,
       </p>
       <p class="mb-4">
         <span class="font-semibold">Avoid Advertising:</span> The OWASP AI projects should not promote commercial tools, companies, or individuals. The focus should be on open-source tools.
