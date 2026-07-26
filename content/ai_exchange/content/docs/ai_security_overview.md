@@ -476,8 +476,8 @@ The AI exchange lists a number of controls to mitigate risks of attack. Be aware
 **Scope of controls**
 In the AI Exchange we focus on AI-specific threats and their corresponding controls. Some of the controls are AI-specific (e.g., adding noise to the training set) and others are not (e.g., encrypting the training database). We refer to the latter as 'conventional controls'. The Exchange focuses on the details of the AI-specific controls because the details of conventional controls are specified elsewhere - see for example [OpenCRE](https://opencre.org). We do provide AI-specific aspects of those controls, for example that protection of model parameters can be implemented using a Trusted Execution Environment.
 
-### Control group mapping table
-The table below gives practitioners a compact way to move from a common AI risk area to the relevant AI Exchange control groups. It complements the detailed [Periodic table of AI security](/go/periodictable/), which maps individual threat categories to specific controls.
+### From general risks to controls
+The table below gives practitioners a compact way to move from a general AI risk area to the relevant AI Exchange control groups. It complements the detailed [Periodic table of AI security](/go/periodictable/), which maps individual threat categories to specific controls.
 
 | Risk area | Typical concern | Primary control groups to review |
 | --- | --- | --- |
