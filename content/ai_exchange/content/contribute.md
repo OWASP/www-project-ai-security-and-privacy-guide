@@ -367,6 +367,12 @@ weight: 1
                         <td class="px-6 py-4 text-gray-700">many textual improvements & link to LLM top 10</td>
                     </tr>
                     <tr class="odd:bg-[#F4F2F2] even:bg-white">
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Charles Chibueze</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400"></td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">Nigeria</td>
+                        <td class="px-6 py-4 text-gray-700">A multitude of editorial fixes and improvements throughout the content</td>
+                    </tr>
+                    <tr class="odd:bg-[#F4F2F2] even:bg-white">
                         <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Chris
                             Ancharski</td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">Global
