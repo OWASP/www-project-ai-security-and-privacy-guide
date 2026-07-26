@@ -598,10 +598,19 @@
   overflow-y: auto;
 }
 
-/* Final attempt to fix Pagefind sub-results overlap by forcing extreme block separation */
+/* Pagefind sub-results: prevent parent block-link from stealing nested clicks (issue #178) */
+#pagefind-search .pagefind-ui__result:has(.pagefind-ui__result-nested) {
+  position: relative;
+}
+
+#pagefind-search .pagefind-ui__result:has(.pagefind-ui__result-nested) > .pagefind-ui__result-inner > .pagefind-ui__result-title > .pagefind-ui__result-link::after {
+  display: none !important;
+  content: none !important;
+}
+
 #pagefind-search .pagefind-ui__result-nested {
   display: block !important;
-  position: static !important;
+  position: relative !important;
   margin: 1.5rem 0 1.5rem 1.5rem !important;
   padding: 1rem !important;
   border-left: 4px solid #4CAF50 !important;
@@ -633,10 +642,13 @@
   text-decoration: underline !important;
 }
 
-#pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-link::before,
+/* Make the whole nested sub-result row clickable via block-link on its title anchor */
 #pagefind-search .pagefind-ui__result-nested .pagefind-ui__result-link::after {
-  content: none !important;
-  display: none !important;
+  content: "" !important;
+  display: block !important;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
 
 /* Brief highlight on the element we scrolled to from ?highlight= */
@@ -770,17 +782,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // When clicking a result link, add current search query as ?highlight= so the destination page can scroll to the match
+  // When clicking a result row, add ?highlight= so the destination page can scroll to the match (issue #178: resolve link from the clicked row, not a parent overlay)
   const pagefindSearch = document.getElementById("pagefind-search");
   if (pagefindSearch) {
     pagefindSearch.addEventListener("click", (e) => {
-      const link = e.target.closest("a[href]");
-      if (!link || !link.href || !pagefindSearch.contains(link)) return;
+      const resultRow = e.target.closest(".pagefind-ui__result-nested") || e.target.closest(".pagefind-ui__result");
+      if (!resultRow || !pagefindSearch.contains(resultRow)) return;
+      const link = resultRow.querySelector("a.pagefind-ui__result-link[href]");
+      if (!link || !link.href) return;
       const searchInput = pagefindSearch.querySelector("input[type=\"search\"], input[type=\"text\"], .pagefind-ui__search-input, input");
       const query = searchInput && searchInput.value && searchInput.value.trim();
       // Prefer the matched term from the result (e.g. "foolbox" when user searched "foo") – Pagefind wraps it in <mark>
-      const resultRow = link.closest("li") || link.closest("[class*='result']") || link.parentElement;
-      const matchEl = resultRow && resultRow.querySelector("mark, .pagefind-highlight, [class*='highlight']");
+      const matchEl = resultRow.querySelector("mark, .pagefind-highlight, [class*='highlight']");
       const term = (matchEl && matchEl.textContent && matchEl.textContent.trim()) || query || (link.textContent && link.textContent.trim());
       if (!term) return;
       try {

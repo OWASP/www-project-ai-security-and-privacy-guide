@@ -27,3 +27,7 @@ OWASP-AI-Exchange-Automated.pdf
 
 # OpenCRE section enrichment: generated reports (regenerate with npm run enrich:opencre)
 tmp/
+
+# Local tool caches (Puppeteer Chrome, optional Go toolchain)
+.cache/
+.tools/

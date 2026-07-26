@@ -140,6 +140,7 @@ Because AI has specific assets (e.g. training data), **AI-specific honeypots** a
 
 Monitoring and incident response are standard elements of security programs and AI can be included in it by understanding the relevant AI security assets, threats, and controls. The discussion of threats include detection mechanisms that become part of monitoring.
 
+Note that new regulation can be more outcome-based (e.g. the EU AI Act), instead of control-focused (like ISO/IEC 27001) which makes it important to extend the Information Security Management System with assurance processes for showing that risks have been sufficiently mitigated.
 
 **References**  
 Useful standards include:
@@ -545,6 +546,13 @@ Example: When Large Language Models (GenAI) can perform actions, the privileges 
 Example: LLMs (GenAI), just like most AI models, induce their results based on training data, meaning that they can make up things that are false. In addition, the training data can contain false or outdated information. At the same time, LLMs (GenAI) can come across as very confident about their output. These aspects make overreliance of LLM (GenAI) ([OWASP for LLM 09](https://llmtop10.com/llm09/)) a real risk, plus excessive agency as a result of that ([OWASP for LLM 08](https://llmtop10.com/llm08/)). Note that all AI models in principle can suffer from overreliance - not just Large Language Models.
 
 **Controls to limit the effects of unwanted model behaviour:**
+- [#OVERSIGHT](/go/OVERSIGHT/)
+- [#LEAST MODEL PRIVILEGE](/go/LEASTMODELPRIVILEGE/)
+- [#MODEL ALIGNMENT](/go/MODELALIGNMENT/)
+- [#AI TRANSPARENCY](/go/AITRANSPARENCY/)
+- [#CONTINUOUS VALIDATION](/go/CONTINUOUSVALIDATION/)
+- [#EXPLAINABILITY](/go/EXPLAINABILITY/)
+- [#UNWANTED BIAS TESTING](/go/UNWANTEDBIASTESTING/)
 
 #### #OVERSIGHT
 > Category: runtime control    

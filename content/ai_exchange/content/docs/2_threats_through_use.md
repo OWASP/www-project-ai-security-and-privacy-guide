@@ -103,6 +103,10 @@ For each monitored risk, criteria can be defined to identify suspicious patterns
   - Response context: output content, post-processing steps, filtering or blocking actions.
   - Logs are retained for a period sufficient to support analysis, in alignment with legal and contractual requirements.
 
+  **- Secure logging:**  
+  [Security best pracices for logging](https://www.opencre.org/cre/842-876) need to be applied.  
+  A good example of such a best practice is 'tamper-evident logging', to verify whether logs have been unmodified post-incident. A signed-receipt approach binds a hash of input, output, and processing context to a per-event signature, and pairs that signature with an independent time anchor (for example an RFC 3161 Time-Stamp Authority) so that "when" cannot be backdated by whoever holds the signing key. Operators with multi-year retention or regulated-sector audit horizons should plan now for hybrid or post-quantum signature schemes alongside classical ones. One open profile that sets out the receipt-format obligations under EU AI Act, DORA, and US sector regulations is described in [draft-marques-asqav-compliance-receipts-04](https://datatracker.ietf.org/doc/draft-marques-asqav-compliance-receipts/04/).
+  
   **- Incident qualification and alerting:**  
   When suspicious behavior is detected, monitoring supports:
 
@@ -1038,7 +1042,7 @@ plus: controls that protect against the model being stolen or copied (unless the
 >Permalink: https://owaspai.org/go/partialknowledgeevasion/
 
 **Description**  
-Partial-knowledge or gray-box adversarial evasion attacks occupy a middle ground between [perfect-knowledge](/go/perfectknowledgeevasion] and [zero-knowledge](/go/zeroknowledgeevasion/) attacks, where the attacker possesses partial knowledge of the target system like its architecture, training data, but lacks complete access/knowledge to its inner workings (e.g. gradients). In these attacks, the adversary leverages limited information to craft input perturbations designed to mislead machine learning models, by exploiting surrogate models (transferability) or improving known zero-knowledge attacks with the given knowledge. Partial-knowledge attacks can be more efficient and effective due to the additional insights available. This approach is particularly relevant in real-world scenarios where full model transparency is rare, but some information may be accessible.
+Partial-knowledge or gray-box adversarial evasion attacks occupy a middle ground between [perfect-knowledge](/go/perfectknowledgeevasion/) and [zero-knowledge](/go/zeroknowledgeevasion/) attacks, where the attacker possesses partial knowledge of the target system like its architecture, training data, but lacks complete access/knowledge to its inner workings (e.g. gradients). In these attacks, the adversary leverages limited information to craft input perturbations designed to mislead machine learning models, by exploiting surrogate models (transferability) or improving known zero-knowledge attacks with the given knowledge. Partial-knowledge attacks can be more efficient and effective due to the additional insights available. This approach is particularly relevant in real-world scenarios where full model transparency is rare, but some information may be accessible.
 
 **Controls**  
 See [Evasion section](/go/evasion/) for the controls.

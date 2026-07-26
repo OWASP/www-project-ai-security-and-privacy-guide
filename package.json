@@ -9,6 +9,8 @@
     "build:all": "npm run build:site && npm run pagefind && npm run build:pdf",
     "serve": "npx serve content/ai_exchange/public -p 3000",
     "test:site": "npm run build:site && npm run pagefind && npm run serve",
+    "puppeteer:install": "node e2e/install-puppeteer.js",
+    "postinstall": "node e2e/install-puppeteer.js",
     "test:e2e": "node e2e/run.js",
     "test": "node --test test/opencre-enrich/opencre-enrich.test.js",
     "test:opencre-enrich": "node --test test/opencre-enrich/opencre-enrich.test.js"
@@ -16,6 +18,7 @@
   "dependencies": {
     "jsdom": "^28.1.0",
     "pdf-lib": "^1.17.1",
-    "puppeteer": "^24.37.5"
+    "puppeteer": "^24.37.5",
+    "serve": "^14.2.6"
   }
 }

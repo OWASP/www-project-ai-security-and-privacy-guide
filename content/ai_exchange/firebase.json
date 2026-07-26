@@ -119,8 +119,13 @@
         "type": 302
       },
       {
+        "source": "/goto/readymademodel/",
+        "destination": "/docs/ai_security_overview/#threat-map-with-controls---ready-made-model",
+        "type": 302
+      },
+      {
         "source": "/go/readymademodel/",
-        "destination": "/docs/ai_security_overview/#threat-diagram-with-controls---ready-made-model",
+        "destination": "/docs/ai_security_overview/#threat-map-with-controls---ready-made-model",
         "type": 302
       },
       {
@@ -194,6 +199,21 @@
         "type": 302
       },
       {
+        "source": "/go/threatadvisor/",
+        "destination": "https://notebooklm.google.com/notebook/e77101a5-b3a6-4c13-a348-7980c6d4adfe/preview",
+        "type": 302
+      },   
+      {
+        "source": "/go/threattree/",
+        "destination": "https://owaspai.org/images/threattree.png",
+        "type": 302
+      },   
+      {
+        "source": "/go/agent/",
+        "destination": "https://notebooklm.google.com/notebook/75840a00-78f8-454d-ad4d-9ac27ae4cf48",
+        "type": 302
+      },   
+      {
         "source": "/goto/genai/",
         "destination": "/docs/ai_security_overview/#how-about-generative-ai-eg-llm",
         "type": 302
@@ -261,6 +281,11 @@
       {
         "source": "/go/aiprogram/",
         "destination": "/docs/1_general_controls/#ai-program",
+        "type": 302
+      },
+      {
+        "source": "/goto/secprogram/",
+        "destination": "/docs/1_general_controls/#sec-program",
         "type": 302
       },
       {
@@ -484,13 +509,28 @@
         "type": 302
       },
       {
+        "source": "/goto/trainadversarial/",
+        "destination": "/docs/2_threats_through_use/#train-adversarial",
+        "type": 302
+      },
+      {
         "source": "/go/trainadversarial/",
         "destination": "/docs/2_threats_through_use/#train-adversarial",
         "type": 302
       },
       {
+        "source": "/goto/inputdistortion/",
+        "destination": "/docs/2_threats_through_use/#input-distortion",
+        "type": 302
+      },
+      {
         "source": "/go/inputdistortion/",
         "destination": "/docs/2_threats_through_use/#input-distortion",
+        "type": 302
+      },
+      {
+        "source": "/goto/adversarialrobustdistillation/",
+        "destination": "/docs/2_threats_through_use/#adversarial-robust-distillation",
         "type": 302
       },
       {
@@ -639,8 +679,18 @@
         "type": 302
       },
       {
+        "source": "/goto/obscureconfidence/",
+        "destination": "/docs/2_threats_through_use/#obscure-confidence",
+        "type": 302
+      },
+      {
         "source": "/go/obscureconfidence/",
         "destination": "/docs/2_threats_through_use/#obscure-confidence",
+        "type": 302
+      },
+      {
+        "source": "/goto/smallmodel/",
+        "destination": "/docs/2_threats_through_use/#small-model",
         "type": 302
       },
       {
@@ -759,6 +809,11 @@
         "type": 302
       },
       {
+        "source": "/goto/modelensemble/",
+        "destination": "/docs/3_development_time_threats/#model-ensemble",
+        "type": 302
+      },
+      {
         "source": "/go/modelensemble/",
         "destination": "/docs/3_development_time_threats/#model-ensemble",
         "type": 302
@@ -779,6 +834,11 @@
         "type": 302
       },
       {
+        "source": "/goto/dataqualitycontrol/",
+        "destination": "/docs/3_development_time_threats/#data-quality-control",
+        "type": 302
+      },
+      {
         "source": "/go/dataqualitycontrol/",
         "destination": "/docs/3_development_time_threats/#data-quality-control",
         "type": 302
@@ -786,6 +846,11 @@
       {
         "source": "/go/traindatadistortion/",
         "destination": "/docs/3_development_time_threats/#train-data-distortion",
+        "type": 302
+      },
+      {
+        "source": "/goto/poisonrobustmodel/",
+        "destination": "/docs/3_development_time_threats/#poison-robust-model",
         "type": 302
       },
       {
@@ -919,8 +984,18 @@
         "type": 302
       },
       {
+        "source": "/goto/leakaugmentation/",
+        "destination": "/docs/4_runtime_application_security_threats/#46-direct-augmentation-data-leak",
+        "type": 302
+      },
+      {
         "source": "/go/augmentationdataleak/",
         "destination": "/docs/4_runtime_application_security_threats/#46-direct-augmentation-data-leak",
+        "type": 302
+      },
+      {
+        "source": "/goto/manipulateaugmentation/",
+        "destination": "/docs/4_runtime_application_security_threats/#47-augmentation-data-manipulation",
         "type": 302
       },
       {
