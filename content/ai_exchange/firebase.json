@@ -184,6 +184,16 @@
         "type": 302
       },
       {
+        "source": "/goto/aiengineeringprimer/",
+        "destination": "/docs/ai_security_overview/#ai-engineering-primer-for-security-professionals",
+        "type": 302
+      },
+      {
+        "source": "/go/aiengineeringprimer/",
+        "destination": "/docs/ai_security_overview/#ai-engineering-primer-for-security-professionals",
+        "type": 302
+      },
+      {
         "source": "/goto/riskanalysis/",
         "destination": "/docs/ai_security_overview/#how-to-select-relevant-threats-and-controls-risk-analysis",
         "type": 302
