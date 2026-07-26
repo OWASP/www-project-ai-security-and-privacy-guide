@@ -178,24 +178,7 @@ weight: 1
       Contributers hall of fame
     </h2>
     {{< contributors >}}
-  </div>
-</div>
-<div class="py-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-200">
-  <div class="container mx-auto p-0 max-w-3xl">
-    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 text-center">
-      Site analytics
-    </h2>
-    <div class="text-gray-700 font-roboto text-base sm:text-lg leading-relaxed text-center">
-      <p class="mb-4">
-        This website uses <a href="https://www.goatcounter.com/" target="_blank" rel="noopener" class="text-green-600 font-medium underline">GoatCounter</a> to count page views so we can see which content is most useful and improve the guide over time.
-      </p>
-      <p class="mb-4">
-        GoatCounter is privacy-friendly: it does not use cookies, does not track individuals across websites, and does not sell data. We use it only for aggregate readership statistics.
-      </p>
-      <p>
-        Questions? <a href="/connect" class="text-green-600 font-medium underline">Contact the project team</a>.
-      </p>
-    </div>
+    To propose an update for the above hall of fame, it can be edited <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/edit/main/content/ai_exchange/content/contributors.tsv">here</a>.
   </div>
 </div>
 
@@ -220,6 +203,25 @@ weight: 1
       <p>
         If you’re unsure about anything, feel free to
         <a href="/connect" class="text-gray-600 font-medium underline">reach out to us</a> with your questions.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="py-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-200">
+  <div class="container mx-auto p-0 max-w-3xl">
+    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 text-center">
+      Site analytics
+    </h2>
+    <div class="text-gray-700 font-roboto text-base sm:text-lg leading-relaxed text-center">
+      <p class="mb-4">
+        This website uses <a href="https://www.goatcounter.com/" target="_blank" rel="noopener" class="text-green-600 font-medium underline">GoatCounter</a> to count page views so we can see which content is most useful and improve the guide over time.
+      </p>
+      <p class="mb-4">
+        GoatCounter is privacy-friendly: it does not use cookies, does not track individuals across websites, and does not sell data. We use it only for aggregate readership statistics.
+      </p>
+      <p>
+        Questions? <a href="/connect" class="text-green-600 font-medium underline">Contact the project team</a>.
       </p>
     </div>
   </div>
