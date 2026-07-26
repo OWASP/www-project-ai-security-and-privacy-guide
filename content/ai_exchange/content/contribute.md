@@ -435,6 +435,14 @@ weight: 1
                         <td class="px-6 py-4 text-gray-700">Testing section</td>
                     </tr>
                     <tr class="odd:bg-[#F4F2F2] even:bg-white">
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">João Gomes Marques
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">Flow Traders
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">Germany</td>
+                        <td class="px-6 py-4 text-gray-700">Added clause on tamper-evident logging under</td>
+                    </tr>
+                    <tr class="odd:bg-[#F4F2F2] even:bg-white">
                         <td class="px-6 py-4 whitespace-nowrap text-gray-900 border-r border-gray-400">Jolly Trivedi
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-700 border-r border-gray-400">
