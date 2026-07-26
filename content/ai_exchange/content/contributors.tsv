@@ -1,0 +1,45 @@
+Name	Company	Country	Contributions	Lead  (put 'yes' for leadership; otherwise leave off)
+Rob van der Veer	Software Improvement Group (SIG)	Netherlands	Project founder and lead, content, leadership team	yes
+Aruneesh Salhotra	SNM Consulting Inc	US	Outreach, management, content, leadership team	yes
+Behnaz Karimi	Accenture	Germany	Misc. contributions including model obfuscation and explanation, leadership team	yes
+Adelin Travers	Trail of Bits		
+Alan Hau	AIFT (Vulcan)	Singapore	Cultural sensitivity and global comparison
+Alex Leung	AIFT (Vulcan)	Singapore	Cultural sensitivity and global comparison
+Alon Tron	Stealth	Israel	Improved supply chain management
+Andrew Stokes	Pebl	US	Added selective amnesia
+Angie Qarry	QDeepTech	Austria	several elaborations and references on data science defence mechanisms
+Annegrit Seyerlein-Klug	TH Brandenburg	Germany	mapping with misc. standards
+Anthony Glynn	CapitalOne	US	many textual improvements & link to LLM top 10
+Charles Chibueze		Nigeria	A multitude of editorial fixes and improvements throughout the content
+Chris Ancharski	Global community builder	US	Leadership team during part of 2024
+Dan Sorensen	Centil	US	Misc. additions including development security
+Dennis Charolle	MilliporeSigma	US	Compliance overview and copyright
+Disesdi Susanna Cox	OTW	US	Federated learning, testing, and much more
+Elias Sørensen	Kantega	Norway	Many clarifications and improvements throughout
+Enes Deniz		Turkey	AI engineering primer for security professionals
+Eoin Wickens	HiddenLayer	Ireland	Additions to development security
+Feiyang Tang	Software Improvement Group (SIG)		
+Iryna Schwindt		Germany	Testing section
+João Gomes Marques	Flow Traders	Germany	Added clause on tamper-evident logging under
+Jolly Trivedi		Finland	Testing section and editing work
+John Sotiropoulos	Kainos	UK	Previously: Liaison to several institutes
+Manish Garg	VE3	UK	Runtime model protection
+Maryam Alhasmei			Testing section
+Marko Lihter	SplxAI	Croatia	step-by-step guide for organizations, website creation, various textual improvements
+Musaab Hasan		United Arab Emirates	Contributed the table 'From general risks to controls'
+Niklas Bunzel	Fraunhofer institute	Germany	data science discussion and references around evasion attacks
+Rajiv Bahl		India	Testing section
+Rock Lambros		US	TBA
+Rocky Heckman	Cyber Dynamo	Australia	Security & privacy risk analysis and ISO/IEC 27562
+Rubens Zimbres		Brazil	Adversarial machine learning
+Roger Sanz	Universidad Isabel	Spain	
+Sandy Dunn	Boise State University, AI Cyber Advisors	US	Community management in the initial phase
+S M Zia Ur Rashid	University of Tulsa	US	AI red teaming, security testing, threats and supply chain requirements project, learning and training resources
+Sean Oesch	Oak Ridge National Laboratory	US	BLUF, Adversarial Training, OOD detection, NISTIR 8269, Guide Usability/Structure
+Srajan Gupta	Dave		
+Steve Francolla	Workforce Tech LLC		
+Venkata Sai Kishore Modalavalasa (Sai)	Straiker	US	Incident detection, massive editor work in transferring controls research
+Wei Wei	IBM	Germany	mapping with ISO/IEC 42001
+Yiannis Kanellopoulos and team	Code4thought	Greece	evasion robustness
+Yuvaraj Govindarjulu	AI Shield	India	Testing section and harmonization lead
+Zoe Braiterman	Mutual Knowledge Systems	US	Many markdown improvements
