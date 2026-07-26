@@ -1,0 +1,54 @@
+{{- /*
+  Contributors hall of fame — reads a simple tab-separated file.
+
+  Edit  data/contributors.tsv  to add or change contributors:
+    * One contributor per line.
+    * Columns are separated by a TAB:  Name <TAB> Company <TAB> Country <TAB> Contributions <TAB> Lead
+    * No quotes, and no field names to repeat.
+    * Leave a column empty if unknown (you may even leave off trailing empty columns).
+    * Put "yes" in the 5th "Lead" column to show a leadership name in bold.
+    * Line 1 is the header row and is skipped — keep it.
+  Tip: keep the list in a spreadsheet and paste the columns here (spreadsheets copy as tab-separated).
+  To use a different separator (e.g. a pipe), change $sep below to "|".
+*/ -}}
+{{- $sep := "\t" -}}
+{{- $raw := os.ReadFile "data/contributors.tsv" -}}
+{{- $raw = replace $raw "\r" "" -}}
+{{- $lines := split (trim $raw "\n") "\n" -}}
+<style>
+  table.hof { min-width: 100%; width: 100%; border-collapse: collapse; }
+  table.hof thead { background-color: #4CAF50; }
+  table.hof th {
+    padding: 0.75rem; text-align: left; font-weight: 500; color: #fff;
+    text-transform: uppercase; border-right: 1px solid #9ca3af; font-size: 0.75rem;
+  }
+  table.hof th:last-child { border-right: 0; }
+  table.hof td {
+    padding: 1rem 1.5rem; color: #374151; vertical-align: top; white-space: nowrap;
+    border-right: 1px solid #9ca3af; border-top: 1px solid #9ca3af;
+  }
+  table.hof td:first-child { color: #111827; }               /* names */
+  table.hof td:last-child  { border-right: 0; white-space: normal; } /* contributions wraps */
+  table.hof tr.lead td:first-child { font-weight: 700; }      /* leadership names in bold */
+  table.hof tbody tr:nth-child(odd)  { background-color: #F4F2F2; }
+  table.hof tbody tr:nth-child(even) { background-color: #fff; }
+  @media (min-width: 640px) { table.hof th { padding: 0.75rem 1.5rem; font-size: 0.875rem; } }
+</style>
+<div class="overflow-x-auto shadow-lg border border-gray-400 rounded-lg">
+  <table class="hof">
+    <thead>
+      <tr><th>Name</th><th>Company</th><th>Country</th><th>Contributions</th></tr>
+    </thead>
+    <tbody>
+      {{- range after 1 $lines }}
+      {{- $line := . -}}
+      {{- if trim $line " \t" }}
+      {{- $c := split $line $sep -}}
+      {{- if lt (len $c) 4 }}{{ range seq (sub 4 (len $c)) }}{{ $c = $c | append "" }}{{ end }}{{ end -}}
+      {{- $lead := "" }}{{ if gt (len $c) 4 }}{{ $lead = index $c 4 }}{{ end -}}
+      <tr{{ if $lead }} class="lead"{{ end }}><td>{{ index $c 0 }}</td><td>{{ index $c 1 }}</td><td>{{ index $c 2 }}</td><td>{{ index $c 3 }}</td></tr>
+      {{- end }}
+      {{- end }}
+    </tbody>
+  </table>
+</div>
