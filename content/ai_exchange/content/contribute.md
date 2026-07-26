@@ -23,7 +23,7 @@ weight: 1
       <button
         class="inline-block bg-[#4CAF50] hover:bg-emerald-700 text-white text-base sm:text-lg md:text-xl font-medium py-2 sm:py-3 px-6 sm:px-8 md:px-10 rounded-lg mt-6"
       >
-        Become A Contributor
+        Apply to join the authors group
       </button>
     </a>
   </div>
@@ -80,7 +80,7 @@ weight: 1
           <img src="/images/join.png" alt="Join icon" class="w-7 h-8 mb-4" />
           <h4 class="text-gray-900 mb-2 text-xl font-medium">Join</h4>
           <p class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px]">
-            <a href="https://forms.gle/XwEEK52y4iZQChuJ6" target="_blank" class="text-green-600 underline">Apply</a> to join the contributors team (the authors group).
+            <a href="https://forms.gle/XwEEK52y4iZQChuJ6" target="_blank" class="text-green-600 underline">Apply</a> to join the authors group (contributors in the closed #project-ai-authors slack channel).
           </p>
         </div>
         <!-- OR -->
@@ -172,95 +172,10 @@ weight: 1
   </div>
 </div>
 
-<div class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-  <div class="container mx-auto p-0">
-    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-8 text-center">
-      Contribution guidelines
-    </h2>
-    <div class="text-gray-700 font-roboto text-base sm:text-lg md:text-[20px] leading-relaxed text-center">
-      <p class="mb-4">
-        We value every contribution to our project, but it’s important to be aware of certain guidelines:
-      </p>
-      <p class="mb-4">
-        <span class="font-semibold">Consider the roadmap:</span> The <a href="/go/roadmap/">OWASP AI Exchange roadmap</a> leads the way on how we prioritize and organize contributions,
-      </p>
-      <p class="mb-4">
-        <span class="font-semibold">Avoid Advertising:</span> The OWASP AI projects should not promote commercial tools, companies, or individuals. The focus should be on open-source tools.
-      </p>
-      <p class="mb-4">
-        <span class="font-semibold">Refrain from Unnecessary Self-Promotion:</span> If referencing tools or articles you’re affiliated with, please disclose this relationship in your pull request.
-      </p>
-      <p>
-        If you’re unsure about anything, feel free to
-        <a href="/connect" class="text-gray-600 font-medium underline">reach out to us</a> with your questions.
-      </p>
-    </div>
-  </div>
-</div>
-
-<div class="py-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-200">
-  <div class="container mx-auto p-0 max-w-3xl">
-    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 text-center">
-      Site analytics
-    </h2>
-    <div class="text-gray-700 font-roboto text-base sm:text-lg leading-relaxed text-center">
-      <p class="mb-4">
-        This website uses <a href="https://www.goatcounter.com/" target="_blank" rel="noopener" class="text-green-600 font-medium underline">GoatCounter</a> to count page views so we can see which content is most useful and improve the guide over time.
-      </p>
-      <p class="mb-4">
-        GoatCounter is privacy-friendly: it does not use cookies, does not track individuals across websites, and does not sell data. We use it only for aggregate readership statistics.
-      </p>
-      <p>
-        Questions? <a href="/connect" class="text-green-600 font-medium underline">Contact the project team</a>.
-      </p>
-    </div>
-  </div>
-</div>
-
-<div class="py-16 px-2 sm:px-4 lg:px-8 bg-[#F1F1F1]">
-  <div class="container mx-auto p-0">
-    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-8 text-center">
-      Project Leadership
-    </h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-      <!-- Behnaz Karimi -->
-      <div class="flex flex-col items-center bg-white border border-gray-200 rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
-        <img src="/images/Behnaz-Karimi.jpg" alt="Behnaz Karimi" class="w-60 h-60 rounded-full object-cover mb-4 border-1 border-gray-500" />
-        <h3 class="text-xl font-semibold text-gray-900 mb-2 text-center">Behnaz Karimi</h3>
-        <div class="flex items-center justify-center mt-2">
-          <a href="https://www.linkedin.com/in/behnaz-karimi-behi/" target="_blank" class="text-blue-600 hover:text-blue-800 transition-colors" aria-label="LinkedIn">
-            <i class="fab fa-linkedin-in text-2xl"></i>
-          </a>
-        </div>
-      </div>
-      <!-- Aruneesh Salhotra -->
-      <div class="flex flex-col items-center bg-white border border-gray-200 rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
-        <img src="/images/Aruneesh.jpg" alt="Aruneesh Salhotra" class="w-60 h-60 rounded-full object-cover mb-4 border-1 border-gray-500" />
-        <h3 class="text-xl font-semibold text-gray-900 mb-2 text-center">Aruneesh Salhotra</h3>
-        <div class="flex items-center justify-center mt-2">
-          <a href="https://www.linkedin.com/in/aruneeshsalhotra/" target="_blank" class="text-blue-600 hover:text-blue-800 transition-colors" aria-label="LinkedIn">
-            <i class="fab fa-linkedin-in text-2xl"></i>
-          </a>
-        </div>
-      </div>
-      <!-- Rob van der Veer -->
-      <div class="flex flex-col items-center bg-white border border-gray-200 rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
-        <img src="/images/Rob-van-der-Veer.jpg" alt="Rob van der Veer" class="w-60 h-60 rounded-full object-cover mb-4 border-1 border-gray-500" />
-        <h3 class="text-xl font-semibold text-gray-900 mb-2 text-center">Rob van der Veer</h3>
-        <div class="flex items-center justify-center mt-2">
-          <a href="https://www.linkedin.com/in/robvanderveer/" target="_blank" class="text-blue-600 hover:text-blue-800 transition-colors" aria-label="LinkedIn">
-            <i class="fab fa-linkedin-in text-2xl"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div class="py-16 px-2 sm:px-4 lg:px-8 bg-white">
   <div class="container mx-auto p-0">
     <h2 class="text-3xl mt-0 sm:text-4xl font-bold text-gray-900 mb-8 text-center">
-      Contributing Authors
+      Contributers hall of fame
     </h2>
     <div class="overflow-x-auto shadow-lg border border-gray-400 rounded-lg">
       <table class="min-w-full divide-y divide-gray-400">
@@ -618,6 +533,51 @@ weight: 1
     </div>
   </div>
 </div>
+<div class="py-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-200">
+  <div class="container mx-auto p-0 max-w-3xl">
+    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 text-center">
+      Site analytics
+    </h2>
+    <div class="text-gray-700 font-roboto text-base sm:text-lg leading-relaxed text-center">
+      <p class="mb-4">
+        This website uses <a href="https://www.goatcounter.com/" target="_blank" rel="noopener" class="text-green-600 font-medium underline">GoatCounter</a> to count page views so we can see which content is most useful and improve the guide over time.
+      </p>
+      <p class="mb-4">
+        GoatCounter is privacy-friendly: it does not use cookies, does not track individuals across websites, and does not sell data. We use it only for aggregate readership statistics.
+      </p>
+      <p>
+        Questions? <a href="/connect" class="text-green-600 font-medium underline">Contact the project team</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+  <div class="container mx-auto p-0">
+    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-8 text-center">
+      Contribution guidelines
+    </h2>
+    <div class="text-gray-700 font-roboto text-base sm:text-lg md:text-[20px] leading-relaxed text-center">
+      <p class="mb-4">
+        We value every contribution to our project, but it’s important to be aware of certain guidelines:
+      </p>
+      <p class="mb-4">
+        <span class="font-semibold">Consider the roadmap:</span> The <a href="/go/roadmap/ class="text-gray-600 font-medium underline">OWASP AI Exchange roadmap</a> leads the way on how we prioritize and organize contributions,
+      </p>
+      <p class="mb-4">
+        <span class="font-semibold">Avoid Advertising:</span> The OWASP AI projects should not promote commercial tools, companies, or individuals. The focus should be on open-source tools.
+      </p>
+      <p class="mb-4">
+        <span class="font-semibold">Refrain from Unnecessary Self-Promotion:</span> If referencing tools or articles you’re affiliated with, please disclose this relationship in your pull request.
+      </p>
+      <p>
+        If you’re unsure about anything, feel free to
+        <a href="/connect" class="text-gray-600 font-medium underline">reach out to us</a> with your questions.
+      </p>
+    </div>
+  </div>
+</div>
+
   <!-- Contact Section -->
   {{< contact >}}
 
