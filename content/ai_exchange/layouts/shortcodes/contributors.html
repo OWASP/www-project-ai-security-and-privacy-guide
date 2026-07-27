@@ -1,18 +1,17 @@
 {{- /*
-  Contributors hall of fame — reads a simple tab-separated file.
+  Contributors hall of fame — reads a simple semicolon-separated file.
 
-  Edit  content/contributors.tsv  to add or change contributors:
+  Edit  content/contributors.csv  to add or change contributors:
     * One contributor per line.
-    * Columns are separated by a TAB:  Name <TAB> Company <TAB> Country <TAB> Contributions <TAB> Lead
-    * No quotes, and no field names to repeat.
+    * Columns are separated by a semicolon:  Name ; Company ; Country ; Contributions ; Lead
+    * No quotes, and no field names to repeat. Spaces around the ";" don't matter (they're trimmed).
     * Leave a column empty if unknown (you may even leave off trailing empty columns).
     * Put "yes" in the 5th "Lead" column to show a leadership name in bold.
     * Line 1 is the header row and is skipped — keep it.
-  Tip: keep the list in a spreadsheet and paste the columns here (spreadsheets copy as tab-separated).
   To use a different separator (e.g. a pipe), change $sep below to "|".
 */ -}}
-{{- $sep := "\t" -}}
-{{- $raw := os.ReadFile "content/contributors.tsv" -}}
+{{- $sep := ";" -}}
+{{- $raw := os.ReadFile "content/contributors.csv" -}}
 {{- $raw = replace $raw "\r" "" -}}
 {{- $lines := split (trim $raw "\n") "\n" -}}
 <style>
@@ -24,11 +23,14 @@
   }
   table.hof th:last-child { border-right: 0; }
   table.hof td {
-    padding: 1rem 1.5rem; color: #374151; vertical-align: top; white-space: nowrap;
+    padding: 1rem 1.5rem; color: #374151; vertical-align: top;
+    white-space: normal; overflow-wrap: break-word;   /* wrap long text; break very long strings */
     border-right: 1px solid #9ca3af; border-top: 1px solid #9ca3af;
   }
   table.hof td:first-child { color: #111827; }               /* names */
-  table.hof td:last-child  { border-right: 0; white-space: normal; } /* contributions wraps */
+  table.hof td:last-child  { border-right: 0; }
+  /* To keep a column on one line instead of wrapping, e.g. the name column:
+     table.hof td:first-child { white-space: nowrap; } */
   table.hof tr.lead td:first-child { font-weight: 700; }      /* leadership names in bold */
   table.hof tbody tr:nth-child(odd)  { background-color: #F4F2F2; }
   table.hof tbody tr:nth-child(even) { background-color: #fff; }
@@ -45,8 +47,12 @@
       {{- if trim $line " \t" }}
       {{- $c := split $line $sep -}}
       {{- if lt (len $c) 4 }}{{ range seq (sub 4 (len $c)) }}{{ $c = $c | append "" }}{{ end }}{{ end -}}
-      {{- $lead := "" }}{{ if gt (len $c) 4 }}{{ $lead = index $c 4 }}{{ end -}}
-      <tr{{ if $lead }} class="lead"{{ end }}><td>{{ index $c 0 }}</td><td>{{ index $c 1 }}</td><td>{{ index $c 2 }}</td><td>{{ index $c 3 }}</td></tr>
+      {{- $name := trim (index $c 0) " " -}}
+      {{- $company := trim (index $c 1) " " -}}
+      {{- $country := trim (index $c 2) " " -}}
+      {{- $contrib := trim (index $c 3) " " -}}
+      {{- $lead := "" }}{{ if gt (len $c) 4 }}{{ $lead = trim (index $c 4) " " }}{{ end -}}
+      <tr{{ if $lead }} class="lead"{{ end }}><td>{{ $name }}</td><td>{{ $company }}</td><td>{{ $country }}</td><td>{{ $contrib }}</td></tr>
       {{- end }}
       {{- end }}
     </tbody>
