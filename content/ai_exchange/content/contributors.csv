@@ -1,4 +1,4 @@
-Name; Company; Country; Contributions; Lead (yes = leadership, else blank)
+Name; Organization; Country; Contributions; Lead (yes = leadership, else blank)
 Rob van der Veer; Software Improvement Group (SIG); Netherlands; Project founder and lead, content, leadership team; yes
 Aruneesh Salhotra; SNM Consulting Inc; US; Outreach, management, content, leadership team; yes
 Behnaz Karimi; Accenture; Germany; Misc. contributions including model obfuscation and explanation, leadership team; yes
