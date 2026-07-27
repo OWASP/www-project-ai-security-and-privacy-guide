@@ -180,7 +180,6 @@ weight: 1
     {{< contributors >}}
     <br>To propose an update for the above hall of fame, it can be edited <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/edit/main/content/ai_exchange/content/contributors.csv"  class="text-gray-600 font-medium underline">here</a>.
     <br>
-    <br>
   </div>
 </div>
 
