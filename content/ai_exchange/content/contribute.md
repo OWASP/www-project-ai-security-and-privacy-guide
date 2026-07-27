@@ -357,7 +357,7 @@ function renderCards() {
           <i class="fas fa-user text-green-600 text-lg pt-1"></i>
           <div>
             <p class="text-xs text-gray-500 font-semibold uppercase">Name</p>
-            <p class="text-sm font-medium text-gray-800 leading-snug">${cells[0]?.innerText || ""}</p>
+            <p class="text-sm font-medium text-gray-800 leading-snug">${cells[0]?.textContent?.trim() || ""}</p>
           </div>
         </div>
 
@@ -366,7 +366,7 @@ function renderCards() {
           <i class="fas fa-building text-green-600 text-lg pt-1"></i>
           <div>
             <p class="text-xs text-gray-500 font-semibold uppercase">Company</p>
-            <p class="text-sm font-medium text-gray-800 leading-snug">${cells[1]?.innerText || ""}</p>
+            <p class="text-sm font-medium text-gray-800 leading-snug">${cells[1]?.textContent?.trim() || ""}</p>
           </div>
         </div>
 
@@ -375,7 +375,7 @@ function renderCards() {
           <i class="fas fa-flag text-green-600 text-lg pt-1"></i>
           <div>
             <p class="text-xs text-gray-500 font-semibold uppercase">Country</p>
-            <p class="text-sm font-medium text-gray-800 leading-snug">${cells[2]?.innerText || ""}</p>
+            <p class="text-sm font-medium text-gray-800 leading-snug">${cells[2]?.textContent?.trim() || ""}</p>
           </div>
         </div>
 
@@ -384,7 +384,7 @@ function renderCards() {
           <i class="fas fa-network-wired text-green-600 text-lg pt-1"></i>
           <div>
             <p class="text-xs text-gray-500 font-semibold uppercase">Contributions</p>
-            <p class="text-sm font-medium text-gray-800 leading-snug">${cells[3]?.innerText || ""}</p>
+            <p class="text-sm font-medium text-gray-800 leading-snug">${cells[3]?.textContent?.trim() || ""}</p>
           </div>
         </div>
       </div>
