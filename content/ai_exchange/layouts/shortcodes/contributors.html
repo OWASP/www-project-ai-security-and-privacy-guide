@@ -2,7 +2,7 @@
   Contributors hall of fame — reads a simple semicolon-separated file and renders
   BOTH the desktop table and the mobile cards from the same data (at build time).
 
-  Edit  data/contributors.csv  to add or change contributors:
+  Edit  content/contributors.csv  to add or change contributors:
     * One contributor per line.
     * Columns separated by a semicolon:  Name ; Organization ; Country ; Contributions ; Lead
     * No quotes, no field names to repeat. Spaces around the ";" don't matter (trimmed).
@@ -16,7 +16,7 @@
   optional "Show More" collapse; without it, all cards simply show.
 */ -}}
 {{- $sep := ";" -}}
-{{- $raw := os.ReadFile "data/contributors.csv" -}}
+{{- $raw := os.ReadFile "content/contributors.csv" -}}
 {{- $raw = replace $raw "\r" "" -}}
 {{- $lines := split (trim $raw "\n") "\n" -}}
 {{- $people := slice -}}
