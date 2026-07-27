@@ -1,20 +1,41 @@
 {{- /*
-  Contributors hall of fame — reads a simple semicolon-separated file.
+  Contributors hall of fame — reads a simple semicolon-separated file and renders
+  BOTH the desktop table and the mobile cards from the same data (at build time).
 
-  Edit  content/contributors.csv  to add or change contributors:
+  Edit  data/contributors.csv  to add or change contributors:
     * One contributor per line.
-    * Columns are separated by a semicolon:  Name ; Company ; Country ; Contributions ; Lead
-    * No quotes, and no field names to repeat. Spaces around the ";" don't matter (they're trimmed).
-    * Leave a column empty if unknown (you may even leave off trailing empty columns).
+    * Columns separated by a semicolon:  Name ; Organization ; Country ; Contributions ; Lead
+    * No quotes, no field names to repeat. Spaces around the ";" don't matter (trimmed).
+    * Leave a column empty if unknown (trailing empty columns may be omitted).
     * Put "yes" in the 5th "Lead" column to show a leadership name in bold.
     * Line 1 is the header row and is skipped — keep it.
   To use a different separator (e.g. a pipe), change $sep below to "|".
+
+  Mobile note: the cards below are rendered from the data directly, so they never
+  depend on JavaScript reading the (hidden) table. The small script only powers the
+  optional "Show More" collapse; without it, all cards simply show.
 */ -}}
 {{- $sep := ";" -}}
-{{- $raw := os.ReadFile "content/contributors.csv" -}}
+{{- $raw := os.ReadFile "data/contributors.csv" -}}
 {{- $raw = replace $raw "\r" "" -}}
 {{- $lines := split (trim $raw "\n") "\n" -}}
+{{- $people := slice -}}
+{{- range after 1 $lines }}
+  {{- $line := . -}}
+  {{- if trim $line " \t" }}
+    {{- $c := split $line $sep -}}
+    {{- if lt (len $c) 4 }}{{ range seq (sub 4 (len $c)) }}{{ $c = $c | append "" }}{{ end }}{{ end -}}
+    {{- $lead := "" }}{{ if gt (len $c) 4 }}{{ $lead = trim (index $c 4) " " }}{{ end -}}
+    {{- $people = $people | append (dict
+        "name" (trim (index $c 0) " ")
+        "organization" (trim (index $c 1) " ")
+        "country" (trim (index $c 2) " ")
+        "contrib" (trim (index $c 3) " ")
+        "lead" (ne $lead "")) -}}
+  {{- end }}
+{{- end -}}
 <style>
+  /* ---------- desktop table ---------- */
   table.hof { min-width: 100%; width: 100%; border-collapse: collapse; }
   table.hof thead { background-color: #4CAF50; }
   table.hof th {
@@ -24,37 +45,82 @@
   table.hof th:last-child { border-right: 0; }
   table.hof td {
     padding: 1rem 1.5rem; color: #374151; vertical-align: top;
-    white-space: normal; overflow-wrap: break-word;   /* wrap long text; break very long strings */
+    white-space: normal; overflow-wrap: break-word;
     border-right: 1px solid #9ca3af; border-top: 1px solid #9ca3af;
   }
-  table.hof td:first-child { color: #111827; }               /* names */
+  table.hof td:first-child { color: #111827; }
   table.hof td:last-child  { border-right: 0; }
-  /* To keep a column on one line instead of wrapping, e.g. the name column:
-     table.hof td:first-child { white-space: nowrap; } */
-  table.hof tr.lead td:first-child { font-weight: 700; }      /* leadership names in bold */
+  table.hof tr.lead td:first-child { font-weight: 700; }
   table.hof tbody tr:nth-child(odd)  { background-color: #F4F2F2; }
   table.hof tbody tr:nth-child(even) { background-color: #fff; }
   @media (min-width: 640px) { table.hof th { padding: 0.75rem 1.5rem; font-size: 0.875rem; } }
+
+  /* ---------- mobile cards (hidden on desktop) ---------- */
+  .hof-cards { display: none; }
+  .hof-more-btn { display: none; }
+
+  @media (max-width: 768px) {
+    .hof-table-wrap { display: none; }          /* hide the table on small screens */
+    .hof-cards { display: block; margin-top: 1.5rem; }
+
+    .hof-card {
+      background: #f8f9fa; border: 1px solid #ddd; border-radius: 10px;
+      padding: 1rem; margin-bottom: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .hof-card-line { display: flex; gap: 0.6rem; margin: 0.2rem 0; }
+    .hof-card-label {
+      flex: 0 0 6.5rem; color: #6b7280; font-weight: 600;
+      text-transform: uppercase; font-size: 0.7rem; padding-top: 0.15rem;
+    }
+    .hof-card-val { color: #333; font-size: 0.9rem; }
+    .hof-card-val.hof-lead { font-weight: 700; }
+
+    .hof-cards.collapsed .hof-card:nth-child(n+11) { display: none; }
+    .hof-more-btn {
+      display: block; margin: 0.5rem auto 0; background-color: #4CAF50; color: #fff;
+      border: none; padding: 0.6rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 600;
+    }
+    .hof-more-btn:hover { background-color: #3d8b41; }
+  }
 </style>
-<div class="overflow-x-auto shadow-lg border border-gray-400 rounded-lg">
+
+<div class="hof-table-wrap overflow-x-auto shadow-lg border border-gray-400 rounded-lg">
   <table class="hof">
     <thead>
-      <tr><th>Name</th><th>Affiliation</th><th>Country</th><th>Contributions</th></tr>
+      <tr><th>Name</th><th>Organization</th><th>Country</th><th>Contributions</th></tr>
     </thead>
     <tbody>
-      {{- range after 1 $lines }}
-      {{- $line := . -}}
-      {{- if trim $line " \t" }}
-      {{- $c := split $line $sep -}}
-      {{- if lt (len $c) 4 }}{{ range seq (sub 4 (len $c)) }}{{ $c = $c | append "" }}{{ end }}{{ end -}}
-      {{- $name := trim (index $c 0) " " -}}
-      {{- $company := trim (index $c 1) " " -}}
-      {{- $country := trim (index $c 2) " " -}}
-      {{- $contrib := trim (index $c 3) " " -}}
-      {{- $lead := "" }}{{ if gt (len $c) 4 }}{{ $lead = trim (index $c 4) " " }}{{ end -}}
-      <tr{{ if $lead }} class="lead"{{ end }}><td>{{ $name }}</td><td>{{ $company }}</td><td>{{ $country }}</td><td>{{ $contrib }}</td></tr>
-      {{- end }}
+      {{- range $people }}
+      <tr{{ if .lead }} class="lead"{{ end }}><td>{{ .name }}</td><td>{{ .organization }}</td><td>{{ .country }}</td><td>{{ .contrib }}</td></tr>
       {{- end }}
     </tbody>
   </table>
 </div>
+
+<div id="hofCards" class="hof-cards">
+  {{- range $people }}
+  <div class="hof-card">
+    <div class="hof-card-line"><span class="hof-card-label">Name</span><span class="hof-card-val{{ if .lead }} hof-lead{{ end }}">{{ .name }}</span></div>
+    {{- if .organization }}<div class="hof-card-line"><span class="hof-card-label">Organization</span><span class="hof-card-val">{{ .organization }}</span></div>{{ end }}
+    {{- if .country }}<div class="hof-card-line"><span class="hof-card-label">Country</span><span class="hof-card-val">{{ .country }}</span></div>{{ end }}
+    {{- if .contrib }}<div class="hof-card-line"><span class="hof-card-label">Contributions</span><span class="hof-card-val">{{ .contrib }}</span></div>{{ end }}
+  </div>
+  {{- end }}
+  <button id="hofMoreBtn" class="hof-more-btn" type="button">Show More</button>
+</div>
+
+<script>
+(function () {
+  var cards = document.getElementById("hofCards");
+  var btn = document.getElementById("hofMoreBtn");
+  if (!cards || !btn) return;
+  var count = cards.getElementsByClassName("hof-card").length;
+  if (count > 10) {
+    cards.classList.add("collapsed");
+    btn.style.display = "block";
+    btn.addEventListener("click", function () {
+      btn.textContent = cards.classList.toggle("collapsed") ? "Show More" : "Show Less";
+    });
+  }
+})();
+</script>
