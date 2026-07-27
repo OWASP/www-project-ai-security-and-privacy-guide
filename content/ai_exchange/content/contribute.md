@@ -80,7 +80,7 @@ weight: 1
           <img src="/images/join.png" alt="Join icon" class="w-7 h-8 mb-4" />
           <h4 class="text-gray-900 mb-2 text-xl font-medium">Join</h4>
           <p class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px]">
-            <a href="https://forms.gle/XwEEK52y4iZQChuJ6" target="_blank" class="text-green-600 underline">Apply</a> to join the authors group (contributors in the closed #project-ai-authors slack channel).
+            <a href="https://forms.gle/XwEEK52y4iZQChuJ6" target="_blank" class="text-green-600 underline">Apply</a> to join the authors (contributors in the closed #project-ai-authors Slack).
           </p>
         </div>
         <!-- OR -->
@@ -178,7 +178,9 @@ weight: 1
       Contributers hall of fame
     </h2>
     {{< contributors >}}
-    <br>To propose an update for the above hall of fame, it can be edited <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/edit/main/content/ai_exchange/content/contributors.csv"  class="text-gray-600 font-medium underline>here</a>.
+    <br>To propose an update for the above hall of fame, it can be edited <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/edit/main/content/ai_exchange/content/contributors.csv"  class="text-gray-600 font-medium underline">here</a>.
+    <br>
+    <br>
   </div>
 </div>
 
@@ -192,7 +194,7 @@ weight: 1
         We value every contribution to our project, but it’s important to be aware of certain guidelines:
       </p>
       <p class="mb-4">
-        <span class="font-semibold">Consider the roadmap:</span> The <a href="/go/roadmap/" class="text-gray-600 font-medium underline>OWASP AI Exchange roadmap</a> leads the way on how we prioritize and organize contributions,
+        <span class="font-semibold">Consider the roadmap:</span> The <a href="/go/roadmap/" class="text-gray-600 font-medium underline">OWASP AI Exchange roadmap</a> leads the way on how we prioritize and organize contributions,
       </p>
       <p class="mb-4">
         <span class="font-semibold">Avoid Advertising:</span> The OWASP AI projects should not promote commercial tools, companies, or individuals. The focus should be on open-source tools.
