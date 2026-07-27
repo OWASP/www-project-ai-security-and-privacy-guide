@@ -178,7 +178,7 @@ weight: 1
       Contributers hall of fame
     </h2>
     {{< contributors >}}
-    <br>To propose an update for the above hall of fame, it can be edited <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/edit/main/content/ai_exchange/content/contributors.tsv"  class="text-gray-600 font-medium underline>here</a>.
+    <br>To propose an update for the above hall of fame, it can be edited <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/edit/main/content/ai_exchange/content/contributors.csv"  class="text-gray-600 font-medium underline>here</a>.
   </div>
 </div>
 
