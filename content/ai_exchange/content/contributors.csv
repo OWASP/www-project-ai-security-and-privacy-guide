@@ -2,13 +2,13 @@ Name; Organization; Country; Contributions; Lead (yes = leadership, else blank)
 Rob van der Veer; Software Improvement Group (SIG); Netherlands; Project founder and lead, content, leadership team; yes
 Aruneesh Salhotra; SNM Consulting Inc; US; Outreach, management, content, leadership team; yes
 Behnaz Karimi; Accenture; Germany; Misc. contributions including model obfuscation and explanation, leadership team; yes
-Adelin Travers; Trail of Bits; ;
-Ahmed ElSheikh; -; -; Substantial various input, typically MLsec
-Aishwarya Ramas; -; -; Various input e.g. prompt injection
+Adelin Travers; Trail of Bits; Japan ; Some contributions to adversarial ML threats
+Ahmed ElSheikh; DocuSketch; Italy; Substantial various input, typically MLsec
+Aishwarya Ramasethu; Prediction guard; US; Various input e.g. prompt injection
 Alan Hau; AIFT (Vulcan); Singapore; Cultural sensitivity and global comparison
 Alex Leung; AIFT (Vulcan); Singapore; Cultural sensitivity and global comparison
 Alon Tron; Stealth; Israel; Improved supply chain management
-Amin  Hass; -; -; Various inputs mainly GenAI
+Amin  Hass; Accenture; US; Various inputs mainly GenAI
 Andrew Stokes; Pebl; US; Added selective amnesia
 Andy smith; SANS; US; Various input regarding GenAI
 Angie Qarry; QDeepTech; Austria; several elaborations and references on data science defence mechanisms
@@ -18,7 +18,7 @@ Charles Chibueze; ; Nigeria; A multitude of editorial fixes and improvements thr
 Chinmoy Rajpal; -; -; Various inputs
 Chris Ancharski; Global community builder; US; Leadership team during part of 2024
 Chris Cochran; -; -; Various inputs, Agentic workstream lead in 2026
-Dan Sorensen; Centil; US; Misc. additions including development security
+Dan Sorensen; Centil; US; Many misc. additions including development security
 Dennis Charolle; MilliporeSigma; US; Compliance overview and copyright
 Disesdi Susanna Cox; OTW; US; Federated learning, testing, and much more
 Elias Sørensen; Kantega; Norway; Many clarifications and improvements throughout
