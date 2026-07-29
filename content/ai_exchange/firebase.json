@@ -1044,6 +1044,11 @@
         "type": 302
       },
       {
+        "source": "/go/testingevasion/",
+        "destination": "/docs/5_testing/#testing-against-evasion",
+        "type": 302
+      },
+      {
         "source": "/go/testingtoolspredictiveai/",
         "destination": "/docs/5_testing/#open-source-tools-for-predictive-ai-red-teaming",
         "type": 302
