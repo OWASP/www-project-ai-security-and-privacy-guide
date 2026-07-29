@@ -150,6 +150,67 @@ It is of course important to also test the AI system for correct behaviour in be
 - [AdvBench](https://huggingface.co/datasets/walledai/AdvBench)
 - [OpenAI Evals benchmark](https://github.com/openai/evals)
 
+
+### Testing against Evasion
+> Category: AI security test  
+> Permalink: https://owaspai.org/go/testingevasion/
+
+#### Test description
+Resistance to [evasion attacks](/go/evasion), is tested by looking for feasible inputs that lead to unintended outputs with unacceptable impact severity. The test checks three aspects:
+1. whether the model produces unintended output for certain inputs;
+2. whether the AI system can limit or stop the search for such inputs, for example through rate limiting or detection;
+3. whether surrogate models can be created and used to prepare the attack.
+
+#### Test procedure
+See the section above for the general steps in AI security testing.  
+The steps specific for testing against this threat are:
+
+**(1) Evasion input feasibility**  
+Establish criteria for deciding whether evasion inputs are feasible. These criteria include:
+
+a) whether evasion inputs can bypass input-focused mitigations, such as anomaly detection, human oversight, or automated oversight. These controls may limit how much evasion inputs may differ from normal inputs. This difference is expressed through a perturbation limit, which can be defined in ways such as:
+- norm-based limits such as L0, L2, or L-infinity;
+- perceptual similarity measures such as SSIM or PSNR for images, audio, and video;
+- domain-specific rules, such as thresholds for pixel changes or decibel limits for audio.
+  
+b) whether attackers could reasonably create the evasion inputs, considering how input data is collected and processed. Feasibility criteria need to take environmental factors into account, including lighting, noise, interference, and timing.
+
+EXAMPLE If the AI system receives images directly from a low-resolution camera, an attacker has limited ability to make precise, small modifications to the input.
+
+**(2) Perform searches for succesful evasion**  
+Search for effective evasion inputs, meaning inputs that satisfy the feasibility criteria and would have unacceptable impact severity:
+-  When relevant, perform a **perfect-knowledge attack** using the target model's parameters. Use state-of-the-art tools to search for evasion inputs, starting from known inputs that produce correct outputs. Keep changes within the perturbation limit derived from the feasibility criteria. Perform both diffuse and localized searches, where localized changes are feasible. For localized changes, the allowed perturbation may typically be higher or absent. A perfect-knowledge attack is relevant when attacker access to model parameters must be considered under the general test requirements in subclause 11.2.1 j). Otherwise, this attack type may be skipped. The search needs to include both in-distribution and out-of-distribution inputs, such as known samples from all classes and samples that do not belong to any class in a classification task.
+- When needed, perform a **zero-knowledge attack&& by following the previous procedure but allowing the tooling to use only the model output, not the model parameters, while iteratively adapting the inputs. This step is not required if the previous step already found a feasible evasion input with unacceptable results.
+- When possible and needed, perform a **transfer attack** using surrogate models. Follow the procedure of the first step but search against the surrogate model. This is possible if the attacker can find or create a model with the same or a similar task. The surrogate may be a commercial or open-source model, or a new model trained on task data that the attacker can obtain or create, depending on the attacker profile. This step is not required if earlier steps already found a feasible evasion input with unacceptable results.
+- When possible and needed, perform a **heuristic attack** on the model. This applies when domain knowledge and understanding of the intended use suggest that certain changes may produce the desired effect. For example, testers may check whether an image of a red balloon on a sidewalk is classified as a stop sign. This step is not required if earlier steps already found a feasible evasion input with unacceptable results.
+
+
+The search continues while the effort remains within the maximum effort that the relevant attacker profile would be able and willing to spend. If feasible evasion inputs are found that cause unacceptable impact severity on the target model in the AI system, the test fails. Additional mitigations then need to be implemented and the test needs to be repeated until successful.
+
+
+EXAMPLE Known methods for searching adversarial examples at the time of writing include Square Attack for zero-knowledge search and Projected Gradient Descent for perfect-knowledge search.
+
+EXAMPLE Heuristic changes can include replacing words with synonyms or typos, changing text encoding, or applying image transformations such as scaling or rotation.
+
+EXAMPLE A possible test scenario is: the tester does not perform a perfect-knowledge search on the target model because it is very unlikely that the attacker can steal the non-public model. The tester then tries a zero-knowledge search on the target model and does not succeed. Some adversarial samples are found, but most are not feasible inputs; where they are feasible, the misclassification is harmless. The tester then tries transfer attacks with a surrogate model. No existing model is available for the similar task of estimating a horse's age from an image, but a database of horse images with ages is available. Risk analysis shows that the relevant attacker profile includes an experienced machine learning expert with several days available, so the tester trains a surrogate model on that database. The tester uses Projected Gradient Descent on the surrogate and finds several evasion inputs. Some of these inputs also cause wrong outputs in the target model. One would cause unacceptable harm. The conclusion is that the AI system fails the evasion-resistance test because an attacker could train a model copy and use it to prepare harmful evasion inputs.
+
+**(3) Separate feasiblity tests**  
+Where feasibility is uncertain, perform separate feasibility tests to determine whether the criteria are met. Such tests may check whether existing detection mechanisms would block a particular evasion input, or whether an attacker could create the input in a real-world situation.
+
+Tools for state-of-the-art testing are usually available for the relevant problem space, see our [test tools section](go/testingtoolspredictiveai/).
+
+NOTE These tools often rely on curated implementations of published adversarial AI attacks. They will not necessarily protect against zero-day attack algorithms.
+
+**(4) Conclude** 
+If the test identifies feasible evasion attack inputs that would have unacceptable impact severity, the test fails. Additional mitigations need to be implemented and the test needs to be repeated until successful.
+
+NOTE Depending on the intended use, a single evasion input may be enough to cause unacceptable impact severity. In other cases, a series or class of evasion attacks may be needed to reach that level of impact.
+
+**Positive testing**  
+It is of course important to also test the AI system for correct behaviour in benign situations. Depending on context, such testing may be integrated in the implementation of the security test by using the same mechanisms. Such testing ideally includes the testing of detection mechanisms, to ensure that not too many false positives are triggered by benign inputs. Positive testing is essential to ensure that security mechanisms do not degrade intended functionality or user experience beyond acceptable levels.
+
+
+
 ## **Red Teaming Tools for AI and GenAI**
 
 The below mind map provides an overview of open-source tools for AI Red Teaming, categorized into Predictive AI Red Teaming and Generative AI Red Teaming, highlighting examples like ART, Armory, TextAttack, and Promptfoo. These tools represent current capabilities but are not exhaustive or ranked by importance, as additional tools and methods will likely emerge and be integrated into this space in the future.
