@@ -215,17 +215,18 @@ The AI Exchange is a single coherent resource on the security and privacy of AI 
    If you want your **AI system to be secure**, start with [threat modeling](/go/threatmodel/) to guide you through a number of questions, resulting in the threats that apply. And when you click on those threats you'll find the controls (countermeasures) to check for, or to implement.
    Alternatively, you can let our [THREAT ADVISOR](/go/threatadvisor/) ask YOU questions about your system and threat model for you. Just go to the advisor (requires a Google account) and start by briefly describing your system. Your data will remain in your own Google workspace.
 - **Learn AI security**:  
-  - Step 1: First study the brief [AI security essentials](/go/essentials/) for the **big picture**.
-  - Step 2: **Select** the threats that are relevant to your practice, by looking at [threat modeling](/go/threatmodel/) - or let AI interview you to find out (see above), or skip this step if you want to learn the complete threat picture.
-  - Step 3: If you're involved in **Agentic AI**, see the brief discussion of how [agentic threats](/go/agenticaithreats/) are covered.
-  - Step 4: If you run a **ready-made model**, have a look at the [threat model on ready-made models](/go/readymademodel/).
-  - Step 5: See your **threats** in their context ** in the [AI threat model](/go/threatsoverview/) and the [AI security matrix](/go/aisecuritymatrix).
-  - Step 6: Click on your relevant threats in that overview to get more information and how to protect against it.
-  - Step 7: To find out what to do against a specific threat, check the **Controls** section of that threat, or the [periodic table](/go/periodictable/) which lists the controls for every threat.
-  - Step 8: To learn about the bigger picture how controls play a role, and interact: see the [controls overview](/go/controlsoverview/) 
-  - Step 9: If **privacy** is in scope for you: see [the privacy section](/go/aiprivacy/).
-  - Step 10: If you're involved in **testing**: see [the testing section](/go/testing/).
-  - Step 11: A great way to better understand AI threats is to act as an attacker, for which we recommend [PwnzzAI!](https://github.com/OWASP/PwnzzAI ): a hacking lab project with the Exchange as founding partner. A great exercise!
+  - Step 1: If you like a 101 on AI engineering, walk throught the [AI engineering primer for security professionals](/go/aiengineeringprimer/)
+  - Step 2: First study the brief [AI security essentials](/go/essentials/) for the **big picture**.
+  - Step 3: **Select** the threats that are relevant to your practice, by looking at [threat modeling](/go/threatmodel/) - or let AI interview you to find out (see above), or skip this step if you want to learn the complete threat picture.
+  - Step 4: If you're involved in **Agentic AI**, see the brief discussion of how [agentic threats](/go/agenticaithreats/) are covered.
+  - Step 5: If you run a **ready-made model**, have a look at the [threat model on ready-made models](/go/readymademodel/).
+  - Step 6: See your **threats** in their context ** in the [AI threat model](/go/threatsoverview/) and the [AI security matrix](/go/aisecuritymatrix).
+  - Step 7: Click on your relevant threats in that overview to get more information and how to protect against it.
+  - Step 8: To find out what to do against a specific threat, check the **Controls** section of that threat, or the [periodic table](/go/periodictable/) which lists the controls for every threat.
+  - Step 9: To learn about the bigger picture how controls play a role, and interact: see the [controls overview](/go/controlsoverview/) 
+  - Step 10: If **privacy** is in scope for you: see [the privacy section](/go/aiprivacy/).
+  - Step 11: If you're involved in **testing**: see [the testing section](/go/testing/).
+  - Step 12: A great way to better understand AI threats is to act as an attacker, for which we recommend [PwnzzAI!](https://github.com/OWASP/PwnzzAI ): a hacking lab project with the Exchange as founding partner. A great exercise!
   - To learn more about education programs, see [#SEC EDUCATE](/go/seceducate/)
   - If you prefer one document: download a [snapshot of the Exchange in pdf](/OWASP-AI-Exchange.pdf).
 - **Lookup**:
