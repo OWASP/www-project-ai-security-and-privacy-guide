@@ -306,15 +306,15 @@ The Exchange documents **security controls and threats**. Deeper classification,
 
 | Topic (Doc §) | Typical obligation | Exchange security hook (if any) | Compliance program owner |
 |---------------|-------------------|--------------------------------|---------------------------|
-| Intended purpose / Annex III classification (12.7.1, 12.1.5) | EU AI Act Art 6 — system classification before deploy | [#AI PROGRAM](/go/aiprogram/) impact analysis | [#CHECK COMPLIANCE](/go/checkcompliance/) + legal |
+| Intended purpose / Annex III classification (12.7.1, 12.1.5) | EU AI Act Art 6 — system classification before deploy | Impact analysis as part of [#AI PROGRAM](/go/aiprogram/) | Compliance + legal |
+| Prohibited practices (12.1.9 overlay) | EU AI Act Art 5 | Impact analysis as part of [#AI PROGRAM](/go/aiprogram/) | Compliance / legal |
 | Provider conversion / substantial modification (12.7.3, 12.9) | EU AI Act Art 3(23), Art 25 | — | Compliance / legal |
-| Prohibited practices (12.1.9 overlay) | EU AI Act Art 5 | — | Compliance / legal |
-| Pre-deployment describability / compositional workflows (12.1.1) | NIST AI RMF, MGF, ForHumanity scope spec | [#AI PROGRAM](/go/aiprogram/) + [#SEC DEV PROGRAM](/go/secdevprogram/) threat modelling | Compliance + architecture governance |
+| Pre-deployment describability / compositional workflows (12.1.1) | NIST AI RMF, MGF, ForHumanity scope spec | [#AI PROGRAM](/go/aiprogram/) + [#SEC DEV PROGRAM](/go/secdevprogram/) | Compliance + architecture governance |
 | Logging & audit trail (12.8.1) | EU AI Act Art 12 | [#MONITOR USE](/go/monitoruse/) | Compliance + ISMS |
-| Serious incident / NIS2 timelines (12.9) | Art 73, NIS2 24h/72h/1-month | [#SEC PROGRAM](/go/secprogram/) + [#MONITOR USE](/go/monitoruse/) IR | Compliance + legal |
+| Serious incident / NIS2 timelines (12.9) | Art 73, NIS2 24h/72h/1-month | IR as part of [#SEC PROGRAM](/go/secprogram/) + [#MONITOR USE](/go/monitoruse/) | Compliance + legal |
 | Human oversight at scale (12.13.1) | EU AI Act Art 14, MGF tiers | [#OVERSIGHT](/go/oversight/) operational tiers | Compliance + operations |
 | Transparency & automated decisions (12.13.3) | Art 13, Art 50, GDPR Art 22 | [#AI TRANSPARENCY](/go/aitransparency/), [#OVERSIGHT](/go/oversight/) operational disclosure | Compliance + privacy ([Privacy section](/go/aiprivacy/)) |
-| Data quality (12.1.7 overlay) | EU AI Act Art 10 | [#AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity/), dev-time data controls | Compliance + data governance |
+| Data quality (12.1.7 overlay) | EU AI Act Art 10 | [#DATA QUALITY CONTROL](/go/dataqualitycontrol/) | Compliance + data governance |
 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=checkcompliance -->
@@ -362,15 +362,6 @@ Useful standards include:
 
 The impact of security threats on confidentiality and integrity can be reduced by limiting the data attack surface, meaning that the amount and the variety of data is reduced as much as possible, as well as the duration in which it is kept. This section describes several controls to apply this limitation.
 
-**Agent data access governance (agentic):** Autonomous agents retrieve, combine, and retain data across tool calls and sessions. Apply [#DATA MINIMIZE](/go/dataminimize/), [#ALLOWED DATA](/go/alloweddata/), and [#SHORT RETAIN](/go/shortretain/) with agent-specific enforcement:
-
-- **Classification at the access layer:** Tag data sources with classification labels; enforce restrictions in tool and data-access controls — not in LLM instructions.
-- **Purpose binding:** Bind each agent session to a declared purpose; block access to sources irrelevant to that purpose even when the agent is authorised in other contexts.
-- **Ephemeral context:** Clear data retrieved during a task at session end unless retention is explicitly authorised, logged, and policy-approved — pair with [#AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity/) where agents use persistent memory.
-- **Access logging:** Log every agent data access with agent identity, task context, data source, classification, and timestamp in tamper-evident storage — see [#MONITOR USE](/go/monitoruse/) agent action audit trail.
-- **Periodic recertification:** Review agent data permissions on a regular cycle (for example quarterly), using the same discipline as privileged human account reviews — see [security program](/go/secprogram/).
-
-**Limitations:** Does not address aggregation risk where individually authorised reads collectively enable profiling. Does not prevent manipulation of a source before access. Ephemeral context is hard to guarantee with shared vector stores or cross-session memory.
 
 #### #DATA MINIMIZE
 > Category: development-time and runtime control  
@@ -569,18 +560,6 @@ Successfully mitigating unwanted model behaviour has its own threats:
 
 - Overreliance: the model is being trusted too much by users
 - Excessive agency: the model is being trusted too much by engineers and gets excessive functionality, permissions, or autonomy
-
-**Agentic autonomous decisions:** When agents can plan and execute with limited human involvement, impact shifts from incorrect output to unsafe or unauthorised **actions**. Typical impact patterns — from attacks, manipulation, or misconfiguration — include:
-
-- **Objective mis-specification and goal drift:** vague or proxy objectives lead agents to optimise the wrong metric (for example maximising ticket closure by suppressing alerts); long-running agents can accumulate small state or memory deviations away from intended policy.
-- **Goal hijacking:** adversaries redirect the agent's **overarching objective** (not just a single action) so subsequent planning serves attacker intent — often via [prompt injection](/go/promptinjection/) or memory manipulation. Anchor declared task objectives in infrastructure configuration the agent cannot modify; monitor intermediate outputs against the original goal ([#OVERSIGHT](/go/oversight/)); require human confirmation when scope changes beyond predefined bounds.
-- **Reward hacking and specification gaming:** agents exploit loopholes in metrics, rules, or evaluation pipelines rather than satisfying real goals; self-optimisation loops can reinforce shortcuts that bypass controls.
-- **Unbounded action space:** planners synthesise multi-step tool chains never explicitly reviewed, including combinations that bypass existing guardrails.
-- **Runaway escalation:** feedback loops from autonomous remediation (autoscaling, mass rollbacks, aggressive blocking) can overshoot or conflict with other agents or human operators.
-- **Cross-domain coupling:** a single routing, configuration, or feature-flag change can affect security controls, logging, or data flows elsewhere; many small correlated autonomous changes are harder to reason about and roll back than isolated human-driven changes.
-- **Accountability gaps:** without records of inputs, policy context, and chosen actions, harmful autonomous decisions are hard to explain, contest, or learn from.
-
-Steering autonomous decisions by altering perceived environment (RAG content, configuration, feature flags, logs) is typically an **attack vector** — see [prompt injection](/go/promptinjection/), [indirect prompt injection](/go/indirectpromptinjection/), and development-time poisoning threats — rather than a separate impact category. Mitigation is [blast radius control](/go/limitunwanted/) through [#OVERSIGHT](/go/oversight/), [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/), and [#MONITOR USE](/go/monitoruse/).
 
 Example: When Large Language Models (GenAI) can perform actions, the privileges around which actions and when become important ([OWASP for LLM 07](https://llmtop10.com/llm07/)).
 
