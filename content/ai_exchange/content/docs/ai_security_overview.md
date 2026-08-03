@@ -19,7 +19,7 @@ weight: 1
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Essentials](/go/essentials/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Threats](/go/threatsoverview/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Threat matrix](/go/aisecuritymatrix/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Agentic AI perspective](/go/agenticaithreats/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Agentic AI overview](/go/agenticaioverview/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Navigator](/go/navigator/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Controls](/go/controlsoverview/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Periodic table of threats and controls](/go/periodictable/)  
@@ -218,7 +218,7 @@ The AI Exchange is a single coherent resource on the security and privacy of AI 
   - Step 1: If you like a 101 on AI engineering, walk throught the [AI engineering primer for security professionals](/go/aiengineeringprimer/)
   - Step 2: First study the brief [AI security essentials](/go/essentials/) for the **big picture**.
   - Step 3: **Select** the threats that are relevant to your practice, by looking at [threat modeling](/go/threatmodel/) - or let AI interview you to find out (see above), or skip this step if you want to learn the complete threat picture.
-  - Step 4: If you're AI models can **trigger actions**, see the brief discussion of how [agentic threats](/go/agenticaithreats/) are covered.
+  - Step 4: If you're AI models can **trigger actions**, see the brief [Agentic AI overview](/go/agenticoverview/) to see how that aspect is covered in the Exchange.
   - Step 5: If you run a **ready-made model**, have a look at the [threat model on ready-made models](/go/readymademodel/).
   - Step 6: See your **threats** in their context ** in the [AI threat model](/go/threatsoverview/) and the [AI security matrix](/go/aisecuritymatrix).
   - Step 7: Click on your relevant threats in that overview to get more information and how to protect against it.
@@ -436,28 +436,28 @@ Note that some threats represent attacks consisting of several steps, and theref
 >Category: discussion  
 >Permalink: https://owaspai.org/go/agenticaioverview/
 
-Agentic AI systems are AI systems where models can trigger actions instead of just present output, and sometimes act autonomously or communicate with other agents. The AI Exchange covers all AI systems, so including agentic systems, throughout its content. For the full threat and control picture, see the [threats overview](/go/threatsoverview/), [AI security matrix](/go/aisecuritymatrix/), and [periodic table of threats and controls](/go/periodictable/).
+Agentic AI systems are AI systems where models can trigger actions instead of just present output, and sometimes act autonomously or communicate with other agents. An example of Agentic AI is a set of voice assistants that can control your heating, send emails, and even invite more assistants into the conversation. That’s powerful—but you’d probably want it to check with you first before sending a thousand emails.  
 
+The AI Exchange covers all AI systems, so including agentic systems, throughout its content. For the full threat and control picture, see the [threats overview](/go/threatsoverview/), [AI security matrix](/go/aisecuritymatrix/), and [periodic table of threats and controls](/go/periodictable/).  
 This section highlights agentic attention points only — not a separate threat landscape. 
 
 **Agentic security architecture principles**
 
 Agentic systems move AI from consulted component to **operational actor** — planning, calling tools, coordinating with other agents, and adapting with limited oversight. These are security design constraints, not a separate control catalogue:
 
-- **Enforce at infrastructure, not in prompts.** Access control, policy, and containment belong in surrounding systems ([#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/), [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/), [agent sandboxing](/go/agentsandboxing/)), not in model instructions alone.
-- **Design for compositional behaviour.** An agent with access to many tools and multi-step chaining produces a vast space of possible workflows — you cannot fully pre-specify purpose, boundaries, and side effects at design time. Threat modelling and governance specification remain necessary, but **runtime** guardrails ([#MONITOR USE](/go/monitoruse/), [#OVERSIGHT](/go/oversight/), session and tool limits) are required because emergent execution paths cannot all be enumerated upfront. Where regulation assumes pre-deployment describability of every workflow, compositional agentic systems need explicit program handling — see [#CHECK COMPLIANCE](/go/checkcompliance/) AI regulatory mapping.
+- **Enforce at infrastructure, not in prompts.** Access control, policy, and containment belong in surrounding systems ([#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/), [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/), [#AGENT SANDBOXING](/go/agentsandboxing/)), not in model instructions alone.
+- **Design for compositional behaviour.** An agent with access to many tools and multi-step chaining produces a vast space of possible workflows — you cannot fully pre-specify purpose, boundaries, and side effects at design time. Threat modelling and governance specification remain necessary, but **runtime** guardrails ([#MONITOR USE](/go/monitoruse/), [#OVERSIGHT](/go/oversight/), [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege)) are required because emergent execution paths cannot all be enumerated upfront. Where regulation assumes pre-deployment describability of every workflow, compositional agentic systems need explicit program handling — see [#CHECK COMPLIANCE](/go/checkcompliance/) AI regulatory mapping.
 - **Assume cascade across layers.** Data, reasoning, tools, APIs, and peer agents form one compositional attack surface; a weakness at any layer can propagate to others.
 - **Bound blast radius by default.** Deny-by-default tool access, non-transferable sessions, and **no transitive trust** between agents limit harm when [prompt injection](/go/promptinjection/) or misalignment occurs.
 
-An example of Agentic AI is a set of voice assistants that can control your heating, send emails, and even invite more assistants into the conversation. That’s powerful—but you’d probably want it to check with you first before sending a thousand emails.  
 
-There are four typical properties of agentic AI:
+**There are four typical properties of agentic AI:**  
 1. Action: Agents don’t just chat — they invoke functions such as sending an email. That makes [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/) a key control — including the [agentic authorisation framework](/go/leastmodelprivilege/) (deny-by-default, infrastructure policy enforcement, task-bound tokens, agent identity).
 2. Autonomous: Agents can trigger each other, enabling autonomous responses (e.g., a script receives an email, triggering a GenAI follow-up). That makes [OVERSIGHT](/go/oversight/) important, and it makes working memory an attack vector because that's where the state and the plan of an autonomous agent lives.
 3. Complex: Agentic behaviour is emergent.
 4. Multi-system: You often work with a mix of systems and interfaces. Because of that, developers tend to assign responsibilities regarding access control to the AI using instructions, opening up the door for manipulation through [prompt injection](/go/promptinjection/). Agent-to-service and inter-agent calls need machine-to-machine [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/) (scoped tokens, session binding, mutual auth) alongside [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/).
 
-What does this mean for security?
+**What does this mean for security?**
 - Hallucinations and prompt injections can change commands — or even escalate privileges. Key controls are defense in depth and blast radius control ([impact limitation](/go/limitunwanted/)). Don’t assign the responsibility of access control to GenAI models/agents. Build that into your architecture.
 - Existing assumptions about things like trust boundaries and other established security measures might need to be revisited because agentic AI changes interconnectivity and data flows between system components.
 - Agents deployed with their own sets of permissions open up privilege escalation vectors because they are susceptible to becoming a confused deputy
