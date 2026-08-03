@@ -36,8 +36,17 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
   - [#CONF COMPUTE](/go/confcompute/) for denying access to where sensitive data is processed
   - [#FEDERATED LEARNING](/go/federatedlearning/) to decreases the risk of all data leaking and as a side-effect: increase the risk of some data leaking
   - [#SUPPLY CHAIN MANAGE](/go/supplychainmanage/) especially to control where data and models come from
-    
 
+**Agentic development-time threats**
+
+For autonomous agents, development-time integrity extends beyond train/test data:
+
+- **Malicious agent training:** Agent backdoors and biased fine-tuning follow existing [data poisoning](/go/datapoison/), [development-environment model poisoning](/go/devmodelpoison/), and [supply-chain model poisoning](/go/supplymodelpoison/) paths — reproducible pipelines, chain-of-custody, adversarial pre-deployment testing. See §3.1; no duplicate mechanics here. **Detection during training:** monitor for statistical anomalies in training-data distribution, unexpected loss landscapes, and behavioural triggers that activate only under specific input patterns. **Baseline model weights:** capture approved weight checksums or fingerprints after training; compare before deploy and on update to detect adversarial weight manipulation (targeted label, clean-label, and related attacks).
+- **Agent behaviour manipulation:** Protect post-training shaping — system prompts, RLHF datasets, reward functions, agent configuration. Version-control and access-restrict; runtime integrity checks against approved versions; separate author, review, and deploy roles; stage-test with adversarial scenarios before production. System prompts are behaviour-shaping assets (see [#DEV SECURITY](/go/devsecurity/) below).
+- **Tool integration vulnerabilities:** MCP, skills, plugins, and bespoke tool connectors — audit for hardcoded credentials, insecure deserialisation, missing validation, and leaky error handling; validate API contracts at integration and runtime; store credentials in a secret manager, not agent-accessible config. Prefer a security-reviewed integration framework; see [#SUPPLY CHAIN MANAGE](/go/supplychainmanage/).
+- **Planning system poisoning:** Treat plan libraries, templates, and heuristics as integrity-protected artefacts; validate generated plans against policy before execution; monitor for anomalous plan complexity; log planning decisions. Runtime plan stores also fall under [#AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity/).
+
+    
 #### #DEV SECURITY
 > Category: development-time information security control  
 > Permalink: https://owaspai.org/go/devsecurity/
@@ -58,7 +67,7 @@ Data and models may have been obtained externally, just like software components
 Training data is in most cases only present during development-time, but there are exceptions:
   - A machine learning model may be continuously trained with data collected at runtime, which puts (part of the) training data in the runtime environment, where it also needs protection - as covered in this control section
   - For GenAI, information can be retrieved from a repository to be added to a prompt (_augmentation_), for example to inform a large language model about the context to take into account for an instruction or question. This principle is called _in-context learning_. For example [OpenCRE-chat](https://opencre.org/chatbot) uses a repository of requirements from security standards to add to a user question so that the large language model is more informed with background information. In the case of OpenCRE-chat this information is public, but in many cases the application of this so-called Retrieval Augmented Generation (RAG) will have a repository with company secrets or otherwise sensitive data. Organizations can benefit from unlocking their unique data, to be used by themselves, or to be provided as service or product. This is an attractive architecture because the alternative would be to train an LLM or to finetune it, which is expensive and difficult. A RAG approach may suffice. Effectively, this puts the repository data to the same use as training data is used: control the behaviour of the model. Therefore, the security controls that apply to train data, also apply to this run-time repository data. See [augmentation data manipulation](/go/augmentationdatamanipulation/).
-  - For GenAI, a special type of data to be added to input is a _system prompt_: instructions to the model regarding its behaviour. It is also used to _augment_ the input of the model, so it determines the model behaviour and therefore is an asset to protect. 
+  - For GenAI, a special type of data to be added to input is a _system prompt_: instructions to the model regarding its behaviour. It is also used to _augment_ the input of the model, so it determines the model behaviour and therefore is an asset to protect. For agentic deployments, extend the same rigour to RLHF feedback datasets, reward functions, and agent configuration files — version-control, access-restrict, and verify integrity at runtime.
 
 **Details on the how: protection strategies:**
 
@@ -223,6 +232,10 @@ Supply chain management focuses on managing the supply chain to minimize the sec
 
 Because of these characteristics, classic supply chain management may not fully cover AI development environments, particularly notebook-based workflows and MLOps tooling.
 
+**Agent tool integrations:** Agent connectors (MCP servers, skills, plugins, custom tool adapters) are supply-chain and dev-environment assets — verify provenance, pin versions, scan integration code, and reject API contract drift at runtime. Credentials belong in a secret manager, not in integration code or agent-readable configuration.
+
+**Third-party agents:** External agents are supply-chain entities — their training, configuration, and behaviour are not under your direct control. Before production access: define evaluation criteria (model provenance, data-governance attestation, behavioural testing in a [sandbox](/go/agentsandboxing/), injection resistance, declared tool scope); assign the **lowest trust / unknown reputation tier by default** (see [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/) behavioural trust and inter-agent trust); require contractual commitments on security testing, vulnerability disclosure, incident notification, and audit cooperation; and monitor with enhanced logging throughout operational lifetime, not only at onboarding.
+
 **Objective**  
 The objective of supply chain management in AI systems is to reduce the risk of corrupted, compromised, outdated, or mismanaged externally provided components and services. This includes supplied assets such as data, models, libraries, and tools, as well as hosted AI models and AI services operated by third parties. Risk reduction is achieved through verification, continuous monitoring, and governance of these components and their providers across the AI system lifecycle. Compromises or misconfigurations could lead to unwanted model behavior, data exfiltration, service disruption, or loss of control over critical functionality.
 
@@ -271,7 +284,11 @@ Supply chain management benefits from verifying the integrity and authenticity o
 - content-addressable storage or verification at read time,
 - periodic integrity audits.
 
+**Agent component integrity:** Maintain a per-agent bill of materials (model versions, MCP servers, skills, plugins, libraries, configuration files). Sign components at origin; verify signatures in the deployment pipeline and reject deployments that fail verification or do not match the approved BOM. Monitor at runtime for unauthorised component changes (drift from deployed versions). Apply the same standards to third-party components; items without verifiable provenance should be treated as untrusted.
+
 Monitoring for known vulnerabilities affecting supplied models, data pipelines, and dependencies, based on regular review of relevant security advisories and communications, allows teams to respond to newly discovered risks in a timely manner, informed by severity and exploitability, through updates, containment, or compensating controls. These activities can be integrated into broader vulnerability management and incident response processes (see #[DEV SECURITY](/go/devsecurity/)).
+
+**Agent dependency vulnerability management:** Maintain a continuously updated inventory of agent dependencies — model providers, tool and MCP server endpoints, orchestration frameworks, and runtime libraries. Subscribe to advisories, automate scanning in CI/CD, and define severity-based remediation SLAs. When immediate patching is infeasible, apply compensating controls (restrict affected tools, narrow segmentation, increase monitoring, temporarily disable functionality). Note that vulnerability disclosure for model providers and MCP servers is less mature than for conventional software; periodic reviews should also retire deprecated or unmaintained components.
 
 **Implementation of supplier evaluation and security assessment of supplied models and model hosting**  
 Evaluating the trustworthiness of suppliers (external vendors or internal teams) helps contextualize supply chain risk. This may include reviewing:
@@ -355,6 +372,8 @@ Development-time model poisoning in the broad sense is when an attacker manipula
 1. [data poisoning](/go/datapoison/): an attacker manipulates training data, or data used for in-context learning.
 2. [development-environment model poisoning](/go/devmodelpoison/): an attacker manipulates model parameters, or other engineering elements that take part in creating the model, such as code, configuration or libraries.
 3. [supply-chain model poisoning](/go/supplymodelpoison/): using a supplied trained model which has been manipulated by an attacker.
+
+Agent fine-tuning and RLHF for autonomous agents follow these same poisoning paths; see [agentic development-time threats](/go/developmenttime/) above.
 
 Impact: Integrity of model behaviour is affected, leading to issues from unwanted model output (e.g., failing fraud detection, decisions leading to safety issues, reputation damage, liability).
 
@@ -624,7 +643,7 @@ This control can only be applied during training and therefore not to an already
 <!-- OPENCRE_SECTION_CRE_START slug=traindatadistortion -->
 - [OpenCRE: Train data distortion](https://opencre.org/cre/567-025)
     referring to:
-    - [ETSI: sec. 5.2.2: Data sanitization](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
+    - [ETSI: sec. 5.2.2: Data sanitisation](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [ENISA: sec. Table 5:: Use methods to clean the training dataset from suspicious samples](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [NIST AI 100-2: sec. 2.3.1: Availability Poisoning](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
 <!-- OPENCRE_SECTION_CRE_END slug=traindatadistortion -->

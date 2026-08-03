@@ -13,6 +13,7 @@ Input threats (also called "threats through use", “inference-time attacks”, 
 Threats on this page:
 - [Evasion](/go/evasion/) - Bypassing decisions 
 - [Prompt injection](/go/promptinjection/) - Manipulating behaviour of GenAI systems
+- [Agent message structure manipulation](/go/agentmessagestructuremanipulation/) - Forging or altering structured agent messages (GenAI / agentic)
 - Sensitive data extraction:
     - [Disclosure in model output](/go/disclosureinoutput/)
     - [Model inversion and Membership inference](/go/modelinversionandmembership/)
@@ -98,6 +99,12 @@ For each monitored risk, criteria can be defined to identify suspicious patterns
   Logging supports both detection and later investigation. Depending on legal, privacy, and technical constraints, logs may include:
   
   - Trace metadata: timestamps, trace or session identifiers, actor or session linkage, request rates.
+  - **Agentic tool calls:** function or tool name, arguments (or hashed/summarized parameters), invoking identity, target resource or tenant, approval state (human vs autonomous), and correlation identifiers across multi-step chains — so cross-agent sessions can be reconstructed (see also [#OVERSIGHT](/go/oversight/)).
+  - **Agentic memory writes:** source, writer identity (agent or session), timestamp, memory partition or store identifier, and content hash or summary — to support forensic reconstruction of [persistent memory poisoning](/go/augmentationdatamanipulation/) and cross-session state (see [#AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity/)).
+  - **Agentic reasoning traces:** stated plan, chain-of-thought or reasoning summary (where exposed), declared objectives, and mapping to subsequent tool calls — to detect plan–action divergence and deceptive reasoning (see [#OVERSIGHT](/go/oversight/)). Chain-of-thought is model output, not guaranteed internal computation; treat as observability into _stated_ reasoning.
+  - **Agent action audit trail:** agent identity, action type, target resource, parameters (redacted as required), policy decision (permit/deny) and summary rationale, task/session context, outcome, and correlation IDs across agents and sessions — in tamper-evident storage the agent cannot modify (see [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/) policy enforcement). Include authentication and authorisation events and session lifecycle (create, timeout, terminate). Enable real-time analysis for high denial rates and unusual action sequences.
+  - **Tool chain monitoring:** per-call sequence position, preceding/following tool, output summary, and cumulative session resource use — to detect multi-step attacks, runaway loops, sensitive operations after external retrieval, and cross-session correlation. Alert on deviations from expected task sequences; enforce cumulative limits across the chain; see [#OVERSIGHT](/go/oversight/) for human checkpoints before irreversible steps.
+  - **Multi-agent collusion signals:** cross-agent correlation — synchronised anomalous activity, approval-splitting, complementary data access reconstructing restricted datasets, unexpected communication topology or new agent pairs, aggregate platform limits across agents in a workflow, honeypot/canary access with no legitimate path. Auto-isolate suspected colluding agents pending review.
   - Request context: input content, preprocessing steps, detection signals triggered.
   - Processing context: model version, execution time, errors.
   - Response context: output content, post-processing steps, filtering or blocking actions.
@@ -121,6 +128,8 @@ For each monitored risk, criteria can be defined to identify suspicious patterns
   - classifying the potential incident type,
   - assigning confidence or severity levels,
   - generating alerts for follow-up investigation when appropriate with sufficient information such as unique alert id, timestamp, threat classification, attack source, severity, request and response context,       description of observed behavior etc.
+  - **Agentic policy signals:** elevated policy denial rates, cumulative session limit approaches, or conflict-resolution events from a single agent or session (see [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/) policy enforcement).
+  - **Automated detection at agent speed:** Where agent autonomy outpaces human review, consider defensive monitoring agents or automated analysers that correlate signals, enforce policy, and trigger containment — complementary to human oversight ([#OVERSIGHT](/go/oversight/)), not a substitute. Scope and privilege such tooling carefully; a defensive agent is itself part of the attack surface.
 
   Decision rules can distinguish between:
 
@@ -149,6 +158,17 @@ For each monitored risk, criteria can be defined to identify suspicious patterns
 
 **- Incident Response and Containment**
 Detection mechanisms benefit from being paired with predefined response actions that limit harm, preserve evidence, and support recovery. For each detection used in the system, a corresponding response approach can be documented (e.g., incident response playbook - SOP), specifying when actions are automated, when follow-up is required, and what escalation paths apply.
+
+For agentic deployments, these response paths apply per session or workflow, not per single inference — a compromised agent may continue acting autonomously while investigators triage. Containment must work at the infrastructure layer (kill switch, credential revocation, tool restriction, session isolation) and should not depend on the agent cooperating.
+
+**Agentic incident lifecycle**
+
+- **Detection and triage:** Define incident criteria before deployment — policy violations, unexpected actions, unsafe outputs, unauthorised tool usage, goal deviation, and inter-agent contamination. Correlate signals from automated monitoring (behavioural anomalies, policy denials, agentic log fields above), user reports, and operator observation; no single source is sufficient. Classify by severity (impact on data, systems, or users), scope (single session, multi-agent workflow, platform-wide), and urgency (ongoing autonomous harm vs latent risk). Route critical incidents to automated containment, high-severity to immediate human review, and lower-severity events to queued investigation. Log detection events and triage decisions with timestamps, rationale, and assignee.
+
+- **Containment and eradication:** Pause, isolate, or terminate at the infrastructure layer; revoke credentials and restrict tools and data access so restrictions cannot be bypassed from agent context. Isolate compromised execution environments; disable risky automations, tool integrations, or inter-agent channels contributing to the incident. Identify and remove root causes (adversarial input, configuration error, model behaviour, compromised tool, [poisoned memory or context](/go/augmentationdatamanipulation/)). Clean harmful artefacts, reset to known-good configuration, validate safety before reactivation, and document every step for post-incident review and escalation under [#SEC PROGRAM](/go/secprogram/).
+
+- **Forensic analysis:** Apply forensic holds so log rotation does not destroy evidence. Preserve agent action logs, memory partitions, context-window snapshots, tool-call chains, and inter-agent messages (see agentic logging fields above). Reconstruct chronological timelines; replay memory from append-only stores where implemented. Correlate agent-level evidence with infrastructure authentication and policy-enforcement logs. Stated reasoning traces are model output, not guaranteed internal computation — reconstruct inputs, outputs, and actions, not hidden intent. Store evidence in tamper-evident form with chain of custody; distinguish established facts from inference and note evidence gaps.
+
 Response actions may vary depending on the certainty of detection, the threat type, and the potential impact, and can include:
 
   **- Immediate containment**
@@ -263,8 +283,10 @@ c. Optimize & Calibrate
 d. Detection & Response
     - Breaching a rate limit must trigger event logging and potential incident workflows. 
     - Integrate with [#MONITOR USE](/go/monitoruse/) and incident response (see [#SEC PROGRAM](/go/secprogram/))
+
+**Agent fleet rate limits:** Apply per-agent and per-session caps on tool invocations, outbound API calls, and orchestration steps — not only model inference frequency. Tighter limits for agents processing untrusted content. Terminate cleanly on hard limit breach with audit and alert. Complements [agent sandboxing](/go/agentsandboxing/) and runaway remediation controls under [#OVERSIGHT](/go/oversight/).
     
-Complement this control with [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/), [#MONITORUSE])(/go/monitoruse/) and detection mechanisms. 
+Complement this control with [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/), [#MONITORUSE](/go/monitoruse/) and detection mechanisms. 
 
 **Risk-Reduction Guidance**
 
@@ -342,6 +364,21 @@ If implementation is more practical for the deployer than the provider, this res
    - **Temporarily block the AI systems to the users after repeated failed authentication attempts.**
    - **Generate alerts for investigation of** suspicious **access behavior.**
 7. Integrate with other controls:** Use authenticated identity for per-user rate limiting, anomaly detection and incident reconstruction.
+
+**Agentic authentication**  
+Agents authenticate without interactive challenges, at high frequency, across trust domains, and through delegation chains where the human principal is not directly present. Pair with [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/) for authorisation after identity is established.
+
+- **Cryptographic identity:** Require mutual TLS, signed tokens, or equivalent for agent-to-service and inter-agent interactions — not shared static API keys. Authenticate at **channel** (transport) and **message** (signed payloads) levels.
+- **Agent-to-service:** Use machine-to-machine protocols (for example OAuth 2.0 client credentials) with short-lived, automatically rotated tokens scoped to specific services and operations. Bind credentials to verified agent identity and execution environment; services must validate scope per request. Log auth successes and failures at the service boundary.
+- **Multi-agent trust:** Require mutual authentication before operational exchange. Apply **trust tiers** by provenance (same operator, verified external, unknown) with proportionate data and tool limits. Use a federation or trust broker for cross-domain verification; encode negotiated constraints in a signed interaction contract. Re-establish trust after model updates, capability changes, or operator changes. **No transitive trust** — A trusts B and B trusts C does not imply A trusts C.
+
+- **Behavioural trust and reputation (optional):** Identity and authentication establish _who_ an agent is; **reputation** indicates how reliably it has behaved over time — one input to trust decisions, not a replacement for [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/) or cryptographic identity. Where implemented: track per-agent behavioural metrics (policy compliance, schema conformance, anomaly rate, tool-use patterns) in a **tamper-evident log external to the agent**; allow signed attestations of history when initiating new interactions. Map **reputation tiers** to concrete access consequences — for example high-trust agents within authorised scope; standard-trust under normal controls; low-trust or **unknown/new** agents (including [third-party onboarding](/go/supplychainmanage/)) subject to parameter review, limited tool subsets, enhanced logging, and exclusion from sensitive workflows until history is earned. Apply **reputation decay** after inactivity or material change (model update, tool-set change, operator change, environment change) — post-change agents should not inherit pre-change trust. Use **reputation-based circuit breakers**: a sudden significant score drop restricts capabilities and alerts operators (see [#MONITOR USE](/go/monitoruse/) and [#OVERSIGHT](/go/oversight/)). Secure reputation scoring infrastructure as a high-value target. **Limitations:** cold-start for new agents; long-con gaming; scores may not transfer across task types or model versions; industry scoring methods are not yet standardised — treat reputation as supplementary to identity, policy, and monitoring.
+- **Inter-agent communication:** mTLS with strict validation; **message-level signing** (content, sender, recipient, timestamp) for end-to-end integrity past TLS terminators; nonces/sequence numbers for **replay protection**; application-layer encryption across trust domains; separate channels by trust level; reject messages failing protocol schema validation before they reach agent context. Log message metadata in tamper-evident storage. See [agent message structure manipulation](/go/agentmessagestructuremanipulation/).
+- **Delegation chains:** Propagate authentication context — downstream calls carry a verifiable reference to delegating agent identity and original human principal, not only the immediate agent credential.
+- **Credential lifecycle:** Automate issuance, rotation, and revocation via infrastructure; agents must not manage their own credential stores. Maintain real-time revocation (OCSP-equivalent) for immediate invalidation.
+- **Session management:** Bind each session to agent identity, task context, and credential set; non-transferable session tokens. Enforce absolute and inactivity timeouts; re-authenticate on long-running tasks. Track cumulative session actions (tool calls, data volume, privilege scope) and deny limit exceedance. Invalidate on anomaly, credential revocation, or material scope change. On termination, revoke credentials, clear session state, and emit a session audit summary. **Do not carry session state across task boundaries** — new task, new session with freshly scoped credentials (see [#AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity/) for persistent memory risks).
+
+**Limitations (agentic):** Authentication confirms identity, not intent — a [prompt-injected](/go/promptinjection/) authenticated agent still passes auth checks. Legacy services that only accept static keys remain a gap. Per-message auth adds latency in high-throughput multi-agent systems.
 
 **Risk-Reduction Guidance**
 
@@ -1078,6 +1115,25 @@ This section discusses the two types of prompt injection and the mitigation cont
 - [Direct prompt injection](/go/directpromptinjection/)
 - [Indirect prompt injection](/go/indirectpromptinjection/)
 
+**Agentic prompt injection**  
+In agentic systems, user data and system commands share the same context plane — there is no parameterized-query equivalent. The dominant risk often shifts from safety violations (offensive or policy-breaking text) to **integrity compromises** where adversaries hijack agent **actions** through tools and side effects. See [Agentic AI](/go/agenticaithreats/) and the [seven layers of protection](/go/promptinjectionsevenlayers/).
+
+Beyond direct and indirect injection, agentic deployments add:
+
+- **In-context manipulation:** injection of adversarial content into the agent's active context window during a session. This overlaps [indirect prompt injection](/go/indirectpromptinjection/) when untrusted content is retrieved into the window; unlike one-shot injection, effects can accumulate across turns within the session unless context is reset.
+- **Stored injection:** a subclass of indirect injection where the payload persists in a data store (RAG index, shared documents, database) and is retrieved in later sessions — see also [augmentation data manipulation](/go/augmentationdatamanipulation/) and [data poisoning](/go/datapoison/).
+- **Multi-agent propagation:** a low-privileged agent is tricked into requesting a higher-privileged agent to perform an action on its behalf.
+
+**Structural mitigations for agentic systems:**
+
+- **Agentic Rule of Two:** until reliable model-layer refusal exists, an agent session should satisfy no more than two of: (A) processing untrustworthy inputs, (B) accessing sensitive systems or private data, (C) changing state or communicating externally. When all three are required, operate under human-in-the-loop supervision ([#OVERSIGHT](/go/oversight/)).
+- **Privilege-based data flow control (CaMeL):** attach capability metadata to values and restrict data and control flows with policies; convert user intent to sandboxed code steps rather than unconstrained natural-language tool calls.
+- **Instruction and data separation:** split context into commands versus data — see [#INPUT SEGREGATION](/go/inputsegregation/) and [#PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling/).
+- **Tool-boundary firewalls:** complementary firewalls at the agent-to-tool boundary — an input firewall limits private information reaching tool execution; an output firewall sanitises tool responses. These are typically lighter than dual-LLM architectures.
+- **Detection layers:** defences operate at text, model, and execution levels; execution-level detection (observing actual tool calls and side effects) is often the most reliable when confidentiality and integrity of actions matter.
+
+Static or model-only defences evaluated against fixed example attacks do not provide security guarantees against adaptive adversaries. Under current architectures, prompt injection is not solvable at the model layer alone. Rely on structural [blast radius control](/go/limitunwanted/) — [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/), [#OVERSIGHT](/go/oversight/), [#MONITOR USE](/go/monitoruse/) — rather than probabilistic filters over model output alone.
+
 ### 2.2.1. Direct prompt injection
 >Category: input threat  
 >Permalink: https://owaspai.org/go/directpromptinjection/
@@ -1090,6 +1146,8 @@ Impact: Obtaining information from the AI that is offensive, confidential, could
 Many Generative AI systems have been adjusted by their suppliers to behave (so-called _alignment_ or _safety training_), for example to prevent offensive language, or dangerous instructions. When prompt injection is  aimed at countering this, it is referred to as a *jailbreak attack*. Jailbreak attack strategies include:
 1. Abusing competing objectives. For example: if a model wants to be helpful, but also can't give you malicious instructions, then a prompt injection could abuse this by appealing to the helpfulness to still get the instructions.
 2. Using input that is not recognized by the alignment ('out of distribution') but IS resulting in an answer based on the training data ('in distribution'). For example: using special encoding that fools safety training, but still results in the unwanted output.
+
+**Agentic jailbreak (multi-turn):** In multi-turn agents, jailbreak is often a **session-level** problem — safety constraints that hold on turn one can degrade under incremental reframing across many turns (_crescendo_ patterns). Per-request safety checks may miss progressive constraint relaxation: an agent that refuses in turn one but complies by turn ten has been jailbroken across the session. Use session-level behavioural tracking ([#OVERSIGHT](/go/oversight/)) and include multi-turn paths in [testing](/go/testing/). This is distinct from **[agent escape](/go/agentescape/)** — exceeding the operational boundary through unauthorised tools, systems, or scope — which must be enforced at the infrastructure layer ([#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/)), not by alignment alone.
 
 Common forms (attack classes, strategies) of prompt injections include:
 
@@ -1174,7 +1232,7 @@ Multimodal prompt injection can be:
 - [OpenCRE: Direct prompt injection](https://opencre.org/cre/686-110)
     referring to:
     - [OWASP Top10 for LLM: sec. LLM01:2025: Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
-    - [MITRE ATLAS: sec. AML.T0051.000: LLM Prompt Injection: Direct](https://atlas.mitre.org/techniques/AML.T0051/000)
+    - [MITRE ATLAS: sec. AML.T0051.000: LLM Prompt Injection: Direct](https://atlas.mitre.org/techniques/AML.T0051.000)
     - [ENISA: sec. Table 3:: Evasion](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [BIML: sec. BIML-24(LLM): input:2: Prompt Injection](https://berryvilleiml.com/results/BIML-LLM24.pdf)
     - [NIST AI 100-2: sec. 3.3: Direct Prompt Injection Attacks](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
@@ -1265,6 +1323,8 @@ This control is less applicable to closed systems with fixed inputs and tightly 
 - **Recognize manipulative instructions in input**: Detecting patterns that indicate attempts to manipulate model behavior through crafted instructions (e.g.: ‘forget previous instructions’ or 'retrieve password'). These patterns may appear in text, images, audio, metadata, retrieved data, or uploaded files, depending on the system’s supported modalities. This can also include the detection of resources that are either target of attack (e.g., a database name) or an address to extract data to (e.g., an unvalidated or blacklisted URL). Solutions typically combine multiple approaches to assess the likelihood of an attack, given the difficulty of the recognition task.
 - **Use flexible recognition mechanisms**. The flexibility of natural language makes it harder to apply input validation compared to strict syntax situations like SQL commands. To address this flexibility of natural language in prompt inputs, the best approach for high-risk situations is to utilize LLM-based detectors (LLM-as-a-judge) for the detection of malicious instructions in a more semantic way, instead of syntactic. However, it’s important to note that this method may come with higher latency, higher compute costs, potential license costs, security issues for sending prompts to an external service, and considerations regarding accuracy. If the downsides of LLM-as-a-judge are not in line with the risk level, other flexible detections can be implemented, based on pattern recognition. Depending on the context, these may require fine-tuning. For example, for agents that already work with data  that contain instructions (e.g., support tickets).
 - **Apply input handling upstream**. By applying sanitization or detection as early as possible (e.g. when data is retrieved from an API), attacks are noticed sooner, the scope can be limited to untrusted data sources, obfuscation of instructions or sensitive data may be prevented, and AI components with less sophisticated I/O handling are protected. This also means that these techniques need to be applied to the output of the model if that output may ever become input to another model without such protections. If output is to be used in other command-interpreting tools, further encoding is needed - see [#ENCODE MODEL OUTPUT](/go/encodemodeloutput/).
+- **Agent active context (in-context manipulation):** For multi-turn agents, the accumulated context window is a live attack surface — not only the latest user message. Monitor for instruction-like content in tool outputs, retrieved chunks, and prior turns; reset or compress context between tasks when risk tolerance requires it. If agents persist context to shared stores, pair with [#AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity/) — see [augmentation data manipulation](/go/augmentationdatamanipulation/).
+- **Tool output sanitisation:** Process tool responses **before** context injection — strip known injection patterns (override instructions, role changes), validate structured output against declared schema, label trust level by data source, and scan for exfiltration-oriented encoding. Prevents [indirect prompt injection](/go/indirectpromptinjection/) via tool channels. Pair with [#ENCODE MODEL OUTPUT](/go/encodemodeloutput/) and [improper output handling](/go/insecureoutput/) where tool output reaches other interpreters or UIs.
 - **Detect unwanted output**: see [#OVERSIGHT](/go/oversight/) for detection of harmful content, sensitive data, suspicious actions and grounding checks. 
 - **Update detections constantly**: Make sure that techniques and patterns for detection of input/output are constantly updated by using external sources.  Since this is an arms race, the best strategy is to base this on an open source or third party resource. Popular tool providers at the time of writing include: Pangea, Hiddenlayer, AIShield, and Aiceberg. Popular open source packages for prompt injection detection are, in alphabetical order:
   - [Guardrails-AI](https://github.com/guardrails-ai/guardrails)
@@ -1308,6 +1368,8 @@ This control does not replace access control, rate limiting, or monitoring, but 
 **Description**  
 Indirect prompt injection: a third party fools a large language model (GenAI) through the inclusion of (often hidden) instructions as part of a text that is inserted into a prompt by an application, causing unintended actions or answers by the LLM (GenAI). This is similar to remote code execution.
 
+In agentic systems that retrieve external content, invoke tools, or share memory across sessions, indirect injection is typically the **dominant** threat class — every external source is an attack surface. Persistent payloads in RAG indexes or shared documents and [multi-agent propagation](/go/promptinjection/) (delegating to a higher-privileged agent) extend the classic pattern.
+
 Impact: Getting unwanted answers or actions (see [Agentic AI](/go/agenticaithreats/)) from instructions in untrusted input that has been inserted in a prompt.
 
 Example 1: let's say a chat application takes questions about car models. It turns a question into a prompt to a Large Language Model (LLM, a GenAI) by adding the text from the website about that car. If that website has been compromised with instructions invisible to the eye, those instructions are inserted into the prompt and may result in the user getting false or offensive information.
@@ -1342,7 +1404,7 @@ See the [seven layers section](/go/promptinjectionsevenlayers/) on how these con
 - [OpenCRE: Indirect prompt injection](https://opencre.org/cre/012-625)
     referring to:
     - [OWASP Top10 for LLM: sec. LLM01:2025: Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
-    - [MITRE ATLAS: sec. AML.T0051.001: LLM Prompt Injection: Indirect](https://atlas.mitre.org/techniques/AML.T0051/001)
+    - [MITRE ATLAS: sec. AML.T0051.001: LLM Prompt Injection: Indirect](https://atlas.mitre.org/techniques/AML.T0051.001)
     - [ENISA: sec. Table 3:: Evasion](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [BIML: sec. BIML-24(LLM): input:2: Prompt Injection](https://berryvilleiml.com/results/BIML-LLM24.pdf)
     - [NIST AI 100-2: sec. 3.4: Indirect Prompt Injection Attacks](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
@@ -1377,6 +1439,7 @@ Applicability should be determined through risk management, based on how much un
 - **Add instructions to ignore commands within marked data**: Prompts can include explicit instructions indicating that any instructions found inside the marked section should be ignored.
 - **Inspect untrusted data for instruction-like patterns**: Before inserting untrusted data into prompts, the content can be inspected for instruction-like patterns or manipulative language. This allows the system to decide whether to allow the content as-is, transform it, or exclude it from the prompt (see [PROMPT INJECTION IO HANDLING](/go/promptinjectioniohandling/)).
 - **Ensure consistent use**: All components of the system that generate prompts must follow a standard marking and instruction scheme to avoid gaps in coverage.
+- **Orchestrator and sub-agent output:** In multi-agent systems, treat **all sub-agent responses and tool outputs** entering the orchestrator as untrusted data — validate schema and bounds before routing decisions; see [#OVERSIGHT](/go/oversight/) secure orchestration and [agent message structure manipulation](/go/agentmessagestructuremanipulation/).
 
 Example prompt with inserted data:  
 "TASK:  
@@ -1413,8 +1476,50 @@ Models may not always follow instructions to ignore certain segments.
 This control does not address direct prompt injection where the attacker provides top-level instructions. 
 
 **References**  
+<!-- OPENCRE_SECTION_CRE_START slug=inputsegregation -->
+- [OpenCRE: Prompt input segregation](https://opencre.org/cre/106-447)
+    referring to:
+    - [NIST AI 100-2: sec. 3.4.5: Filtering retrieved inputs](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
+<!-- OPENCRE_SECTION_CRE_END slug=inputsegregation -->
 - [Simon Willison’s article](https://simonwillison.net/2023/Apr/14/worst-that-can-happen/)
 - [NCC Group discussion](https://research.nccgroup.com/2022/12/05/exploring-prompt-injection-attacks/)
+
+---
+
+### 2.2.3 Agent message structure manipulation
+>Category: input threat  
+>Permalink: https://owaspai.org/go/agentmessagestructuremanipulation/
+
+**Description**  
+Agent message structure manipulation: an attacker forges, replays, or alters **structured messages** between agents, tools, and orchestration layers — changing task parameters, tool arguments, routing metadata, conversation state, or schema fields — so downstream components execute unintended actions. This is distinct from [indirect prompt injection](/go/indirectpromptinjection/), which smuggles instructions in untrusted *text content* inserted into a prompt. Here the attack targets the **message fabric** (protocol fields, envelopes, delegation chains), not natural-language instructions alone.
+
+This threat applies to multi-agent systems and to **single agentic flows** (for example a RAG agent that treats tool output or planner steps as trusted structured input).
+
+Impact: Goal hijacking, privilege escalation via confused deputy behaviour, cascading misinformation across agents, or triggering unauthorized tool actions — even when visible user prompts appear benign.
+
+**Examples**
+
+Example 1: An attacker impersonates an agent on a weakly authenticated channel and injects forged messages that change tool arguments in a downstream call.
+
+Example 2: A malicious tool response supplies valid JSON with manipulated field values (task ID, recipient, file path). The orchestrator treats it as ground truth and executes the wrong action.
+
+Example 3: In a single-agent RAG pipeline, poisoned structured metadata in a retrieved document chunk alters routing or parameter binding without classic prompt-injection prose.
+
+Example 4: LLM-to-LLM “prompt infection” where one corrupted message propagates through a conversation graph over multiple hops.
+
+**Controls**
+
+- See [General controls](/go/generalcontrols/), especially [limiting the impact of unwanted behaviour](/go/limitunwanted/) ([#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/), [#OVERSIGHT](/go/oversight/)).
+- Treat peer-agent, tool, and orchestrator messages as **untrusted input** (similar to indirect prompt injection), including in single-agent tool loops.
+- [#INPUT SEGREGATION](/go/inputsegregation/) and [#PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling/) — where structured payloads are embedded in prompts.
+- [#MODEL INPUT CONFIDENTIALITY](/go/modelinputconfidentiality/) and channel integrity (signing, mTLS, replay protection) for inter-agent communication.
+- [#MONITOR USE](/go/monitoruse/) with per-hop / correlation identifiers for multi-step agent traces.
+- [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/) delegation controls — signed tokens, full-chain validation, scope non-expansion.
+- Schema validation and deny-by-default parsing at tool and message boundaries.
+- **Multi-agent layer:** Individual agent controls (§1.3, [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/)) are necessary but not sufficient. Enforce communication security at infrastructure (mTLS, signed envelopes, replay protection); detect [collusion](/go/monitoruse/) via cross-agent correlation and aggregate limits; harden the [orchestrator](/go/oversight/) — sub-agent output is untrusted input ([#INPUT SEGREGATION](/go/inputsegregation/)). Emergent collective behaviour can violate policy even when each agent complies in isolation.
+
+**References**
+- Related: [Indirect prompt injection](/go/indirectpromptinjection/), [Agentic AI attention points](/go/agenticaithreats/)
 
 ---
 
@@ -1532,8 +1637,8 @@ Membership inference is presenting a model with input data that identifies somet
 - [OpenCRE: Model inversion / Membership inference](https://opencre.org/cre/034-540)
     referring to:
     - [OWASP Top10 for LLM: sec. LLM02:2025: Sensitive Information Disclosure: Inference-based data disclosure attacks](https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/)
-    - [MITRE ATLAS: sec. AML.T0024.001: Exfiltration via AI Inference API: Invert AI Model](https://atlas.mitre.org/techniques/AML.T0024/001)
-    - [MITRE ATLAS: sec. AML.T0024.000: Exfiltration via AI Inference API: Infer Training Data Membership](https://atlas.mitre.org/techniques/AML.T0024/000)
+    - [MITRE ATLAS: sec. AML.T0024.001: Exfiltration via AI Inference API: Invert AI Model](https://atlas.mitre.org/techniques/AML.T0024.001)
+    - [MITRE ATLAS: sec. AML.T0024.000: Exfiltration via AI Inference API: Infer Training Data Membership](https://atlas.mitre.org/techniques/AML.T0024.000)
     - [ETSI: sec. 6.4.1: Model inversion attacks](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [ETSI: sec. 6.4.2: Membership inference attacks](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [OWASP Top10 for ML: sec. ML03:2023: Model Inversion Attack](https://mltop10.info/ML03_2023-Model_Inversion_Attack.html)
@@ -1624,7 +1729,7 @@ If attackers are able to access the model and the model allows intensive use, th
     referring to:
     - [ETSI: sec. 6.1: Model stealing attacks](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [OWASP Top10 for ML: sec. ML05:2023: Model Theft](https://mltop10.info/ML05_2023-Model_Theft.html)
-    - [MITRE ATLAS: sec. AML.T0024.002: Exfiltration via AI Inference API: Extract AI Model](https://atlas.mitre.org/techniques/AML.T0024/002)
+    - [MITRE ATLAS: sec. AML.T0024.002: Exfiltration via AI Inference API: Extract AI Model](https://atlas.mitre.org/techniques/AML.T0024.002)
     - [BIML: sec. BIML-78(2020): model:5: Steal the Box](https://berryvilleiml.com/results/interactive)
     - [NIST AI 100-2: sec. 2.4.3: Model Extraction](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
     - [ENISA: sec. Table 3:: Model disclosure](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
@@ -1692,6 +1797,8 @@ Examples:
 **Description**  
 Denial-of-service input validation: input validation and sanitization to reject or correct malicious (e.g. very large) content
 
+**Agent tool parameters:** Apply the same discipline to LLM-generated tool arguments — size limits, reject path traversal and shell metacharacters, and block injection-driven tool execution loops via per-tool rate limits. See [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/) tool call validation.
+
 Follow the guidance in [#MONITOR USE](/go/monitoruse/) regarding detection considerations and response options.
 
 **References**  
@@ -1713,6 +1820,8 @@ Useful standards include:
 
 **Description**  
 Limit resource usage for a single model input, to prevent resource overuse.
+
+**Agent resource quotas (agentic):** Enforce hard platform-level caps per agent or session — CPU time, memory, disk I/O, network egress, tool invocations, and wall-clock execution time. Quotas must be enforced by containers, API gateways, or orchestration — not by the agent. On breach, terminate execution cleanly and log an audit event. Use tighter tiers for low-trust or untrusted-content workloads. Monitor fleet-wide consumption for correlated spikes or slow exhaustion attacks. See [agent sandboxing](/go/agentsandboxing/). Resource limits bound cost and availability impact; they do not prevent all harm within the allocated budget.
 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=limitresources -->

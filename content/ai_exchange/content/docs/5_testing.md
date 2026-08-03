@@ -50,6 +50,8 @@ Each listed tool addresses a subset of the threat landscape of AI systems. Below
 - [Sensitive data output from model ](/go/disclosureinoutput/): A form of prompt injection, aiming to let the model disclose sensitive data
 - [Insecure Output Handling](https://owaspai.org/go/outputconatinsconventionalinjection/): Generative AI systems can be vulnerable to traditional injection attacks, leading to risks if the outputs are improperly handled or processed.
 
+**Agentic AI:** Agentic systems add non-deterministic multi-step execution, dynamic tool use, inter-agent communication, and persistent state. Key threats beyond single-turn generative testing include [goal hijacking](/go/agenticaithreats/), unauthorised tool invocation, [multi-agent propagation](/go/agentmessagestructuremanipulation/), [persistent memory poisoning](/go/augmentationdatamanipulation/), [agent escape](/go/agentescape/), and delegation-chain abuse. See the [Agentic AI threat overview](/go/agenticaithreats/) and the [Agentic AI red teaming guide](https://cloudsecurityalliance.org/download/artifacts/agentic-ai-red-teaming-guide) (CSA × AI Exchange).
+
 While we have mentioned the key threats for each of the AI Paradigm, we strongly encourage the reader to refer to all threats at the AI Exchange, based on the outcome of the Objective and scope definition phase in AI Red Teaming.
 
 
@@ -67,6 +69,44 @@ A systematic approach to AI security testing involves a few key steps:
 - **Risk Assessment:** Documentation of the identified vulnerabilities and risks.
 - **Prioritization and Risk Mitigation:** Develop an action plan for remediation, implement mitigation measures, and calculate residual risk.
 - **Validation of Fixes:** Retest the system post-remediation.
+
+### Agentic AI security testing
+
+Agentic testing extends the general approach above — same lifecycle steps, but the attack surface spans tools, orchestration, inter-agent channels, and session-persistent state, not only model I/O.
+
+**Methodologies (coverage-driven testing)**
+
+- Threat-model the agentic system before testing: enumerate agents, orchestrators, tools, data sources, trust boundaries, and every external input surface (user input, retrieved documents, tool outputs, inter-agent messages).
+- Confirm designed controls work under **normal** conditions before adversarial load — untested baselines cannot be distinguished from controls that fail under attack.
+- Test [prompt injection](/go/promptinjection/) on each external surface; run **single-turn and multi-turn** sequences separately — single-turn resistance does not predict session-level degradation (_crescendo_ patterns).
+- Test tool-call validation **independently of the LLM** by sending crafted invocations directly to the access-control or API gateway layer. Controls that exist only in a system prompt are not enforced against injection.
+- Exercise failure modes: context-window saturation, tool errors, partial task completion, and unexpected orchestrator routing.
+- Define minimum coverage criteria up front — which layers (reasoning, tool execution, infrastructure, inter-agent communication) were tested, to what depth, and with what corpus size. **Report untested threat categories explicitly**; coverage gaps are findings.
+- Combine AI red teaming with **conventional application security testing** — for example an MCP server may be reachable for SSRF, SQL injection, or XSS; an integrated view is more effective than either alone.
+
+**Red teaming exercises**
+
+Structured adversarial simulation for agentic systems is covered in the [Agentic AI red teaming guide](https://cloudsecurityalliance.org/download/artifacts/agentic-ai-red-teaming-guide) (CSA × AI Exchange). Use that guide as the primary methodology; extend local programmes with agentic-specific paths not always captured in single-turn LLM tests:
+
+- **Goal-level red teaming:** define an adversarial objective (exfiltration, privilege escalation, task hijacking) and pursue it across sessions and attack paths.
+- **Multi-turn / crescendo testing:** incremental reframing across many turns — safety constraints that hold on turn one may fail by turn ten or later.
+- **Cross-agent paths:** compromised or injected sub-agent influencing the orchestrator, peer-agent exfiltration, or privilege escalation through [delegation chains](/go/leastmodelprivilege/).
+- **Human oversight as a social surface:** test whether urgency framing, confusion injection, or approval fatigue can bypass [#OVERSIGHT](/go/oversight/) gates that work under normal review.
+- **Supply-chain scenarios:** substituted model variants or tampered tool implementations that bypass output filtering.
+- **Protocol testing:** red-team MCP, A2A, and other inter-agent protocol implementations for implementation weaknesses, not only prompt-layer attacks.
+
+Teams need both AI/ML and offensive-security expertise. Findings should include reproduction steps and observed reproduction rates — probabilistic LLM behaviour requires reporting rates, not single pass/fail.
+
+**Penetration testing (four-layer model)**
+
+Scope agentic pen tests across:
+
+1. **LLM reasoning layer** — prompt injection, goal hijacking, deceptive reasoning induction.
+2. **Tool execution layer** — validation bypass, unauthorised invocation, parameter tampering.
+3. **Infrastructure layer** — API gateway controls, credential exposure, key management, [#MONITOR USE](/go/monitoruse/) log integrity (verify the agent cannot suppress or alter logs under adversarial conditions).
+4. **Inter-agent communication layer** — message tampering, identity spoofing, trust-boundary exploitation ([agent message structure manipulation](/go/agentmessagestructuremanipulation/)).
+
+Prioritise findings with an agentic-aware severity model: autonomous execution scope, persistence across sessions, multi-agent propagation potential, and irreversibility of impact.
 
 ### Testing against Prompt injection
 > Category: AI security test  
