@@ -29,6 +29,11 @@ jobs:
       - name: Build search index (Pagefind)
         run: npx pagefind --site public
         working-directory: content/ai_exchange
+      - name: Cache Puppeteer browser
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/puppeteer
+          key: puppeteer-${{ hashFiles('package-lock.json') }}      
       - name: Generate PDF
         run: |
           npm ci
