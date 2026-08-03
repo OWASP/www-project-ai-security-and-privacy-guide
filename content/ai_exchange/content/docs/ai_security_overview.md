@@ -218,7 +218,7 @@ The AI Exchange is a single coherent resource on the security and privacy of AI 
   - Step 1: If you like a 101 on AI engineering, walk throught the [AI engineering primer for security professionals](/go/aiengineeringprimer/)
   - Step 2: First study the brief [AI security essentials](/go/essentials/) for the **big picture**.
   - Step 3: **Select** the threats that are relevant to your practice, by looking at [threat modeling](/go/threatmodel/) - or let AI interview you to find out (see above), or skip this step if you want to learn the complete threat picture.
-  - Step 4: If you're involved in **Agentic AI**, see the brief discussion of how [agentic threats](/go/agenticaithreats/) are covered.
+  - Step 4: If you're AI models can **trigger actions**, see the brief discussion of how [agentic threats](/go/agenticaithreats/) are covered.
   - Step 5: If you run a **ready-made model**, have a look at the [threat model on ready-made models](/go/readymademodel/).
   - Step 6: See your **threats** in their context ** in the [AI threat model](/go/threatsoverview/) and the [AI security matrix](/go/aisecuritymatrix).
   - Step 7: Click on your relevant threats in that overview to get more information and how to protect against it.
@@ -278,7 +278,7 @@ Real systems often combine all three. A product can use a hosted general-purpose
 | Frame the task and acceptance criteria | Use cases, data-flow diagrams, quality targets, unacceptable outcomes | Should AI be used here, what can go wrong, and who can be harmed? | [Essentials](/go/essentials/), [threat modeling](/go/threatmodel/), [privacy](/go/aiprivacy/) |
 | Source or build models and data | Service contracts, model cards, datasets, licenses, model artifacts | Can the source be trusted, and what evidence or control remains with the supplier? | [Supply-chain management](/go/supplychainmanage/), [ready-made models](/go/readymademodel/) |
 | Adapt behaviour | System prompts, prompt templates, retrieval indexes, fine-tuning data and configuration | Which untrusted data or instructions can change model behaviour? | [Prompt injection](/go/promptinjection/), [development practices](/go/devprogram/) |
-| Integrate the model into a product | Application code, APIs, agents, tools, identities, secrets, output parsers | What can the model read, disclose, modify, or trigger, and with whose privileges? | [Agentic AI threats](/go/agenticaithreats/), [secure development](/go/secdevprogram/) |
+| Integrate the model into a product | Application code, APIs, agents, tools, identities, secrets, output parsers | What can the model read, disclose, modify, or trigger, and with whose privileges? | [Agentic AI overview](/go/agenticaioverview/), [secure development](/go/secdevprogram/) |
 | Evaluate and release | Evaluation sets, test results, red-team findings, model and prompt versions | Does the system meet both its functional and security requirements on representative and adversarial inputs? | [Continuous validation](/go/continuousvalidation), [AI security testing](/go/testing/) |
 | Operate and change the system | Telemetry, incidents, user feedback, version history, rollback procedures | Can failures, abuse, and behavioural drift be detected, investigated, and contained? | [Monitoring](/go/monitoruse/), [AI security testing](/go/testing/) |
 
@@ -432,13 +432,13 @@ Note that some threats represent attacks consisting of several steps, and theref
 —	An adversary breaks into a development environment to steal a model so it can be used to experiment on to craft manipulated inputs to achieve a certain goal, and then present that input to the deployed system.
 
 
-### Threats to agentic AI
+### Agentic AI overview
 >Category: discussion  
->Permalink: https://owaspai.org/go/agenticaithreats/
+>Permalink: https://owaspai.org/go/agenticaioverview/
 
-In Agentic AI, AI systems can take action instead of just present output, and sometimes act autonomously or communicate with other agents. Important note: these are still software systems and AI systems, so everything in the AI Exchange applies, but there are a few attention points. 
+Agentic AI systems are AI systems where models can trigger actions instead of just present output, and sometimes act autonomously or communicate with other agents. The AI Exchange covers all AI systems, so including agentic systems, throughout its content. For the full threat and control picture, see the [threats overview](/go/threatsoverview/), [AI security matrix](/go/aisecuritymatrix/), and [periodic table of threats and controls](/go/periodictable/).
 
-This section highlights agentic attention points only — not a separate threat landscape. For the full threat and control picture, see the [threats overview](/go/threatsoverview/), [AI security matrix](/go/aisecuritymatrix/), and [periodic table of threats and controls](/go/periodictable/).
+This section highlights agentic attention points only — not a separate threat landscape. 
 
 **Agentic security architecture principles**
 
