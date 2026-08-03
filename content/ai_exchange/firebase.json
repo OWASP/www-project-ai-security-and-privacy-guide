@@ -90,7 +90,12 @@
       },
       {
         "source": "/goto/agenticaithreats/",
-        "destination": "/docs/ai_security_overview/#threats-to-agentic-ai",
+        "destination": "/docs/ai_security_overview/#agentic-ai-overview",
+        "type": 302
+      },  
+      {
+        "source": "/goto/agenticaioverview/",
+        "destination": "/docs/ai_security_overview/#agentic-ai-overview",
         "type": 302
       },  
       {
