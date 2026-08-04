@@ -218,7 +218,7 @@ The AI Exchange is a single coherent resource on the security and privacy of AI 
   - Step 1: If you like a 101 on AI engineering, walk throught the [AI engineering primer for security professionals](/go/aiengineeringprimer/)
   - Step 2: First study the brief [AI security essentials](/go/essentials/) for the **big picture**.
   - Step 3: **Select** the threats that are relevant to your practice, by looking at [threat modeling](/go/threatmodel/) - or let AI interview you to find out (see above), or skip this step if you want to learn the complete threat picture.
-  - Step 4: If you're AI models can **trigger actions**, see the brief [Agentic AI overview](/go/agenticaioverview/) to see how that aspect is covered in the Exchange.
+  - Step 4: If you're AI models can **trigger actions**, see the brief [Agentic AI overview](/go/agenticaioverview/) to see how that aspect is throughout the Exchange.
   - Step 5: If you run a **ready-made model**, have a look at the [threat model on ready-made models](/go/readymademodel/).
   - Step 6: See your **threats** in their context ** in the [AI threat model](/go/threatsoverview/) and the [AI security matrix](/go/aisecuritymatrix).
   - Step 7: Click on your relevant threats in that overview to get more information and how to protect against it.
@@ -436,7 +436,15 @@ Note that some threats represent attacks consisting of several steps, and theref
 >Category: discussion  
 >Permalink: https://owaspai.org/go/agenticaioverview/
 
-Agentic AI systems are AI systems where models can trigger actions instead of just provide content, and sometimes act autonomously or communicate model to model. An example of Agentic AI is a set of voice assistants that can control your heating, send emails, and even invite more assistants into the conversation. That’s powerful—but you’d probably want it to check with you first before sending a thousand emails.  
+Agentic AI systems are AI systems where models can trigger actions instead of just provide content, and sometimes act autonomously or communicate model to model. An example of Agentic AI is a set of voice assistants that can control your heating, send emails, and even invite more assistants into the conversation. That’s powerful—but you’d probably want it to check with you first before sending a thousand emails. 
+
+There are many definitions of Agentic AI, so it's best not to treat Agentic AI in one specific way. Instead, the key is to look at an AI system's properties underneath: Can the AI models trigger actions? What harm can they cause? Are external services used? Is untrusted data coming in? Is memory used to keep context and plans? Can actions send out data? 
+
+In assence: **Agentic’ is really a scale**. There are ‘mildly’ agentic systems at the one end, such as a door-opening AI camera, and ‘very’ agentic systems at the other end: with agents planning without human intervention, running in a loop, performing actions. With this scale, capability, autonomy, and impact increase:
+- Mildy Agentic AI: performs actions
+- Fairly Agentic AI: also plans
+- Quite Agentic AI: also runs in loops
+- Very Agentic AI: all of the above without any human intervention
 
 The AI Exchange covers all AI systems, so including agentic systems, throughout its content. For the full threat and control picture, see the [threats overview](/go/threatsoverview/), [AI security matrix](/go/aisecuritymatrix/), and [periodic table of threats and controls](/go/periodictable/).  
 This section highlights agentic attention points only — not a separate threat landscape. 
