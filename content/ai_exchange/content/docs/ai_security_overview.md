@@ -522,7 +522,7 @@ Clickable version, based on the [Periodic table](/go/periodictable/):
 <tr><td>Development - Supply chain</td><td><a href="/go/supplymodelpoison/">Supply-chain model poisoning</a></td></tr>
 <tr><td rowspan="3">Training data Confidentiality</td><td rowspan="2">Runtime - Model use</td><td><a href="/go/disclosureinoutput/">Disclosure in output</a></td></tr>
 <tr><td><a href="/go/modelinversionandmembership/">Model inversion / Membership inference</a></td></tr>
-<tr><td>Development - Engineering environment</td><td><a href="/go/devdataleak/">Developmen-time data leak</a></td></tr>
+<tr><td>Development - Engineering environment</td><td><a href="/go/devdataleak/">Development-time data leak</a></td></tr>
 <tr><td rowspan="3">Model confidentiality</td><td>Runtime - Model use</td><td><a href="/go/modelexfiltration/">Model exfiltration</a> (input-output harvesting)</td></tr>
 <tr><td>Runtime - Break into deployed model</td><td><a href="/go/runtimemodelleak/">Direct runtime model leak</a></td></tr>
 <tr><td>Development - Engineering environment</td><td><a href="/go/devmodelleak/">Direct development-time model-leak</a></td></tr>
