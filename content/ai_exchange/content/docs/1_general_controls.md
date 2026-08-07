@@ -79,6 +79,7 @@ In general risk management it may help to keep in mind the following particulari
 - [OpenCRE: AI management system](https://opencre.org/cre/755-340)
 <!-- OPENCRE_SECTION_CRE_END slug=aiprogram -->
 
+ - [COSO - Achieving Effective Internal Control Over GENERATIVE AI](https://www.coso.org/generative-ai)
  - [AI Governance library](https://www.aigl.blog/)
  - [UNESCO on AI ethics and governance](https://www.unesco.org/ethics-ai/en)
  - [GenAI security project LLM AI Cybersecurity & governance checklist](https://genai.owasp.org/resource/llm-applications-cybersecurity-and-governance-checklist-english/)
