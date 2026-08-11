@@ -30,19 +30,50 @@ async function run(name, fn) {
   }
 }
 
+// --- Content anchors used by the tests ---
+
+// These ids come from headings in the docs content, so they go stale silently
+// when a heading is renamed. That already happened once: "Threats to agentic
+// AI" became "Agentic AI overview" (commit 2685cf2) and three tests kept
+// pointing at the old anchor for a week without anyone noticing. If the check
+// below fails, look up the section's current id (the /go/ redirects in
+// firebase.json are kept up to date and point at it) and update the entry here.
+const ANCHORS = {
+  agenticOverview: 'agentic-ai-overview',
+  supplyChain: 'supply-chain-manage',
+};
+
+function testAnchorsExist() {
+  const docsDir = path.join(__dirname, '../content/ai_exchange/public/docs');
+  const pages = fs
+    .readdirSync(docsDir, { recursive: true })
+    .filter((p) => String(p).endsWith('index.html'))
+    .map((p) => fs.readFileSync(path.join(docsDir, String(p)), 'utf-8'));
+  for (const [name, id] of Object.entries(ANCHORS)) {
+    if (!pages.some((html) => new RegExp(`id="?${id}"?[ >]`).test(html))) {
+      throw new Error(
+        `Anchor "${id}" (ANCHORS.${name}) is not on any built docs page — a heading was probably renamed. Update ANCHORS in e2e/run.js.`
+      );
+    }
+  }
+}
+
 // --- Tests ---
 
 async function testSearchHighlightSection(page) {
-  await page.goto(`${BASE_URL}/docs/ai_security_overview/?highlight=agent#threats-to-agentic-ai`, {
-    waitUntil: 'networkidle0',
-    timeout: 10000,
-  });
+  await page.goto(
+    `${BASE_URL}/docs/ai_security_overview/?highlight=agent#${ANCHORS.agenticOverview}`,
+    {
+      waitUntil: 'networkidle0',
+      timeout: 10000,
+    }
+  );
   await page.waitForSelector('.search-highlight-current', { timeout: 5000 });
   const url = page.url();
-  if (!url.includes('#threats-to-agentic-ai')) throw new Error(`URL missing hash: ${url}`);
-  const isInSection = await page.evaluate(() => {
+  if (!url.includes(`#${ANCHORS.agenticOverview}`)) throw new Error(`URL missing hash: ${url}`);
+  const isInSection = await page.evaluate((anchorId) => {
     const current = document.querySelector('.search-highlight-current');
-    const sectionAnchor = document.getElementById('threats-to-agentic-ai');
+    const sectionAnchor = document.getElementById(anchorId);
     if (!current || !sectionAnchor) return false;
     const sectionHeading = sectionAnchor.closest('h1, h2, h3, h4, h5, h6');
     if (!sectionHeading) return false;
@@ -54,7 +85,7 @@ async function testSearchHighlightSection(page) {
       next = next.nextElementSibling;
     }
     return false;
-  });
+  }, ANCHORS.agenticOverview);
   if (!isInSection) throw new Error('Current highlight not in section');
 }
 
@@ -70,7 +101,7 @@ async function testSearchSubResultClick(page) {
   await delay(2000);
 
   const supplyChainLink = await page.waitForSelector(
-    '#pagefind-search a[href*="supply-chain-manage"]',
+    `#pagefind-search a[href*="${ANCHORS.supplyChain}"]`,
     { timeout: 8000 }
   );
   const nestedRow = await supplyChainLink.evaluateHandle((link) =>
@@ -95,9 +126,9 @@ async function testSearchSubResultClick(page) {
     throw new Error(`Should not land on #dev-security: ${url}`);
   }
 
-  const inSection = await page.evaluate(() => {
+  const inSection = await page.evaluate((anchorId) => {
     const current = document.querySelector('.search-highlight-current');
-    const anchor = document.getElementById('supply-chain-manage');
+    const anchor = document.getElementById(anchorId);
     if (!current || !anchor) return false;
     const heading = anchor.closest('h1, h2, h3, h4, h5, h6');
     if (!heading) return false;
@@ -109,7 +140,7 @@ async function testSearchSubResultClick(page) {
       next = next.nextElementSibling;
     }
     return false;
-  });
+  }, ANCHORS.supplyChain);
   if (!inSection) throw new Error('Highlight not in supply-chain-manage section');
 }
 
@@ -124,7 +155,7 @@ async function testSearchFullFlow(page) {
   await input.type('agent', { delay: 50 });
   await delay(2000);
   const link = await page.waitForSelector(
-    '#pagefind-search a[href*="threats-to-agentic-ai"]',
+    `#pagefind-search a[href*="${ANCHORS.agenticOverview}"]`,
     { timeout: 8000 }
   );
   await Promise.all([
@@ -133,12 +164,12 @@ async function testSearchFullFlow(page) {
   ]);
   await page.waitForSelector('.search-highlight-current', { timeout: 5000 });
   const url = page.url();
-  if (!url.includes('threats-to-agentic-ai')) {
-    throw new Error(`Expected threats-to-agentic-ai section: ${url}`);
+  if (!url.includes(ANCHORS.agenticOverview)) {
+    throw new Error(`Expected ${ANCHORS.agenticOverview} section: ${url}`);
   }
-  const inSection = await page.evaluate(() => {
+  const inSection = await page.evaluate((anchorId) => {
     const current = document.querySelector('.search-highlight-current');
-    const anchor = document.getElementById('threats-to-agentic-ai');
+    const anchor = document.getElementById(anchorId);
     if (!current || !anchor) return false;
     const heading = anchor.closest('h1, h2, h3, h4, h5, h6');
     if (!heading) return false;
@@ -150,8 +181,8 @@ async function testSearchFullFlow(page) {
       next = next.nextElementSibling;
     }
     return false;
-  });
-  if (!inSection) throw new Error('Highlight not in threats-to-agentic-ai section');
+  }, ANCHORS.agenticOverview);
+  if (!inSection) throw new Error(`Highlight not in ${ANCHORS.agenticOverview} section`);
 }
 
 async function testHighlightNoHash(page) {
@@ -410,27 +441,27 @@ async function testHighlightOnOtherPage(page) {
 
 async function testHashOnlyScroll(page) {
   // First: hash-only navigation without highlight
-  await page.goto(`${BASE_URL}/docs/ai_security_overview/#threats-to-agentic-ai`, {
+  await page.goto(`${BASE_URL}/docs/ai_security_overview/#${ANCHORS.agenticOverview}`, {
     waitUntil: 'networkidle0',
   });
-  const positionOk = await page.evaluate(() => {
-    const el = document.getElementById('threats-to-agentic-ai');
+  const positionOk = await page.evaluate((anchorId) => {
+    const el = document.getElementById(anchorId);
     if (!el) return false;
     const rect = el.getBoundingClientRect();
     return rect.top < window.innerHeight / 2;
-  });
+  }, ANCHORS.agenticOverview);
   if (!positionOk) throw new Error('Hash-only navigation did not scroll to section');
   const bar = await page.$('.search-highlight-bar');
   if (bar) throw new Error('Highlight bar should not appear for hash-only navigation');
 
   // Then: same section with highlight parameter still works
   await page.goto(
-    `${BASE_URL}/docs/ai_security_overview/?highlight=agent#threats-to-agentic-ai`,
+    `${BASE_URL}/docs/ai_security_overview/?highlight=agent#${ANCHORS.agenticOverview}`,
     { waitUntil: 'networkidle0' }
   );
   await page.waitForSelector('.search-highlight-current', { timeout: 5000 });
   const url = page.url();
-  if (!url.includes('threats-to-agentic-ai')) {
+  if (!url.includes(ANCHORS.agenticOverview)) {
     throw new Error(`Expected section hash with highlight: ${url}`);
   }
 }
@@ -522,6 +553,8 @@ async function main() {
   build();
   await startServer();
   console.log('Server running at', BASE_URL, '\n');
+
+  await run('0. Content anchors used by the tests exist', () => testAnchorsExist());
 
   await withBrowser(async (browser) => {
     const page = await browser.newPage();
