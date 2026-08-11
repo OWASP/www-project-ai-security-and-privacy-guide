@@ -454,9 +454,12 @@ async function testPdfOutline() {
 
   const printHtmlPath = path.join(__dirname, '../scripts/print.html');
   const printDom = new JSDOM(fs.readFileSync(printHtmlPath, 'utf-8'));
-  const headingCount = printDom.window.document.querySelectorAll(
-    '#content h1, #content h2, #content h3, #content h4, #content h5'
-  ).length;
+  const headings = [
+    ...printDom.window.document.querySelectorAll(
+      '#content h1, #content h2, #content h3, #content h4, #content h5'
+    ),
+  ].map((h) => h.textContent.replace(/\s+/g, ' ').trim());
+  const headingCount = headings.length;
   if (headingCount === 0) throw new Error('No headings found in print.html');
 
   const pdfPath = path.join(__dirname, '../content/ai_exchange/public/OWASP-AI-Exchange.pdf');
@@ -502,6 +505,13 @@ async function testPdfOutline() {
   }
   if (!titles.includes('Table of Contents')) {
     throw new Error('Expected "Table of Contents" bookmark is missing');
+  }
+  const titleSet = new Set(titles.map((t) => t.replace(/\s+/g, ' ').trim()));
+  const missingTitles = headings.filter((h) => !titleSet.has(h));
+  if (missingTitles.length > 0) {
+    throw new Error(
+      `${missingTitles.length} heading(s) missing from outline titles, e.g. "${missingTitles[0]}"`
+    );
   }
 }
 

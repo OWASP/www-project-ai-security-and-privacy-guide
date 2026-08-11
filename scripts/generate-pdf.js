@@ -3,7 +3,7 @@ const http = require('http');
 const path = require('path');
 const { JSDOM } = require('jsdom');
 const puppeteer = require('puppeteer');
-const { PDFArray, PDFDict, PDFDocument, PDFName } = require('pdf-lib');
+const { PDFArray, PDFDict, PDFDocument, PDFHexString, PDFName } = require('pdf-lib');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 const SITE_DIR = path.join(PROJECT_ROOT, 'content/ai_exchange/public');
@@ -78,6 +78,44 @@ function assertContentParity(printHtmlPath) {
     throw new Error(`Content parity failed: website has ${totalWebsiteTables} tables, PDF has ${printTables}`);
   }
   console.log(`Content parity OK: ${printImages.size} images, ${printTables} tables`);
+}
+
+// Chromium assembles bookmark titles from layout lines and can drop the space
+// at a line-wrap boundary (e.g. "…you can dowith AI"). Where a title matches a
+// collected heading except for lost whitespace, restore the heading text.
+// Returns the number of titles repaired.
+function repairOutlineTitles(pdfDoc, headingTitles) {
+  const byCollapsedText = new Map();
+  for (const title of headingTitles) {
+    const key = title.replace(/\s+/g, '');
+    if (byCollapsedText.has(key) && byCollapsedText.get(key) !== title) {
+      byCollapsedText.set(key, null); // ambiguous; leave such titles alone
+    } else {
+      byCollapsedText.set(key, title);
+    }
+  }
+  const outlinesRef = pdfDoc.catalog.get(PDFName.of('Outlines'));
+  if (!outlinesRef) return 0;
+  let repaired = 0;
+  const walk = (dict) => {
+    let itemRef = dict.get(PDFName.of('First'));
+    while (itemRef) {
+      const item = pdfDoc.context.lookup(itemRef, PDFDict);
+      const title = item.get(PDFName.of('Title'));
+      const text = title && title.decodeText ? title.decodeText() : null;
+      if (text) {
+        const canonical = byCollapsedText.get(text.replace(/\s+/g, ''));
+        if (canonical && canonical !== text) {
+          item.set(PDFName.of('Title'), PDFHexString.fromText(canonical));
+          repaired++;
+        }
+      }
+      walk(item);
+      itemRef = item.get(PDFName.of('Next'));
+    }
+  };
+  walk(pdfDoc.context.lookup(outlinesRef, PDFDict));
+  return repaired;
 }
 
 // Verify the shipped PDF carries a document outline (bookmarks): the tree must
@@ -295,6 +333,8 @@ async function main() {
     explicitPageBreak.style.pageBreakBefore = 'always';
     contentDiv.appendChild(explicitPageBreak);
 
+    const headingTitles = [];
+
     console.log('Processing pages...');
     for (const pagePath of PAGES) {
       const fullPath = path.join(SITE_DIR, pagePath);
@@ -323,6 +363,7 @@ async function main() {
         a.textContent = h.textContent.trim();
         li.appendChild(a);
         tocList.appendChild(li);
+        headingTitles.push(h.textContent.replace(/\s+/g, ' ').trim());
       });
 
       // Resolve and validate image paths before appending; fail if any local image is missing
@@ -524,6 +565,10 @@ async function main() {
     pdfDoc.setKeywords(['AI security', 'AI privacy', 'OWASP', 'threats', 'controls', 'machine learning', 'LLM']);
     pdfDoc.setCreator('OWASP AI Exchange');
     pdfDoc.setProducer('OWASP AI Exchange');
+    const repairedTitles = repairOutlineTitles(pdfDoc, headingTitles);
+    if (repairedTitles > 0) {
+      console.log(`Restored whitespace in ${repairedTitles} bookmark title(s)`);
+    }
     const modifiedPdfBytes = await pdfDoc.save();
     fs.writeFileSync(pdfPath, modifiedPdfBytes);
 
