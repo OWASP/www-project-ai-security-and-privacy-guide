@@ -444,6 +444,77 @@ function testPdfBuild() {
   if (stat.size < 10000) throw new Error(`PDF too small: ${stat.size} bytes`);
 }
 
+// Independent check of the generated artifact for issue #149: the PDF must
+// embed an outline (bookmarks) tree that PDF readers show as a navigation
+// sidebar. Coverage is measured against the headings in the assembled
+// print.html, so the expectation follows the content instead of a fixed count.
+async function testPdfOutline() {
+  const { PDFArray, PDFDict, PDFDocument, PDFName } = require('pdf-lib');
+  const { JSDOM } = require('jsdom');
+
+  const printHtmlPath = path.join(__dirname, '../scripts/print.html');
+  const printDom = new JSDOM(fs.readFileSync(printHtmlPath, 'utf-8'));
+  const headings = [
+    ...printDom.window.document.querySelectorAll(
+      '#content h1, #content h2, #content h3, #content h4, #content h5'
+    ),
+  ].map((h) => h.textContent.replace(/\s+/g, ' ').trim());
+  const headingCount = headings.length;
+  if (headingCount === 0) throw new Error('No headings found in print.html');
+
+  const pdfPath = path.join(__dirname, '../content/ai_exchange/public/OWASP-AI-Exchange.pdf');
+  const pdfDoc = await PDFDocument.load(fs.readFileSync(pdfPath));
+  const pageRefs = new Set(pdfDoc.getPages().map((p) => p.ref.toString()));
+  const outlinesRef = pdfDoc.catalog.get(PDFName.of('Outlines'));
+  if (!outlinesRef) throw new Error('PDF catalog has no /Outlines entry');
+  const outlines = pdfDoc.context.lookup(outlinesRef, PDFDict);
+
+  let entries = 0;
+  let maxDepth = 0;
+  let brokenDestinations = 0;
+  const titles = [];
+  const walk = (dict, depth) => {
+    let itemRef = dict.get(PDFName.of('First'));
+    while (itemRef) {
+      const item = pdfDoc.context.lookup(itemRef, PDFDict);
+      entries++;
+      maxDepth = Math.max(maxDepth, depth);
+      const title = item.get(PDFName.of('Title'));
+      titles.push(title && title.decodeText ? title.decodeText() : '');
+      let dest = item.get(PDFName.of('Dest'));
+      if (!dest) {
+        const actionRef = item.get(PDFName.of('A'));
+        if (actionRef) dest = pdfDoc.context.lookup(actionRef, PDFDict).get(PDFName.of('D'));
+      }
+      const destArray = dest ? pdfDoc.context.lookup(dest) : null;
+      if (!(destArray instanceof PDFArray) || destArray.size() === 0 || !pageRefs.has(destArray.get(0).toString())) {
+        brokenDestinations++;
+      }
+      walk(item, depth + 1);
+      itemRef = item.get(PDFName.of('Next'));
+    }
+  };
+  walk(outlines, 1);
+
+  if (entries < headingCount) {
+    throw new Error(`Outline has ${entries} bookmarks for ${headingCount} headings`);
+  }
+  if (maxDepth < 2) throw new Error(`Outline hierarchy is flat: ${maxDepth} level(s)`);
+  if (brokenDestinations > 0) {
+    throw new Error(`${brokenDestinations} bookmark(s) do not resolve to a page`);
+  }
+  if (!titles.includes('Table of Contents')) {
+    throw new Error('Expected "Table of Contents" bookmark is missing');
+  }
+  const titleSet = new Set(titles.map((t) => t.replace(/\s+/g, ' ').trim()));
+  const missingTitles = headings.filter((h) => !titleSet.has(h));
+  if (missingTitles.length > 0) {
+    throw new Error(
+      `${missingTitles.length} heading(s) missing from outline titles, e.g. "${missingTitles[0]}"`
+    );
+  }
+}
+
 // --- Runner ---
 
 async function main() {
@@ -491,6 +562,9 @@ async function main() {
   });
 
   await run('18. PDF build succeeds', () => testPdfBuild());
+  await run('19. PDF outline bookmarks present and resolve (issue #149)', () =>
+    testPdfOutline()
+  );
 
   stopServer();
 
