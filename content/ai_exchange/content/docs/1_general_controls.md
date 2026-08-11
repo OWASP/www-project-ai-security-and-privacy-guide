@@ -69,10 +69,11 @@ In general risk management it may help to keep in mind the following particulari
 2. Connected to 1: models can go stale
 3. Organizes its behaviour based on data, so data becomes a source of opportunity (e.g. complex real-world problem-solving, adaptability) and of risk (e.g. unwanted bias, incompleteness, error, manipulation)
 4. Unfamiliar to organizations and to people, with the risk of implementation mistakes, underreliance, overreliance, and incorrect attribution of human tendencies
-5. Incomprehensible, resulting in trust issues
+5. Incomprehensible processing, resulting in trust issues
 6. New technical assets that form security threats (data/model supply chain, train data, model parameters, augmentation data, AI documentation)
 7. Can listen and speak: communicate through natural language instead of user interfaces
 8. Can hear and see: have sound and vision recognition abilities
+9. When models can act autonomously, making behaviour dynamic and permissions and oversight challenging
 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=aiprogram -->
@@ -110,11 +111,12 @@ Make sure to include AI-specific assets and the threats to them. The threats are
 - hyperparameters
 - documentation of models and the process of their development including experiments
 - model input
+- augmentation data that is automatically inserted into the model input (e.g. documents, system prompts)
 - model output, which needs to be regarded as untrusted if the training data or model is untrusted
 - intended model behaviour
 - data to train and test obtained from external sources
 - models to train and use from external sources
-- augmentation data that is automatically inserted into the model input (e.g. documents, system prompts)
+
 
 By incorporating these assets and the threats to them, the security program takes care of mitigating these risks. For example: by informing engineers in awareness training that they should not leave their documentation lying around. Or: by installing malware detection on engineer machines because of the high sensitivity of the training data that they work with. 
 
@@ -197,7 +199,7 @@ Particularities for AI in software development, and how to address them:
 
 - New assets, threats and controls (as covered in this document) need to be considered, affecting requirements, policies, coding guidelines, training, tooling, testing practices and more. Usually, this is done by adding these elements in the organization's Information Security Management System, as described in [SECPROGRAM](/go/secprogram/), and align secure software development to that - just like it has been aligned on the conventional assets, threats and controls.  This involves both conventional security threats and AI-specific threats, applying both conventional security controls and AI-specific ones. Typically, technical teams depend on the AI engineers when it comes to the AI-specific controls as they mostly require deep AI expertise. For example: if training data is confidential and collected in a distributed way, then a federated learning approach may be considered. AI-specific risks can be determined through [AI threat modeling](/go/threatmodel/).
 
-- Apart from software components, the supply chain for AI can also include data and models which may have been poisoned, which is why data provenance and model management are central in [AI supply chain management](/go/supplychainmanage/).
+- Apart from software components, the supply chain for AI can also include data, models, and model hosting. Data and models may have been poisoned, which is why data provenance and model management are central in [AI supply chain management](/go/supplychainmanage/). In addition, the supply chain encompasses capabilities that agents interact with dynamically, such as skills and services (e.g. through MCP).
 - In AI, software components can also run in the development, for example tools to prepare training data or train a model. Because of this, the AI development environment is vulnerable to traditional software security risks, such as open source package vulnerabilities, CWEs, exposed secrets, and sensitive data leaks. Without robust controls in place, these risks go undetected by standard application security testing tools, potentially exposing the entire lifecycle to breaches.
 
 - The AI development environment typically involves sensitive data, in contrast to conventional engineering where the use of such data by engineers is normally avoided. Therefore, apply [development security](/go/devsecurity/) on the development environment. In addition to the conventional assets of code, configuration and secrets, the AI-specific development assets are:
