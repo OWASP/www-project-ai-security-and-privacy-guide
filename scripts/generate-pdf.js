@@ -3,7 +3,7 @@ const http = require('http');
 const path = require('path');
 const { JSDOM } = require('jsdom');
 const puppeteer = require('puppeteer');
-const { PDFDocument } = require('pdf-lib');
+const { PDFArray, PDFDict, PDFDocument, PDFName } = require('pdf-lib');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 const SITE_DIR = path.join(PROJECT_ROOT, 'content/ai_exchange/public');
@@ -78,6 +78,68 @@ function assertContentParity(printHtmlPath) {
     throw new Error(`Content parity failed: website has ${totalWebsiteTables} tables, PDF has ${printTables}`);
   }
   console.log(`Content parity OK: ${printImages.size} images, ${printTables} tables`);
+}
+
+// Verify the shipped PDF carries a document outline (bookmarks): the tree must
+// exist, cover at least the headings collected for the visible TOC, keep a
+// hierarchy of two or more levels, and every entry must point at a page that is
+// present in the document. Runs on the final bytes, after the pdf-lib metadata
+// pass, so it also proves that pass preserved the outline Chromium generated.
+async function assertDocumentOutline(pdfPath, minEntries) {
+  const pdfDoc = await PDFDocument.load(fs.readFileSync(pdfPath));
+  const pageRefs = new Set(pdfDoc.getPages().map((p) => p.ref.toString()));
+  const outlinesRef = pdfDoc.catalog.get(PDFName.of('Outlines'));
+  if (!outlinesRef) {
+    throw new Error('Document outline missing: PDF catalog has no /Outlines entry.');
+  }
+  const outlines = pdfDoc.context.lookup(outlinesRef, PDFDict);
+
+  const resolvesToPage = (item) => {
+    let dest = item.get(PDFName.of('Dest'));
+    if (!dest) {
+      const actionRef = item.get(PDFName.of('A'));
+      if (!actionRef) return false;
+      dest = pdfDoc.context.lookup(actionRef, PDFDict).get(PDFName.of('D'));
+    }
+    if (!dest) return false;
+    const destArray = pdfDoc.context.lookup(dest);
+    if (!(destArray instanceof PDFArray) || destArray.size() === 0) return false;
+    return pageRefs.has(destArray.get(0).toString());
+  };
+
+  let entries = 0;
+  let maxDepth = 0;
+  const broken = [];
+  const walk = (dict, depth) => {
+    let itemRef = dict.get(PDFName.of('First'));
+    while (itemRef) {
+      const item = pdfDoc.context.lookup(itemRef, PDFDict);
+      entries++;
+      maxDepth = Math.max(maxDepth, depth);
+      const title = item.get(PDFName.of('Title'));
+      const titleText = title && title.decodeText ? title.decodeText() : '';
+      if (!title) {
+        broken.push(`bookmark ${entries}: missing /Title`);
+      } else if (!resolvesToPage(item)) {
+        broken.push(`bookmark ${entries} ("${titleText}"): destination does not resolve to a page`);
+      }
+      walk(item, depth + 1);
+      itemRef = item.get(PDFName.of('Next'));
+    }
+  };
+  walk(outlines, 1);
+
+  if (broken.length > 0) {
+    broken.forEach((b) => console.error(`  ${b}`));
+    throw new Error(`Document outline invalid: ${broken.length} bookmark(s) with missing titles or unresolvable destinations.`);
+  }
+  if (entries < minEntries) {
+    throw new Error(`Document outline incomplete: ${entries} bookmarks for ${minEntries} headings.`);
+  }
+  if (maxDepth < 2) {
+    throw new Error(`Document outline is flat: expected a hierarchy of at least 2 levels, got ${maxDepth}.`);
+  }
+  console.log(`Document outline OK: ${entries} bookmarks, ${maxDepth} levels deep`);
 }
 
 function resolveImagePath(urlPath) {
@@ -446,7 +508,10 @@ async function main() {
         headerTemplate: '<div></div>',
         footerTemplate: `<div style="width: 100%; font-size: 10px; text-align: center; color: #777;"><span class="pageNumber"></span> / <span class="totalPages"></span></div>`,
         printBackground: true,
-        generateDocumentOutline: true,
+        // Puppeteer's option is `outline`; it maps to Chromium's
+        // Page.printToPDF generateDocumentOutline parameter. Passing the CDP
+        // name directly is silently ignored and produces a PDF without bookmarks.
+        outline: true,
         tagged: true
     });
     await browser.close();
@@ -461,6 +526,8 @@ async function main() {
     pdfDoc.setProducer('OWASP AI Exchange');
     const modifiedPdfBytes = await pdfDoc.save();
     fs.writeFileSync(pdfPath, modifiedPdfBytes);
+
+    await assertDocumentOutline(pdfPath, tocList.querySelectorAll('li').length);
 
     console.log(`PDF saved to ${pdfPath}`);
     console.log('PDF generation complete.');
