@@ -1195,7 +1195,7 @@ Example 4: Making a chatbot say things that are legally binding and gain attacke
 
 Example 5: The process of trying prompt injection can be automated, searching for _perturbations_ to a prompt that allows circumventing the alignment. See [this article by Zou et al](https://llm-attacks.org/).
 
-Example 6: When an attacker manages to retrieve system instructions provided by Developers through crafted input prompts, in order to later help craft prompt injections that circumvent the protections in those system prompts. (known as System prompt leakage, Refer [System Prompt Leakage](https://genai.owasp.org/llmrisk/llm072025-system-prompt-leakage/)).
+Example 6: When an attacker manages to retrieve system instructions provided by Developers through crafted input prompts, in order to later help craft prompt injections that circumvent the protections in those system prompts. (known as System prompt leakage; in the 2026 LLM Top 10 this is covered by [OWASP for LLM 08: Hidden Context Exposure](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/), which expands beyond system prompts to any hidden operational context).
 
 
 **Modality**  
@@ -1232,14 +1232,14 @@ Multimodal prompt injection can be:
 <!-- OPENCRE_SECTION_CRE_START slug=directpromptinjection -->
 - [OpenCRE: Direct prompt injection](https://opencre.org/cre/686-110)
     referring to:
-    - [OWASP Top10 for LLM: sec. LLM01:2025: Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
+    - [OWASP Top10 for LLM: sec. LLM01:2026: Prompt Injection](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)
     - [MITRE ATLAS: sec. AML.T0051.000: LLM Prompt Injection: Direct](https://atlas.mitre.org/techniques/AML.T0051.000)
     - [ENISA: sec. Table 3:: Evasion](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [BIML: sec. BIML-24(LLM): input:2: Prompt Injection](https://berryvilleiml.com/results/BIML-LLM24.pdf)
     - [NIST AI 100-2: sec. 3.3: Direct Prompt Injection Attacks](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
 <!-- OPENCRE_SECTION_CRE_END slug=directpromptinjection -->
 - [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.T0051)
-- [OWASP for LLM 01](https://genai.owasp.org/llmrisk/llm01/)
+- [OWASP for LLM 01: Prompt Injection](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)
 - [OWASP CHeat sheets on Prompt injection prevention](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html)
 
 
@@ -1382,7 +1382,7 @@ Example 3: consider multi-modal agents where they parse both text and image data
 Example 4: Say an LLM is connected to a plugin that has access to a Github account and the LLM also has access to web sites to look up information. An attacker can hide instructions on a website and then make sure that the LLM reads that website. These instructions may then for example make a private coding project public. See this [talk by Johann Rehberger](https://youtu.be/ADHAokjniE4?si=sAGImaFX49mi8dmk&t=1474)
 
 Mappings
-- [OWASP Top 10 for LLM 01](https://genai.owasp.org/llmrisk/llm01/)
+- [OWASP Top 10 for LLM 01: Prompt Injection](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)
 - [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.T0051)
 
 **Controls**
@@ -1404,7 +1404,7 @@ See the [seven layers section](/go/promptinjectionsevenlayers/) on how these con
 <!-- OPENCRE_SECTION_CRE_START slug=indirectpromptinjection -->
 - [OpenCRE: Indirect prompt injection](https://opencre.org/cre/012-625)
     referring to:
-    - [OWASP Top10 for LLM: sec. LLM01:2025: Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
+    - [OWASP Top10 for LLM: sec. LLM01:2026: Prompt Injection](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)
     - [MITRE ATLAS: sec. AML.T0051.001: LLM Prompt Injection: Indirect](https://atlas.mitre.org/techniques/AML.T0051.001)
     - [ENISA: sec. Table 3:: Evasion](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [BIML: sec. BIML-24(LLM): input:2: Prompt Injection](https://berryvilleiml.com/results/BIML-LLM24.pdf)
@@ -1538,7 +1538,7 @@ The model discloses sensitive training data or is abused to do so.
 >Permalink: https://owaspai.org/go/disclosureinoutput/
 
 **Description**  
-The output of the model may contain sensitive data from the training set or input (which may include augmentation data). For example, a large language model (GenAI) generating output including personal data that was part of its training set. Furthermore, GenAI can output other types of sensitive data, such as copyrighted text or images (see [Copyright](/go/copyright/)). Once training data is in a GenAI model, original variations in access rights cannot be controlled anymore. ([OWASP for LLM 02](https://genai.owasp.org/llmrisk/llm02/))
+The output of the model may contain sensitive data from the training set or input (which may include augmentation data). For example, a large language model (GenAI) generating output including personal data that was part of its training set. Furthermore, GenAI can output other types of sensitive data, such as copyrighted text or images (see [Copyright](/go/copyright/)). Once training data is in a GenAI model, original variations in access rights cannot be controlled anymore. ([OWASP for LLM 02: Sensitive Information Disclosure](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/))
 
 The disclosure is caused by an unintentional fault of including this data, and exposed through normal use or through provocation by an attacker using the system. See [MITRE ATLAS - LLM Data Leakage](https://atlas.mitre.org/techniques/AML.T0057)
 
@@ -1637,7 +1637,7 @@ Membership inference is presenting a model with input data that identifies somet
 <!-- OPENCRE_SECTION_CRE_START slug=modelinversionandmembership -->
 - [OpenCRE: Model inversion / Membership inference](https://opencre.org/cre/034-540)
     referring to:
-    - [OWASP Top10 for LLM: sec. LLM02:2025: Sensitive Information Disclosure: Inference-based data disclosure attacks](https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/)
+    - [OWASP Top10 for LLM: sec. LLM02:2026: Sensitive Information Disclosure](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)
     - [MITRE ATLAS: sec. AML.T0024.001: Exfiltration via AI Inference API: Invert AI Model](https://atlas.mitre.org/techniques/AML.T0024.001)
     - [MITRE ATLAS: sec. AML.T0024.000: Exfiltration via AI Inference API: Infer Training Data Membership](https://atlas.mitre.org/techniques/AML.T0024.000)
     - [ETSI: sec. 6.4.1: Model inversion attacks](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)

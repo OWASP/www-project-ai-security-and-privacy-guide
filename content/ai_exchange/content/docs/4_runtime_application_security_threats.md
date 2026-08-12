@@ -138,10 +138,10 @@ A special sub form of exfiltrating to third parties through output is when sensi
 <!-- OPENCRE_SECTION_CRE_START slug=outputcontainsconventionalinjection -->
 - [OpenCRE: Model output contains conventional injection](https://opencre.org/cre/780-757)
     referring to:
-    - [OWASP Top10 for LLM: sec. LLM05:2025: Improper Output Handling](https://genai.owasp.org/llmrisk/llm052025-improper-output-handling/)
+    - [OWASP Top10 for LLM: sec. LLM10:2026: Improper Output Handling](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)
     - [MITRE ATLAS: sec. AML.T0051: LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.T0051)
 <!-- OPENCRE_SECTION_CRE_END slug=outputcontainsconventionalinjection -->
-See [OWASP for LLM 05](https://genai.owasp.org/llmrisk/llm05/).
+See [OWASP for LLM 10: Improper Output Handling](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/).
 
 **Controls:**
 
