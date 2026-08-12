@@ -1,4 +1,4 @@
-<img width="293" height="194" alt="image" src="https://github.com/user-attachments/assets/9b29a6b9-1c2f-456b-9a40-25bb8c0847d6" />---
+---
 title: 0. AI Security Overview
 heroTitle: "AI Security Overview"
 heroText: "This page provides an introduction, high-over views of threats and controls, step-by-step risk analysis, and discussion of cross-cutting concerns. The next pages go deeper into threats and controls."
@@ -957,7 +957,7 @@ Concepts regarding responsible use:
   - **Transparency**: sharing information about the applied approach, to warn users and depending systems of accuracy risks, plus in many cases users have the right to know details about AI being used and how it has been created. Therefore it is a shared concern between security, privacy and safety.
 - **Explainability**: sharing information to help users validate accuracy by explaining in more detail how a specific result was calculated. Apart from validating accuracy this can also support users to get transparency and to understand what needs to change to get a different outcome. Therefore it is a shared concern between security, privacy, safety and business function. A special case is when explainability is required by law, which adds 'compliance' to the list of aspects that share this concern. Explainability can support responsible use, but is rarely included in regulatory frameworks.
 
-### Standard correctness in terms of performance
+#### Standard correctness in terms of performance
 AI is in essence always guessing and therefore can always be incorrect. This can lead to harm, including (physical) safety problems (e.g., an autonomous vehicle stopping for a green light) or other wrong decisions that are harmful (e.g., wrongfully declining a loan). Two types of correctness can be distinghuished: performance and impartiality. This clause discusses the former.  
  
  Concepts regarding performance:
@@ -968,7 +968,7 @@ AI is in essence always guessing and therefore can always be incorrect. This can
 
  Countermeasures against any incorrectness include continuous validation, unwanted bias testing, and ways to respond to incorrect oytoyt such as monitoring, least privilege and oversight. Incorrect output of Generative AI is often referred to as hallunication. 
 
- ### Standard correctness in terms of impartiality
+ #### Standard correctness in terms of impartiality
 Next to performance, another form of correctness is impartialty: the model not discriminating between protected groups (e.g. ethnicity or gender). 
 
 Concepts regarding impartiality:
@@ -976,13 +976,14 @@ Concepts regarding impartiality:
 - **Fairness**: See previous 'responsible use' sub clause.
 - **Impartial**: without unwanted bias of protected attributes, meaning: no systematic inaccuracy where the model 'mistreats' certain groups (e.g. gender, ethnicity). Discrimination is undesired for legal and ethical reasons. 
 
- ###Security
-AI security - protecting against AI attacks is the main subject of the AI Exchange. For a high-level overview, see the [AI security essentials[(/go/essentials/).It can be divided into two goals: 
+ ### Security
+AI security - protecting against AI attacks is the main subject of the AI Exchange. For a high-level overview, see the [AI security essentials](/go/essentials/).It can be divided into two goals: 
 - Security protecting correctness: deal with attacks manipulating model behaviour (e.g., data/model poisoning, prompt injection, evasion), leading to incorrectness and potential harm.
 - Security protecting confidentiality: deal with attacks that attempt to leak sensitive data (e.g., training data extraction, input leak).
 
- 
+The image below shows all aspects of responsible/trustworthy AI in one visual.   
 [![](/images/aiwayfinder.png)](/images/aiwayfinder.png)
+
 
 ### How about Generative AI (e.g. LLM)?
 > Category: discussion  
