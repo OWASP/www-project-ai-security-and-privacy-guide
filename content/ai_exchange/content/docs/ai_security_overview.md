@@ -954,7 +954,7 @@ Responsible use is about controlling harm caused by _functionality_ of the AI sy
 Concepts regarding responsible use:
 - **Privacy** consists of personal data protection and in many legal frameworks, such as the GDPR, it also includes protection of further fundamental rights. These rights can include transparency, consent, purpose-binding of collected data, data subject rights (erasure/rectification/request/contest), and a lawful basis for data collection. See the [Privacy section](/go/privacy/) for in-depth discussion.
 - **Fairness**: There are different definitions of fairness. One definition is that fairness is the same as equal treatment. Other definitions give it a broader meaning of 'justified treatment', such as the EDPS’ guideline, which defines fairness as the prevention of “unjustifiably detrimental, unlawfully discriminatory, unexpected or misleading” processing of personal data. Following that definition, fairness includes all elements mentioned as fundamental rights under privacy.
-  - **Transparency**: sharing information about the applied approach, to warn users and depending systems of accuracy risks, plus in many cases users have the right to know details about AI being used and how it has been created. Therefore it is a shared concern between security, privacy and safety.
+- **Transparency**: sharing information about the applied approach, to warn users and depending systems of accuracy risks, plus in many cases users have the right to know details about AI being used and how it has been created. Therefore it is a shared concern between security, privacy and safety.
 - **Explainability**: sharing information to help users validate accuracy by explaining in more detail how a specific result was calculated. Apart from validating accuracy this can also support users to get transparency and to understand what needs to change to get a different outcome. Therefore it is a shared concern between security, privacy, safety and business function. A special case is when explainability is required by law, which adds 'compliance' to the list of aspects that share this concern. Explainability can support responsible use, but is rarely included in regulatory frameworks.
 
 #### Standard correctness in terms of performance
@@ -963,8 +963,8 @@ AI is in essence always guessing and therefore can always be incorrect. This can
  Concepts regarding performance:
 - **Correctness** is about an AI model being sufficiently correct to perform its 'business function'. 
 - **Standard correctness** is the correctness of AI when not under attack. It falls outside of the security scope and is the area of data and model engineering.
- **Robustness** is about the ability of maintaining accuracy under expected or unexpected variations in input. The security scope is about when those variations are malicious (_adversarial robustness_) which often requires different countermeasures than those required against normal variations (_generalization robustness_). Just like with correctbess, security is not involved per se in creating a robust model for normal variations. 
-**Generalization robustness**: An AI model is not a lookup database, so when it is presented with input it has never seen before, it is trying to generalize. The success of that is expressed in generalization robustness: how good is the model with unknown data.
+- **Robustness** is about the ability of maintaining accuracy under expected or unexpected variations in input. The security scope is about when those variations are malicious (_adversarial robustness_) which often requires different countermeasures than those required against normal variations (_generalization robustness_). Just like with correctbess, security is not involved per se in creating a robust model for normal variations. 
+- **Generalization robustness**: An AI model is not a lookup database, so when it is presented with input it has never seen before, it is trying to generalize. The success of that is expressed in generalization robustness: how good is the model with unknown data.
 
  Countermeasures against any incorrectness include continuous validation, unwanted bias testing, and ways to respond to incorrect oytoyt such as monitoring, least privilege and oversight. Incorrect output of Generative AI is often referred to as hallunication. 
 
@@ -974,14 +974,15 @@ Next to performance, another form of correctness is impartialty: the model not d
 Concepts regarding impartiality:
 - **Bias**: any systematic incorrectness, which does not have to be discriminating over protected groups per se. It can be a bias of an financial index value predictor being generally 10 points off.
 - **Fairness**: See previous 'responsible use' sub clause.
-- **Impartial**: without unwanted bias of protected attributes, meaning: no systematic inaccuracy where the model 'mistreats' certain groups (e.g. gender, ethnicity). Discrimination is undesired for legal and ethical reasons. 
+- **Impartial**: without unwanted bias regarding protected attributes, meaning: no systematic inaccuracy where the model 'mistreats' certain groups (e.g. gender, ethnicity). Such discrimination is undesired for legal and ethical reasons.
 
  ### Security
-AI security - protecting against AI attacks is the main subject of the AI Exchange. For a high-level overview, see the [AI security essentials](/go/essentials/).It can be divided into two goals: 
-- Security protecting correctness: deal with attacks manipulating model behaviour (e.g., data/model poisoning, prompt injection, evasion), leading to incorrectness and potential harm.
-- Security protecting confidentiality: deal with attacks that attempt to leak sensitive data (e.g., training data extraction, input leak).
+AI security - protecting against AI attacks is the main subject of the AI Exchange. For a high-level overview, see the [AI security essentials](/go/essentials/). It can be divided into two goals: 
+- **Security protecting correctness**: deal with attacks manipulating model behaviour (e.g., data/model poisoning, prompt injection, evasion), leading to incorrectness and potential harm.
+- **Security protecting confidentiality**: deal with attacks that attempt to leak sensitive data (e.g., training data extraction, input leak).
 
-The image below shows all aspects of responsible/trustworthy AI in one visual.   
+### The complete responsible/trustworthy AI picture
+The image below shows all aspects of responsible/trustworthy AI in one visual. It also includes another security aspect outside the scope of the AI Exchange: the use of the AI system to perform attacks - either as intended or unintended use. This is a security concern when it comes to responsible use, but it is not about protecting the AI system against attacks.       
 [![](/images/aiwayfinder.png)](/images/aiwayfinder.png)
 
 
