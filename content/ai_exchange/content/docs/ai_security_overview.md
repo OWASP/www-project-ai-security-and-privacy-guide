@@ -948,7 +948,7 @@ General concepts:
 
 Responsible/trustworthy AI can be broken down into four responsibilities: responsible use, standard performance, standard impartiality, and security. 
 
-#### Responsible use
+#### Responsibility 1: Responsible use
 Responsible use is about controlling harm caused by _functionality_ of the AI system in combination with its intended use. The goal is to have the AI system act in a lawful and ethical way. For example: applying AI to select candidates for a job vacancy with proper bias tests and meaningful review. The main control to manage responsbile use is [AI Governance](/go/aiprogram/) which includes for example doing an impact assessment for AI ideas.
 
 Concepts regarding responsible use:
@@ -961,7 +961,7 @@ Responsible use diagram:
 [![](/images/wayfinder-use.png)](/images/wayfinder-use.png)
 
 
-#### Standard correctness in terms of performance
+#### Responsibility 2: Standard correctness in terms of performance
 AI is in essence always guessing and therefore can always be incorrect. This can lead to harm, including (physical) safety problems (e.g., an autonomous vehicle stopping for a green light) or other wrong decisions that are harmful (e.g., wrongfully declining a loan). Two types of correctness can be distinghuished: performance and impartiality. This clause discusses the former.  
  
  Concepts regarding performance:
@@ -976,7 +976,7 @@ AI is in essence always guessing and therefore can always be incorrect. This can
  [![](/images/wayfinder-correctness.png)](/images/wayfinder-correctness.png)
 
 
- #### Standard correctness in terms of impartiality
+ #### Responsibility 3: Standard correctness in terms of impartiality
 Next to performance, another form of correctness is impartiality: the model not discriminating between protected groups (e.g. ethnicity or gender). 
 
 Concepts regarding impartiality:
@@ -985,10 +985,10 @@ Concepts regarding impartiality:
 - **Impartial**: without unwanted bias regarding protected attributes, meaning: no systematic incorrectness where the model 'mistreats' certain groups (e.g. gender, ethnicity). Such discrimination is undesired for legal and ethical reasons.
 
 
- ### Security
+ ### Responsibility 4: Security
 AI security - protecting against AI attacks is the main subject of the AI Exchange. For a high-level overview, see the [AI security essentials](/go/essentials/). It can be divided into two goals: 
 - **Security protecting correctness**: deal with attacks manipulating model behaviour (e.g., data/model poisoning, prompt injection, evasion), leading to incorrectness and potential harm.
-- **Security protecting confidentiality**: deal with attacks that attempt to leak sensitive data (e.g., training data extraction, input leak).
+- **Security protecting confidentiality**: deal with attacks that attempt to leak sensitive data (e.g., training data extraction, input leak, model).
 
 Security protecting correctness diagram:  
 [![](/images/wayfinder-security-correct.png)](/images/wayfinder-security-correct.png)
