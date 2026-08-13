@@ -957,6 +957,10 @@ Concepts regarding responsible use:
 - **Transparency**: sharing information about the applied approach, to warn users and depending systems of accuracy risks, plus in many cases users have the right to know details about AI being used and how it has been created. Therefore it is a shared concern between security, privacy and safety.
 - **Explainability**: sharing information to help users validate accuracy by explaining in more detail how a specific result was calculated. Apart from validating accuracy this can also support users to get transparency and to understand what needs to change to get a different outcome. Therefore it is a shared concern between security, privacy, safety and business function. A special case is when explainability is required by law, which adds 'compliance' to the list of aspects that share this concern. Explainability can support responsible use, but is rarely included in regulatory frameworks.
 
+Responsible use diagram:  
+[![](/images/wayfinder-use.png)](/images/wayfinder-use.png)
+
+
 #### Standard correctness in terms of performance
 AI is in essence always guessing and therefore can always be incorrect. This can lead to harm, including (physical) safety problems (e.g., an autonomous vehicle stopping for a green light) or other wrong decisions that are harmful (e.g., wrongfully declining a loan). Two types of correctness can be distinghuished: performance and impartiality. This clause discusses the former.  
  
@@ -968,6 +972,10 @@ AI is in essence always guessing and therefore can always be incorrect. This can
 
  Countermeasures against any incorrectness include continuous validation, unwanted bias testing, and ways to respond to incorrect oytoyt such as monitoring, least privilege and oversight. Incorrect output of Generative AI is often referred to as hallunication. 
 
+ Standard correctness diagram:  
+ [![](/images/wayfinder-correct.png)](/images/wayfinder-correct.png)
+
+
  #### Standard correctness in terms of impartiality
 Next to performance, another form of correctness is impartialty: the model not discriminating between protected groups (e.g. ethnicity or gender). 
 
@@ -976,14 +984,22 @@ Concepts regarding impartiality:
 - **Fairness**: See previous 'responsible use' sub clause.
 - **Impartial**: without unwanted bias regarding protected attributes, meaning: no systematic inaccuracy where the model 'mistreats' certain groups (e.g. gender, ethnicity). Such discrimination is undesired for legal and ethical reasons.
 
+
  ### Security
 AI security - protecting against AI attacks is the main subject of the AI Exchange. For a high-level overview, see the [AI security essentials](/go/essentials/). It can be divided into two goals: 
 - **Security protecting correctness**: deal with attacks manipulating model behaviour (e.g., data/model poisoning, prompt injection, evasion), leading to incorrectness and potential harm.
 - **Security protecting confidentiality**: deal with attacks that attempt to leak sensitive data (e.g., training data extraction, input leak).
 
+Security protecting correctness diagram:  
+[![](/images/wayfinder-security-correct.png)](/images/wayfinder-security-correct.png)
+
+Security protecting confidentiality diagram:  
+[![](/images/wayfinder-security-confidential.png)](/images/wayfinder-security-confidential.png)
+
+
 ### The complete responsible/trustworthy AI picture
-The image below shows all aspects of responsible/trustworthy AI in one visual. It also includes another security aspect outside the scope of the AI Exchange: the use of the AI system to perform attacks - either as intended or unintended use. This is a security concern when it comes to responsible use, but it is not about protecting the AI system against attacks.       
-[![](/images/aiwayfinder.png)](/images/aiwayfinder.png)
+The image below shows all aspects of responsible/trustworthy AI in one visual. It also includes another security aspect outside the scope of the AI Exchange: the use of the AI system to perform attacks - either as intended or unintended use. This is a security concern when it comes to responsible use, but it is not about protecting the AI system against attacks.  
+[![](/images/wayfinder.png)](/images/wayfinder.png)
 
 
 ### How about Generative AI (e.g. LLM)?
