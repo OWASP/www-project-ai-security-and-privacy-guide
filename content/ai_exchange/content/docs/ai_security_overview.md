@@ -973,7 +973,7 @@ AI is in essence always guessing and therefore can always be incorrect. This can
  Countermeasures against any incorrectness include continuous validation, unwanted bias testing, and ways to respond to incorrect oytoyt such as monitoring, least privilege and oversight. Incorrect output of Generative AI is often referred to as hallunication. 
 
  Standard correctness diagram:  
- [![](/images/wayfinder-correct.png)](/images/wayfinder-correct.png)
+ [![](/images/wayfinder-correctness.png)](/images/wayfinder-correctness.png)
 
 
  #### Standard correctness in terms of impartiality
