@@ -949,10 +949,10 @@ Responsible/trustworthy AI can be broken down into four responsibilities: respon
 Responsible use is about controlling harm caused by _functionality_ of the AI system in combination with its intended use. The goal is to have the AI system act in a lawful and ethical way. For example: applying AI to select candidates for a job vacancy with proper bias tests and meaningful review. The main control to manage responsible use is [AI Governance](/go/aiprogram/) which includes for example doing an impact assessment for AI ideas.  
 
 Concepts regarding responsible use:
-- **Privacy** consists of personal data protection, which in many legal frameworks, such as the GDPR, is built on principles and rights that include transparency, consent, purpose limitation, data subject rights (access/rectification/erasure/objection), and a lawful basis for data collection. See the [Privacy section](/go/privacy/) for in-depth discussion.
+- **Privacy** consists of the security of personal data plus principles and rights depending on thelegal framework (e.g.the GDPR): transparency, consent, purpose limitation, data subject rights (access/rectification/erasure/objection), and a lawful basis for data collection. See the [Privacy section](/go/privacy/) for in-depth discussion.
 - **Fairness**: There are different definitions of fairness. One definition is that fairness is the same as equal treatment. Other definitions give it a broader meaning of 'justified treatment', such as the EDPS’ guideline, which defines fairness as the prevention of “unjustifiably detrimental, unlawfully discriminatory, unexpected or misleading” processing of personal data. Following that definition, fairness includes all elements mentioned as fundamental rights under privacy.
 - **Transparency**: sharing information about the applied approach, to warn users and depending systems of correctness risks, plus in many cases users have the right to know details about AI being used and how it has been created. Therefore it is a shared concern between security, privacy and safety.
-- **Explainability**: sharing information to help users validate correctness by explaining in more detail how a specific result was calculated. Apart from validating correctness this can also support users to get transparency and to understand what needs to change to get a different outcome. Therefore it is a shared concern between security, privacy, safety and business function. A special case is when explainability is required by law, which adds 'compliance' to the list of aspects that share this concern. Explainability can support responsible use.
+- **Explainability**: sharing information to help users validate correctness by explaining in more detail how a specific result was calculated. Apart from validating correctness this can also support users to get transparency and to understand what needs to change to get a different outcome. Therefore it is a shared concern between security, privacy, safety and business function. A special case is when explainability is required by law, which adds 'compliance' to the list of aspects that share this concern. Explainability can support responsible use and is legally required for only a small set of use cases.
 
 Responsible use diagram:  
 [![](/images/wayfinder-use.png)](/images/wayfinder-use.png)
@@ -978,11 +978,11 @@ Next to performance, another form of correctness is impartiality: the model not 
 Concepts regarding impartiality:
 - **Bias**: any systematic incorrectness, which is not necessarily discrimination against protected groups. It can, for example, be a financial index value predictor being generally 10 points off.
 - **Fairness**: See previous 'responsible use' sub clause.
-- **Impartiality**: the absence of unwanted bias regarding protected attributes, meaning: no systematic incorrectness where the model 'mistreats' certain groups (e.g. gender, ethnicity). Such discrimination is undesired for legal and ethical reasons.
+- **Impartiality**: the absence of unwanted bias regarding protected attributes, meaning: limited systematic incorrectness where the model 'mistreats' certain groups (e.g. gender, ethnicity). Such discrimination is undesired for legal and ethical reasons. The word 'limited' is used as the complete absence of bias can be practically unattainable.
 
 
 #### Responsibility 4: Security
-AI security — protecting AI systems against attacks — is the main subject of the AI Exchange. For a high-level overview, see the [AI security essentials](/go/essentials/). It can be divided into three goals:
+AI security — protecting AI systems against attacks — is the main subject of the AI Exchange. For a high-level overview, see the [AI security essentials](/go/essentials/). It can be divided into two goals:
 - **Security protecting correctness**: deal with attacks manipulating model behaviour (e.g., data/model poisoning, prompt injection, evasion), leading to incorrectness and potential harm. For simplicity, this includes security for protecting availability if we regard the goal of correctness as the presence of a sufficiently correct result: no availability means no correctness.
 - **Security protecting confidentiality**: deal with attacks that attempt to leak sensitive data (e.g., training data extraction, input leak, model theft).
 
