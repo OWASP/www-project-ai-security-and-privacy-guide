@@ -932,63 +932,59 @@ This document focuses on machine learning. Nevertheless, here is a quick summary
 > Category: discussion  
 > Permalink: https://owaspai.org/go/responsibleai/
 
-'Responsible AI' and 'trustworthy AI' aim for positive outcomes while mitigating risks, where the former emphasises ethics, society, and governance, while the latter is more about technical and operational aspects. They include security.
-
-If your primary responsibility is security, it's best to start by focusing on just that. Once you have a solid grasp of the security part, you can expand your knowledge to other AI aspects, such as bias, performance and use of AI. Your typical talent to think of things that can go wrong can support colleagues who are responsible for those other areas. Furthermore, some aspects can be a consequence of compromised AI and are therefore helpful to understand, such as issues with _bias_ and _safety_.
+'Responsible AI' and 'trustworthy AI' aim for positive outcomes while mitigating risks. The terms overlap heavily and are often used interchangeably; the former is commonly used to emphasise ethics, society, and governance, while the latter tends to stress technical and operational aspects. Both include security.  
+If your primary responsibility is security, it's best to start by focusing on just that. Once you have a solid grasp of the security part, you can expand your knowledge to other AI aspects, such as bias, performance and use of AI. Your professional instinct for spotting what can go wrong can support colleagues who are responsible for those other areas. Furthermore, some aspects can be a consequence of compromised AI and are therefore helpful to understand, such as issues with _bias_ and _safety_.  
 
 General concepts:
-- **Harm** is negative impact on stakeholder's interests — people (safety, rights, wellbeing), the operating organization (continuity, finance, security, liability, reputation), or society and ecosystems. Controlling _harm_ is central to responsible and trustworthy AI.
-- **Safety**  refers to the condition of being protected from / unlikely to cause harm. Harm is sometimes used to refer to physical harm, but it may also include health and fundamental rights issues. Safety of an AI system is about the level of correctness when there is a risk of harm plus the things that are in place to mitigate those risks (apart from correctness), which includes security, plus a number of safety measures that are important for the business function of the model. These need to be taken care of and not just for security reasons because the model can make unsafe decisions for other reasons (e.g., bad training data), so they are a shared concern between safety and security:
-  -  [oversight](/go/oversight/) to restrict unsafe behaviour, and connected to that: assigning least privileges to the AI,
+- **Harm** is negative impact on stakeholders' interests — people (safety, rights, wellbeing), the operating organization (continuity, finance, security, liability, reputation), or society and ecosystems. Controlling _harm_ is central to responsible and trustworthy AI.
+- **Safety** refers to the condition of being protected from / unlikely to cause harm. Harm is sometimes used to refer to physical harm, but it may also include health and fundamental rights issues. Safety of an AI system rests on (1) sufficient correctness where harm is at stake, (2) measures that mitigate the consequences of incorrect behaviour, and (3) security — since compromised systems can behave unsafely. Because a model can act unsafely without being attacked (e.g., due to bad training data), these measures are a shared concern between safety and security:
+  -  [oversight](/go/oversight/) to restrict unsafe behaviour, and connected to that: applying least privilege to the AI,
   -  [continuous validation](/go/continuousvalidation/) to safeguard correctness,
   -  [transparency](/go/aitransparency/): see below,
-  -  [explainability](/go/continuousvalidation/): see below.
-- **Accountability**. The relation of accountability with AI is that measures should be demonstrable, including the processes that have led to those measures. In addition, operational traceability is important, just like in any IT system, in order to detect, reconstruct and respond to  incidents and provide accountability.
-
-
-Responsible/trustworthy AI can be broken down into four responsibilities: responsible use, standard performance, standard impartiality, and security. 
+  -  [explainability](/go/explainability/): see below.
+- **Accountability**. Accountability means being able to demonstrate the measures taken and the processes that have led to those measures. In addition, operational traceability is important, just like in any IT system, in order to detect, reconstruct and respond to incidents and provide accountability.
+Responsible/trustworthy AI can be broken down into four responsibilities: responsible use, standard performance, standard impartiality (where 'standard' means: when not under attack), and security.
 
 #### Responsibility 1: Responsible use
-Responsible use is about controlling harm caused by _functionality_ of the AI system in combination with its intended use. The goal is to have the AI system act in a lawful and ethical way. For example: applying AI to select candidates for a job vacancy with proper bias tests and meaningful review. The main control to manage responsbile use is [AI Governance](/go/aiprogram/) which includes for example doing an impact assessment for AI ideas.
+Responsible use is about controlling harm caused by _functionality_ of the AI system in combination with its intended use. The goal is to have the AI system act in a lawful and ethical way. For example: applying AI to select candidates for a job vacancy with proper bias tests and meaningful review. The main control to manage responsible use is [AI Governance](/go/aiprogram/) which includes for example doing an impact assessment for AI ideas.  
 
 Concepts regarding responsible use:
-- **Privacy** consists of personal data protection and in many legal frameworks, such as the GDPR, it also includes protection of further fundamental rights. These rights can include transparency, consent, purpose-binding of collected data, data subject rights (erasure/rectification/request/contest), and a lawful basis for data collection. See the [Privacy section](/go/privacy/) for in-depth discussion.
+- **Privacy** consists of personal data protection, which in many legal frameworks, such as the GDPR, is built on principles and rights that include transparency, consent, purpose limitation, data subject rights (access/rectification/erasure/objection), and a lawful basis for data collection. See the [Privacy section](/go/privacy/) for in-depth discussion.
 - **Fairness**: There are different definitions of fairness. One definition is that fairness is the same as equal treatment. Other definitions give it a broader meaning of 'justified treatment', such as the EDPS’ guideline, which defines fairness as the prevention of “unjustifiably detrimental, unlawfully discriminatory, unexpected or misleading” processing of personal data. Following that definition, fairness includes all elements mentioned as fundamental rights under privacy.
 - **Transparency**: sharing information about the applied approach, to warn users and depending systems of correctness risks, plus in many cases users have the right to know details about AI being used and how it has been created. Therefore it is a shared concern between security, privacy and safety.
-- **Explainability**: sharing information to help users validate correctness by explaining in more detail how a specific result was calculated. Apart from validating correctness this can also support users to get transparency and to understand what needs to change to get a different outcome. Therefore it is a shared concern between security, privacy, safety and business function. A special case is when explainability is required by law, which adds 'compliance' to the list of aspects that share this concern. Explainability can support responsible use, but is rarely included in regulatory frameworks.
+- **Explainability**: sharing information to help users validate correctness by explaining in more detail how a specific result was calculated. Apart from validating correctness this can also support users to get transparency and to understand what needs to change to get a different outcome. Therefore it is a shared concern between security, privacy, safety and business function. A special case is when explainability is required by law, which adds 'compliance' to the list of aspects that share this concern. Explainability can support responsible use.
 
 Responsible use diagram:  
 [![](/images/wayfinder-use.png)](/images/wayfinder-use.png)
 
 
 #### Responsibility 2: Standard correctness in terms of performance
-AI is in essence always guessing and therefore can always be incorrect. This can lead to harm, including (physical) safety problems (e.g., an autonomous vehicle stopping for a green light) or other wrong decisions that are harmful (e.g., wrongfully declining a loan). Two types of correctness can be distinghuished: performance and impartiality. This clause discusses the former.  
- 
- Concepts regarding performance:
-- **Correctness** is about an AI model being sufficiently correct to perform its 'business function'. 
-- **Standard correctness** is the correctness of AI when not under attack. It falls outside of the security scope and is the area of data and model engineering.
-- **Robustness** is about the ability of maintaining correctness under expected or unexpected variations in input. The security scope is about when those variations are malicious (_adversarial robustness_) which often requires different countermeasures than those required against normal variations (_generalization robustness_). Just like with correctbess, security is not involved per se in creating a robust model for normal variations. 
-- **Generalization robustness**: An AI model is not a lookup database, so when it is presented with input it has never seen before, it is trying to generalize. The success of that is expressed in generalization robustness: how good is the model with unknown data.
+AI is in essence always guessing and therefore can always be incorrect. This can lead to harm, including (physical) safety problems (e.g., an autonomous vehicle failing to stop for a red light) or other wrong decisions that are harmful (e.g., wrongfully declining a loan). Two types of correctness can be distinguished: performance and impartiality. This section discusses the former.  
 
- Countermeasures against any incorrectness include continuous validation, unwanted bias testing, and ways to respond to incorrect oytoyt such as monitoring, least privilege and oversight. Incorrect output of Generative AI is often referred to as hallunication. 
+ Concepts regarding performance:
+- **Correctness** is about the degree to which the model's outputs are right for its 'business function'.
+- **Standard correctness** is the correctness of AI when not under attack. It falls outside of the security scope and is the area of data and model engineering.
+- **Robustness** is about the ability of maintaining correctness under expected or unexpected variations in input. Security is concerned with malicious variations (_adversarial robustness_), which often require different countermeasures than natural variations (_generalization robustness_). Just like with correctness, security is not involved per se in creating a robust model for normal variations.
+- **Generalization robustness**: An AI model is not a lookup database, so when it is presented with input it has never seen before, it is trying to generalize. The success of that is expressed in generalization robustness: how good is the model with unknown data.
+ Countermeasures against any incorrectness include continuous validation, unwanted bias testing, and ways to limit and respond to the impact of incorrect output, such as monitoring, least privilege and oversight. A well-known type of incorrect output of Generative AI is _hallucination_: fabricated content presented as fact.
 
  Standard correctness diagram:  
  [![](/images/wayfinder-correctness.png)](/images/wayfinder-correctness.png)
 
 
- #### Responsibility 3: Standard correctness in terms of impartiality
-Next to performance, another form of correctness is impartiality: the model not discriminating between protected groups (e.g. ethnicity or gender). 
+#### Responsibility 3: Standard correctness in terms of impartiality
+Next to performance, another form of correctness is impartiality: the model not discriminating between protected groups (e.g. ethnicity or gender).  
 
 Concepts regarding impartiality:
-- **Bias**: any systematic incorrectness, which does not have to be discriminating over protected groups per se. It can be a bias of an financial index value predictor being generally 10 points off.
+- **Bias**: any systematic incorrectness, which is not necessarily discrimination against protected groups. It can, for example, be a financial index value predictor being generally 10 points off.
 - **Fairness**: See previous 'responsible use' sub clause.
-- **Impartial**: without unwanted bias regarding protected attributes, meaning: no systematic incorrectness where the model 'mistreats' certain groups (e.g. gender, ethnicity). Such discrimination is undesired for legal and ethical reasons.
+- **Impartiality**: the absence of unwanted bias regarding protected attributes, meaning: no systematic incorrectness where the model 'mistreats' certain groups (e.g. gender, ethnicity). Such discrimination is undesired for legal and ethical reasons.
 
 
- ### Responsibility 4: Security
-AI security - protecting against AI attacks is the main subject of the AI Exchange. For a high-level overview, see the [AI security essentials](/go/essentials/). It can be divided into two goals: 
-- **Security protecting correctness**: deal with attacks manipulating model behaviour (e.g., data/model poisoning, prompt injection, evasion), leading to incorrectness and potential harm.
-- **Security protecting confidentiality**: deal with attacks that attempt to leak sensitive data (e.g., training data extraction, input leak, model).
+#### Responsibility 4: Security
+AI security — protecting AI systems against attacks — is the main subject of the AI Exchange. For a high-level overview, see the [AI security essentials](/go/essentials/). It can be divided into three goals:
+- **Security protecting correctness**: deal with attacks manipulating model behaviour (e.g., data/model poisoning, prompt injection, evasion), leading to incorrectness and potential harm. For simplicity, this includes security for protecting availability if we regard the goal of correctness as the presence of a sufficiently correct result: no availability means no correctness.
+- **Security protecting confidentiality**: deal with attacks that attempt to leak sensitive data (e.g., training data extraction, input leak, model theft).
 
 Security protecting correctness diagram:  
 [![](/images/wayfinder-security-correct.png)](/images/wayfinder-security-correct.png)
@@ -999,6 +995,7 @@ Security protecting confidentiality diagram:
 
 ### The complete responsible/trustworthy AI picture
 The image below shows all aspects of responsible/trustworthy AI in one visual. It also includes another security aspect outside the scope of the AI Exchange: the use of the AI system to perform attacks - either as intended or unintended use. This is a security concern when it comes to responsible use, but it is not about protecting the AI system against attacks.  
+
 [![](/images/wayfinder.png)](/images/wayfinder.png)
 
 
