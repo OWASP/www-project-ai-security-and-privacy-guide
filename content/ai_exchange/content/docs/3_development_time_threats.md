@@ -19,7 +19,7 @@ Data science (data engineering and model engineering - for machine learning ofte
 - Particularity 1: the data in the AI development environment is real data that is typically sensitive, because it is needed to train the model and that obviously needs to happen on real data, instead of fake data that you typically see in standard development environment situations (e.g., for testing). Therefore, data protection activities need to be extended from the live system to the development environment.
 - Particularity 2: elements in the AI development environment (data, code, configuration & parameters) require extra protection as they are prone to attacks to manipulate model behaviour (called _poisoning_)
 - Particularity 3: source code, configuration, and parameters are typically critical intellectual property in AI
-- Particularity 4: the supply chain for AI systems introduces new elements: data, model, AI components and model hosting.
+- Particularity 4: the supply chain for AI systems introduces new elements: data, model, AI components, model hosting, and abilities.
 - Particularity 5: external software components may run within the engineering environments, for example to train models, introducing a new threat of malicious components gaining access to assets in that environment (e.g., to poison training data)
 - Particularity 6: software components for AI systems can also run in the development environment instead of in production (for example data-processing libraries, feature-engineering tools, or, or even the training framework itself). This increases the attack surface because malicious development components could gain access to training data or model parameters.
 - Particularity 7:  Model development can be done in a collaborative way across trust boundaries, such as federated learning, merging parameter-efficient fine-tuning (PEFT) modules, and using model conversion services. These collaborations can mitigate some risks by for example spreading training data, but they also extend the attack surface and as such increase threats such as data poisoning.
@@ -225,16 +225,16 @@ Useful standards include:
 
 **Description**  
 Supply chain management focuses on managing the supply chain to minimize the security risk from externally obtained elements. In conventional software engineering these elements are source code or software components (e.g., open source). AI supply chains differ from conventional software supply chains in several ways:  
-1. **three new supplied assets**: data, models, and model hosting. Note that models can also be delivered in the form of finetuning artifacts (e.g., LoRA modules);
-2. They supply chain may include the **own organization** instead of just third parties. For example, data and models may come from different departments and sources. This effectively makes supply chain management include for example _data provenance_.
+1. **four new supplied assets and servics**: data, models, model hosting, and abilities. Note that models can also be delivered in the form of finetuning artifacts (e.g., LoRA modules);
+2. The supply chain may include the **own organization** instead of just third parties. For example, data and models may come from different departments and sources. This effectively makes supply chain management include for example _data provenance_.
 3. new **AI-specific development tooling** is typically required;
 4. some of these tools are **executed development-time** instead of runtime when the AI system is in production, introducing risks of development-time assets being attacked if these tools are corrupted (including training data and model parameters).
 
 Because of these characteristics, classic supply chain management may not fully cover AI development environments, particularly notebook-based workflows and MLOps tooling.
 
-**Agent tool integrations:** Agent connectors (MCP servers, skills, plugins, custom tool adapters) are supply-chain and dev-environment assets — verify provenance, pin versions, scan integration code, and reject API contract drift at runtime. Credentials belong in a secret manager, not in integration code or agent-readable configuration.
-
-**Third-party agents:** External agents are supply-chain entities — their training, configuration, and behaviour are not under your direct control. Before production access: define evaluation criteria (model provenance, data-governance attestation, behavioural testing in a [sandbox](/go/agentsandboxing/), injection resistance, declared tool scope); assign the **lowest trust / unknown reputation tier by default** (see [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/) behavioural trust and inter-agent trust); require contractual commitments on security testing, vulnerability disclosure, incident notification, and audit cooperation; and monitor with enhanced logging throughout operational lifetime, not only at onboarding.
+**Supplied abilities**
+An AI system may have agents that use services provided by third parties during operation. This can for example be Skills: descriptions of abilities for an agent to use, or MCP servers: tools that may be used by agents to perform certain tasks. These abilities may be provided by the AI system maker, or by third parties. Other examples are plugins, external agenets, and custom tool adapters.  
+The use of external services is not unique to AI systems. Software system have been using third party runtime services for a long time - for example an external service that draws maps on your website. In agentic AI, such ‘supplied abilities’ can be used on a large scale and for critical funcionts.
 
 **Objective**  
 The objective of supply chain management in AI systems is to reduce the risk of corrupted, compromised, outdated, or mismanaged externally provided components and services. This includes supplied assets such as data, models, libraries, and tools, as well as hosted AI models and AI services operated by third parties. Risk reduction is achieved through verification, continuous monitoring, and governance of these components and their providers across the AI system lifecycle. Compromises or misconfigurations could lead to unwanted model behavior, data exfiltration, service disruption, or loss of control over critical functionality.
@@ -263,7 +263,7 @@ Risk management determines when deeper governance or verification is warranted, 
 **Implementation**  
 
 **Implementation of provenance, record keeping, and traceability**  
-The AI supply chain can be complex. Just like with obtained source code or software components, data, models and model hosting may involve multiple suppliers. For example: a model is trained by one vendor and then fine-tuned by another vendor. Or: an AI system contains multiple models, one is a model that has been fine-tuned with data from source X, using a base model from vendor A that claims data is used from sources Y and Z, where the data from source Z was labeled by vendor B. Because of this supply chain complexity, data and model provenance is a helpful activity. 
+The AI supply chain can be complex. Just like with obtained source code or software components, data, models, model hosting, and abilities may involve multiple suppliers. For example: a model is trained by one vendor and then fine-tuned by another vendor. Or: an AI system contains multiple models, one is a model that has been fine-tuned with data from source X, using a base model from vendor A that claims data is used from sources Y and Z, where the data from source Z was labeled by vendor B. Because of this supply chain complexity, data and model provenance is a helpful activity. 
 
 Maintaining structured records for AI-specific assets and services helps establish provenance and accountability across the supply chain. Relevant information includes:
 - origin and versioning of models and datasets (provenance) including pre-trained model lineage,
@@ -290,11 +290,12 @@ Monitoring for known vulnerabilities affecting supplied models, data pipelines, 
 
 **Agent dependency vulnerability management:** Maintain a continuously updated inventory of agent dependencies — model providers, tool and MCP server endpoints, orchestration frameworks, and runtime libraries. Subscribe to advisories, automate scanning in CI/CD, and define severity-based remediation SLAs. When immediate patching is infeasible, apply compensating controls (restrict affected tools, narrow segmentation, increase monitoring, temporarily disable functionality). Note that vulnerability disclosure for model providers and MCP servers is less mature than for conventional software; periodic reviews should also retire deprecated or unmaintained components.
 
-**Implementation of supplier evaluation and security assessment of supplied models and model hosting**  
+**Implementation of supplier evaluation and security assessment of supplied models, model hosting, and abilities**  
 Evaluating the trustworthiness of suppliers (external vendors or internal teams) helps contextualize supply chain risk. This may include reviewing:
 - reputation,
 - activity,
-- supplier security posture,
+- supplier security posture including testing practices and vulnerability disclosure, and incident notification
+- audit cooperation
 - development environments and access controls over AI assets,
 - provenance claims for data and models,
 - contractual assurances or warranties.
@@ -308,9 +309,13 @@ Additional assessment activities may include inspecting model artifacts prior to
 
 Architecture inspection may include listing model layers without loading the model, identifying unknown, custom, or dynamically executed components, and reviewing model graphs for unexpected structures. 
 
-Runtime behavior testing can be performed in isolated or sandboxed environments by executing standard validation inputs or randomized probes while monitoring system resources, runtime calls, and network activity for suspicious behavior. 
+Runtime behavior testing can be performed in isolated or [sandboxed](/go/agentsandboxing/) environments by executing standard validation inputs or randomized probes while monitoring system resources, runtime calls, and network activity for suspicious behavior. 
 
 These assessments help reduce the risk of backdoors, malicious payloads, or poisoned artifacts entering the system.
+
+**Implementation of interface security for supplied services**  
+- Reject API contract drift of supplied services at runtime.
+- Protect API credentials of supplied services, eg. use a secret manager.
 
 **Implementation of further practices to strengthen supply chain governance**  
 In addition to basic provenance and integrity controls, teams may choose to enrich supply chain governance with more detailed documentation and process integration. Examples include:
