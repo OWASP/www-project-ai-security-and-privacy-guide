@@ -440,7 +440,7 @@ Agentic AI systems are AI systems where models can trigger actions instead of ju
 
 There are many dimensions to Agentic AI, so it's best not to treat it in one specific way. Instead, the key is to look at an AI system's properties underneath: Can the AI models trigger actions? What harm can they cause? Are external services used? Is untrusted data coming in? Is memory used to keep context and plans? Can actions send out data? 
 
-In essence: **'Agentic’ can be seen as a scale**, where capability, autonomy, and impact increase. There are ‘mildly’ agentic systems at the one end, such as a door-opening AI camera, and ‘very’ agentic systems at the other end: with agents planning without human intervention, running in a loop, performing actions:
+In essence: **'Agentic’ can be seen as a spectrum**, where capability, autonomy, and impact increase. There are ‘mildly’ agentic systems at the one end, such as a door-opening AI camera, and ‘very’ agentic systems at the other end: with agents planning without human intervention, running in a loop, performing actions:
 - Mildy Agentic AI: performs actions
 - Fairly Agentic AI: also plans
 - Quite Agentic AI: also runs in loops
