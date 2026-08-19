@@ -917,6 +917,43 @@ Useful standards include:
 **Description**  
 Explainability: Explaining how individual model decisions are made, a field referred to as Explainable AI (XAI), can aid in gaining user trust in the model. In some cases, this can also prevent overreliance, for example, when the user observes the simplicity of the 'reasoning' or even errors in that process. See [this Stanford article on explainability and overreliance](https://hai.stanford.edu/news/ai-overreliance-problem-are-explanations-solution). Explanations of how a model works can also aid security assessors to evaluate AI security risks of a model.
 
+**The SCORE Framework**
+
+This is a method to measure the quality of your explainability that all stakeholders can understand.
+
+The AI Explainability Scorecard evaluates how well a model communicates its reasoning. Each of five criteria is rated 1 to 5, and the overall score is the average. High-stakes use cases require stronger explainability; lower-risk ones can tolerate less.
+
+The SCORE Framework was presented by Michael Novack at OWASP Global AppSec EU 2026.
+
+**SCORE** stands for:
+
+| Letter | Criterion | Question |
+|---|---|---|
+| S | Sound | Is this explanation how the model actually made its decision? |
+| C | Consistent | Would the model explain similar decisions the same way? |
+| O | Optimize | Does this give actionable insight to improve the system? |
+| R | Readable | Can a non-technical person understand and act on it? |
+| E | Easy | How costly is it to access the explanation? |
+
+- Sound and Consistent answer: *can you trust the explanation?* 
+- Optimize, Readable, and Easy answer: *does it drive decisions?* 
+The goal is to answer yes to both confidently enough for your use cases risk tolerance.
+
+**SCORE Across Model Types**
+
+| Criterion | K-NN | Neural Networks | LLM (Chain-of-Thought) |
+|---|---|---|---|
+| Sound | 5 | 3 | 2 |
+| Consistency | 5 | 4 | 1 |
+| Optimize | 5 | 5 | 2 |
+| Readable | 4 | 3 | 5 |
+| Easy | 5 | 3 | 5 |
+| **Overall** | **4.8** | **3.6** | **3.0** |
+| Trustworthy? | High | Med | Low |
+| Drives Decisions? | High | Med | High |
+
+Different ML and AI algorithms have different properties that support or detract from explainability. The higher the score, the more useful the explainability is.
+
 #### #UNWANTED BIAS TESTING 
 > Category: development-time and runtime AI engineer control  
 > Permalink: https://owaspai.org/go/unwantedbiastesting/
