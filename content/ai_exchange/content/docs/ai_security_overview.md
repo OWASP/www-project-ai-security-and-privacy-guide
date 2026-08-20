@@ -436,7 +436,7 @@ Note that some threats represent attacks consisting of several steps, and theref
 >Category: discussion  
 >Permalink: https://owaspai.org/go/agenticaioverview/
 
-Agentic AI systems are AI systems where the inference of a model can specify actions to perform without per-action human approval - in contrast of just providing the output for viewing. Sometimes actions represent plans, orchestration, and messages as input to models for further inference and actions, while maintaining state.
+Agentic AI systems are AI systems where the inference of a model can specify actions to perform without per-action human approval - in contrast of just providing the output for viewing. Actions may represent plans, orchestration, and messages as input to models for further inference and actions, while maintaining state.
 
 There are many dimensions to Agentic AI, so it's best not to treat it in one specific way. Instead, the key is to look at an AI system's properties underneath: Can the AI models trigger actions? What harm can they cause? Are external services used? Is untrusted data coming in? Is memory used to keep context and plans? Can actions send out data? 
 
