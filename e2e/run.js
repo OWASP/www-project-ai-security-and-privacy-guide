@@ -32,12 +32,9 @@ async function run(name, fn) {
 
 // --- Content anchors used by the tests ---
 
-// These ids come from headings in the docs content, so they go stale silently
-// when a heading is renamed. That already happened once: "Threats to agentic
-// AI" became "Agentic AI overview" (commit 2685cf2) and three tests kept
-// pointing at the old anchor for a week without anyone noticing. If the check
-// below fails, look up the section's current id (the /go/ redirects in
-// firebase.json are kept up to date and point at it) and update the entry here.
+// Heading ids go stale when a heading is renamed. If the check below fails,
+// look up the current id (the /go/ redirects in content/ai_exchange/firebase.json
+// stay current) and update the entry here.
 const ANCHORS = {
   agenticOverview: 'agentic-ai-overview',
   supplyChain: 'supply-chain-manage',
@@ -50,7 +47,7 @@ function testAnchorsExist() {
     .filter((p) => String(p).endsWith('index.html'))
     .map((p) => fs.readFileSync(path.join(docsDir, String(p)), 'utf-8'));
   for (const [name, id] of Object.entries(ANCHORS)) {
-    if (!pages.some((html) => new RegExp(`id="?${id}"?[ >]`).test(html))) {
+    if (!pages.some((html) => html.includes(`id="${id}"`))) {
       throw new Error(
         `Anchor "${id}" (ANCHORS.${name}) is not on any built docs page — a heading was probably renamed. Update ANCHORS in e2e/run.js.`
       );
@@ -108,9 +105,9 @@ async function testSearchSubResultClick(page) {
     link.closest('.pagefind-ui__result-nested')
   );
   const nestedEl = nestedRow.asElement();
-  if (!nestedEl) throw new Error('Expected nested result row for supply-chain-manage');
+  if (!nestedEl) throw new Error(`Expected nested result row for ${ANCHORS.supplyChain}`);
   const excerpt = await nestedEl.$('.pagefind-ui__result-excerpt');
-  if (!excerpt) throw new Error('Expected excerpt on supply-chain-manage sub-result');
+  if (!excerpt) throw new Error(`Expected excerpt on ${ANCHORS.supplyChain} sub-result`);
 
   await Promise.all([
     page.waitForNavigation({ waitUntil: 'networkidle0' }),
@@ -119,8 +116,8 @@ async function testSearchSubResultClick(page) {
 
   await page.waitForSelector('.search-highlight-current', { timeout: 5000 });
   const url = page.url();
-  if (!url.includes('supply-chain-manage')) {
-    throw new Error(`Expected #supply-chain-manage section: ${url}`);
+  if (!url.includes(`#${ANCHORS.supplyChain}`)) {
+    throw new Error(`Expected #${ANCHORS.supplyChain} section: ${url}`);
   }
   if (url.includes('dev-security')) {
     throw new Error(`Should not land on #dev-security: ${url}`);
@@ -141,7 +138,7 @@ async function testSearchSubResultClick(page) {
     }
     return false;
   }, ANCHORS.supplyChain);
-  if (!inSection) throw new Error('Highlight not in supply-chain-manage section');
+  if (!inSection) throw new Error(`Highlight not in ${ANCHORS.supplyChain} section`);
 }
 
 async function testSearchFullFlow(page) {
@@ -164,8 +161,8 @@ async function testSearchFullFlow(page) {
   ]);
   await page.waitForSelector('.search-highlight-current', { timeout: 5000 });
   const url = page.url();
-  if (!url.includes(ANCHORS.agenticOverview)) {
-    throw new Error(`Expected ${ANCHORS.agenticOverview} section: ${url}`);
+  if (!url.includes(`#${ANCHORS.agenticOverview}`)) {
+    throw new Error(`Expected #${ANCHORS.agenticOverview} section: ${url}`);
   }
   const inSection = await page.evaluate((anchorId) => {
     const current = document.querySelector('.search-highlight-current');
@@ -461,7 +458,7 @@ async function testHashOnlyScroll(page) {
   );
   await page.waitForSelector('.search-highlight-current', { timeout: 5000 });
   const url = page.url();
-  if (!url.includes(ANCHORS.agenticOverview)) {
+  if (!url.includes(`#${ANCHORS.agenticOverview}`)) {
     throw new Error(`Expected section hash with highlight: ${url}`);
   }
 }
@@ -554,7 +551,7 @@ async function main() {
   await startServer();
   console.log('Server running at', BASE_URL, '\n');
 
-  await run('0. Content anchors used by the tests exist', () => testAnchorsExist());
+  await run('Preflight: content anchors used by the tests exist', () => testAnchorsExist());
 
   await withBrowser(async (browser) => {
     const page = await browser.newPage();
