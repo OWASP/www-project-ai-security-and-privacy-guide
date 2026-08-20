@@ -196,7 +196,7 @@ Impact: Confidentiality breach of sensitive augmentation data through a conventi
 
 Augmentation data (ad hoc retrieved information inserted into a prompt, such as system prompts, or documents), needs to be transfered and stored - for example for Retrieval Augmented Generation typically in _vector databases_. This increases the attack surface for any sensitive data, since it's stored outside its regular storage with the regular protection (e.g., company document archive) and therefore requires additional protection.   
 
-So-called _vectors_ that form a representation of augmentation data are typically vulnerable for extracting information and should therefore be included in protection.
+So-called _vectors_ that form a representation of augmentation data are typically vulnerable for extracting information and should therefore be included in protection. The extraction technique is _embedding inversion_: reconstructing source text from stored vectors. Reported recovery ranges from about 50-70% of the words in sentence embeddings up to 92% exact reconstruction of short inputs, and more recent work performs this zero-shot against a black-box encoder, without training a model for the target encoder. Defenses such as adding noise to stored embeddings reduce recovery but trade off retrieval quality and do not fully prevent it. This matters for incident classification: an exposed vector store is often rated low severity because "only the embeddings leaked" while the source documents sit encrypted elsewhere. If the vectors are invertible that rating is wrong, the source text should be treated as exposed, and under regimes such as GDPR Article 33 that changes the breach notification assessment.
 
 Alternative ways for augmentation data to leak are:
 - [input data leak](/go/inputdataleak)
@@ -210,6 +210,8 @@ Alternative ways for augmentation data to leak are:
     - [NIST AI 100-2: sec. 3.2.2: Poisoning Attacks](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
 <!-- OPENCRE_SECTION_CRE_END slug=augmentationdataleak -->
 - [Mitigating Security Risks in RAG LLM Applications, November 2023, CSA](https://cloudsecurityalliance.org/blog/2023/11/22/mitigating-security-risks-in-retrieval-augmented-generation-rag-llm-applications)
+- [Text Embeddings Reveal (Almost) As Much As Text, Morris et al., EMNLP 2023](https://arxiv.org/abs/2310.06816)
+- [Universal Zero-shot Embedding Inversion, Zhang et al., 2025](https://arxiv.org/abs/2504.00147)
 
 **Controls**
 - See [General controls](/go/generalcontrols)
@@ -220,7 +222,7 @@ Alternative ways for augmentation data to leak are:
 > Permalink: https://owaspai.org/go/augmentationdataconfidentiality
 
 **Description**  
-See the [security program](/go/secprogram) and [application security](/go/secdevprogram), [development environment security](/go/devsecurity), and [data segregation](/go/segregatedata) to protect the confidentiality of transporting and storing augmentation data (e.g., access control, encryption, minimize retention).
+See the [security program](/go/secprogram) and [application security](/go/secdevprogram), [development environment security](/go/devsecurity), and [data segregation](/go/segregatedata) to protect the confidentiality of transporting and storing augmentation data (e.g., access control, encryption, minimize retention). Because stored vectors can be inverted to recover source text (see 4.6), hold vector database backups at the sensitivity tier of the source documents, and treat embeddings sent to a third-party embedding service as a transfer of the underlying data.
 
 
 
