@@ -104,6 +104,11 @@
         "type": 302
       },  
       {
+        "source": "/go/ragoverview/",
+        "destination": "/docs/ai_security_overview/#rag-systems-overview",
+        "type": 302
+      },  
+      {
         "source": "/goto/aisecuritymatrix/",
         "destination": "/docs/ai_security_overview/#ai-security-matrix",
         "type": 302
@@ -1066,6 +1071,11 @@
       {
         "source": "/go/testingpromptinjection/",
         "destination": "/docs/5_testing/#testing-against-prompt-injection",
+        "type": 302
+      },
+      {
+        "source": "/go/ragtesting/",
+        "destination": "/docs/5_testing/#rag-system-security-testing",
         "type": 302
       },
       {

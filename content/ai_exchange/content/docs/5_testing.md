@@ -79,6 +79,7 @@ Agentic testing extends the general approach above — same lifecycle steps, but
 - Threat-model the agentic system before testing: enumerate agents, orchestrators, tools, data sources, trust boundaries, and every external input surface (user input, retrieved documents, tool outputs, inter-agent messages).
 - Confirm designed controls work under **normal** conditions before adversarial load — untested baselines cannot be distinguished from controls that fail under attack.
 - Test [prompt injection](/go/promptinjection/) on each external surface; run **single-turn and multi-turn** sequences separately — single-turn resistance does not predict session-level degradation (_crescendo_ patterns).
+- Where the agent retrieves external data before acting (RAG), test that path using [RAG system security testing](/go/ragtesting/) — retrieval is a second input channel with its own authorization surface, distinct from tool-call validation.
 - Test tool-call validation **independently of the LLM** by sending crafted invocations directly to the access-control or API gateway layer. Controls that exist only in a system prompt are not enforced against injection.
 - Exercise failure modes: context-window saturation, tool errors, partial task completion, and unexpected orchestrator routing.
 - Define minimum coverage criteria up front — which layers (reasoning, tool execution, infrastructure, inter-agent communication) were tested, to what depth, and with what corpus size. **Report untested threat categories explicitly**; coverage gaps are findings.
@@ -107,6 +108,52 @@ Scope agentic pen tests across:
 4. **Inter-agent communication layer** — message tampering, identity spoofing, trust-boundary exploitation ([agent message structure manipulation](/go/agentmessagestructuremanipulation/)).
 
 Prioritise findings with an agentic-aware severity model: autonomous execution scope, persistence across sessions, multi-agent propagation potential, and irreversibility of impact.
+
+### RAG system security testing
+>Category: discussion  
+>Permalink: https://owaspai.org/go/ragtesting/
+
+RAG testing extends the general approach above — same lifecycle steps, but with a second input channel (retrieval) that most single-prompt test suites don't exercise, and a corpus that has its own integrity and access-control surface independent of the model.
+
+**Methodologies (coverage-driven testing)**
+
+- Threat-model the RAG pipeline before testing: enumerate every ingestion source, the indexing/chunking/embedding process, the retriever and any re-ranker, and the authorization model that's supposed to govern which chunks a given user/session can retrieve. Map each to the [RAG systems overview](/go/ragoverview/).
+- Test the **retrieval channel separately from the chat/query channel**: inject a test payload into a document, ingest it through the real pipeline (not by hand-crafting the prompt), and confirm it surfaces through retrieval before testing whether the model acts on it — this isolates ingestion/indexing failures from generation failures.
+- Test **retrieval-scope enforcement directly against the index/retriever**, independent of the LLM: query the vector store or search index with credentials for different users/tenants and confirm chunk-level access control matches the source system's ACLs. A retriever that returns unauthorized chunks fails this test even if the model later "declines" to use them — the data has already left the trust boundary. See also [disclosure in output](/go/disclosureinoutput/).
+- Test **indirect prompt injection via the retrieval path specifically**: place attack payloads (see the [prompt injection test procedure](/go/testingpromptinjection/)) inside documents likely to be retrieved for realistic queries, not just in a document guaranteed to rank first — low-relevance placement should also be tested, since re-rankers and hybrid search can surface unexpected chunks.
+- Test **corpus poisoning** by introducing edited or newly added documents through the same access an attacker would realistically have (a wiki edit, a shared-drive upload, a ticket comment, a crawled page) and checking whether biased or attacker-controlled content measurably shifts retrieved results and generated output.
+- Test **metadata and provenance trust**: attempt to forge source, timestamp, author, or confidence fields associated with a chunk, and check whether the system (or its prompt template) grants that content more trust than an unlabelled or low-provenance chunk.
+- Test **embedding confidentiality**: with direct read access to the vector store (simulating a compromised database credential or backup), attempt to reconstruct source text from stored embedding vectors. This is independent of model-facing tests — it targets the vector store as a data-at-rest asset, not the inference API.
+- Exercise **staleness and cache behavior**: confirm that deleting, correcting, or access-restricting a source document actually removes or restricts it from the index and from any retrieval cache, not just from the original source.
+- Test **rendering and downstream handling of retrieved content** in the output — links, Markdown, HTML, code blocks — for [output injection](/go/outputcontainsconventionalinjection/), especially where output is rendered in a browser or another automated consumer.
+- Combine with **conventional testing** of the ingestion and retrieval infrastructure itself — the vector store API, search endpoints, and any document-parsing step (PDF/Office parsers, OCR) are ordinary application attack surface (SSRF, deserialization, path traversal, injection) independent of the model.
+- Define minimum coverage up front — which corpus sources, retrieval configurations, and authorization boundaries were tested, and at what scale. **Report untested sources or boundaries explicitly**; an untested ingestion path is a finding, not an assumption of safety.
+
+**Red teaming exercises**
+
+- **Cross-tenant/cross-permission retrieval**: as a low-privilege identity, attempt to retrieve or induce disclosure of content scoped to a higher-privilege identity or another tenant, through both direct queries and indirect injection.
+- **Corpus-to-action chaining**: where the system can trigger actions (see Agentic AI security testing above), test whether a payload planted in a retrievable document can reach a tool call — this is the RAG instance of the [lethal trifecta](/go/agenticaioverview/).
+- **Ingestion-path fuzzing**: submit malformed, oversized, or adversarially structured documents through every available ingestion route (upload, connector sync, crawl) and observe both availability impact and parser-level exploitation.
+- **Provenance spoofing at scale**: systematically vary source/author/confidence metadata across a batch of test documents to measure how much influence forged provenance has on retrieval ranking and on the model's apparent trust in the content.
+
+Teams need both retrieval/search engineering expertise and offensive-security expertise — many RAG failures are pipeline/configuration issues (broken ACL propagation, unfiltered document parsers, unbounded ingestion) rather than model behavior issues, and won't be caught by prompt-only red teaming.
+
+**Penetration testing (layer model)**
+
+Scope RAG pen tests across:
+
+1. **Ingestion layer** — source connector authentication, parser exploitation (PDF/Office/HTML), malicious file handling, ingestion-triggered SSRF.
+2. **Indexing layer** — embedding pipeline integrity, chunking manipulation, index write-access control, cache/staleness handling.
+3. **Retrieval layer** — query-time authorization enforcement, cross-tenant isolation, ranking/relevance manipulation, retrieval-scope bypass.
+4. **Augmentation/prompt-assembly layer** — how retrieved chunks are delimited, labelled, and inserted into the prompt; whether the template distinguishes trusted instructions from retrieved content (see [input segregation](/go/inputsegregation/)).
+5. **Generation/output layer** — indirect prompt injection success, sensitive-data disclosure, output-injection into downstream renderers.
+
+Prioritise findings by: authorization impact (does this cross a trust boundary), corpus scale (does it affect one document or a shared source), and — where the RAG system feeds an agent — downstream action potential, using the agentic severity model above.
+
+**References**
+- [OWASP Cheat Sheet: RAG Security](https://cheatsheetseries.owasp.org/cheatsheets/RAG_Security_Cheat_Sheet.html)
+- [OWASP AI Testing Guide](https://owasp.org/www-project-ai-testing-guide/)
+- See [prompt injection testing](/go/testingpromptinjection/) above for payload construction and detection pairing — reused directly for the retrieval-channel tests here.
 
 ### Testing against Prompt injection
 > Category: AI security test  
