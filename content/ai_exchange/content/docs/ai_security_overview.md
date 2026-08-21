@@ -502,6 +502,62 @@ Further links:
 - [Microsoft Pulse report on Agentic security](https://www.microsoft.com/en-us/security/security-insider/emerging-trends/cyber-pulse-ai-security-report)
 
 
+### RAG systems overview
+>Category: discussion  
+>Permalink: https://owaspai.org/go/ragoverview/
+
+Retrieval-Augmented Generation (RAG) systems retrieve external data at inference time and insert it into the model's input to ground its output. This is the most common form of **augmentation data** discussed throughout the Exchange, alongside system prompts and agent memory — see the augmentation-data branch of the [threat model](/go/threatmodel/).
+
+A typical RAG pipeline has five stages, each with a distinct trust boundary:
+1. **Ingestion**: source documents (files, wikis, tickets, web pages, emails) are collected.
+2. **Indexing**: documents are chunked, embedded, and stored in a vector store or search index.
+3. **Retrieval**: a query (often derived from user input) is used to fetch the top-matching chunks.
+4. **Augmentation**: retrieved chunks are inserted into the model's prompt.
+5. **Generation**: the model produces output based on the augmented prompt.
+
+RAG is not a separate threat landscape — the same asset/impact model applies (see the [threats overview](/go/threatsoverview/) and [AI security matrix](/go/aisecuritymatrix/)). This section highlights where RAG concentrates existing threats, and where it introduces attack surface that a plain chatbot or single-document-in-context system doesn't have.
+
+**Why RAG changes the picture**
+- The **corpus itself becomes an asset** with its own confidentiality, integrity and availability requirements — often larger, less curated, and more frequently updated than training data, and often assembled from many contributors with different trust levels.
+- **Retrieval is a second, mostly invisible input channel.** The user only sees their own query; the model also sees whatever the retriever selected. Any content that can enter the index — a shared drive, a ticketing system, a public wiki, a crawled web page — is a potential attack surface, whether or not the current user could reach it directly.
+- **Access control and retrieval scope frequently diverge.** The vector store rarely enforces the same per-document ACLs as the source system it was built from, which creates a confused-deputy pattern: the model (and by extension the user) can end up retrieving chunks the user was never authorized to see.
+
+**Key threats to consider, mapped to existing threat categories**
+- **[Indirect prompt injection](/go/indirectpromptinjection/)**: an attacker plants instructions in a document that later gets ingested, indexed, and retrieved into another user's prompt — the classic RAG attack. Reachability depends only on getting content into the corpus, not on querying the system directly. This is the most consequential RAG-specific instance of prompt injection.
+- **[Data poisoning](/go/datapoison/) of the retrieval corpus**: an attacker with write access to a source (or to the crawl/ingestion pipeline) inserts or edits documents to bias what gets retrieved and surfaced as "fact" — closer to a persistent integrity attack on the corpus than a one-off injection.
+- **[Augmentation data manipulation](/go/augmentationdatamanipulation/)**: broader than poisoning — includes manipulating chunking, embeddings, or metadata (e.g., forging a source field or timestamp) to change what gets retrieved or how much the model trusts it, without touching the underlying document.
+- **Augmentation data leak / [disclosure in output](/go/disclosureinoutput/)**: retrieval crossing an authorization boundary — cross-tenant leakage, retrieval of documents the querying user lacks permission for, or an attacker crafting queries to enumerate corpus contents (membership-inference-style probing of the index rather than the model).
+- **[Model input confidentiality](/go/modelinputconfidentiality/) / retrieval-log exposure**: queries and retrieved chunks are often logged for debugging or evaluation; those logs can themselves leak sensitive corpus or query content if not protected to the same standard as the corpus itself.
+- **Embedding inversion**: an attacker with direct access to the vector store (not the model API) can attempt to reconstruct the original text from a stored embedding vector. This is mechanically distinct from [model inversion and membership inference](/go/modelinversionandmembership/) — that threat reconstructs training data through iterative query optimization against the model; embedding inversion requires no model queries at all, only read access to the stored vectors, making the vector store itself a direct confidentiality target independent of the model.
+- **[Output contains conventional injection](/go/outputcontainsconventionalinjection/)**: retrieved content carrying markup, scripts, or malicious links that get echoed into the model's output and rendered downstream (XSS, Markdown-based exfiltration links, etc.) — the RAG-specific path into this existing threat.
+- **[AI resource exhaustion](/go/airesourceexhaustion/)**: oversized or adversarially crafted documents at ingestion time, or queries engineered to force expensive retrieval/re-ranking, degrading availability.
+- **[Supply chain](/go/supplychainmanage/)**: third-party or externally hosted embedding models, vector-store services, and ingestion connectors extend the RAG trust boundary to those suppliers.
+- **Vector index integrity**: the index is a distinct asset from the corpus — an attacker who can write to it directly (misconfigured or default-open vector database, over-privileged ingestion service) can change what gets retrieved without touching a single source document. Treat unauthorized index writes as an integrity threat in its own right, not just a downstream effect of corpus poisoning.
+- **Missing or forgeable source attribution**: if a RAG response doesn't carry verifiable provenance (which chunks, from which documents, with what hash), there's no way to detect after the fact whether a poisoned or stale document influenced an answer — this turns an otherwise detectable [data poisoning](/go/datapoison/) incident into an undetectable one.
+- **Unsafe fallback on component failure**: if retrieval, an access-control check, or hash verification fails and the system falls back to answering from model memory alone, filtering nothing, or serving a stale cached response, every control above this point in the pipeline is silently bypassed. This is an availability/integrity trade-off attackers can deliberately trigger by forcing failures.
+- **Incomplete data deletion propagation**: deleting or de-permissioning a source document doesn't automatically remove its chunks, embeddings, or cached responses — an "authorized deletion" that isn't cascaded leaves the same data reachable through the retriever, which is both a [disclosure](/go/disclosureinoutput/) risk and, where regulated data is involved, a compliance failure.
+
+**The lethal trifecta, applied to RAG**
+
+RAG is frequently the "data" leg of the [lethal trifecta](/go/agenticaioverview/) described in the Agentic AI overview: attacker-influenced data reaching the model (via indirect prompt injection through a retrieved chunk), access to sensitive data (the corpus itself, or other documents reachable through the same retriever), and an ability to send data out (an agent action, or an exfiltration channel embedded in the output). A RAG system doesn't need to be "agentic" in the action-triggering sense for this to matter — read access to a sensitive corpus plus an output channel a user can observe (e.g., a rendered link) is enough.
+
+**Threat-model questions specific to RAG** (extending the decision tree in [risk analysis](/go/threatmodel/)):
+- Does your system insert retrieved data into the model's input? → consider [indirect prompt injection](/go/indirectpromptinjection/) and [augmentation data manipulation](/go/augmentationdatamanipulation/).
+- Can anyone other than trusted engineers add, edit, or influence documents that end up in the corpus (shared drives, tickets, web crawls, user uploads)? → consider [data poisoning](/go/datapoison/) of the corpus, and treat the ingestion pipeline itself as a threat surface.
+- Does retrieval scope match the source documents' access control, per user/session? → if not, consider augmentation data leak via authorization mismatch — see [disclosure in output](/go/disclosureinoutput/).
+- Is the corpus, embedding model, or vector-store service provided by a third party? → apply [supply chain management](/go/supplychainmanage/).
+- Can retrieved content reach a rendering context (browser, chat UI with Markdown/HTML) or a downstream action? → consider [output contains conventional injection](/go/outputcontainsconventionalinjection/) and, if the system can act on retrieved content, cross-reference the [Agentic AI overview](/go/agenticaioverview/).
+- Does anything other than the ingestion pipeline have write access to the vector index? → consider vector index integrity as a distinct threat from corpus poisoning.
+- Do responses carry verifiable source attribution (which chunks, which documents, with what hash)? → if not, a poisoning or staleness incident may be undetectable after the fact.
+- What does the system do when retrieval, an access-control check, or hash verification fails? → if it falls back to unfiltered or cached behavior, every upstream control can be bypassed by deliberately triggering that failure.
+- When a source document is deleted or de-permissioned, is that propagated to its chunks, embeddings, and cached responses? → an uncascaded deletion leaves the data reachable through the retriever.
+
+**Controls**: the [periodic table of AI security](/go/periodictable/) already lists the applicable controls per threat above; no RAG-specific control category is needed beyond applying [augmentation data confidentiality/integrity](/go/augmentationdataintegrity/) and [input segregation](/go/inputsegregation/) specifically to the retrieval channel, treating the corpus with the same rigor as [training data](/go/datapoison/) — access-controlled, versioned, and attributable — and applying fail-closed defaults at every pipeline stage rather than only at the model boundary.
+
+For the full threat and control picture, see the [threats overview](/go/threatsoverview/) and the [periodic table](/go/periodictable/).  
+This section highlights RAG-specific attention points only — not a separate threat landscape.
+
+
 ### AI Security Matrix
 >Category: discussion  
 >Permalink: https://owaspai.org/go/aisecuritymatrix/
