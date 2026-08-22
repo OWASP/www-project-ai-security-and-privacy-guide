@@ -527,9 +527,9 @@ Below is a diagram explaining RAG, with [OpenCRE](opencre.org/chatbot) as an exa
 
 
 **Why RAG changes the picture:**
+- **Access control and retrieval scope frequently diverge.** The vector store rarely enforces the same per-document ACLs as the source system it was built from, which creates a confused-deputy pattern: the model (and by extension the user) can end up retrieving chunks the user was never authorized to see.
 - The **corpus itself becomes an asset** with its own confidentiality, integrity and availability requirements — often larger, less curated, and more frequently updated than training data, and often assembled from many contributors with different trust levels.
 - **Retrieval is a second, mostly invisible input channel.** The user only sees their own query; the model also sees whatever the retriever selected. Any content that can enter the index — a shared drive, a ticketing system, a public wiki, a crawled web page — is a potential attack surface, whether or not the current user could reach it directly.
-- **Access control and retrieval scope frequently diverge.** The vector store rarely enforces the same per-document ACLs as the source system it was built from, which creates a confused-deputy pattern: the model (and by extension the user) can end up retrieving chunks the user was never authorized to see.
 
 **Key threats to consider, mapped to existing threat categories**
 - **[Indirect prompt injection](/go/indirectpromptinjection/)**: an attacker plants instructions in a document that later gets ingested, indexed, and retrieved into another user's prompt — the classic RAG attack. Reachability depends only on getting content into the corpus, not on querying the system directly. This is the most consequential RAG-specific instance of prompt injection.
