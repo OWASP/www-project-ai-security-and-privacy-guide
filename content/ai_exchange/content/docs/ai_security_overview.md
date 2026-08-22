@@ -508,6 +508,8 @@ Further links:
 
 Retrieval-Augmented Generation (RAG) systems retrieve data at inference time and insert it into the model's input to ground its output. This is the most common form of **augmentation data** discussed throughout the Exchange, alongside system prompts and agent memory — see the augmentation-data branch of the [threat model](/go/threatmodel/).
 
+An example of RAG is when you ask a company chatbot about things that are in company documents. The AI model has not been trained on those documents, but the RAG system looks through them for information relevant to your question, and gives it to the AI, together with your question. The model learns in the same go as it gets the question - which is why this is called 'in-context learning'.
+
 A typical RAG pipeline has five stages, each with a distinct trust boundary:
 1. **Ingestion**: source documents (files, wikis, tickets, web pages, emails) are collected.
 2. **Indexing**: documents are chunked, embedded, and stored in a vector store or search index.
@@ -517,7 +519,14 @@ A typical RAG pipeline has five stages, each with a distinct trust boundary:
 
 RAG is not a separate threat landscape — the same asset/impact model applies (see the [threats overview](/go/threatsoverview/) and [AI security matrix](/go/aisecuritymatrix/)). This section highlights where RAG concentrates existing threats, and where it introduces attack surface that a plain chatbot or single-document-in-context system doesn't have.
 
-**Why RAG changes the picture**
+Below is a diagram explaining RAG, with [OpenCRE](opencre.org/chatbot) as an example: 
+1. You ask a question on security.
+2. The system finds relevant information in the security standards in OpenCRE
+3. That relevant information is added to your question to form a prompt to an LLM that answers your question using primarily the information plus what it has learned by reading the internet.
+[![](/images/opencrechat.png?v=1)](/images/opencrechat.png?v=3)
+
+
+**Why RAG changes the picture:**
 - The **corpus itself becomes an asset** with its own confidentiality, integrity and availability requirements — often larger, less curated, and more frequently updated than training data, and often assembled from many contributors with different trust levels.
 - **Retrieval is a second, mostly invisible input channel.** The user only sees their own query; the model also sees whatever the retriever selected. Any content that can enter the index — a shared drive, a ticketing system, a public wiki, a crawled web page — is a potential attack surface, whether or not the current user could reach it directly.
 - **Access control and retrieval scope frequently diverge.** The vector store rarely enforces the same per-document ACLs as the source system it was built from, which creates a confused-deputy pattern: the model (and by extension the user) can end up retrieving chunks the user was never authorized to see.
