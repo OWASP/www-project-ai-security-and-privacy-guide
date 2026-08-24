@@ -282,12 +282,14 @@ async function main() {
 
     const getRedirectTarget = (source) => {
       for (const r of redirects) {
+        if (!r.source) continue;   // skip regex-based rules; this lookup only does literal matching
         const src = r.source.replace(/\/+$/, '').toLowerCase();
         const s = source.replace(/\/+$/, '').toLowerCase();
         if (src === s || src + '/**' === s) {
           return r.destination;
         }
       }
+      console.warn(`No redirect match for: ${source}`);
       return null;
     };
 
