@@ -40,17 +40,17 @@ sidebar:
 
 >Welcome to the go-to resource for broad AI security & privacy - over 300 pages of practical advice and references on protecting AI and data-centric systems from threats. This content serves as key bookmark for practitioners, and is contributing actively and substantially to international standards such as ISO/IEC and the AI Act through official standard partnerships. Through broad collaboration with key institutes and SDOs, the _Exchange_ represents the consensus on AI security and privacy.<br>
 
-START HERE: [how to use this document](/goto//document/) or ask a question to AI on the content of the Exchange [here](https://notebooklm.google.com/notebook/75840a00-78f8-454d-ad4d-9ac27ae4cf48) (requires Google account).
+START HERE: [how to use this document](/go//document) or ask a question to AI on the content of the Exchange [here](https://notebooklm.google.com/notebook/75840a00-78f8-454d-ad4d-9ac27ae4cf48) (requires Google account).
 
 {{< spacer height="10" >}}
 
 {{< cards >}}
-    {{< small-card link="/goto/about/" title="About" icon="document-text" >}}
+    {{< small-card link="/go/about" title="About" icon="document-text" >}}
     {{< small-card link="/connect" title="Connect with us!" icon="chat" >}}
     {{< small-card link="/contribute" title="Contribute" icon="star" >}}
     {{< small-card link="/sponsor" title="Sponsor" icon="star" >}}
     {{< small-card link="/media" title="Media" icon="speakerphone" >}}
-    {{< small-card link="/goto/index/" title="Index" icon="document-text">}}
+    {{< small-card link="/go/index" title="Index" icon="document-text">}}
 {{< /cards >}}
 
 <table style="width: 100%;  border: 0; margin: 0; padding: 0;">
@@ -61,29 +61,29 @@ START HERE: [how to use this document](/goto//document/) or ask a question to AI
 <h2>Our Content</h2>
         
 * [AI Security Overview](docs/ai_security_overview/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [About the AI Exchange](https://owaspai.org/goto/about/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Organize](https://owaspai.org/goto/organize/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [How to use this document](https://owaspai.org/goto/document/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Essentials](https://owaspai.org/goto/essentials/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Threats](https://owaspai.org/goto/threatsoverview/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Threat matrix](https://owaspai.org/goto/aisecuritymatrix/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Controls](https://owaspai.org/goto/controlsoverview/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Periodic table of threats and controls](https://owaspai.org/goto/periodictable/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Risk analysis](https://owaspai.org/goto/riskanalysis/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [About the AI Exchange](https://owaspai.org/go/about)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Organize](https://owaspai.org/go/organize)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [How to use this document](https://owaspai.org/go/document)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Essentials](https://owaspai.org/go/essentials)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Threats](https://owaspai.org/go/threatsoverview)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Threat matrix](https://owaspai.org/go/aisecuritymatrix)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Controls](https://owaspai.org/go/controlsoverview)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Periodic table of threats and controls](https://owaspai.org/go/periodictable)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Risk analysis](https://owaspai.org/go/riskanalysis)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [How about ...](https://owaspai.org/docs/ai_security_overview/#how-about-)  
 
-* [Deep dive into threats and controls:](https://owaspai.org/goto/navigator/)  
+* [Deep dive into threats and controls:](https://owaspai.org/go/navigator)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [1. General controls](/docs/1_general_controls)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.1 Governance controls](https://owaspai.org/goto/governancecontrols/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.2 Data limitation](https://owaspai.org/goto/datalimit/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.3 Limit unwanted behaviour](https://owaspai.org/goto/limitunwanted/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.1 Governance controls](https://owaspai.org/go/governancecontrols)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.2 Data limitation](https://owaspai.org/go/datalimit)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.3 Limit unwanted behaviour](https://owaspai.org/go/limitunwanted)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [2. Threats through use and controls](/docs/2_threats_through_use/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [3. Development-time threats and controls](/docs/3_development_time_threats/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [4. Runtime application security threats and controls](/docs/4_runtime_application_security_threats/)  
 
 * [AI security testing](/docs/5_testing/)
 
-* [AI privacy](/goto/aiprivacy/)  
+* [AI privacy](/go/aiprivacy)  
 
 * [References](/docs/ai_security_references/)
 
@@ -103,7 +103,7 @@ Content also available in [pdf](OWASP-AI-Exchange.pdf)
         </div>
         <h4 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 15px; color: #1a1a2e;">About</h4>
         <p style="color: #6b7280; margin-bottom: 20px; line-height: 1.6;">Learn about our mission to provide comprehensive AI security guidance and standards.</p>
-        <a href="/goto/about/" style="color: #10b981; text-decoration: none; font-weight: 600;">Learn more ></a>
+        <a href="/go/about" style="color: #10b981; text-decoration: none; font-weight: 600;">Learn more ></a>
       </div>
       <div style="text-align: left; padding: 30px; border: 1px solid #e5e7eb; border-radius: 12px; transition: box-shadow 0.3s;">
         <div style="width: 50px; height: 50px; background: #10b981; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
@@ -143,7 +143,7 @@ Content also available in [pdf](OWASP-AI-Exchange.pdf)
         </div>
         <h4 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 15px; color: #1a1a2e;">Periodic table</h4>
         <p style="color: #6b7280; margin-bottom: 20px; line-height: 1.6;">Explore our comprehensive periodic table of AI threats and controls.</p>
-        <a href="/goto/periodictable/" style="color: #10b981; text-decoration: none; font-weight: 600;">Learn more ></a>
+        <a href="/go/periodictable" style="color: #10b981; text-decoration: none; font-weight: 600;">Learn more ></a>
       </div>
     </div>
   </div>
