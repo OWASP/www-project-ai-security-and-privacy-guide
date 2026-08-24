@@ -853,6 +853,7 @@ Another example: If your agentic system uses an LLM, then it is in theory suscep
   
   - Consider the threat of [augmentation data manipulation](/go/augmentationdatamanipulation/) as this data plays a role in determining the model behaviour.
   - Is this augmentation data stored in a database for the purpose of the AI system (e.g., a vector database)? If Yes: you need to protect against [direct augmentation data leak](/go/augmentationdataleak/). Note that this also counts for system prompts, if they are sensitive.
+  - Consult [RAG systems overview](/go/ragsystemsoverview/) for further considerations.
 
   > QUESTION: Who runs the model?
   - The supplier runs the model: select a trustworthy supplier through [supply chain management](/go/supplychainmanage/), to make sure the deployed model cannot be manipulated through ([runtime model poisoning](/go/runtimemodelpoison/)) - just the way you would expect any supplier to protect their running application from manipulation.
