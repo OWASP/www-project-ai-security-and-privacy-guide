@@ -6,46 +6,46 @@ weight: 3
 ---
 ## 2.0. Input threats - introduction
 >Category: group of input threats  
->Permalink: https://owaspai.org/go/inputthreats/
+>Permalink: https://owaspai.org/go/inputthreats
 
 Input threats (also called "threats through use", “inference-time attacks”, or “runtime adversarial attacks”) occur when an attacker crafts inputs to a deployed AI system to achieve malicious goals.
 
 Threats on this page:
-- [Evasion](/go/evasion/) - Bypassing decisions 
-- [Prompt injection](/go/promptinjection/) - Manipulating behaviour of GenAI systems
-- [Agent message structure manipulation](/go/agentmessagestructuremanipulation/) - Forging or altering structured agent messages (GenAI / agentic)
+- [Evasion](/go/evasion) - Bypassing decisions 
+- [Prompt injection](/go/promptinjection) - Manipulating behaviour of GenAI systems
+- [Agent message structure manipulation](/go/agentmessagestructuremanipulation) - Forging or altering structured agent messages (GenAI / agentic)
 - Sensitive data extraction:
-    - [Disclosure in model output](/go/disclosureinoutput/)
-    - [Model inversion and Membership inference](/go/modelinversionandmembership/)
-- [Model exfiltration](/go/modelexfiltration/)
-- [AI Resource exhaustion](/go/airesourceexhaustion/)
+    - [Disclosure in model output](/go/disclosureinoutput)
+    - [Model inversion and Membership inference](/go/modelinversionandmembership)
+- [Model exfiltration](/go/modelexfiltration)
+- [AI Resource exhaustion](/go/airesourceexhaustion)
 
 
 **Controls for input threats in general**
 
 These are the controls for input threats in general - more specific controls are discussed in the subsections for the various types of attacks:
-- See [General controls](/go/generalcontrols/), especially [Limiting the effect of unwanted behaviour](/go/limitunwanted/) and [Sensitive data limitation](/go/dataminimize/), depending on the attack
-- Depending on the attack: controls that protect against the model being stolen or copied (unless the model is publicly available): [direct development-time model leak](/go/devmodelleak/),  [direct runtime model leak](/go/runtimemodelleak/), and [model exfiltration](/go/modelexfiltration/) - as many input attacks become dramatically easier when the attacker can access model attributes.
+- See [General controls](/go/generalcontrols), especially [Limiting the effect of unwanted behaviour](/go/limitunwanted) and [Sensitive data limitation](/go/dataminimize), depending on the attack
+- Depending on the attack: controls that protect against the model being stolen or copied (unless the model is publicly available): [direct development-time model leak](/go/devmodelleak),  [direct runtime model leak](/go/runtimemodelleak), and [model exfiltration](/go/modelexfiltration) - as many input attacks become dramatically easier when the attacker can access model attributes.
 - The controls discussed below to limit access and volume, perform generic detection and reduce output information (unless the attacker can use a similar or same model to perform the attack):
-    - [#MONITOR USE](/go/monitoruse/)
-    - [#RATE LIMIT](/go/ratelimit/)
-    - [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/)
-    - [#ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling/)
-    - [#UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling/)
-    - [#OBSCURE CONFIDENCE](/go/obscureconfidence/) - as many attacks rely on rich output information
+    - [#MONITOR USE](/go/monitoruse)
+    - [#RATE LIMIT](/go/ratelimit)
+    - [#MODEL ACCESS CONTROL](/go/modelaccesscontrol)
+    - [#ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling)
+    - [#UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling)
+    - [#OBSCURE CONFIDENCE](/go/obscureconfidence) - as many attacks rely on rich output information
  
 
 #### #MONITOR USE 
 >Category: runtime information security control for input threats  
->Permalink: https://owaspai.org/go/monitoruse/
+>Permalink: https://owaspai.org/go/monitoruse
 
 **Description**  
 Monitor use: observe, correlate, and log model usage (date, time, user), inputs, outputs, and system behavior to identify events or patterns that may indicate a cybersecurity incident. This can be used to reconstruct incidents, and make it part of the existing incident detection process - extended with AI-specific methods, including:
 
-  - Improper functioning of the model (see [#CONTINUOUS VALIDATION](/go/continuousvalidation/), [#UNWANTED BIAS TESTING](/go/unwantedbiastesting/))
-  - Suspicious patterns of model use (e.g., high frequency (see [#RATE LIMIT](/go/ratelimit/) and [#OVERSIGHT](/go/oversight/)).
-  - Suspiciouts output (e.g., [#SENSITIVE OUTPUT HANDLING](/go/sensitiveoutputhandling/)).
-  - Suspicious inputs or series of inputs (see [#ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling/), [#UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling/), [#EVASION INPUT HANDLING](/go/evasioninputhandling/) and [#PROMPT INJECTION I/O handling](/go/promptinjectioniohandling/)).
+  - Improper functioning of the model (see [#CONTINUOUS VALIDATION](/go/continuousvalidation), [#UNWANTED BIAS TESTING](/go/unwantedbiastesting))
+  - Suspicious patterns of model use (e.g., high frequency (see [#RATE LIMIT](/go/ratelimit) and [#OVERSIGHT](/go/oversight)).
+  - Suspiciouts output (e.g., [#SENSITIVE OUTPUT HANDLING](/go/sensitiveoutputhandling)).
+  - Suspicious inputs or series of inputs (see [#ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling), [#UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling), [#EVASION INPUT HANDLING](/go/evasioninputhandling) and [#PROMPT INJECTION I/O handling](/go/promptinjectioniohandling)).
 
 By adding details to logs on the version of the model used and the output, troubleshooting becomes easier. This control provides centralized visibility into how AI systems are used over time and across actors, sessions, and models.
 
@@ -84,15 +84,15 @@ In some deployments, implementation may be more appropriate at the deployer or p
     
 This allows us to observe a chain of thoughts in which various models perform a chain of inferences and ideally includes observing signals generated by complementary controls such as:
 
-  - [#RATE LIMIT](/go/ratelimit/),
-  - [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/),
-  - [#ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling/),
-  - [#OVERSIGHT](/go/oversight/) (including automated and human),
-  - [#UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling/),
-  - [#OBSCURE CONFIDENCE](/go/obscureconfidence/),
-  - [#SENSITIVE OUTPUT HANDLING](/go/sensitiveoutputhandling/),
-  - [#CONTINUOUSVALIDATION](/go/continuousvalidation/),
-  - [#DATA QUALITY CONTROL](/go/dataqualitycontrol/).
+  - [#RATE LIMIT](/go/ratelimit),
+  - [#MODEL ACCESS CONTROL](/go/modelaccesscontrol),
+  - [#ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling),
+  - [#OVERSIGHT](/go/oversight) (including automated and human),
+  - [#UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling),
+  - [#OBSCURE CONFIDENCE](/go/obscureconfidence),
+  - [#SENSITIVE OUTPUT HANDLING](/go/sensitiveoutputhandling),
+  - [#CONTINUOUSVALIDATION](/go/continuousvalidation),
+  - [#DATA QUALITY CONTROL](/go/dataqualitycontrol).
     
 For each monitored risk, criteria can be defined to identify suspicious patterns, anomalies, or intent.
 
@@ -100,11 +100,11 @@ For each monitored risk, criteria can be defined to identify suspicious patterns
   Logging supports both detection and later investigation. Depending on legal, privacy, and technical constraints, logs may include:
   
   - Trace metadata: timestamps, trace or session identifiers, actor or session linkage, request rates.
-  - **Agentic tool calls:** function or tool name, arguments (or hashed/summarized parameters), invoking identity, target resource or tenant, approval state (human vs autonomous), and correlation identifiers across multi-step chains — so cross-agent sessions can be reconstructed (see also [#OVERSIGHT](/go/oversight/)).
-  - **Agentic memory writes:** source, writer identity (agent or session), timestamp, memory partition or store identifier, and content hash or summary — to support forensic reconstruction of [persistent memory poisoning](/go/augmentationdatamanipulation/) and cross-session state (see [#AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity/)).
-  - **Agentic reasoning traces:** stated plan, chain-of-thought or reasoning summary (where exposed), declared objectives, and mapping to subsequent tool calls — to detect plan–action divergence and deceptive reasoning (see [#OVERSIGHT](/go/oversight/)). Chain-of-thought is model output, not guaranteed internal computation; treat as observability into _stated_ reasoning.
-  - **Agent action audit trail:** agent identity, action type, target resource, parameters (redacted as required), policy decision (permit/deny) and summary rationale, task/session context, outcome, and correlation IDs across agents and sessions — in tamper-evident storage the agent cannot modify (see [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/) policy enforcement). Include authentication and authorisation events and session lifecycle (create, timeout, terminate). Enable real-time analysis for high denial rates and unusual action sequences.
-  - **Tool chain monitoring:** per-call sequence position, preceding/following tool, output summary, and cumulative session resource use — to detect multi-step attacks, runaway loops, sensitive operations after external retrieval, and cross-session correlation. Alert on deviations from expected task sequences; enforce cumulative limits across the chain; see [#OVERSIGHT](/go/oversight/) for human checkpoints before irreversible steps.
+  - **Agentic tool calls:** function or tool name, arguments (or hashed/summarized parameters), invoking identity, target resource or tenant, approval state (human vs autonomous), and correlation identifiers across multi-step chains — so cross-agent sessions can be reconstructed (see also [#OVERSIGHT](/go/oversight)).
+  - **Agentic memory writes:** source, writer identity (agent or session), timestamp, memory partition or store identifier, and content hash or summary — to support forensic reconstruction of [persistent memory poisoning](/go/augmentationdatamanipulation) and cross-session state (see [#AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity)).
+  - **Agentic reasoning traces:** stated plan, chain-of-thought or reasoning summary (where exposed), declared objectives, and mapping to subsequent tool calls — to detect plan–action divergence and deceptive reasoning (see [#OVERSIGHT](/go/oversight)). Chain-of-thought is model output, not guaranteed internal computation; treat as observability into _stated_ reasoning.
+  - **Agent action audit trail:** agent identity, action type, target resource, parameters (redacted as required), policy decision (permit/deny) and summary rationale, task/session context, outcome, and correlation IDs across agents and sessions — in tamper-evident storage the agent cannot modify (see [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege) policy enforcement). Include authentication and authorisation events and session lifecycle (create, timeout, terminate). Enable real-time analysis for high denial rates and unusual action sequences.
+  - **Tool chain monitoring:** per-call sequence position, preceding/following tool, output summary, and cumulative session resource use — to detect multi-step attacks, runaway loops, sensitive operations after external retrieval, and cross-session correlation. Alert on deviations from expected task sequences; enforce cumulative limits across the chain; see [#OVERSIGHT](/go/oversight) for human checkpoints before irreversible steps.
   - **Multi-agent collusion signals:** cross-agent correlation — synchronised anomalous activity, approval-splitting, complementary data access reconstructing restricted datasets, unexpected communication topology or new agent pairs, aggregate platform limits across agents in a workflow, honeypot/canary access with no legitimate path. Auto-isolate suspected colluding agents pending review.
   - Request context: input content, preprocessing steps, detection signals triggered.
   - Processing context: model version, execution time, errors.
@@ -129,8 +129,8 @@ For each monitored risk, criteria can be defined to identify suspicious patterns
   - classifying the potential incident type,
   - assigning confidence or severity levels,
   - generating alerts for follow-up investigation when appropriate with sufficient information such as unique alert id, timestamp, threat classification, attack source, severity, request and response context,       description of observed behavior etc.
-  - **Agentic policy signals:** elevated policy denial rates, cumulative session limit approaches, or conflict-resolution events from a single agent or session (see [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/) policy enforcement).
-  - **Automated detection at agent speed:** Where agent autonomy outpaces human review, consider defensive monitoring agents or automated analysers that correlate signals, enforce policy, and trigger containment — complementary to human oversight ([#OVERSIGHT](/go/oversight/)), not a substitute. Scope and privilege such tooling carefully; a defensive agent is itself part of the attack surface.
+  - **Agentic policy signals:** elevated policy denial rates, cumulative session limit approaches, or conflict-resolution events from a single agent or session (see [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege) policy enforcement).
+  - **Automated detection at agent speed:** Where agent autonomy outpaces human review, consider defensive monitoring agents or automated analysers that correlate signals, enforce policy, and trigger containment — complementary to human oversight ([#OVERSIGHT](/go/oversight)), not a substitute. Scope and privilege such tooling carefully; a defensive agent is itself part of the attack surface.
 
   Decision rules can distinguish between:
 
@@ -166,7 +166,7 @@ For agentic deployments, these response paths apply per session or workflow, not
 
 - **Detection and triage:** Define incident criteria before deployment — policy violations, unexpected actions, unsafe outputs, unauthorised tool usage, goal deviation, and inter-agent contamination. Correlate signals from automated monitoring (behavioural anomalies, policy denials, agentic log fields above), user reports, and operator observation; no single source is sufficient. Classify by severity (impact on data, systems, or users), scope (single session, multi-agent workflow, platform-wide), and urgency (ongoing autonomous harm vs latent risk). Route critical incidents to automated containment, high-severity to immediate human review, and lower-severity events to queued investigation. Log detection events and triage decisions with timestamps, rationale, and assignee.
 
-- **Containment and eradication:** Pause, isolate, or terminate at the infrastructure layer; revoke credentials and restrict tools and data access so restrictions cannot be bypassed from agent context. Isolate compromised execution environments; disable risky automations, tool integrations, or inter-agent channels contributing to the incident. Identify and remove root causes (adversarial input, configuration error, model behaviour, compromised tool, [poisoned memory or context](/go/augmentationdatamanipulation/)). Clean harmful artefacts, reset to known-good configuration, validate safety before reactivation, and document every step for post-incident review and escalation under [#SEC PROGRAM](/go/secprogram/).
+- **Containment and eradication:** Pause, isolate, or terminate at the infrastructure layer; revoke credentials and restrict tools and data access so restrictions cannot be bypassed from agent context. Isolate compromised execution environments; disable risky automations, tool integrations, or inter-agent channels contributing to the incident. Identify and remove root causes (adversarial input, configuration error, model behaviour, compromised tool, [poisoned memory or context](/go/augmentationdatamanipulation)). Clean harmful artefacts, reset to known-good configuration, validate safety before reactivation, and document every step for post-incident review and escalation under [#SEC PROGRAM](/go/secprogram).
 
 - **Forensic analysis:** Apply forensic holds so log rotation does not destroy evidence. Preserve agent action logs, memory partitions, context-window snapshots, tool-call chains, and inter-agent messages (see agentic logging fields above). Reconstruct chronological timelines; replay memory from append-only stores where implemented. Correlate agent-level evidence with infrastructure authentication and policy-enforcement logs. Stated reasoning traces are model output, not guaranteed internal computation — reconstruct inputs, outputs, and actions, not hidden intent. Store evidence in tamper-evident form with chain of custody; distinguish established facts from inference and note evidence gaps.
 
@@ -240,7 +240,7 @@ Useful standards include:
 
 #### #RATE LIMIT
 >Category: runtime information security control for input threats  
->Permalink: https://owaspai.org/go/ratelimit/
+>Permalink: https://owaspai.org/go/ratelimit
 
 **Description**
 
@@ -250,24 +250,24 @@ Limit the rate (frequency) of access to the model - preferably per actor (user, 
 **Objective**
 
 To delay and discourage attackers who rely on many model interactions to:
-- Search for [adversarial or evasion](/go/evasion/) samples: pairs of (successful attack, unwanted output) data is useful for constructing evasion attacks and jailbreaks.
-- Perform [data poisoning](/go/datapoison/) exploration and extract exposure-restricted data.
-- Experiment with various [direct and indirect prompt injection](/go/promptinjection/) techniques to both exploit the system and/or study the attack behavior.
-- Attempt [model inversion and/or membership inference](/go/modelinversionandmembership/).
+- Search for [adversarial or evasion](/go/evasion) samples: pairs of (successful attack, unwanted output) data is useful for constructing evasion attacks and jailbreaks.
+- Perform [data poisoning](/go/datapoison) exploration and extract exposure-restricted data.
+- Experiment with various [direct and indirect prompt injection](/go/promptinjection) techniques to both exploit the system and/or study the attack behavior.
+- Attempt [model inversion and/or membership inference](/go/modelinversionandmembership).
 - Extract training data or model parameters, or
-- Copy or re-train a model via large scale harvesting ([model exfiltration](/go/modelexfiltration/))
+- Copy or re-train a model via large scale harvesting ([model exfiltration](/go/modelexfiltration))
 
 By restricting the number and speed of model interactions, cost of attacks increase (effort, time, resources) thereby making the attacks less practical and allowing an opportunity for detection and incident response.
 
 **Applicability**
 
-Defined by risk management (see [#RISK ANALYSIS](/go/riskanalysis/)). It is a primary control against many input threats. Natural rate limits can exist in systems whose context inherently restricts query rates (e.g., medical imaging or human supervised processes). Exceptions may apply when rate limiting would block intended safety-critical or real-time functions, such as:
+Defined by risk management (see [#RISK ANALYSIS](/go/riskanalysis)). It is a primary control against many input threats. Natural rate limits can exist in systems whose context inherently restricts query rates (e.g., medical imaging or human supervised processes). Exceptions may apply when rate limiting would block intended safety-critical or real-time functions, such as:
 
 - Emergency dispatch or medical triage models.
 - Cybersecurity monitoring that must analyze all traffic.
 - Real-time identity or fraud detection under strict latency constraints. 
 
-When rate limiting is impractical for the provider but feasible for the deployer, this responsibility must be clearly delegated and documented (see [#SEC PROGRAM](/go/secprogram/))
+When rate limiting is impractical for the provider but feasible for the deployer, this responsibility must be clearly delegated and documented (see [#SEC PROGRAM](/go/secprogram))
 
 **Implementation**
 
@@ -283,11 +283,11 @@ c. Optimize & Calibrate
     - Lower limits increase security but may affect user experience - tune for acceptable residual risk, possibly with the help of additional controls . 
 d. Detection & Response
     - Breaching a rate limit must trigger event logging and potential incident workflows. 
-    - Integrate with [#MONITOR USE](/go/monitoruse/) and incident response (see [#SEC PROGRAM](/go/secprogram/))
+    - Integrate with [#MONITOR USE](/go/monitoruse) and incident response (see [#SEC PROGRAM](/go/secprogram))
 
-**Agent fleet rate limits:** Apply per-agent and per-session caps on tool invocations, outbound API calls, and orchestration steps — not only model inference frequency. Tighter limits for agents processing untrusted content. Terminate cleanly on hard limit breach with audit and alert. Complements [agent sandboxing](/go/agentsandboxing/) and runaway remediation controls under [#OVERSIGHT](/go/oversight/).
+**Agent fleet rate limits:** Apply per-agent and per-session caps on tool invocations, outbound API calls, and orchestration steps — not only model inference frequency. Tighter limits for agents processing untrusted content. Terminate cleanly on hard limit breach with audit and alert. Complements [agent sandboxing](/go/agentsandboxing) and runaway remediation controls under [#OVERSIGHT](/go/oversight).
     
-Complement this control with [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/), [#MONITORUSE](/go/monitoruse/) and detection mechanisms. 
+Complement this control with [#MODEL ACCESS CONTROL](/go/modelaccesscontrol), [#MONITORUSE](/go/monitoruse) and detection mechanisms. 
 
 **Risk-Reduction Guidance**
 
@@ -312,7 +312,7 @@ Unlike traditional IT rate limiting (which protects performance), here it primar
 **Limitations**
 
   - Low-frequency or single-try attacks (e.g., prompt injection or indirect leakage) remain unaffected. 
-  - Attackers may circumvent limits by parallel access or multi-instance use, or through a [transferability attack](/go/transferattack/).
+  - Attackers may circumvent limits by parallel access or multi-instance use, or through a [transferability attack](/go/transferattack).
 
 **References**
 <!-- OPENCRE_SECTION_CRE_START slug=ratelimit -->
@@ -331,7 +331,7 @@ Useful standards include:
 
 #### #MODEL ACCESS CONTROL
 >Category: runtime information security control for input threats  
->Permalink: https://owaspai.org/go/modelaccesscontrol/
+>Permalink: https://owaspai.org/go/modelaccesscontrol
 
 **Description**
 
@@ -367,19 +367,19 @@ If implementation is more practical for the deployer than the provider, this res
 7. Integrate with other controls:** Use authenticated identity for per-user rate limiting, anomaly detection and incident reconstruction.
 
 **Agentic authentication**  
-Agents authenticate without interactive challenges, at high frequency, across trust domains, and through delegation chains where the human principal is not directly present. Pair with [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/) for authorisation after identity is established.
+Agents authenticate without interactive challenges, at high frequency, across trust domains, and through delegation chains where the human principal is not directly present. Pair with [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege) for authorisation after identity is established.
 
 - **Cryptographic identity:** Require mutual TLS, signed tokens, or equivalent for agent-to-service and inter-agent interactions — not shared static API keys. Authenticate at **channel** (transport) and **message** (signed payloads) levels.
 - **Agent-to-service:** Use machine-to-machine protocols (for example OAuth 2.0 client credentials) with short-lived, automatically rotated tokens scoped to specific services and operations. Bind credentials to verified agent identity and execution environment; services must validate scope per request. Log auth successes and failures at the service boundary.
 - **Multi-agent trust:** Require mutual authentication before operational exchange. Apply **trust tiers** by provenance (same operator, verified external, unknown) with proportionate data and tool limits. Use a federation or trust broker for cross-domain verification; encode negotiated constraints in a signed interaction contract. Re-establish trust after model updates, capability changes, or operator changes. **No transitive trust** — A trusts B and B trusts C does not imply A trusts C.
 
-- **Behavioural trust and reputation (optional):** Identity and authentication establish _who_ an agent is; **reputation** indicates how reliably it has behaved over time — one input to trust decisions, not a replacement for [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/) or cryptographic identity. Where implemented: track per-agent behavioural metrics (policy compliance, schema conformance, anomaly rate, tool-use patterns) in a **tamper-evident log external to the agent**; allow signed attestations of history when initiating new interactions. Map **reputation tiers** to concrete access consequences — for example high-trust agents within authorised scope; standard-trust under normal controls; low-trust or **unknown/new** agents (including [third-party onboarding](/go/supplychainmanage/)) subject to parameter review, limited tool subsets, enhanced logging, and exclusion from sensitive workflows until history is earned. Apply **reputation decay** after inactivity or material change (model update, tool-set change, operator change, environment change) — post-change agents should not inherit pre-change trust. Use **reputation-based circuit breakers**: a sudden significant score drop restricts capabilities and alerts operators (see [#MONITOR USE](/go/monitoruse/) and [#OVERSIGHT](/go/oversight/)). Secure reputation scoring infrastructure as a high-value target. **Limitations:** cold-start for new agents; long-con gaming; scores may not transfer across task types or model versions; industry scoring methods are not yet standardised — treat reputation as supplementary to identity, policy, and monitoring.
-- **Inter-agent communication:** mTLS with strict validation; **message-level signing** (content, sender, recipient, timestamp) for end-to-end integrity past TLS terminators; nonces/sequence numbers for **replay protection**; application-layer encryption across trust domains; separate channels by trust level; reject messages failing protocol schema validation before they reach agent context. Log message metadata in tamper-evident storage. See [agent message structure manipulation](/go/agentmessagestructuremanipulation/).
+- **Behavioural trust and reputation (optional):** Identity and authentication establish _who_ an agent is; **reputation** indicates how reliably it has behaved over time — one input to trust decisions, not a replacement for [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege) or cryptographic identity. Where implemented: track per-agent behavioural metrics (policy compliance, schema conformance, anomaly rate, tool-use patterns) in a **tamper-evident log external to the agent**; allow signed attestations of history when initiating new interactions. Map **reputation tiers** to concrete access consequences — for example high-trust agents within authorised scope; standard-trust under normal controls; low-trust or **unknown/new** agents (including [third-party onboarding](/go/supplychainmanage)) subject to parameter review, limited tool subsets, enhanced logging, and exclusion from sensitive workflows until history is earned. Apply **reputation decay** after inactivity or material change (model update, tool-set change, operator change, environment change) — post-change agents should not inherit pre-change trust. Use **reputation-based circuit breakers**: a sudden significant score drop restricts capabilities and alerts operators (see [#MONITOR USE](/go/monitoruse) and [#OVERSIGHT](/go/oversight)). Secure reputation scoring infrastructure as a high-value target. **Limitations:** cold-start for new agents; long-con gaming; scores may not transfer across task types or model versions; industry scoring methods are not yet standardised — treat reputation as supplementary to identity, policy, and monitoring.
+- **Inter-agent communication:** mTLS with strict validation; **message-level signing** (content, sender, recipient, timestamp) for end-to-end integrity past TLS terminators; nonces/sequence numbers for **replay protection**; application-layer encryption across trust domains; separate channels by trust level; reject messages failing protocol schema validation before they reach agent context. Log message metadata in tamper-evident storage. See [agent message structure manipulation](/go/agentmessagestructuremanipulation).
 - **Delegation chains:** Propagate authentication context — downstream calls carry a verifiable reference to delegating agent identity and original human principal, not only the immediate agent credential.
 - **Credential lifecycle:** Automate issuance, rotation, and revocation via infrastructure; agents must not manage their own credential stores. Maintain real-time revocation (OCSP-equivalent) for immediate invalidation.
-- **Session management:** Bind each session to agent identity, task context, and credential set; non-transferable session tokens. Enforce absolute and inactivity timeouts; re-authenticate on long-running tasks. Track cumulative session actions (tool calls, data volume, privilege scope) and deny limit exceedance. Invalidate on anomaly, credential revocation, or material scope change. On termination, revoke credentials, clear session state, and emit a session audit summary. **Do not carry session state across task boundaries** — new task, new session with freshly scoped credentials (see [#AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity/) for persistent memory risks).
+- **Session management:** Bind each session to agent identity, task context, and credential set; non-transferable session tokens. Enforce absolute and inactivity timeouts; re-authenticate on long-running tasks. Track cumulative session actions (tool calls, data volume, privilege scope) and deny limit exceedance. Invalidate on anomaly, credential revocation, or material scope change. On termination, revoke credentials, clear session state, and emit a session audit summary. **Do not carry session state across task boundaries** — new task, new session with freshly scoped credentials (see [#AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity) for persistent memory risks).
 
-**Limitations (agentic):** Authentication confirms identity, not intent — a [prompt-injected](/go/promptinjection/) authenticated agent still passes auth checks. Legacy services that only accept static keys remain a gap. Per-message auth adds latency in high-throughput multi-agent systems.
+**Limitations (agentic):** Authentication confirms identity, not intent — a [prompt-injected](/go/promptinjection) authenticated agent still passes auth checks. Legacy services that only accept static keys remain a gap. Per-message auth adds latency in high-throughput multi-agent systems.
 
 **Risk-Reduction Guidance**
 
@@ -402,7 +402,7 @@ In AI systems, access control protects model endpoints and data-dependent infere
 
 This control focuses on restricting and managing who can access model inference, not on protecting a stored model file for example.  
 
-For protection of trained model artifacts, see “Model Confidentiality” in the Runtime and Development sections of the [Periodic table](https://owaspai.org/go/periodictable/). 
+For protection of trained model artifacts, see “Model Confidentiality” in the Runtime and Development sections of the [Periodic table](https://owaspai.org/go/periodictable). 
 
 **Limitations**
 
@@ -410,7 +410,7 @@ For protection of trained model artifacts, see “Model Confidentiality” in th
   - Some attacks can occur within allowed sessions (e.g., indirect prompt injection).
   - Publicly available models remain vulnerable if alternative protections are not in place.
 
-Complement this control with [#RATE LIMIT](/go/ratelimit/), [#MONITORUSE](/go/monitoruse/), and incident response ([#SEC PROGRAM](/go/secprogram/)).
+Complement this control with [#RATE LIMIT](/go/ratelimit), [#MONITORUSE](/go/monitoruse), and incident response ([#SEC PROGRAM](/go/secprogram)).
 
 **References**
 <!-- OPENCRE_SECTION_CRE_START slug=modelaccesscontrol -->
@@ -425,20 +425,20 @@ Complement this control with [#RATE LIMIT](/go/ratelimit/), [#MONITORUSE](/go/mo
 
 #### #ANOMALOUS INPUT HANDLING
 >Category: runtime AI engineer control for input threats  
->Permalink: https://owaspai.org/go/anomalousinputhandling/ 
+>Permalink: https://owaspai.org/go/anomalousinputhandling 
 
 **Description**  
 Anomalous input handling: implement tools to detect whether input is odd and potentially respond, where ‘odd’ means significantly different from the training data or even invalid - also called input validation - without knowledge on what malicious input looks like.
 
 **Objective**  
-Address unusual input as it is indicative of malicious activity. Response can vary between ignore, issue an alert, stop inference, or even take further steps to control the threat (see [#MONITOR USE](/go/monitoruse/) use for more details).
+Address unusual input as it is indicative of malicious activity. Response can vary between ignore, issue an alert, stop inference, or even take further steps to control the threat (see [#MONITOR USE](/go/monitoruse) use for more details).
 
 **Applicability**  
 Anomalous input is suspicious for every attack that happens through use, because attackers obviously behave differently than normal users do. However, detecting anomalous input has strong limitations (see below) and therefore its applicability depends on the successful detection rate on the one hand and on the other hand: 1) implementation effort, 2_ performance penalty, and 3_ the number of false positives which can hinder users, security operations or both. Only a representative test can provide the required insight. This can be achieved by testing the detection on normal use, and setting a threshold at a level where the false positive rate is still acceptable. 
 
 **Implementation**
 
-Follow the guidance in [#MONITOR USE](/go/monitoruse/) regarding detection considerations and response options.
+Follow the guidance in [#MONITOR USE](/go/monitoruse) regarding detection considerations and response options.
 
 We use an example of a machine learning system designed for a self-driving car to illustrate these approaches.
 
@@ -525,7 +525,7 @@ Useful standards include:
 
 #### #UNWANTED INPUT SERIES HANDLING
 >Category: runtime AI engineer control for input threats  
->Permalink: https://owaspai.org/go/unwantedinputserieshandling/ 
+>Permalink: https://owaspai.org/go/unwantedinputserieshandling 
 
 **Description**  
 Unwanted input series handling: Implement tools to detect and respond to suspicious or unwanted patterns across a series of inputs, which may indicate abuse, reconnaissance, or multistep attacks.
@@ -540,7 +540,7 @@ This control is most applicable to systems that allow repeated interaction over 
 Unwanted input series handling is less applicable in environments where inputs are isolated, rate-limited by design, or physically constrained. Its effectiveness depends on the ability to reliably group inputs by actor, source, or context.
 
 **Implementation**  
-Follow the guidance in [#MONITOR USE](/go/monitoruse/) regarding detection considerations and response options.
+Follow the guidance in [#MONITOR USE](/go/monitoruse) regarding detection considerations and response options.
 
 The main concepts of detecting series of  unwanted inputs include:
 - **Statistical analysis of input series:** Adversarial attacks often follow certain patterns, which can be analysed by looking at input on a per-user basis. 
@@ -548,7 +548,7 @@ The main concepts of detecting series of  unwanted inputs include:
          - A series of small deviations in the input space, indicating a possible attack such as a search to perform model inversion or an evasion attack. These attacks also typically have a series of inputs with a general increase of confidence value.          
           - Inputs that appear systematic (very random or very uniform or covering the entire input space) may indicate a model exfiltration attack.
 
-- **Behavior-based detection of anomalous input usage:** In addition to analysing individual inputs (see [#ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling/), the system may analyse inference usage patterns. A significantly higher-than-normal number of inferences by a single actor over a defined period of time can be treated as anomalous behavior and used as a signal to decide on a response. This detection complements input-based methods and aligns with principles described in rate limiting (see [#RATE LIMIT](/go/ratelimit/)).
+- **Behavior-based detection of anomalous input usage:** In addition to analysing individual inputs (see [#ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling), the system may analyse inference usage patterns. A significantly higher-than-normal number of inferences by a single actor over a defined period of time can be treated as anomalous behavior and used as a signal to decide on a response. This detection complements input-based methods and aligns with principles described in rate limiting (see [#RATE LIMIT](/go/ratelimit)).
 
 - **Input optimization pattern detection:** Some attacks rely on repeatedly adjusting inputs to gradually achieve a successful outcome, such as finding an adversarial example, extracting sensitive behavior, or manipulating model responses. These attacks such as evasion attacks, model inversion attacks, sensitive training data output from instructions attack, often appear as a series of closely related inputs from the same actor, rather than a single malicious request. 
 
@@ -561,7 +561,7 @@ Detection approaches include:
 
 Considering similarity across a broader range of past inputs helps reduce evasion strategies where attackers alternate between probing inputs and unrelated requests to avoid detection.
 
-Signals from rate-based controls (see [#RATE LIMIT](/go/ratelimit/), such as unusually frequent requests, can complement similarity analysis by providing additional context about suspicious optimization behavior.
+Signals from rate-based controls (see [#RATE LIMIT](/go/ratelimit), such as unusually frequent requests, can complement similarity analysis by providing additional context about suspicious optimization behavior.
 
 **Risk-Reduction Guidance**
 
@@ -586,13 +586,13 @@ Legitimate users may exhibit behavior similar to attack patterns, such as system
     - [MITRE ATLAS: sec. AML.M0015: Adversarial Input Detection](https://atlas.mitre.org/mitigations/AML.M0015)
 <!-- OPENCRE_SECTION_CRE_END slug=unwantedinputserieshandling -->
 
-See also [#ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling/) for detecting abnormal input which can be an indication of adversarial input and [#EVASION INPUT HANDLING](/go/evasioninputhandling/) for detecting single input evasion inputs. Useful standards include:
+See also [#ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling) for detecting abnormal input which can be an indication of adversarial input and [#EVASION INPUT HANDLING](/go/evasioninputhandling) for detecting single input evasion inputs. Useful standards include:
 - Not covered yet in ISO/IEC standards
 
 
 #### #OBSCURE CONFIDENCE 
 >Category: runtime AI engineer control for input threats  
->Permalink: https://owaspai.org/go/obscureconfidence/
+>Permalink: https://owaspai.org/go/obscureconfidence
 
 **Description**
 
@@ -653,12 +653,12 @@ In AI systems, confidence values are not just user-facing explanations. They can
 
 ## 2.1. Evasion
 >Category: group of input threats  
->Permalink: https://owaspai.org/go/evasion/
+>Permalink: https://owaspai.org/go/evasion
 
 **Description**  
 Evasion: an attacker fools an AI system by crafting input to mislead it into performing its task incorrectly. Evasion attacks force a model to make a wrong decision by feeding it carefully crafted inputs (adversarial examples). The model behaves correctly on normal data but fails on these malicious inputs. Example: adding small changes to a traffic sign to cause misinterpretation by an autonomous vehicle.
 
-This is different from a [Prompt injection](/go/promptinjection/) attack which inputs manipulative instructions (instead of data) to make the model perform its task incorrectly.
+This is different from a [Prompt injection](/go/promptinjection) attack which inputs manipulative instructions (instead of data) to make the model perform its task incorrectly.
 
 Impact: Integrity of model behaviour is affected, leading to issues from unwanted model output (e.g., failing fraud detection, decisions leading to safety issues, reputation damage, liability).
 
@@ -678,15 +678,15 @@ Types of input manipulation for Evasion:
 A typical attacker's goal with evasion is to find out how to slightly change a certain input (say an image, or a text) to fool the model. The advantage of slight change is that it is harder to detect by humans or by an automated detection of unusual input, and it is typically easier to perform (e.g., slightly change an email message by adding a word so it still sends the same message, but it fools the model in for example deciding it is not a phishing message).  
 Such small changes (call 'perturbations') lead to a large (and false) modification of its outputs. The modified inputs are often called *adversarial examples*.  
 
-AI models that take a prompt as input (e.g. GenAI) suffer from an additional threat where manipulative instructions are provided - not to let the model perform its task correctly but for other goals, such as getting offensive answers by bypassing certain protections. This is typically referred to as [direct prompt injection](/go/directpromptinjection/). 
+AI models that take a prompt as input (e.g. GenAI) suffer from an additional threat where manipulative instructions are provided - not to let the model perform its task correctly but for other goals, such as getting offensive answers by bypassing certain protections. This is typically referred to as [direct prompt injection](/go/directpromptinjection). 
 
 **Types of Evasion**  
 The following sections discuss the various types of Evasion, where attackers have different access to knowledge:
-- [Zero-knowledge Evasion](/go/zeroknowledgeevasion/) - when no access to model internals
-- [Perfect-knowledge Evasion](/go/perfectknowledgeevasion/) - when knowing the model internals
-- [Transfer attack](/go/transferattack/) - preparing attack inputs using a similar model
-- [Partial-knowledge Evasion](/go/partialknowledgeevasion/) - when knowing some of the model internals
-- [Evasion after poisoning](/go/evasionafterpoison/) - presenting an input that has been planted in the model as a backdoor
+- [Zero-knowledge Evasion](/go/zeroknowledgeevasion) - when no access to model internals
+- [Perfect-knowledge Evasion](/go/perfectknowledgeevasion) - when knowing the model internals
+- [Transfer attack](/go/transferattack) - preparing attack inputs using a similar model
+- [Partial-knowledge Evasion](/go/partialknowledgeevasion) - when knowing some of the model internals
+- [Evasion after poisoning](/go/evasionafterpoison) - presenting an input that has been planted in the model as a backdoor
 
 **Examples**  
 
@@ -714,27 +714,27 @@ Example 4: by altering a few words, an attacker succeeds in posting an offensive
 See [MITRE ATLAS - Evade ML model](https://atlas.mitre.org/techniques/AML.T0015)
 
 **Controls for evasion**  
-An evasion attack typically consists of first searching for the inputs that mislead the model, and then applying it. That initial search can be very intensive, as it requires trying many variations of input. Therefore, limiting access to the model with for example rate limiting mitigates the risk, but still leaves the possibility of using a so-called [transfer attack](/go/transferattack/) to search for the inputs in another, similar or same model.  
+An evasion attack typically consists of first searching for the inputs that mislead the model, and then applying it. That initial search can be very intensive, as it requires trying many variations of input. Therefore, limiting access to the model with for example rate limiting mitigates the risk, but still leaves the possibility of using a so-called [transfer attack](/go/transferattack) to search for the inputs in another, similar or same model.  
 
-- See [General controls](/go/generalcontrols/):
-  - Especially [limiting the impact of unwanted model behaviour](/go/limitunwanted/).
-- Controls for [input threats](/go/inputthreats/):
-  - [#MONITOR USE](/go/monitoruse/) to detect suspicious input or output
-  - [#RATE LIMIT](/go/ratelimit/) to limit the attacker trying numerous attack variants in a short time
-  - [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
-  - [#ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling/) as unusual input can be suspicious for evasion
-  - [#OBSCURE CONFIDENCE](/go/obscureconfidence/) to limit information that the attacker can use
+- See [General controls](/go/generalcontrols):
+  - Especially [limiting the impact of unwanted model behaviour](/go/limitunwanted).
+- Controls for [input threats](/go/inputthreats):
+  - [#MONITOR USE](/go/monitoruse) to detect suspicious input or output
+  - [#RATE LIMIT](/go/ratelimit) to limit the attacker trying numerous attack variants in a short time
+  - [#MODEL ACCESS CONTROL](/go/modelaccesscontrol) to reduce the number of potential attackers to a minimum
+  - [#ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling) as unusual input can be suspicious for evasion
+  - [#OBSCURE CONFIDENCE](/go/obscureconfidence) to limit information that the attacker can use
 - Specifically for evasion:
-    - [#DETECT ADVERSARIAL INPUT](/go/detectadversarialinput/) to find typical attack forms or multiple tries in a row - discussed below
-    - [#EVASION ROBUST MODEL](/go/evasionrobustmodel/): choose an evasion-robust model design, configuration and/or training approach - discussed below
-    - [#TRAIN ADVERSARIAL](/go/trainadversarial/): correcting the decision boundary of the model by injecting adversarial samples with correct output in the training set - discussed below
-    - [#INPUT DISTORTION](/go/inputdistortion/): disturbing attempts to present precisely crafted input - discussed below
-    - [#ADVERSARIAL ROBUST DISTILLATION](/go/adversarialrobustdistillation/): in essence trying to smooth decision boundaries - discussed below
+    - [#DETECT ADVERSARIAL INPUT](/go/detectadversarialinput) to find typical attack forms or multiple tries in a row - discussed below
+    - [#EVASION ROBUST MODEL](/go/evasionrobustmodel): choose an evasion-robust model design, configuration and/or training approach - discussed below
+    - [#TRAIN ADVERSARIAL](/go/trainadversarial): correcting the decision boundary of the model by injecting adversarial samples with correct output in the training set - discussed below
+    - [#INPUT DISTORTION](/go/inputdistortion): disturbing attempts to present precisely crafted input - discussed below
+    - [#ADVERSARIAL ROBUST DISTILLATION](/go/adversarialrobustdistillation): in essence trying to smooth decision boundaries - discussed below
 
 
 #### #EVASION INPUT HANDLING
 >Category: runtime AI engineer control for input threats  
->Permalink: https://owaspai.org/go/evasioninputhandling/ 
+>Permalink: https://owaspai.org/go/evasioninputhandling 
 
 **Description**  
 Evasion input handling: Implement tools to detect and respond to individual adversarial inputs that are crafted to evade model behavior. Evasion input handling focuses on identifying adversarial characteristics within a single input sample, regardless of whether it appears in isolation or as part of a broader attack.
@@ -750,16 +750,16 @@ This control is most applicable to models exposed to untrusted or adversarial en
 Evasion input handling is less effective in isolation when attackers adapt quickly or when attacks rely primarily on multistep probing across many inputs. In such cases, it is best used alongside controls that monitor input series, usage patterns, or access behavior.
 
 **Implementation**  
-Follow the guidance in [#MONITOR USE](/go/monitoruse/) regarding detection considerations and response options.
+Follow the guidance in [#MONITOR USE](/go/monitoruse) regarding detection considerations and response options.
 
 The main concepts of detecting evasion input attacks include:
-  - **Statistical Methods:** Adversarial inputs often deviate from benign inputs in some statistical metric and can therefore be detected. Examples are utilizing the Principal Component Analysis (PCA), Bayesian     Uncertainty Estimation (BUE) or Structural Similarity Index Measure (SSIM). These techniques differentiate from statistical analysis of input series (see #UNWANTED INPUT SERIES HANDLING), as these statistical detectors decide if a sample is adversarial or not per input sample, such that these techniques are able to also detect [transferred attacks](/go/transferattack/).
+  - **Statistical Methods:** Adversarial inputs often deviate from benign inputs in some statistical metric and can therefore be detected. Examples are utilizing the Principal Component Analysis (PCA), Bayesian     Uncertainty Estimation (BUE) or Structural Similarity Index Measure (SSIM). These techniques differentiate from statistical analysis of input series (see #UNWANTED INPUT SERIES HANDLING), as these statistical detectors decide if a sample is adversarial or not per input sample, such that these techniques are able to also detect [transferred attacks](/go/transferattack).
   - **Detection Networks:** A detector network operates by analyzing the inputs or the behavior of the primary model to spot adversarial examples. These networks can either run as a preprocessing function or in parallel to the main model. To use a detector network as a preprocessing function, it has to be trained to differentiate between benign and adversarial samples, which is in itself a hard task. Therefore, it can rely on e.g. the original input or on statistical metrics. To train a detector network to run in parallel to the main model, typically, the detector is trained to distinguish between benign and adversarial inputs from the intermediate features of the main model’s hidden layer. Caution: Adversarial attacks could be crafted to circumvent the detector network and fool the main model.
-  - **Input Distortion Based Techniques (IDBT)**: A function is used to modify the input to remove any adversarial data. The model is applied to both versions of the image, the original input and the modified version. The results are compared to detect possible attacks. See [INPUTDISTORTION](/go/inputdistortion/).
+  - **Input Distortion Based Techniques (IDBT)**: A function is used to modify the input to remove any adversarial data. The model is applied to both versions of the image, the original input and the modified version. The results are compared to detect possible attacks. See [INPUTDISTORTION](/go/inputdistortion).
   - **Detection of adversarial patches:** These patches are localized, often visible modifications that can even be placed in the real world. The techniques mentioned above can detect adversarial patches, yet they often require modification due to the unique noise pattern of these patches, particularly when they are used in real-world settings and processed through a camera. In these scenarios, the entire image includes benign camera noise (camera fingerprint), complicating the detection of the specially crafted adversarial patches.
 
 **Risk-Reduction Guidance**  
-Detecting evasion at the single-input level can reduce the success rate of adversarial examples, including [transferred attacks](/go/transferattack/). Techniques such as statistical detection, detector networks, and input distortion can identify inputs that exploit model weaknesses even when they appear valid to humans.
+Detecting evasion at the single-input level can reduce the success rate of adversarial examples, including [transferred attacks](/go/transferattack). Techniques such as statistical detection, detector networks, and input distortion can identify inputs that exploit model weaknesses even when they appear valid to humans.
 However, adversarial attacks often evolve to bypass known detection methods. As a result, the risk reduction provided by this control depends on regular evaluation, adaptation, and combination with complementary defenses such as rate limiting, series-based detection, and model hardening.
 
 **Particularity**  
@@ -779,7 +779,7 @@ Adversarial examples may be crafted to evade both the primary model and dedicate
     - [MITRE ATLAS: sec. AML.M0009: Use Multi-Modal Sensors](https://atlas.mitre.org/mitigations/AML.M0009)
 <!-- OPENCRE_SECTION_CRE_END slug=evasioninputhandling -->
 - [Survey of adversarial attack and defense](https://www.mdpi.com/2079-9292/11/8/1283)
-- [Feature squeezing](https://arxiv.org/pdf/1704.01155.pdf) (IDBT) compares the output of the model against the output based on a distortion of the input that reduces the level of detail. This is done by reducing the number of features or reducing the detail of certain features (e.g. by smoothing). This approach is like [#INPUT DISTORTION](/go/inputdistortion/), but instead of just changing the input to remove any adversarial data, the model is also applied to the original input and then used to compare it, as a detection mechanism.
+- [Feature squeezing](https://arxiv.org/pdf/1704.01155.pdf) (IDBT) compares the output of the model against the output based on a distortion of the input that reduces the level of detail. This is done by reducing the number of features or reducing the detail of certain features (e.g. by smoothing). This approach is like [#INPUT DISTORTION](/go/inputdistortion), but instead of just changing the input to remove any adversarial data, the model is also applied to the original input and then used to compare it, as a detection mechanism.
 - [MagNet](https://arxiv.org/abs/1705.09064)
 - [DefenseGAN](https://arxiv.org/abs/1805.06605) and Goodfellow, I.; Pouget-Abadie, J.; Mirza, M.; Xu, B.; Warde-Farley, D.; Ozair, S.; Courville, A.; Bengio, Y. Generative adversarial networks. Commun. ACM 2020, 63, 139–144.
 - [Local intrinsic dimensionality](https://www.ijcai.org/proceedings/2021/0437.pdf)
@@ -798,7 +798,7 @@ Adversarial examples may be crafted to evade both the primary model and dedicate
 - Hendrycks, Dan, and Kevin Gimpel. “Early methods for detecting adversarial images.” arXiv preprint arXiv:1608.00530 (2016).
 - Feinman, Reuben, et al. “Detecting adversarial samples from artifacts.” arXiv preprint arXiv:1703.00410 (2017).
 
-See also [#ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling/) for detecting abnormal input which can be an indication of adversarial input.
+See also [#ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling) for detecting abnormal input which can be an indication of adversarial input.
 
 Useful standards include:
 - Not covered yet in ISO/IEC standards
@@ -807,7 +807,7 @@ Useful standards include:
 
 #### #EVASION ROBUST MODEL
 >Category: development-time AI engineer control for input threats  
->Permalink: https://owaspai.org/go/evasionrobustmodel/
+>Permalink: https://owaspai.org/go/evasionrobustmodel
 
 **Description**  
 Evasion-robust model: choose an evasion-robust model design, configuration and/or training approach to maximize resilience against evasion.
@@ -821,10 +821,10 @@ Adversarial robustness (the sensitivity to adversarial examples) can be assessed
 
 Robustness issues can be addressed by:
 
-- Adversarial training - see [TRAINADVERSARIAL](/go/trainadversarial/)
+- Adversarial training - see [TRAINADVERSARIAL](/go/trainadversarial)
 - Increasing training samples for the problematic part of the input domain
 - Tuning/optimising the model for variance
-- _Randomisation_ by injecting noise during training, causing the input space for correct classifications to grow. See also [TRAINDATADISTORTION](/go/traindatadistortion/) against data poisoning and [OBFUSCATETRAININGDATA](/go/obfuscatetrainingdata/) to minimize sensitive data through randomisation.
+- _Randomisation_ by injecting noise during training, causing the input space for correct classifications to grow. See also [TRAINDATADISTORTION](/go/traindatadistortion) against data poisoning and [OBFUSCATETRAININGDATA](/go/obfuscatetrainingdata) to minimize sensitive data through randomisation.
 - _gradient masking_: a technique employed to make training more efficient and defend machine learning models against adversarial attacks. This involves altering the gradients of a model during training to increase the difficulty of generating adversarial examples for  attackers. Methods like adversarial training and ensemble approaches are utilized for gradient masking, but it comes with limitations, including computational expenses and potential in effectiveness against all types of attacks. See [Article in which this was introduced](https://arxiv.org/abs/1602.02697).
 - Model Regularization may “flatten” the gradient to a degree sufficient to reduce the model's overfitting tendencies. 
 - Quantization or Thresholding may “break” the gradient function’s smoothness by disrupting its continuity.
@@ -869,7 +869,7 @@ PMLR, 2018.
 
 #### #TRAIN ADVERSARIAL
 >Category: development-time AI engineer control for input threats  
->Permalink: https://owaspai.org/go/trainadversarial/
+>Permalink: https://owaspai.org/go/trainadversarial
 
 **Description**  
 Train adversarial:  Introducing adversarial examples into the training set and using them to train the model to be more robust against evasion attacks and/or data poisoning. First, adversarial examples are generated using one or more specific adversarial attack methods that have been defined in advance. These attacks are employed to create adversarial examples, such as using the PGD attack in Madry Adversarial Training. 
@@ -903,7 +903,7 @@ Useful standards include:
 
 #### #INPUT DISTORTION
 >Category: runtime AI engineer control for input threats  
->Permalink: https://owaspai.org/go/inputdistortion/
+>Permalink: https://owaspai.org/go/inputdistortion
 
 **Description**  
 Input distortion: The process of slightly modifying and/or adding noise to the input with the intent of distorting the adversarial attack, causing it to fail, while maintaining sufficient model correctness. Modification can be done by  adding noise (randomization), smoothing or JPEG compression.
@@ -916,17 +916,17 @@ Input distortion defenses are effective against both evasion attacks and data po
   
   In addition, distorted input also hinders attackers searching for adversarial samples, where they  rely on gradients. However, there are ways in which attackers can work around this. A specific defense method called Random Transformations (RT) introduces enough randomness into the input data to make it computationally difficult for attackers to create adversarial examples. This randomness is typically achieved by applying a random subset of input transformations with random parameters. Since multiple transformations are applied to each input sample, the model's accuracy on regular data might drop, so the model needs to be retrained with these random transformations in place.
   
-  Note that [zero-knowledge attacks](/go/zeroknowledgeevasion/) do not rely on the gradients and are therefore not affected by shattered gradients, as they do not use the gradients to calculate the attack. Zero-knowledge attacks use only the input and the output of the model or whole AI system to calculate the adversarial input. 
+  Note that [zero-knowledge attacks](/go/zeroknowledgeevasion) do not rely on the gradients and are therefore not affected by shattered gradients, as they do not use the gradients to calculate the attack. Zero-knowledge attacks use only the input and the output of the model or whole AI system to calculate the adversarial input. 
 
   **Input Distortion against Data Poisoning Attacks**
 
-  Data poisoning attacks involve injecting malicious data into the training set to manipulate the model's behavior, often by embedding/adding features that cause the model to behave incorrectly when encountering certain inputs, see [3.1.1 Data Poisoning](https://owaspai.org/go/datapoison/). Input distortion defenses mitigate these attacks by disrupting the poisoning features embedded in the data, rendering them less effective.
+  Data poisoning attacks involve injecting malicious data into the training set to manipulate the model's behavior, often by embedding/adding features that cause the model to behave incorrectly when encountering certain inputs, see [3.1.1 Data Poisoning](https://owaspai.org/go/datapoison). Input distortion defenses mitigate these attacks by disrupting the poisoning features embedded in the data, rendering them less effective.
   
   Adversarial Samples: For data poisoning through adversarial samples, input distortion works similarly to how it defends against evasion attacks.
   
   Other Poisoning Features: When the poisoning feature is brittle, e.g. a high-frequency noise the input distortion removes or breaks the pattern as is the case for adversarial samples, for example, slight JPEG compression can neutralize high-frequency noise-based poisons. If the poisoning feature is more distinct or robust, such as visible patches in images, the defense must apply stronger or more varied transformations.  The randomness and strength of these transformations are key; if the same transformation is applied uniformly, the model might still learn the malicious pattern. Randomization also ensures that the model doesn't consistently encounter the same poisoned feature, reducing the risk that it will learn to associate it with certain outputs.
 
-See [#EVASION INPUT HANDLING](/go/evasioninputhandling/) for an approach where the distorted input is used for detecting an adversarial attack.
+See [#EVASION INPUT HANDLING](/go/evasioninputhandling) for an approach where the distorted input is used for detecting an adversarial attack.
 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=inputdistortion -->
@@ -954,7 +954,7 @@ Useful standards include:
   
 #### #ADVERSARIAL ROBUST DISTILLATION
 >Category: development-time AI engineer control for input threats  
->Permalink: https://owaspai.org/go/adversarialrobustdistillation/
+>Permalink: https://owaspai.org/go/adversarialrobustdistillation
 
 **Description**  
 Adversarial-robust distillation: defensive distillation involves training a student model to replicate the softened outputs of the *teacher* model, increasing the resilience of the *student* model to adversarial examples by smoothing the decision boundaries and making the model less sensitive to small perturbations in the input. Care must be taken when considering defensive distillation techniques, as security concerns have arisen about their effectiveness.
@@ -983,11 +983,11 @@ Useful standards include:
  
 ### 2.1.1. Zero-knowledge evasion
 >Category: input threat  
->Permalink: https://owaspai.org/go/zeroknowledgeevasion/
+>Permalink: https://owaspai.org/go/zeroknowledgeevasion
 
 **Description**  
 Zero-knowledge, or black box or closed-box Evasion attacks are methods where an attacker crafts an input to exploit a model without having any internal knowledge or access to that model's implementation, including code, training set, parameters, and architecture. The term "black box" reflects the attacker's perspective, viewing the model as a 'closed box' whose internal workings are unknown. This approach often requires experimenting with how the model responds to various inputs, as the attacker navigates this lack of transparency to identify and leverage potential vulnerabilities.
-Since the attacker does not have access to the inner workings of the model, he cannot calculate the internal model gradients to efficiently create the adversarial inputs - in contrast to white-box or open-box attacks (see [Perfect-knowledge Evasion](/go/perfectknowledgeevasion/)).
+Since the attacker does not have access to the inner workings of the model, he cannot calculate the internal model gradients to efficiently create the adversarial inputs - in contrast to white-box or open-box attacks (see [Perfect-knowledge Evasion](/go/perfectknowledgeevasion)).
 
 **Implementation**  
 The zero-knowledge attack strategy to find successful attack inputs is query-based:
@@ -999,7 +999,7 @@ These attacks are categorized based on the type of output the model provides:
   - Score-based attacks: where the model discloses a score (like a softmax score), often in the form of a vector indicating the top-k predictions.In research typically models which output the whole vector are evaluated, but the output could also be restricted to e.g. top-10 vectors. The confidence scores provide more detailed feedback about how close the adversarial example is to succeeding, allowing for more precise adjustments. In a score-based scenario, an attacker can for example, approximate the gradient by evaluating the objective function values at two very close points. 
 
 **Controls**  
-See [Evasion section](/go/evasion/) for the controls.
+See [Evasion section](/go/evasion) for the controls.
 
 **References**  
 
@@ -1028,7 +1028,7 @@ Conference on Machine Learning. PMLR, 2019.
 
 ### 2.1.2. Perfect-knowledge evasion
 >Category: input threat  
->Permalink: https://owaspai.org/go/perfectknowledgeevasion/
+>Permalink: https://owaspai.org/go/perfectknowledgeevasion
 
 **Description**  
 In perfect-knowledge or open-box or white-box attacks, the attacker knows the architecture, parameters, and weights of the target model. Therefore, the attacker has the ability to create input data designed to introduce errors in the model's predictions. A famous example in this domain is the Fast Gradient Sign Method (FGSM) developed by Goodfellow et al. which demonstrates the efficiency of white-box attacks. FGSM operates by calculating a perturbation $p$ for a given image $x$ and it's label $l$, following the equation $p = \varepsilon \textnormal{sign}(\nabla_x J(\theta, x, l))$, where $\nabla_x J(\cdot, \cdot, \cdot)$ is the gradient of the cost function with respect to the input, computed via backpropagation. The model's parameters are denoted by $\theta$ and $\varepsilon$ is a scalar defining the perturbation's magnitude. Even attacks against certified defenses are possible.
@@ -1036,7 +1036,7 @@ In perfect-knowledge or open-box or white-box attacks, the attacker knows the ar
 In contrast to perfect-knowledge attacks, zero-knowledge attacks operate without direct access to the inner workings of the model and therefore without access to the gradients. Instead of exploiting detailed knowledge, zero-knowledge attackers must rely on output observations to infer how to effectively craft adversarial examples.
 
 **Controls**  
-See [Evasion section](/go/evasion/) for the controls.
+See [Evasion section](/go/evasion) for the controls.
 
 **References**
 
@@ -1049,27 +1049,27 @@ adversarial attacks." arXiv preprint arXiv:1706.06083 (2017).
 
 ### 2.1.3 Transferability-based evasion
 >Category: input threat  
->Permalink: https://owaspai.org/go/transferattack/
+>Permalink: https://owaspai.org/go/transferattack
 
 **Description**  
 Attackers can execute a transferability-based attack in a zero-knowledge situation by first creating adversarial examples using a surrogate model: a copy or approximation of the target model, and then applying these adversarial examples to the target model.  The surrogate model can be:
 1. a perfect-knowledge model from another supplier that performs a similar task (e.g., recognize traffic signs) - showing all its internals,
 2. a zero-knowledge model from another supplier that performs a similar task - accessible through for example an API, (e.g., recognize traffic signs),
 3. a perfect-knowledge model that the attacker trained based on available or self-collected or self-labeled data,
-4. the exact target model that was stolen [development-time](/go/devmodelleak/) or [runtime](/go/runtimemodelleak/),
+4. the exact target model that was stolen [development-time](/go/devmodelleak) or [runtime](/go/runtimemodelleak),
 5. the exact target model obtained by purchasing or free downloading,
-6. a replica of the model, created by [Model exfiltration attack])/go/modelexfiltration/)
+6. a replica of the model, created by [Model exfiltration attack])/go/modelexfiltration)
 
-The advantage of a surrogate model is that it exposes its internals (with the exception of the zero-knowledge surrogate model), allowing a [Perfect-knowledge attack](/go/perfectknowledgeevasion/). But even a closed models may be beneficial in case detection mechanisms and rate limiting are less strict than the target model - making a [zero-knowledge attack](/go/zeroknowledgeevasion/) easier and quicker to perform, 
+The advantage of a surrogate model is that it exposes its internals (with the exception of the zero-knowledge surrogate model), allowing a [Perfect-knowledge attack](/go/perfectknowledgeevasion). But even a closed models may be beneficial in case detection mechanisms and rate limiting are less strict than the target model - making a [zero-knowledge attack](/go/zeroknowledgeevasion) easier and quicker to perform, 
 
 The goal is to create adversarial examples that will ‘hopefully’ transfer to the original target model, even though the surrogate may be internally different from the target. Because the task is similar, it can be expected that the decision boundaries in the model are similar. The likelihood of a successful transfer is generally higher when the surrogate model closely resembles the target model in terms of complexity and structure. The ultimate surrogate model is of course the target model itself. However, it’s noted that even attacks developed using simpler surrogate models tend to transfer effectively. 
 
 **Controls**  
-See [Evasion section](/go/evasion/) for the controls,  
+See [Evasion section](/go/evasion) for the controls,  
 
 minus: the controls that protect against the search of adversarial samples (rate limit, unwanted input series handling, and obscure confidence), as they don't protect against this search on the surrogate model,  
 
-plus: controls that protect against the model being stolen or copied (unless the model is publicly available): [direct development-time model leak](/go/devmodelleak/),  [direct runtime model leak](/go/runtimemodelleak/), and [model exfiltration](/go/modelexfiltration/).
+plus: controls that protect against the model being stolen or copied (unless the model is publicly available): [direct development-time model leak](/go/devmodelleak),  [direct runtime model leak](/go/runtimemodelleak), and [model exfiltration](/go/modelexfiltration).
 .
 
 
@@ -1085,62 +1085,62 @@ plus: controls that protect against the model being stolen or copied (unless the
 
 ### 2.1.4 Partial-knowledge evasion
 >Category: input threat  
->Permalink: https://owaspai.org/go/partialknowledgeevasion/
+>Permalink: https://owaspai.org/go/partialknowledgeevasion
 
 **Description**  
-Partial-knowledge or gray-box adversarial evasion attacks occupy a middle ground between [perfect-knowledge](/go/perfectknowledgeevasion/) and [zero-knowledge](/go/zeroknowledgeevasion/) attacks, where the attacker possesses partial knowledge of the target system like its architecture, training data, but lacks complete access/knowledge to its inner workings (e.g. gradients). In these attacks, the adversary leverages limited information to craft input perturbations designed to mislead machine learning models, by exploiting surrogate models (transferability) or improving known zero-knowledge attacks with the given knowledge. Partial-knowledge attacks can be more efficient and effective due to the additional insights available. This approach is particularly relevant in real-world scenarios where full model transparency is rare, but some information may be accessible.
+Partial-knowledge or gray-box adversarial evasion attacks occupy a middle ground between [perfect-knowledge](/go/perfectknowledgeevasion) and [zero-knowledge](/go/zeroknowledgeevasion) attacks, where the attacker possesses partial knowledge of the target system like its architecture, training data, but lacks complete access/knowledge to its inner workings (e.g. gradients). In these attacks, the adversary leverages limited information to craft input perturbations designed to mislead machine learning models, by exploiting surrogate models (transferability) or improving known zero-knowledge attacks with the given knowledge. Partial-knowledge attacks can be more efficient and effective due to the additional insights available. This approach is particularly relevant in real-world scenarios where full model transparency is rare, but some information may be accessible.
 
 **Controls**  
-See [Evasion section](/go/evasion/) for the controls.
+See [Evasion section](/go/evasion) for the controls.
 
 ### 2.1.5. Evasion after data poisoning
 >Category: input threat  
->Permalink: https://owaspai.org/go/evasionafterpoison/
+>Permalink: https://owaspai.org/go/evasionafterpoison
 
 **Description**  
-After training data has been poisoned (see [data poisoning section](/go/datapoison/)), specific input  (called _backdoors_ or _triggers_) can lead to unwanted model output. The difference with other types of Evasion attacks is that the vulnerability is not a natural property of the trained model, but a manipulated one.
+After training data has been poisoned (see [data poisoning section](/go/datapoison)), specific input  (called _backdoors_ or _triggers_) can lead to unwanted model output. The difference with other types of Evasion attacks is that the vulnerability is not a natural property of the trained model, but a manipulated one.
 
 **Controls**  
-- See [Evasion section](/go/evasion/) for the controls, with the exception of controls that protect against the search of adversarial samples (rate limit, unwanted input series handling, and obscure confidence).
-- See the [Model poisoning section](/go/modelpoison/) for the controls against model poisoning.
+- See [Evasion section](/go/evasion) for the controls, with the exception of controls that protect against the search of adversarial samples (rate limit, unwanted input series handling, and obscure confidence).
+- See the [Model poisoning section](/go/modelpoison) for the controls against model poisoning.
 
 ---
 
 ## 2.2 Prompt injection
 >Category: group of input threats  
->Permalink: https://owaspai.org/go/promptinjection/
+>Permalink: https://owaspai.org/go/promptinjection
 
 **Description**  
 Prompt injection attacks involve maliciously crafting or manipulating instructions in input prompts, directly or indirectly, in order to exploit vulnerabilities in model processing capabilities or to trick them into executing unintended actions.  
 This section discusses the two types of prompt injection and the mitigation controls:
-- [Direct prompt injection](/go/directpromptinjection/)
-- [Indirect prompt injection](/go/indirectpromptinjection/)
+- [Direct prompt injection](/go/directpromptinjection)
+- [Indirect prompt injection](/go/indirectpromptinjection)
 
 **Agentic prompt injection**  
-In agentic systems, user data and system commands share the same context plane — there is no parameterized-query equivalent. The dominant risk often shifts from safety violations (offensive or policy-breaking text) to **integrity compromises** where adversaries hijack agent **actions** through tools and side effects. See [Agentic AI](/go/agenticaithreats/) and the [seven layers of protection](/go/promptinjectionsevenlayers/).
+In agentic systems, user data and system commands share the same context plane — there is no parameterized-query equivalent. The dominant risk often shifts from safety violations (offensive or policy-breaking text) to **integrity compromises** where adversaries hijack agent **actions** through tools and side effects. See [Agentic AI](/go/agenticaithreats) and the [seven layers of protection](/go/promptinjectionsevenlayers).
 
 Beyond direct and indirect injection, agentic deployments add:
 
-- **In-context manipulation:** injection of adversarial content into the agent's active context window during a session. This overlaps [indirect prompt injection](/go/indirectpromptinjection/) when untrusted content is retrieved into the window; unlike one-shot injection, effects can accumulate across turns within the session unless context is reset.
-- **Stored injection:** a subclass of indirect injection where the payload persists in a data store (RAG index, shared documents, database) and is retrieved in later sessions — see also [augmentation data manipulation](/go/augmentationdatamanipulation/) and [data poisoning](/go/datapoison/).
+- **In-context manipulation:** injection of adversarial content into the agent's active context window during a session. This overlaps [indirect prompt injection](/go/indirectpromptinjection) when untrusted content is retrieved into the window; unlike one-shot injection, effects can accumulate across turns within the session unless context is reset.
+- **Stored injection:** a subclass of indirect injection where the payload persists in a data store (RAG index, shared documents, database) and is retrieved in later sessions — see also [augmentation data manipulation](/go/augmentationdatamanipulation) and [data poisoning](/go/datapoison).
 - **Multi-agent propagation:** a low-privileged agent is tricked into requesting a higher-privileged agent to perform an action on its behalf.
 
 **Structural mitigations for agentic systems:**
 
-- **Agentic Rule of Two:** until reliable model-layer refusal exists, an agent session should satisfy no more than two of: (A) processing untrustworthy inputs, (B) accessing sensitive systems or private data, (C) changing state or communicating externally. When all three are required, operate under human-in-the-loop supervision ([#OVERSIGHT](/go/oversight/)).
+- **Agentic Rule of Two:** until reliable model-layer refusal exists, an agent session should satisfy no more than two of: (A) processing untrustworthy inputs, (B) accessing sensitive systems or private data, (C) changing state or communicating externally. When all three are required, operate under human-in-the-loop supervision ([#OVERSIGHT](/go/oversight)).
 - **Privilege-based data flow control (CaMeL):** attach capability metadata to values and restrict data and control flows with policies; convert user intent to sandboxed code steps rather than unconstrained natural-language tool calls.
-- **Instruction and data separation:** split context into commands versus data — see [#INPUT SEGREGATION](/go/inputsegregation/) and [#PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling/).
+- **Instruction and data separation:** split context into commands versus data — see [#INPUT SEGREGATION](/go/inputsegregation) and [#PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling).
 - **Tool-boundary firewalls:** complementary firewalls at the agent-to-tool boundary — an input firewall limits private information reaching tool execution; an output firewall sanitises tool responses. These are typically lighter than dual-LLM architectures.
 - **Detection layers:** defences operate at text, model, and execution levels; execution-level detection (observing actual tool calls and side effects) is often the most reliable when confidentiality and integrity of actions matter.
 
-Static or model-only defences evaluated against fixed example attacks do not provide security guarantees against adaptive adversaries. Under current architectures, prompt injection is not solvable at the model layer alone. Rely on structural [blast radius control](/go/limitunwanted/) — [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/), [#OVERSIGHT](/go/oversight/), [#MONITOR USE](/go/monitoruse/) — rather than probabilistic filters over model output alone.
+Static or model-only defences evaluated against fixed example attacks do not provide security guarantees against adaptive adversaries. Under current architectures, prompt injection is not solvable at the model layer alone. Rely on structural [blast radius control](/go/limitunwanted) — [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege), [#OVERSIGHT](/go/oversight), [#MONITOR USE](/go/monitoruse) — rather than probabilistic filters over model output alone.
 
 ### 2.2.1. Direct prompt injection
 >Category: input threat  
->Permalink: https://owaspai.org/go/directpromptinjection/
+>Permalink: https://owaspai.org/go/directpromptinjection
 
 **Description**  
-Direct prompt injection: a user tries to fool a Generative AI (e.g. a Large Language Model) by presenting prompts that make it behave in unwanted ways. It can be seen as social engineering of a generative AI. This is different from an [evasion attack](/go/evasion/) which inputs manipulated data (instead of instructions) to make the model perform its task incorrectly.
+Direct prompt injection: a user tries to fool a Generative AI (e.g. a Large Language Model) by presenting prompts that make it behave in unwanted ways. It can be seen as social engineering of a generative AI. This is different from an [evasion attack](/go/evasion) which inputs manipulated data (instead of instructions) to make the model perform its task incorrectly.
 
 Impact: Obtaining information from the AI that is offensive, confidential, could grant certain legal rights, or triggers unauthorized functionality. Note that the person providing the prompt is the one receiving this information. The model itself is typically not altered, so this attack does not affect anyone else outside of the user (i.e., the attacker). The exception is when a model works with a shared context between users that can be influenced by user instructions.
 
@@ -1148,7 +1148,7 @@ Many Generative AI systems have been adjusted by their suppliers to behave (so-c
 1. Abusing competing objectives. For example: if a model wants to be helpful, but also can't give you malicious instructions, then a prompt injection could abuse this by appealing to the helpfulness to still get the instructions.
 2. Using input that is not recognized by the alignment ('out of distribution') but IS resulting in an answer based on the training data ('in distribution'). For example: using special encoding that fools safety training, but still results in the unwanted output.
 
-**Agentic jailbreak (multi-turn):** In multi-turn agents, jailbreak is often a **session-level** problem — safety constraints that hold on turn one can degrade under incremental reframing across many turns (_crescendo_ patterns). Per-request safety checks may miss progressive constraint relaxation: an agent that refuses in turn one but complies by turn ten has been jailbroken across the session. Use session-level behavioural tracking ([#OVERSIGHT](/go/oversight/)) and include multi-turn paths in [testing](/go/testing/). This is distinct from **[agent escape](/go/agentescape/)** — exceeding the operational boundary through unauthorised tools, systems, or scope — which must be enforced at the infrastructure layer ([#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/)), not by alignment alone.
+**Agentic jailbreak (multi-turn):** In multi-turn agents, jailbreak is often a **session-level** problem — safety constraints that hold on turn one can degrade under incremental reframing across many turns (_crescendo_ patterns). Per-request safety checks may miss progressive constraint relaxation: an agent that refuses in turn one but complies by turn ten has been jailbroken across the session. Use session-level behavioural tracking ([#OVERSIGHT](/go/oversight)) and include multi-turn paths in [testing](/go/testing). This is distinct from **[agent escape](/go/agentescape)** — exceeding the operational boundary through unauthorised tools, systems, or scope — which must be enforced at the infrastructure layer ([#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege)), not by alignment alone.
 
 Common forms (attack classes, strategies) of prompt injections include:
 
@@ -1180,7 +1180,7 @@ i) Extremely long prompts
 Very long inputs can overwhelm the AI or make safety instructions less effective. Important warnings may be “lost” inside the large amount of text, both for the AI and for human reviewers.
 
 j) Training data extraction  
-Attempts to extract sensitive training data are addressed separately as [disclosure in model output](/go/disclosureinoutput/).
+Attempts to extract sensitive training data are addressed separately as [disclosure in model output](/go/disclosureinoutput).
 
 
 **Examples of prompt injection**  
@@ -1218,14 +1218,14 @@ Multimodal prompt injection can be:
 ​
  
 **Controls for all forms of prompt injection:**
-- See [General controls](/go/generalcontrols/):
-  - Especially [limiting the impact of unwanted model behaviour](/go/limitunwanted/) is important, with key controls [MODEL ALIGNMENT](/go/modelalignment/), [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/) and [OVERSIGHT](/go/oversight/), given that prompt injection is hard to prevent.
-- Controls for [input threats](/go/inputthreats/), to limit the user set, oversee use and, prevent experiments that require many interactions:
-  - [#MONITOR USE](/go/monitoruse/) to detect suspicious input or output
-  - [#RATE LIMIT](/go/ratelimit/) to limit the attacker trying numerous attack variants in a short time
-  - [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
-- Controls for [prompt injection](/go/promptinjection/):
-  - [#PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling/) to handle any suspicious input or output - see below
+- See [General controls](/go/generalcontrols):
+  - Especially [limiting the impact of unwanted model behaviour](/go/limitunwanted) is important, with key controls [MODEL ALIGNMENT](/go/modelalignment), [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege) and [OVERSIGHT](/go/oversight), given that prompt injection is hard to prevent.
+- Controls for [input threats](/go/inputthreats), to limit the user set, oversee use and, prevent experiments that require many interactions:
+  - [#MONITOR USE](/go/monitoruse) to detect suspicious input or output
+  - [#RATE LIMIT](/go/ratelimit) to limit the attacker trying numerous attack variants in a short time
+  - [#MODEL ACCESS CONTROL](/go/modelaccesscontrol) to reduce the number of potential attackers to a minimum
+- Controls for [prompt injection](/go/promptinjection):
+  - [#PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling) to handle any suspicious input or output - see below
  
 
 **References**  
@@ -1245,46 +1245,46 @@ Multimodal prompt injection can be:
 
 #### Seven layers of Prompt Injection protection
 >Category: discussion  
->Permalink: https://owaspai.org/go/promptinjectionsevenlayers/
+>Permalink: https://owaspai.org/go/promptinjectionsevenlayers
 
 The AI Exchange presents several controls for (Indirect) Prompt Injection. They represent layers of protection.  None of these layers is sufficient by itself, which makes the combination of all layers the typical best practice: a defense in depth approach.  
 Let’s go through these layers, describe them and discuss their flaws.
 
-**Layer 1 – [Model alignment](/go/modelalignment/)**  
+**Layer 1 – [Model alignment](/go/modelalignment)**  
 Tell models to behave and to be robust against manipulation through pre-training, reinforcement learning, and system prompts.
 
 Flaw: Models remain easy to mislead out of the box and after providing them with instructions, so additional controls are required.
 
 
-**Layer 2 – [Prompt injection I/O handling](/go/promptinjectioniohandling/) (aka ‘defense’)**  
+**Layer 2 – [Prompt injection I/O handling](/go/promptinjectioniohandling) (aka ‘defense’)**  
 Invest an effort to sanitize, filter, and detect prompt injection, to the point where the other layers become more effective.
 
 Flaw: New ways to circumvent these defenses will continue to appear, and detection of prompt injection is difficult, with substantial risk of false positives and false negatives.
 
-To determine when you have done enough, [tailored testing](/go/testingpromptinjection/) is critical to understand the limitations of I/O handling, and what harm an attack could realistically cause – so to prioritize further protection using other layers. Typically, detection opportunity is limited – which requires acceptance that prompt injection can come through and therefore that blast radius control using the other layers is critical.
+To determine when you have done enough, [tailored testing](/go/testingpromptinjection) is critical to understand the limitations of I/O handling, and what harm an attack could realistically cause – so to prioritize further protection using other layers. Typically, detection opportunity is limited – which requires acceptance that prompt injection can come through and therefore that blast radius control using the other layers is critical.
 
 The rest of the layers essentially represent ‘blast radius control’. It is good to assume that despite alignment and I/O handling, prompt injection can succeed, so the best strategy is to ensure that as little harm as possible is done.
 
 
-**Layer 3 – [Human oversight](/go/oversight/)**  
+**Layer 3 – [Human oversight](/go/oversight)**  
 Ask a human-in-the-loop to approve selected critical actions, taking ability and fatigue into account.
 
 Flaw: This can be a strong defense – but only if applied moderately, as it quickly becomes ineffective. HITL is costly, delays flows, and humans may lack the right expertise or context. In addition, people quickly suffer from approval fatigue—especially when most actions are benign.
 
 
-**Layer 4 – [Automated oversight](/go/oversight/)**  
+**Layer 4 – [Automated oversight](/go/oversight)**  
 Implement logic to check for suspicious activity in context. Such detections can stop an agent or trigger an alert—for example, when an email summarizer attempts to send a thousand emails.
 
 Flaw: Reactive oversight helps but acts only after behavior emerges. Preventive privilege controls are far more effective - see layers below.
 
 
-**Layer 5 – User-based [least privilege](/go/leastmodelprivilege/)**  
+**Layer 5 – User-based [least privilege](/go/leastmodelprivilege)**  
 Give agentic AI the rights of the individual being served, assigned in advance. An email summarizer should only be able to access the user’s emails.
 
 Flaw: While sensible, users are often permitted far more than an agent actually needs, unnecessarily increasing the blast radius.
 
 
-**Layer 6 – Intent-based [least privilege](/go/leastmodelprivilege/)**  
+**Layer 6 – Intent-based [least privilege](/go/leastmodelprivilege)**  
 Give agentic AI the rights required for its specific task, assigned in advance, in addition to user-based rights.
 
 Example: An email summarizer should only be able to read emails. If it needs to send a summary as well, that is where human oversight can be introduced—allowing the user to review the summary and the list of recipients.
@@ -1292,7 +1292,7 @@ Example: An email summarizer should only be able to read emails. If it needs to 
 Flaw: The intent of an agent or flow is not always known in advance, creating the risk of assigning too many privileges to anticipate the use case with the most needs. Furthermore, agentic flows often involve multiple agents, and not all of them require the full set of privileges needed to achieve the higher-level goal.
 
 
-**Layer 7 – Just-in-time [authorization](/go/leastmodelprivilege/)**  
+**Layer 7 – Just-in-time [authorization](/go/leastmodelprivilege)**  
 Give each agent only the rights required at that moment, based on the context (subtask and the circumstances).  
 Context is determined by the task an agent is assigned to (e.g., review merge request), or by the data that enters the flow. The latter could involve a mechanism that hardens privileges the moment untrusted data enters the flow.
 
@@ -1303,7 +1303,7 @@ Example: An email summarizer has one agent orchestrating the workflow and anothe
 
 #### #PROMPT INJECTION I/O HANDLING
 > Category: runtime AI engineer controls against input threats  
-> Permalink: https://owaspai.org/go/promptinjectioniohandling/
+> Permalink: https://owaspai.org/go/promptinjectioniohandling
 
 **Description**  
 This control focuses on detecting, containing, and responding to unwanted or unsafe behavior that is introduced through model inputs or observed in model outputs. This includes techniques such as encoding, normalization, detection, filtering, and behavioral analysis applied to both inputs and outputs of generative AI systems.
@@ -1320,20 +1320,20 @@ This control is less applicable to closed systems with fixed inputs and tightly 
 - **Case-fold locale-independently, not with a locale-sensitive lowercase**: Case-folding is for normalizing text before matching it (e.g. against a blocklist) to a standard case. For optimal normalization, this is best done with a locale-independent operation instead of a locale-sensitive lowercase. EXAMPLE: Use `str.casefold()` (Python) or ICU `toCaseFold` and don't use on a host configured for a Turkish locale, `"IGNORE".toLowerCase()` maps ASCII `I` (U+0049) to `ı` (U+0131, dotless i), so a check for `ignore` no longer matches; `casefold` avoids this and also handles cases a plain lowercase misses (e.g. `ß` → `ss`). Note that Unicode normalization alone does not fold case: `NFKC("İGNORE")` is still `"İGNORE"`, so normalization and case-folding are separate, both-required steps.
 - **Collapse confusable characters and flag mixed scripts**: Unicode normalization does not remove homoglyph confusables: characters that look alike. Cyrillic or Greek look-alikes such as `а` (U+0430) or `і` (U+0456) survive NFKC unchanged and can spell a blocklisted word that a later byte comparison then misses. Map input to its confusable skeleton (Unicode UTS #39, [Unicode Security Mechanisms](https://www.unicode.org/reports/tr39/)) before matching, and treat mixed-script runs within a single token as an anomaly signal, since unexpected mixed-script usage can be an anomaly signal.
 - **Escape/neutralize instruction-like tokens**: Transform any tokens in untrusted data that may be mistaken for real by an AI model or parser, such as fences, role markers, XML/HTML Tags and tool calling tokens. This reduces accidental compliance but semantic injection still passes through.
-- **Delineate inserted untrusted data** - see [#INPUT SEGREGATION](/go/inputsegregation/) to increase the probability that all externally sourced or user-provided content is  treated as untrusted data not interpreted as instructions.
+- **Delineate inserted untrusted data** - see [#INPUT SEGREGATION](/go/inputsegregation) to increase the probability that all externally sourced or user-provided content is  treated as untrusted data not interpreted as instructions.
 - **Recognize manipulative instructions in input**: Detecting patterns that indicate attempts to manipulate model behavior through crafted instructions (e.g.: ‘forget previous instructions’ or 'retrieve password'). These patterns may appear in text, images, audio, metadata, retrieved data, or uploaded files, depending on the system’s supported modalities. This can also include the detection of resources that are either target of attack (e.g., a database name) or an address to extract data to (e.g., an unvalidated or blacklisted URL). Solutions typically combine multiple approaches to assess the likelihood of an attack, given the difficulty of the recognition task.
 - **Use flexible recognition mechanisms**. The flexibility of natural language makes it harder to apply input validation compared to strict syntax situations like SQL commands. To address this flexibility of natural language in prompt inputs, the best approach for high-risk situations is to utilize LLM-based detectors (LLM-as-a-judge) for the detection of malicious instructions in a more semantic way, instead of syntactic. However, it’s important to note that this method may come with higher latency, higher compute costs, potential license costs, security issues for sending prompts to an external service, and considerations regarding accuracy. If the downsides of LLM-as-a-judge are not in line with the risk level, other flexible detections can be implemented, based on pattern recognition. Depending on the context, these may require fine-tuning. For example, for agents that already work with data  that contain instructions (e.g., support tickets).
-- **Apply input handling upstream**. By applying sanitization or detection as early as possible (e.g. when data is retrieved from an API), attacks are noticed sooner, the scope can be limited to untrusted data sources, obfuscation of instructions or sensitive data may be prevented, and AI components with less sophisticated I/O handling are protected. This also means that these techniques need to be applied to the output of the model if that output may ever become input to another model without such protections. If output is to be used in other command-interpreting tools, further encoding is needed - see [#ENCODE MODEL OUTPUT](/go/encodemodeloutput/).
-- **Agent active context (in-context manipulation):** For multi-turn agents, the accumulated context window is a live attack surface — not only the latest user message. Monitor for instruction-like content in tool outputs, retrieved chunks, and prior turns; reset or compress context between tasks when risk tolerance requires it. If agents persist context to shared stores, pair with [#AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity/) — see [augmentation data manipulation](/go/augmentationdatamanipulation/).
-- **Tool output sanitisation:** Process tool responses **before** context injection — strip known injection patterns (override instructions, role changes), validate structured output against declared schema, label trust level by data source, and scan for exfiltration-oriented encoding. Prevents [indirect prompt injection](/go/indirectpromptinjection/) via tool channels. Pair with [#ENCODE MODEL OUTPUT](/go/encodemodeloutput/) and [improper output handling](/go/insecureoutput/) where tool output reaches other interpreters or UIs.
-- **Detect unwanted output**: see [#OVERSIGHT](/go/oversight/) for detection of harmful content, sensitive data, suspicious actions and grounding checks. 
+- **Apply input handling upstream**. By applying sanitization or detection as early as possible (e.g. when data is retrieved from an API), attacks are noticed sooner, the scope can be limited to untrusted data sources, obfuscation of instructions or sensitive data may be prevented, and AI components with less sophisticated I/O handling are protected. This also means that these techniques need to be applied to the output of the model if that output may ever become input to another model without such protections. If output is to be used in other command-interpreting tools, further encoding is needed - see [#ENCODE MODEL OUTPUT](/go/encodemodeloutput).
+- **Agent active context (in-context manipulation):** For multi-turn agents, the accumulated context window is a live attack surface — not only the latest user message. Monitor for instruction-like content in tool outputs, retrieved chunks, and prior turns; reset or compress context between tasks when risk tolerance requires it. If agents persist context to shared stores, pair with [#AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity) — see [augmentation data manipulation](/go/augmentationdatamanipulation).
+- **Tool output sanitisation:** Process tool responses **before** context injection — strip known injection patterns (override instructions, role changes), validate structured output against declared schema, label trust level by data source, and scan for exfiltration-oriented encoding. Prevents [indirect prompt injection](/go/indirectpromptinjection) via tool channels. Pair with [#ENCODE MODEL OUTPUT](/go/encodemodeloutput) and [improper output handling](/go/insecureoutput) where tool output reaches other interpreters or UIs.
+- **Detect unwanted output**: see [#OVERSIGHT](/go/oversight) for detection of harmful content, sensitive data, suspicious actions and grounding checks. 
 - **Update detections constantly**: Make sure that techniques and patterns for detection of input/output are constantly updated by using external sources.  Since this is an arms race, the best strategy is to base this on an open source or third party resource. Popular tool providers at the time of writing include: Pangea, Hiddenlayer, AIShield, and Aiceberg. Popular open source packages for prompt injection detection are, in alphabetical order:
   - [Guardrails-AI](https://github.com/guardrails-ai/guardrails)
   - [Langkit](https://github.com/whylabs/langkit).
   - [LLM Guard](https://github.com/protectai/llm-guard)
   - [NVIDIA-NeMo Guardrails](https://github.com/NVIDIA-NeMo/Guardrails)
   - [Rebuff](https://github.com/protectai/rebuff)
-- **Respond to detections appropriately**: Based on the confidence of detections, the input can either be filtered, the processing stopped, or an alert can be issued in the log. For more details, see [#MONITOR USE](/go/monitoruse/)
+- **Respond to detections appropriately**: Based on the confidence of detections, the input can either be filtered, the processing stopped, or an alert can be issued in the log. For more details, see [#MONITOR USE](/go/monitoruse)
 - **Inform users when necessary**: It is a best practice to inform users when their input is blocked (e.g., requesting potentially harmful information), as the user may not be aware of certain policies - unless the input is clearly malicious. 
 
 **Risk-Reduction Guidance**  
@@ -1345,7 +1345,7 @@ Unlike traditional application input validation, Prompt injection defense at inf
 
 **Limitations**  
 No detection method reliably identifies all forms of manipulative or unwanted instructions. Generative models used for detection may themselves be influenced by crafted inputs. Heuristic and rules-based approaches may fail to generalize to new attack variations. Additionally, experimentation through small input changes over time may evade single-input detection and require complementary series-based analysis.
-This control does not replace access control, rate limiting, or monitoring, but works best alongside them - combined with [controls to limit the effects of unwanted model behaviour](/go/limitunwanted/).
+This control does not replace access control, rate limiting, or monitoring, but works best alongside them - combined with [controls to limit the effects of unwanted model behaviour](/go/limitunwanted).
 
 **References**
 <!-- OPENCRE_SECTION_CRE_START slug=promptinjectioniohandling -->
@@ -1364,14 +1364,14 @@ This control does not replace access control, rate limiting, or monitoring, but 
 
 ### 2.2.2 Indirect prompt injection
 >Category: input threat  
->Permalink: https://owaspai.org/go/indirectpromptinjection/
+>Permalink: https://owaspai.org/go/indirectpromptinjection
 
 **Description**  
 Indirect prompt injection: a third party fools a large language model (GenAI) through the inclusion of (often hidden) instructions as part of a text that is inserted into a prompt by an application, causing unintended actions or answers by the LLM (GenAI). This is similar to remote code execution.
 
-In agentic systems that retrieve external content, invoke tools, or share memory across sessions, indirect injection is typically the **dominant** threat class — every external source is an attack surface. Persistent payloads in RAG indexes or shared documents and [multi-agent propagation](/go/promptinjection/) (delegating to a higher-privileged agent) extend the classic pattern.
+In agentic systems that retrieve external content, invoke tools, or share memory across sessions, indirect injection is typically the **dominant** threat class — every external source is an attack surface. Persistent payloads in RAG indexes or shared documents and [multi-agent propagation](/go/promptinjection) (delegating to a higher-privileged agent) extend the classic pattern.
 
-Impact: Getting unwanted answers or actions (see [Agentic AI](/go/agenticaithreats/)) from instructions in untrusted input that has been inserted in a prompt.
+Impact: Getting unwanted answers or actions (see [Agentic AI](/go/agenticaithreats)) from instructions in untrusted input that has been inserted in a prompt.
 
 Example 1: let's say a chat application takes questions about car models. It turns a question into a prompt to a Large Language Model (LLM, a GenAI) by adding the text from the website about that car. If that website has been compromised with instructions invisible to the eye, those instructions are inserted into the prompt and may result in the user getting false or offensive information.
 
@@ -1387,18 +1387,18 @@ Mappings
 
 **Controls**
 
-- See [General controls](/go/generalcontrols/):
-  - Especially [limiting the impact of unwanted model behaviour](/go/limitunwanted/) is important, with key controls [MODEL ALIGNMENT](/go/modelalignment/), [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/) and [OVERSIGHT](/go/oversight/), given that prompt injection is hard to prevent.
-- Controls for [input threats](/go/inputthreats/), to limit the user set, oversee use and, prevent experiments that require many interactions:
-  - [#MONITOR USE](/go/monitoruse/) to detect suspicious input or output
-  - [#RATE LIMIT](/go/ratelimit/) to limit the attacker trying numerous attack variants in a short time
-  - [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
-- Controls for [prompt injection](/go/promptinjection/):
-  - [#PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling/) to handle any suspicious input or output - see below
+- See [General controls](/go/generalcontrols):
+  - Especially [limiting the impact of unwanted model behaviour](/go/limitunwanted) is important, with key controls [MODEL ALIGNMENT](/go/modelalignment), [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege) and [OVERSIGHT](/go/oversight), given that prompt injection is hard to prevent.
+- Controls for [input threats](/go/inputthreats), to limit the user set, oversee use and, prevent experiments that require many interactions:
+  - [#MONITOR USE](/go/monitoruse) to detect suspicious input or output
+  - [#RATE LIMIT](/go/ratelimit) to limit the attacker trying numerous attack variants in a short time
+  - [#MODEL ACCESS CONTROL](/go/modelaccesscontrol) to reduce the number of potential attackers to a minimum
+- Controls for [prompt injection](/go/promptinjection):
+  - [#PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling) to handle any suspicious input or output - see below
 - Specifically for INDIRECT prompt injection:
-  - [#INPUT SEGREGEGATION](/go/inputsegregation/) -  to clearly delineated untrusted input, discussed below
+  - [#INPUT SEGREGEGATION](/go/inputsegregation) -  to clearly delineated untrusted input, discussed below
  
-See the [seven layers section](/go/promptinjectionsevenlayers/) on how these controls form layers of protection. After model alignment and filtering and detection, it should be assumed that prompt injection can still happen and therefore it is critical that _blast radius control_ is performed.
+See the [seven layers section](/go/promptinjectionsevenlayers) on how these controls form layers of protection. After model alignment and filtering and detection, it should be assumed that prompt injection can still happen and therefore it is critical that _blast radius control_ is performed.
 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=indirectpromptinjection -->
@@ -1418,7 +1418,7 @@ See the [seven layers section](/go/promptinjectionsevenlayers/) on how these con
 
 #### #INPUT SEGREGATION
 > Category: runtime information security control against input threats  
-> Permalink: https://owaspai.org/go/inputsegregation/
+> Permalink: https://owaspai.org/go/inputsegregation
 
 **Description**  
 Input segregation: clearly separate/delimit/delineate untrusted data from trusted instructions when inserting it into a prompt and instruct the model to ignore instructions in that data. 
@@ -1438,9 +1438,9 @@ Applicability should be determined through risk management, based on how much un
 **Implementation**  
 - **Mark untrusted content clearly**: When untrusted data is inserted into a prompt, use consistent and hard to spoof markers. One way to do this is to pass inputs as structured fields using a structured format such as JSON. Some platforms offer integrated mechanisms for segregation (e.g. ChatML for OpenAI API calls and Langchain prompt formatters).
 - **Add instructions to ignore commands within marked data**: Prompts can include explicit instructions indicating that any instructions found inside the marked section should be ignored.
-- **Inspect untrusted data for instruction-like patterns**: Before inserting untrusted data into prompts, the content can be inspected for instruction-like patterns or manipulative language. This allows the system to decide whether to allow the content as-is, transform it, or exclude it from the prompt (see [PROMPT INJECTION IO HANDLING](/go/promptinjectioniohandling/)).
+- **Inspect untrusted data for instruction-like patterns**: Before inserting untrusted data into prompts, the content can be inspected for instruction-like patterns or manipulative language. This allows the system to decide whether to allow the content as-is, transform it, or exclude it from the prompt (see [PROMPT INJECTION IO HANDLING](/go/promptinjectioniohandling)).
 - **Ensure consistent use**: All components of the system that generate prompts must follow a standard marking and instruction scheme to avoid gaps in coverage.
-- **Orchestrator and sub-agent output:** In multi-agent systems, treat **all sub-agent responses and tool outputs** entering the orchestrator as untrusted data — validate schema and bounds before routing decisions; see [#OVERSIGHT](/go/oversight/) secure orchestration and [agent message structure manipulation](/go/agentmessagestructuremanipulation/).
+- **Orchestrator and sub-agent output:** In multi-agent systems, treat **all sub-agent responses and tool outputs** entering the orchestrator as untrusted data — validate schema and bounds before routing decisions; see [#OVERSIGHT](/go/oversight) secure orchestration and [agent message structure manipulation](/go/agentmessagestructuremanipulation).
 
 Example prompt with inserted data:  
 "TASK:  
@@ -1489,10 +1489,10 @@ This control does not address direct prompt injection where the attacker provide
 
 ### 2.2.3 Agent message structure manipulation
 >Category: input threat  
->Permalink: https://owaspai.org/go/agentmessagestructuremanipulation/
+>Permalink: https://owaspai.org/go/agentmessagestructuremanipulation
 
 **Description**  
-Agent message structure manipulation: an attacker forges, replays, or alters **structured messages** between agents, tools, and orchestration layers — changing task parameters, tool arguments, routing metadata, conversation state, or schema fields — so downstream components execute unintended actions. This is distinct from [indirect prompt injection](/go/indirectpromptinjection/), which smuggles instructions in untrusted *text content* inserted into a prompt. Here the attack targets the **message fabric** (protocol fields, envelopes, delegation chains), not natural-language instructions alone.
+Agent message structure manipulation: an attacker forges, replays, or alters **structured messages** between agents, tools, and orchestration layers — changing task parameters, tool arguments, routing metadata, conversation state, or schema fields — so downstream components execute unintended actions. This is distinct from [indirect prompt injection](/go/indirectpromptinjection), which smuggles instructions in untrusted *text content* inserted into a prompt. Here the attack targets the **message fabric** (protocol fields, envelopes, delegation chains), not natural-language instructions alone.
 
 This threat applies to multi-agent systems and to **single agentic flows** (for example a RAG agent that treats tool output or planner steps as trusted structured input).
 
@@ -1510,23 +1510,23 @@ Example 4: LLM-to-LLM “prompt infection” where one corrupted message propaga
 
 **Controls**
 
-- See [General controls](/go/generalcontrols/), especially [limiting the impact of unwanted behaviour](/go/limitunwanted/) ([#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/), [#OVERSIGHT](/go/oversight/)).
+- See [General controls](/go/generalcontrols), especially [limiting the impact of unwanted behaviour](/go/limitunwanted) ([#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege), [#OVERSIGHT](/go/oversight)).
 - Treat peer-agent, tool, and orchestrator messages as **untrusted input** (similar to indirect prompt injection), including in single-agent tool loops.
-- [#INPUT SEGREGATION](/go/inputsegregation/) and [#PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling/) — where structured payloads are embedded in prompts.
-- [#MODEL INPUT CONFIDENTIALITY](/go/modelinputconfidentiality/) and channel integrity (signing, mTLS, replay protection) for inter-agent communication.
-- [#MONITOR USE](/go/monitoruse/) with per-hop / correlation identifiers for multi-step agent traces.
-- [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/) delegation controls — signed tokens, full-chain validation, scope non-expansion.
+- [#INPUT SEGREGATION](/go/inputsegregation) and [#PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling) — where structured payloads are embedded in prompts.
+- [#MODEL INPUT CONFIDENTIALITY](/go/modelinputconfidentiality) and channel integrity (signing, mTLS, replay protection) for inter-agent communication.
+- [#MONITOR USE](/go/monitoruse) with per-hop / correlation identifiers for multi-step agent traces.
+- [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege) delegation controls — signed tokens, full-chain validation, scope non-expansion.
 - Schema validation and deny-by-default parsing at tool and message boundaries.
-- **Multi-agent layer:** Individual agent controls (§1.3, [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/)) are necessary but not sufficient. Enforce communication security at infrastructure (mTLS, signed envelopes, replay protection); detect [collusion](/go/monitoruse/) via cross-agent correlation and aggregate limits; harden the [orchestrator](/go/oversight/) — sub-agent output is untrusted input ([#INPUT SEGREGATION](/go/inputsegregation/)). Emergent collective behaviour can violate policy even when each agent complies in isolation.
+- **Multi-agent layer:** Individual agent controls (§1.3, [#MODEL ACCESS CONTROL](/go/modelaccesscontrol)) are necessary but not sufficient. Enforce communication security at infrastructure (mTLS, signed envelopes, replay protection); detect [collusion](/go/monitoruse) via cross-agent correlation and aggregate limits; harden the [orchestrator](/go/oversight) — sub-agent output is untrusted input ([#INPUT SEGREGATION](/go/inputsegregation)). Emergent collective behaviour can violate policy even when each agent complies in isolation.
 
 **References**
-- Related: [Indirect prompt injection](/go/indirectpromptinjection/), [Agentic AI attention points](/go/agenticaithreats/)
+- Related: [Indirect prompt injection](/go/indirectpromptinjection), [Agentic AI attention points](/go/agenticaithreats)
 
 ---
 
 ## 2.3. Sensitive data disclosure through use
 >Category: group of input threats  
->Permalink: https://owaspai.org/go/disclosureuse/
+>Permalink: https://owaspai.org/go/disclosureuse
 
 **Description**  
 Impact: Confidentiality breach of sensitive training data.
@@ -1535,27 +1535,27 @@ The model discloses sensitive training data or is abused to do so.
 
 ### 2.3.1. Disclosure of sensitive data in model output
 >Category: input threat  
->Permalink: https://owaspai.org/go/disclosureinoutput/
+>Permalink: https://owaspai.org/go/disclosureinoutput
 
 **Description**  
-The output of the model may contain sensitive data from the training set or input (which may include augmentation data). For example, a large language model (GenAI) generating output including personal data that was part of its training set. Furthermore, GenAI can output other types of sensitive data, such as copyrighted text or images (see [Copyright](/go/copyright/)). Once training data is in a GenAI model, original variations in access rights cannot be controlled anymore. ([OWASP for LLM 02: Sensitive Information Disclosure](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/))
+The output of the model may contain sensitive data from the training set or input (which may include augmentation data). For example, a large language model (GenAI) generating output including personal data that was part of its training set. Furthermore, GenAI can output other types of sensitive data, such as copyrighted text or images (see [Copyright](/go/copyright)). Once training data is in a GenAI model, original variations in access rights cannot be controlled anymore. ([OWASP for LLM 02: Sensitive Information Disclosure](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/))
 
 The disclosure is caused by an unintentional fault of including this data, and exposed through normal use or through provocation by an attacker using the system. See [MITRE ATLAS - LLM Data Leakage](https://atlas.mitre.org/techniques/AML.T0057)
 
 **Controls specific for sensitive data output from model:**
 
-- See [General controls](/go/generalcontrols/):
-  - Especially [Sensitive data limitation](/go/dataminimize/)
-- Controls for [input threats](/go/inputthreats/):
-  - [#MONITOR USE](/go/monitoruse/) to detect suspicious input or output - especially sensitive output
-  - [#RATE LIMIT](/go/ratelimit/) to limit the attacker trying numerous attack variants in a short time
-  - [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
+- See [General controls](/go/generalcontrols):
+  - Especially [Sensitive data limitation](/go/dataminimize)
+- Controls for [input threats](/go/inputthreats):
+  - [#MONITOR USE](/go/monitoruse) to detect suspicious input or output - especially sensitive output
+  - [#RATE LIMIT](/go/ratelimit) to limit the attacker trying numerous attack variants in a short time
+  - [#MODEL ACCESS CONTROL](/go/modelaccesscontrol) to reduce the number of potential attackers to a minimum
 -Specifically for Sensitive data output from model:
-  - [#SENSITIVE OUTPUT HANDLING](/go/sensitiveoutputhandling/) - discussed below
+  - [#SENSITIVE OUTPUT HANDLING](/go/sensitiveoutputhandling) - discussed below
 
 #### #SENSITIVE OUTPUT HANDLING
 >Category: runtime information security control for input threats  
->Permalink: https://owaspai.org/go/sensitiveoutputhandling/
+>Permalink: https://owaspai.org/go/sensitiveoutputhandling
 
 **Description**
 
@@ -1579,8 +1579,8 @@ Sensitive output handling is applicable in case:
 - **Apply enforcement at output time:** When sensitive content is detected, disclosure can be prevented through filtering, masking, or stopping the output before it is exposed - provided detection confidence is sufficiently high. 
 - **Log:** Logging of detections is key, and if confidence in the detection is low, it can be marked with an alert to pick up later.
 - **Detect recitation of training data:** Where feasible, recitation checks can be applied to identify whether long strings or sequences in model output appear in an indexed set of training data, including pretraining and fine-tuning datasets. This can help identify unintended memorization and potential data leakage.
-- **Use GenAI for detection**: In case natural language allows for too many variations, synonyms, and indirect phrasing, then semantic interpretation using language models can complement rules-based approaches and improve robustness. A variant of this is to use [#MODEL ALIGNMENT](/go/modelalignment/) (e.g., system prompts) to prevent sensitive output - which suffers from inherent limitations.
-- Follow the guidance in [#MONITOR USE](/go/monitoruse/) regarding detection considerations and response options.
+- **Use GenAI for detection**: In case natural language allows for too many variations, synonyms, and indirect phrasing, then semantic interpretation using language models can complement rules-based approaches and improve robustness. A variant of this is to use [#MODEL ALIGNMENT](/go/modelalignment) (e.g., system prompts) to prevent sensitive output - which suffers from inherent limitations.
+- Follow the guidance in [#MONITOR USE](/go/monitoruse) regarding detection considerations and response options.
 
 Implementation may be done by the provider of the model - for example to filter sensitive training data. If the AI system that uses the model provides input (perhaps including augmentation data) that includes sensitive data, the AI system can implement its own sensitive output handling, in case this input may leak into the output.
 
@@ -1599,7 +1599,7 @@ Recitation checks are particularly useful for detecting unintended disclosure of
 In AI systems, sensitive information can be generated dynamically rather than retrieved from a database.
 Unlike traditional systems where access controls prevent retrieval, language models may construct sensitive data in response to prompts. Output filtering is therefore a uniquely important control for AI systems, acting as a final enforcement layer independent of prompt instructions.
 
-Providing models with instructions not to disclose certain data (for example via system prompts) is not sufficient on its own, as such instructions can be bypassed through [Direct prompt injection](https://owaspai.org/go/directpromptinjection/) attacks.
+Providing models with instructions not to disclose certain data (for example via system prompts) is not sufficient on its own, as such instructions can be bypassed through [Direct prompt injection](https://owaspai.org/go/directpromptinjection) attacks.
 
 **Limitations**
 
@@ -1622,7 +1622,7 @@ Useful standards include:
 
 ### 2.3.2. Model inversion and Membership inference
 >Category: input threat  
->Permalink: https://owaspai.org/go/modelinversionandmembership/
+>Permalink: https://owaspai.org/go/modelinversionandmembership
 
 **Description**  
 Model inversion (or _data reconstruction_) occurs when an attacker reconstructs a part of the training set by intensive experimentation during which the input is optimized to maximize indications of confidence level in the output of the model.
@@ -1656,21 +1656,21 @@ The more details a model is able to learn, the more it can store information on 
 
 **Controls for Model inversion and Membership inference:**
 
-- See [General controls](/go/generalcontrols/):
-  - Especially [Sensitive data limitation](/go/dataminimize/)
-- Controls for [input threats](/go/inputthreats/):
-  - [#MONITOR USE](/go/monitoruse/) to detect suspicious input patterns
-  - [#RATE LIMIT](/go/ratelimit/) to limit the attacker trying numerous attack variants in a short time
-  - [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
-  - [#OBSCURE CONFIDENCE](/go/obscureconfidence/) to limit information that the attacker can use
+- See [General controls](/go/generalcontrols):
+  - Especially [Sensitive data limitation](/go/dataminimize)
+- Controls for [input threats](/go/inputthreats):
+  - [#MONITOR USE](/go/monitoruse) to detect suspicious input patterns
+  - [#RATE LIMIT](/go/ratelimit) to limit the attacker trying numerous attack variants in a short time
+  - [#MODEL ACCESS CONTROL](/go/modelaccesscontrol) to reduce the number of potential attackers to a minimum
+  - [#OBSCURE CONFIDENCE](/go/obscureconfidence) to limit information that the attacker can use
 - Specifically for Model Inversion and Membership inference: 
-  - [#SMALL MODEL](/go/smallmodel/) to limit the amount of information that can be retrieved - discussed below
-- Controls that protect against the model being stolen or copied: [direct development-time model leak](/go/devmodelleak/) and [direct runtime model leak](/go/runtimemodelleak/), since the attacks are much more efficient with full access to model attributes.
+  - [#SMALL MODEL](/go/smallmodel) to limit the amount of information that can be retrieved - discussed below
+- Controls that protect against the model being stolen or copied: [direct development-time model leak](/go/devmodelleak) and [direct runtime model leak](/go/runtimemodelleak), since the attacks are much more efficient with full access to model attributes.
 
 
 #### #SMALL MODEL 
 >Category: development-time AI engineer control for input threats  
->Permalink: https://owaspai.org/go/smallmodel/
+>Permalink: https://owaspai.org/go/smallmodel
 
 **Description**  
 Small model: overfitting (storing individual training samples) can be prevented by keeping the model small so it is not able to store detail at the level of individual training set samples.
@@ -1690,20 +1690,20 @@ Useful standards include:
 
 ## 2.4. Model exfiltration
 >Category: input threat  
->Permalink: https://owaspai.org/go/modelexfiltration/
+>Permalink: https://owaspai.org/go/modelexfiltration
 
 **Description**  
 This attack occurs when an attacker collects inputs and outputs of an existing model and uses those combinations to train a new model, in order to replicate the original model. These can be collected by either harvesting logs, or intercepting input and output, or by presenting large numbers of input variations and collecting the outputs.
 
 Impact:  Confidentiality breach of the model (i.e., model parameters), which can be:
 - intellectual property theft (e.g., by a competitor)
-- and/or a way to perform input attacks on the copied model, circumventing protections. These protections include rate limiting, access control, and detection mechanisms. These input attacks include mainly [evasion](/go/evasion/) attacks. Other attacks require a much more detailed copy of the model - typically unfeasible to achieve using this form of model theft.
+- and/or a way to perform input attacks on the copied model, circumventing protections. These protections include rate limiting, access control, and detection mechanisms. These input attacks include mainly [evasion](/go/evasion) attacks. Other attacks require a much more detailed copy of the model - typically unfeasible to achieve using this form of model theft.
 - and/or a way to strip a model from certain protection mechanism against producing harmful content. Anthropic claimed in February 2026 that exfiltration attacks by competition could achieve this: creating models that are able to produce harmful content against the stakes of the original model makers.
 
 
 Alternative names: _model stealing attack_ or _model extraction attack_ or _model distillation_, or _model theft by use_. The technique of [ADVERSARIAL ROBUST DESTILLATION]/owaspai.org/go/adversarialrobustdistillation) is sometimes used by model developers to exfiltrate a _student_ model with the goal to make it more robust against attacks.
 
-Alternative ways of model theft, which can lead to an exact copy of the model, are [direct development-time model leak](/go/devmodelleak/) and [direct runtime model leak](/go/runtimemodelleak/).
+Alternative ways of model theft, which can lead to an exact copy of the model, are [direct development-time model leak](/go/devmodelleak) and [direct runtime model leak](/go/runtimemodelleak).
 
 ![](/images/theft3.png)
 
@@ -1712,15 +1712,15 @@ This threat applies if the model represents intellectual property (i.e., a trade
 
 **Controls:**
 
-- See [General controls](/go/generalcontrols/), especially [#AI PROGRAM](/go/aiprogram/) for the governance necessary to identify and treat this risk.
-- Controls for [input threats](/go/inputthreats/):
-  - [#MONITOR USE](/go/monitoruse/) to detect suspicious input and respond 
-  - [#RATE LIMIT](/go/ratelimit/) to limit the attacker presenting many inputs in a short time
-  - [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
-  - [#ANOMALOUS INPUT HANDLING](/go/anamlousinputhandling/) since model exfiltration techniques try to cover the input space, potentially introducing inputs that normally would not occur
-  - [#UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling/) to detect sequences that would indicate covering an input space methodically,
+- See [General controls](/go/generalcontrols), especially [#AI PROGRAM](/go/aiprogram) for the governance necessary to identify and treat this risk.
+- Controls for [input threats](/go/inputthreats):
+  - [#MONITOR USE](/go/monitoruse) to detect suspicious input and respond 
+  - [#RATE LIMIT](/go/ratelimit) to limit the attacker presenting many inputs in a short time
+  - [#MODEL ACCESS CONTROL](/go/modelaccesscontrol) to reduce the number of potential attackers to a minimum
+  - [#ANOMALOUS INPUT HANDLING](/go/anamlousinputhandling) since model exfiltration techniques try to cover the input space, potentially introducing inputs that normally would not occur
+  - [#UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling) to detect sequences that would indicate covering an input space methodically,
 - Controls for model exfiltration specifically:
-  - [#MODEL WATERMARKING](/go/modelwatermarking/) to enable post-theft ownership verification when residual risk remains - discussed below, although less effective for proving exfiltration than proving an actual copy of the model was used.
+  - [#MODEL WATERMARKING](/go/modelwatermarking) to enable post-theft ownership verification when residual risk remains - discussed below, although less effective for proving exfiltration than proving an actual copy of the model was used.
  
 If attackers are able to access the model and the model allows intensive use, then it is typically hard to protect against model exfiltration. Detection would come down to intensive use, covering a wide range of inputs, including anomalous ones. Such detections would always require further analysis, since this type of use may also be benign.
 
@@ -1744,7 +1744,7 @@ If attackers are able to access the model and the model allows intensive use, th
 
 #### #MODEL WATERMARKING
 >Category: development-time AI engineer control for input threats  
->Permalink: https://owaspai.org/go/modelwatermarking/
+>Permalink: https://owaspai.org/go/modelwatermarking
 
 **Description**  
 Model Watermarking: embed a hidden, secret marker into a trained model so that, if a suspected copy appears elsewhere, the original owner can verify that the model was derived from their system. This is used to demonstrate ownership after a model has been stolen or replicated, rather than to prevent the theft itself.
@@ -1768,7 +1768,7 @@ Watermarking can be effective evidence for direct model theft, but is limited fo
 
 ## 2.5. AI resource exhaustion
 >Category: input threat  
->Permalink: https://owaspai.org/go/airesourceexhaustion/
+>Permalink: https://owaspai.org/go/airesourceexhaustion
 
 **Description**  
 Specific input to the model leads to resource exhaustion, which can be the depletion of funds or availability issues (system being very slow or unresponsive, also called _denial of service_). The failure occurs from frequency, volume, or the content of the input. See [MITRE ATLAS - Denial of ML service](https://atlas.mitre.org/techniques/AML.T0029).
@@ -1781,26 +1781,26 @@ Examples:
 
 **Controls:**
 
-- See [General controls](/go/generalcontrols/):
-- Controls for [input threats](/go/inputthreats/):
-  - [#MONITOR USE](/go/monitoruse/) to detect suspicious input or output
-  - [#RATE LIMIT](/go/ratelimit/) to limit the attacker trying numerous attack variants in a short time
-  - [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/) to reduce the number of potential attackers to a minimum
+- See [General controls](/go/generalcontrols):
+- Controls for [input threats](/go/inputthreats):
+  - [#MONITOR USE](/go/monitoruse) to detect suspicious input or output
+  - [#RATE LIMIT](/go/ratelimit) to limit the attacker trying numerous attack variants in a short time
+  - [#MODEL ACCESS CONTROL](/go/modelaccesscontrol) to reduce the number of potential attackers to a minimum
 -Specifically for this threat:
-  - [#DOS INPUT VALIDATION](/go/dosinputvalidation/) to stop input suspicious for this attack - discussed below
-  - [#LIMIT RESOURCES](/go/limitresources/) to prevent depletion - discussed below
+  - [#DOS INPUT VALIDATION](/go/dosinputvalidation) to stop input suspicious for this attack - discussed below
+  - [#LIMIT RESOURCES](/go/limitresources) to prevent depletion - discussed below
 
   
 #### #DOS INPUT VALIDATION
 >Category: runtime information security control for input threats  
->Permalink: https://owaspai.org/go/dosinputvalidation/
+>Permalink: https://owaspai.org/go/dosinputvalidation
 
 **Description**  
 Denial-of-service input validation: input validation and sanitization to reject or correct malicious (e.g. very large) content
 
-**Agent tool parameters:** Apply the same discipline to LLM-generated tool arguments — size limits, reject path traversal and shell metacharacters, and block injection-driven tool execution loops via per-tool rate limits. See [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/) tool call validation.
+**Agent tool parameters:** Apply the same discipline to LLM-generated tool arguments — size limits, reject path traversal and shell metacharacters, and block injection-driven tool execution loops via per-tool rate limits. See [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege) tool call validation.
 
-Follow the guidance in [#MONITOR USE](/go/monitoruse/) regarding detection considerations and response options.
+Follow the guidance in [#MONITOR USE](/go/monitoruse) regarding detection considerations and response options.
 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=dosinputvalidation -->
@@ -1817,12 +1817,12 @@ Useful standards include:
 
 #### #LIMIT RESOURCES
 >Category: runtime information security control for input threats  
->Permalink: https://owaspai.org/go/limitresources/
+>Permalink: https://owaspai.org/go/limitresources
 
 **Description**  
 Limit resource usage for a single model input, to prevent resource overuse.
 
-**Agent resource quotas (agentic):** Enforce hard platform-level caps per agent or session — CPU time, memory, disk I/O, network egress, tool invocations, and wall-clock execution time. Quotas must be enforced by containers, API gateways, or orchestration — not by the agent. On breach, terminate execution cleanly and log an audit event. Use tighter tiers for low-trust or untrusted-content workloads. Monitor fleet-wide consumption for correlated spikes or slow exhaustion attacks. See [agent sandboxing](/go/agentsandboxing/). Resource limits bound cost and availability impact; they do not prevent all harm within the allocated budget.
+**Agent resource quotas (agentic):** Enforce hard platform-level caps per agent or session — CPU time, memory, disk I/O, network egress, tool invocations, and wall-clock execution time. Quotas must be enforced by containers, API gateways, or orchestration — not by the agent. On breach, terminate execution cleanly and log an audit event. Use tighter tiers for low-trust or untrusted-content workloads. Monitor fleet-wide consumption for correlated spikes or slow exhaustion attacks. See [agent sandboxing](/go/agentsandboxing). Resource limits bound cost and availability impact; they do not prevent all harm within the allocated budget.
 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=limitresources -->
@@ -1839,10 +1839,10 @@ Useful standards include:
 
 ## Appendix: Culture-sensitive alignment
 >Category: control details  
->Permalink: https://owaspai.org/go/culturesensitivealignment/
+>Permalink: https://owaspai.org/go/culturesensitivealignment
 
 **Description**  
-In the context of large language models (LLMs), alignment refers to the process of ensuring that the model's behavior and outputs are consistent with human values, intentions, and ethical standards. See [#MODEL ALIGNMENT](/go/modelalignment/).
+In the context of large language models (LLMs), alignment refers to the process of ensuring that the model's behavior and outputs are consistent with human values, intentions, and ethical standards. See [#MODEL ALIGNMENT](/go/modelalignment).
 
 There are nuances towards what is considered an appropriate input or output depending on jurisdictions. Certain news or events in history that are considered sensible topics for public discussion in one country might be considered taboo in another. This also means a prompt injection could be interpreted as successful and therefore unsafe if a model divulges information or mentions topics that shouldn’t be discussed.
 
@@ -1915,9 +1915,9 @@ Unless the purpose of your AI project is intended to include or encourage this k
 
 ### Semantic Drift: Same words may mean different things in different times
 The vagueness of words impact the effectiveness of language based guards. Unlike traditional engineering, the meaning of words are long known to drift through time in linguistics. Events will occur in real time and shift morality and ethics.
-To compensate for this weakness, lengthening the system prompt to increase precision is sometimes used ([#OVERSIGHT](/go/oversight/)). 
+To compensate for this weakness, lengthening the system prompt to increase precision is sometimes used ([#OVERSIGHT](/go/oversight)). 
 
-However, emerging news or events that are against a certain countries’ national values cannot be effectively addressed in real time. In these cases, red teaming techniques (see [Testing section](/go/testing/)) can be used. They are preferably continuously updated with concerns according to your region of interest in order to reveal the weaknesses of your LLM and use guardrails (see [#OVERSIGHT](/go/oversight/)) to filter out or alert to the responses that are unwanted for additional protection.
+However, emerging news or events that are against a certain countries’ national values cannot be effectively addressed in real time. In these cases, red teaming techniques (see [Testing section](/go/testing)) can be used. They are preferably continuously updated with concerns according to your region of interest in order to reveal the weaknesses of your LLM and use guardrails (see [#OVERSIGHT](/go/oversight)) to filter out or alert to the responses that are unwanted for additional protection.
 
 ### Culture-aware explanation of output refusal
 

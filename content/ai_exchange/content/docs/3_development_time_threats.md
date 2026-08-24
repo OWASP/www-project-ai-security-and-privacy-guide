@@ -6,7 +6,7 @@ weight: 4
 ---
 ## 3.0 Development-time threats - Introduction
 > Category: group of development-time threats  
-> Permalink: https://owaspai.org/go/developmenttime/
+> Permalink: https://owaspai.org/go/developmenttime
 
 This section discusses the AI security threats during the development of the AI system, which includes the engineering environment and the supply chain as attack surfaces.
 
@@ -29,27 +29,27 @@ ISO/IEC 42001 B.7.2 briefly mentions development-time data security risks.
 
 **Controls for development-time protection**
 
-- See [General controls](/go/generalcontrols/)
+- See [General controls](/go/generalcontrols)
 - Specifically for development-time threats - all discussed below:
-  - [#DEV SECURITY](/go/devsecurity/) to protect the development environment
-  - [#SEGREGATE DATA](/go/segregatedata/) to create parts of the development environment with extra protection
-  - [#CONF COMPUTE](/go/confcompute/) for denying access to where sensitive data is processed
-  - [#FEDERATED LEARNING](/go/federatedlearning/) to decreases the risk of all data leaking and as a side-effect: increase the risk of some data leaking
-  - [#SUPPLY CHAIN MANAGE](/go/supplychainmanage/) especially to control where data and models come from
+  - [#DEV SECURITY](/go/devsecurity) to protect the development environment
+  - [#SEGREGATE DATA](/go/segregatedata) to create parts of the development environment with extra protection
+  - [#CONF COMPUTE](/go/confcompute) for denying access to where sensitive data is processed
+  - [#FEDERATED LEARNING](/go/federatedlearning) to decreases the risk of all data leaking and as a side-effect: increase the risk of some data leaking
+  - [#SUPPLY CHAIN MANAGE](/go/supplychainmanage) especially to control where data and models come from
 
 **Agentic development-time threats**
 
 For autonomous agents, development-time integrity extends beyond train/test data:
 
-- **Malicious agent training:** Agent backdoors and biased fine-tuning follow existing [data poisoning](/go/datapoison/), [development-environment model poisoning](/go/devmodelpoison/), and [supply-chain model poisoning](/go/supplymodelpoison/) paths — reproducible pipelines, chain-of-custody, adversarial pre-deployment testing. See §3.1; no duplicate mechanics here. **Detection during training:** monitor for statistical anomalies in training-data distribution, unexpected loss landscapes, and behavioural triggers that activate only under specific input patterns. **Baseline model weights:** capture approved weight checksums or fingerprints after training; compare before deploy and on update to detect adversarial weight manipulation (targeted label, clean-label, and related attacks).
-- **Agent behaviour manipulation:** Protect post-training shaping — system prompts, RLHF datasets, reward functions, agent configuration. Version-control and access-restrict; runtime integrity checks against approved versions; separate author, review, and deploy roles; stage-test with adversarial scenarios before production. System prompts are behaviour-shaping assets (see [#DEV SECURITY](/go/devsecurity/) below).
-- **Tool integration vulnerabilities:** MCP, skills, plugins, and bespoke tool connectors — audit for hardcoded credentials, insecure deserialisation, missing validation, and leaky error handling; validate API contracts at integration and runtime; store credentials in a secret manager, not agent-accessible config. Prefer a security-reviewed integration framework; see [#SUPPLY CHAIN MANAGE](/go/supplychainmanage/).
-- **Planning system poisoning:** Treat plan libraries, templates, and heuristics as integrity-protected artefacts; validate generated plans against policy before execution; monitor for anomalous plan complexity; log planning decisions. Runtime plan stores also fall under [#AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity/).
+- **Malicious agent training:** Agent backdoors and biased fine-tuning follow existing [data poisoning](/go/datapoison), [development-environment model poisoning](/go/devmodelpoison), and [supply-chain model poisoning](/go/supplymodelpoison) paths — reproducible pipelines, chain-of-custody, adversarial pre-deployment testing. See §3.1; no duplicate mechanics here. **Detection during training:** monitor for statistical anomalies in training-data distribution, unexpected loss landscapes, and behavioural triggers that activate only under specific input patterns. **Baseline model weights:** capture approved weight checksums or fingerprints after training; compare before deploy and on update to detect adversarial weight manipulation (targeted label, clean-label, and related attacks).
+- **Agent behaviour manipulation:** Protect post-training shaping — system prompts, RLHF datasets, reward functions, agent configuration. Version-control and access-restrict; runtime integrity checks against approved versions; separate author, review, and deploy roles; stage-test with adversarial scenarios before production. System prompts are behaviour-shaping assets (see [#DEV SECURITY](/go/devsecurity) below).
+- **Tool integration vulnerabilities:** MCP, skills, plugins, and bespoke tool connectors — audit for hardcoded credentials, insecure deserialisation, missing validation, and leaky error handling; validate API contracts at integration and runtime; store credentials in a secret manager, not agent-accessible config. Prefer a security-reviewed integration framework; see [#SUPPLY CHAIN MANAGE](/go/supplychainmanage).
+- **Planning system poisoning:** Treat plan libraries, templates, and heuristics as integrity-protected artefacts; validate generated plans against policy before execution; monitor for anomalous plan complexity; log planning decisions. Runtime plan stores also fall under [#AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity).
 
     
 #### #DEV SECURITY
 > Category: development-time information security control  
-> Permalink: https://owaspai.org/go/devsecurity/
+> Permalink: https://owaspai.org/go/devsecurity
 
 **Description**  
 Development security: appropriate security of the AI development infrastructure, also taking into account the sensitive information that is typical to AI: training data, test data, model parameters and technical documentation. 
@@ -62,11 +62,11 @@ Development security: appropriate security of the AI development infrastructure,
 
 **Risks external to the development environment**
 
-Data and models may have been obtained externally, just like software components. Furthermore, software components often run within the AI development environment, introducing new risks, especially given that sensitive data is present in this environment. For details, see [SUPPLYCHAINMANAGE](/go/supplychainmanage/).
+Data and models may have been obtained externally, just like software components. Furthermore, software components often run within the AI development environment, introducing new risks, especially given that sensitive data is present in this environment. For details, see [SUPPLYCHAINMANAGE](/go/supplychainmanage).
 
 Training data is in most cases only present during development-time, but there are exceptions:
   - A machine learning model may be continuously trained with data collected at runtime, which puts (part of the) training data in the runtime environment, where it also needs protection - as covered in this control section
-  - For GenAI, information can be retrieved from a repository to be added to a prompt (_augmentation_), for example to inform a large language model about the context to take into account for an instruction or question. This principle is called _in-context learning_. For example [OpenCRE-chat](https://opencre.org/chatbot) uses a repository of requirements from security standards to add to a user question so that the large language model is more informed with background information. In the case of OpenCRE-chat this information is public, but in many cases the application of this so-called Retrieval Augmented Generation (RAG) will have a repository with company secrets or otherwise sensitive data. Organizations can benefit from unlocking their unique data, to be used by themselves, or to be provided as service or product. This is an attractive architecture because the alternative would be to train an LLM or to finetune it, which is expensive and difficult. A RAG approach may suffice. Effectively, this puts the repository data to the same use as training data is used: control the behaviour of the model. Therefore, the security controls that apply to train data, also apply to this run-time repository data. See [augmentation data manipulation](/go/augmentationdatamanipulation/).
+  - For GenAI, information can be retrieved from a repository to be added to a prompt (_augmentation_), for example to inform a large language model about the context to take into account for an instruction or question. This principle is called _in-context learning_. For example [OpenCRE-chat](https://opencre.org/chatbot) uses a repository of requirements from security standards to add to a user question so that the large language model is more informed with background information. In the case of OpenCRE-chat this information is public, but in many cases the application of this so-called Retrieval Augmented Generation (RAG) will have a repository with company secrets or otherwise sensitive data. Organizations can benefit from unlocking their unique data, to be used by themselves, or to be provided as service or product. This is an attractive architecture because the alternative would be to train an LLM or to finetune it, which is expensive and difficult. A RAG approach may suffice. Effectively, this puts the repository data to the same use as training data is used: control the behaviour of the model. Therefore, the security controls that apply to train data, also apply to this run-time repository data. See [augmentation data manipulation](/go/augmentationdatamanipulation).
   - For GenAI, a special type of data to be added to input is a _system prompt_: instructions to the model regarding its behaviour. It is also used to _augment_ the input of the model, so it determines the model behaviour and therefore is an asset to protect. For agentic deployments, extend the same rigour to RLHF feedback datasets, reward functions, and agent configuration files — version-control, access-restrict, and verify integrity at runtime.
 
 **Details on the how: protection strategies:**
@@ -84,7 +84,7 @@ Training data is in most cases only present during development-time, but there a
   - There is no ISO 27002 control for this
   - [OpenCRE](https://www.opencre.org/cre/117-371)
 - Operational security to protect stored data  
-  One control to increase development security is to segregate the environment, see [SEGREGATEDATA](/go/segregatedata/).  
+  One control to increase development security is to segregate the environment, see [SEGREGATEDATA](/go/segregatedata).  
   Useful standards include:
   - Many ISO 27002 controls cover operational security. Gap: covers this control fully, with the particularities.
     - ISO 27002 control 5.23 Information security for use of cloud services
@@ -107,7 +107,7 @@ Integrity checks can be performed at various stages including build, deploy, and
 Integrity Checks - Build Stage  
   During the build stage, it is crucial to validate the integrity of the source code and dependencies to ensure that no unauthorized changes have been introduced. Techniques include:
   - Source Code Verification: Implementing code signing and checksums to verify the integrity of the source code. This ensures that the code has not been tampered with.
-  - Dependency Management: Regularly auditing and updating third-party libraries and dependencies to avoid vulnerabilities. Use tools like Software Composition Analysis (SCA) to automate this process. See [#SUPPLY CHAIN MANAGE](/go/supplychainmanage/).
+  - Dependency Management: Regularly auditing and updating third-party libraries and dependencies to avoid vulnerabilities. Use tools like Software Composition Analysis (SCA) to automate this process. See [#SUPPLY CHAIN MANAGE](/go/supplychainmanage).
   - Automated Testing: Employing continuous integration (CI) pipelines with automated tests to detect issues early in the development cycle. This includes unit tests, integration tests, and security tests.
  
   Example: A software company using CI pipelines can integrate automated security tools to scan for vulnerabilities in the codebase and dependencies, ensuring that only secure and verified code progresses through the pipeline.
@@ -123,7 +123,7 @@ Integrity Checks - Deploy Stage
 Supply Chain Management  
   Managing the AI supply chain involves securing the components and processes involved in developing and deploying AI systems. This includes:
   - Component Authenticity: Using cryptographic signatures to verify the authenticity and integrity of components received from suppliers. This prevents the introduction of malicious components into the system.
-  - For more details, see [#SUPPLY CHAIN MANAGE](/go/supplychainmanage/)
+  - For more details, see [#SUPPLY CHAIN MANAGE](/go/supplychainmanage)
  
   Example: An organization using pre-trained AI models from external vendors can require those vendors to provide cryptographic signatures for model files and detailed security assessments, ensuring the integrity and security of these models before integration.
 
@@ -133,7 +133,7 @@ As mentioned, models comprise code and data but often require additional informa
 
 The data a model consumes is the most influential part of the MLOps lifecycle and should be treated as such. Data is more often than not sourced from third parties via the internet or gathered on internal data for later training by the model, but can the integrity of the data be assured? 
 
-Often, datasets may not just be a collection of text or images but may be comprised of pointers to other pieces of data rather than the data itself. One such dataset is the LAOIN-400m, where pointers to images are stored as URLs - however, data stored at a URL is not permanent and may be subject to manipulation or removal of the content. As such having a level of indirection can introduce integrity issues and leave oneself vulnerable to data poisoning, as was shown by Carlini et al in their paper ‘Poisoning Web-Scale Datasets is practical’. For more information, see the [data poisoning section](/go/datapoison/). 
+Often, datasets may not just be a collection of text or images but may be comprised of pointers to other pieces of data rather than the data itself. One such dataset is the LAOIN-400m, where pointers to images are stored as URLs - however, data stored at a URL is not permanent and may be subject to manipulation or removal of the content. As such having a level of indirection can introduce integrity issues and leave oneself vulnerable to data poisoning, as was shown by Carlini et al in their paper ‘Poisoning Web-Scale Datasets is practical’. For more information, see the [data poisoning section](/go/datapoison). 
 Verification of dataset entries through hashing is of the utmost importance so as to reduce the capacity for tampering, corruption, or potential for data poisoning. 
 
 **References**  
@@ -143,7 +143,7 @@ Useful standards include:
 
 #### #SEGREGATE DATA
 > Category: development-time information security control  
-> Permalink: https://owaspai.org/go/segregatedata/
+> Permalink: https://owaspai.org/go/segregatedata
 
 **Description**  
 Segregate data: store sensitive development data (training or test data, model parameters, technical documentation) in separated areas with restricted access. Each separate area can then be hardened accordingly and access granted to only those that need to work with that data directly.
@@ -156,7 +156,7 @@ Examples of areas in which training data can be segregated:
 4. Training environment: for engineers training the model with the processed data. In this area, controls can be applied against risks that involve access to the other less-protected development areas. That way, for example data poisoning can be mitigated.
 5. Operational environment - for when training data is collected in operation
 
-For more development environment security, see [DEVSECURITY](/go/devsecurity/).
+For more development environment security, see [DEVSECURITY](/go/devsecurity).
 
 **References**  
 Useful standards include:
@@ -166,7 +166,7 @@ Useful standards include:
 
 #### #CONF COMPUTE
 > Category: development-time information security control  
-> Permalink: https://owaspai.org/go/confcompute/
+> Permalink: https://owaspai.org/go/confcompute
 
 **Description**  
 Confidential compute: If available and possible, use features of the data science execution environment to hide training data and model parameters from model engineers - even while it is in use.
@@ -178,7 +178,7 @@ Useful standards include:
 
 #### #FEDERATED LEARNING
 > Category: development-time AI engineer control  
-> Permalink: https://owaspai.org/go/federatedlearning/
+> Permalink: https://owaspai.org/go/federatedlearning
 
 **Description**  
 Federated learning can be applied when a training set is distributed over different organizations, preventing the data from needing to be collected in a central place. This decreases the risk of all data leaking and increases the risk of some data leaking.
@@ -221,7 +221,7 @@ Useful standards include:
 
 #### #SUPPLY CHAIN MANAGE
 > Category: development-time information security control  
-> Permalink: https://owaspai.org/go/supplychainmanage/
+> Permalink: https://owaspai.org/go/supplychainmanage
 
 **Description**  
 Supply chain management focuses on managing the supply chain to minimize the security risk from externally obtained elements. In conventional software engineering these elements are source code or software components (e.g., open source). AI supply chains differ from conventional software supply chains in several ways:  
@@ -286,7 +286,7 @@ Supply chain management benefits from verifying the integrity and authenticity o
 
 **Agent component integrity:** Maintain a per-agent bill of materials (model versions, MCP servers, skills, plugins, libraries, configuration files). Sign components at origin; verify signatures in the deployment pipeline and reject deployments that fail verification or do not match the approved BOM. Monitor at runtime for unauthorised component changes (drift from deployed versions). Apply the same standards to third-party components; items without verifiable provenance should be treated as untrusted.
 
-Monitoring for known vulnerabilities affecting supplied models, data pipelines, and dependencies, based on regular review of relevant security advisories and communications, allows teams to respond to newly discovered risks in a timely manner, informed by severity and exploitability, through updates, containment, or compensating controls. These activities can be integrated into broader vulnerability management and incident response processes (see #[DEV SECURITY](/go/devsecurity/)).
+Monitoring for known vulnerabilities affecting supplied models, data pipelines, and dependencies, based on regular review of relevant security advisories and communications, allows teams to respond to newly discovered risks in a timely manner, informed by severity and exploitability, through updates, containment, or compensating controls. These activities can be integrated into broader vulnerability management and incident response processes (see #[DEV SECURITY](/go/devsecurity)).
 
 **Agent dependency vulnerability management:** Maintain a continuously updated inventory of agent dependencies — model providers, tool and MCP server endpoints, orchestration frameworks, and runtime libraries. Subscribe to advisories, automate scanning in CI/CD, and define severity-based remediation SLAs. When immediate patching is infeasible, apply compensating controls (restrict affected tools, narrow segmentation, increase monitoring, temporarily disable functionality). Note that vulnerability disclosure for model providers and MCP servers is less mature than for conventional software; periodic reviews should also retire deprecated or unmaintained components.
 
@@ -309,7 +309,7 @@ Additional assessment activities may include inspecting model artifacts prior to
 
 Architecture inspection may include listing model layers without loading the model, identifying unknown, custom, or dynamically executed components, and reviewing model graphs for unexpected structures. 
 
-Runtime behavior testing can be performed in isolated or [sandboxed](/go/agentsandboxing/) environments by executing standard validation inputs or randomized probes while monitoring system resources, runtime calls, and network activity for suspicious behavior. 
+Runtime behavior testing can be performed in isolated or [sandboxed](/go/agentsandboxing) environments by executing standard validation inputs or randomized probes while monitoring system resources, runtime calls, and network activity for suspicious behavior. 
 
 These assessments help reduce the risk of backdoors, malicious payloads, or poisoned artifacts entering the system.
 
@@ -370,15 +370,15 @@ Useful standards include:
 
 ## 3.1. Broad model poisoning development-time
 > Category: group of development-time threats  
-> Permalink: https://owaspai.org/go/modelpoison/
+> Permalink: https://owaspai.org/go/modelpoison
 
 **Description**  
 Development-time model poisoning in the broad sense is when an attacker manipulates development elements (the engineering environment and the supply chain), to alter the behavior of the model. There are three types, each covered in a subsection:
-1. [data poisoning](/go/datapoison/): an attacker manipulates training data, or data used for in-context learning.
-2. [development-environment model poisoning](/go/devmodelpoison/): an attacker manipulates model parameters, or other engineering elements that take part in creating the model, such as code, configuration or libraries.
-3. [supply-chain model poisoning](/go/supplymodelpoison/): using a supplied trained model which has been manipulated by an attacker.
+1. [data poisoning](/go/datapoison): an attacker manipulates training data, or data used for in-context learning.
+2. [development-environment model poisoning](/go/devmodelpoison): an attacker manipulates model parameters, or other engineering elements that take part in creating the model, such as code, configuration or libraries.
+3. [supply-chain model poisoning](/go/supplymodelpoison): using a supplied trained model which has been manipulated by an attacker.
 
-Agent fine-tuning and RLHF for autonomous agents follow these same poisoning paths; see [agentic development-time threats](/go/developmenttime/) above.
+Agent fine-tuning and RLHF for autonomous agents follow these same poisoning paths; see [agentic development-time threats](/go/developmenttime) above.
 
 Impact: Integrity of model behaviour is affected, leading to issues from unwanted model output (e.g., failing fraud detection, decisions leading to safety issues, reputation damage, liability).
 
@@ -393,26 +393,26 @@ Data and model poisoning can occur at various stages, as illustrated in the thre
 
 **Controls for broad model poisoning:**
 
-- [General controls](/go/generalcontrols/),
-  - especially [Limiting the effect of unwanted behaviour](/go/limitunwanted/)
-- [Controls for development-time protection](/go/developmenttimeintro/):
-  - [#DEV SECURITY](/go/devsecurity/) to protect the development environment 
-  - [#SEGREGATE DATA](/go/segregatedata/) to create parts of the development environment with extra protection
-  - [#CONF COMPUTE](/go/confcompute/) for denying access to where sensitive data is processed
-  - [#SUPPLY CHAIN MANAGE](/go/supplychainmanage/) especially to control where data and models come from
-- Controls for [data poisoning](/go/datapoison/):
-  - [MORETRAINDATA](/go/moretraindata/) to try and overrule poisoned data
-  - [DATAQUALITYCONTROL](/go/dataqualitycontrol/) to try and detect or prevent poisoned data
-  - [TRAINDATADISTORTION](/go/traindatadistortion/) to try and corrupt poisoned data
-  - [POISONROBUSTMODEL](/go/poisonrobustmodel/) to reduce the ability to recall poisoned data
-  - Controls that are aimed to improve the generalization ability of the model - reducing the memorization of any poisoned samples: [training with adversarial samples](/go/trainadversarial/) and [adversarial robust distillation](/go/adversarialrobustdistillation/)
+- [General controls](/go/generalcontrols),
+  - especially [Limiting the effect of unwanted behaviour](/go/limitunwanted)
+- [Controls for development-time protection](/go/developmenttimeintro):
+  - [#DEV SECURITY](/go/devsecurity) to protect the development environment 
+  - [#SEGREGATE DATA](/go/segregatedata) to create parts of the development environment with extra protection
+  - [#CONF COMPUTE](/go/confcompute) for denying access to where sensitive data is processed
+  - [#SUPPLY CHAIN MANAGE](/go/supplychainmanage) especially to control where data and models come from
+- Controls for [data poisoning](/go/datapoison):
+  - [MORETRAINDATA](/go/moretraindata) to try and overrule poisoned data
+  - [DATAQUALITYCONTROL](/go/dataqualitycontrol) to try and detect or prevent poisoned data
+  - [TRAINDATADISTORTION](/go/traindatadistortion) to try and corrupt poisoned data
+  - [POISONROBUSTMODEL](/go/poisonrobustmodel) to reduce the ability to recall poisoned data
+  - Controls that are aimed to improve the generalization ability of the model - reducing the memorization of any poisoned samples: [training with adversarial samples](/go/trainadversarial) and [adversarial robust distillation](/go/adversarialrobustdistillation)
   
 - Controls specific to broad model poisoning - discussed below
-  - [MODELENSEMBLE](/go/modelensemble/) so that if one of the models is poisoned, it can be contained
+  - [MODELENSEMBLE](/go/modelensemble) so that if one of the models is poisoned, it can be contained
 
 #### #MODEL ENSEMBLE
 > Category: development-time AI engineer control - including specific runtime implementation
-> Permalink: https://owaspai.org/go/modelensemble/
+> Permalink: https://owaspai.org/go/modelensemble
 
 **Description**  
 Model ensemble: deploy the model as an ensemble of models by randomly splitting the trainset to allow detection of poisoning. If one model's output deviates from the others, it can be ignored, as this indicates possible manipulation of the train set.
@@ -435,10 +435,10 @@ Useful standards include:
 
 ### 3.1.1. Data poisoning
 > Category: development-time threat  
-> Permalink: https://owaspai.org/go/datapoison/
+> Permalink: https://owaspai.org/go/datapoison
 
 **Description**  
-An attacker manipulates data that the model uses to learn, in order to affect the algorithm's behavior. Also called _causative attacks_. There are multiple ways to do this (see the attack surface diagram in the [broad model poisoning section](/go/modelpoison/)):
+An attacker manipulates data that the model uses to learn, in order to affect the algorithm's behavior. Also called _causative attacks_. There are multiple ways to do this (see the attack surface diagram in the [broad model poisoning section](/go/modelpoison)):
 - Changing the data while in storage during development-time (e.g., by hacking the database)
 - Changing the data while in transit to the storage (e.g., by hacking into a data transfer)
 - Changing the data while at the supplier, before the data is obtained from the supplier
@@ -447,7 +447,7 @@ An attacker manipulates data that the model uses to learn, in order to affect th
 - Several of the above attack types are very much possible if executed by an insider attacker
 
 
-The manipulated data can be training data, but also in-context-learning data that is used to augment the input (e.g., a prompt) to a model with information to use. Collaborative mitigations like [#FEDERATED LEARNING](/go/federatedlearning/) can reduce data centralization but require additional poisoning controls based on extension of attack surface.
+The manipulated data can be training data, but also in-context-learning data that is used to augment the input (e.g., a prompt) to a model with information to use. Collaborative mitigations like [#FEDERATED LEARNING](/go/federatedlearning) can reduce data centralization but require additional poisoning controls based on extension of attack surface.
 
 Example 1: an attacker breaks into a training set database to add images of houses and labels them as 'fighter planes', to mislead the camera system of an autonomous missile. The missile is then manipulated to attack houses. With a good test set this unwanted behaviour may be detected. However, the attacker can also perform so-called targeted data poisoning by making the poisoned data represent input that normally doesn't occur and therefore would not be in a testset. The attacker can then create that abnormal input in practice. In the previous example this could be houses with white crosses on the door.  See [MITRE ATLAS - Poison trainingdata](https://atlas.mitre.org/techniques/AML.T0020)
 
@@ -465,19 +465,19 @@ Sabotage data poisoning attacks are relatively easy to detect because they occur
 
 **Controls for data poisoning:**
 
-- [General controls](/go/generalcontrols/),
-  - especially [Limiting the effect of unwanted behaviour](/go/limitunwanted/)
-- [Controls for development-time protection](/go/developmenttimeintro/):
-  - [#DEV SECURITY](/go/devsecurity/) to protect the development environment and primarily the training data
-  - [#SEGREGATE DATA](/go/segregatedata/) to create parts of the development environment with extra protection
-  - [#CONF COMPUTE](/go/confcompute/) for denying access to where sensitive data is processed
-  - [#SUPPLY CHAIN MANAGE](/go/supplychainmanage/) especially to control where data and models come from
-- Controls for [data poisoning](/go/datapoison/) - discussed below:
-  - [MORETRAINDATA](/go/moretraindata/) to try and overrule poisoned data
-  - [DATAQUALITYCONTROL](/go/dataqualitycontrol/) to try and detect or prevent poisoned data
-  - [TRAINDATADISTORTION](/go/traindatadistortion/) to try and corrupt poisoned data
-  - [POISONROBUSTMODEL](/go/poisonrobustmodel/) to reduce the ability to recall poisoned data
-  - Controls that are aimed to improve the generalization ability of the model - reducing the memorization of any poisoned samples: [training with adversarial samples](/go/trainadversarial/) and [adversarial robust distillation](/go/adversarialrobustdistillation/)
+- [General controls](/go/generalcontrols),
+  - especially [Limiting the effect of unwanted behaviour](/go/limitunwanted)
+- [Controls for development-time protection](/go/developmenttimeintro):
+  - [#DEV SECURITY](/go/devsecurity) to protect the development environment and primarily the training data
+  - [#SEGREGATE DATA](/go/segregatedata) to create parts of the development environment with extra protection
+  - [#CONF COMPUTE](/go/confcompute) for denying access to where sensitive data is processed
+  - [#SUPPLY CHAIN MANAGE](/go/supplychainmanage) especially to control where data and models come from
+- Controls for [data poisoning](/go/datapoison) - discussed below:
+  - [MORETRAINDATA](/go/moretraindata) to try and overrule poisoned data
+  - [DATAQUALITYCONTROL](/go/dataqualitycontrol) to try and detect or prevent poisoned data
+  - [TRAINDATADISTORTION](/go/traindatadistortion) to try and corrupt poisoned data
+  - [POISONROBUSTMODEL](/go/poisonrobustmodel) to reduce the ability to recall poisoned data
+  - Controls that are aimed to improve the generalization ability of the model - reducing the memorization of any poisoned samples: [training with adversarial samples](/go/trainadversarial) and [adversarial robust distillation](/go/adversarialrobustdistillation)
 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=datapoison -->
@@ -499,12 +499,12 @@ Sabotage data poisoning attacks are relatively easy to detect because they occur
 
 #### #MORE TRAIN DATA
 > Category: development-time AI engineer control - pre-training    
-> Permalink: https://owaspai.org/go/moretraindata/
+> Permalink: https://owaspai.org/go/moretraindata
 
 **Description**  
 More train data: increasing the amount of non-malicious data makes training more robust against poisoned examples - provided that these poisoned examples are small in number. One way to do this is through data augmentation - the creation of artificial training set samples that are small variations of existing samples.  The goal is to 'outnumber' the poisoned samples so the model 'forgets' them. However, this also runs the risk of catastrophic forgetting, where also benign data points (especially those out of distribution) are lost. Also, watch out for overfitting which is another potential side effect to this control.
 
-This control can only be applied during training and therefore not to an already trained model. Nevertheless, a variation can be applied to a trained model: by fine-tuning it with additional non-malicious data - see [POISONROBUSTMODEL](/go/poisonrobustmodel/).
+This control can only be applied during training and therefore not to an already trained model. Nevertheless, a variation can be applied to a trained model: by fine-tuning it with additional non-malicious data - see [POISONROBUSTMODEL](/go/poisonrobustmodel).
 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=moretraindata -->
@@ -519,7 +519,7 @@ Useful standards include:
 
 #### #DATA QUALITY CONTROL
 > Category: development-time AI engineer control - pre-training  
-> Permalink: https://owaspai.org/go/dataqualitycontrol/
+> Permalink: https://owaspai.org/go/dataqualitycontrol
 
 **Description**  
 Data quality control: Perform quality control on data including detecting poisoned samples through integrity checks, statistical deviation or pattern recognition. 
@@ -543,10 +543,10 @@ Implementation may be more suitable for the deployer of the AI system in environ
 Standard data quality controls include:
 - Validation: regularly verify if data satisfies requirements regarding format and being in the allowed range of values
 - Versioning and rollback mechanisms in order to pinpoint quality incidents and restore data
-- Data provenance (see [SUPPLY CHAIN MANAGE](/go/supplychainmanage/))
+- Data provenance (see [SUPPLY CHAIN MANAGE](/go/supplychainmanage))
 
 **Implementation of integrity checks**  
-Safely store hash codes of data elements and conduct regular checks for manipulations. See [DEVSECURITY](/go/devsecurity/) for more details on integrity checks.
+Safely store hash codes of data elements and conduct regular checks for manipulations. See [DEVSECURITY](/go/devsecurity) for more details on integrity checks.
 
 **Implementation of Detecting anomalous training samples**  
 Training data can be analyzed to identify samples that deviate from expected distributions or patterns. Poisoned samples may differ statistically or structurally from the rest of the dataset, making anomaly detection a useful signal.
@@ -562,7 +562,7 @@ Different methods can be used to detect anomalous or poisoned samples, including
 - Reject on Negative Impact (RONI), which evaluates the impact of individual samples on model performance, and
 - gradient fingerprinting, which compares the influence of samples during retraining.
 
-See the [#ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling/) control for more details.
+See the [#ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling) control for more details.
 
 The appropriateness of a method depends on the poisoning threat model and can be assessed through targeted testing, including poisoned dataset benchmarks and resistance testing.
 
@@ -616,19 +616,19 @@ Useful standards include:
 
 #### #TRAIN DATA DISTORTION
 > Category: development-time AI-engineer control - pre-training  
-> Permalink: https://owaspai.org/go/traindatadistortion/
+> Permalink: https://owaspai.org/go/traindatadistortion
 
 **Description**  
 Train data distortion: distorting untrusted training data by smoothing or adding noise.
 
 **Objective**  
-Distorting training data intends to make poisoned 'triggers' ineffective. Such a trigger has been inserted by an attacker in the training data, together with an unwanted output. Whenever input data is presented that contains a similar 'trigger', the model can recognize it and output the unwanted value. The idea is to distort the triggers so that they are not recognized anymore by the model. The idea is essentially the same as in [#INPUTDISTORTION](/go/inputdistortion/), where it is used to defend against evasion attacks and data poisoning.
+Distorting training data intends to make poisoned 'triggers' ineffective. Such a trigger has been inserted by an attacker in the training data, together with an unwanted output. Whenever input data is presented that contains a similar 'trigger', the model can recognize it and output the unwanted value. The idea is to distort the triggers so that they are not recognized anymore by the model. The idea is essentially the same as in [#INPUTDISTORTION](/go/inputdistortion), where it is used to defend against evasion attacks and data poisoning.
 
 **Implementation**  
 Distortion can be performed by e.g. adding noise (randomization), smoothing. For images, JPEG compression can be considered .
-See also [EVASIONROBUSTMODEL](/go/evasionrobustmodel/) on adding noise against evasion attacks and [OBFUSCATETRAININGDATA](/go/obfuscatetrainingdata/) to minimize data for confidentiality purposes - which can serve two purposes: privacy and data poisoning mitigation.
+See also [EVASIONROBUSTMODEL](/go/evasionrobustmodel) on adding noise against evasion attacks and [OBFUSCATETRAININGDATA](/go/obfuscatetrainingdata) to minimize data for confidentiality purposes - which can serve two purposes: privacy and data poisoning mitigation.
 
-A special form of train data distortion is complete removal of certain input fields. Technically, this is data minimization (see [DATAMINIMIZE](/go/dataminimize/)), but its purpose is not protecting the confidentiality of that data per se, but reducing the ability to memorize poisoned samples.
+A special form of train data distortion is complete removal of certain input fields. Technically, this is data minimization (see [DATAMINIMIZE](/go/dataminimize)), but its purpose is not protecting the confidentiality of that data per se, but reducing the ability to memorize poisoned samples.
 
 This control can only be applied during training and therefore not to an already pre-trained model.
 
@@ -657,7 +657,7 @@ Useful standards include:
 
 #### #POISON ROBUST MODEL
 > Category: development-time AI engineer control - post-training  
-> Permalink: https://owaspai.org/go/poisonrobustmodel/
+> Permalink: https://owaspai.org/go/poisonrobustmodel
 
 **Description**  
 Poison robust model: select a model type and creation approach to reduce sensitivity to poisoned training data.
@@ -688,14 +688,14 @@ Useful standards include:
 
 #### #TRAIN ADVERSARIAL
 > Category: development-time AI engineer control - pre-training  
-> Permalink: https://owaspai.org/go/trainadversarial/
+> Permalink: https://owaspai.org/go/trainadversarial
 
 **Description**  
 Training with adversarial examples is used as a control against evasion attacks, but can also be helpful against data poison trigger attacks that are based on slight alterations of training data, since these triggers are like adversarial samples.
 
 For example: adding images of stop signs in a training database for a self-driving car, labeled as 35 miles an hour, where the stop sign is slightly altered. What this effectively does is to force the model to make a mistake with traffic signs that have been altered in a similar way. This type of data poisoning aims to prevent anomaly detection of the poisoned samples.  
 
-Find the corresponding control section [here, with the other controls against Evasion attacks](https://owaspai.org/go/trainadversarial/).
+Find the corresponding control section [here, with the other controls against Evasion attacks](https://owaspai.org/go/trainadversarial).
 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=trainadversarial -->
@@ -710,30 +710,30 @@ Find the corresponding control section [here, with the other controls against Ev
 
 ### 3.1.2. Direct development-time model poisoning
 > Category: development-time threat  
-> Permalink: https://owaspai.org/go/devmodelpoison/
+> Permalink: https://owaspai.org/go/devmodelpoison
 
 **Description**  
-This threat refers to manipulating behaviour of the model  NOT  by n poisoning the training data, but instead by manipulating elements in the development-environment that lead to the model or represent the model (i.e. model attributes), e.g. by manipulating storage of model parameters or placing the model with a completely different one with malicious behavior, injection of malware (command or code injection) through custom or lambda layers, manipulating the model weights and modifying the model architecture, embedding deserialization attacks, which could execute stealthily during model unpacking or model execution. When the model is trained by a supplier in a manipulative way and supplied as-is, then it is [supply-chain model poisoning](/go/supplymodelpoison/).
-Training data manipulation is referred to as [data poisoning](/go/datapoison/).  See the attack surface diagram in the [broad model poisoning section](/go/modelpoison/).
+This threat refers to manipulating behaviour of the model  NOT  by n poisoning the training data, but instead by manipulating elements in the development-environment that lead to the model or represent the model (i.e. model attributes), e.g. by manipulating storage of model parameters or placing the model with a completely different one with malicious behavior, injection of malware (command or code injection) through custom or lambda layers, manipulating the model weights and modifying the model architecture, embedding deserialization attacks, which could execute stealthily during model unpacking or model execution. When the model is trained by a supplier in a manipulative way and supplied as-is, then it is [supply-chain model poisoning](/go/supplymodelpoison).
+Training data manipulation is referred to as [data poisoning](/go/datapoison).  See the attack surface diagram in the [broad model poisoning section](/go/modelpoison).
 
 **Controls**
 
-- [General controls](/go/generalcontrols/),
-  - especially [Limiting the effect of unwanted behaviour](/go/limitunwanted/)
-- [Controls for development-time protection](/go/developmenttimeintro/):
-  - [#DEV SECURITY](/go/devsecurity/) to protect the development environment and primarily the model parameters
-  - [#SEGREGATE DATA](/go/segregatedata/) to create parts of the development environment with extra protection
-  - [#CONF COMPUTE](/go/confcompute/) for denying access to where sensitive data is processed
-  - [#SUPPLY CHAIN MANAGE](/go/supplychainmanage/) especially to control where data and models come from
-- Controls for model performance validation to detect deviation: [#CONTINUOUS VALIDATION](/go/continuousvalidation/)
+- [General controls](/go/generalcontrols),
+  - especially [Limiting the effect of unwanted behaviour](/go/limitunwanted)
+- [Controls for development-time protection](/go/developmenttimeintro):
+  - [#DEV SECURITY](/go/devsecurity) to protect the development environment and primarily the model parameters
+  - [#SEGREGATE DATA](/go/segregatedata) to create parts of the development environment with extra protection
+  - [#CONF COMPUTE](/go/confcompute) for denying access to where sensitive data is processed
+  - [#SUPPLY CHAIN MANAGE](/go/supplychainmanage) especially to control where data and models come from
+- Controls for model performance validation to detect deviation: [#CONTINUOUS VALIDATION](/go/continuousvalidation)
 
 
 ### 3.1.3 Supply-chain model poisoning
 >Category: development-time threat  
->Permalink: https://owaspai.org/go/supplymodelpoison/
+>Permalink: https://owaspai.org/go/supplymodelpoison
 
 **Description**  
-An attacker manipulates a third-party (pre-)trained model which is then supplied, obtained and unknowingly further used and/or trained/fine-tuned, while still having the unwanted behaviour (see the attack surface diagram in the [broad model poisoning section](/go/modelpoison/)). If the supplied model is used for further training, then the attack is called a _transfer learning attack_.
+An attacker manipulates a third-party (pre-)trained model which is then supplied, obtained and unknowingly further used and/or trained/fine-tuned, while still having the unwanted behaviour (see the attack surface diagram in the [broad model poisoning section](/go/modelpoison)). If the supplied model is used for further training, then the attack is called a _transfer learning attack_.
 
 AI models are sometimes obtained elsewhere (e.g., open source) and then further trained or fine-tuned. These models may have been manipulated (poisoned) at the source, or in transit. See [OWASP for LLM 04: Supply Chain](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/).
 
@@ -741,28 +741,28 @@ The type of manipulation can be through data poisoning, or by specifically chang
 
 **Controls**
 
-- [General controls](/go/generalcontrols/),
-  - especially [Limiting the effect of unwanted behaviour](/go/limitunwanted/)
-- From the [controls for development-time protection](/go/developmenttimeintro/): [#SUPPLY CHAIN MANAGE](/go/supplychainmanage/) to control where models come from
-- Controls for [data poisoning](/go/datapoison/) post-training:
-  - [POISONROBUSTMODEL](/go/poisonrobustmodel/) to reduce the ability to recall poisoned data
-  - [Adversarial robust distillation](/go/adversarialrobustdistillation/) to improve the generalization ability of the model
+- [General controls](/go/generalcontrols),
+  - especially [Limiting the effect of unwanted behaviour](/go/limitunwanted)
+- From the [controls for development-time protection](/go/developmenttimeintro): [#SUPPLY CHAIN MANAGE](/go/supplychainmanage) to control where models come from
+- Controls for [data poisoning](/go/datapoison) post-training:
+  - [POISONROBUSTMODEL](/go/poisonrobustmodel) to reduce the ability to recall poisoned data
+  - [Adversarial robust distillation](/go/adversarialrobustdistillation) to improve the generalization ability of the model
 
 - Other controls need to be applied by the supplier of the model:
-  - Controls for [development-time protection](/go/developmenttimeintro/), like for example protecting the training set database against data poisoning
-  - Controls for [broad model poisoning](/go/modelpoison/)
-- [#SUPPLY CHAIN MANAGE](/go/supplychainmanage/) especially to components from frameworks and tools 
+  - Controls for [development-time protection](/go/developmenttimeintro), like for example protecting the training set database against data poisoning
+  - Controls for [broad model poisoning](/go/modelpoison)
+- [#SUPPLY CHAIN MANAGE](/go/supplychainmanage) especially to components from frameworks and tools 
 
 ---
 
 ## 3.2. Sensitive data leak development-time
 >Category: group of development-time threats  
->Permalink: https://owaspai.org/go/devleak/
+>Permalink: https://owaspai.org/go/devleak
 
 
 ### 3.2.1. Development-time data leak
 >Category: development-time threat  
->Permalink: https://owaspai.org/go/devdataleak/
+>Permalink: https://owaspai.org/go/devdataleak
 
 **Description**  
 Unauthorized access to train or test data through a data leak of the development environment.
@@ -777,46 +777,46 @@ GenAI models are often hosted in the cloud, sometimes managed by an external par
 
 **Controls**
 
-- [General controls](/go/generalcontrols/),
-  - especially [Sensitive data limitation](/go/dataminimize/)
-- [Controls for development-time protection](/go/developmenttimeintro/):
-  - [#DEV SECURITY](/go/devsecurity/) to protect the development environment and primarily the training and test data
-  - [#SEGREGATE DATA](/go/segregatedata/) to create parts of the development environment with extra protection
-  - [#CONF COMPUTE](/go/confcompute/) for denying access to where sensitive data is processed
+- [General controls](/go/generalcontrols),
+  - especially [Sensitive data limitation](/go/dataminimize)
+- [Controls for development-time protection](/go/developmenttimeintro):
+  - [#DEV SECURITY](/go/devsecurity) to protect the development environment and primarily the training and test data
+  - [#SEGREGATE DATA](/go/segregatedata) to create parts of the development environment with extra protection
+  - [#CONF COMPUTE](/go/confcompute) for denying access to where sensitive data is processed
 
 
 ### 3.2.2. Direct development-time model leak
 >Category: development-time threat  
->Permalink: https://owaspai.org/go/devmodelleak/
+>Permalink: https://owaspai.org/go/devmodelleak
 
 **Description**  
 Unauthorized access to model attributes (e.g., parameters, weights, architecture) through stealing data from the development environment, including the supply chain. This can occur via insider access, compromised repositories, or weak storage controls
 
 Impact:  Confidentiality breach of the model (i.e., model parameters), which can be:
 - intellectual property theft (e.g., by a competitor)
-- and/or a way to perform input attacks on the copied model, circumventing protections. These protections include rate limiting, access control, and detection mechanisms. This can be done for [all input attacks](/go/inputthreats/) that extract data, and for the preparation of [evasion](/go/evasion/) or [prompt injection](/go/promptinjection/): experimenting to find attack inputs that work.
+- and/or a way to perform input attacks on the copied model, circumventing protections. These protections include rate limiting, access control, and detection mechanisms. This can be done for [all input attacks](/go/inputthreats) that extract data, and for the preparation of [evasion](/go/evasion) or [prompt injection](/go/promptinjection): experimenting to find attack inputs that work.
 
-Alternative ways of model theft are [model exfiltration](/go/modelexfiltration/) and [direct runtime model leak](/go/runtimemodelleak/).
+Alternative ways of model theft are [model exfiltration](/go/modelexfiltration) and [direct runtime model leak](/go/runtimemodelleak).
 
 **Risk identification**  
 This threat applies if the model represents intellectual property (i.e., a trade secret), or the risk of any input attack applies - with the exception of the model being publicly available because then there is no need to steal it.
 
 **Controls**
 
-- [General controls](/go/generalcontrols/),
-  - especially [Sensitive data limitation](/go/dataminimize/)
-- [Controls for development-time protection](/go/developmenttimeintro/):
-  - [#DEV SECURITY](/go/devsecurity/) to protect the development environment and primarily the model parameters
-  - [#SEGREGATE DATA](/go/segregatedata/) to create parts of the development environment with extra protection
-  - [#CONF COMPUTE](/go/confcompute/) for denying access to where sensitive data is processed
-  - [#SUPPLY CHAIN MANAGE](/go/supplychainmanage/) specifically protects model attributes
+- [General controls](/go/generalcontrols),
+  - especially [Sensitive data limitation](/go/dataminimize)
+- [Controls for development-time protection](/go/developmenttimeintro):
+  - [#DEV SECURITY](/go/devsecurity) to protect the development environment and primarily the model parameters
+  - [#SEGREGATE DATA](/go/segregatedata) to create parts of the development environment with extra protection
+  - [#CONF COMPUTE](/go/confcompute) for denying access to where sensitive data is processed
+  - [#SUPPLY CHAIN MANAGE](/go/supplychainmanage) specifically protects model attributes
 - Specifically for model theft:
-  - [#MODEL WATERMARKING](/go/modelwatermarking/) 
+  - [#MODEL WATERMARKING](/go/modelwatermarking) 
 
   
 ### 3.2.3. Source code/configuration leak
 >Category: development-time threat  
->Permalink: https://owaspai.org/go/devcodeleak/
+>Permalink: https://owaspai.org/go/devcodeleak
 
 **Description**  
 Unauthorized access to code or configuration that leads to the model, through a data leak of the development environment. Such code or configuration is used to preprocess the training/test data and train the model.
@@ -825,9 +825,9 @@ Impact: Confidentiality breach of model intellectual property.
 
 **Controls**
 
-- [General controls](/go/generalcontrols/),
-  - especially [Sensitive data limitation](/go/dataminimize/)
-- [Controls for development-time protection](/go/developmenttimeintro/):
-  - [#DEV SECURITY](/go/devsecurity/) to protect the development environment and primarily the source code/configuration
-  - [#SEGREGATE DATA](/go/segregatedata/) to create parts of the development environment with extra protection
+- [General controls](/go/generalcontrols),
+  - especially [Sensitive data limitation](/go/dataminimize)
+- [Controls for development-time protection](/go/developmenttimeintro):
+  - [#DEV SECURITY](/go/devsecurity) to protect the development environment and primarily the source code/configuration
+  - [#SEGREGATE DATA](/go/segregatedata) to create parts of the development environment with extra protection
   

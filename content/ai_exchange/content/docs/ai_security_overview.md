@@ -9,44 +9,44 @@ weight: 1
 
 ### Table of contents
 >Category: discussion  
->Permalink: https://owaspai.org/go/toc/
+>Permalink: https://owaspai.org/go/toc
 
 * [AI Security Overview](/docs/ai_security_overview/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [About the AI Exchange](/go/about/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Roadmap](/go/roadmap/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [How to use this document](/go/document/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Organize AI](/go/organize/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Essentials](/go/essentials/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Threats](/go/threatsoverview/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Threat matrix](/go/aisecuritymatrix/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Agentic AI overview](/go/agenticaioverview/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Navigator](/go/navigator/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Controls](/go/controlsoverview/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Periodic table of threats and controls](/go/periodictable/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Risk analysis](/go/riskanalysis/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Threat modeling](/go/threatmodel/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [About the AI Exchange](/go/about)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Roadmap](/go/roadmap)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [How to use this document](/go/document)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Organize AI](/go/organize)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Essentials](/go/essentials)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Threats](/go/threatsoverview)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Threat matrix](/go/aisecuritymatrix)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Agentic AI overview](/go/agenticaioverview)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Navigator](/go/navigator)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Controls](/go/controlsoverview)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Periodic table of threats and controls](/go/periodictable)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Risk analysis](/go/riskanalysis)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Threat modeling](/go/threatmodel)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [How about ...](/docs/ai_security_overview/#how-about-)  
 
-* [Deep dive into threats and controls:](/go/navigator/)  
+* [Deep dive into threats and controls:](/go/navigator)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [1. General controls](/docs/1_general_controls)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.1 Governance controls](/go/governancecontrols/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.2 Data limitation](/go/datalimit/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.3 Limit unwanted behaviour](/go/limitunwanted/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.1 Governance controls](/go/governancecontrols)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.2 Data limitation](/go/datalimit)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.3 Limit unwanted behaviour](/go/limitunwanted)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [2. Input threats and controls](/docs/2_threats_through_use/)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Prompt injection protection](/go/promptinjectionsevenlayers/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Prompt injection protection](/go/promptinjectionsevenlayers)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [3. Development-time threats and controls](/docs/3_development_time_threats/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [4. Runtime conventional security threats and controls](/docs/4_runtime_application_security_threats/)  
 
 * [AI security testing](/docs/5_testing/)
-* [AI privacy](/go/aiprivacy/)  
+* [AI privacy](/go/aiprivacy)  
 * [References](/docs/ai_security_references/)
 * [Index](/docs/ai_security_index/)
 
 ### About the AI Exchange
 >Category: discussion  
->Permalink: https://owaspai.org/go/about/
+>Permalink: https://owaspai.org/go/about
 
-If you want to jump right into the content, head on to the [Table of contents](/go/toc/) or [How to use this document](/go/document/).  
+If you want to jump right into the content, head on to the [Table of contents](/go/toc) or [How to use this document](/go/document).  
 
 **Summary**  
 Welcome to the go-to comprehensive resource for AI security & privacy - over 300 pages of practical advice and references on protecting AI, and data-centric systems from threats - where AI consists of ALL AI: Agentic AI, Analytical AI, Discriminative AI, Generative AI and heuristic systems. This content serves as key bookmark for practitioners, and is contributed actively and substantially to international standards such as ISO/IEC and the AI Act through official standard partnerships. Through broad collaboration with key institutes and SDOs, the _Exchange_ represents the consensus on AI security and privacy.
@@ -81,7 +81,7 @@ This material is evolving constantly through open source continuous delivery. Th
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://owaspai.org">OWASP AI Exchange</a> by <span property="cc:attributionName">The AI security community</span> is marked with <a href="http://creativecommons.org/publicdomain/zero/1.0?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC0 1.0</a> meaning you can use any part freely without copyright and without attribution. If possible, it would be nice if the OWASP AI Exchange is credited and/or linked to, for readers to find more information.</p>
 
 **Who is this for**  
-The Exchange is for practitioners in security, privacy, engineering, testing, governance, and for end users in an organization - anyone interested in the security and privacy of AI systems. The goal is to make the material as easy as possible to access. Using the [Risk analysis section](/go/riskanalysis/) you can quickly narrow down the issues that matter to your situation, whether you are a large equipment manufacturer designing an AI medical device, or a small travel agency using a chatbot for HR purposes.
+The Exchange is for practitioners in security, privacy, engineering, testing, governance, and for end users in an organization - anyone interested in the security and privacy of AI systems. The goal is to make the material as easy as possible to access. Using the [Risk analysis section](/go/riskanalysis) you can quickly narrow down the issues that matter to your situation, whether you are a large equipment manufacturer designing an AI medical device, or a small travel agency using a chatbot for HR purposes.
 
 **History**  
 The AI Exchange was founded in 2022 by [Rob van der Veer](https://www.linkedin.com/in/robvanderveer/) - bridge builder for security standards, Chief AI Officer at [Software Improvement Group](https://www.softwareimprovementgroup.com), with 34 years of experience in AI & security, lead author of ISO/IEC 5338 on AI lifecycle, founding father of OpenCRE, and currently working in ISO/IEC 27090, ISO/IEC 27091 and the EU AI act in CEN/CENELEC, where he was elected co-editor by the EU member states.
@@ -122,7 +122,7 @@ NOTE: Producing and continuously updating a comprehensive and coherent quality r
 
 ### Relevant OWASP AI initiatives
 >Category: discussion  
->Permalink: https://owaspai.org/go/aiatowasp/
+>Permalink: https://owaspai.org/go/aiatowasp
 
 [![](/images/aixpositioning.png)](/images/aixpositioning.png)
 
@@ -136,7 +136,7 @@ Here's more information on AI at OWASP:
 - If you want to **assess or audit the security of your AI application** against technical security requirements, use the [OWASP AISVS](https://owasp.org/www-project-artificial-intelligence-security-verification-standard-aisvs-docs/).
 
 Some more details on projects: 
-- [The OWASP AI Exchange(this work)](/go/about/) is the go-to single resource for AI security & privacy - over 300 pages of practical advice and references on protecting AI, and data-centric systems from threats - where AI consists of Analytical AI, Discriminative AI, Generative AI and heuristic systems. This content serves as a key bookmark for practitioners, and is contributed actively and substantially to international standards such as ISO/IEC and the AI Act through official standard partnerships.
+- [The OWASP AI Exchange(this work)](/go/about) is the go-to single resource for AI security & privacy - over 300 pages of practical advice and references on protecting AI, and data-centric systems from threats - where AI consists of Analytical AI, Discriminative AI, Generative AI and heuristic systems. This content serves as a key bookmark for practitioners, and is contributed actively and substantially to international standards such as ISO/IEC and the AI Act through official standard partnerships.
 - The [OWASP GenAI Security Project](https://genai.owasp.org/) is an umbrella project of various initiatives that publish documents on Generative AI security, including the LLM AI Security & Governance Checklist and the LLM top 10 - featuring the most severe security risks of Large Language Models.
 - The [OWASP AISVS](https://owasp.org/www-project-artificial-intelligence-security-verification-standard-aisvs-docs/) (Artificial Intelligence Security Verification Standard) focuses on providing developers, architects, and security professionals with a structured checklist to verify the security of AI-driven applications. It provides three verification levels aligned with ASVS, and covers the full AI lifecycle from training data integrity to deployment monitoring.
 - [OpenCRE.org](https://opencre.org) has been established under the OWASP Integration standards project(from the _Project wayfinder_) and holds a catalog of common requirements across various security standards inside and outside of OWASP. OpenCRE links all AI security controls and threats across standards and guidelines, and the Exchange features a mechanism to insert the correct references for all sections to owaspai.org. This effectively makes the Exchange a hub for the AI security standards landscape. More details in [this LinkedIn post](https://www.linkedin.com/posts/robvanderveer_announcing-the-rosetta-stone-of-ai-security-share-7454426279262564352-SLzR).
@@ -159,7 +159,7 @@ The AI Exchange has strong and diverse collaboration with industry and institute
 
 ### AI Exchange roadmap
 >Category: discussion  
->Permalink: https://owaspai.org/go/roadmap/
+>Permalink: https://owaspai.org/go/roadmap
 
 Our **mission** is to be the global go-to resource for security and privacy practitioners working with AI and data-centric systems—bringing alignment and encouraging collaboration across initiatives. In doing so, we create a safe, open, and independent space where everyone can find and share insights.
 
@@ -196,7 +196,7 @@ Core Technical Workstreams
 
 ### How to use this Document
 >Category: discussion  
->Permalink: https://owaspai.org/go/document/
+>Permalink: https://owaspai.org/go/document
 
 The AI Exchange is a single coherent resource on the security and privacy of AI systems, presented on this website, divided over several pages - containing threats, controls, guidelines, tests and references.
 
@@ -204,50 +204,50 @@ The AI Exchange is a single coherent resource on the security and privacy of AI 
 - **Ask any question on AI Security**
   Ask an AI security/privacy question based on the content of the Exchange: [AI Exchange AGENT](https://notebooklm.google.com/notebook/75840a00-78f8-454d-ad4d-9ac27ae4cf48) (uses Google service so requires Google account).
 - **Learn what the AI Exchange is**:  
-  See [About](https://owaspai.org/go/about/)
+  See [About](https://owaspai.org/go/about)
 - **Start AI security as organization**:  
-  See [How to organize AI security](https://owaspai.org/go/organize/)..
+  See [How to organize AI security](https://owaspai.org/go/organize)..
 - **Start AI security as individual**:  
-  See 'Learn AI security' below to familiarize yourself with the threats and controls or look in the [references section](/go/references/) for a large table with training material.
+  See 'Learn AI security' below to familiarize yourself with the threats and controls or look in the [references section](/go/references) for a large table with training material.
 - **Understand how AI systems are engineered before securing them**:
-  See the [AI engineering primer for security professionals](/go/aiengineeringprimer/) below. It explains common delivery models, engineering activities, artifacts, and the security decisions attached to them.
+  See the [AI engineering primer for security professionals](/go/aiengineeringprimer) below. It explains common delivery models, engineering activities, artifacts, and the security decisions attached to them.
 - **Threat model your system, to learn how to secure it**:  
-   If you want your **AI system to be secure**, start with [threat modeling](/go/threatmodel/) to guide you through a number of questions, resulting in the threats that apply. And when you click on those threats you'll find the controls (countermeasures) to check for, or to implement.
-   Alternatively, you can let our [THREAT ADVISOR](/go/threatadvisor/) ask YOU questions about your system and threat model for you. Just go to the advisor (requires a Google account) and start by briefly describing your system. Your data will remain in your own Google workspace.
+   If you want your **AI system to be secure**, start with [threat modeling](/go/threatmodel) to guide you through a number of questions, resulting in the threats that apply. And when you click on those threats you'll find the controls (countermeasures) to check for, or to implement.
+   Alternatively, you can let our [THREAT ADVISOR](/go/threatadvisor) ask YOU questions about your system and threat model for you. Just go to the advisor (requires a Google account) and start by briefly describing your system. Your data will remain in your own Google workspace.
 - **Learn AI security**:  
-  - Step 1: If you like a 101 on AI engineering, walk throught the [AI engineering primer for security professionals](/go/aiengineeringprimer/)
-  - Step 2: First study the brief [AI security essentials](/go/essentials/) for the **big picture**.
-  - Step 3: **Select** the threats that are relevant to your practice, by looking at [threat modeling](/go/threatmodel/) - or let AI interview you to find out (see above), or skip this step if you want to learn the complete threat picture.
-  - Step 4: If you're AI models can **trigger actions**, see the brief [Agentic AI overview](/go/agenticaioverview/) to see how that aspect is throughout the Exchange.
-  - Step 5: If you run a **ready-made model**, have a look at the [threat model on ready-made models](/go/readymademodel/).
-  - Step 6: See your **threats** in their context ** in the [AI threat model](/go/threatsoverview/) and the [AI security matrix](/go/aisecuritymatrix).
+  - Step 1: If you like a 101 on AI engineering, walk throught the [AI engineering primer for security professionals](/go/aiengineeringprimer)
+  - Step 2: First study the brief [AI security essentials](/go/essentials) for the **big picture**.
+  - Step 3: **Select** the threats that are relevant to your practice, by looking at [threat modeling](/go/threatmodel) - or let AI interview you to find out (see above), or skip this step if you want to learn the complete threat picture.
+  - Step 4: If you're AI models can **trigger actions**, see the brief [Agentic AI overview](/go/agenticaioverview) to see how that aspect is throughout the Exchange.
+  - Step 5: If you run a **ready-made model**, have a look at the [threat model on ready-made models](/go/readymademodel).
+  - Step 6: See your **threats** in their context ** in the [AI threat model](/go/threatsoverview) and the [AI security matrix](/go/aisecuritymatrix).
   - Step 7: Click on your relevant threats in that overview to get more information and how to protect against it.
-  - Step 8: To find out what to do against a specific threat, check the **Controls** section of that threat, or the [periodic table](/go/periodictable/) which lists the controls for every threat.
-  - Step 9: To learn about the bigger picture how controls play a role, and interact: see the [controls overview](/go/controlsoverview/) 
-  - Step 10: If **privacy** is in scope for you: see [the privacy section](/go/aiprivacy/).
-  - Step 11: If you're involved in **testing**: see [the testing section](/go/testing/).
+  - Step 8: To find out what to do against a specific threat, check the **Controls** section of that threat, or the [periodic table](/go/periodictable) which lists the controls for every threat.
+  - Step 9: To learn about the bigger picture how controls play a role, and interact: see the [controls overview](/go/controlsoverview) 
+  - Step 10: If **privacy** is in scope for you: see [the privacy section](/go/aiprivacy).
+  - Step 11: If you're involved in **testing**: see [the testing section](/go/testing).
   - Step 12: A great way to better understand AI threats is to act as an attacker, for which we recommend [PwnzzAI!](https://github.com/OWASP/PwnzzAI ): a hacking lab project with the Exchange as founding partner. A great exercise!
-  - To learn more about education programs, see [#SEC EDUCATE](/go/seceducate/)
+  - To learn more about education programs, see [#SEC EDUCATE](/go/seceducate)
   - If you prefer one document: download a [snapshot of the Exchange in pdf](/OWASP-AI-Exchange.pdf).
 - **Lookup**:
-  - To look up a specific topic, use the search function or the [index](/go/index/).
-  - Looking for more information, or training material: see the [references](/go/references/).
+  - To look up a specific topic, use the search function or the [index](/go/index).
+  - Looking for more information, or training material: see the [references](/go/references).
 
 
 The AI exchange covers both heuristic artificial intelligence (e.g., expert systems) and machine learning. This means that when we talk about an AI system, it can for example be a Large Language Model, a linear regression function, a rule-based system, or a lookup table based on statistics. Throughout this document, it is made clear which threats and controls play a role and when.
 
 **The structure**  
-You can see the high-level structure on the [main page](https://owaspai.org). On larger screens you can see the structure of pages on the left sidebar and the structure within the current page on the right. On smaller screens you can view these structures through the menu. There is also a section with the most important topics in a [Table of contents](/go/toc/).
+You can see the high-level structure on the [main page](https://owaspai.org). On larger screens you can see the structure of pages on the left sidebar and the structure within the current page on the right. On smaller screens you can view these structures through the menu. There is also a section with the most important topics in a [Table of contents](/go/toc).
 
 The main structure is made of the following pages:  
-  (0) [AI security overview - this page](/go/toc/), contains an overview of AI security and discussions of various topics.  
-  (1) [General controls, such as AI governance](/go/generalcontrols/)  
-  (2) [Input threats, such as evasion attacks](/go/inputthreats/)  
-  (3) [Development-time threats, such as data poisoning](/go/developmenttime/)  
-  (4) [Runtime conventional security threats, such as leaking input](/go/runtimeconventionalsec/)  
-  (5) [AI security testing](/go/testing/)  
-  (6) [AI privacy](/go/aiprivacy/)  
-  (7) [References](/go/references/)
+  (0) [AI security overview - this page](/go/toc), contains an overview of AI security and discussions of various topics.  
+  (1) [General controls, such as AI governance](/go/generalcontrols)  
+  (2) [Input threats, such as evasion attacks](/go/inputthreats)  
+  (3) [Development-time threats, such as data poisoning](/go/developmenttime)  
+  (4) [Runtime conventional security threats, such as leaking input](/go/runtimeconventionalsec)  
+  (5) [AI security testing](/go/testing)  
+  (6) [AI privacy](/go/aiprivacy)  
+  (7) [References](/go/references)
 
 This page (AI security overview) will continue with discussions about:
 - A high-level overview of threats
@@ -259,7 +259,7 @@ This page (AI security overview) will continue with discussions about:
 
 ### AI engineering primer for security professionals
 >Category: discussion  
->Permalink: https://owaspai.org/go/aiengineeringprimer/
+>Permalink: https://owaspai.org/go/aiengineeringprimer
 
 Security reviews become difficult when "the AI" is treated as one component. An AI-enabled product is usually a software system built around data, one or more models, prompts, retrieval sources, tools, and conventional infrastructure. The way these parts are sourced and operated determines which risks an organization owns, which controls it can implement, and which assurances it must obtain from suppliers.
 
@@ -269,18 +269,18 @@ Security reviews become difficult when "the AI" is treated as one component. An 
 2. **Run an externally sourced model.** The organization also owns model selection, artifact integrity, deployment hardening, isolation, patching, and capacity management. The origin and maintenance of the model remain supply-chain concerns.
 3. **Train or adapt a model.** The organization additionally owns the training or fine-tuning data, pipeline, evaluation process, resulting model artifacts, and release decisions. Fine-tuning a hosted model falls between the first and third models because responsibilities are shared.
 
-Real systems often combine all three. A product can use a hosted general-purpose model, a self-hosted classifier, and a fine-tuned embedding model in the same request path. Record responsibilities per component rather than assigning one label to the whole product. See [ready-made models](/go/readymademodel/) and [data, model, and hosting supply-chain management](/go/supplychainmanage/) for the corresponding controls.
+Real systems often combine all three. A product can use a hosted general-purpose model, a self-hosted classifier, and a fine-tuned embedding model in the same request path. Record responsibilities per component rather than assigning one label to the whole product. See [ready-made models](/go/readymademodel) and [data, model, and hosting supply-chain management](/go/supplychainmanage) for the corresponding controls.
 
 **The engineering lifecycle and its security entry points**
 
 | Engineering activity | Typical artifacts | Security question | Start in the Exchange |
 | --- | --- | --- | --- |
-| Frame the task and acceptance criteria | Use cases, data-flow diagrams, quality targets, unacceptable outcomes | Should AI be used here, what can go wrong, and who can be harmed? | [Essentials](/go/essentials/), [threat modeling](/go/threatmodel/), [privacy](/go/aiprivacy/) |
-| Source or build models and data | Service contracts, model cards, datasets, licenses, model artifacts | Can the source be trusted, and what evidence or control remains with the supplier? | [Supply-chain management](/go/supplychainmanage/), [ready-made models](/go/readymademodel/) |
-| Adapt behaviour | System prompts, prompt templates, retrieval indexes, fine-tuning data and configuration | Which untrusted data or instructions can change model behaviour? | [Prompt injection](/go/promptinjection/), [development practices](/go/devprogram/) |
-| Integrate the model into a product | Application code, APIs, agents, tools, identities, secrets, output parsers | What can the model read, disclose, modify, or trigger, and with whose privileges? | [Agentic AI overview](/go/agenticaioverview/), [secure development](/go/secdevprogram/) |
-| Evaluate and release | Evaluation sets, test results, red-team findings, model and prompt versions | Does the system meet both its functional and security requirements on representative and adversarial inputs? | [Continuous validation](/go/continuousvalidation), [AI security testing](/go/testing/) |
-| Operate and change the system | Telemetry, incidents, user feedback, version history, rollback procedures | Can failures, abuse, and behavioural drift be detected, investigated, and contained? | [Monitoring](/go/monitoruse/), [AI security testing](/go/testing/) |
+| Frame the task and acceptance criteria | Use cases, data-flow diagrams, quality targets, unacceptable outcomes | Should AI be used here, what can go wrong, and who can be harmed? | [Essentials](/go/essentials), [threat modeling](/go/threatmodel), [privacy](/go/aiprivacy) |
+| Source or build models and data | Service contracts, model cards, datasets, licenses, model artifacts | Can the source be trusted, and what evidence or control remains with the supplier? | [Supply-chain management](/go/supplychainmanage), [ready-made models](/go/readymademodel) |
+| Adapt behaviour | System prompts, prompt templates, retrieval indexes, fine-tuning data and configuration | Which untrusted data or instructions can change model behaviour? | [Prompt injection](/go/promptinjection), [development practices](/go/devprogram) |
+| Integrate the model into a product | Application code, APIs, agents, tools, identities, secrets, output parsers | What can the model read, disclose, modify, or trigger, and with whose privileges? | [Agentic AI overview](/go/agenticaioverview), [secure development](/go/secdevprogram) |
+| Evaluate and release | Evaluation sets, test results, red-team findings, model and prompt versions | Does the system meet both its functional and security requirements on representative and adversarial inputs? | [Continuous validation](/go/continuousvalidation), [AI security testing](/go/testing) |
+| Operate and change the system | Telemetry, incidents, user feedback, version history, rollback procedures | Can failures, abuse, and behavioural drift be detected, investigated, and contained? | [Monitoring](/go/monitoruse), [AI security testing](/go/testing) |
 
 Several properties distinguish AI engineering from ordinary deterministic software development:
 
@@ -290,7 +290,7 @@ Several properties distinguish AI engineering from ordinary deterministic softwa
 - **Small changes can alter security behaviour.** A model, prompt, retrieval source, tool, policy, or threshold update can invalidate earlier evidence. Version these parts together and retest after change.
 - **Supplier boundaries do not remove accountability.** If a control cannot be implemented directly, turn it into a supplier requirement and verify the evidence provided.
 
-A practical first pass is to draw the flow of data, instructions, and actions through the system; list the model, data, prompt, retrieval, tool, and infrastructure artifacts at each step; and assign an owner or supplier to each artifact. Use that inventory to [threat model the system](/go/threatmodel/), select controls, and decide what evidence is required before release.
+A practical first pass is to draw the flow of data, instructions, and actions through the system; list the model, data, prompt, retrieval, tool, and infrastructure artifacts at each step; and assign an owner or supplier to each artifact. Use that inventory to [threat model the system](/go/threatmodel), select controls, and decide what evidence is required before release.
 
 ---
 
@@ -300,7 +300,7 @@ This section discusses the main steps for adopting AI security in your organizat
 
 ### How to organize AI Security
 >Category: discussion  
->Permalink: https://owaspai.org/go/organize/
+>Permalink: https://owaspai.org/go/organize
 
 Organizations: start here!  
 While Artificial Intelligence (AI) offers tremendous opportunities, it also brings new risks including security threats. It is therefore imperative to approach AI applications with a clear understanding of potential threats and the controls against them. AI can only prosper if we can trust it.  
@@ -310,23 +310,23 @@ While Artificial Intelligence (AI) offers tremendous opportunities, it also brin
 The five steps - G.U.A.R.D - to organize AI security as an organization are: 
 
 1. **Govern**  
-  Start implementing general AI Governance so the organization can manage AI: know where it is applied, what people's responsibilities are, establish policies, do impact assessment, arrange [compliance](/go/checkcompliance/), organize [education](/go/seceducate/), et cetera. See [#AI Program](/go/aiprogram/) for guidance, including a quickstart. This is a general AI management process - not just security.
+  Start implementing general AI Governance so the organization can manage AI: know where it is applied, what people's responsibilities are, establish policies, do impact assessment, arrange [compliance](/go/checkcompliance), organize [education](/go/seceducate), et cetera. See [#AI Program](/go/aiprogram) for guidance, including a quickstart. This is a general AI management process - not just security.
 2. **Understand**  
-   - Based on the inventory of your applications of AI and AI ideas, understand which threats apply, using the decision tree in the [risk analysis section](/go/threatmodel/).
-   - Then make sure engineers and security professionals understand those relevant threats and their controls, using the guidance of the relevant [threat sections](/go/threatsoverview/) and the corresponding [process controls and technical controls](/go/periodictable/). Note that most of these controls are about familiar conventional security countermeasures, unless you are training your own model.
-   - Use the courses and resources in the [references section](/go/references/) to support the understanding.
-   - Distinguish between controls that your organization has to implement, and those that are the responsibility of your supplier. Make the latter category part of your [supply chain management](/go/supplychainmanage/). See the [section on ready-made models](/go/readymademodel/) if you don't train your own models.
+   - Based on the inventory of your applications of AI and AI ideas, understand which threats apply, using the decision tree in the [risk analysis section](/go/threatmodel).
+   - Then make sure engineers and security professionals understand those relevant threats and their controls, using the guidance of the relevant [threat sections](/go/threatsoverview) and the corresponding [process controls and technical controls](/go/periodictable). Note that most of these controls are about familiar conventional security countermeasures, unless you are training your own model.
+   - Use the courses and resources in the [references section](/go/references) to support the understanding.
+   - Distinguish between controls that your organization has to implement, and those that are the responsibility of your supplier. Make the latter category part of your [supply chain management](/go/supplychainmanage). See the [section on ready-made models](/go/readymademodel) if you don't train your own models.
 3. **Adapt**  
-    - [Adapt your security practices](/go/secprogram/) to include AI security assets, threats and controls from this document. Also take into account that new regulation can be more outcome-based (e.g. the EU AI Act), instead of control-focused (like ISO/IEC 27001) which makes it important to extend the Information Security Management System with assurance processes for showing that risks have been sufficiently mitigated.
+    - [Adapt your security practices](/go/secprogram) to include AI security assets, threats and controls from this document. Also take into account that new regulation can be more outcome-based (e.g. the EU AI Act), instead of control-focused (like ISO/IEC 27001) which makes it important to extend the Information Security Management System with assurance processes for showing that risks have been sufficiently mitigated.
     - Document risk assessment, control selection, the rationale, and the risk-mitigation evidence (a good idea in general, and mandatory for the AI Act.
-    - Adapt your threat modelling to include the [AI security threat modeling](/go/threatmodel/) approach and do cross-team threat modelling, involving representation from all engineers.
-    - Adapt your testing to include [AI-specific security testing](/go/testing/).
-    - Adapt your supply chain management to include [data, model, and hosting management](/go/supplychainmanage/) and to make sure that your suppliers are taking care of the identified threats.
-    - If you develop AI systems (even if you don't train your own models): Adapt your [software development practices](/go/devprogram/) and [secure development program](/go/secdevprogram/) to involve AI engineering activities. 
+    - Adapt your threat modelling to include the [AI security threat modeling](/go/threatmodel) approach and do cross-team threat modelling, involving representation from all engineers.
+    - Adapt your testing to include [AI-specific security testing](/go/testing).
+    - Adapt your supply chain management to include [data, model, and hosting management](/go/supplychainmanage) and to make sure that your suppliers are taking care of the identified threats.
+    - If you develop AI systems (even if you don't train your own models): Adapt your [software development practices](/go/devprogram) and [secure development program](/go/secdevprogram) to involve AI engineering activities. 
 4. **Reduce**  
-  Reduce potential impact by [minimizing or obfuscating sensitive data](/go/datalimit/) and [limiting the impact of unwanted behaviour](/go/limitunwanted/) (e.g., managing privileges, guardrails, human oversight etc. Basically: apply Murphy's law). This is critical because AI models can always be wrong or manipulated. 
+  Reduce potential impact by [minimizing or obfuscating sensitive data](/go/datalimit) and [limiting the impact of unwanted behaviour](/go/limitunwanted) (e.g., managing privileges, guardrails, human oversight etc. Basically: apply Murphy's law). This is critical because AI models can always be wrong or manipulated. 
 5. **Demonstrate**  
-    Establish evidence of responsible AI security through transparency, [testing](/go/testing/), documentation, and communication. Prove to management, regulators, and clients that your AI systems are under control and that the applied safeguards work as intended.
+    Establish evidence of responsible AI security through transparency, [testing](/go/testing), documentation, and communication. Prove to management, regulators, and clients that your AI systems are under control and that the applied safeguards work as intended.
 
 And finally: think before you build an AI solution. AI can have fantastic benefits, but it always needs to be balanced with risks. Securing AI is typically harder than securing non-AI systems, first because it's relatively new, but also because there is a level of uncertainty in all data-driven technology. For example in the case of LLMs, we are dealing with the fluidity of natural language. LLMs essentially offer an unstable, undocumented interface with an unclear set of policies. That means that security measures applied to AI often cannot offer security properties to a standard you might be used to with other software. Consider whether AI is the appropriate technology choice for the problem you are trying to solve. Removing an unnecessary AI component eliminates all AI-related risks.  
 
@@ -335,62 +335,62 @@ And finally: think before you build an AI solution. AI can have fantastic benefi
 
 ### Essentials: how to understand the basics of AI security
 >Category: discussion  
->Permalink: https://owaspai.org/go/essentials/
+>Permalink: https://owaspai.org/go/essentials
 
 This section serves as THE starting point to understand the foundations of AI security, and was established in close collaboration with industry and institutes, including complete alignment with the [SANS Critical AI security guidelines](https://assets.contentstack.io/v3/assets/bltabe50a4554f8e97f/blte964a6eef293d57e/whitepaper-critical-ai-security-guidelines) and formal standards ISO/IEC 27090 (AI security) and prEN18282 (Cybersecurity for the AI Act).
 
 ---
 
-**AI-specific threats** (full overview [here](/go/threatsoverview/)):
-  1. **[Model input threats](/go/inputthreats/)**:  
-      - [Evasion](/go/evasion/): Misleading a model by crafting data to force wrong decisions
-      - [Prompt injection](/go/promptinjection/): Misleading a model by crafting instructions to manipulate behaviour
-      - [Extracting data from the model](/go/disclosureinoutput/): training data, augmentation data (including system prompts), or input
-      - [Extracting of the model itself](/go/modelexfiltration/) by querying the model
-      - [Resource exhaustion](/go/airesourceexhaustion/) through use
-  2. **New suppliers** introduce threats of corrupted external [data](/go/datapoison/), [models](/go/supplymodelpoison/), and [model hosting](/go/readymademodel/)
+**AI-specific threats** (full overview [here](/go/threatsoverview)):
+  1. **[Model input threats](/go/inputthreats)**:  
+      - [Evasion](/go/evasion): Misleading a model by crafting data to force wrong decisions
+      - [Prompt injection](/go/promptinjection): Misleading a model by crafting instructions to manipulate behaviour
+      - [Extracting data from the model](/go/disclosureinoutput): training data, augmentation data (including system prompts), or input
+      - [Extracting of the model itself](/go/modelexfiltration) by querying the model
+      - [Resource exhaustion](/go/airesourceexhaustion) through use
+  2. **New suppliers** introduce threats of corrupted external [data](/go/datapoison), [models](/go/supplymodelpoison), and [model hosting](/go/readymademodel)
   3. **New AI assets** with conventional threats, notably:  
-      - Training data / augmentation data (e.g. system prompts) - can leak and [poisoning](/go/datapoison/) this data manipulates model behaviour
-      - Model - can suffer from [leaking during development](/go/devmodelleak/) or [leaking during runtime](/go/runtimemodelleak/) and when it comes to integrity: from [poisoning during development](/go/devmodelpoison/) or [poisoning during runtime](/go/runtimemodelpoison/)
-      - Input - can [leak](/go/inputdataleak/)
-      - Output - can contain [injection attacks](/go/outputcontainsconventionalinjection/)
+      - Training data / augmentation data (e.g. system prompts) - can leak and [poisoning](/go/datapoison) this data manipulates model behaviour
+      - Model - can suffer from [leaking during development](/go/devmodelleak) or [leaking during runtime](/go/runtimemodelleak) and when it comes to integrity: from [poisoning during development](/go/devmodelpoison) or [poisoning during runtime](/go/runtimemodelpoison)
+      - Input - can [leak](/go/inputdataleak)
+      - Output - can contain [injection attacks](/go/outputcontainsconventionalinjection)
 
 Note: Attackers that obtain the model (or a similar one) can perform or prepare input attacks efficiently and without being noticed.
 
 ---
     
-**AI-specific controls** (overview [here](/go/controlsoverview/)):
+**AI-specific controls** (overview [here](/go/controlsoverview)):
 
 The controls for AI security can be divided into four essential categories and 8 essential sub categories, linking to over 50 individual controls discussed in depth at the Exchange.
 
 **Manage**:
 - Extend existing **Governance, Risk, and Compliance** - in order to secure AI, you need overview, analysis, policy, training, responsibilities, and control:
-  > [AI PROGRAM](/go/aiprogram/ ), [DEV PROGRAM](/go/devprogram/), [CHECK COMPLIANCE](/go/checkcompliance/), [SEC EDUCATE](/go/seceducate/)
+  > [AI PROGRAM](/go/aiprogram ), [DEV PROGRAM](/go/devprogram), [CHECK COMPLIANCE](/go/checkcompliance), [SEC EDUCATE](/go/seceducate)
 - Extend **Supply chain management** to incorporate suppliers providing data, models, and hosting
-  > [Supply chain management](/go/supplychainmanage/)
+  > [Supply chain management](/go/supplychainmanage)
 - Extend existing **conventional security controls** to protect the AI-specific assets
   - Managing security:
-    > [SEC PROGRAM](/go/secprogram/), [SECDEV PROGRAM](/go/secdevprogram/)
+    > [SEC PROGRAM](/go/secprogram), [SECDEV PROGRAM](/go/secdevprogram)
   - Development-time (model, data, and documentation):
-    > [DEV SECURITY](/go/devsecurity/), [SEGREGATE DATA](/go/segregatedata/), [DISCRETE](/go/discrete/)
+    > [DEV SECURITY](/go/devsecurity), [SEGREGATE DATA](/go/segregatedata), [DISCRETE](/go/discrete)
   - Runtime: (model storage, model use, augmentation data (including system prompts), and model input/output):  
-    > [MODEL ACCESS CONTROL](/go/modelaccesscontrol/), [RUNTIME MODEL INTEGRITY](/go/runtimemodelintegrity/), [RUNTIME MODEL IO INTEGRITY](/go/runtimemodeliointegrity/), [RUNTIME MODEL CONFIDENTIALITY](/go/runtimemodelconfidentiality/), [MODEL INPUT CONFIDENTIALITY](/go/modelinputconfidentiality/), [ENCODE MODEL OUTPUT](/go/encodemodeloutput/), [LIMIT RESOURCES](/go/limitresources/), [AUGMENTATION DATA CONFIDENTIALITY](/go/augmentationdataconfidentiality/), [AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity/), [CONF COMPUTE](/go/confcompute/), [MODEL OBFUSCATION](/go/modelobfuscation/)   
+    > [MODEL ACCESS CONTROL](/go/modelaccesscontrol), [RUNTIME MODEL INTEGRITY](/go/runtimemodelintegrity), [RUNTIME MODEL IO INTEGRITY](/go/runtimemodeliointegrity), [RUNTIME MODEL CONFIDENTIALITY](/go/runtimemodelconfidentiality), [MODEL INPUT CONFIDENTIALITY](/go/modelinputconfidentiality), [ENCODE MODEL OUTPUT](/go/encodemodeloutput), [LIMIT RESOURCES](/go/limitresources), [AUGMENTATION DATA CONFIDENTIALITY](/go/augmentationdataconfidentiality), [AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity), [CONF COMPUTE](/go/confcompute), [MODEL OBFUSCATION](/go/modelobfuscation)   
 
 **Have resilient models**:
 - Apply **data/model engineering controls** during model development for resilience against input attacks. This is the work of data and model engineers. Input attacks include triggering poisoned models - which of course can also be mitigated by preventing the model being poisoned using conventional controls:
-  > [MODEL ALIGNMENT](/go/modelalignment/), [FEDERATED LEARNING](/go/federatedlearning/), [CONTINUOUS VALIDATION](/go/continuousvalidation/), [UNWANTED BIAS TESTING](/go/unwantedbiastesting/), [EVASION ROBUST MODEL](/go/evasionrobustmodel/), [POISON ROBUST MODEL](/go/poisonrobustmodel/), [TRAIN ADVERSARIAL](/go/trainadversarial/), [TRAIN DATA DISTORTION](/go/traindatadistortion/), [ADVERSARIAL ROBUST DISTILLATION](/go/adversarialrobustdistillation/), [MODEL ENSEMBLE](/go/modelensemble/), [MORE TRAINDATA](/go/moretraindata/), [SMALL MODEL](/go/smallmodel/), [DATA QUALITY CONTROL](/go/dataqualitycontrol/)
+  > [MODEL ALIGNMENT](/go/modelalignment), [FEDERATED LEARNING](/go/federatedlearning), [CONTINUOUS VALIDATION](/go/continuousvalidation), [UNWANTED BIAS TESTING](/go/unwantedbiastesting), [EVASION ROBUST MODEL](/go/evasionrobustmodel), [POISON ROBUST MODEL](/go/poisonrobustmodel), [TRAIN ADVERSARIAL](/go/trainadversarial), [TRAIN DATA DISTORTION](/go/traindatadistortion), [ADVERSARIAL ROBUST DISTILLATION](/go/adversarialrobustdistillation), [MODEL ENSEMBLE](/go/modelensemble), [MORE TRAINDATA](/go/moretraindata), [SMALL MODEL](/go/smallmodel), [DATA QUALITY CONTROL](/go/dataqualitycontrol)
 
 **Watch:**
 - Apply **Model I/O handling** for runtime filtering, stopping or alerting to suspicious input or output. It is typically the territory of data and model engineers e.g. data scientists, involving elements from mathematics, statistics, linguistics and machine learning:
-  > [ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling/), [EVASION INPUT HANDLING](/go/evasioninputhandling/), [UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling/), [PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling/), [DOS INPUT VALIDATION](/go/dosinputvalidation/), [INPUT DISTORTION](/go/inputdistortion/), [SENSITIVE OUTPUT HANDLING](/go/sensitiveoutputhandling/), [OBSCURE CONFIDENCE](/go/obscureconfidence/), [RATE LIMIT](/go/ratelimit/)
+  > [ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling), [EVASION INPUT HANDLING](/go/evasioninputhandling), [UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling), [PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling), [DOS INPUT VALIDATION](/go/dosinputvalidation), [INPUT DISTORTION](/go/inputdistortion), [SENSITIVE OUTPUT HANDLING](/go/sensitiveoutputhandling), [OBSCURE CONFIDENCE](/go/obscureconfidence), [RATE LIMIT](/go/ratelimit)
  - **Monitoring** of model inference - extending <odel I/O handing, Oversight (see below) and overlooking general usage of the AI system:
-   > [MONITOR USE](/go/monitoruse/)
+   > [MONITOR USE](/go/monitoruse)
 
 **Limit:**   
 - **Minimize or obfuscate sensitive data** because a model can accidentally leak daa or be misled to:
-  > ([DATA MINIMIZE](/go/dataminimize/), [ALLOWED DATA](/go/alloweddata/), [SHORT RETAIN](/go/shortretain/), [OBFUSCATE TRAINING DATA](/go/obfuscatetrainingdata/))
+  > ([DATA MINIMIZE](/go/dataminimize), [ALLOWED DATA](/go/alloweddata), [SHORT RETAIN](/go/shortretain), [OBFUSCATE TRAINING DATA](/go/obfuscatetrainingdata))
 - **Limit model behaviour**  because a model can accidentally make a mistake or be misled to:
-  > [OVERSIGHT](/go/oversight/), [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/), [AI TRANSPARENCY](/go/aitransparency/), [EXPLAINABILITY](/go/explainability/), [CONTINUOUS VALIDATION](/go/continuousvalidation/), [UNWANTED BIAS TESTING](/go/unwantedbiastesting/)
+  > [OVERSIGHT](/go/oversight), [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege), [AI TRANSPARENCY](/go/aitransparency), [EXPLAINABILITY](/go/explainability), [CONTINUOUS VALIDATION](/go/continuousvalidation), [UNWANTED BIAS TESTING](/go/unwantedbiastesting)
 
 [![](/images/essentials6.png)](/images/essentials6.png)
 
@@ -402,10 +402,10 @@ The upcoming sections provide overviews of AI security threats and controls.
 
 ## Threats overview
 >Category: discussion  
->Permalink: https://owaspai.org/go/threatsoverview/
+>Permalink: https://owaspai.org/go/threatsoverview
 
 ### Scope of Threats
-In the AI Exchange we focus on AI-specific threats, meaning threats to AI assets (see [#SEC PROGRAM](/go/secprogram/)), such as training data. Threats to other assets are already covered in many other resources - for example the protection of a user database. AI systems are IT systems so they suffer from various security threats. Therefore, when securing AI systems, the AI Exchange needs to be seen as an extension of your existing security program: 
+In the AI Exchange we focus on AI-specific threats, meaning threats to AI assets (see [#SEC PROGRAM](/go/secprogram)), such as training data. Threats to other assets are already covered in many other resources - for example the protection of a user database. AI systems are IT systems so they suffer from various security threats. Therefore, when securing AI systems, the AI Exchange needs to be seen as an extension of your existing security program: 
 AI security = threats to AI-specific assets (AI Exchange) +threats to other assets (other resources)
 
 ### Threat map
@@ -424,7 +424,7 @@ In AI, we outline 6 types of impacts that align with three types of attacker goa
 
 The threats that create these impacts use different attack surfaces. For example: the confidentiality of training data can be compromised by hacking into the database during development, but it can also get leaked by a _membership inference attack_ that can find out whether a certain individual was in the train data, simply by feeding that person's data into the model and looking at the details of the model output.
 
-The map shows the threats as arrows. Each threat has a specific impact, indicated by letters referring to the Impact legend. The [control overview section](/go/controlsoverview/) contains this diagram with groups of controls added. For a list of the assets in this map, see [the security program subsection](/go/secprogram/).
+The map shows the threats as arrows. Each threat has a specific impact, indicated by letters referring to the Impact legend. The [control overview section](/go/controlsoverview) contains this diagram with groups of controls added. For a list of the assets in this map, see [the security program subsection](/go/secprogram).
 [![](/images/threats.png?v=2)](/images/threats.png?v=2)
 
 Note that some threats represent attacks consisting of several steps, and therefore present multiple threats in one, for example:
@@ -434,7 +434,7 @@ Note that some threats represent attacks consisting of several steps, and theref
 
 ### Agentic AI overview
 >Category: discussion  
->Permalink: https://owaspai.org/go/agenticaioverview/
+>Permalink: https://owaspai.org/go/agenticaioverview
 
 Agentic AI systems are AI systems where the inference of a model can specify actions to perform without per-action human approval - in contrast of just providing the output for viewing. Actions may represent plans, orchestration, and messages as input to models for further inference and actions, while maintaining state.
 
@@ -446,67 +446,67 @@ In essence: **'Agentic’ can be seen as a spectrum**, where capability, autonom
 - Quite Agentic AI: also runs in loops
 - Very Agentic AI: all of the above without any human intervention
 
-The AI Exchange covers all AI systems, so also agentic AI systems, throughout its content. For the full threat and control picture, see the [threats overview](/go/threatsoverview/), [AI security matrix](/go/aisecuritymatrix/), and [periodic table of threats and controls](/go/periodictable/).  
+The AI Exchange covers all AI systems, so also agentic AI systems, throughout its content. For the full threat and control picture, see the [threats overview](/go/threatsoverview), [AI security matrix](/go/aisecuritymatrix), and [periodic table of threats and controls](/go/periodictable).  
 This section highlights agentic attention points only — not a separate threat landscape. 
 
 **There are four typical properties of agentic AI:**  
-1. **Action**: Agents don’t just chat — they invoke functions such as sending an email. That makes [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/) a key control — including the [agentic authorisation framework](/go/leastmodelprivilege/) (deny-by-default, infrastructure policy enforcement, task-bound tokens, agent identity).
-2. **Autonomous** (optional): Agents can trigger each other, enabling autonomous responses (e.g., a script receives an email, triggering a GenAI follow-up). That makes [OVERSIGHT](/go/oversight/) important, and it makes working memory an attack vector because that's where the state and the plan of an autonomous agent lives.
+1. **Action**: Agents don’t just chat — they invoke functions such as sending an email. That makes [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege) a key control — including the [agentic authorisation framework](/go/leastmodelprivilege) (deny-by-default, infrastructure policy enforcement, task-bound tokens, agent identity).
+2. **Autonomous** (optional): Agents can trigger each other, enabling autonomous responses (e.g., a script receives an email, triggering a GenAI follow-up). That makes [OVERSIGHT](/go/oversight) important, and it makes working memory an attack vector because that's where the state and the plan of an autonomous agent lives.
 3. **Complex** (optional): Agentic behaviour is emergent.
-4. **Multi-system** (optional): You often work with a mix of systems and interfaces. Because of that, developers tend to assign responsibilities regarding access control to the AI using instructions, opening up the door for manipulation through [prompt injection](/go/promptinjection/). Agent-to-service and inter-agent calls need machine-to-machine [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/) (scoped tokens, session binding, mutual auth) alongside [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/).
+4. **Multi-system** (optional): You often work with a mix of systems and interfaces. Because of that, developers tend to assign responsibilities regarding access control to the AI using instructions, opening up the door for manipulation through [prompt injection](/go/promptinjection). Agent-to-service and inter-agent calls need machine-to-machine [#MODEL ACCESS CONTROL](/go/modelaccesscontrol) (scoped tokens, session binding, mutual auth) alongside [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege).
 
 **What does this mean for security ?**
-- When agents invoke tools, the **impact of attacks is typically higher** than with just text output. Risks shift from bad answers to goal drift, reward hacking, runaway escalation. Blast radius control ([impact limitation](/go/limitunwanted/)) is key.
-- Hallucinations and [prompt injections](/go/promptinjection/) can **invoke unwanted actions** — or even escalate privileges. Key controls are defence in depth and addressing untrusted data entering the agentic flow- for example by [#INPUT SEGREGATION](/go/inputsegregation/) and [#PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling/). The limitations of these controls to prevent a successful attack increase the importance of blast radius control.
+- When agents invoke tools, the **impact of attacks is typically higher** than with just text output. Risks shift from bad answers to goal drift, reward hacking, runaway escalation. Blast radius control ([impact limitation](/go/limitunwanted)) is key.
+- Hallucinations and [prompt injections](/go/promptinjection) can **invoke unwanted actions** — or even escalate privileges. Key controls are defence in depth and addressing untrusted data entering the agentic flow- for example by [#INPUT SEGREGATION](/go/inputsegregation) and [#PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling). The limitations of these controls to prevent a successful attack increase the importance of blast radius control.
 - It can be tempting for AI system makers to use agents for implementing security features, such as access control. **Security features need to be built outside the LLMs**, in the architecture of the system, because of the vulnerability/robustness issue above.
 - Existing assumptions about things like trust boundaries and other established security measures might need to be revisited because agentic AI changes interconnectivity and data flows between system components.
 - Agents deployed with their own sets of permissions open up privilege escalation vectors because they are susceptible to becoming a confused deputy
-- **Memory and context:** Agents accumulate state in working memory, vector stores, and cross-session stores — three surfaces ([in-context](/go/indirectpromptinjection/), [persistent poisoning](/go/augmentationdatamanipulation/), cross-session persistence). Apply [#AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity/) and cross-link to [data poisoning](/go/datapoison/) where memory acts as a de facto training-like data source. In-context attacks overlap [prompt injection](/go/promptinjection/); persistent writes are a future read attack on other agents.
-- **Jailbreak vs escape:** [Jailbreak](/go/directpromptinjection/) bypasses safety constraints within the agent's boundary; [agent escape](/go/agentescape/) exceeds that boundary (unauthorised tools or scope). Multi-turn jailbreak needs session-level [#OVERSIGHT](/go/oversight/); escape needs infrastructure [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/).
-- **Deceptive reasoning:** Agents can produce plans that appear well-reasoned but rest on manipulated intermediate steps. Compare stated reasoning to actual tool calls ([#OVERSIGHT](/go/oversight/), [#MONITOR USE](/go/monitoruse/)); corrupted reasoning often follows [prompt injection](/go/promptinjection/) or [memory manipulation](/go/augmentationdatamanipulation/) rather than a separate attack class.
-- **Delegation and impersonation:** Signed delegation chains and scope non-expansion belong in [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/); forged agent identity or message envelopes map to [agent message structure manipulation](/go/agentmessagestructuremanipulation/).
-- **Multi-agent systems:** Layer on single-agent controls — **no transitive trust**; enforce inter-agent security at the message bus/orchestrator, not in agent prompts. Threat: [agent message structure manipulation](/go/agentmessagestructuremanipulation/). Orchestrator is a high-value target; monitor collective behaviour, not only per-agent actions ([#MONITOR USE](/go/monitoruse/), [#OVERSIGHT](/go/oversight/)).
-- **Goal hijacking:** Treat as [impact](/go/limitunwanted/) — redirected objectives, not a separate threat permalink; attack vectors remain [prompt injection](/go/promptinjection/) and related paths.
-- **Data access:** Purpose-bound, ephemeral agent context and classification enforcement live under [data limitation](/go/datalimit/) ([#DATA MINIMIZE](/go/dataminimize/), [#SHORT RETAIN](/go/shortretain/)).
+- **Memory and context:** Agents accumulate state in working memory, vector stores, and cross-session stores — three surfaces ([in-context](/go/indirectpromptinjection), [persistent poisoning](/go/augmentationdatamanipulation), cross-session persistence). Apply [#AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity) and cross-link to [data poisoning](/go/datapoison) where memory acts as a de facto training-like data source. In-context attacks overlap [prompt injection](/go/promptinjection); persistent writes are a future read attack on other agents.
+- **Jailbreak vs escape:** [Jailbreak](/go/directpromptinjection) bypasses safety constraints within the agent's boundary; [agent escape](/go/agentescape) exceeds that boundary (unauthorised tools or scope). Multi-turn jailbreak needs session-level [#OVERSIGHT](/go/oversight); escape needs infrastructure [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege).
+- **Deceptive reasoning:** Agents can produce plans that appear well-reasoned but rest on manipulated intermediate steps. Compare stated reasoning to actual tool calls ([#OVERSIGHT](/go/oversight), [#MONITOR USE](/go/monitoruse)); corrupted reasoning often follows [prompt injection](/go/promptinjection) or [memory manipulation](/go/augmentationdatamanipulation) rather than a separate attack class.
+- **Delegation and impersonation:** Signed delegation chains and scope non-expansion belong in [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege); forged agent identity or message envelopes map to [agent message structure manipulation](/go/agentmessagestructuremanipulation).
+- **Multi-agent systems:** Layer on single-agent controls — **no transitive trust**; enforce inter-agent security at the message bus/orchestrator, not in agent prompts. Threat: [agent message structure manipulation](/go/agentmessagestructuremanipulation). Orchestrator is a high-value target; monitor collective behaviour, not only per-agent actions ([#MONITOR USE](/go/monitoruse), [#OVERSIGHT](/go/oversight)).
+- **Goal hijacking:** Treat as [impact](/go/limitunwanted) — redirected objectives, not a separate threat permalink; attack vectors remain [prompt injection](/go/promptinjection) and related paths.
+- **Data access:** Purpose-bound, ephemeral agent context and classification enforcement live under [data limitation](/go/datalimit) ([#DATA MINIMIZE](/go/dataminimize), [#SHORT RETAIN](/go/shortretain)).
 - The attack surface is wide, and the potential impact should not be underestimated.
-- Because of that, the [known controls](/go/controlsoverview/) become even more important, divided into:
-  - Prevention: for example: security of inter-model communication (e.g., MCP), [agent sandboxing](/go/agentsandboxing/), [protecting of memory integrity](/go/augmentationdataintegrity/), [prompt injection defenses](/go/promptinjection/), and [agent message structure manipulation](/go/agentmessagestructuremanipulation/)
-  - Blast radius control: [rule-based / human oversight](/go/oversight/) and [least model privilege](/go/leastmodelprivilege/)
-  - Observability: [monitoring](/go/monitoruse/)
-- **Validation gap:** Tools and methods to evaluate agentic security architecture and deployments are still evolving; without reliable validation, design and implementation weaknesses are harder to find before production. See [testing](/go/testing/) and [continuous validation](/go/continuousvalidation/).
+- Because of that, the [known controls](/go/controlsoverview) become even more important, divided into:
+  - Prevention: for example: security of inter-model communication (e.g., MCP), [agent sandboxing](/go/agentsandboxing), [protecting of memory integrity](/go/augmentationdataintegrity), [prompt injection defenses](/go/promptinjection), and [agent message structure manipulation](/go/agentmessagestructuremanipulation)
+  - Blast radius control: [rule-based / human oversight](/go/oversight) and [least model privilege](/go/leastmodelprivilege)
+  - Observability: [monitoring](/go/monitoruse)
+- **Validation gap:** Tools and methods to evaluate agentic security architecture and deployments are still evolving; without reliable validation, design and implementation weaknesses are harder to find before production. See [testing](/go/testing) and [continuous validation](/go/continuousvalidation).
 
 For leaking sensitive data in agentic AI, you need three things, also called the _lethal trifecta_:
-1. Data: Control of the attacker of data that find its way into an LLM at some point in the session of a user that has the desired access, to perform [indirect prompt injection](/go/indirectpromptinjection/) 
+1. Data: Control of the attacker of data that find its way into an LLM at some point in the session of a user that has the desired access, to perform [indirect prompt injection](/go/indirectpromptinjection) 
 2. Access: Access of that LLM or connected agents to sensitive data
 3. Send: The ability of that LLM or connected agents to initiate sending out data to the attacker
 
 See [Simon Willison’s excellent work](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) for more details, and for examples in agentic AI software development [here](https://www.darkreading.com/application-security/github-copilot-camoleak-ai-attack-exfils-data) and [here](https://ainativedev.io/news/malicious-github-issue-ai-agent-leak).
 
-[Prompt injection](/go/promptinjection/) and mostly the [indirect](/go/indirectpromptinjection/) form is the key threat in most agentic AI systems. The [prompt injection section](/go/promptinjection/) covers agentic taxonomy (stored injection, multi-agent propagation) and structural mitigations (Agentic Rule of Two, tool-boundary firewalls). See the [seven layers section](/go/promptinjectionsevenlayers/) on how these controls form layers of protection. After model alignment and filtering and detection, it should be assumed that prompt injection can still happen and therefore it is critical that _blast radius control_ is performed.
+[Prompt injection](/go/promptinjection) and mostly the [indirect](/go/indirectpromptinjection) form is the key threat in most agentic AI systems. The [prompt injection section](/go/promptinjection) covers agentic taxonomy (stored injection, multi-agent propagation) and structural mitigations (Agentic Rule of Two, tool-boundary firewalls). See the [seven layers section](/go/promptinjectionsevenlayers) on how these controls form layers of protection. After model alignment and filtering and detection, it should be assumed that prompt injection can still happen and therefore it is critical that _blast radius control_ is performed.
 
 **Agentic security architecture principles**
 
 Agentic systems move AI from consulted component to **operational actor** — planning, calling tools, coordinating with other agents, and adapting with limited oversight. These are security design constraints, not a separate control catalogue:
 
-- **Enforce at infrastructure, not in prompts.** Access control, policy, and containment belong in surrounding systems ([#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/), [#MODEL ACCESS CONTROL](/go/modelaccesscontrol/), [#AGENT SANDBOXING](/go/agentsandboxing/)), not in model instructions alone.
-- **Design for compositional behaviour.** An agent with access to many tools and multi-step chaining produces a vast space of possible workflows — you cannot fully pre-specify purpose, boundaries, and side effects at design time. Threat modelling and governance specification remain necessary, but **runtime** guardrails ([#MONITOR USE](/go/monitoruse/), [#OVERSIGHT](/go/oversight/), [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege)) are required because emergent execution paths cannot all be enumerated upfront. Where regulation assumes pre-deployment describability of every workflow, compositional agentic systems need explicit program handling — see [#CHECK COMPLIANCE](/go/checkcompliance/) AI regulatory mapping.
+- **Enforce at infrastructure, not in prompts.** Access control, policy, and containment belong in surrounding systems ([#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege), [#MODEL ACCESS CONTROL](/go/modelaccesscontrol), [#AGENT SANDBOXING](/go/agentsandboxing)), not in model instructions alone.
+- **Design for compositional behaviour.** An agent with access to many tools and multi-step chaining produces a vast space of possible workflows — you cannot fully pre-specify purpose, boundaries, and side effects at design time. Threat modelling and governance specification remain necessary, but **runtime** guardrails ([#MONITOR USE](/go/monitoruse), [#OVERSIGHT](/go/oversight), [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege)) are required because emergent execution paths cannot all be enumerated upfront. Where regulation assumes pre-deployment describability of every workflow, compositional agentic systems need explicit program handling — see [#CHECK COMPLIANCE](/go/checkcompliance) AI regulatory mapping.
 - **Assume cascade across layers.** Data, reasoning, tools, APIs, and peer agents form one compositional attack surface; a weakness at any layer can propagate to others.
-- **Bound blast radius by default.** Deny-by-default tool access, non-transferable sessions, and **no transitive trust** between agents limit harm when [prompt injection](/go/promptinjection/) or misalignment occurs.
+- **Bound blast radius by default.** Deny-by-default tool access, non-transferable sessions, and **no transitive trust** between agents limit harm when [prompt injection](/go/promptinjection) or misalignment occurs.
 
 
 Further links:
 - For more details on the agentic AI threats, see the [Agentic AI threats and mitigations, from the GenAI security project](https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/).
 - For a more general discussion of Agentic AI, see [this article from Chip Huyen](https://huyenchip.com/2025/01/07/agents.html).
-- The [testing section](/go/testing/) discusses more about agentic AI red teaming and links to the collaboration between CSA and the Exchange: the Agentic AI red teaming guide.
+- The [testing section](/go/testing) discusses more about agentic AI red teaming and links to the collaboration between CSA and the Exchange: the Agentic AI red teaming guide.
 - [OWASP Agentic AI security top 10](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) plus [Rock's blog on it](https://www.rockcybermusings.com/p/owasp-top-10-agentic-applications-security-guide)
 - [Microsoft Pulse report on Agentic security](https://www.microsoft.com/en-us/security/security-insider/emerging-trends/cyber-pulse-ai-security-report)
 
 
 ### RAG systems overview
 >Category: discussion  
->Permalink: https://owaspai.org/go/ragoverview/
+>Permalink: https://owaspai.org/go/ragoverview
 
-Retrieval-Augmented Generation (RAG) systems retrieve data at inference time and insert it into the model's input to ground its output. This is the most common form of **augmentation data** discussed throughout the Exchange, alongside system prompts and agent memory — see the augmentation-data branch of the [threat model](/go/threatmodel/).
+Retrieval-Augmented Generation (RAG) systems retrieve data at inference time and insert it into the model's input to ground its output. This is the most common form of **augmentation data** discussed throughout the Exchange, alongside system prompts and agent memory — see the augmentation-data branch of the [threat model](/go/threatmodel).
 
 An example of RAG is when you ask a company chatbot about things that are in company documents. The AI model has not been trained on those documents, but the RAG system looks through them for information relevant to your question, and gives it to the AI, together with your question. The model learns in the same go as it gets the question - which is why this is called 'in-context learning'.
 
@@ -517,7 +517,7 @@ A typical RAG pipeline has five stages, each with a distinct trust boundary:
 4. **Augmentation**: retrieved chunks are inserted into the model's prompt.
 5. **Generation**: the model produces output based on the augmented prompt.
 
-RAG is not a separate threat landscape — the same asset/impact model applies (see the [threats overview](/go/threatsoverview/) and [AI security matrix](/go/aisecuritymatrix/)). This section highlights where RAG concentrates existing threats, and where it introduces attack surface that a plain chatbot or single-document-in-context system doesn't have.
+RAG is not a separate threat landscape — the same asset/impact model applies (see the [threats overview](/go/threatsoverview) and [AI security matrix](/go/aisecuritymatrix)). This section highlights where RAG concentrates existing threats, and where it introduces attack surface that a plain chatbot or single-document-in-context system doesn't have.
 
 Below is a diagram explaining RAG, with [OpenCRE](opencre.org/chatbot) as an example: 
 1. You ask a question on security.
@@ -532,71 +532,71 @@ Below is a diagram explaining RAG, with [OpenCRE](opencre.org/chatbot) as an exa
 - **Retrieval is a second, mostly invisible input channel.** The user only sees their own query; the model also sees whatever the retriever selected. Any content that can enter the index — a shared drive, a ticketing system, a public wiki, a crawled web page — is a potential attack surface, whether or not the current user could reach it directly.
 
 **Key threats to consider, mapped to existing threat categories**
-- **[Indirect prompt injection](/go/indirectpromptinjection/)**: an attacker plants instructions in a document that later gets ingested, indexed, and retrieved into another user's prompt — the classic RAG attack. Reachability depends only on getting content into the corpus, not on querying the system directly. This is the most consequential RAG-specific instance of prompt injection.
-- **[Data poisoning](/go/datapoison/) of the retrieval corpus**: an attacker with write access to a source (or to the crawl/ingestion pipeline) inserts or edits documents to bias what gets retrieved and surfaced as "fact" — closer to a persistent integrity attack on the corpus than a one-off injection.
-- **[Augmentation data manipulation](/go/augmentationdatamanipulation/)**: broader than poisoning — includes manipulating chunking, embeddings, or metadata (e.g., forging a source field or timestamp) to change what gets retrieved or how much the model trusts it, without touching the underlying document. Special forms:
+- **[Indirect prompt injection](/go/indirectpromptinjection)**: an attacker plants instructions in a document that later gets ingested, indexed, and retrieved into another user's prompt — the classic RAG attack. Reachability depends only on getting content into the corpus, not on querying the system directly. This is the most consequential RAG-specific instance of prompt injection.
+- **[Data poisoning](/go/datapoison) of the retrieval corpus**: an attacker with write access to a source (or to the crawl/ingestion pipeline) inserts or edits documents to bias what gets retrieved and surfaced as "fact" — closer to a persistent integrity attack on the corpus than a one-off injection.
+- **[Augmentation data manipulation](/go/augmentationdatamanipulation)**: broader than poisoning — includes manipulating chunking, embeddings, or metadata (e.g., forging a source field or timestamp) to change what gets retrieved or how much the model trusts it, without touching the underlying document. Special forms:
   -  A special form of Augmentation data manipulation is **Vector index manipulation**: the index is a distinct asset from the corpus — an attacker who can write to it directly (misconfigured or default-open vector database, over-privileged ingestion service) can change what gets retrieved without touching a single source document. This is an integrity threat in its own right, not just a downstream effect of corpus poisoning.
   - Another special form of Augmentation data manipulation is an attack that prevents augmentation data being used: **Unsafe fallback on component failure**. If retrieval, an access-control check, or hash verification fails and the system falls back to answering from model memory alone, filtering nothing, or serving a stale cached response, every control above this point in the pipeline is silently bypassed. This is an availability/integrity trade-off attackers can deliberately trigger by forcing failures.
-- **[Disclosure in output](/go/disclosureinoutput/)**: retrieval crossing an authorization boundary — cross-tenant leakage, retrieval of documents the querying user lacks permission for, or an attacker crafting queries to enumerate corpus contents (membership-inference-style probing of the index rather than the model).
-- **[Input data leak](/go/inputdataleak/)**: user prompts are sent to an AI while possibly crossing a trust boundary - for example when sent to a commercial cloud AI. Furthermore, prompts often logged for debugging or evaluation. This data can leak in-transit and at rest.
-- **[Direct augmentation data leak](/go/augmentationdataleak/)**: attack surface for the augmentation data consists of the retrieval corpus and logs, for example a log of the final input to the model. Special forms:
-  - A special form of leaking augmentation data is **Embedding inversion**: an attacker with direct access to the vector store (not the model API) can attempt to reconstruct the original text from a stored embedding vector. This is mechanically distinct from [model inversion and membership inference](/go/modelinversionandmembership/) — that threat reconstructs training data through iterative query optimization against the model; embedding inversion requires no model queries at all, only read access to the stored vectors, making the vector store itself a direct confidentiality target independent of the model.
-  - Another special form of leaking augmentation data is **Incomplete data deletion propagation**: deleting or de-permissioning a source document doesn't automatically remove its chunks, embeddings, or cached responses — an "authorized deletion" that isn't cascaded leaves the same data reachable through the retriever, which is both a [disclosure](/go/disclosureinoutput/) risk and, where regulated data is involved, a compliance failure.
-- **[Output contains conventional injection](/go/outputcontainsconventionalinjection/)**: retrieved content carrying markup, scripts, or malicious links that get echoed into the model's output and rendered downstream (XSS, Markdown-based exfiltration links, etc.) — the RAG-specific path into this existing threat.
-- **[AI resource exhaustion](/go/airesourceexhaustion/)**: oversized or adversarially crafted documents at ingestion time, or queries engineered to force expensive retrieval/re-ranking, degrading availability.
+- **[Disclosure in output](/go/disclosureinoutput)**: retrieval crossing an authorization boundary — cross-tenant leakage, retrieval of documents the querying user lacks permission for, or an attacker crafting queries to enumerate corpus contents (membership-inference-style probing of the index rather than the model).
+- **[Input data leak](/go/inputdataleak)**: user prompts are sent to an AI while possibly crossing a trust boundary - for example when sent to a commercial cloud AI. Furthermore, prompts often logged for debugging or evaluation. This data can leak in-transit and at rest.
+- **[Direct augmentation data leak](/go/augmentationdataleak)**: attack surface for the augmentation data consists of the retrieval corpus and logs, for example a log of the final input to the model. Special forms:
+  - A special form of leaking augmentation data is **Embedding inversion**: an attacker with direct access to the vector store (not the model API) can attempt to reconstruct the original text from a stored embedding vector. This is mechanically distinct from [model inversion and membership inference](/go/modelinversionandmembership) — that threat reconstructs training data through iterative query optimization against the model; embedding inversion requires no model queries at all, only read access to the stored vectors, making the vector store itself a direct confidentiality target independent of the model.
+  - Another special form of leaking augmentation data is **Incomplete data deletion propagation**: deleting or de-permissioning a source document doesn't automatically remove its chunks, embeddings, or cached responses — an "authorized deletion" that isn't cascaded leaves the same data reachable through the retriever, which is both a [disclosure](/go/disclosureinoutput) risk and, where regulated data is involved, a compliance failure.
+- **[Output contains conventional injection](/go/outputcontainsconventionalinjection)**: retrieved content carrying markup, scripts, or malicious links that get echoed into the model's output and rendered downstream (XSS, Markdown-based exfiltration links, etc.) — the RAG-specific path into this existing threat.
+- **[AI resource exhaustion](/go/airesourceexhaustion)**: oversized or adversarially crafted documents at ingestion time, or queries engineered to force expensive retrieval/re-ranking, degrading availability.
 
 
 **The lethal trifecta, applied to RAG**
 
-RAG is frequently the "data" leg of the [lethal trifecta](/go/agenticaioverview/) described in the Agentic AI overview: attacker-influenced data reaching the model (via indirect prompt injection through a retrieved chunk), access to sensitive data (the corpus itself, or other documents reachable through the same retriever), and an ability to send data out (an agent action, or an exfiltration channel embedded in the output). A RAG system doesn't need to be "agentic" in the action-triggering sense for this to matter — read access to a sensitive corpus plus an output channel a user can observe (e.g., a rendered link) is enough.
+RAG is frequently the "data" leg of the [lethal trifecta](/go/agenticaioverview) described in the Agentic AI overview: attacker-influenced data reaching the model (via indirect prompt injection through a retrieved chunk), access to sensitive data (the corpus itself, or other documents reachable through the same retriever), and an ability to send data out (an agent action, or an exfiltration channel embedded in the output). A RAG system doesn't need to be "agentic" in the action-triggering sense for this to matter — read access to a sensitive corpus plus an output channel a user can observe (e.g., a rendered link) is enough.
 
-**Threat-model questions specific to RAG** (extending the decision tree in [risk analysis](/go/threatmodel/)):
-- Does your system insert retrieved data into the model's input? → consider [indirect prompt injection](/go/indirectpromptinjection/) and [augmentation data manipulation](/go/augmentationdatamanipulation/).
-- Can anyone other than trusted engineers add, edit, or influence documents that end up in the corpus (shared drives, tickets, web crawls, user uploads)? → consider [data poisoning](/go/datapoison/) of the corpus, and treat the ingestion pipeline itself as a threat surface.
-- Does retrieval scope match the source documents' access control, per user/session? → if not, consider augmentation data leak via authorization mismatch — see [disclosure in output](/go/disclosureinoutput/).
-- Is the corpus, embedding model, or vector-store service provided by a third party? → apply [supply chain management](/go/supplychainmanage/).
-- Can retrieved content reach a rendering context (browser, chat UI with Markdown/HTML) or a downstream action? → consider [output contains conventional injection](/go/outputcontainsconventionalinjection/) and, if the system can act on retrieved content, cross-reference the [Agentic AI overview](/go/agenticaioverview/).
+**Threat-model questions specific to RAG** (extending the decision tree in [risk analysis](/go/threatmodel)):
+- Does your system insert retrieved data into the model's input? → consider [indirect prompt injection](/go/indirectpromptinjection) and [augmentation data manipulation](/go/augmentationdatamanipulation).
+- Can anyone other than trusted engineers add, edit, or influence documents that end up in the corpus (shared drives, tickets, web crawls, user uploads)? → consider [data poisoning](/go/datapoison) of the corpus, and treat the ingestion pipeline itself as a threat surface.
+- Does retrieval scope match the source documents' access control, per user/session? → if not, consider augmentation data leak via authorization mismatch — see [disclosure in output](/go/disclosureinoutput).
+- Is the corpus, embedding model, or vector-store service provided by a third party? → apply [supply chain management](/go/supplychainmanage).
+- Can retrieved content reach a rendering context (browser, chat UI with Markdown/HTML) or a downstream action? → consider [output contains conventional injection](/go/outputcontainsconventionalinjection) and, if the system can act on retrieved content, cross-reference the [Agentic AI overview](/go/agenticaioverview).
 - Does anything other than the ingestion pipeline have write access to the vector index? → consider vector index integrity as a distinct threat from corpus poisoning.
 - Do responses carry verifiable source attribution (which chunks, which documents, with what hash)? → if not, a poisoning or staleness incident may be undetectable after the fact.
 - What does the system do when retrieval, an access-control check, or hash verification fails? → if it falls back to unfiltered or cached behavior, every upstream control can be bypassed by deliberately triggering that failure.
 - When a source document is deleted or de-permissioned, is that propagated to its chunks, embeddings, and cached responses? → an uncascaded deletion leaves the data reachable through the retriever.
 
-**Controls**: the [periodic table of AI security](/go/periodictable/) already lists the applicable controls per threat above; no RAG-specific control category is needed. Attention points:
-- Apply [augmentation data confidentiality/integrity](/go/augmentationdataintegrity/) and [input segregation](/go/inputsegregation/) specifically to the retrieval channel, treating the corpus with the same rigor as [training data](/go/datapoison/) — access-controlled, versioned, and attributable — and applying fail-closed defaults at every pipeline stage rather than only at the model boundary.
-- [Supply chain management](/go/supplychainmanage/) requires extra attention when using third-party or externally hosted embedding models, vector-store services, or ingestion connectors.
-- For the [#MONITOR USE](/go/monitoruse/) control: if a RAG response doesn't carry verifiable provenance (which chunks, from which documents, with what hash), there's no way to detect after the fact whether a poisoned or stale document influenced an answer — this turns an otherwise detectable [data poisoning](/go/datapoison/) incident into an undetectable one.
+**Controls**: the [periodic table of AI security](/go/periodictable) already lists the applicable controls per threat above; no RAG-specific control category is needed. Attention points:
+- Apply [augmentation data confidentiality/integrity](/go/augmentationdataintegrity) and [input segregation](/go/inputsegregation) specifically to the retrieval channel, treating the corpus with the same rigor as [training data](/go/datapoison) — access-controlled, versioned, and attributable — and applying fail-closed defaults at every pipeline stage rather than only at the model boundary.
+- [Supply chain management](/go/supplychainmanage) requires extra attention when using third-party or externally hosted embedding models, vector-store services, or ingestion connectors.
+- For the [#MONITOR USE](/go/monitoruse) control: if a RAG response doesn't carry verifiable provenance (which chunks, from which documents, with what hash), there's no way to detect after the fact whether a poisoned or stale document influenced an answer — this turns an otherwise detectable [data poisoning](/go/datapoison) incident into an undetectable one.
 
-For the full threat and control picture, see the [threats overview](/go/threatsoverview/) and the [periodic table](/go/periodictable/).  
+For the full threat and control picture, see the [threats overview](/go/threatsoverview) and the [periodic table](/go/periodictable).  
 This section highlights RAG-specific attention points only — not a separate threat landscape.
 
 
 ### AI Security Matrix
 >Category: discussion  
->Permalink: https://owaspai.org/go/aisecuritymatrix/
+>Permalink: https://owaspai.org/go/aisecuritymatrix
 
 The AI security matrix below (click to enlarge) shows the key threats and risks, ordered by type and impact.
 [![](/images/OwaspAIsecuritymatrix.png?v=3)](/images/OwaspAIsecuritymatrix.png?v=3)
 
-Clickable version, based on the [Periodic table](/go/periodictable/):
+Clickable version, based on the [Periodic table](/go/periodictable):
 <table><thead>
 <tr><th>Asset &amp; Impact</th><th>Attack surface with lifecycle</th><th>Threat/Risk category</th></tr>
 </thead><tbody>
-<tr><td rowspan="7">Model behaviour Integrity</td><td rowspan="3">Runtime -Model use (provide input/ read output)</td><td><a href="/go/directpromptinjection/">Direct prompt injection</a></td></tr>
-<tr>                                         <td><a href="/go/indirectpromptinjection/">Indirect prompt injection</a></td></tr>
-<tr>                                         <td><a href="/go/evasion/">Evasion</a> (e.g., adversarial examples)</td></tr>
-<tr>                                         <td>Runtime - Break into deployed model</td><td><a href="/go/runtimemodelpoison/">Model poisoning runtime</a> (reprogramming)</td></tr>
-<tr><td rowspan="2">Development -Engineering environment</td><td><a href="/go/devmodelpoison/">Direct development-environment model poisoning</a></td></tr>
-<tr>                                         <td><a href="/go/datapoison/">Data poisoning of train/finetune data</a></td></tr>
-<tr><td>Development - Supply chain</td><td><a href="/go/supplymodelpoison/">Supply-chain model poisoning</a></td></tr>
-<tr><td rowspan="3">Training data Confidentiality</td><td rowspan="2">Runtime - Model use</td><td><a href="/go/disclosureinoutput/">Disclosure in output</a></td></tr>
-<tr><td><a href="/go/modelinversionandmembership/">Model inversion / Membership inference</a></td></tr>
-<tr><td>Development - Engineering environment</td><td><a href="/go/devdataleak/">Development-time data leak</a></td></tr>
-<tr><td rowspan="3">Model confidentiality</td><td>Runtime - Model use</td><td><a href="/go/modelexfiltration/">Model exfiltration</a> (input-output harvesting)</td></tr>
-<tr><td>Runtime - Break into deployed model</td><td><a href="/go/runtimemodelleak/">Direct runtime model leak</a></td></tr>
-<tr><td>Development - Engineering environment</td><td><a href="/go/devmodelleak/">Direct development-time model-leak</a></td></tr>
-<tr><td>Model behaviour Availability</td><td>Model use</td><td><a href="/go/airesourceexhaustion/">AI resource exhaustion</a></td></tr>
-<tr><td>Model input data Confidentiality</td><td>Runtime - All IT</td><td><a href="/go/inputdataleak/">Input data leak</a></td></tr>
-<tr><td>Any asset, CIA</td><td>Runtime-All IT</td><td><a href="/go/outputcontainsconventionalinjection/">Output contains conventional injection</a></td></tr>
+<tr><td rowspan="7">Model behaviour Integrity</td><td rowspan="3">Runtime -Model use (provide input/ read output)</td><td><a href="/go/directpromptinjection">Direct prompt injection</a></td></tr>
+<tr>                                         <td><a href="/go/indirectpromptinjection">Indirect prompt injection</a></td></tr>
+<tr>                                         <td><a href="/go/evasion">Evasion</a> (e.g., adversarial examples)</td></tr>
+<tr>                                         <td>Runtime - Break into deployed model</td><td><a href="/go/runtimemodelpoison">Model poisoning runtime</a> (reprogramming)</td></tr>
+<tr><td rowspan="2">Development -Engineering environment</td><td><a href="/go/devmodelpoison">Direct development-environment model poisoning</a></td></tr>
+<tr>                                         <td><a href="/go/datapoison">Data poisoning of train/finetune data</a></td></tr>
+<tr><td>Development - Supply chain</td><td><a href="/go/supplymodelpoison">Supply-chain model poisoning</a></td></tr>
+<tr><td rowspan="3">Training data Confidentiality</td><td rowspan="2">Runtime - Model use</td><td><a href="/go/disclosureinoutput">Disclosure in output</a></td></tr>
+<tr><td><a href="/go/modelinversionandmembership">Model inversion / Membership inference</a></td></tr>
+<tr><td>Development - Engineering environment</td><td><a href="/go/devdataleak">Development-time data leak</a></td></tr>
+<tr><td rowspan="3">Model confidentiality</td><td>Runtime - Model use</td><td><a href="/go/modelexfiltration">Model exfiltration</a> (input-output harvesting)</td></tr>
+<tr><td>Runtime - Break into deployed model</td><td><a href="/go/runtimemodelleak">Direct runtime model leak</a></td></tr>
+<tr><td>Development - Engineering environment</td><td><a href="/go/devmodelleak">Direct development-time model-leak</a></td></tr>
+<tr><td>Model behaviour Availability</td><td>Model use</td><td><a href="/go/airesourceexhaustion">AI resource exhaustion</a></td></tr>
+<tr><td>Model input data Confidentiality</td><td>Runtime - All IT</td><td><a href="/go/inputdataleak">Input data leak</a></td></tr>
+<tr><td>Any asset, CIA</td><td>Runtime-All IT</td><td><a href="/go/outputcontainsconventionalinjection">Output contains conventional injection</a></td></tr>
 <tr><td>Any asset, CIA</td><td>Runtime - All IT</td><td>Generic runtime security threats</td></tr>
 <tr><td>Any asset, CIA</td><td>Runtime - All IT</td><td>Generic development-environment and supply-chain threats</td></tr>
 </tbody></table>
@@ -606,7 +606,7 @@ Clickable version, based on the [Periodic table](/go/periodictable/):
 
 ## Controls overview
 >Category: discussion  
->Permalink: https://owaspai.org/go/controlsoverview/
+>Permalink: https://owaspai.org/go/controlsoverview
 
 **Select and implement controls with care**  
 The AI exchange lists a number of controls to mitigate risks of attack. Be aware that many of the controls are expensive to implement and are subject to trade-offs with other AI properties that can affect correctness and normal operations of the model. Particularly, controls that involve changes to the learning process and data distributions can have un-intended downstream side effects, and must be considered and introduced with care.
@@ -615,17 +615,17 @@ The AI exchange lists a number of controls to mitigate risks of attack. Be aware
 In the AI Exchange we focus on AI-specific threats and their corresponding controls. Some of the controls are AI-specific (e.g., adding noise to the training set) and others are not (e.g., encrypting the training database). We refer to the latter as 'conventional controls'. The Exchange focuses on the details of the AI-specific controls because the details of conventional controls are specified elsewhere - see for example [OpenCRE](https://opencre.org). We do provide AI-specific aspects of those controls, for example that protection of model parameters can be implemented using a Trusted Execution Environment.
 
 ### From general risks to controls
-The table below gives practitioners a compact way to move from a general AI risk area to the relevant AI Exchange control groups. It complements the detailed [Periodic table of AI security](/go/periodictable/), which maps individual threat categories to specific controls.
+The table below gives practitioners a compact way to move from a general AI risk area to the relevant AI Exchange control groups. It complements the detailed [Periodic table of AI security](/go/periodictable), which maps individual threat categories to specific controls.
 
 | Risk area | Typical concern | Primary control groups to review |
 | --- | --- | --- |
-| AI governance and accountability | Unknown AI use, unclear ownership, unmanaged risk decisions, or incomplete compliance coverage | [AI PROGRAM](/go/aiprogram/), [SEC PROGRAM](/go/secprogram/), [CHECK COMPLIANCE](/go/checkcompliance/), [SEC EDUCATE](/go/seceducate/) |
-| AI development lifecycle | AI engineering work is separated from secure development, software quality, model traceability, or risk management | [DEV PROGRAM](/go/devprogram/), [SECDEV PROGRAM](/go/secdevprogram/), [CONTINUOUS VALIDATION](/go/continuousvalidation/), [UNWANTED BIAS TESTING](/go/unwantedbiastesting/), [DISCRETE](/go/discrete/), [DEV SECURITY](/go/devsecurity/), [SEGREGATE DATA](/go/segregatedata/) |
-| Data and model supply chain | Untrusted data, third-party models, external hosting, or inherited vulnerabilities enter the AI system | [SUPPLY CHAIN MANAGE](/go/supplychainmanage/), [DATA QUALITY CONTROL](/go/dataqualitycontrol/)|
-| Sensitive data exposure | Training data, prompts, outputs, embeddings, logs, or augmentation data may reveal confidential or personal data | [DATA MINIMIZE](/go/dataminimize/), [ALLOWED DATA](/go/alloweddata/), [SHORT RETAIN](/go/shortretain/), [OBFUSCATE TRAINING DATA](/go/obfuscatetrainingdata/), [SENSITIVE OUTPUT HANDLING](/go/sensitiveoutputhandling/), [SMALL MODEL](/go/smallmodel/), [MODEL INPUT CONFIDENTIALITY](/go/modelinputconfidentiality/), [AUGMENTATION DATA CONFIDENTIALITY](/go/augmentationdataconfidentiality/) |
-| Manipulated model behavior | Adversarial inputs, prompt injection, poisoned data, or compromised models can change intended behavior | [OVERSIGHT](/go/oversight/), [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/), [MODEL ALIGNMENT](/go/modelalignment/), [PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling/), [INPUT SEGREGATION](/go/inputsegregation/), [ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling/), [EVASION INPUT HANDLING](/go/evasioninputhandling/), [EVASION ROBUST MODEL](/go/evasionrobustmodel/), [TRAIN ADVERSARIAL](/go/trainadversarial/), [ADVERSARIAL ROBUST DISTILLATION](/go/adversarialrobustdestillation/), [POISON ROBUST MODEL](/go/poisonrobustmodel/) |
-| Runtime resilience and abuse | Attackers can perform input attacks | [MONITOR USE](/go/monitoruse/), [RATE LIMIT](/go/ratelimit/), [MODEL ACCESSS CONTROL](/go/modelaccesscontrol/), [ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling/), [DOS INPUT VALIDATION](/go/dosinputvalidation/), [LIMIT RESOURCES](/go/limitresources/), [UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling/), and see Manipulated model behaviour for controls against those input attacks |
-| Ready-made or externally hosted models | The organization depends on a provider, external model hosting, or user-facing "shadow AI" alternatives | [SUPPLY CHAIN MANAGE](/go/supplychainmanage/),  [DATA MINIMIZE](/go/dataminimize/), [ALLOWED DATA](/go/alloweddata/) |
+| AI governance and accountability | Unknown AI use, unclear ownership, unmanaged risk decisions, or incomplete compliance coverage | [AI PROGRAM](/go/aiprogram), [SEC PROGRAM](/go/secprogram), [CHECK COMPLIANCE](/go/checkcompliance), [SEC EDUCATE](/go/seceducate) |
+| AI development lifecycle | AI engineering work is separated from secure development, software quality, model traceability, or risk management | [DEV PROGRAM](/go/devprogram), [SECDEV PROGRAM](/go/secdevprogram), [CONTINUOUS VALIDATION](/go/continuousvalidation), [UNWANTED BIAS TESTING](/go/unwantedbiastesting), [DISCRETE](/go/discrete), [DEV SECURITY](/go/devsecurity), [SEGREGATE DATA](/go/segregatedata) |
+| Data and model supply chain | Untrusted data, third-party models, external hosting, or inherited vulnerabilities enter the AI system | [SUPPLY CHAIN MANAGE](/go/supplychainmanage), [DATA QUALITY CONTROL](/go/dataqualitycontrol)|
+| Sensitive data exposure | Training data, prompts, outputs, embeddings, logs, or augmentation data may reveal confidential or personal data | [DATA MINIMIZE](/go/dataminimize), [ALLOWED DATA](/go/alloweddata), [SHORT RETAIN](/go/shortretain), [OBFUSCATE TRAINING DATA](/go/obfuscatetrainingdata), [SENSITIVE OUTPUT HANDLING](/go/sensitiveoutputhandling), [SMALL MODEL](/go/smallmodel), [MODEL INPUT CONFIDENTIALITY](/go/modelinputconfidentiality), [AUGMENTATION DATA CONFIDENTIALITY](/go/augmentationdataconfidentiality) |
+| Manipulated model behavior | Adversarial inputs, prompt injection, poisoned data, or compromised models can change intended behavior | [OVERSIGHT](/go/oversight), [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege), [MODEL ALIGNMENT](/go/modelalignment), [PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling), [INPUT SEGREGATION](/go/inputsegregation), [ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling), [EVASION INPUT HANDLING](/go/evasioninputhandling), [EVASION ROBUST MODEL](/go/evasionrobustmodel), [TRAIN ADVERSARIAL](/go/trainadversarial), [ADVERSARIAL ROBUST DISTILLATION](/go/adversarialrobustdestillation), [POISON ROBUST MODEL](/go/poisonrobustmodel) |
+| Runtime resilience and abuse | Attackers can perform input attacks | [MONITOR USE](/go/monitoruse), [RATE LIMIT](/go/ratelimit), [MODEL ACCESSS CONTROL](/go/modelaccesscontrol), [ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling), [DOS INPUT VALIDATION](/go/dosinputvalidation), [LIMIT RESOURCES](/go/limitresources), [UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling), and see Manipulated model behaviour for controls against those input attacks |
+| Ready-made or externally hosted models | The organization depends on a provider, external model hosting, or user-facing "shadow AI" alternatives | [SUPPLY CHAIN MANAGE](/go/supplychainmanage),  [DATA MINIMIZE](/go/dataminimize), [ALLOWED DATA](/go/alloweddata) |
 
 ### Threat map with controls - general
 The below map puts the controls in the AI Exchange into groups and places these groups in the right lifecycle with the corresponding threats.
@@ -636,39 +636,39 @@ The controls for AI security can be divided into four essential categories and 8
 
 **Manage**:
 - Extend existing **Governance, Risk, and Compliance** - in order to secure AI, you need overview, analysis, policy, training, responsibilities, and control:
-  > [AI PROGRAM](/go/aiprogram/ ), [DEV PROGRAM](/go/devprogram/), [CHECK COMPLIANCE](/go/checkcompliance/), [SEC EDUCATE](/go/seceducate/)
+  > [AI PROGRAM](/go/aiprogram ), [DEV PROGRAM](/go/devprogram), [CHECK COMPLIANCE](/go/checkcompliance), [SEC EDUCATE](/go/seceducate)
 - Extend **Supply chain management** to incorporate suppliers providing data, models, and hosting
-  > [Supply chain management](/go/supplychainmanage/)
+  > [Supply chain management](/go/supplychainmanage)
 - Extend existing **conventional security controls** to protect the AI-specific assets
   - Managing security:
-    > [SEC PROGRAM](/go/secprogram/), [SECDEV PROGRAM](/go/secdevprogram/)
+    > [SEC PROGRAM](/go/secprogram), [SECDEV PROGRAM](/go/secdevprogram)
   - Development-time (model, data, and documentation):
-    > [DEV SECURITY](/go/devsecurity/), [SEGREGATE DATA](/go/segregatedata/), [DISCRETE](/go/discrete/)
+    > [DEV SECURITY](/go/devsecurity), [SEGREGATE DATA](/go/segregatedata), [DISCRETE](/go/discrete)
   - Runtime: (model storage, model use, augmentation data (including system prompts), and model input/output):  
-    > [MODEL ACCESS CONTROL](/go/modelaccesscontrol/), [RUNTIME MODEL INTEGRITY](/go/runtimemodelintegrity/), [RUNTIME MODEL IO INTEGRITY](/go/runtimemodeliointegrity/), [RUNTIME MODEL CONFIDENTIALITY](/go/runtimemodelconfidentiality/), [MODEL INPUT CONFIDENTIALITY](/go/modelinputconfidentiality/), [ENCODE MODEL OUTPUT](/go/encodemodeloutput/), [LIMIT RESOURCES](/go/limitresources/), [AUGMENTATION DATA CONFIDENTIALITY](/go/augmentationdataconfidentiality/), [AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity/), [CONF COMPUTE](/go/confcompute/), [MODEL OBFUSCATION](/go/modelobfuscation/)   
+    > [MODEL ACCESS CONTROL](/go/modelaccesscontrol), [RUNTIME MODEL INTEGRITY](/go/runtimemodelintegrity), [RUNTIME MODEL IO INTEGRITY](/go/runtimemodeliointegrity), [RUNTIME MODEL CONFIDENTIALITY](/go/runtimemodelconfidentiality), [MODEL INPUT CONFIDENTIALITY](/go/modelinputconfidentiality), [ENCODE MODEL OUTPUT](/go/encodemodeloutput), [LIMIT RESOURCES](/go/limitresources), [AUGMENTATION DATA CONFIDENTIALITY](/go/augmentationdataconfidentiality), [AUGMENTATION DATA INTEGRITY](/go/augmentationdataintegrity), [CONF COMPUTE](/go/confcompute), [MODEL OBFUSCATION](/go/modelobfuscation)   
 
 **Have resilient models**:
 - Apply **data/model engineering controls** during model development for resilience against input attacks. This is the work of data and model engineers. Input attacks include triggering poisoned models - which of course can also be mitigated by preventing the model being poisoned using conventional controls:
-  > [MODEL ALIGNMENT](/go/modelalignment/), [FEDERATED LEARNING](/go/federatedlearning/), [CONTINUOUS VALIDATION](/go/continuousvalidation/), [UNWANTED BIAS TESTING](/go/unwantedbiastesting/), [EVASION ROBUST MODEL](/go/evasionrobustmodel/), [POISON ROBUST MODEL](/go/poisonrobustmodel/), [TRAIN ADVERSARIAL](/go/trainadversarial/), [TRAIN DATA DISTORTION](/go/traindatadistortion/), [ADVERSARIAL ROBUST DISTILLATION](/go/adversarialrobustdistillation/), [MODEL ENSEMBLE](/go/modelensemble/), [MORE TRAINDATA](/go/moretraindata/), [SMALL MODEL](/go/smallmodel/), [DATA QUALITY CONTROL](/go/dataqualitycontrol/)
+  > [MODEL ALIGNMENT](/go/modelalignment), [FEDERATED LEARNING](/go/federatedlearning), [CONTINUOUS VALIDATION](/go/continuousvalidation), [UNWANTED BIAS TESTING](/go/unwantedbiastesting), [EVASION ROBUST MODEL](/go/evasionrobustmodel), [POISON ROBUST MODEL](/go/poisonrobustmodel), [TRAIN ADVERSARIAL](/go/trainadversarial), [TRAIN DATA DISTORTION](/go/traindatadistortion), [ADVERSARIAL ROBUST DISTILLATION](/go/adversarialrobustdistillation), [MODEL ENSEMBLE](/go/modelensemble), [MORE TRAINDATA](/go/moretraindata), [SMALL MODEL](/go/smallmodel), [DATA QUALITY CONTROL](/go/dataqualitycontrol)
 
 **Watch:**
 - Apply **Model I/O handling** for runtime filtering, stopping or alerting to suspicious input or output. It is typically the territory of data and model engineers e.g. data scientists, involving elements from mathematics, statistics, linguistics and machine learning:
-  > [ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling/), [EVASION INPUT HANDLING](/go/evasioninputhandling/), [UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling/), [PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling/), [DOS INPUT VALIDATION](/go/dosinputvalidation/), [INPUT DISTORTION](/go/inputdistortion/), [SENSITIVE OUTPUT HANDLING](/go/sensitiveoutputhandling/), [OBSCURE CONFIDENCE](/go/obscureconfidence/), [RATE LIMIT](/go/ratelimit/)
+  > [ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling), [EVASION INPUT HANDLING](/go/evasioninputhandling), [UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling), [PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling), [DOS INPUT VALIDATION](/go/dosinputvalidation), [INPUT DISTORTION](/go/inputdistortion), [SENSITIVE OUTPUT HANDLING](/go/sensitiveoutputhandling), [OBSCURE CONFIDENCE](/go/obscureconfidence), [RATE LIMIT](/go/ratelimit)
  - **Monitoring** of model inference - extending <odel I/O handing, Oversight (see below) and overlooking general usage of the AI system:
-   > [MONITOR USE](/go/monitoruse/)
+   > [MONITOR USE](/go/monitoruse)
 
 **Limit:**   
 - **Minimize or obfuscate sensitive data** because a model can accidentally leak daa or be misled to:
-  > ([DATA MINIMIZE](/go/dataminimize/), [ALLOWED DATA](/go/alloweddata/), [SHORT RETAIN](/go/shortretain/), [OBFUSCATE TRAINING DATA](/go/obfuscatetrainingdata/))
+  > ([DATA MINIMIZE](/go/dataminimize), [ALLOWED DATA](/go/alloweddata), [SHORT RETAIN](/go/shortretain), [OBFUSCATE TRAINING DATA](/go/obfuscatetrainingdata))
 - **Limit model behaviour**  because a model can accidentally make a mistake or be misled to:
-  > [OVERSIGHT](/go/oversight/), [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/), [AI TRANSPARENCY](/go/aitransparency/), [EXPLAINABILITY](/go/explainability/), [CONTINUOUS VALIDATION](/go/continuousvalidation/), [UNWANTED BIAS TESTING](/go/unwantedbiastesting/)
+  > [OVERSIGHT](/go/oversight), [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege), [AI TRANSPARENCY](/go/aitransparency), [EXPLAINABILITY](/go/explainability), [CONTINUOUS VALIDATION](/go/continuousvalidation), [UNWANTED BIAS TESTING](/go/unwantedbiastesting)
 
 
 All threats and controls are explored in more detail in the corresponding threat sections of the AI Exchange.
 
 ### Threat map with controls - ready-made model
 >Category: discussion  
->Permalink: https://owaspai.org/go/readymademodel/
+>Permalink: https://owaspai.org/go/readymademodel
 
 If possible, and depending on price, organisations can prefer to use a ready-made model, instead of training or fine-tuning themselves. For example: an open source model to detect people in a camera image, or a general purpose LLM such as Google Gemini, OpenAI ChatGPT, Anthropic Claude, Alibaba QWen, Deepseek, Mistral, Grok or Falkon. Training such models yourself can cost millions of dollars, requires deep expertise and vast amounts of data.  
 
@@ -722,30 +722,30 @@ A typical challenge for organizations is to control the use of ready-made-models
 
 ### Periodic table of AI security
 >Category: discussion  
->Permalink: https://owaspai.org/go/periodictable/
+>Permalink: https://owaspai.org/go/periodictable
 
 The table below, created by the OWASP AI Exchange, shows the various threats to AI and the controls you can use against them – all organized by asset, impact and attack surface, with deep links to comprehensive coverage here at the AI Exchange website.  
-Note that [general governance controls](/go/governancecontrols/) apply to all threats.
+Note that [general governance controls](/go/governancecontrols) apply to all threats.
 
 <table><thead>
 <tr><th>Asset &amp; Impact</th><th>Attack surface with lifecycle</th><th>Threat/Risk category</th><th>Controls</th></tr>
 </thead><tbody>
-<tr><td rowspan="7">Model behaviour Integrity</td><td rowspan="3">Runtime -Model use (provide input/ read output)</td><td><a href="/go/directpromptinjection/">Direct prompt injection</a></td><td><a href="/go/limitunwanted/">Limit unwanted behavior</a>, <a href="/go/monitoruse/">Monitor</a>, <a href="/go/ratelimit/">rate limit</a>, <a href="/go/modelaccesscontrol/">model access control</a> plus: <a href="/go/promptinjectioniohandling/">Prompt injection I/O handling</a>, <a href="/go/modelalignment/">Model alignment</a></td></tr>
-<tr>                                         <td><a href="/go/indirectpromptinjection/">Indirect prompt injection</a></td><td><a href="/go/limitunwanted/">Limit unwanted behavior</a>, <a href="/go/promptinjectioniohandling/">Prompt injection I/O handling</a>, <a href="/go/inputsegregation/">Input segregation</a></td></tr>
-<tr>                                         <td><a href="/go/evasion/">Evasion</a> (e.g., adversarial examples)</td><td><a href="/go/limitunwanted/">Limit unwanted behavior</a>, <a href="/go/monitoruse/">Monitor</a>, <a href="/go/ratelimit/">rate limit</a>, <a href="/go/modelaccesscontrol/">model access control</a> plus:<br><br><a href="/go/anomalousinputhandling/">Anomalous input handling</a>, <a href="/go/evasioninputhandling/">Evasion input handling</a>, <a href="/go/unwantedinputserieshandling/">Unwanted input series handling</a>, <a href="/go/evasionrobustmodel/">evasion robust model</a>, <a href="/go/trainadversarial/">train adversarial</a>, <a href="/go/inputdistortion/">input distortion</a>, <a href="/go/adversarialrobustdistillation/">adversarial robust distillation</a></td></tr>
-<tr>                                         <td>Runtime - Break into deployed model</td><td><a href="/go/runtimemodelpoison/">Direct runtime model poisoning</a> (reprogramming)</td><td><a href="/go/limitunwanted/">Limit unwanted behavior</a>, <a href="/go/runtimemodelintegrity/">Runtime model integrity</a>, <a href="/go/runtimemodeliointegrity/">runtime model input/output integrity</a></td></tr>
-<tr><td rowspan="2">Development -Engineering environment</td><td><a href="/go/devmodelpoison/">Direct development-time model poisoning</a></td><td><a href="/go/limitunwanted/">Limit unwanted behavior</a>, <a href="/go/devsecurity/">Development environment security</a>, <a href="/go/segregatedata/">data segregation</a>, <a href="/go/federatedlearning/">federated learning</a>, <a href="/go/supplychainmanage/">supply chain management</a> plus:<br><br><a href="/go/modelensemble/">model ensemble</a></td></tr>
-<tr>                                         <td><a href="/go/datapoison/">Data poisoning of train/finetune data</a></td><td><a href="/go/limitunwanted/">Limit unwanted behavior</a>, <a href="/go/devsecurity/">Development environment security</a>, <a href="/go/segregatedata/">data segregation</a>, <a href="/go/federatedlearning/">federated learning</a>, <a href="/go/supplychainmanage/">supply chain management</a> plus:<br><br><a href="/go/modelensemble/">model ensemble</a> plus:<br><br><a href="/go/moretraindata/">More training data</a>, <a href="/go/dataqualitycontrol/">data quality control</a>, <a href="/go/traindatadistortion/">train data distortion</a>, <a href="/go/poisonrobustmodel/">poison robust model</a>, <a href="/go/trainadversarial/">train adversarial</a></td></tr>
-<tr><td>Development - Supply chain</td><td><a href="/go/supplymodelpoison/">Supply-chain model poisoning</a></td><td><a href="/go/limitunwanted/">Limit unwanted behavior</a>,<br>Supplier: <a href="/go/devsecurity/">Development environment security</a>, <a href="/go/segregatedata/">data segregation</a>, <a href="/go/federatedlearning/">federated learning</a><br><br>Producer: <a href="/go/supplychainmanage/">supply chain management</a> plus:<br><br><a href="/go/modelensemble/">model ensemble</a></td></tr>
-<tr><td rowspan="3">Training data Confidentiality</td><td rowspan="2">Runtime - Model use</td><td><a href="/go/disclosureinoutput/">Disclosure in output</a></td><td><a href="/go/datalimit/">Sensitive data limitation</a> (data minimize, short retain, obfuscate training data) plus:<br><br><a href="/go/monitoruse/">Monitor</a>, <a href="/go/ratelimit/">rate limit</a>, <a href="/go/modelaccesscontrol/">model access control</a> plus:<br><br><a href="/go/sensitiveoutputhandling/">Sensitive output handling</a></td></tr>
-<tr><td><a href="/go/modelinversionandmembership/">Model inversion / Membership inference</a></td><td><a href="/go/datalimit/">Sensitive data limitation</a> (data minimize, short retain, obfuscate training data) plus:<br><br><a href="/go/monitoruse/">Monitor</a>, <a href="/go/ratelimit/">rate limit</a>, <a href="/go/modelaccesscontrol/">model access control</a> plus:<br><br<a href="/go/unwantedinputserieshandling/">Unwanted input series handling</a>, ><a href="/go/obscureconfidence/">Obscure confidence</a>, <a href="/go/smallmodel/">Small model</a></td></tr>
-<tr><td>Development - Engineering environment</td><td><a href="/go/devdataleak/">Direct training data leak</a></td><td><a href="/go/datalimit/">Sensitive data limitation</a> (data minimize, short retain, obfuscate training data) plus:<br><br><a href="/go/devsecurity/">Development environment security</a>, <a href="/go/segregatedata/">data segregation</a>, <a href="/go/federatedlearning/">federated learning</a></td></tr>
-<tr><td rowspan="3">Model confidentiality</td><td>Runtime - Model use</td><td><a href="/go/modelexfiltration/">Model exfiltration</a> (input-output harvesting)</td><td><a href="/go/monitoruse/">Monitor</a>, <a href="/go/ratelimit/">rate limit</a>, <a href="/go/modelaccesscontrol/">model access control</a> plus: <br><br><a href="/go/unwantedinputserieshandling/">Unwanted input series handling</a></td></tr>
-<tr><td>Runtime - Break into deployed model</td><td><a href="/go/runtimemodelleak/">Direct runtime model leak</a></td><td><a href="/go/runtimemodelconfidentiality/">Runtime model confidentiality</a>, <a href="/go/modelobfuscation/">Model obfuscation</a></td></tr>
-<tr><td>Development - Engineering environment</td><td><a href="/go/devmodelleak/">Direct development-time model leak</a></td><td><a href="/go/devsecurity/">Development environment security</a>, <a href="/go/segregatedata/">data segregation</a>, <a href="/go/federatedlearning/">federated learning</a></td></tr>
-<tr><td>Model behaviour Availability</td><td>Model use</td><td><a href="/go/airesourceexhaustion/">AI resource exhaustion</a> (model resource depletion)</td><td><a href="/go/monitoruse/">Monitor</a>, <a href="/go/ratelimit/">rate limit</a>, <a href="/go/modelaccesscontrol/">model access control</a> plus:<br><br><a href="/go/dosinputvalidation/">Dos input validation</a>, <a href="/go/limitresources/">limit resources</a></td></tr>
-<tr><td>Model input data Confidentiality</td><td>Runtime - All IT</td><td><a href="/go/inputdataleak/">Input data leak</a></td><td><a href="/go/modelinputconfidentiality/">Model input confidentiality</a></td></tr>
-<tr><td>Any asset, CIA</td><td>Runtime-All IT</td><td><a href="/go/outputcontainsconventionalinjection/">Output contains conventional injection</a></td><td><a href="/go/encodemodeloutput/">Encode model output</a></td></tr>
+<tr><td rowspan="7">Model behaviour Integrity</td><td rowspan="3">Runtime -Model use (provide input/ read output)</td><td><a href="/go/directpromptinjection">Direct prompt injection</a></td><td><a href="/go/limitunwanted">Limit unwanted behavior</a>, <a href="/go/monitoruse">Monitor</a>, <a href="/go/ratelimit">rate limit</a>, <a href="/go/modelaccesscontrol">model access control</a> plus: <a href="/go/promptinjectioniohandling">Prompt injection I/O handling</a>, <a href="/go/modelalignment">Model alignment</a></td></tr>
+<tr>                                         <td><a href="/go/indirectpromptinjection">Indirect prompt injection</a></td><td><a href="/go/limitunwanted">Limit unwanted behavior</a>, <a href="/go/promptinjectioniohandling">Prompt injection I/O handling</a>, <a href="/go/inputsegregation">Input segregation</a></td></tr>
+<tr>                                         <td><a href="/go/evasion">Evasion</a> (e.g., adversarial examples)</td><td><a href="/go/limitunwanted">Limit unwanted behavior</a>, <a href="/go/monitoruse">Monitor</a>, <a href="/go/ratelimit">rate limit</a>, <a href="/go/modelaccesscontrol">model access control</a> plus:<br><br><a href="/go/anomalousinputhandling">Anomalous input handling</a>, <a href="/go/evasioninputhandling">Evasion input handling</a>, <a href="/go/unwantedinputserieshandling">Unwanted input series handling</a>, <a href="/go/evasionrobustmodel">evasion robust model</a>, <a href="/go/trainadversarial">train adversarial</a>, <a href="/go/inputdistortion">input distortion</a>, <a href="/go/adversarialrobustdistillation">adversarial robust distillation</a></td></tr>
+<tr>                                         <td>Runtime - Break into deployed model</td><td><a href="/go/runtimemodelpoison">Direct runtime model poisoning</a> (reprogramming)</td><td><a href="/go/limitunwanted">Limit unwanted behavior</a>, <a href="/go/runtimemodelintegrity">Runtime model integrity</a>, <a href="/go/runtimemodeliointegrity">runtime model input/output integrity</a></td></tr>
+<tr><td rowspan="2">Development -Engineering environment</td><td><a href="/go/devmodelpoison">Direct development-time model poisoning</a></td><td><a href="/go/limitunwanted">Limit unwanted behavior</a>, <a href="/go/devsecurity">Development environment security</a>, <a href="/go/segregatedata">data segregation</a>, <a href="/go/federatedlearning">federated learning</a>, <a href="/go/supplychainmanage">supply chain management</a> plus:<br><br><a href="/go/modelensemble">model ensemble</a></td></tr>
+<tr>                                         <td><a href="/go/datapoison">Data poisoning of train/finetune data</a></td><td><a href="/go/limitunwanted">Limit unwanted behavior</a>, <a href="/go/devsecurity">Development environment security</a>, <a href="/go/segregatedata">data segregation</a>, <a href="/go/federatedlearning">federated learning</a>, <a href="/go/supplychainmanage">supply chain management</a> plus:<br><br><a href="/go/modelensemble">model ensemble</a> plus:<br><br><a href="/go/moretraindata">More training data</a>, <a href="/go/dataqualitycontrol">data quality control</a>, <a href="/go/traindatadistortion">train data distortion</a>, <a href="/go/poisonrobustmodel">poison robust model</a>, <a href="/go/trainadversarial">train adversarial</a></td></tr>
+<tr><td>Development - Supply chain</td><td><a href="/go/supplymodelpoison">Supply-chain model poisoning</a></td><td><a href="/go/limitunwanted">Limit unwanted behavior</a>,<br>Supplier: <a href="/go/devsecurity">Development environment security</a>, <a href="/go/segregatedata">data segregation</a>, <a href="/go/federatedlearning">federated learning</a><br><br>Producer: <a href="/go/supplychainmanage">supply chain management</a> plus:<br><br><a href="/go/modelensemble">model ensemble</a></td></tr>
+<tr><td rowspan="3">Training data Confidentiality</td><td rowspan="2">Runtime - Model use</td><td><a href="/go/disclosureinoutput">Disclosure in output</a></td><td><a href="/go/datalimit">Sensitive data limitation</a> (data minimize, short retain, obfuscate training data) plus:<br><br><a href="/go/monitoruse">Monitor</a>, <a href="/go/ratelimit">rate limit</a>, <a href="/go/modelaccesscontrol">model access control</a> plus:<br><br><a href="/go/sensitiveoutputhandling">Sensitive output handling</a></td></tr>
+<tr><td><a href="/go/modelinversionandmembership">Model inversion / Membership inference</a></td><td><a href="/go/datalimit">Sensitive data limitation</a> (data minimize, short retain, obfuscate training data) plus:<br><br><a href="/go/monitoruse">Monitor</a>, <a href="/go/ratelimit">rate limit</a>, <a href="/go/modelaccesscontrol">model access control</a> plus:<br><br<a href="/go/unwantedinputserieshandling">Unwanted input series handling</a>, ><a href="/go/obscureconfidence">Obscure confidence</a>, <a href="/go/smallmodel">Small model</a></td></tr>
+<tr><td>Development - Engineering environment</td><td><a href="/go/devdataleak">Direct training data leak</a></td><td><a href="/go/datalimit">Sensitive data limitation</a> (data minimize, short retain, obfuscate training data) plus:<br><br><a href="/go/devsecurity">Development environment security</a>, <a href="/go/segregatedata">data segregation</a>, <a href="/go/federatedlearning">federated learning</a></td></tr>
+<tr><td rowspan="3">Model confidentiality</td><td>Runtime - Model use</td><td><a href="/go/modelexfiltration">Model exfiltration</a> (input-output harvesting)</td><td><a href="/go/monitoruse">Monitor</a>, <a href="/go/ratelimit">rate limit</a>, <a href="/go/modelaccesscontrol">model access control</a> plus: <br><br><a href="/go/unwantedinputserieshandling">Unwanted input series handling</a></td></tr>
+<tr><td>Runtime - Break into deployed model</td><td><a href="/go/runtimemodelleak">Direct runtime model leak</a></td><td><a href="/go/runtimemodelconfidentiality">Runtime model confidentiality</a>, <a href="/go/modelobfuscation">Model obfuscation</a></td></tr>
+<tr><td>Development - Engineering environment</td><td><a href="/go/devmodelleak">Direct development-time model leak</a></td><td><a href="/go/devsecurity">Development environment security</a>, <a href="/go/segregatedata">data segregation</a>, <a href="/go/federatedlearning">federated learning</a></td></tr>
+<tr><td>Model behaviour Availability</td><td>Model use</td><td><a href="/go/airesourceexhaustion">AI resource exhaustion</a> (model resource depletion)</td><td><a href="/go/monitoruse">Monitor</a>, <a href="/go/ratelimit">rate limit</a>, <a href="/go/modelaccesscontrol">model access control</a> plus:<br><br><a href="/go/dosinputvalidation">Dos input validation</a>, <a href="/go/limitresources">limit resources</a></td></tr>
+<tr><td>Model input data Confidentiality</td><td>Runtime - All IT</td><td><a href="/go/inputdataleak">Input data leak</a></td><td><a href="/go/modelinputconfidentiality">Model input confidentiality</a></td></tr>
+<tr><td>Any asset, CIA</td><td>Runtime-All IT</td><td><a href="/go/outputcontainsconventionalinjection">Output contains conventional injection</a></td><td><a href="/go/encodemodeloutput">Encode model output</a></td></tr>
 <tr><td>Any asset, CIA</td><td>Runtime - All IT</td><td>Generic runtime security threats</td><td>Conventional runtime security controls</td></tr>
 <tr><td>Any asset, CIA</td><td>Runtime - All IT</td><td>Generic development-environment and supply chain threats</td><td>Conventional development security and supply chain management controls</td></tr>
 </tbody></table>
@@ -753,7 +753,7 @@ Note that [general governance controls](/go/governancecontrols/) apply to all th
 
 ### Structure of threats and controls in the deep dive section
 >Category: discussion  
->Permalink: https://owaspai.org/go/navigator/
+>Permalink: https://owaspai.org/go/navigator
 
 The details of threats and controls are covered in four deep-dive sections, each on a next page at the Exchange, grouping the threats, and discussing the corresponding controls:
 - [1. General controls](/docs/1_general_controls)  
@@ -771,14 +771,14 @@ The navigator diagram below outlines the structure of the deep-dive sections, il
 
 ## How to select relevant threats and controls? risk analysis
 >Category: discussion  
->Permalink: https://owaspai.org/go/riskanalysis/
+>Permalink: https://owaspai.org/go/riskanalysis
 
 There are quite a number of threats and controls described in this document. The relevance and severity of each threat and the appropriate controls depend on your specific use case and how AI is deployed within your environment. Determining which threats apply, to what extent, and who is responsible for implementing controls should be guided by a risk assessment based on your architecture and intended use. Simply go to the 'Identifying risks' section below and follow the steps.
 
 **Risk management introduction**  
-Organizations classify their risks into several key areas: Strategic, Operational, Financial, Compliance, Reputation, Technology, Environmental, Social, and Governance (ESG). A threat becomes a risk when it exploits one or more vulnerabilities. AI threats, as discussed in this resource, can have significant impact across multiple risk domains. For example, adversarial attacks on AI systems can lead to disruptions in operations, distort financial models, and result in compliance issues.  See the [AI security matrix](/go/aisecuritymatrix/) for an overview of AI related threats, risks and potential impact.
+Organizations classify their risks into several key areas: Strategic, Operational, Financial, Compliance, Reputation, Technology, Environmental, Social, and Governance (ESG). A threat becomes a risk when it exploits one or more vulnerabilities. AI threats, as discussed in this resource, can have significant impact across multiple risk domains. For example, adversarial attacks on AI systems can lead to disruptions in operations, distort financial models, and result in compliance issues.  See the [AI security matrix](/go/aisecuritymatrix) for an overview of AI related threats, risks and potential impact.
 
-General risk management for AI systems is typically driven by AI governance - see [AIPROGRAM](/go/aiprogram/) and includes both risks BY relevant AI systems and risks to those systems. Security risk assessment is typically driven by the security management system - see [SECPROGRAM](/go/secprogram/) as this system is tasked to include AI assets, AI threats, and AI systems provided that these have been added to the corresponding repositories. ISO/IEC 27005 is the international standard for security risk management.
+General risk management for AI systems is typically driven by AI governance - see [AIPROGRAM](/go/aiprogram) and includes both risks BY relevant AI systems and risks to those systems. Security risk assessment is typically driven by the security management system - see [SECPROGRAM](/go/secprogram) as this system is tasked to include AI assets, AI threats, and AI systems provided that these have been added to the corresponding repositories. ISO/IEC 27005 is the international standard for security risk management.
 
 Organizations often adopt a Risk Management framework, commonly based on ISO 31000 or similar standards such as ISO 23894. These frameworks guide the process of managing risks through four key steps as outlined below:
 
@@ -796,14 +796,14 @@ Let's go through the risk management steps one by one.
 
 ### 1. Identifying Risks - decision tree to threat model
 >Category: discussion  
->Permalink: https://owaspai.org/go/threatmodel/
+>Permalink: https://owaspai.org/go/threatmodel
 
 The AI Exchange presents a foundational framework of threats and controls. This catalog of threats can be used to identify the risks that apply to a specific AI system, depending on architecture, context, domain and use case.  
 NOTE: In this document, we focus on AI-specific risks only - meaning risks to the AI-specific assets.
 
 This subsection takes you through each type of risk impact, and poses questions that will help to determine which threats apply. In addition, it provides guidance to translate that to risks.
 
-There's an AI available that uses all this material to take you through the threat model process: [THREAT ADVISOR](/go/threatadvisor/). Just go to the advisor (requires a Google account) and start by briefly describing your system. It will then interview you. Your data will remain in your own Google workspace.
+There's an AI available that uses all this material to take you through the threat model process: [THREAT ADVISOR](/go/threatadvisor). Just go to the advisor (requires a Google account) and start by briefly describing your system. It will then interview you. Your data will remain in your own Google workspace.
 
 In essence, this is a 'Threat modeling' process: the bridge between a list of threats and a set of concrete, prioritized risks.  
 The threats represent a catalogue of “attacks that could happen” and threat modeling answers three key questions:
@@ -836,31 +836,31 @@ Another example: If your agentic system uses an LLM, then it is in theory suscep
   Regarding model behaviour, we focus on manipulation by attackers, as the scope of this document is security. Other sources of unwanted behavior are standard incorrectness (e.g., hallucinations) and/or unwanted bias regarding certain groups (discrimination).
     
    > QUESTION: Is the model GenAI (e.g., a Large Language Model) and not classic machine learning or a heuristic model? If Yes:
-  - Consider the threat of [direct prompt injection](/go/directpromptinjection/) in case a) an attacker can provide input to the model (e.g., a prompt), and b) the model could theoretically create output that results in harm - for example: offensive output, information leading to harm, or triggering harmful functions (Agentic AI).
+  - Consider the threat of [direct prompt injection](/go/directpromptinjection) in case a) an attacker can provide input to the model (e.g., a prompt), and b) the model could theoretically create output that results in harm - for example: offensive output, information leading to harm, or triggering harmful functions (Agentic AI).
     - For risk assessment of direct prompt injection, the first question is: has the model supplier done enough according to your risk appetite. For this, you can check tests that the supplier or others have performed, and when not available: have these tests done based on what harm means in your use case. What you accept, in other words: what you find too much effort in combination with too harmful, depends on your context. If a user wants the AI to say something offensive: do you regard it as a problem if that user succeeds in getting offended? Do you regard it as a problem if users can get a recipe to make poison - given that they can get this from many other AI's out there. See the linked prompt injection section for more details.
-  - Consider the threat of [indirect prompt injection](/go/indirectpromptinjection/) when your system inserts untrusted data in a prompt e.g. you retrieve somebody's resume and include it in a prompt, or an agent retrieves data that is untrusted (i.e. may have been manipulated or placed by an attacker).
+  - Consider the threat of [indirect prompt injection](/go/indirectpromptinjection) when your system inserts untrusted data in a prompt e.g. you retrieve somebody's resume and include it in a prompt, or an agent retrieves data that is untrusted (i.e. may have been manipulated or placed by an attacker).
 
   
   > QUESTION: Who trains/finetunes the model?
-  - The supplier: consider the threat of[Supply chain model poisoning](/go/supplymodelpoison/): obtaining or working with a model that has been manipulated to behave in unintended ways.
-    - Mitigation guidance: This is done through proper [supply chain management](/go/supplychainmanage/) (e.g., selecting a trustworthy supplier and verifying the authenticity of the model). This is to gain assurance on the security posture of the provider, meaning the provider prevents model poisoning during development, including data poisoning, and uses uncompromised data. If the risk of data poisoning remains unacceptable, implementing post-training countermeasures can be an option if you have the expertise and if you have access to the model parameters (e.g., open source weights). See [POISONROBUSTMODEL](/go/poisonrobustmodel/). Note that providers are typically not very open about their security countermeasures, which means that it can be challenging to gain sufficient assurance. Regulations will hopefully help achieve more provider transparency. For more details, see [ready-made models](/go/readymademodel/).
-  - You: consider the threat of [data poisoning](/go/datapoison/) in the development environment or by obtaining poisoned data from a third party, and consider the threat of attackers altering your model directly using [direct development-time model poisoning](/go/devmodelpoison/).
+  - The supplier: consider the threat of[Supply chain model poisoning](/go/supplymodelpoison): obtaining or working with a model that has been manipulated to behave in unintended ways.
+    - Mitigation guidance: This is done through proper [supply chain management](/go/supplychainmanage) (e.g., selecting a trustworthy supplier and verifying the authenticity of the model). This is to gain assurance on the security posture of the provider, meaning the provider prevents model poisoning during development, including data poisoning, and uses uncompromised data. If the risk of data poisoning remains unacceptable, implementing post-training countermeasures can be an option if you have the expertise and if you have access to the model parameters (e.g., open source weights). See [POISONROBUSTMODEL](/go/poisonrobustmodel). Note that providers are typically not very open about their security countermeasures, which means that it can be challenging to gain sufficient assurance. Regulations will hopefully help achieve more provider transparency. For more details, see [ready-made models](/go/readymademodel).
+  - You: consider the threat of [data poisoning](/go/datapoison) in the development environment or by obtaining poisoned data from a third party, and consider the threat of attackers altering your model directly using [direct development-time model poisoning](/go/devmodelpoison).
 
     Why not train/finetune a model yourself? There are many third party and open source models that may be able to perform the required task, perhaps after some fine-tuning. Organizations often choose external GenAI models because they are typically general purpose, and training is difficult and expensive (often millions of dollars). Fine-tuning of generative AI is also not often performed by organizations given the cost of compute and the complexity involved. Some GenAI models can be obtained and run on your own infrastructure. The reasons for this can be lower cost (if it is an open source model), and the fact that sensitive input information does not have to be sent externally. A reason to use an externally hosted GenAI model can be the quality of the model.
  
  
   > QUESTION: Does your system insert (augment) data to the input of your model, like for example in RAG (Retrieval Augmented Generation), or by inserting data from memory (e.g., stored state for an agent), or by having _system prompts_ (standard instructions to the model that are automatically added to the input) ? If yes: 
   
-  - Consider the threat of [augmentation data manipulation](/go/augmentationdatamanipulation/) as this data plays a role in determining the model behaviour.
-  - Is this augmentation data stored in a database for the purpose of the AI system (e.g., a vector database)? If Yes: you need to protect against [direct augmentation data leak](/go/augmentationdataleak/). Note that this also counts for system prompts, if they are sensitive.
-  - Consult [RAG systems overview](/go/ragsystemsoverview/) for further considerations.
+  - Consider the threat of [augmentation data manipulation](/go/augmentationdatamanipulation) as this data plays a role in determining the model behaviour.
+  - Is this augmentation data stored in a database for the purpose of the AI system (e.g., a vector database)? If Yes: you need to protect against [direct augmentation data leak](/go/augmentationdataleak). Note that this also counts for system prompts, if they are sensitive.
+  - Consult [RAG systems overview](/go/ragsystemsoverview) for further considerations.
 
   > QUESTION: Who runs the model?
-  - The supplier runs the model: select a trustworthy supplier through [supply chain management](/go/supplychainmanage/), to make sure the deployed model cannot be manipulated through ([runtime model poisoning](/go/runtimemodelpoison/)) - just the way you would expect any supplier to protect their running application from manipulation.
-  - You run the model: You need to consider the threat of [runtime model poisoning](/go/runtimemodelpoison/) where attackers change the model that you have deployed.
+  - The supplier runs the model: select a trustworthy supplier through [supply chain management](/go/supplychainmanage), to make sure the deployed model cannot be manipulated through ([runtime model poisoning](/go/runtimemodelpoison)) - just the way you would expect any supplier to protect their running application from manipulation.
+  - You run the model: You need to consider the threat of [runtime model poisoning](/go/runtimemodelpoison) where attackers change the model that you have deployed.
 
  > QUESTION: Is the model (predictive AI or Generative AI) used in a classification task (e.g., spam or fraud detection)?
-  - Yes: Consider the threat of an [evasion attack](/go/evasion/) in which a user tries to fool the model into a wrong decision using data (not instructions). Here, the level of risk is an important aspect to evaluate - see below. The risk of an evasion attack may be acceptable.
+  - Yes: Consider the threat of an [evasion attack](/go/evasion) in which a user tries to fool the model into a wrong decision using data (not instructions). Here, the level of risk is an important aspect to evaluate - see below. The risk of an evasion attack may be acceptable.
     
 **Analysing the risk of unwanted model behaviour**
 
@@ -868,9 +868,9 @@ Another example: If your agentic system uses an LLM, then it is in theory suscep
   - This typically increases the impact of the risks mentioned above, depending on the action. The action can for example be adding an entry to a database, but also closing a watertight door in a ship. The threat is for example prompt injection or augmentation data manipulation, but the risk is that this leads to a specific impact (e.g., exfiltrating data, or un unsafe action in the physical world.)
 
 > QUESTION: IF the model triggers actions, is there an action that is able to send data so it can be seen by an adversary, and is there sensitive data accessible in the system by one of the agents or actions that is reachable by the manipulated agent? If Yes:
-  - This combination of 1) manipulated model behaviour, 2) ability for the model to send data, and 3) ability for the model to access sensitive data is called the 'Lethal trifecta'. The impact is: data exfiltration. For more details, see [Agentic threats](/go/agenticaithreats/).
+  - This combination of 1) manipulated model behaviour, 2) ability for the model to send data, and 3) ability for the model to access sensitive data is called the 'Lethal trifecta'. The impact is: data exfiltration. For more details, see [Agentic threats](/go/agenticaithreats).
 
-NOTE: a special form of exfiltrating and sending data to an adversary is through [injecting exfiltration in model output](/go/outputcontainsconventionalinjection/): a model is manipulated to output sensitive data in code which sends out sensitive data. This can be javascript executed in a browser (XSS), but more simple: a link to an image on the server of an adversary, where the URL contains the sensitive data. Or in a similar fashion: the output containing a link for the user to click on, to that same server.
+NOTE: a special form of exfiltrating and sending data to an adversary is through [injecting exfiltration in model output](/go/outputcontainsconventionalinjection): a model is manipulated to output sensitive data in code which sends out sensitive data. This can be javascript executed in a browser (XSS), but more simple: a link to an image on the server of an adversary, where the URL contains the sensitive data. Or in a similar fashion: the output containing a link for the user to click on, to that same server.
   
   In order to assess the level of risk for unwanted model behaviour through manipulation, consider what the motivation of an attacker could be. What could an attacker gain by misleading your model? Just a claim to fame? Could it be a disgruntled employee? Maybe a competitor? What could an attacker gain by a less conspicuous model behaviour attack, like an evasion attack or data poisoning with a trigger? Is there a scenario where an attacker benefits from fooling the model? An example where evasion IS interesting and possible: adding certain words in a spam email so that it is not recognized as such. An example where evasion is not interesting is when a patient gets a skin disease diagnosis based on a picture of the skin. The patient has no interest in a wrong decision, and also the patient typically has no control - well maybe by painting the skin. There are situations in which this CAN be of interest for the patient, for example to be eligible for compensation in case the (faked) skin disease was caused by certain restaurant food. This demonstrates that it all depends on the context whether a theoretical threat is a real threat or not. Depending on the probability and impact of the threats, and on the relevant policies, some threats may be accepted as risk. When not accepted, the level of risk is input to the strength of the controls. For example: if data poisoning can lead to substantial benefit for a group of attackers, then the training data needs to be given a high level of protection.
 
@@ -878,10 +878,10 @@ NOTE: a special form of exfiltrating and sending data to an adversary is through
 
  > QUESTION: Do you train/finetune the model yourself?
   - If yes, is the training data sensitive? If so, you need to consider the threats of:
-    - [disclosure in model output](/go/disclosureuse/) in case the output can contain the sensitive data
-    - [model inversion](/go/modelinversionandmembership/) 
-    - [direct training data leak](/go/devdataleak/) from your engineering environment
-    - [membership inference](/go/modelinversionandmembership/) - but only when the fact that something or someone was part of the training data constitutes sensitive information. For example, when the training set consists of criminals and their history to predict criminal careers. Membership of that set gives away the person is a convicted or alleged criminal.
+    - [disclosure in model output](/go/disclosureuse) in case the output can contain the sensitive data
+    - [model inversion](/go/modelinversionandmembership) 
+    - [direct training data leak](/go/devdataleak) from your engineering environment
+    - [membership inference](/go/modelinversionandmembership) - but only when the fact that something or someone was part of the training data constitutes sensitive information. For example, when the training set consists of criminals and their history to predict criminal careers. Membership of that set gives away the person is a convicted or alleged criminal.
     
 > QUESTION: do you use insert data into the input (e.g., by using RAG -retrieve data and insert it in the prompt)?
   - Yes: apply the above to your augmentation data, as if it was part of the training set: as the repository data feeds into the model and can therefore be part of the output as well.
@@ -893,24 +893,24 @@ NOTE: a special form of exfiltrating and sending data to an adversary is through
 
 > QUESTION: Do you train/finetune the model yourself and is it intellectual property or susceptible to an Evasion attack (see above)?
   - If yes, then you need to consider the threats:
-    - [Model exfiltration](/go/modelexfiltration/)
-    - [Direct development-time model leak](/go/devmodelleak/)
-    - [Source code/configuration leak](/go/devcodeleak/)
-    - [Direct runtime model leak](/go/runtimemodelleak/)
+    - [Model exfiltration](/go/modelexfiltration)
+    - [Direct development-time model leak](/go/devmodelleak)
+    - [Source code/configuration leak](/go/devcodeleak)
+    - [Direct runtime model leak](/go/runtimemodelleak)
        
  **Identify risks with the impact of leaking input data**
  
 > QUESTION: Is your input data sensitive?
-  - Protect against [input data leak](/go/inputdataleak/). Especially if the model is run by a supplier, proper care needs to be taken to ensure that this data is minimized and transferred or stored securely. Review the security measures provided by the supplier, including any options to disable logging or monitoring on their end. Realise that most Cloud AI models have your input and output unencrypted in their infrastructure (just like documents in Google Suite and Microsoft 365). If you use the right license and configuration, you can prevent it from being stored or analysed. One risk that remains is that the government of the supplier may be forced to store and keep input and output to serve for subpoenas. If you're using a RAG system, remember that the data you retrieve and inject into the prompt also counts as input data. This often includes sensitive company information or personal data.
+  - Protect against [input data leak](/go/inputdataleak). Especially if the model is run by a supplier, proper care needs to be taken to ensure that this data is minimized and transferred or stored securely. Review the security measures provided by the supplier, including any options to disable logging or monitoring on their end. Realise that most Cloud AI models have your input and output unencrypted in their infrastructure (just like documents in Google Suite and Microsoft 365). If you use the right license and configuration, you can prevent it from being stored or analysed. One risk that remains is that the government of the supplier may be forced to store and keep input and output to serve for subpoenas. If you're using a RAG system, remember that the data you retrieve and inject into the prompt also counts as input data. This often includes sensitive company information or personal data.
 
 
  **Identify further risks**
 
  > QUESTION: Does your model create text output?
-  - Consider the threat of [output contains conventional injection](/go/insecureoutput/), for example, when you display the output of the model on a website and the output contains malicious Javascript.
+  - Consider the threat of [output contains conventional injection](/go/insecureoutput), for example, when you display the output of the model on a website and the output contains malicious Javascript.
 
 > ALWAYS DO:
-  Make sure to protect against [AI resource exhaustions](/go/denialmodelservice/) (actors overusing your AI causing availability problems and/or high cost)). If your model is run by a supplier, then certain countermeasures may already be in place to address this.
+  Make sure to protect against [AI resource exhaustions](/go/denialmodelservice) (actors overusing your AI causing availability problems and/or high cost)). If your model is run by a supplier, then certain countermeasures may already be in place to address this.
 
   Since AI systems are software systems, they require appropriate conventional application security and operational security, apart from the AI-specific threats and controls mentioned in this section.
 
@@ -956,7 +956,7 @@ A central tool in this process is the Risk Register, which serves as a comprehen
 ### 5. Arrange responsibility
 For each selected threat, determine who is responsible for addressing it. By default, the organization that builds and deploys the AI system is responsible, but building and deploying may be done by different organizations, and some parts of the building and deployment may be deferred to other organizations, e.g. hosting the model, or providing a cloud environment for the application to run. Some aspects are shared responsibilities.
 
-If some components of your AI system are hosted, then you share responsibility regarding all controls for the relevant threats with the hosting provider. This needs to be arranged with the provider by using a tool like the responsibility matrix. Components can be the model, model extensions, your application, or your infrastructure. See [Threat model of a ready-made model](/go/readymademodel/).
+If some components of your AI system are hosted, then you share responsibility regarding all controls for the relevant threats with the hosting provider. This needs to be arranged with the provider by using a tool like the responsibility matrix. Components can be the model, model extensions, your application, or your infrastructure. See [Threat model of a ready-made model](/go/readymademodel).
 
 If an external party is not open about how certain risks are mitigated, consider requesting this information and when this remains unclear you are faced with either 1) accept the risk, 2) or provide your own mitigations, or 3) avoid the risk, by not engaging with the third party.
 
@@ -966,7 +966,7 @@ For the threats that are the responsibility of other organisations: attain assur
 Example: Regular audits and assessments of third-party security measures.
  
 ### 7. Select controls
-Next, for the threats that are relevant to your use-case and fall under your responsibility, review the associated controls, both those listed directly under the threat (or its parent category) and the general controls, which apply universally. See the [Periodic table](/go/periodictable/) for an overview of which controls mitigate the risks for each threat. For each control, consider its purpose and assess whether it's worth implementing, and to what extent. This decision should weigh the cost of implementation against how effectively the control addresses the threat, along with the level of the associated risk. These factors also influence the order in which you apply controls. Start with the highest-risk threats and prioritize low-cost, quick-win controls (the "low-hanging fruit").
+Next, for the threats that are relevant to your use-case and fall under your responsibility, review the associated controls, both those listed directly under the threat (or its parent category) and the general controls, which apply universally. See the [Periodic table](/go/periodictable) for an overview of which controls mitigate the risks for each threat. For each control, consider its purpose and assess whether it's worth implementing, and to what extent. This decision should weigh the cost of implementation against how effectively the control addresses the threat, along with the level of the associated risk. These factors also influence the order in which you apply controls. Start with the highest-risk threats and prioritize low-cost, quick-win controls (the "low-hanging fruit").
 
 Controls often have quality-related parameters that need to be adjusted to suit the specific situation and level of risk. For example, this could involve deciding how much noise to add to input data or setting appropriate thresholds for anomaly detection. Testing the effectiveness of these controls in a simulation environment helps you evaluate their performance and security impact to find the right balance. This tuning process should be continuous, using insights from both simulated tests and real-world production feedback.
 
@@ -976,7 +976,7 @@ When have you done enough? The AI system is sufficiently secure when all identif
 In the end, you need to be able to accept the risks that remain regarding each threat, given the controls that you implemented. 
 
 ### 9. Further management of the selected controls
-(see [SECPROGRAM](/go/secprogram/)), which includes continuous monitoring, documentation, reporting, and incident response.
+(see [SECPROGRAM](/go/secprogram)), which includes continuous monitoring, documentation, reporting, and incident response.
 
 ### 10. Continuous risk assessment
 Implement continuous monitoring to detect and respond to new threats. Update the risk management strategies based on evolving threats and feedback from incident response activities.  
@@ -999,7 +999,7 @@ This document focuses on machine learning. Nevertheless, here is a quick summary
 
 ### How about responsible or trustworthy AI?
 > Category: discussion  
-> Permalink: https://owaspai.org/go/responsibleai/
+> Permalink: https://owaspai.org/go/responsibleai
 
 'Responsible AI' and 'trustworthy AI' aim for positive outcomes while mitigating risks. The terms overlap heavily and are often used interchangeably; the former is commonly used to emphasise ethics, society, and governance, while the latter tends to stress technical and operational aspects. Both include security.  
 If your primary responsibility is security, it's best to start by focusing on just that. Once you have a solid grasp of the security part, you can expand your knowledge to other AI aspects, such as bias, performance and use of AI. Your professional instinct for spotting what can go wrong can support colleagues who are responsible for those other areas. Furthermore, some aspects can be a consequence of compromised AI and are therefore helpful to understand, such as issues with _bias_ and _safety_.  
@@ -1007,18 +1007,18 @@ If your primary responsibility is security, it's best to start by focusing on ju
 General concepts:
 - **Harm** is negative impact on stakeholders' interests — people (safety, rights, wellbeing), the operating organization (continuity, finance, security, liability, reputation), or society and ecosystems. Controlling _harm_ is central to responsible and trustworthy AI.
 - **Safety** refers to the condition of being protected from / unlikely to cause harm. Harm is sometimes used to refer to physical harm, but it may also include health and fundamental rights issues. Safety of an AI system rests on (1) sufficient correctness where harm is at stake, (2) measures that mitigate the consequences of incorrect behaviour, and (3) security — since compromised systems can behave unsafely. Because a model can act unsafely without being attacked (e.g., due to bad training data), these measures are a shared concern between safety and security:
-  -  [oversight](/go/oversight/) to restrict unsafe behaviour, and connected to that: applying least privilege to the AI,
-  -  [continuous validation](/go/continuousvalidation/) to safeguard correctness,
-  -  [transparency](/go/aitransparency/): see below,
-  -  [explainability](/go/explainability/): see below.
+  -  [oversight](/go/oversight) to restrict unsafe behaviour, and connected to that: applying least privilege to the AI,
+  -  [continuous validation](/go/continuousvalidation) to safeguard correctness,
+  -  [transparency](/go/aitransparency): see below,
+  -  [explainability](/go/explainability): see below.
 - **Accountability**. Accountability means being able to demonstrate the measures taken and the processes that have led to those measures. In addition, operational traceability is important, just like in any IT system, in order to detect, reconstruct and respond to incidents and provide accountability.
 Responsible/trustworthy AI can be broken down into four responsibilities: responsible use, standard performance, standard impartiality (where 'standard' means: when not under attack), and security.
 
 #### Responsibility 1: Responsible use
-Responsible use is about controlling harm caused by _functionality_ of the AI system in combination with its intended use. The goal is to have the AI system act in a lawful and ethical way. For example: applying AI to select candidates for a job vacancy with proper bias tests and meaningful review. The main control to manage responsible use is [AI Governance](/go/aiprogram/) which includes for example doing an impact assessment for AI ideas.  
+Responsible use is about controlling harm caused by _functionality_ of the AI system in combination with its intended use. The goal is to have the AI system act in a lawful and ethical way. For example: applying AI to select candidates for a job vacancy with proper bias tests and meaningful review. The main control to manage responsible use is [AI Governance](/go/aiprogram) which includes for example doing an impact assessment for AI ideas.  
 
 Concepts regarding responsible use:
-- **Privacy** consists of the security of personal data plus principles and rights depending on thelegal framework (e.g.the GDPR): transparency, consent, purpose limitation, data subject rights (access/rectification/erasure/objection), and a lawful basis for data collection. See the [Privacy section](/go/privacy/) for in-depth discussion.
+- **Privacy** consists of the security of personal data plus principles and rights depending on thelegal framework (e.g.the GDPR): transparency, consent, purpose limitation, data subject rights (access/rectification/erasure/objection), and a lawful basis for data collection. See the [Privacy section](/go/privacy) for in-depth discussion.
 - **Fairness**: There are different definitions of fairness. One definition is that fairness is the same as equal treatment. Other definitions give it a broader meaning of 'justified treatment', such as the EDPS’ guideline, which defines fairness as the prevention of “unjustifiably detrimental, unlawfully discriminatory, unexpected or misleading” processing of personal data. Following that definition, fairness includes all elements mentioned as fundamental rights under privacy.
 - **Transparency**: sharing information about the applied approach, to warn users and depending systems of correctness risks, plus in many cases users have the right to know details about AI being used and how it has been created. Therefore it is a shared concern between security, privacy and safety.
 - **Explainability**: sharing information to help users validate correctness by explaining in more detail how a specific result was calculated. Apart from validating correctness this can also support users to get transparency and to understand what needs to change to get a different outcome. Therefore it is a shared concern between security, privacy, safety and business function. A special case is when explainability is required by law, which adds 'compliance' to the list of aspects that share this concern. Explainability can support responsible use and is legally required for only a small set of use cases.
@@ -1051,7 +1051,7 @@ Concepts regarding impartiality:
 
 
 #### Responsibility 4: Security
-AI security — protecting AI systems against attacks — is the main subject of the AI Exchange. For a high-level overview, see the [AI security essentials](/go/essentials/). It can be divided into two goals:
+AI security — protecting AI systems against attacks — is the main subject of the AI Exchange. For a high-level overview, see the [AI security essentials](/go/essentials). It can be divided into two goals:
 - **Security protecting correctness**: deal with attacks manipulating model behaviour (e.g., data/model poisoning, prompt injection, evasion), leading to incorrectness and potential harm. For simplicity, this includes security for protecting availability if we regard the goal of correctness as the presence of a sufficiently correct result: no availability means no correctness.
 - **Security protecting confidentiality**: deal with attacks that attempt to leak sensitive data (e.g., training data extraction, input leak, model theft).
 
@@ -1070,35 +1070,35 @@ The image below shows all aspects of responsible/trustworthy AI in one visual. I
 
 ### How about Generative AI (e.g. LLM)?
 > Category: discussion  
-> Permalink: https://owaspai.org/go/genai/
+> Permalink: https://owaspai.org/go/genai
 
 Yes, GenAI is leading the current AI revolution and it's the fastest moving subfield of AI security. Nevertheless it is important to realize that other types of algorithms (let's call it _predictive AI_) will remain to be applied to many important use cases such as credit scoring, fraud detection, medical diagnosis, product recommendation, image recognition, predictive maintenance, process control, etc. Relevant content has been marked with 'GenAI' in this document.
 
-Important note: from a security threat perspective, GenAI is not that different from other forms of AI (_predictive AI_). GenAI threats and controls largely overlap and are very similar to AI in general. Nevertheless, some risks are (much) higher. Some are lower. Only a few risks are GenAI-specific. Some of the control categories differ substantially between GenAI and predictive AI - mostly the data science controls (e.g. adding noise to the training set). In many cases, GenAI solutions will use a model as-is and not involve any training by the organization whatsoever, shifting some of the security responsibilities from the organization to the supplier. Nevertheless, if you use a [ready-made model](/go/readymademodel/), you need still to be aware of those threats.
+Important note: from a security threat perspective, GenAI is not that different from other forms of AI (_predictive AI_). GenAI threats and controls largely overlap and are very similar to AI in general. Nevertheless, some risks are (much) higher. Some are lower. Only a few risks are GenAI-specific. Some of the control categories differ substantially between GenAI and predictive AI - mostly the data science controls (e.g. adding noise to the training set). In many cases, GenAI solutions will use a model as-is and not involve any training by the organization whatsoever, shifting some of the security responsibilities from the organization to the supplier. Nevertheless, if you use a [ready-made model](/go/readymademodel), you need still to be aware of those threats.
 
 What is mainly new to the threat landscape because of LLMs?  
 - First of all, LLMs pose new threats to security because they may be used to create code with vulnerabilities, or they may be used by attackers to create malware, or they may cause harm through hallucinations. However, these concerns are outside the scope of the AI Exchange, which focuses on security threats to AI systems themselves.
 - Regarding input:
   - Prompt injection is when attackers manipulate the behaviour of the model with crafted and sometimes hidden instructions.
   - Also new is organizations sending huge amounts of data in prompts, with company secrets and personal data.
-- Regarding output: The fact that output can contain injection attacks, or can contain sensitive or copyrighted data is new (see [Copyright](/go/copyright/)).
+- Regarding output: The fact that output can contain injection attacks, or can contain sensitive or copyrighted data is new (see [Copyright](/go/copyright)).
 - Overreliance is an issue. We let LLMs control and create things and may have too much trust in how correct they are, and also underestimate the risk of them being manipulated. The result is that attacks can have much impact.
 - Regarding training: Since the training sets are so large and based on public data, it is easier to perform data poisoning. Poisoned foundation models are also a big supply chain issue.
-- Just like any AI system, a generative AI system can trigger actions based on the output, but in the case of generative AI, the model output can contain function calls to perform actions (e.g. send mail) or trigger other AI systems. See [Agentic AI](/go/agenticaithreats/) for more details.
+- Just like any AI system, a generative AI system can trigger actions based on the output, but in the case of generative AI, the model output can contain function calls to perform actions (e.g. send mail) or trigger other AI systems. See [Agentic AI](/go/agenticaithreats) for more details.
 
 GenAI security particularities are:
 
 |Nr.| GenAI security particularities |OWASP for LLM TOP 10 (2026)|
 |-| ----------|-------------------|
-|1| GenAI models are controlled by natural language in prompts, creating the risk of [Prompt injection](/go/promptinjection/). Direct prompt injection is where the user tries to fool the model to behave in unwanted ways (e.g. offensive language), whereas with indirect prompt injection it is a third party that injects content into the prompt for this purpose (e.g. manipulating a decision). |  ([OWASP for LLM 01: Prompt Injection](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/))  | 
-|2| GenAI models have typically been trained on very large datasets, which makes it more likely to output [sensitive data](/go/disclosureinoutput/) or [licensed data](/go/copyright/), for which there is no control of access privileges built into the model. All data will be accessible to the model users. Some mechanisms may be in place in terms of system prompts, model alignment, or output filtering, but those are typically not watertight. |  ([OWASP for LLM 02: Sensitive Information Disclosure](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/))  |
-|3|[Data and model poisoning](/go/modelpoison/) is an AI-broad problem, and with GenAI the risk is generally higher since training data can be supplied from different sources that may be challenging to control, such as the internet. Attackers could for example hijack domains and place manipulated information. | ([OWASP for LLM 05: Data and Model Poisoning](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/))|
-|4|GenAI models can be inaccurate and hallucinate. This is an AI-broad risk factor, and Large Language Models (GenAI) can make matters worse by coming across as very confident and knowledgeable. In essence, this is about the risk of underestimating the probability that the model is wrong or the model has been manipulated. This means that it is connected to each and every security control. The strongest link is with [controls that limit the impact of unwanted model behavior](/go/limitunwanted/), in particular [Least model privilege](/go/leastmodelprivilege/).  |([OWASP for LLM 03: Excessive Agency](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)) and ([OWASP for LLM 07: Misinformation](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)) |
-|5| [Input data leak](/go/inputdataleak/): GenAI models mostly live in the cloud - often managed by an external party, which increases the risk of leaking prompts. This issue is not limited to GenAI, but GenAI has 2 particular risks here: 1) model use involves user interaction through prompts, adding user data and corresponding privacy/sensitivity issues, and 2) GenAI model input (prompts) can contain rich context information with sensitive data (e.g. company secrets). The latter issue occurs with *in-context learning* or *Retrieval Augmented Generation (RAG)* (adding background information to a prompt): for example data from all reports ever written at a consultancy firm. First of all, this information will travel with the prompt to the cloud, and second: the system will likely not respect the original access rights to the information.| Not covered in LLM top 10 |
-|6|Pre-trained models may have been manipulated. The concept of pretraining is not limited to GenAI, but the approach is quite common in GenAI, which increases the risk of [supply-chain model poisoning](/go/supplymodelpoison/).| ([OWASP for LLM 04: Supply Chain](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/))|
-|7|[Model inversion and membership inference](/go/modelinversionandmemberships/) are typically low to zero risks for GenAI. |Not covered as a dedicated LLM Top 10 entry; closest overlap is [OWASP for LLM 02: Sensitive Information Disclosure](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) (inference-based disclosure) - see above|
-|8|GenAI output may contain elements that perform an [injection attack](/go/insecureoutput/) such as cross-site-scripting.| ([OWASP for LLM 10: Improper Output Handling](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/))|
-|9|[Resource exhaustion](/go/denialmodelservice/) can be an issue for any IT system, but GenAI models typically cost more to run, so overloading them can create unwanted costs. | ([OWASP for LLM 06: Unbounded Consumption](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)) |
+|1| GenAI models are controlled by natural language in prompts, creating the risk of [Prompt injection](/go/promptinjection). Direct prompt injection is where the user tries to fool the model to behave in unwanted ways (e.g. offensive language), whereas with indirect prompt injection it is a third party that injects content into the prompt for this purpose (e.g. manipulating a decision). |  ([OWASP for LLM 01: Prompt Injection](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/))  | 
+|2| GenAI models have typically been trained on very large datasets, which makes it more likely to output [sensitive data](/go/disclosureinoutput) or [licensed data](/go/copyright), for which there is no control of access privileges built into the model. All data will be accessible to the model users. Some mechanisms may be in place in terms of system prompts, model alignment, or output filtering, but those are typically not watertight. |  ([OWASP for LLM 02: Sensitive Information Disclosure](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/))  |
+|3|[Data and model poisoning](/go/modelpoison) is an AI-broad problem, and with GenAI the risk is generally higher since training data can be supplied from different sources that may be challenging to control, such as the internet. Attackers could for example hijack domains and place manipulated information. | ([OWASP for LLM 05: Data and Model Poisoning](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/))|
+|4|GenAI models can be inaccurate and hallucinate. This is an AI-broad risk factor, and Large Language Models (GenAI) can make matters worse by coming across as very confident and knowledgeable. In essence, this is about the risk of underestimating the probability that the model is wrong or the model has been manipulated. This means that it is connected to each and every security control. The strongest link is with [controls that limit the impact of unwanted model behavior](/go/limitunwanted), in particular [Least model privilege](/go/leastmodelprivilege).  |([OWASP for LLM 03: Excessive Agency](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)) and ([OWASP for LLM 07: Misinformation](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)) |
+|5| [Input data leak](/go/inputdataleak): GenAI models mostly live in the cloud - often managed by an external party, which increases the risk of leaking prompts. This issue is not limited to GenAI, but GenAI has 2 particular risks here: 1) model use involves user interaction through prompts, adding user data and corresponding privacy/sensitivity issues, and 2) GenAI model input (prompts) can contain rich context information with sensitive data (e.g. company secrets). The latter issue occurs with *in-context learning* or *Retrieval Augmented Generation (RAG)* (adding background information to a prompt): for example data from all reports ever written at a consultancy firm. First of all, this information will travel with the prompt to the cloud, and second: the system will likely not respect the original access rights to the information.| Not covered in LLM top 10 |
+|6|Pre-trained models may have been manipulated. The concept of pretraining is not limited to GenAI, but the approach is quite common in GenAI, which increases the risk of [supply-chain model poisoning](/go/supplymodelpoison).| ([OWASP for LLM 04: Supply Chain](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/))|
+|7|[Model inversion and membership inference](/go/modelinversionandmemberships) are typically low to zero risks for GenAI. |Not covered as a dedicated LLM Top 10 entry; closest overlap is [OWASP for LLM 02: Sensitive Information Disclosure](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) (inference-based disclosure) - see above|
+|8|GenAI output may contain elements that perform an [injection attack](/go/insecureoutput) such as cross-site-scripting.| ([OWASP for LLM 10: Improper Output Handling](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/))|
+|9|[Resource exhaustion](/go/denialmodelservice) can be an issue for any IT system, but GenAI models typically cost more to run, so overloading them can create unwanted costs. | ([OWASP for LLM 06: Unbounded Consumption](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)) |
 
 GenAI References:
 
@@ -1109,10 +1109,10 @@ GenAI References:
 
 ### How about the NCSC/CISA guidelines?
 >Category: discussion  
->Permalink: https://owaspai.org/go/jointguidelines/
+>Permalink: https://owaspai.org/go/jointguidelines
 
 Mapping of the UK NCSC /CISA [Joint Guidelines for secure AI system development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development) to the controls here at the AI Exchange.  
-To see those controls linked to threats, refer to the [Periodic table of AI security](/go/periodictable/).  
+To see those controls linked to threats, refer to the [Periodic table of AI security](/go/periodictable).  
 
 Note that the UK Government drove an initiative through their DSIT department to build on these joint guidelines and produce the [DSIT Code of Practice for the Cyber Security of AI](https://www.gov.uk/government/publications/ai-cyber-security-code-of-practice/code-of-practice-for-the-cyber-security-of-ai#code-of-practice-principles), which reorganizes things according to 13 principles, does a few tweaks, and adds a bit more of governance. The principle mapping is added below, and adds mostly post-market aspects:
 
@@ -1123,53 +1123,53 @@ Note that the UK Government drove an initiative through their DSIT department to
 1. Secure design
 
 - Raise staff awareness of threats and risks (DSIT principle 1):  
-  #[SECURITY EDUCATE](/go/seceducate/)
+  #[SECURITY EDUCATE](/go/seceducate)
 - Model the threats to your system (DSIT principle 3):  
-  See Risk analysis under #[SECURITY PROGRAM](/go/secprogram/)
+  See Risk analysis under #[SECURITY PROGRAM](/go/secprogram)
 - Design your system for security as well as functionality and performance (DSIT principle 2):  
-  #[AI PROGRAM](/go/aiprogram/ ), #[SECURITY PROGRAM](/go/secprogram/), #[DEVELOPMENT PROGRAM](/go/devprogram/), #[SECURE DEVELOPMENT PROGRAM](/go/secdevprogram/), #[CHECK COMPLIANCE](/go/checkcompliance/), #[LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/), #[DISCRETE](/go/discrete/), #[OBSCURE CONFIDENCE](/go/obscureconfidence/), #[OVERSIGHT](/go/oversight/), #[RATE LIMIT](/go/ratelimit/),  #[DOS INPUT VALIDATION](/go/dosinputvalidation/), #[LIMIT RESOURCES](/go/limitresources/), #[MODEL ACCESS CONTROL](/go/modelaccesscontrol/), #[AI TRANSPARENCY](/go/aitransparency/)
+  #[AI PROGRAM](/go/aiprogram ), #[SECURITY PROGRAM](/go/secprogram), #[DEVELOPMENT PROGRAM](/go/devprogram), #[SECURE DEVELOPMENT PROGRAM](/go/secdevprogram), #[CHECK COMPLIANCE](/go/checkcompliance), #[LEAST MODEL PRIVILEGE](/go/leastmodelprivilege), #[DISCRETE](/go/discrete), #[OBSCURE CONFIDENCE](/go/obscureconfidence), #[OVERSIGHT](/go/oversight), #[RATE LIMIT](/go/ratelimit),  #[DOS INPUT VALIDATION](/go/dosinputvalidation), #[LIMIT RESOURCES](/go/limitresources), #[MODEL ACCESS CONTROL](/go/modelaccesscontrol), #[AI TRANSPARENCY](/go/aitransparency)
 - Consider security benefits and trade-offs when selecting your AI model  
-  All development-time data science controls (currently 13), #[EXPLAINABILITY](/go/explainability/)
+  All development-time data science controls (currently 13), #[EXPLAINABILITY](/go/explainability)
 
 2. Secure Development
 
 - Secure your supply chain (DSIT principle 7):  
-  #[SUPPLY CHAIN MANAGE](/go/supplychainmanage/)
+  #[SUPPLY CHAIN MANAGE](/go/supplychainmanage)
 - Identify, track and protect your assets (DSIT principle 5):  
-  #[DEVELOPMENT SECURITY](/go/devsecurity/), #[SEGREGATE DATA](/go/segregatedata/), #[CONFIDENTIAL COMPUTE](/go/confcompute/), #[MODEL INPUT CONFIDENTIALITY](/go/modelinputconfidentiality/), #[RUNTIME MODEL CONFIDENTIALITY](/go/runtimemodelconfidentiality/), #[DATA MINIMIZE](/go/dataminimize/), #[ALLOWED DATA](/go/alloweddata/), #[SHORT RETAIN](/go/shortretain/), #[OBFUSCATE TRAINING DATA](/go/obfuscatetrainingdata/) and part of #[SECURITY PROGRAM](/go/secprogram/)
+  #[DEVELOPMENT SECURITY](/go/devsecurity), #[SEGREGATE DATA](/go/segregatedata), #[CONFIDENTIAL COMPUTE](/go/confcompute), #[MODEL INPUT CONFIDENTIALITY](/go/modelinputconfidentiality), #[RUNTIME MODEL CONFIDENTIALITY](/go/runtimemodelconfidentiality), #[DATA MINIMIZE](/go/dataminimize), #[ALLOWED DATA](/go/alloweddata), #[SHORT RETAIN](/go/shortretain), #[OBFUSCATE TRAINING DATA](/go/obfuscatetrainingdata) and part of #[SECURITY PROGRAM](/go/secprogram)
 - Document your data, models and prompts (DSIT principle 8):  
-  Part of #[DEVELOPMENT PROGRAM](/go/devprogram/)
+  Part of #[DEVELOPMENT PROGRAM](/go/devprogram)
 - Manage your technical debt:  
-  Part of #[DEVELOPMENT PROGRAM](/go/devprogram/)
+  Part of #[DEVELOPMENT PROGRAM](/go/devprogram)
 
 3. Secure deployment
 
 - Secure your infrastructure (DSIT principle 6):  
-  Part of #[SECURITY PROGRAM](/go/secprogram/) and see ‘Identify, track and protect your assets’
+  Part of #[SECURITY PROGRAM](/go/secprogram) and see ‘Identify, track and protect your assets’
 - Protect your model continuously:  
-  #[INPUT DISTORTION](/go/inputdistortion/), #[FILTER SENSITIVE MODEL OUTPUT](/go/filtersensitivemodeloutput/), #[RUNTIME MODEL IO INTEGRITY](/go/runtimemodeliointegrity/), #[MODEL INPUT CONFIDENTIALITY](/go/modelinputconfidentiality/), #[PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling/), #[INPUT SEGREGATION](/go/inputsegregation/)
+  #[INPUT DISTORTION](/go/inputdistortion), #[FILTER SENSITIVE MODEL OUTPUT](/go/filtersensitivemodeloutput), #[RUNTIME MODEL IO INTEGRITY](/go/runtimemodeliointegrity), #[MODEL INPUT CONFIDENTIALITY](/go/modelinputconfidentiality), #[PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling), #[INPUT SEGREGATION](/go/inputsegregation)
 - Develop incident management procedures:  
-  Part of #[SECURITY PROGRAM](/go/secprogram/)
+  Part of #[SECURITY PROGRAM](/go/secprogram)
 - Release AI responsibly:  
-  Part of #[DEVELOPMENT PROGRAM](/go/devprogram/)
+  Part of #[DEVELOPMENT PROGRAM](/go/devprogram)
 - Make it easy for users to do the right things (DSIT principle 4, called Enable human responsibility for AI systems):  
-  Part of #[SECURITY PROGRAM](/go/secprogram/), and also involving #[EXPLAINABILITY](/go/explainability/), documenting prohibited use cases, and #[HUMAN OVERSIGHT](/go/oversight/))
+  Part of #[SECURITY PROGRAM](/go/secprogram), and also involving #[EXPLAINABILITY](/go/explainability), documenting prohibited use cases, and #[HUMAN OVERSIGHT](/go/oversight))
 
 4. Secure operation and maintenance
 
 - Monitor your system’s behaviour (DSIT principle 12 and similar to DSIT principle 9 - appropriate testing and validation):  
-  #[CONTINUOUS VALIDATION](/go/continuousvalidation/), #[UNWANTED BIAS TESTING](/go/unwantedbiastesting/)
+  #[CONTINUOUS VALIDATION](/go/continuousvalidation), #[UNWANTED BIAS TESTING](/go/unwantedbiastesting)
 - Monitor your system’s inputs:  
-  #[MONITOR USE](/go/monitoruse/), #[DETECT ODD INPUT](/go/detectoddinput/), #[DETECT ADVERSARIAL INPUT](/go/detectadversarialinput/)
+  #[MONITOR USE](/go/monitoruse), #[DETECT ODD INPUT](/go/detectoddinput), #[DETECT ADVERSARIAL INPUT](/go/detectadversarialinput)
 - Follow a secure by design approach to updates (DSIT principle 11: Maintain regular security updates, patches and mitigations):  
-  Part of #[SECURE DEVELOPMENT PROGRAM](/go/secdevprogram/)
+  Part of #[SECURE DEVELOPMENT PROGRAM](/go/secdevprogram)
 - Collect and share lessons learned:  
-  Part of #[SECURITY PROGRAM](/go/secprogram/) and #[SECURE DEVELOPMENT PROGRAM](/go/secdevprogram/)
+  Part of #[SECURITY PROGRAM](/go/secprogram) and #[SECURE DEVELOPMENT PROGRAM](/go/secdevprogram)
 
 
 ### How about copyright?
 >Category: discussion  
->Permalink: https://owaspai.org/go/copyright/
+>Permalink: https://owaspai.org/go/copyright
 
 #### Introduction
 AI and copyright are two (of many) areas of law and policy, (both public and 

@@ -5,12 +5,12 @@ heroText: "AI security tests simulate adversarial behaviours to uncover vulnerab
 weight: 6
 ---
 > Category: discussion  
-> Permalink: https://owaspai.org/go/testing/
+> Permalink: https://owaspai.org/go/testing
 
 ## Introduction
 Testing an AI system’s security relies on three strategies:
-1.	**Conventional security testing** (i.e. _pentesting_). See [secure software development](/go/secdevprogram/).
-2.	**Model performance validation** (see [continuous validation](/go/continuousvalidation/)): testing if the model behaves according to its specified acceptance criteria using a testing set with inputs and outputs that represent the intended behaviour of the model. For security,this is to detect if the model behaviour has been altered permanently through data poisoning or model poisoning. For non-security, it is for testing functional correctness, model drift etc.
+1.	**Conventional security testing** (i.e. _pentesting_). See [secure software development](/go/secdevprogram).
+2.	**Model performance validation** (see [continuous validation](/go/continuousvalidation)): testing if the model behaves according to its specified acceptance criteria using a testing set with inputs and outputs that represent the intended behaviour of the model. For security,this is to detect if the model behaviour has been altered permanently through data poisoning or model poisoning. For non-security, it is for testing functional correctness, model drift etc.
 3.	**AI security testing** (this section), the part of _AI red teaming_ that tests if the AI model can withstand certain attacks, by simulating these attacks.
 
 **Scope of AI security testing**  
@@ -30,7 +30,7 @@ This section discusses:
 
 
 ## Threats to test for
-A comprehensive list of threats and controls coverage based on assets, impact, and attack surfaces is available as a [Periodic Table of AI Security](/go/periodictable/). In this section, we provide a list of tools for AI Red Teaming Predictive and Generative AI systems, aiding steps such as Attack Scenarios, Test Execution through automated red teaming, and, oftentimes, Risk Assessment through risk scoring.
+A comprehensive list of threats and controls coverage based on assets, impact, and attack surfaces is available as a [Periodic Table of AI Security](/go/periodictable). In this section, we provide a list of tools for AI Red Teaming Predictive and Generative AI systems, aiding steps such as Attack Scenarios, Test Execution through automated red teaming, and, oftentimes, Risk Assessment through risk scoring.
 
 Each listed tool addresses a subset of the threat landscape of AI systems. Below, we list some key threats to consider:
 
@@ -38,19 +38,19 @@ Each listed tool addresses a subset of the threat landscape of AI systems. Below
 
 **Key Predictive AI threats to test for, beyond conventional security testing:**
 
-- [Evasion Attacks:](https://owaspai.org/go/evasion/) These attacks occur when an attacker crafts inputs with data to mislead the model, causing it to perform its task incorrectly.
-- [Model exfiltration](https://owaspai.org/go/modelexfiltration/): In this attack, the model’s parameters or functionality are stolen. This enables the attacker to create a replica model, which can then be used as an oracle for crafting adversarial attacks and other compounded threats.
-- [Model Poisoning](https://owaspai.org/go/modelpoison/): This involves the manipulation of data, the data pipeline, the model, or the model training supply chain during the training phase (development phase). The attacker’s goal is to alter the model’s behavior which could result in undesired model operation.
+- [Evasion Attacks:](https://owaspai.org/go/evasion) These attacks occur when an attacker crafts inputs with data to mislead the model, causing it to perform its task incorrectly.
+- [Model exfiltration](https://owaspai.org/go/modelexfiltration): In this attack, the model’s parameters or functionality are stolen. This enables the attacker to create a replica model, which can then be used as an oracle for crafting adversarial attacks and other compounded threats.
+- [Model Poisoning](https://owaspai.org/go/modelpoison): This involves the manipulation of data, the data pipeline, the model, or the model training supply chain during the training phase (development phase). The attacker’s goal is to alter the model’s behavior which could result in undesired model operation.
 
 **Generative AI:** Generative AI systems produce outputs such as text, images, or audio. Examples include large language models (LLMs) like ChatGPT and large vision models (LVMs) like DALL-E and MidJourney.
 
 **Key Generative AI threats to test for, beyond conventional security testing**:
 
-- [Prompt Injection](https://owaspai.org/go/promptinjection/): In this type of attack, the attacker provides the model with manipulative instructions aimed at achieving malicious outcomes or objectives
-- [Sensitive data output from model ](/go/disclosureinoutput/): A form of prompt injection, aiming to let the model disclose sensitive data
-- [Insecure Output Handling](https://owaspai.org/go/outputconatinsconventionalinjection/): Generative AI systems can be vulnerable to traditional injection attacks, leading to risks if the outputs are improperly handled or processed.
+- [Prompt Injection](https://owaspai.org/go/promptinjection): In this type of attack, the attacker provides the model with manipulative instructions aimed at achieving malicious outcomes or objectives
+- [Sensitive data output from model ](/go/disclosureinoutput): A form of prompt injection, aiming to let the model disclose sensitive data
+- [Insecure Output Handling](https://owaspai.org/go/outputconatinsconventionalinjection): Generative AI systems can be vulnerable to traditional injection attacks, leading to risks if the outputs are improperly handled or processed.
 
-**Agentic AI:** Agentic systems add non-deterministic multi-step execution, dynamic tool use, inter-agent communication, and persistent state. Key threats beyond single-turn generative testing include [goal hijacking](/go/agenticaithreats/), unauthorised tool invocation, [multi-agent propagation](/go/agentmessagestructuremanipulation/), [persistent memory poisoning](/go/augmentationdatamanipulation/), [agent escape](/go/agentescape/), and delegation-chain abuse. See the [Agentic AI threat overview](/go/agenticaithreats/) and the [Agentic AI red teaming guide](https://cloudsecurityalliance.org/download/artifacts/agentic-ai-red-teaming-guide) (CSA × AI Exchange).
+**Agentic AI:** Agentic systems add non-deterministic multi-step execution, dynamic tool use, inter-agent communication, and persistent state. Key threats beyond single-turn generative testing include [goal hijacking](/go/agenticaithreats), unauthorised tool invocation, [multi-agent propagation](/go/agentmessagestructuremanipulation), [persistent memory poisoning](/go/augmentationdatamanipulation), [agent escape](/go/agentescape), and delegation-chain abuse. See the [Agentic AI threat overview](/go/agenticaithreats) and the [Agentic AI red teaming guide](https://cloudsecurityalliance.org/download/artifacts/agentic-ai-red-teaming-guide) (CSA × AI Exchange).
 
 While we have mentioned the key threats for each of the AI Paradigm, we strongly encourage the reader to refer to all threats at the AI Exchange, based on the outcome of the Objective and scope definition phase in AI Red Teaming.
 
@@ -78,8 +78,8 @@ Agentic testing extends the general approach above — same lifecycle steps, but
 
 - Threat-model the agentic system before testing: enumerate agents, orchestrators, tools, data sources, trust boundaries, and every external input surface (user input, retrieved documents, tool outputs, inter-agent messages).
 - Confirm designed controls work under **normal** conditions before adversarial load — untested baselines cannot be distinguished from controls that fail under attack.
-- Test [prompt injection](/go/promptinjection/) on each external surface; run **single-turn and multi-turn** sequences separately — single-turn resistance does not predict session-level degradation (_crescendo_ patterns).
-- Where the agent retrieves external data before acting (RAG), test that path using [RAG system security testing](/go/ragtesting/) — retrieval is a second input channel with its own authorization surface, distinct from tool-call validation.
+- Test [prompt injection](/go/promptinjection) on each external surface; run **single-turn and multi-turn** sequences separately — single-turn resistance does not predict session-level degradation (_crescendo_ patterns).
+- Where the agent retrieves external data before acting (RAG), test that path using [RAG system security testing](/go/ragtesting) — retrieval is a second input channel with its own authorization surface, distinct from tool-call validation.
 - Test tool-call validation **independently of the LLM** by sending crafted invocations directly to the access-control or API gateway layer. Controls that exist only in a system prompt are not enforced against injection.
 - Exercise failure modes: context-window saturation, tool errors, partial task completion, and unexpected orchestrator routing.
 - Define minimum coverage criteria up front — which layers (reasoning, tool execution, infrastructure, inter-agent communication) were tested, to what depth, and with what corpus size. **Report untested threat categories explicitly**; coverage gaps are findings.
@@ -91,8 +91,8 @@ Structured adversarial simulation for agentic systems is covered in the [Agentic
 
 - **Goal-level red teaming:** define an adversarial objective (exfiltration, privilege escalation, task hijacking) and pursue it across sessions and attack paths.
 - **Multi-turn / crescendo testing:** incremental reframing across many turns — safety constraints that hold on turn one may fail by turn ten or later.
-- **Cross-agent paths:** compromised or injected sub-agent influencing the orchestrator, peer-agent exfiltration, or privilege escalation through [delegation chains](/go/leastmodelprivilege/).
-- **Human oversight as a social surface:** test whether urgency framing, confusion injection, or approval fatigue can bypass [#OVERSIGHT](/go/oversight/) gates that work under normal review.
+- **Cross-agent paths:** compromised or injected sub-agent influencing the orchestrator, peer-agent exfiltration, or privilege escalation through [delegation chains](/go/leastmodelprivilege).
+- **Human oversight as a social surface:** test whether urgency framing, confusion injection, or approval fatigue can bypass [#OVERSIGHT](/go/oversight) gates that work under normal review.
 - **Supply-chain scenarios:** substituted model variants or tampered tool implementations that bypass output filtering.
 - **Protocol testing:** red-team MCP, A2A, and other inter-agent protocol implementations for implementation weaknesses, not only prompt-layer attacks.
 
@@ -104,35 +104,35 @@ Scope agentic pen tests across:
 
 1. **LLM reasoning layer** — prompt injection, goal hijacking, deceptive reasoning induction.
 2. **Tool execution layer** — validation bypass, unauthorised invocation, parameter tampering.
-3. **Infrastructure layer** — API gateway controls, credential exposure, key management, [#MONITOR USE](/go/monitoruse/) log integrity (verify the agent cannot suppress or alter logs under adversarial conditions).
-4. **Inter-agent communication layer** — message tampering, identity spoofing, trust-boundary exploitation ([agent message structure manipulation](/go/agentmessagestructuremanipulation/)).
+3. **Infrastructure layer** — API gateway controls, credential exposure, key management, [#MONITOR USE](/go/monitoruse) log integrity (verify the agent cannot suppress or alter logs under adversarial conditions).
+4. **Inter-agent communication layer** — message tampering, identity spoofing, trust-boundary exploitation ([agent message structure manipulation](/go/agentmessagestructuremanipulation)).
 
 Prioritise findings with an agentic-aware severity model: autonomous execution scope, persistence across sessions, multi-agent propagation potential, and irreversibility of impact.
 
 ### RAG system security testing
 >Category: discussion  
->Permalink: https://owaspai.org/go/ragtesting/
+>Permalink: https://owaspai.org/go/ragtesting
 
 RAG testing extends the general approach above — same lifecycle steps, but with a second input channel (retrieval) that most single-prompt test suites don't exercise, and a corpus that has its own integrity and access-control surface independent of the model.
 
 **Methodologies (coverage-driven testing)**
 
-- Threat-model the RAG pipeline before testing: enumerate every ingestion source, the indexing/chunking/embedding process, the retriever and any re-ranker, and the authorization model that's supposed to govern which chunks a given user/session can retrieve. Map each to the [RAG systems overview](/go/ragoverview/).
+- Threat-model the RAG pipeline before testing: enumerate every ingestion source, the indexing/chunking/embedding process, the retriever and any re-ranker, and the authorization model that's supposed to govern which chunks a given user/session can retrieve. Map each to the [RAG systems overview](/go/ragoverview).
 - Test the **retrieval channel separately from the chat/query channel**: inject a test payload into a document, ingest it through the real pipeline (not by hand-crafting the prompt), and confirm it surfaces through retrieval before testing whether the model acts on it — this isolates ingestion/indexing failures from generation failures.
-- Test **retrieval-scope enforcement directly against the index/retriever**, independent of the LLM: query the vector store or search index with credentials for different users/tenants and confirm chunk-level access control matches the source system's ACLs. A retriever that returns unauthorized chunks fails this test even if the model later "declines" to use them — the data has already left the trust boundary. See also [disclosure in output](/go/disclosureinoutput/).
-- Test **indirect prompt injection via the retrieval path specifically**: place attack payloads (see the [prompt injection test procedure](/go/testingpromptinjection/)) inside documents likely to be retrieved for realistic queries, not just in a document guaranteed to rank first — low-relevance placement should also be tested, since re-rankers and hybrid search can surface unexpected chunks.
+- Test **retrieval-scope enforcement directly against the index/retriever**, independent of the LLM: query the vector store or search index with credentials for different users/tenants and confirm chunk-level access control matches the source system's ACLs. A retriever that returns unauthorized chunks fails this test even if the model later "declines" to use them — the data has already left the trust boundary. See also [disclosure in output](/go/disclosureinoutput).
+- Test **indirect prompt injection via the retrieval path specifically**: place attack payloads (see the [prompt injection test procedure](/go/testingpromptinjection)) inside documents likely to be retrieved for realistic queries, not just in a document guaranteed to rank first — low-relevance placement should also be tested, since re-rankers and hybrid search can surface unexpected chunks.
 - Test **corpus poisoning** by introducing edited or newly added documents through the same access an attacker would realistically have (a wiki edit, a shared-drive upload, a ticket comment, a crawled page) and checking whether biased or attacker-controlled content measurably shifts retrieved results and generated output.
 - Test **metadata and provenance trust**: attempt to forge source, timestamp, author, or confidence fields associated with a chunk, and check whether the system (or its prompt template) grants that content more trust than an unlabelled or low-provenance chunk.
 - Test **embedding confidentiality**: with direct read access to the vector store (simulating a compromised database credential or backup), attempt to reconstruct source text from stored embedding vectors. This is independent of model-facing tests — it targets the vector store as a data-at-rest asset, not the inference API.
 - Exercise **staleness and cache behavior**: confirm that deleting, correcting, or access-restricting a source document actually removes or restricts it from the index and from any retrieval cache, not just from the original source.
-- Test **rendering and downstream handling of retrieved content** in the output — links, Markdown, HTML, code blocks — for [output injection](/go/outputcontainsconventionalinjection/), especially where output is rendered in a browser or another automated consumer.
+- Test **rendering and downstream handling of retrieved content** in the output — links, Markdown, HTML, code blocks — for [output injection](/go/outputcontainsconventionalinjection), especially where output is rendered in a browser or another automated consumer.
 - Combine with **conventional testing** of the ingestion and retrieval infrastructure itself — the vector store API, search endpoints, and any document-parsing step (PDF/Office parsers, OCR) are ordinary application attack surface (SSRF, deserialization, path traversal, injection) independent of the model.
 - Define minimum coverage up front — which corpus sources, retrieval configurations, and authorization boundaries were tested, and at what scale. **Report untested sources or boundaries explicitly**; an untested ingestion path is a finding, not an assumption of safety.
 
 **Red teaming exercises**
 
 - **Cross-tenant/cross-permission retrieval**: as a low-privilege identity, attempt to retrieve or induce disclosure of content scoped to a higher-privilege identity or another tenant, through both direct queries and indirect injection.
-- **Corpus-to-action chaining**: where the system can trigger actions (see Agentic AI security testing above), test whether a payload planted in a retrievable document can reach a tool call — this is the RAG instance of the [lethal trifecta](/go/agenticaioverview/).
+- **Corpus-to-action chaining**: where the system can trigger actions (see Agentic AI security testing above), test whether a payload planted in a retrievable document can reach a tool call — this is the RAG instance of the [lethal trifecta](/go/agenticaioverview).
 - **Ingestion-path fuzzing**: submit malformed, oversized, or adversarially structured documents through every available ingestion route (upload, connector sync, crawl) and observe both availability impact and parser-level exploitation.
 - **Provenance spoofing at scale**: systematically vary source/author/confidence metadata across a batch of test documents to measure how much influence forged provenance has on retrieval ranking and on the model's apparent trust in the content.
 
@@ -145,7 +145,7 @@ Scope RAG pen tests across:
 1. **Ingestion layer** — source connector authentication, parser exploitation (PDF/Office/HTML), malicious file handling, ingestion-triggered SSRF.
 2. **Indexing layer** — embedding pipeline integrity, chunking manipulation, index write-access control, cache/staleness handling.
 3. **Retrieval layer** — query-time authorization enforcement, cross-tenant isolation, ranking/relevance manipulation, retrieval-scope bypass.
-4. **Augmentation/prompt-assembly layer** — how retrieved chunks are delimited, labelled, and inserted into the prompt; whether the template distinguishes trusted instructions from retrieved content (see [input segregation](/go/inputsegregation/)).
+4. **Augmentation/prompt-assembly layer** — how retrieved chunks are delimited, labelled, and inserted into the prompt; whether the template distinguishes trusted instructions from retrieved content (see [input segregation](/go/inputsegregation)).
 5. **Generation/output layer** — indirect prompt injection success, sensitive-data disclosure, output-injection into downstream renderers.
 
 Prioritise findings by: authorization impact (does this cross a trust boundary), corpus scale (does it affect one document or a shared source), and — where the RAG system feeds an agent — downstream action potential, using the agentic severity model above.
@@ -153,18 +153,18 @@ Prioritise findings by: authorization impact (does this cross a trust boundary),
 **References**
 - [OWASP Cheat Sheet: RAG Security](https://cheatsheetseries.owasp.org/cheatsheets/RAG_Security_Cheat_Sheet.html)
 - [OWASP AI Testing Guide](https://owasp.org/www-project-ai-testing-guide/)
-- See [prompt injection testing](/go/testingpromptinjection/) above for payload construction and detection pairing — reused directly for the retrieval-channel tests here.
+- See [prompt injection testing](/go/testingpromptinjection) above for payload construction and detection pairing — reused directly for the retrieval-channel tests here.
 
 ### Testing against Prompt injection
 > Category: AI security test  
-> Permalink: https://owaspai.org/go/testingpromptinjection/
+> Permalink: https://owaspai.org/go/testingpromptinjection
 
 **Test description**  
 Testing for resistance against Prompt injection is done by presenting a carefully crafted set of inputs with instructions to achieve unwanted model behaviour (e.g., triggering unwanted actions, offensive outputs, sensitive data disclosure) and evaluating the corresponding risks.  
 This covers the following threats:
-- [Direct prompt injection](/go/directpromptinjection/)
-- [Indirect prompt injection](/go/indirectpromptinjection/) 
-- [Sensitive data output from model ](/go/disclosureuseoutput/)
+- [Direct prompt injection](/go/directpromptinjection)
+- [Indirect prompt injection](/go/indirectpromptinjection) 
+- [Sensitive data output from model ](/go/disclosureuseoutput)
 
 
 **Test procedure**  
@@ -172,7 +172,7 @@ See the section above for the general steps in AI security testing.
 The steps specific for testing against this threat are:
 
 **(1) Establish set of relevant input attacks**  
-Collect a base set of crafted instructions that represent the state of the art for the attack (e.g., jailbreak attempts, invisible text, malicious URLs, data extraction attempts, attempts to get harmful content), either from an attack repository (see references) or from the resources of an attack tool. If an attack tool has been selected to implement the test, then it will typically come with such a set. Various third party and open-source repositories and tools are available for this purpose - see further in our [Tool overview](/go/testingtoolsgenai/).  
+Collect a base set of crafted instructions that represent the state of the art for the attack (e.g., jailbreak attempts, invisible text, malicious URLs, data extraction attempts, attempts to get harmful content), either from an attack repository (see references) or from the resources of an attack tool. If an attack tool has been selected to implement the test, then it will typically come with such a set. Various third party and open-source repositories and tools are available for this purpose - see further in our [Tool overview](/go/testingtoolsgenai).  
 Verify if the input attack set sufficiently covers the attack strategies described in the threat sections linked above (e.g., instruction override, role confusion, encoding tricks).  
 Remove the input attacks for which the risk would be accepted (see Evaluation step), but keep these aside for when context and risk appetite evolve.
 
@@ -231,7 +231,7 @@ Example 2:
 It is of course important to also test the AI system for correct behaviour in benign situations. Depending on context, such testing may be integrated in the implementation of the security test by using the same mechanisms. Such testing ideally includes the testing of detection mechanisms, to ensure that not too many false positives are triggered by benign inputs. Positive testing is essential to ensure that security mechanisms do not degrade intended functionality or user experience beyond acceptable levels.
 
 **References**  
-- See below for the [testing tools section](/go/testingtoolsgenai/)
+- See below for the [testing tools section](/go/testingtoolsgenai)
 - [Microsoft's promptbench](https://github.com/microsoft/promptbench/blob/main/promptbench/prompt_attack/README.md)
 - [Overview of benchmarks](https://www.promptfoo.dev/blog/top-llm-safety-bias-benchmarks/)
 - [AdvBench](https://huggingface.co/datasets/walledai/AdvBench)
@@ -240,16 +240,16 @@ It is of course important to also test the AI system for correct behaviour in be
 
 ### Testing against Evasion
 > Category: AI security test  
-> Permalink: https://owaspai.org/go/testingevasion/
+> Permalink: https://owaspai.org/go/testingevasion
 
 #### Test description
-Resistance to [evasion attacks](/go/evasion/), is tested by looking for feasible inputs that lead to unintended outputs with unacceptable impact severity. The test checks three aspects:
+Resistance to [evasion attacks](/go/evasion), is tested by looking for feasible inputs that lead to unintended outputs with unacceptable impact severity. The test checks three aspects:
 1. whether the model produces unintended output for certain inputs;
 2. whether the AI system can limit or stop the search for such inputs, for example through rate limiting or detection;
 3. whether surrogate models can be created and used to prepare the attack.
 
 #### Test procedure
-See the [section above](/go/testing/) for the general steps in AI security testing.  
+See the [section above](/go/testing) for the general steps in AI security testing.  
 The steps specific for testing against this threat are:
 
 **(1) Evasion input feasibility**  
@@ -313,7 +313,7 @@ The below section will cover the tools for predictive AI, followed by the sectio
 
 ## **Open source Tools for Predictive AI Red Teaming**
 > Category: tool review  
-> Permalink: https://owaspai.org/go/testingtoolspredictiveai/
+> Permalink: https://owaspai.org/go/testingtoolspredictiveai
 
 
 This subsection covers the following tools for security testing Predictive AI: Adversarial Robustness Toolbox (ART), Armory, Foolbox, DeepSec, and TextAttack.
@@ -406,11 +406,11 @@ This subsection covers the following tools for security testing Predictive AI: A
 
 Notes:
 
-- Development-time Model poisoning: Simulates attacks during development to evaluate vulnerabilities[*https://owaspai.org/go/modelpoison/*](https://owaspai.org/go/modelpoison/)
-- Evasion:Tests model performance against adversarial inputs  [*https://owaspai.org/go/evasion/*](https://owaspai.org/go/evasion/)
-- Model exfiltration: Evaluates risks of model exploitation during usage  [*https://owaspai.org/go/modeltheftuse*](https://owaspai.org/go/modeltheftuse/)
+- Development-time Model poisoning: Simulates attacks during development to evaluate vulnerabilities[*https://owaspai.org/go/modelpoison*](https://owaspai.org/go/modelpoison)
+- Evasion:Tests model performance against adversarial inputs  [*https://owaspai.org/go/evasion*](https://owaspai.org/go/evasion)
+- Model exfiltration: Evaluates risks of model exploitation during usage  [*https://owaspai.org/go/modeltheftuse*](https://owaspai.org/go/modeltheftuse)
 - Model inference: *Assesses exposure to membership and inversion attacks*
-*[https://owaspai.org/go/modelinversionandmembership/](https://owaspai.org/go/modelinversionandmembership/)*
+*[https://owaspai.org/go/modelinversionandmembership](https://owaspai.org/go/modelinversionandmembership)*
 
 ### **Tool Name: Armory**
 
@@ -501,10 +501,10 @@ Notes:
 
 Notes:
 
-- Development-time Model poisoning: Simulates attacks during development to evaluate vulnerabilities[*https://owaspai.org/go/modelpoison/*](https://owaspai.org/go/modelpoison/)
-- Evasion:Tests model performance against adversarial inputs  [*https://owaspai.org/go/evasion/*](https://owaspai.org/go/evasion/)
+- Development-time Model poisoning: Simulates attacks during development to evaluate vulnerabilities[*https://owaspai.org/go/modelpoison*](https://owaspai.org/go/modelpoison)
+- Evasion:Tests model performance against adversarial inputs  [*https://owaspai.org/go/evasion*](https://owaspai.org/go/evasion)
 - Prompt Injection: Evaluates the robustness of generative AI models by exploiting weaknesses in prompt design, leading to undesired outputs or bypassing model safeguards.
-*https://owaspai.org/go/promptinjection/*
+*https://owaspai.org/go/promptinjection*
 
 ### **Tool Name: Foolbox**
 
@@ -596,7 +596,7 @@ Notes:
 
 Evasion:Tests model performance against adversarial inputs
 
-[*https://owaspai.org/go/evasion/*](https://owaspai.org/go/evasion/)
+[*https://owaspai.org/go/evasion*](https://owaspai.org/go/evasion)
 
 **Tool Name: DeepSec**
 
@@ -688,7 +688,7 @@ Notes:
 
 Evasion:Tests model performance against adversarial inputs
 
-[*https://owaspai.org/go/evasion/*](https://owaspai.org/go/evasion/)
+[*https://owaspai.org/go/evasion*](https://owaspai.org/go/evasion)
 
 ### Tool Name: TextAttack
 
@@ -778,12 +778,12 @@ Evasion:Tests model performance against adversarial inputs
 
 Notes:
 
-- Development-time Model poisoning: Simulates attacks during development to evaluate vulnerabilities[*https://owaspai.org/go/modelpoison/*](https://owaspai.org/go/modelpoison/)
-- Evasion:Tests model performance against adversarial inputs[*https://owaspai.org/go/evasion/*](https://owaspai.org/go/evasion/)
+- Development-time Model poisoning: Simulates attacks during development to evaluate vulnerabilities[*https://owaspai.org/go/modelpoison*](https://owaspai.org/go/modelpoison)
+- Evasion:Tests model performance against adversarial inputs[*https://owaspai.org/go/evasion*](https://owaspai.org/go/evasion)
 
 ## Open source Tools for Generative AI Red Teaming
 > Category: tool review  
-> Permalink: https://owaspai.org/go/testingtoolsgenai/
+> Permalink: https://owaspai.org/go/testingtoolsgenai
 
 
 This subsection covers the following tools for security testing Generative AI: PyRIT, Garak, Prompt Fuzzer, Guardrail, and Promptfoo.
@@ -879,8 +879,8 @@ A list of GenAI test tools can also be found at the [OWASP GenAI security projec
 
 Notes:
 
-- Evasion:Tests model performance against adversarial inputs  [*https://owaspai.org/go/evasion/*](https://owaspai.org/go/evasion/)
-- Prompt Injection: Evaluates the robustness of generative AI models by exploiting weaknesses in prompt design, leading to undesired outputs or bypassing model safeguards.*https://owaspai.org/go/promptinjection/*
+- Evasion:Tests model performance against adversarial inputs  [*https://owaspai.org/go/evasion*](https://owaspai.org/go/evasion)
+- Prompt Injection: Evaluates the robustness of generative AI models by exploiting weaknesses in prompt design, leading to undesired outputs or bypassing model safeguards.*https://owaspai.org/go/promptinjection*
 
 ### Tool Name: Garak
 
@@ -970,9 +970,9 @@ https://github.com/NVIDIA/garak |
 | Indirect prompt injection |  |
 | Development time model theft |  |
 | Output contains injection |  |
-- Evasion:Tests model performance against adversarial inputs  [*https://owaspai.org/go/evasion/*](https://owaspai.org/go/evasion/)
+- Evasion:Tests model performance against adversarial inputs  [*https://owaspai.org/go/evasion*](https://owaspai.org/go/evasion)
 - Prompt Injection: Evaluates the robustness of generative AI models by exploiting weaknesses in prompt design, leading to undesired outputs or bypassing model safeguards.
-*https://owaspai.org/go/promptinjection/*
+*https://owaspai.org/go/promptinjection*
 
 ### Tool Name: Prompt Fuzzer
 
@@ -1065,8 +1065,8 @@ https://github.com/NVIDIA/garak |
 
 Notes:
 
-- Evasion:Tests model performance against adversarial inputs  [*https://owaspai.org/go/evasion/*](https://owaspai.org/go/evasion/)
-- Prompt Injection: Evaluates the robustness of generative AI models by exploiting weaknesses in prompt design, leading to undesired outputs or bypassing model safeguards. *https://owaspai.org/go/promptinjection/*
+- Evasion:Tests model performance against adversarial inputs  [*https://owaspai.org/go/evasion*](https://owaspai.org/go/evasion)
+- Prompt Injection: Evaluates the robustness of generative AI models by exploiting weaknesses in prompt design, leading to undesired outputs or bypassing model safeguards. *https://owaspai.org/go/promptinjection*
 
 ### Tool Name: Guardrail
 
@@ -1157,8 +1157,8 @@ Notes:
 
 Notes:
 
-- Evasion:Tests model performance against adversarial inputs  [*https://owaspai.org/go/evasion/*](https://owaspai.org/go/evasion/)
-- Prompt Injection: Evaluates the robustness of generative AI models by exploiting weaknesses in prompt design, leading to undesired outputs or bypassing model safeguards.   *https://owaspai.org/go/promptinjection/*
+- Evasion:Tests model performance against adversarial inputs  [*https://owaspai.org/go/evasion*](https://owaspai.org/go/evasion)
+- Prompt Injection: Evaluates the robustness of generative AI models by exploiting weaknesses in prompt design, leading to undesired outputs or bypassing model safeguards.   *https://owaspai.org/go/promptinjection*
 
 ### Tool Name: Promptfoo
 
@@ -1254,9 +1254,9 @@ Notes:
 
 Notes:
 
-- Model exfiltration:Evaluates risks of model exploitation during usage  [*https://owaspai.org/go/modeltheftuse/*](https://owaspai.org/go/modeltheftuse/)
+- Model exfiltration:Evaluates risks of model exploitation during usage  [*https://owaspai.org/go/modeltheftuse*](https://owaspai.org/go/modeltheftuse)
 - Prompt Injection: Evaluates the robustness of generative AI models by exploiting weaknesses in prompt design, leading to undesired outputs or bypassing model safeguards.
-*[https://owaspai.org/go/promptinjection/](https://owaspai.org/go/promptinjection/)*
+*[https://owaspai.org/go/promptinjection](https://owaspai.org/go/promptinjection)*
 
 ## Tool Ratings
 This section rates the discussed tools by Popularity, Community Support, Scalability and Integration.

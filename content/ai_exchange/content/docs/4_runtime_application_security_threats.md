@@ -5,11 +5,11 @@ heroText: "Attacks to the AI system in operation apart from the input attacks, a
 weight: 5
 ---
 > Category: group of runtime threats  
-> Permalink: https://owaspai.org/go/runtimeconventionalsec/
+> Permalink: https://owaspai.org/go/runtimeconventionalsec
 
 An AI system is an IT system, so at runtime it can be vulnerable to any security attack - for example to break into the application's user database. These 'conventional' attacks to generic assets, and their countermeasures are covered in many other resources. This section focuses only on what is AI-specific.  
 
-[Section 2](/go/threatsuse/) covers runtime attacks that are AI-specific: attacks performed through inference - by using the system and providing model input. [Section 3](/go/developmenttime/) covers attacks during development-time: mostly conventional attacks (e.g. breaking into a training database) with sometimes AI-specific consequences (e.g., changing model behaviour) plus AI-specific supply chain attacks.  
+[Section 2](/go/threatsuse) covers runtime attacks that are AI-specific: attacks performed through inference - by using the system and providing model input. [Section 3](/go/developmenttime) covers attacks during development-time: mostly conventional attacks (e.g. breaking into a training database) with sometimes AI-specific consequences (e.g., changing model behaviour) plus AI-specific supply chain attacks.  
 
 So, this page covers conventional security attacks that have AI-specific consequences. For example: changing model behaviour by hacking into a runtime database of augmentation data (data that is added to the model input). The details of how these attacks are performed are covered in many other resources. This section focuses on the AI-specific consequences and the categories of controls required. In-depth coverage of controls against conventional attacks are covered in many other resources. This section focuses on AI-specific aspects of these controls, such as the option of using a Trusted Execution Environment for models.  
 
@@ -17,7 +17,7 @@ The subsections cover non-AI-specific threats, model poisoning, model leak, inse
 
 ## 4.1. Generic security threats
 > Category: group of runtime threats  
-> Permalink: https://owaspai.org/go/genericsecthreats/
+> Permalink: https://owaspai.org/go/genericsecthreats
 
 **Description**  
 Impact: Conventional security threats can impact confidentiality, integrity and availability of all assets.
@@ -27,7 +27,7 @@ Note: some controls in this document are conventional security controls that are
 
 **Controls**
 
-- See the [Governance controls](/go/governancecontrols/) in the general section, in particular [SECDEVPROGRAM](/go/secdevprogram/) to attain application security, and [SECPROGRAM](/go/secprogram/) to attain information security in the organization.
+- See the [Governance controls](/go/governancecontrols) in the general section, in particular [SECDEVPROGRAM](/go/secdevprogram) to attain application security, and [SECPROGRAM](/go/secprogram) to attain information security in the organization.
 - Technical conventional security controls  
   Useful standards include:
   - See [OpenCRE on technical conventional security controls](https://www.opencre.org/cre/636-660)
@@ -35,7 +35,7 @@ Note: some controls in this document are conventional security controls that are
   - More detailed and comprehensive control overviews can be found in for example, Common criteria protection profiles (ISO/IEC 15408 with evaluation described in ISO 18045),
   - or in [OWASP ASVS](https://owasp.org/www-project-application-security-verification-standard/)
 - Operational security  
-  When models are hosted by third parties then security configuration of those services deserves special attention. Part of this configuration is [model access control](/go/modelaccesscontrol/):  an important mitigation for security risks. Cloud AI configuration options deserve scrutiny, like for example opting out when necessary of monitoring by the third party - which could increase the risk of exposing sensitive data.
+  When models are hosted by third parties then security configuration of those services deserves special attention. Part of this configuration is [model access control](/go/modelaccesscontrol):  an important mitigation for security risks. Cloud AI configuration options deserve scrutiny, like for example opting out when necessary of monitoring by the third party - which could increase the risk of exposing sensitive data.
   Useful standards include:
   - See [OpenCRE on operational security processes](https://www.opencre.org/cre/862-452)
   - The ISO 27002 controls only partly cover operational security controls, and on a high abstraction level
@@ -44,7 +44,7 @@ Note: some controls in this document are conventional security controls that are
 
 ## 4.2. Direct runtime model poisoning
 > Category: runtime conventional security threat  
-> Permalink: https://owaspai.org/go/runtimemodelpoison/
+> Permalink: https://owaspai.org/go/runtimemodelpoison
 
 **Description**  
 Impact: see Broad model poisoning.
@@ -53,19 +53,19 @@ This threat involves manipulating the behavior of the model by altering the para
 
 **Controls**  
 
-- See [General controls](/go/generalcontrols/)
+- See [General controls](/go/generalcontrols)
 - The below control(s), each marked with a # and a short name in capitals
 
 #### #RUNTIME MODEL INTEGRITY
 > Category: runtime information security control against conventional security threats  
-> Permalink: https://owaspai.org/go/runtimemodelintegrity/
+> Permalink: https://owaspai.org/go/runtimemodelintegrity
 
 **Description**  
 Run-time model integrity: apply traditional conventional security controls to protect the storage of model parameters (e.g., access control, checksums, encryption) A Trusted Execution Environment can help to protect model integrity.
 
 #### #RUNTIME MODEL IO INTEGRITY
 > Category: runtime information security control against conventional security threats  
-> Permalink: https://owaspai.org/go/runtimemodeliointegrity/
+> Permalink: https://owaspai.org/go/runtimemodeliointegrity
 
 **Description**  
 Run-time model Input/Output integrity: apply conventional security controls to protect the runtime manipulation of the model's input/output logic (e.g., protect against a man-in-the-middle attack)
@@ -74,14 +74,14 @@ Run-time model Input/Output integrity: apply conventional security controls to p
 
 ## 4.3. Direct runtime model leak
 > Category: runtime conventional security threat  
-> Permalink: https://owaspai.org/go/runtimemodelleak/
+> Permalink: https://owaspai.org/go/runtimemodelleak
 
 **Description**  
 Impact:  Confidentiality breach of the model (i.e., model parameters), which can be:
 - intellectual property theft (e.g., by a competitor)
-- and/or a way to perform input attacks on the copied model, circumventing protections. These protections include rate limiting, access control, and detection mechanisms. This can be done for [all input attacks](/go/inputthreats/) that extract data, and for the preparation of [evasion](/go/evasion/) or [prompt injection](/go/promptinjection/): experimenting to find attack inputs that work.
+- and/or a way to perform input attacks on the copied model, circumventing protections. These protections include rate limiting, access control, and detection mechanisms. This can be done for [all input attacks](/go/inputthreats) that extract data, and for the preparation of [evasion](/go/evasion) or [prompt injection](/go/promptinjection): experimenting to find attack inputs that work.
  
-This attack occurs when stealing model parameters from a live system by breaking into it (e.g., by gaining access to executables, memory or other storage/transfer of  parameter data in the production environment). This is different from [model exfiltration](/go/modelexfiltration/) which goes through a number of steps to steal a model through normal use, hence the use of the word 'direct'. It is also different from [direct development-time model leak](/go/devmodelleak/) from a lifecycle and attack surface perspective.
+This attack occurs when stealing model parameters from a live system by breaking into it (e.g., by gaining access to executables, memory or other storage/transfer of  parameter data in the production environment). This is different from [model exfiltration](/go/modelexfiltration) which goes through a number of steps to steal a model through normal use, hence the use of the word 'direct'. It is also different from [direct development-time model leak](/go/devmodelleak) from a lifecycle and attack surface perspective.
 
 This attack also includes _side-channel attacks_, where attackers do not necessarily steal the entire model but instead extract specific details about the model’s behaviour or internal state. By observing characteristics like response times, power consumption, or electromagnetic emissions during inference, attackers can infer sensitive information about the model. This type of attack can provide insights into the model's structure, the type of data it processes, or even specific parameter values, which may be leveraged for subsequent attacks or to replicate the model.
 
@@ -91,17 +91,17 @@ This threat applies if the model represents intellectual property (i.e., a trade
 
 **Controls**
 
-- [General controls](/go/generalcontrols/),
-  - especially [Sensitive data limitation](/go/dataminimize/)
-- [#MODEL WATERMARKING](/go/modelwatermarking/)
+- [General controls](/go/generalcontrols),
+  - especially [Sensitive data limitation](/go/dataminimize)
+- [#MODEL WATERMARKING](/go/modelwatermarking)
 - The below control(s), each marked with a # and a short name in capitals
   
 #### #RUNTIME MODEL CONFIDENTIALITY
 > Category: runtime information security control against conventional security threats  
-> Permalink: https://owaspai.org/go/runtimemodelconfidentiality/
+> Permalink: https://owaspai.org/go/runtimemodelconfidentiality
 
 **Description**  
-Run-time model confidentiality: see [SECDEVPROGRAM](/go/secdevprogram/) to attain conventional security, with the focus on protecting the storage of model parameters (e.g., access control, encryption).  
+Run-time model confidentiality: see [SECDEVPROGRAM](/go/secdevprogram) to attain conventional security, with the focus on protecting the storage of model parameters (e.g., access control, encryption).  
 
 A Trusted Execution Environment can be highly effective in safeguarding the runtime environment, isolating model operations from potential threats, including side-channel hardware attacks like [DeepSniffer](https://sites.cs.ucsb.edu/~sherwood/pubs/ASPLOS-20-deepsniff.pdf). By ensuring that sensitive computations occur within this secure enclave,the TEE reduces the risk of attackers gaining useful information through side-channel methods.
 
@@ -114,7 +114,7 @@ or acoustic leakage that might be exploited for side-channel attacks. See [Elect
 
 #### #MODEL OBFUSCATION
 > Category: runtime information security control against conventional security threats  
-> Permalink: https://owaspai.org/go/modelobfuscation/
+> Permalink: https://owaspai.org/go/modelobfuscation
 
 **Description**  
 Model obfuscation: techniques to store the model in a complex and confusing way with minimal technical information, to make it more difficult for attackers to extract and understand a model after having gained access to its runtime storage. See this [article on ModelObfuscator](https://dl.acm.org/doi/abs/10.1145/3597926.3598113)
@@ -123,7 +123,7 @@ Model obfuscation: techniques to store the model in a complex and confusing way 
 
 ## 4.4. Output contains conventional injection
 > Category: runtime conventional security threat  
-> Permalink: https://owaspai.org/go/outputcontainsconventionalinjection/
+> Permalink: https://owaspai.org/go/outputcontainsconventionalinjection
 
 **Description**  
 Impact: Textual model output may contain conventional injection attacks such as XSS-Cross site scripting, which can create a vulnerability when processed (e.g., shown on a website, execute a command).
@@ -149,7 +149,7 @@ See [OWASP for LLM 10: Improper Output Handling](https://genai.owasp.org/resourc
 
 #### #ENCODE MODEL OUTPUT
 > Category: runtime information security control against conventional security threats  
-> Permalink: https://owaspai.org/go/encodemodeloutput/
+> Permalink: https://owaspai.org/go/encodemodeloutput
 
 **Description**  
 Encode model output: apply output encoding on model output if it's text. See [OpenCRE on Output encoding and injection prevention](https://www.opencre.org/cre/161-451)
@@ -158,7 +158,7 @@ Encode model output: apply output encoding on model output if it's text. See [Op
 
 ## 4.5. Input data leak
 > Category: runtime conventional security threat  
-> Permalink: https://owaspai.org/go/inputdataleak/
+> Permalink: https://owaspai.org/go/inputdataleak
 
 **Description**  
 Impact: Confidentiality breach of sensitive input data through a conventional attack on the data at rest or in transit.
@@ -167,7 +167,7 @@ Input data (e.g., GenAI prompts) can be sensitive and can either leak through a 
 
 The following factors can complicate this risk:
 1. Metadata. If there is metadata to the input (e.g., identifying a user), this can increase the risk - for example when a sensitive conversation in prompts is linked to the user.
-2. Cloud AI. When AI models run in the cloud (often the case for GenAI) then this risk needs special attention, especially if this is managed by an external party. Input data will be unencrypted at inference time (when processed by the model). Therefore, it is critical that proper security measures are in place for the data in transit and at rest, and ideally the data is not retained at all. For security reasons, some third parties monitor and log the input, which is why it is critical to read the fine print and select the right license and configuration. Sometimes monitoring requires opt-out. For more information see the [ready-made models section](/go/readymademodel/).
+2. Cloud AI. When AI models run in the cloud (often the case for GenAI) then this risk needs special attention, especially if this is managed by an external party. Input data will be unencrypted at inference time (when processed by the model). Therefore, it is critical that proper security measures are in place for the data in transit and at rest, and ideally the data is not retained at all. For security reasons, some third parties monitor and log the input, which is why it is critical to read the fine print and select the right license and configuration. Sometimes monitoring requires opt-out. For more information see the [ready-made models section](/go/readymademodel).
 3. Court orders. If input is stored at the third party, you run the risk of that data to be subject to a subpoena - depending on jurisdiction (e.g. Cloud Security Act).
 4. Agumented data. GenAI model input (prompts) can contain rich context information with sensitive data (e.g., company secrets). The latter issue occurs with *in context learning* or *Retrieval Augmented Generation(RAG)* (adding background information to a prompt): for example data from all reports ever written at a consultancy firm. First of all, this context information will travel with the prompt to the cloud, and second: the context information may likely leak to the output, so it's important to apply the access rights of the user to the retrieval of the context. For example: if a user from department X asks a question to an LLM - it should not retrieve context that department X has no access to, because that information may leak in the output.
 5. External services. Model actions may trigger other services, further spreading the input data. For example: when you ask a cloud AI to process your pdf document and the AI starts calling various services to help process the document. 
@@ -175,21 +175,21 @@ The following factors can complicate this risk:
 See [Risk analysis](https://owaspai.org/docs/ai_security_overview/#how-to-select-relevant-threats-and-controls-risk-analysis) on responsible parties.
 
 **Controls**
-- See [General controls](/go/generalcontrols/), in particular [Minimizing data](/go/datalimit/)
+- See [General controls](/go/generalcontrols), in particular [Minimizing data](/go/datalimit)
 - The below control(s), each marked with a # and a short name in capitals
 
 #### #MODEL INPUT CONFIDENTIALITY
 > Category: runtime information security control against conventional security threats  
-> Permalink: https://owaspai.org/go/modelinputconfidentiality/
+> Permalink: https://owaspai.org/go/modelinputconfidentiality
 
 **Description**  
-Model input confidentiality: see [SECDEVPROGRAM](/go/secdevprogram/) to attain conventional security, with the focus on protecting the transport and storage of model input (e.g., access control, encryption, minimize retention)
+Model input confidentiality: see [SECDEVPROGRAM](/go/secdevprogram) to attain conventional security, with the focus on protecting the transport and storage of model input (e.g., access control, encryption, minimize retention)
 
 ---
 
 ## 4.6. Direct augmentation data leak
 > Category: runtime conventional security threat  
-> Permalink: https://owaspai.org/go/augmentationdataleak/
+> Permalink: https://owaspai.org/go/augmentationdataleak
 
 **Description**  
 Impact: Confidentiality breach of sensitive augmentation data through a conventional attack on the data at rest or in transit.
@@ -199,8 +199,8 @@ Augmentation data (ad hoc retrieved information inserted into a prompt, such as 
 So-called _vectors_ that form a representation of augmentation data are typically vulnerable for extracting information and should therefore be included in protection.
 
 Alternative ways for augmentation data to leak are:
-- [input data leak](/go/inputdataleak/)
-- [disclosure in output](/go/disclosureinoutput/) - it is best to assume that augmentation data can leak to the output, so the access rights for that data need to align with the rights of the user(s) that can see the output. 
+- [input data leak](/go/inputdataleak)
+- [disclosure in output](/go/disclosureinoutput) - it is best to assume that augmentation data can leak to the output, so the access rights for that data need to align with the rights of the user(s) that can see the output. 
 
 **References**
 <!-- OPENCRE_SECTION_CRE_START slug=augmentationdataleak -->
@@ -212,15 +212,15 @@ Alternative ways for augmentation data to leak are:
 - [Mitigating Security Risks in RAG LLM Applications, November 2023, CSA](https://cloudsecurityalliance.org/blog/2023/11/22/mitigating-security-risks-in-retrieval-augmented-generation-rag-llm-applications)
 
 **Controls**
-- See [General controls](/go/generalcontrols/)
+- See [General controls](/go/generalcontrols)
 - The below control(s), each marked with a # and a short name in capitals
 
 #### #AUGMENTATION DATA CONFIDENTIALITY
 > Category: runtime information security control against conventional security threats  
-> Permalink: https://owaspai.org/go/augmentationdataconfidentiality/
+> Permalink: https://owaspai.org/go/augmentationdataconfidentiality
 
 **Description**  
-See the [security program](/go/secprogram/) and [application security](/go/secdevprogram/), [development environment security](/go/devsecurity/), and [data segregation](/go/segregatedata/) to protect the confidentiality of transporting and storing augmentation data (e.g., access control, encryption, minimize retention).
+See the [security program](/go/secprogram) and [application security](/go/secdevprogram), [development environment security](/go/devsecurity), and [data segregation](/go/segregatedata) to protect the confidentiality of transporting and storing augmentation data (e.g., access control, encryption, minimize retention).
 
 
 
@@ -228,18 +228,18 @@ See the [security program](/go/secprogram/) and [application security](/go/secde
 
 ## 4.7. Augmentation data manipulation
 > Category: runtime conventional security threat  
-> Permalink: https://owaspai.org/go/augmentationdatamanipulation/
+> Permalink: https://owaspai.org/go/augmentationdatamanipulation
 
 **Description**  
 
 Impact: Integrity breach of augmentation data through a conventional attack on the data at rest or in transit - leading to manipulated model behaviour.
 
-Augmentation data (context information added to a prompt) can be stored in for example _vector databases_, _system prompt storage_, or the working memory of an agent. When augmentation data is manipulated (e.g., inserting false information), it can change the behaviour of the model - making it very similar to [data poisoning](/go/datapoison/).
+Augmentation data (context information added to a prompt) can be stored in for example _vector databases_, _system prompt storage_, or the working memory of an agent. When augmentation data is manipulated (e.g., inserting false information), it can change the behaviour of the model - making it very similar to [data poisoning](/go/datapoison).
 
 **Agent memory and context manipulation** distinguishes three surfaces that need separate controls:
 
-1. **In-context manipulation:** adversarial content in the active context window during a session — typically an [indirect prompt injection](/go/indirectpromptinjection/) or [prompt injection I/O handling](/go/promptinjectioniohandling/) problem unless the session writes poisoned content onward.
-2. **Persistent memory poisoning:** corruption of vector stores, knowledge bases, or long-term agent memory retrieved across sessions — functionally similar to [RAG poisoning](https://atlas.mitre.org/techniques/AML.T0070) and development-time [data poisoning](/go/datapoison/) at the integrity layer, but at runtime in agent stores. Content written by one agent or session may be retrieved by another; a compromised write is a future read attack.
+1. **In-context manipulation:** adversarial content in the active context window during a session — typically an [indirect prompt injection](/go/indirectpromptinjection) or [prompt injection I/O handling](/go/promptinjectioniohandling) problem unless the session writes poisoned content onward.
+2. **Persistent memory poisoning:** corruption of vector stores, knowledge bases, or long-term agent memory retrieved across sessions — functionally similar to [RAG poisoning](https://atlas.mitre.org/techniques/AML.T0070) and development-time [data poisoning](/go/datapoison) at the integrity layer, but at runtime in agent stores. Content written by one agent or session may be retrieved by another; a compromised write is a future read attack.
 3. **Cross-session state persistence:** adversarial content from one session surviving into the next through shared memory or state channels — a persistence mechanism even when the original injection vector was in-context.
 
 Example: A multi-agent customer support system uses a shared vector store for product knowledge. An adversary submits a support request containing a fabricated return policy. An agent stores a summary in the shared vector store. Subsequent agents return the fabricated policy to other customers until the entry is found and removed.
@@ -254,27 +254,27 @@ Example: A multi-agent customer support system uses a shared vector store for pr
 - [Mitigating Security Risks in RAG LLM Applications, November 2023, CSA](https://cloudsecurityalliance.org/blog/2023/11/22/mitigating-security-risks-in-retrieval-augmented-generation-rag-llm-applications)
 
 **Controls**
-- See [General controls](/go/generalcontrols/)
+- See [General controls](/go/generalcontrols)
 - The below control(s), each marked with a # and a short name in capitals
 
 #### #AUGMENTATION DATA INTEGRITY
 > Category: runtime information security control against conventional security threats  
-> Permalink: https://owaspai.org/go/augmentationdataintegrity/
+> Permalink: https://owaspai.org/go/augmentationdataintegrity
 
 **Description**  
-Protect the integrity of augmentation data at rest and in transit — vector stores, system prompt storage, RAG indexes, and agent working or long-term memory. See the [security program](/go/secprogram/), [application security](/go/secdevprogram/), [development environment security](/go/devsecurity/), and [data segregation](/go/segregatedata/).
+Protect the integrity of augmentation data at rest and in transit — vector stores, system prompt storage, RAG indexes, and agent working or long-term memory. See the [security program](/go/secprogram), [application security](/go/secdevprogram), [development environment security](/go/devsecurity), and [data segregation](/go/segregatedata).
 
 **Objective**  
-Preserve trustworthy context for model and agent decisions. Manipulated augmentation data changes behaviour without altering model weights — see [augmentation data manipulation](/go/augmentationdatamanipulation/).
+Preserve trustworthy context for model and agent decisions. Manipulated augmentation data changes behaviour without altering model weights — see [augmentation data manipulation](/go/augmentationdatamanipulation).
 
 **Implementation (agentic memory)**  
-- Treat vector store and shared agent memory content as an **untrusted external input surface** — apply the same sanitisation and segregation controls as for user messages and retrieved documents ([#PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling/), [#INPUT SEGREGATION](/go/inputsegregation/)).
-- **Memory provenance tracking:** record source, writer identity (agent or session), timestamp, and partition for each write; enables forensic reconstruction after [persistent memory poisoning](/go/augmentationdatamanipulation/).
+- Treat vector store and shared agent memory content as an **untrusted external input surface** — apply the same sanitisation and segregation controls as for user messages and retrieved documents ([#PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling), [#INPUT SEGREGATION](/go/inputsegregation)).
+- **Memory provenance tracking:** record source, writer identity (agent or session), timestamp, and partition for each write; enables forensic reconstruction after [persistent memory poisoning](/go/augmentationdatamanipulation).
 - **Integrity verification:** verify stored content before it enters an agent's active context; reject or quarantine entries failing checks.
 - **Memory access controls:** restrict which agents and sessions can read from and write to specific memory partitions; cross-agent memory access without explicit authorisation is lateral movement through shared state.
 - **Session-boundary sanitisation:** review and where appropriate reset agent context between tasks so adversarial in-context content does not influence the next task.
-- **Incident replay:** immutable append-only logs of memory state changes support replay at prior points — pair with [#MONITOR USE](/go/monitoruse/) logging fields for memory writes.
-- **Planning artefacts:** protect plan libraries, templates, and heuristics with integrity verification and access control; validate plans against policy before execution — see [agentic development-time threats](/go/developmenttime/).
+- **Incident replay:** immutable append-only logs of memory state changes support replay at prior points — pair with [#MONITOR USE](/go/monitoruse) logging fields for memory writes.
+- **Planning artefacts:** protect plan libraries, templates, and heuristics with integrity verification and access control; validate plans against policy before execution — see [agentic development-time threats](/go/developmenttime).
 
 **Limitations**  
 Provenance and integrity checks add storage and latency. Distinguishing legitimate memory updates from adversarial poisoning at scale remains difficult — structural access control and write authorization limit blast radius when detection is uncertain.
@@ -283,20 +283,20 @@ Provenance and integrity checks add storage and latency. Distinguishing legitima
 
 ## 4.8. Agent escape
 > Category: runtime conventional security threat (agentic)  
-> Permalink: https://owaspai.org/go/agentescape/
+> Permalink: https://owaspai.org/go/agentescape
 
 **Description**  
 
-**Agent escape** is when an autonomous agent operates **outside its defined security boundary** — invoking tools it is not authorised to use, accessing systems outside its scope, or taking actions beyond its assigned task. This is distinct from **[jailbreak](/go/directpromptinjection/)**, which overrides safety constraints while remaining within the operational boundary (for example producing harmful content the agent was instructed to refuse). Jailbreak is primarily a reasoning-layer problem; escape is primarily a **policy enforcement** problem at the infrastructure layer. Conflating the two produces controls that are only partially effective against each.
+**Agent escape** is when an autonomous agent operates **outside its defined security boundary** — invoking tools it is not authorised to use, accessing systems outside its scope, or taking actions beyond its assigned task. This is distinct from **[jailbreak](/go/directpromptinjection)**, which overrides safety constraints while remaining within the operational boundary (for example producing harmful content the agent was instructed to refuse). Jailbreak is primarily a reasoning-layer problem; escape is primarily a **policy enforcement** problem at the infrastructure layer. Conflating the two produces controls that are only partially effective against each.
 
 Impact: Unauthorised side effects despite (or after) alignment — data access, tool invocation, or configuration changes outside the agent's intended scope. Infrastructure-layer enforcement can block escape even when jailbreak succeeds at the reasoning layer.
 
 **Implementation**
 
-- Enforce capability-based access controls at the **backend** that restrict tool sets, data sources, and action space independently of LLM reasoning — see [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/). An agent that cannot invoke a tool because infrastructure denies access cannot escape into that tool regardless of jailbreak success.
+- Enforce capability-based access controls at the **backend** that restrict tool sets, data sources, and action space independently of LLM reasoning — see [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege). An agent that cannot invoke a tool because infrastructure denies access cannot escape into that tool regardless of jailbreak success.
 - Apply **role and scope boundary enforcement** at every tool invocation: verify the invoking agent's current task scope and authorised role permit the specific call. A valid tool call from an agent performing an out-of-scope task is an escape event even if the tool is individually authorised.
-- Pair with [#OVERSIGHT](/go/oversight/) for session-level jailbreak drift detection; escape prevention does not replace monitoring for progressive alignment bypass.
-- Include jailbreak and escape scenarios in [red teaming](/go/testing/) with explicit multi-turn and multi-session paths — single-turn jailbreak testing underestimates production agentic risk.
+- Pair with [#OVERSIGHT](/go/oversight) for session-level jailbreak drift detection; escape prevention does not replace monitoring for progressive alignment bypass.
+- Include jailbreak and escape scenarios in [red teaming](/go/testing) with explicit multi-turn and multi-session paths — single-turn jailbreak testing underestimates production agentic risk.
 
 Example: A code-execution agent is jailbroken across eight turns using incremental reframing that normalises exploratory system commands. By turn eight it attempts file-system enumeration it would have refused in turn one. A sandbox restriction blocking access outside the designated directory stops the command from producing output — jailbreak at the reasoning layer, escape blocked at infrastructure. Session drift monitoring flags progressive relaxation at turn five for human review.
 
@@ -304,18 +304,18 @@ Example: A code-execution agent is jailbroken across eight turns using increment
 Agents with very broad authorised scope can cause harm through jailbreak without technically escaping. Capability enforcement may be difficult to retrofit when tool access was historically managed in prompts alone.
 
 **Controls**
-- See [General controls](/go/generalcontrols/)
-- [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/), [#OVERSIGHT](/go/oversight/), [#MONITOR USE](/go/monitoruse/)
-- [Agent sandboxing and isolation](/go/agentsandboxing/)
+- See [General controls](/go/generalcontrols)
+- [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege), [#OVERSIGHT](/go/oversight), [#MONITOR USE](/go/monitoruse)
+- [Agent sandboxing and isolation](/go/agentsandboxing)
 
 ---
 
 ## 4.9. Agent sandboxing and isolation
 > Category: runtime conventional security control (agentic)  
-> Permalink: https://owaspai.org/go/agentsandboxing/
+> Permalink: https://owaspai.org/go/agentsandboxing
 
 **Description**  
-Runtime operational control — not pre-deployment testing alone. Each live agent runs in a bounded environment (compute, memory, storage, network, IPC) so compromise, malfunction, or [prompt injection](/go/promptinjection/) cannot spread beyond its designated boundary.
+Runtime operational control — not pre-deployment testing alone. Each live agent runs in a bounded environment (compute, memory, storage, network, IPC) so compromise, malfunction, or [prompt injection](/go/promptinjection) cannot spread beyond its designated boundary.
 
 **Objective**  
 Contain blast radius: a hijacked agent must not access other agents' memory, credentials, or services, or exfiltrate data through uncontrolled network paths.
@@ -326,13 +326,13 @@ Contain blast radius: a hijacked agent must not access other agents' memory, cre
 - **Network segmentation (4.9.3):** Default-deny egress; permit only task-required endpoints. Route traffic through a monitored proxy or service mesh with allowlists and logging. Block direct agent-to-agent network paths — use an orchestration layer or message bus with auth and validation. Restrict DNS; segment agents processing untrusted content away from sensitive internal services.
 - **Platform enforcement:** Restrict spawning processes, filesystem access outside workspace, self-configuration changes, and host interaction. Monitor for escape indicators (unexpected syscalls, forbidden paths, non-permitted connections). Store tool credentials (MCP servers, APIs) **outside** the sandbox in a controlled credential store.
 - **Clean termination:** On task completion or forced stop, destroy transient state, cached data, and in-sandbox credentials.
-- **Resource quotas:** See [#LIMIT RESOURCES](/go/limitresources/) and [#RATE LIMIT](/go/ratelimit/) for per-agent CPU, memory, API volume, tool invocations, and wall-clock limits enforced by the platform — not by agent self-management.
+- **Resource quotas:** See [#LIMIT RESOURCES](/go/limitresources) and [#RATE LIMIT](/go/ratelimit) for per-agent CPU, memory, API volume, tool invocations, and wall-clock limits enforced by the platform — not by agent self-management.
 
-Pair with [agent escape](/go/agentescape/) prevention and [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege/) for defence in depth.
+Pair with [agent escape](/go/agentescape) prevention and [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege) for defence in depth.
 
 **Limitations**  
 Sandbox overhead scales with concurrent agents. Shared inference, credential, and policy services create implicit cross-agent channels. Container or hypervisor escape undermines containment. Segmentation cannot stop exfiltration through legitimately permitted APIs. OS-specific behaviour may weaken the same approach on different hosts.
 
 **Controls**
-- See [General controls](/go/generalcontrols/)
-- [#LIMIT RESOURCES](/go/limitresources/), [#RATE LIMIT](/go/ratelimit/), [#MONITOR USE](/go/monitoruse/)
+- See [General controls](/go/generalcontrols)
+- [#LIMIT RESOURCES](/go/limitresources), [#RATE LIMIT](/go/ratelimit), [#MONITOR USE](/go/monitoruse)
