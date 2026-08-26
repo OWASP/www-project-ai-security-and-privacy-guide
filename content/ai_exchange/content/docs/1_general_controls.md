@@ -915,15 +915,17 @@ Useful standards include:
 > Permalink: https://owaspai.org/go/explainability/
 
 **Description**  
-Explainability: Explaining how individual model decisions are made, a field referred to as Explainable AI (XAI), can aid in gaining user trust in the model. In some cases, this can also prevent overreliance, for example, when the user observes the simplicity of the 'reasoning' or even errors in that process. See [this Stanford article on explainability and overreliance](https://hai.stanford.edu/news/ai-overreliance-problem-are-explanations-solution). Explanations of how a model works can also aid security assessors to evaluate AI security risks of a model.
+Explainability should be evaluated in relation to its intended stakeholders and purpose. Relevant properties include whether an explanation faithfully represents the system's behaviour, is understandable to its intended audience, and provides sufficient information for that audience to appropriately assess or act on the system's output. See [NISTIR 8312: Four Principles of Explainable Artificial Intelligence](https://nvlpubs.nist.gov/nistpubs/ir/2021/NIST.IR.8312.pdf) and [ISO/IEC TS 6254:2025](https://www.iso.org/standard/82148.html).
+
+There is no single universal explainability metric. Different stakeholders need different kinds of explanation, and the appropriate level of explainability depends on the system's purpose, context and risk. For example, explanations intended for a user deciding whether to act on an output may differ from those intended for a developer debugging a model or an assessor evaluating its risks. Explainability can aid appropriate trust and help prevent overreliance, for example when an explanation reveals limitations or errors. See [this Stanford article on explainability and overreliance](https://hai.stanford.edu/news/ai-overreliance-problem-are-explanations-solution). Explanations of how a model works can also aid security assessors to evaluate AI security risks.
+
+For high-risk systems, the [EU AI Act Article 13](https://artificialintelligenceact.eu/article/13/) provides a regulatory motivation for transparency: systems should be sufficiently transparent to enable deployers to interpret outputs and use them appropriately. This does not establish a universal XAI measurement framework.
 
 **The SCORE Framework**
 
-This is a method to measure the quality of your explainability that all stakeholders can understand.
+One practical approach for assessing explanations is the SCORE Framework. The AI Explainability Scorecard evaluates the quality and usefulness of explanations provided for an AI system's outputs. It is a practitioner tool that can be adapted to the stakeholders, purpose and risk of a particular system, rather than a universal benchmark.
 
-The AI Explainability Scorecard evaluates how well a model communicates its reasoning. Each of five criteria is rated 1 to 5, and the overall score is the average. High-stakes use cases require stronger explainability; lower-risk ones can tolerate less.
-
-The SCORE Framework was presented by Michael Novack at OWASP Global AppSec EU 2026.
+Each of the five criteria can be rated from 1 to 5, with the overall score calculated as an average when that aggregation is useful. High-stakes use cases generally require stronger evidence that explanations are faithful, understandable and actionable; lower-risk use cases may tolerate less.
 
 **SCORE** stands for:
 
@@ -941,6 +943,8 @@ The goal is to answer yes to both confidently enough for your use cases risk tol
 
 **SCORE Across Model Types**
 
+The scores below are an illustrative application of SCORE to compare common explanation approaches. They are not measurements established by OWASP or a universal benchmark. Scores should be assigned using evidence from the particular system, explanation method, audience and use case; the same model type may receive different scores in another context.
+
 | Criterion | K-NN | Neural Networks | LLM (Chain-of-Thought) |
 |---|---|---|---|
 | Sound | 5 | 3 | 2 |
@@ -952,7 +956,25 @@ The goal is to answer yes to both confidently enough for your use cases risk tol
 | Trustworthy? | High | Med | Low |
 | Drives Decisions? | High | Med | High |
 
-Different ML and AI algorithms have different properties that support or detract from explainability. The higher the score, the more useful the explainability is.
+**Justification of the illustrative scores**
+
+The following table provides context for the illustrative ratings above. It is not a standardized benchmark. The same model type may receive different scores depending on the implementation, explanation method, audience, evidence and use case.
+
+| SCORE category | K-NN | Neural Networks | LLM (Chain-of-Thought) |
+|---|---|---|---|
+| **Sound** | Explanations can often point to nearby training examples or features that influenced a prediction, so the relationship between the explanation and the decision may be comparatively inspectable. | Explanations commonly rely on post-hoc methods, so their faithfulness must be tested rather than assumed. | An explanation may sound plausible without faithfully representing the internal process that produced the answer. |
+| **Consistent** | Similar inputs may produce similar example-based explanations, although changes in the data, distance metric or presentation can affect consistency. | Results can vary with the post-hoc technique, input, approximation and model state. | Explanations can vary in wording and content across runs, even for similar prompts or outputs, so consistency requires explicit testing. |
+| **Optimize** | Influential examples or features can help improve data quality and model behaviour. | Explanations can support debugging and model improvement when validated against the model and relevant test data. | Generated suggestions may be useful, but they can be speculative and need independent verification. |
+| **Readable** | Example-based or feature-based explanations can be understandable when the data representation is familiar. | Explanations often need additional presentation or domain expertise. | Explanations are usually easy to read, but readability does not establish faithfulness. |
+| **Easy** | Explanations may be available directly from the prediction process. | Explanations can require additional computation, tooling or specialist analysis. | Explanations are often easy to request, but low access cost should not be confused with high explanatory quality. |
+
+The illustrative overall scores are **4.8** for K-NN, **3.6** for neural networks and **3.0** for LLM chain-of-thought-style explanations. These averages are summary aids, not pass/fail thresholds: a high Readable or Easy score cannot compensate for weak Sound evidence where people need to understand why an output was produced.
+
+**After running a SCORE assessment**
+
+Use the results to identify which explanation properties need improvement for the intended audience. Record the evidence and test conditions behind each rating, including the model version, explanation method, representative inputs, stakeholder group and risk context. Pay particular attention to low Sound or Consistent scores in high-impact use cases, because a readable explanation that is not faithful or reproducible can encourage inappropriate reliance.
+
+The overall average is a summary aid, not a pass/fail threshold. A high Readable or Easy score cannot compensate for weak Sound evidence where people need to understand why an output was produced. Reassess after model, data, prompt, explanation-method or user-interface changes, and combine SCORE with domain-appropriate tests such as faithfulness checks, stability testing, user comprehension testing and review of actual decisions made using the explanation.
 
 #### #UNWANTED BIAS TESTING 
 > Category: development-time and runtime AI engineer control  
