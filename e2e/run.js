@@ -472,12 +472,16 @@ function testPdfBuild() {
   if (stat.size < 10000) throw new Error(`PDF too small: ${stat.size} bytes`);
 }
 
-// Independent check of the generated artifact for issue #149: the PDF must
+// Independent check of the shipped artifact for issue #149: the PDF must
 // embed an outline (bookmarks) tree that PDF readers show as a navigation
-// sidebar. Coverage is measured against the headings in the assembled
-// print.html, so the expectation follows the content instead of a fixed count.
+// sidebar. This is the heavier companion to the in-memory assert inside
+// generate-pdf.js — it re-parses the file from disk and measures coverage
+// against the headings in the assembled print.html, so the expectation
+// follows the content instead of a fixed count. Traversal comes from the
+// shared scripts/pdf-outline helper (issue #198).
 async function testPdfOutline() {
-  const { PDFArray, PDFDict, PDFDocument, PDFName } = require('pdf-lib');
+  const { PDFDocument } = require('pdf-lib');
+  const { collectOutline } = require('../scripts/pdf-outline');
   const { JSDOM } = require('jsdom');
 
   const printHtmlPath = path.join(__dirname, '../scripts/print.html');
@@ -492,40 +496,15 @@ async function testPdfOutline() {
 
   const pdfPath = path.join(__dirname, '../content/ai_exchange/public/OWASP-AI-Exchange.pdf');
   const pdfDoc = await PDFDocument.load(fs.readFileSync(pdfPath));
-  const pageRefs = new Set(pdfDoc.getPages().map((p) => p.ref.toString()));
-  const outlinesRef = pdfDoc.catalog.get(PDFName.of('Outlines'));
-  if (!outlinesRef) throw new Error('PDF catalog has no /Outlines entry');
-  const outlines = pdfDoc.context.lookup(outlinesRef, PDFDict);
+  const entries = collectOutline(pdfDoc);
+  if (!entries) throw new Error('PDF catalog has no /Outlines entry');
 
-  let entries = 0;
-  let maxDepth = 0;
-  let brokenDestinations = 0;
-  const titles = [];
-  const walk = (dict, depth) => {
-    let itemRef = dict.get(PDFName.of('First'));
-    while (itemRef) {
-      const item = pdfDoc.context.lookup(itemRef, PDFDict);
-      entries++;
-      maxDepth = Math.max(maxDepth, depth);
-      const title = item.get(PDFName.of('Title'));
-      titles.push(title && title.decodeText ? title.decodeText() : '');
-      let dest = item.get(PDFName.of('Dest'));
-      if (!dest) {
-        const actionRef = item.get(PDFName.of('A'));
-        if (actionRef) dest = pdfDoc.context.lookup(actionRef, PDFDict).get(PDFName.of('D'));
-      }
-      const destArray = dest ? pdfDoc.context.lookup(dest) : null;
-      if (!(destArray instanceof PDFArray) || destArray.size() === 0 || !pageRefs.has(destArray.get(0).toString())) {
-        brokenDestinations++;
-      }
-      walk(item, depth + 1);
-      itemRef = item.get(PDFName.of('Next'));
-    }
-  };
-  walk(outlines, 1);
+  const maxDepth = entries.reduce((max, e) => Math.max(max, e.depth), 0);
+  const brokenDestinations = entries.filter((e) => !e.resolvesToPage).length;
+  const titles = entries.map((e) => e.title || '');
 
-  if (entries < headingCount) {
-    throw new Error(`Outline has ${entries} bookmarks for ${headingCount} headings`);
+  if (entries.length < headingCount) {
+    throw new Error(`Outline has ${entries.length} bookmarks for ${headingCount} headings`);
   }
   if (maxDepth < 2) throw new Error(`Outline hierarchy is flat: ${maxDepth} level(s)`);
   if (brokenDestinations > 0) {

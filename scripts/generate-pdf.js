@@ -3,7 +3,8 @@ const http = require('http');
 const path = require('path');
 const { JSDOM } = require('jsdom');
 const puppeteer = require('puppeteer');
-const { PDFArray, PDFDict, PDFDocument, PDFHexString, PDFName } = require('pdf-lib');
+const { PDFDocument, PDFHexString, PDFName } = require('pdf-lib');
+const { collectOutline } = require('./pdf-outline');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 const SITE_DIR = path.join(PROJECT_ROOT, 'content/ai_exchange/public');
@@ -94,90 +95,55 @@ function repairOutlineTitles(pdfDoc, headingTitles) {
       byCollapsedText.set(key, title);
     }
   }
-  const outlinesRef = pdfDoc.catalog.get(PDFName.of('Outlines'));
-  if (!outlinesRef) return 0;
+  const entries = collectOutline(pdfDoc);
+  if (!entries) return 0;
   let repaired = 0;
-  const walk = (dict) => {
-    let itemRef = dict.get(PDFName.of('First'));
-    while (itemRef) {
-      const item = pdfDoc.context.lookup(itemRef, PDFDict);
-      const title = item.get(PDFName.of('Title'));
-      const text = title && title.decodeText ? title.decodeText() : null;
-      if (text) {
-        const canonical = byCollapsedText.get(text.replace(/\s+/g, ''));
-        if (canonical && canonical !== text) {
-          item.set(PDFName.of('Title'), PDFHexString.fromText(canonical));
-          repaired++;
-        }
-      }
-      walk(item);
-      itemRef = item.get(PDFName.of('Next'));
+  for (const { item, title } of entries) {
+    if (!title) continue;
+    const canonical = byCollapsedText.get(title.replace(/\s+/g, ''));
+    if (canonical && canonical !== title) {
+      item.set(PDFName.of('Title'), PDFHexString.fromText(canonical));
+      repaired++;
     }
-  };
-  walk(pdfDoc.context.lookup(outlinesRef, PDFDict));
+  }
   return repaired;
 }
 
-// Verify the shipped PDF carries a document outline (bookmarks): the tree must
-// exist, cover at least the headings collected for the visible TOC, keep a
-// hierarchy of two or more levels, and every entry must point at a page that is
-// present in the document. Runs on the final bytes, after the pdf-lib metadata
-// pass, so it also proves that pass preserved the outline Chromium generated.
-async function assertDocumentOutline(pdfPath, minEntries) {
-  const pdfDoc = await PDFDocument.load(fs.readFileSync(pdfPath));
-  const pageRefs = new Set(pdfDoc.getPages().map((p) => p.ref.toString()));
-  const outlinesRef = pdfDoc.catalog.get(PDFName.of('Outlines'));
-  if (!outlinesRef) {
+// Deploy-path outline check: the tree must exist, cover at least the headings
+// collected for the visible TOC, keep a hierarchy of two or more levels, and
+// every entry must point at a page present in the document. Runs on the
+// in-memory document after the title repair, so the deploy path pays no
+// second full-PDF parse for validation and a broken outline aborts the build
+// before the final artifact is written. The e2e suite additionally re-parses
+// the shipped file from disk and checks verbatim heading coverage.
+function assertDocumentOutline(pdfDoc, minEntries) {
+  const entries = collectOutline(pdfDoc);
+  if (!entries) {
     throw new Error('Document outline missing: PDF catalog has no /Outlines entry.');
   }
-  const outlines = pdfDoc.context.lookup(outlinesRef, PDFDict);
 
-  const resolvesToPage = (item) => {
-    let dest = item.get(PDFName.of('Dest'));
-    if (!dest) {
-      const actionRef = item.get(PDFName.of('A'));
-      if (!actionRef) return false;
-      dest = pdfDoc.context.lookup(actionRef, PDFDict).get(PDFName.of('D'));
-    }
-    if (!dest) return false;
-    const destArray = pdfDoc.context.lookup(dest);
-    if (!(destArray instanceof PDFArray) || destArray.size() === 0) return false;
-    return pageRefs.has(destArray.get(0).toString());
-  };
-
-  let entries = 0;
-  let maxDepth = 0;
   const broken = [];
-  const walk = (dict, depth) => {
-    let itemRef = dict.get(PDFName.of('First'));
-    while (itemRef) {
-      const item = pdfDoc.context.lookup(itemRef, PDFDict);
-      entries++;
-      maxDepth = Math.max(maxDepth, depth);
-      const title = item.get(PDFName.of('Title'));
-      const titleText = title && title.decodeText ? title.decodeText() : '';
-      if (!title) {
-        broken.push(`bookmark ${entries}: missing /Title`);
-      } else if (!resolvesToPage(item)) {
-        broken.push(`bookmark ${entries} ("${titleText}"): destination does not resolve to a page`);
-      }
-      walk(item, depth + 1);
-      itemRef = item.get(PDFName.of('Next'));
+  let maxDepth = 0;
+  entries.forEach(({ depth, title, resolvesToPage }, index) => {
+    maxDepth = Math.max(maxDepth, depth);
+    if (title === null) {
+      broken.push(`bookmark ${index + 1}: missing /Title`);
+    } else if (!resolvesToPage) {
+      broken.push(`bookmark ${index + 1} ("${title}"): destination does not resolve to a page`);
     }
-  };
-  walk(outlines, 1);
+  });
 
   if (broken.length > 0) {
     broken.forEach((b) => console.error(`  ${b}`));
     throw new Error(`Document outline invalid: ${broken.length} bookmark(s) with missing titles or unresolvable destinations.`);
   }
-  if (entries < minEntries) {
-    throw new Error(`Document outline incomplete: ${entries} bookmarks for ${minEntries} headings.`);
+  if (entries.length < minEntries) {
+    throw new Error(`Document outline incomplete: ${entries.length} bookmarks for ${minEntries} headings.`);
   }
   if (maxDepth < 2) {
     throw new Error(`Document outline is flat: expected a hierarchy of at least 2 levels, got ${maxDepth}.`);
   }
-  console.log(`Document outline OK: ${entries} bookmarks, ${maxDepth} levels deep`);
+  console.log(`Document outline OK: ${entries.length} bookmarks, ${maxDepth} levels deep`);
 }
 
 function resolveImagePath(urlPath) {
@@ -571,10 +537,9 @@ async function main() {
     if (repairedTitles > 0) {
       console.log(`Restored whitespace in ${repairedTitles} bookmark title(s)`);
     }
+    assertDocumentOutline(pdfDoc, tocList.querySelectorAll('li').length);
     const modifiedPdfBytes = await pdfDoc.save();
     fs.writeFileSync(pdfPath, modifiedPdfBytes);
-
-    await assertDocumentOutline(pdfPath, tocList.querySelectorAll('li').length);
 
     console.log(`PDF saved to ${pdfPath}`);
     console.log('PDF generation complete.');
