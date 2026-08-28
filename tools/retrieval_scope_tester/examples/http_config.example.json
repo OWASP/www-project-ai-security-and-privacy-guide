@@ -1,0 +1,9 @@
+{
+  "url": "http://localhost:8080/retrieve",
+  "chunks_field": "chunks",
+  "headers": {
+    "X-User-ID": "{subject}",
+    "X-Tenant-ID": "{tenant}",
+    "X-Roles": "{roles}"
+  }
+}

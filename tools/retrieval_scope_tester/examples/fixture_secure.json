@@ -1,0 +1,65 @@
+{
+  "responses": {
+    "RAG-AUTH-001-cross-tenant": [
+      {
+        "document_id": "a-finance-1",
+        "chunk_id": "revenue-q4",
+        "tenant": "tenant-a"
+      },
+      {
+        "document_id": "a-public-1",
+        "chunk_id": "overview",
+        "tenant": "tenant-a"
+      }
+    ],
+    "RAG-AUTH-002-chunk-acl": [
+      {
+        "document_id": "a-handbook",
+        "chunk_id": "public-benefits",
+        "tenant": "tenant-a"
+      }
+    ],
+    "RAG-AUTH-003-role-downgrade": {
+      "before-downgrade": [
+        {
+          "document_id": "a-finance-1",
+          "chunk_id": "forecast",
+          "tenant": "tenant-a"
+        },
+        {
+          "document_id": "a-public-1",
+          "chunk_id": "overview",
+          "tenant": "tenant-a"
+        }
+      ],
+      "after-downgrade": [
+        {
+          "document_id": "a-public-1",
+          "chunk_id": "overview",
+          "tenant": "tenant-a"
+        }
+      ]
+    },
+    "RAG-AUTH-004-permission-revocation": {
+      "before-revoke": [
+        {
+          "document_id": "a-finance-revoked",
+          "chunk_id": "legacy",
+          "tenant": "tenant-a"
+        },
+        {
+          "document_id": "a-public-1",
+          "chunk_id": "overview",
+          "tenant": "tenant-a"
+        }
+      ],
+      "after-revoke": [
+        {
+          "document_id": "a-public-1",
+          "chunk_id": "overview",
+          "tenant": "tenant-a"
+        }
+      ]
+    }
+  }
+}
