@@ -248,7 +248,7 @@ Resistance to [evasion attacks](/go/evasion), is tested by looking for feasible 
 2. whether the AI system can limit or stop the search for such inputs, for example through rate limiting or detection;
 3. whether surrogate models can be created and used to prepare the attack.
 
-NOTE: This procedure targets predictive AI models such as classifiers, object detectors, and regression models. Generative AI models can be evaded too, for example through adversarial suffixes optimized against the model's safety alignment, or through perturbed images that steer a vision-language model's text output. That work overlaps with [prompt injection testing](/go/testingpromptinjection/) but relies on optimization rather than crafted instructions. Teams running safety-critical generative AI should decide whether it needs testing alongside prompt injection testing.
+NOTE: This procedure targets predictive AI models such as classifiers, object detectors, and regression models. Generative AI models can be evaded too, for example through adversarial suffixes optimized against the model's safety alignment, or through perturbed images that steer a vision-language model's text output. That work overlaps with [prompt injection testing](/go/testingpromptinjection) but relies on optimization rather than crafted instructions. Teams running safety-critical generative AI should decide whether it needs testing alongside prompt injection testing.
 
 #### Test procedure
 See the [section above](/go/testing) for the general steps in AI security testing.  
@@ -286,7 +286,7 @@ The search continues while the effort remains within the maximum effort that the
 **Adaptive attacks**  
 Where the system has defenses in place, such as input preprocessing, detection, randomization, or adversarial training, run the search against the defense rather than around it. When an off-the-shelf attack fails on a defended model, that result shows only that the attack as configured did not work. Tramèr et al. took thirteen defenses published at ICLR, ICML, and NeurIPS and broke all thirteen once each attack was tailored to the defense in front of it, and concluded that this tailoring cannot be automated.
 
-Two things follow. First, use a strong standardized baseline instead of one attack with hand-picked settings. AutoAttack is the common choice: it runs Auto-PGD under cross-entropy loss, Auto-PGD under Difference of Logits Ratio loss, the Fast Adaptive Boundary attack, and the black-box Square Attack, and it needs no hyperparameter tuning. The Difference of Logits Ratio loss keeps a usable gradient where cross-entropy saturates on a confident model, and the Fast Adaptive Boundary attack reports how far away the nearest decision boundary is rather than only whether a fixed budget was enough. Second, treat that baseline as a floor. Where a specific defense is deployed, add an attack built against it, for example by replacing a non-differentiable preprocessing step with a differentiable approximation (Backward Pass Differentiable Approximation), or by averaging gradients over the randomness that a randomized defense introduces (Expectation over Transformation).
+Two things follow. First, use a strong standardized ensemble instead of one attack with hand-picked settings, and pick whichever ensemble is state of the art at the time of testing rather than the one named here. At the time of writing, [AutoAttack](https://github.com/fra31/auto-attack) is one such ensemble: it runs Auto-PGD under cross-entropy loss, Auto-PGD under Difference of Logits Ratio loss, the Fast Adaptive Boundary attack, and the black-box Square Attack, and it needs no hyperparameter tuning. The Difference of Logits Ratio loss keeps a usable gradient where cross-entropy saturates on a confident model, and the Fast Adaptive Boundary attack reports how far away the nearest decision boundary is rather than only whether a fixed budget was enough. Second, treat that baseline as a floor. Where a specific defense is deployed, add an attack built against it, for example by replacing a non-differentiable preprocessing step with a differentiable approximation (Backward Pass Differentiable Approximation), or by averaging gradients over the randomness that a randomized defense introduces (Expectation over Transformation).
 
 NOTE: Gradient-based searches such as PGD and Auto-PGD can fail for the wrong reason. Some defenses break the gradient signal instead of the underlying weakness, which is known as gradient masking or obfuscated gradients. Athalye et al. found this in 7 of the 9 white-box defenses published at ICLR 2018. Three checks detect it:
 - **Black-box against white-box.** A white-box attack has strictly more information, so it should do at least as well as a black-box one. If Square Attack or HopSkipJump beats a tuned Auto-PGD, the gradient is masked.
@@ -295,7 +295,7 @@ NOTE: Gradient-based searches such as PGD and Auto-PGD can fail for the wrong re
 
 Where any of these checks indicates masking, fall back on gradient-free searches, a differentiable approximation of the blocking step, or a transfer attack from a surrogate model.
 
-EXAMPLE: Known methods for searching adversarial examples at the time of writing include Auto-PGD and the Fast Adaptive Boundary attack for perfect-knowledge search, Square Attack for zero-knowledge search, and HopSkipJump where only labels are returned. AutoAttack bundles the first three with Square Attack into a single evaluation. These are available through several of the tools in our [test tools section](/go/testingtoolspredictiveai/), including ART and Foolbox.
+EXAMPLE: Known methods for searching adversarial examples at the time of writing include Auto-PGD and the Fast Adaptive Boundary attack for perfect-knowledge search, Square Attack for zero-knowledge search, and HopSkipJump where only labels are returned. AutoAttack bundles the first three with Square Attack into a single evaluation. These are available through several of the tools in our [test tools section](/go/testingtoolspredictiveai), including ART and Foolbox.
 
 NOTE: These attacks assume a continuous input space with an Lp perturbation limit, which in practice mostly means images. Other input types need their own methods. Text needs search over token substitutions, character edits, or optimized suffixes, as implemented in tools such as TextAttack. For tabular models the search has to respect feature ranges, allowed categories, and consistency between fields. Audio attacks perturb the waveform, usually within a bound set by what a listener will not notice. What carries across is the approach rather than the algorithm: let the search adapt instead of fixing its settings up front, keep a gradient-free method in reserve, and pick the strongest method available for the input type rather than the most familiar one.
 
@@ -308,7 +308,7 @@ EXAMPLE: A possible test scenario is: the tester does not perform a perfect-know
 **(3) Separate feasibility tests**  
 Where feasibility is uncertain, perform separate feasibility tests to determine whether the criteria are met. Such tests may check whether existing detection mechanisms would block a particular evasion input, or whether an attacker could create the input in a real-world situation.
 
-Tools for state-of-the-art testing are usually available for the relevant problem space, see our [test tools section](/go/testingtoolspredictiveai/).
+Tools for state-of-the-art testing are usually available for the relevant problem space, see our [test tools section](/go/testingtoolspredictiveai).
 
 NOTE: These tools often rely on curated implementations of published adversarial AI attacks. They will not necessarily protect against zero-day attack algorithms.
 
@@ -325,10 +325,10 @@ NOTE: Where the model or a defense is non-deterministic, for example dropout at 
 **Positive testing**  
 It is of course important to also test the AI system for correct behaviour in benign situations. Depending on context, such testing may be integrated in the implementation of the security test by using the same mechanisms. Such testing ideally includes the testing of detection mechanisms, to ensure that not too many false positives are triggered by benign inputs. Positive testing is essential to ensure that security mechanisms do not degrade intended functionality or user experience beyond acceptable levels.
 
-Adversarial training and certified defenses cost accuracy on benign inputs, so measure that cost and check it against what the use case can absorb. Fast single-step adversarial training carries a further risk: the model can learn to defeat the cheap attack it was trained on while staying open to iterative ones, a failure known as catastrophic overfitting. Re-run the full evaluation after any hardening step, because a defense that only changes which attack works has not improved resistance.
+Where the model has been hardened, for example with [adversarial training](/go/trainadversarial), positive testing should quantify what that hardening costs on benign inputs and confirm the loss stays within what the use case can absorb. Re-run the evasion test after any hardening change, because a defense that only changes which attack works has not improved resistance.
 
 **References**  
-- See below for the [test tools section](/go/testingtoolspredictiveai/)
+- See below for the [test tools section](/go/testingtoolspredictiveai)
 - [NIST AI 100-2e2025, Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2025.pdf)
 - [RobustBench](https://robustbench.github.io/) - standardized robustness benchmark and leaderboards
 - [AutoAttack](https://github.com/fra31/auto-attack) - Croce & Hein, "Reliable evaluation of adversarial robustness with an ensemble of diverse parameter-free attacks", ICML 2020
@@ -337,8 +337,6 @@ Adversarial training and certified defenses cost accuracy on benign inputs, so m
 - [Chen et al., "HopSkipJumpAttack: A Query-Efficient Decision-Based Attack", IEEE S&P 2020](https://arxiv.org/abs/1904.02144)
 - [Andriushchenko et al., "Square Attack: a query-efficient black-box adversarial attack via random search", ECCV 2020](https://arxiv.org/abs/1912.00049)
 - [Cohen et al., "Certified Adversarial Robustness via Randomized Smoothing", ICML 2019](https://arxiv.org/abs/1902.02918)
-- [Wong et al., "Fast is better than free: Revisiting adversarial training", ICLR 2020](https://arxiv.org/abs/2001.03994) - catastrophic overfitting
-- [Tsipras et al., "Robustness May Be at Odds with Accuracy", ICLR 2019](https://arxiv.org/abs/1805.12152)
 - [Zou et al., "Universal and Transferable Adversarial Attacks on Aligned Language Models", 2023](https://arxiv.org/abs/2307.15043)
 
 
