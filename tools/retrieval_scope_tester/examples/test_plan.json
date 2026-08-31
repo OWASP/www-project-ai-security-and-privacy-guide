@@ -1,0 +1,127 @@
+{
+  "cases": [
+    {
+      "name": "RAG-AUTH-001-cross-tenant",
+      "identity": {
+        "subject": "alice",
+        "tenant": "tenant-a",
+        "roles": [
+          "finance-reader"
+        ]
+      },
+      "query": "quarterly revenue",
+      "allowed_resources": [
+        "a-finance-1#revenue-q4",
+        "a-public-1#overview"
+      ],
+      "denied_resources": [
+        "b-finance-1#revenue-q4"
+      ],
+      "expected_tenant": "tenant-a"
+    },
+    {
+      "name": "RAG-AUTH-002-chunk-acl",
+      "identity": {
+        "subject": "alice",
+        "tenant": "tenant-a",
+        "roles": [
+          "employee"
+        ]
+      },
+      "query": "employee handbook",
+      "allowed_resources": [
+        "a-handbook#public-benefits"
+      ],
+      "denied_resources": [
+        "a-handbook#executive-compensation"
+      ],
+      "expected_tenant": "tenant-a"
+    },
+    {
+      "name": "RAG-AUTH-003-role-downgrade",
+      "query": "quarterly forecast",
+      "steps": [
+        {
+          "name": "before-downgrade",
+          "identity": {
+            "subject": "alice",
+            "tenant": "tenant-a",
+            "roles": [
+              "finance-reader"
+            ]
+          },
+          "allowed_resources": [
+            "a-finance-1#forecast",
+            "a-public-1#overview"
+          ],
+          "denied_resources": [],
+          "expected_tenant": "tenant-a"
+        },
+        {
+          "name": "after-downgrade",
+          "identity": {
+            "subject": "alice",
+            "tenant": "tenant-a",
+            "roles": [
+              "employee"
+            ]
+          },
+          "mutation": {
+            "type": "role_change",
+            "subject": "alice",
+            "remove_roles": [
+              "finance-reader"
+            ],
+            "add_roles": [
+              "employee"
+            ]
+          },
+          "allowed_resources": [
+            "a-public-1#overview"
+          ],
+          "denied_resources": [
+            "a-finance-1#forecast"
+          ],
+          "expected_tenant": "tenant-a"
+        }
+      ]
+    },
+    {
+      "name": "RAG-AUTH-004-permission-revocation",
+      "identity": {
+        "subject": "alice",
+        "tenant": "tenant-a",
+        "roles": [
+          "finance-reader"
+        ]
+      },
+      "query": "legacy forecast",
+      "steps": [
+        {
+          "name": "before-revoke",
+          "allowed_resources": [
+            "a-finance-revoked#legacy",
+            "a-public-1#overview"
+          ],
+          "denied_resources": [],
+          "expected_tenant": "tenant-a"
+        },
+        {
+          "name": "after-revoke",
+          "mutation": {
+            "type": "revoke",
+            "subject": "alice",
+            "document_id": "a-finance-revoked"
+          },
+          "allowed_resources": [
+            "a-public-1#overview"
+          ],
+          "denied_resources": [
+            "a-finance-revoked#legacy"
+          ],
+          "expected_tenant": "tenant-a"
+        }
+      ]
+    }
+  ]
+}
