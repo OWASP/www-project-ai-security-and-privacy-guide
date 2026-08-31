@@ -286,6 +286,11 @@ Supply chain management benefits from verifying the integrity and authenticity o
 
 **Agent component integrity:** Maintain a per-agent bill of materials (model versions, MCP servers, skills, plugins, libraries, configuration files). Sign components at origin; verify signatures in the deployment pipeline and reject deployments that fail verification or do not match the approved BOM. Monitor at runtime for unauthorised component changes (drift from deployed versions). Apply the same standards to third-party components; items without verifiable provenance should be treated as untrusted.
 
+**Fine-tuning and adapter management (LoRA / PEFT):** Parameter-Efficient Fine-Tuning adapters (e.g., LoRA, QLoRA) are lightweight modules frequently shared, downloaded, or outsourced to third parties. When integrating external or third-party adapters:
+- Verify the origin, training lineage, and cryptographic hashes of all adapter modules before loading or merging.
+- **Multi-adapter composition risks:** When composing or merging multiple adapters (e.g., combining a domain-specific coding adapter with a general instruction-following adapter), evaluate whether security alignments in one adapter are neutralized or overwritten by weights from another unvetted adapter.
+- Run continuous validation and safety regression benchmarks on the composite (base model + adapter) system before production deployment.
+
 Monitoring for known vulnerabilities affecting supplied models, data pipelines, and dependencies, based on regular review of relevant security advisories and communications, allows teams to respond to newly discovered risks in a timely manner, informed by severity and exploitability, through updates, containment, or compensating controls. These activities can be integrated into broader vulnerability management and incident response processes (see #[DEV SECURITY](/go/devsecurity)).
 
 **Agent dependency vulnerability management:** Maintain a continuously updated inventory of agent dependencies — model providers, tool and MCP server endpoints, orchestration frameworks, and runtime libraries. Subscribe to advisories, automate scanning in CI/CD, and define severity-based remediation SLAs. When immediate patching is infeasible, apply compensating controls (restrict affected tools, narrow segmentation, increase monitoring, temporarily disable functionality). Note that vulnerability disclosure for model providers and MCP servers is less mature than for conventional software; periodic reviews should also retire deprecated or unmaintained components.
@@ -373,10 +378,12 @@ Useful standards include:
 > Permalink: https://owaspai.org/go/modelpoison
 
 **Description**  
-Development-time model poisoning in the broad sense is when an attacker manipulates development elements (the engineering environment and the supply chain), to alter the behavior of the model. There are three types, each covered in a subsection:
+Development-time model poisoning in the broad sense is when an attacker manipulates development elements (the engineering environment and the supply chain), to alter the behavior of the model. There are three primary attack vectors, each covered in a subsection:
 1. [data poisoning](/go/datapoison): an attacker manipulates training data, or data used for in-context learning.
 2. [development-environment model poisoning](/go/devmodelpoison): an attacker manipulates model parameters, or other engineering elements that take part in creating the model, such as code, configuration or libraries.
-3. [supply-chain model poisoning](/go/supplymodelpoison): using a supplied trained model which has been manipulated by an attacker.
+3. [supply-chain model poisoning](/go/supplymodelpoison): using a supplied trained model which has been manipulated by an attacker (including fine-tuning artifacts such as LoRA/PEFT adapters; see [supply chain management](/go/supplychainmanage)).
+
+In addition, model serialization formats introduce code execution and tampering risks across these vectors; see [model deserialization attack](/go/modeldeserializationattack).
 
 Agent fine-tuning and RLHF for autonomous agents follow these same poisoning paths; see [agentic development-time threats](/go/developmenttime) above.
 
@@ -483,7 +490,7 @@ Sabotage data poisoning attacks are relatively easy to detect because they occur
 <!-- OPENCRE_SECTION_CRE_START slug=datapoison -->
 - [OpenCRE: Data poisoning of train/finetune/augmentation data](https://opencre.org/cre/615-663)
     referring to:
-    - [OWASP Top10 for LLM: sec. LLM05:2026: Data and Model Poisoning](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)
+    - [OWASP Top10 for LLM: sec. LLM04:2025: Data and Model Poisoning](https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/)
     - [MITRE ATLAS: sec. AML.T0020: Poison Training Data](https://atlas.mitre.org/techniques/AML.T0020)
     - [ETSI: sec. 5.1: Poisoning attacks](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
     - [ENISA: sec. Table 3:: Poisoning](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
@@ -752,6 +759,25 @@ The type of manipulation can be through data poisoning, or by specifically chang
   - Controls for [development-time protection](/go/developmenttimeintro), like for example protecting the training set database against data poisoning
   - Controls for [broad model poisoning](/go/modelpoison)
 - [#SUPPLY CHAIN MANAGE](/go/supplychainmanage) especially to components from frameworks and tools 
+
+---
+
+### 3.1.4. Model deserialization attack
+>Category: development-time threat  
+>Permalink: https://owaspai.org/go/modeldeserializationattack
+
+**Description**  
+Model weights and architectures are distributed and stored as serialized files. Many legacy and standard machine learning formats (e.g., Python `pickle`, PyTorch `.pt`/`.bin` archives, legacy TensorFlow checkpoints, and Joblib files) rely on object deserialization protocols that permit arbitrary Python bytecode execution during deserialization.
+
+**Key threat mechanics:**
+- **Arbitrary Code Execution (RCE) on load:** An attacker places a malicious payload in a serialized model file using pickle reduction mechanisms (`__reduce__`). When a data scientist or automated MLOps pipeline loads the model with `torch.load()`, `pickle.load()`, or equivalent functions, the payload executes with the privileges of the host process, potentially compromising the development server, stealing API keys, or pivoting into internal networks.
+- **Supply chain checkpoint tampering:** Checkpoints downloaded from public model hubs or unverified registries without cryptographic integrity checks may have been replaced or altered with embedded execution hooks.
+
+**Controls**
+- **Adopt safe, executable-free formats:** Mandate the use of serialization formats that store only raw tensor data without executable bytecode, such as **SafeTensors** (`.safetensors`), GGUF, or ONNX, which eliminate deserialization-based arbitrary code execution by design.
+- **Automated checkpoint scanning in CI/CD:** Integrate static model scanners (e.g., `picklescan`, `modelscan`) into ingestion and deployment pipelines to inspect serialized model files for suspicious global imports, unsafe opcodes, and embedded shell commands before loading.
+- [#SUPPLY CHAIN MANAGE](/go/supplychainmanage): Require signed model artifacts (using Sigstore/cosign or artifact registries) and strictly enforce hash verification for all model downloads.
+- [#DEV SECURITY](/go/devsecurity): Restrict network egress and execution privileges in environments where untrusted models are loaded or evaluated.
 
 ---
 
