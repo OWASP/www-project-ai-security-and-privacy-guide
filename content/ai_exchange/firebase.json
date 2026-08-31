@@ -695,7 +695,7 @@
       },
       {
         "source": "/go/outputcontainsconventionalinjection",
-        "destination": "/docs/4_runtime_application_security_threats/#44-output-contains-conventional-injection",
+        "destination": "/docs/4_runtime_application_security_threats/#43-output-contains-conventional-injection",
         "type": 302
       },
       {
@@ -801,6 +801,46 @@
       {
         "regex": "^/goto/([^/]+)/?$",
         "destination": "/go/:1",
+        "type": 302
+      },
+      {
+        "source": "/go/mcpsecurity",
+        "destination": "/docs/ai_security_overview/#mcp-and-tool-interface-security",
+        "type": 302
+      },
+      {
+        "source": "/go/mcptesting",
+        "destination": "/docs/5_testing/#mcp-and-tool-interface-security-testing",
+        "type": 302
+      },
+      {
+        "source": "/go/adaptersecurity",
+        "destination": "/docs/3_development_time_threats/#314-fine-tuning-and-adapter-poisoning-lora--peft",
+        "type": 302
+      },
+      {
+        "source": "/go/checkpointsecurity",
+        "destination": "/docs/3_development_time_threats/#315-model-checkpoint-serialization-vulnerabilities",
+        "type": 302
+      },
+      {
+        "source": "/go/multimodalthreats",
+        "destination": "/docs/2_threats_through_use/#224-multimodal-prompt-injection-and-cross-modal-jailbreaks",
+        "type": 302
+      },
+      {
+        "source": "/go/multimodaltesting",
+        "destination": "/docs/5_testing/#testing-against-multimodal-prompt-injection",
+        "type": 302
+      },
+      {
+        "source": "/go/privacy",
+        "destination": "/docs/6_privacy/",
+        "type": 302
+      },
+      {
+        "source": "/go/ragsystemsoverview",
+        "destination": "/docs/ai_security_overview/#rag-systems-overview",
         "type": 302
       }
     ]

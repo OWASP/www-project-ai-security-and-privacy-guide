@@ -373,10 +373,12 @@ Useful standards include:
 > Permalink: https://owaspai.org/go/modelpoison
 
 **Description**  
-Development-time model poisoning in the broad sense is when an attacker manipulates development elements (the engineering environment and the supply chain), to alter the behavior of the model. There are three types, each covered in a subsection:
+Development-time model poisoning in the broad sense is when an attacker manipulates development elements (the engineering environment and the supply chain), to alter the behavior of the model. There are five types, each covered in a subsection:
 1. [data poisoning](/go/datapoison): an attacker manipulates training data, or data used for in-context learning.
 2. [development-environment model poisoning](/go/devmodelpoison): an attacker manipulates model parameters, or other engineering elements that take part in creating the model, such as code, configuration or libraries.
 3. [supply-chain model poisoning](/go/supplymodelpoison): using a supplied trained model which has been manipulated by an attacker.
+4. [fine-tuning and adapter poisoning (LoRA / PEFT)](/go/adaptersecurity): backdoors and malicious behavior introduced via parameter-efficient fine-tuning modules or adapter weights.
+5. [model checkpoint serialization vulnerabilities](/go/checkpointsecurity): code execution and tampering through unsafe model serialization formats (e.g., Python pickle).
 
 Agent fine-tuning and RLHF for autonomous agents follow these same poisoning paths; see [agentic development-time threats](/go/developmenttime) above.
 
@@ -752,6 +754,45 @@ The type of manipulation can be through data poisoning, or by specifically chang
   - Controls for [development-time protection](/go/developmenttimeintro), like for example protecting the training set database against data poisoning
   - Controls for [broad model poisoning](/go/modelpoison)
 - [#SUPPLY CHAIN MANAGE](/go/supplychainmanage) especially to components from frameworks and tools 
+
+---
+
+### 3.1.4. Fine-tuning and adapter poisoning (LoRA / PEFT)
+>Category: development-time threat  
+>Permalink: https://owaspai.org/go/adaptersecurity
+
+**Description**  
+Parameter-Efficient Fine-Tuning (PEFT) methods, particularly Low-Rank Adaptation (LoRA and QLoRA), allow organizations to specialize large foundation models by training only a small fraction of parameters (adapter weight matrices) while keeping the base model frozen. Because LoRA adapters are lightweight (typically megabytes rather than gigabytes) and frequently shared, downloaded, or outsourced to third parties, they create an attractive attack surface for model poisoning and persistent backdoors.
+
+**Key threat mechanics:**
+- **Trojan weights & Sleeper Agent attacks:** An attacker trains or manipulates a LoRA adapter to introduce dormant backdoors. The poisoned adapter behaves identically to benign models on standard benchmarks and general evaluation datasets, but outputs malicious content, leaks system prompts, or bypasses safety guardrails when presented with a specific trigger phrase or token sequence.
+- **Rank-decomposition weight manipulation:** Because low-rank adapters modify weight updates via low-dimensional projection matrices ($W = W_0 + B \cdot A$), an attacker can embed subtle trigger-activated behavior into the adapter with minimal noticeable degradation to overall model perplexity.
+- **Multi-adapter composition risks:** When merging multiple third-party adapters (e.g., an instruction-following adapter combined with a domain-specific coding adapter), security alignments in one adapter can be inadvertently neutralized or overwritten by weights from another unvetted adapter.
+
+**Controls**
+- [General controls](/go/generalcontrols), especially [Limiting the effect of unwanted behaviour](/go/limitunwanted)
+- [#SUPPLY CHAIN MANAGE](/go/supplychainmanage): Verify the origin, training lineage, and cryptographic hashes of all downloaded or externally trained LoRA adapters.
+- [#CONTINUOUS VALIDATION](/go/continuousvalidation): Execute comprehensive adversarial trigger benchmarks and safety regression tests on the composite (base model + adapter) system before production deployment.
+- **Weight difference analysis & rank bounds:** Inspect weight delta distributions ($B \cdot A$) for anomalous magnitude spikes or unexpected parameter variance prior to merging.
+- **Differential Privacy fine-tuning (DP-SGD):** Apply differential privacy during fine-tuning to prevent the adapter from memorizing individual sensitive training records or stealthy outlier trigger examples.
+
+
+### 3.1.5. Model checkpoint serialization vulnerabilities
+>Category: development-time threat  
+>Permalink: https://owaspai.org/go/checkpointsecurity
+
+**Description**  
+Model weights and architectures are distributed and stored as serialized files. Many legacy and standard machine learning formats (e.g., Python `pickle`, PyTorch `.pt`/`.bin` archives, legacy TensorFlow checkpoints, and Joblib files) rely on object deserialization protocols that permit arbitrary Python bytecode execution during deserialization.
+
+**Key threat mechanics:**
+- **Arbitrary Code Execution (RCE) on load:** An attacker places a malicious payload in a serialized model file using pickle reduction mechanisms (`__reduce__`). When a data scientist or automated MLOps pipeline loads the model with `torch.load()`, `pickle.load()`, or equivalent functions, the payload executes with the privileges of the host process, potentially compromising the development server, stealing API keys, or pivoting into internal networks.
+- **Supply chain checkpoint tampering:** Checkpoints downloaded from public model hubs or unverified registries without cryptographic integrity checks may have been replaced or altered with embedded execution hooks.
+
+**Controls**
+- **Adopt safe, executable-free formats:** Mandate the use of serialization formats that store only raw tensor data without executable bytecode, such as **SafeTensors** (`.safetensors`), GGUF, or ONNX, which eliminate deserialization-based arbitrary code execution by design.
+- **Automated checkpoint scanning in CI/CD:** Integrate static model scanners (e.g., `picklescan`, `modelscan`) into ingestion and deployment pipelines to inspect serialized model files for suspicious global imports, unsafe opcodes, and embedded shell commands before loading.
+- [#SUPPLY CHAIN MANAGE](/go/supplychainmanage): Require signed model artifacts (using Sigstore/cosign or artifact registries) and strictly enforce hash verification for all model downloads.
+- [#DEV SECURITY](/go/devsecurity): Restrict network egress and execution privileges in environments where untrusted models are loaded or evaluated.
 
 ---
 

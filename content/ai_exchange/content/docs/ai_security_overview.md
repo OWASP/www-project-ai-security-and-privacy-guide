@@ -20,7 +20,8 @@ weight: 1
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Threats](/go/threatsoverview)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Threat matrix](/go/aisecuritymatrix)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Agentic AI overview](/go/agenticaioverview)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: RAG systems](/go/ragsystemsoverview)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: MCP & tool interface security](/go/mcpsecurity)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: RAG systems](/go/ragoverview)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Navigator](/go/navigator)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Controls](/go/controlsoverview)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Periodic table of threats and controls](/go/periodictable)  
@@ -506,6 +507,36 @@ Further links:
 - [Microsoft Pulse report on Agentic security](https://www.microsoft.com/en-us/security/security-insider/emerging-trends/cyber-pulse-ai-security-report)
 
 
+### MCP and tool interface security
+>Category: discussion  
+>Permalink: https://owaspai.org/go/mcpsecurity
+
+The **Model Context Protocol (MCP)** and related tool-execution standards (e.g., OpenAPI function calling, agent tool ecosystems, plugin registries) provide open specifications for models to discover, invoke, and exchange data with external tools, databases, filesystems, and enterprise APIs. While tool use transforms LLMs from passive text generators into active operational agents, it fundamentally expands the system's attack surface and shifts the trust boundary from the model boundary to the tool execution environment.
+
+Tool integration does not create an isolated threat landscape — the core asset/impact model still applies (see the [threats overview](/go/threatsoverview) and [AI security matrix](/go/aisecuritymatrix)). However, MCP and tool interfaces concentrate critical security failure modes across the boundary between non-deterministic model reasoning and deterministic infrastructure execution.
+
+**Key threats in AI tool and MCP interfaces:**
+- **Tool poisoning and shadowing (schema manipulation):** An attacker with write or registration access to an MCP server registry or configuration alters tool definitions, parameter schemas, or registers duplicate tools with higher priority or deceptive descriptions. Because models select tools based on semantic docstrings and schema descriptions, adversarial descriptions can trick the model into invoking the attacker's tool instead of the legitimate one, or passing sensitive context data into unvetted parameters (the Confused Deputy pattern at the tool definition layer).
+- **Dynamic parameter injection and unvalidated execution:** When a model generates arguments for tool calls (e.g., SQL queries, system commands, filesystem paths, or URL parameters), passing these arguments directly to execution environments without strict schema validation and sanitisation leads to classic injection vulnerabilities (Command Injection, SQLi, SSRF, Path Traversal). The LLM cannot be relied upon to sanitize its own generated inputs.
+- **Transport boundary and authentication vulnerabilities:**
+  - *Local transports (`stdio`):* When MCP clients spawn local MCP servers as subprocesses, improper handling of command arguments or untrusted executable paths can result in local privilege escalation or arbitrary code execution. Furthermore, unsanitized environment variable inheritance can leak sensitive API keys and tokens to subprocesses.
+  - *Remote transports (HTTP with SSE):* Remote MCP servers require transport-layer encryption and mutual authentication. Unauthenticated or unencrypted remote endpoints expose tool invocations to interception, replay attacks, and man-in-the-middle tampering.
+- **Cross-server context and state pollution:** In multi-server MCP setups where an agent connects to multiple tool providers concurrently, an untrusted or compromised server can attempt to inspect shared conversation state, pollute agent working memory, or induce tool calls against other connected servers.
+- **Tool output hijacking (secondary prompt injection):** Outputs returned by an MCP tool (e.g., fetched web content, issue tracker text, database records) re-enter the model's active context window. If the returned payload contains malicious instructions, it acts as an [indirect prompt injection](/go/indirectpromptinjection), hijacking subsequent reasoning cycles and triggering unintended tool calls in an autonomous loop.
+
+**Threat-model questions specific to tool and MCP integration:**
+- Can untrusted parties register, modify, or provide MCP servers or tool definitions in your environment? → apply [supply chain management](/go/supplychainmanage) and integrity verification for tool catalogues and manifests.
+- Are tool arguments validated and strictly type-checked against deterministic schemas before execution? → apply schema validation and sanitisation outside the model prompt.
+- Does invoking a high-impact, destructive, or irreversible tool (e.g., deleting records, sending external communications, modifying access policies) require explicit human confirmation? → enforce [human oversight](/go/oversight) (the Agentic Rule of Two / confirmation boundary).
+- Are local MCP server processes sandboxed with restricted filesystem, process-spawning, and network capabilities? → apply [agent sandboxing and isolation](/go/agentsandboxing).
+- Are remote MCP connections authenticated using mutual TLS and scoped bearer tokens? → require [model access control](/go/modelaccesscontrol).
+- Are tool return values treated as untrusted external data before re-entering the prompt? → enforce [input segregation](/go/inputsegregation) and [prompt injection I/O handling](/go/promptinjectioniohandling) on all tool outputs.
+
+**Controls**: Apply [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege) (granular tool scopes, deny-by-default execution), [#OVERSIGHT](/go/oversight) (confirmation gates for sensitive tools), [#AGENT SANDBOXING](/go/agentsandboxing) (subprocess and network containment for tool runners), and [#PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling) for tool responses.
+
+For testing tool-use security and MCP implementations, see [MCP and tool interface security testing](/go/mcptesting).
+
+
 ### RAG systems overview
 >Category: discussion  
 >Permalink: https://owaspai.org/go/ragoverview
@@ -627,7 +658,7 @@ The table below gives practitioners a compact way to move from a general AI risk
 | AI development lifecycle | AI engineering work is separated from secure development, software quality, model traceability, or risk management | [DEV PROGRAM](/go/devprogram), [SECDEV PROGRAM](/go/secdevprogram), [CONTINUOUS VALIDATION](/go/continuousvalidation), [UNWANTED BIAS TESTING](/go/unwantedbiastesting), [DISCRETE](/go/discrete), [DEV SECURITY](/go/devsecurity), [SEGREGATE DATA](/go/segregatedata) |
 | Data and model supply chain | Untrusted data, third-party models, external hosting, or inherited vulnerabilities enter the AI system | [SUPPLY CHAIN MANAGE](/go/supplychainmanage), [DATA QUALITY CONTROL](/go/dataqualitycontrol)|
 | Sensitive data exposure | Training data, prompts, outputs, embeddings, logs, or augmentation data may reveal confidential or personal data | [DATA MINIMIZE](/go/dataminimize), [ALLOWED DATA](/go/alloweddata), [SHORT RETAIN](/go/shortretain), [OBFUSCATE TRAINING DATA](/go/obfuscatetrainingdata), [SENSITIVE OUTPUT HANDLING](/go/sensitiveoutputhandling), [SMALL MODEL](/go/smallmodel), [MODEL INPUT CONFIDENTIALITY](/go/modelinputconfidentiality), [AUGMENTATION DATA CONFIDENTIALITY](/go/augmentationdataconfidentiality) |
-| Manipulated model behavior | Adversarial inputs, prompt injection, poisoned data, or compromised models can change intended behavior | [OVERSIGHT](/go/oversight), [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege), [MODEL ALIGNMENT](/go/modelalignment), [PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling), [INPUT SEGREGATION](/go/inputsegregation), [ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling), [EVASION INPUT HANDLING](/go/evasioninputhandling), [EVASION ROBUST MODEL](/go/evasionrobustmodel), [TRAIN ADVERSARIAL](/go/trainadversarial), [ADVERSARIAL ROBUST DISTILLATION](/go/adversarialrobustdestillation), [POISON ROBUST MODEL](/go/poisonrobustmodel) |
+| Manipulated model behavior | Adversarial inputs, prompt injection, poisoned data, or compromised models can change intended behavior | [OVERSIGHT](/go/oversight), [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege), [MODEL ALIGNMENT](/go/modelalignment), [PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling), [INPUT SEGREGATION](/go/inputsegregation), [ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling), [EVASION INPUT HANDLING](/go/evasioninputhandling), [EVASION ROBUST MODEL](/go/evasionrobustmodel), [TRAIN ADVERSARIAL](/go/trainadversarial), [ADVERSARIAL ROBUST DISTILLATION](/go/adversarialrobustdistillation), [POISON ROBUST MODEL](/go/poisonrobustmodel) |
 | Runtime resilience and abuse | Attackers can perform input attacks | [MONITOR USE](/go/monitoruse), [RATE LIMIT](/go/ratelimit), [MODEL ACCESSS CONTROL](/go/modelaccesscontrol), [ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling), [DOS INPUT VALIDATION](/go/dosinputvalidation), [LIMIT RESOURCES](/go/limitresources), [UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling), and see Manipulated model behaviour for controls against those input attacks |
 | Ready-made or externally hosted models | The organization depends on a provider, external model hosting, or user-facing "shadow AI" alternatives | [SUPPLY CHAIN MANAGE](/go/supplychainmanage),  [DATA MINIMIZE](/go/dataminimize), [ALLOWED DATA](/go/alloweddata) |
 
@@ -857,7 +888,7 @@ Another example: If your agentic system uses an LLM, then it is in theory suscep
   
   - Consider the threat of [augmentation data manipulation](/go/augmentationdatamanipulation) as this data plays a role in determining the model behaviour.
   - Is this augmentation data stored in a database for the purpose of the AI system (e.g., a vector database)? If Yes: you need to protect against [direct augmentation data leak](/go/augmentationdataleak). Note that this also counts for system prompts, if they are sensitive.
-  - Consult [RAG systems overview](/go/ragsystemsoverview) for further considerations.
+  - Consult [RAG systems overview](/go/ragoverview) for further considerations.
 
   > QUESTION: Who runs the model?
   - The supplier runs the model: select a trustworthy supplier through [supply chain management](/go/supplychainmanage), to make sure the deployed model cannot be manipulated through ([runtime model poisoning](/go/runtimemodelpoison)) - just the way you would expect any supplier to protect their running application from manipulation.
@@ -1100,7 +1131,7 @@ GenAI security particularities are:
 |4|GenAI models can be inaccurate and hallucinate. This is an AI-broad risk factor, and Large Language Models (GenAI) can make matters worse by coming across as very confident and knowledgeable. In essence, this is about the risk of underestimating the probability that the model is wrong or the model has been manipulated. This means that it is connected to each and every security control. The strongest link is with [controls that limit the impact of unwanted model behavior](/go/limitunwanted), in particular [Least model privilege](/go/leastmodelprivilege).  |([OWASP for LLM 03: Excessive Agency](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)) and ([OWASP for LLM 07: Misinformation](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)) |
 |5| [Input data leak](/go/inputdataleak): GenAI models mostly live in the cloud - often managed by an external party, which increases the risk of leaking prompts. This issue is not limited to GenAI, but GenAI has 2 particular risks here: 1) model use involves user interaction through prompts, adding user data and corresponding privacy/sensitivity issues, and 2) GenAI model input (prompts) can contain rich context information with sensitive data (e.g. company secrets). The latter issue occurs with *in-context learning* or *Retrieval Augmented Generation (RAG)* (adding background information to a prompt): for example data from all reports ever written at a consultancy firm. First of all, this information will travel with the prompt to the cloud, and second: the system will likely not respect the original access rights to the information.| Not covered in LLM top 10 |
 |6|Pre-trained models may have been manipulated. The concept of pretraining is not limited to GenAI, but the approach is quite common in GenAI, which increases the risk of [supply-chain model poisoning](/go/supplymodelpoison).| ([OWASP for LLM 04: Supply Chain](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/))|
-|7|[Model inversion and membership inference](/go/modelinversionandmemberships) are typically low to zero risks for GenAI. |Not covered as a dedicated LLM Top 10 entry; closest overlap is [OWASP for LLM 02: Sensitive Information Disclosure](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) (inference-based disclosure) - see above|
+|7|[Model inversion and membership inference](/go/modelinversionandmembership) are typically low to zero risks for GenAI. |Not covered as a dedicated LLM Top 10 entry; closest overlap is [OWASP for LLM 02: Sensitive Information Disclosure](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) (inference-based disclosure) - see above|
 |8|GenAI output may contain elements that perform an [injection attack](/go/insecureoutput) such as cross-site-scripting.| ([OWASP for LLM 10: Improper Output Handling](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/))|
 |9|[Resource exhaustion](/go/denialmodelservice) can be an issue for any IT system, but GenAI models typically cost more to run, so overloading them can create unwanted costs. | ([OWASP for LLM 06: Unbounded Consumption](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)) |
 
