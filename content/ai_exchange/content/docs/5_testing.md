@@ -4,6 +4,7 @@ heroTitle: "AI security testing"
 heroText: "AI security tests simulate adversarial behaviours to uncover vulnerabilities, weaknesses and risks in AI systems."
 weight: 6
 ---
+
 > Category: discussion  
 > Permalink: https://owaspai.org/go/testing
 

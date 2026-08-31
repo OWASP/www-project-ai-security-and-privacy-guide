@@ -1209,6 +1209,12 @@ In multimodal systems, models routinely:
 
 As a result, instructions hidden in images or other media can act as "soft-prompts" or "meta-instructions" that steer model behaviour even when the visible user text appears benign.
 
+**Key multimodal attack vectors:**
+- **Visual prompt injection (rendered text & OCR injection):** Text instructions embedded directly into images (such as low-contrast text, micro-typography, rotated text, or watermarks) that instruct the Vision-Language Model (VLM) to ignore its system prompt, exfiltrate data, or perform prohibited actions when interpreting the visual input.
+- **Adversarial perturbation attacks (visual steganography):** Imperceptible, high-frequency pixel perturbations added to images that map to specific token representations in the vision encoder (e.g., CLIP, SigLIP), forcing the model to generate attacker-chosen text or bypass safety alignment without any visible text in the image.
+- **Audio prompt injection & inaudible commands:** Spoken instructions masked by background noise, low-amplitude acoustic signals, or ultrasonic frequencies that speech-to-text frontends decode into actionable instructions while remaining unnoticed by human listeners.
+- **Cross-modal safety alignment bypass:** Circumventing text-only safety guardrails by converting harmful prompts into visual formats (e.g., screenshots of text, stylized ASCII art, handwritten diagrams, or structured flowcharts) that text filters ignore but multimodal models parse and execute.
+
 Example 1: A AI helpdesk assistant uses a vision-language model to read screenshots and UI mockups uploaded by users. An attacker uploads a screenshot with small or low-contrast text that instructs to respond with the API key from the system prompt. The user-visible text describes a normal support issue, but the model's visual encoder extracts the hidden instruction and the assistant attempts to leak secrets or reveal internal configuration.
 
 Example 2: An attacker crafts an image using gradient-based or generative techniques so that it still looks benign (for example a product photo), but its pixels are optimized to embed a meta-instruction to respond with toxic language. When the image is processed by the model, the visual embedding pushes the system to systematically follow the attacker’s objective, even though no explicit malicious text appears in the user prompt.
@@ -1216,7 +1222,8 @@ Example 2: An attacker crafts an image using gradient-based or generative techni
 Multimodal prompt injection can be:
 - Direct when the attacker uploads or controls the multimodal input (for example, an end user uploads an adversarial image with hidden instructions along with a natural-language query).
 - Indirect when untrusted multimodal content (for example a product screenshot, scanned form, or social-media image) is automatically pulled in by an application and passed to a multimodal model as context, similar to remote code execution via untrusted data.
-​
+
+For testing methodologies against multimodal injection, see [Testing against multimodal prompt injection](/go/multimodaltesting).
  
 **Controls for all forms of prompt injection:**
 - See [General controls](/go/generalcontrols):
@@ -1522,29 +1529,6 @@ Example 4: LLM-to-LLM “prompt infection” where one corrupted message propaga
 
 **References**
 - Related: [Indirect prompt injection](/go/indirectpromptinjection), [Agentic AI attention points](/go/agenticaithreats)
-
----
-
-### 2.2.4. Multimodal prompt injection and cross-modal jailbreaks
->Category: input threat  
->Permalink: https://owaspai.org/go/multimodalthreats
-
-**Description**  
-Multimodal generative AI systems accept combinations of text, images, audio, video, or documents as input. While multimodality enables rich interactions, it creates new input channels for prompt injection and alignment evasion. An attacker embeds adversarial instructions or jailbreaks within non-text modalities (e.g., pixel data, typography in images, or acoustic audio signals), manipulating the model to override safety constraints or execute unauthorized commands.
-
-**Key attack vectors:**
-- **Visual prompt injection (rendered text & OCR injection):** Text instructions embedded directly into images (such as low-contrast text, rotated text, or watermarks) that instruct the Vision-Language Model (VLM) to ignore its system prompt, exfiltrate data, or perform prohibited actions when interpreting the visual input.
-- **Adversarial perturbation attacks (visual steganography):** Imperceptible, high-frequency pixel perturbations added to images that map to specific token representations in the vision encoder (e.g., CLIP, SigLIP), forcing the model to generate attacker-chosen text or bypass safety alignment without any visible text in the image.
-- **Audio prompt injection & inaudible commands:** Spoken instructions masked by background noise, low-amplitude acoustic signals, or ultrasonic frequencies that speech-to-text frontends decode into actionable instructions while remaining unnoticed by human listeners.
-- **Cross-modal safety alignment bypass:** Circumventing text-only safety guardrails by converting harmful prompts into visual formats (e.g., screenshots of text, stylized ASCII art, handwritten diagrams, or structured flowcharts) that text filters ignore but multimodal models parse and execute.
-
-**Controls**
-- [General controls](/go/generalcontrols), especially [Limiting the effect of unwanted behaviour](/go/limitunwanted) and [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege).
-- [#PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling): Apply dual-path guardrail inspection by extracting OCR text and transcribing audio streams through independent security inspection filters before multimodal model inference.
-- [#INPUT DISTORTION](/go/inputdistortion): Apply image preprocessing transformations (e.g., downscaling, subtle Gaussian blur, random cropping, color depth reduction) to disrupt high-frequency adversarial pixel perturbations without degrading semantic visual utility.
-- [#MONITOR USE](/go/monitoruse): Log and monitor multimodal input anomalies and correlate cross-modal token distributions.
-
-For testing methodologies against multimodal injection, see [Testing against multimodal prompt injection](/go/multimodaltesting).
 
 ---
 

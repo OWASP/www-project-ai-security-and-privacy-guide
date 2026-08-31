@@ -9,7 +9,7 @@ weight: 9
 Find clickable topics in alphabetical order below. For an overview of threats and their controls, see the [Periodic table of AI security](/go/periodictable).
 
 ### A  
-[Adapter and fine-tuning security (LoRA)](/go/adaptersecurity)  
+[Adapter and fine-tuning (LoRA / PEFT)](/go/supplychainmanage)  
 [Adversarial attacks](/go/evasion)  
 [Agent message structure manipulation](/go/agentmessagestructuremanipulation)  
 [Agentic AI](/go/agenticaithreats)  
@@ -20,7 +20,7 @@ Find clickable topics in alphabetical order below. For an overview of threats an
 [Bias](/go/unwantedbiastesting)  
 
 ### C  
-[Checkpoint serialization security (SafeTensors/Pickle)](/go/checkpointsecurity)  
+[Checkpoint deserialization attack (SafeTensors/Pickle)](/go/modeldeserializationattack)  
 [Compliance](/go/checkcompliance)  
 [Continuous validation](/go/continuousvalidation)  
 [Contribute](/contribute)  
@@ -65,6 +65,7 @@ Find clickable topics in alphabetical order below. For an overview of threats an
 [MCP security testing](/go/mcptesting)  
 [Media](/go/media)  
 [Model alignment](/go/modelalignment)  
+[Model deserialization attack](/go/modeldeserializationattack)  
 [Model input leak](/go/leakinput)  
 [Model inversion / Membership inference](/go/modelinversionandmembership)  
 [Model output contains injection](/go/insecureoutput)  
