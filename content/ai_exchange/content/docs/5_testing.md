@@ -21,6 +21,7 @@ This section discusses:
 - threats to test for,
  the general AI security testing approach,
 - testing strategies for several key threats,
+- how to read named controls for runtime enforceability,
 - an overview of tools,
 - a review of tools, divided into tools for Predictive AI and tools for Generative AI.
 
@@ -108,6 +109,114 @@ Scope agentic pen tests across:
 4. **Inter-agent communication layer** — message tampering, identity spoofing, trust-boundary exploitation ([agent message structure manipulation](/go/agentmessagestructuremanipulation)).
 
 Prioritise findings with an agentic-aware severity model: autonomous execution scope, persistence across sessions, multi-agent propagation potential, and irreversibility of impact.
+
+See also [Named vs enforceable](/go/namedvsenforceable): how far current control text goes toward a refuse at act time, and what trip evidence adds when a deny log is empty.
+
+### Named vs enforceable
+> Category: discussion  
+> Permalink: https://owaspai.org/go/namedvsenforceable
+
+**Description**  
+When this guide names a control, the name alone does not tell an engineer what can be refused before a tool or action runs, and it does not tell an auditor what to ask for. This section gives a shared way to read existing control text for that gap.
+
+It applies to any Exchange control, not only agentic ones. Agentic systems are where the gap shows up first, because the model can [trigger actions](/go/agenticaioverview) without per-action human approval.
+
+This section is an annotation layer on existing pages, not a new control and not a replacement for [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege), [#OVERSIGHT](/go/oversight), or [#MONITOR USE](/go/monitoruse). It also isn't a claim that current text already requires the highest level anywhere.
+
+**Objective**  
+Help a reader see how far the current text of a control goes toward something that can be checked or refused at runtime, without giving one level to a whole `#ACRONYM` page when that page is a category, and with a clear ask besides the policy paragraph.
+
+**How to use this**
+
+See the [Agentic AI overview](/go/agenticaioverview) for where these controls sit. The steps specific to this reading are:
+
+(1) Do not score the category as a single level  
+Named controls such as `#OVERSIGHT` are categories: same goal, different mechanisms. The live page already splits automated detection from human gates. Annotate the mechanism you are implementing. On the category page, show a range (for example E1–E3 depending on mechanism and deployment). An average hides the one the reader needs to check.
+
+(2) Separate text from deployment  
+Ask what the current text roughly supports. Then ask what this deployment actually does. The same design can describe a refuse-at-act-time gate and still be inert if the binding condition is never armed. An enforceability note that omits that condition will be read as a rating of the paragraph.
+
+(3) Treat a self-assigned level as a claim  
+Record what evidence supports the level. A claimed E3 with no named deployment condition and no evidence that the check can fire is a claim, not a rating.
+
+(4) At E2/E3, ask for more than the policy paragraph  
+Expect configuration the gateway actually evaluates, records bound to the action, and trip evidence (see below).
+
+**The E0–E3 levels**
+
+These levels are a proposal for notes on existing pages. They are not levels the Exchange already assigns.
+
+| Level | Name | What the text has to give you | What you can expect |
+|---|---|---|---|
+| E0 | Silent | No usable control text for the risk | Nothing to cite |
+| E1 | Named | An obligation or goal; how to enforce it is left to the deployment | Something to reference |
+| E2 | Agent-interpretable | Text precise enough that an automated check could evaluate a proposed action (for example a schema, allowlist, or config) | A decision procedure on paper. Evidence that it runs is separate |
+| E3 | Runtime-enforceable and auditable | A deployment can refuse the non-compliant action at act time, and that decision leaves a record bound to the action | Config, decision records, and trip evidence |
+
+E3 needs both parts. A programmatic block without a record bound to the action is at most E2. Logging that is not bound to the action or event is not full E3. A review or CI check that is not bound to the runtime action is not E3.
+
+The [Agentic AI overview](/go/agenticaioverview) already says access control, policy, and containment belong in surrounding systems, not in model instructions alone. The levels above apply that same idea to a given paragraph: how far the text goes toward a check or a refuse at act time.
+
+**Trip evidence**  
+[#MONITOR USE](/go/monitoruse) already tells you to log policy permit/deny decisions and to watch high denial rates. Those records show a control that did something. They do not separate "nothing to refuse" from "the control was not running." An empty deny log looks the same in both cases.
+
+Trip evidence means: the check, run against a case known to trip it, actually tripped, on the same path used in production — not only in a test that was built from the same assumption as the control. Without that, "zero denials" is not evidence of enforcement.
+
+If a control can be left inert (for example an approval secret that is never armed), it should report that it is armed or unarmed when it runs, not only in documentation.
+
+This is not **Positive testing**. That subsection appears twice on this page, identically: under [Testing against Prompt injection](/go/testingpromptinjection) and under [Testing against Evasion](/go/testingevasion). It is about correct behaviour in benign situations, including that detection does not fire too often and does not degrade intended functionality. Trip evidence is the other direction: the control fires when it should. Both are needed. A reader of this testing page should not map trip evidence onto Positive testing and treat it as already covered.
+
+Related steps already in [Agentic AI security testing](/go/testing) (this page):
+
+- Confirm designed controls work under normal conditions before adversarial load — untested baselines cannot be distinguished from controls that fail under attack.
+- Test tool-call validation independently of the LLM by sending crafted invocations directly to the access-control or API gateway layer. Controls that exist only in a system prompt are not enforced against injection.
+- Define minimum coverage criteria up front. **Report untested threat categories explicitly**; coverage gaps are findings. Trip evidence is that same instruction one level down: applied to a single control rather than to a programme.
+
+**Examples**
+
+Example 1 — reading [#OVERSIGHT](/go/oversight) as a category (readings of the current text, not scores for a deployment, and not proposed stamps for the site):
+
+The page objective lists responses that include correcting, halting execution, deferring to a human-in-the-loop, or issuing an alert to be investigated. The same page then describes very different mechanisms.
+
+| What the current page says | How that text can be read | Do not conclude |
+|---|---|---|
+| Automated oversight includes issuing an alert once a model attempts an action for which it has no permissions, or an alert for further investigation | E1–E2. Detection and alert. The page also allows looking at function calls before they are executed or after | That an alert is a runtime stop |
+| Grounding checks: a separate Generative AI model decides if input or output is off-topic or escalates capabilities | E2 at most, and a soft one. Another model judging context, not a schema | That this is a hard unique deny |
+| Human oversight risk tiers include fully autonomous execution, soft confirmation (user notified, option to cancel), hard confirmation, and mandatory human initiation | The page itself spans a range on one list | That "oversight" always means a blocking gate |
+| Checkpoints as infrastructure-layer gates, not LLM instructions — the agent must be technically incapable of proceeding without a verified human approval signal | The text describes an E3 stop (refuse at act time). It does not say any given deployment has wired it | That every system using this page has the gate |
+| Unique approval token binding approver identity, specific action parameters, and expiry; reject if parameters deviate or the token expired; tamper-evident audit trail | The text describes refuse + a record bound to the action. Same limit: text, not this environment | That the token is armed here |
+| Kill switch that halts execution immediately, tamper-evident logging, not controllable by the agent | The text describes halt + a record, if that switch is actually in the path | That a documented switch is in the path |
+
+A fair line on the category page: `#OVERSIGHT` spans E1–E3 depending on the mechanism and the deployment. Do not put one level on the page.
+
+The page already says [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege) is preventative (permissions) while `#OVERSIGHT` is detection: reactive or gate-based. Both may apply to the same action tier. Enforceability notes should follow that split, not average it.
+
+Example 2 — [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege) is also a mix:
+
+- The page says: avoid implementing authorization in Generative AI instructions; enforce tool permissions at the backend, not in prompts alone; per-tool allowlists; JSON Schema with deny-by-default parsing; reject non-conforming calls before execution; log attempts including rejects; policies in system prompts are not enforceable controls; policy-as-code interceptor; synchronous gate; fail closed if the policy engine is unreachable. That text describes E3-style refuse + record — again, as written, not as deployed.
+- The same page asks for a **session action ledger** for cumulative limits, to "block salami-sliced sequences of individually permitted steps that aggregate to a violation", with a synchronous gate and fail closed if the policy engine is unreachable. That is the clearest E3 candidate on the page — and the clearest case for point (2) above: a ledger described in text is inert unless the gateway actually keeps one. The paragraph cannot tell you which.
+- The same page says schema validation does not catch semantically valid but contextually unauthorised calls.
+- The same page also has "Harden based on prompt intent" (typically LLM-based) and "Informing and nudging users to harden agents." Those stay at E1–E2.
+
+Example 3 — [#MONITOR USE](/go/monitoruse):
+
+- The objective says monitoring supports real-time interception and retrospective analysis. The implementation is mostly observe, correlate, and log, including an agent action audit trail with policy decision (permit/deny), in storage the agent cannot modify, and analysis of high denial rates.
+- That is the audit half of E3, and it can support interception. This page does not by itself specify the refuse hook — that hook is written under `#LEAST MODEL PRIVILEGE` (synchronous gate) and `#OVERSIGHT` (infrastructure-layer gates). Logging without a refuse-at-act-time hook is not E3 by itself.
+- The page does not say that an empty deny log is weak evidence. That is the gap trip evidence is for.
+
+**Limitations**  
+- These notes describe control text as written, plus the deployment condition a claim assumes. They are not a compliance ruling and not a score of a product or a vendor.
+- They do not add mandatory new controls. Implementation patterns that raise assurance in a deployment (allowlists, task-scoped credentials, mediators, and similar) are a later catalogue, not this section.
+- The properties of wanted or unwanted behaviour often cannot be entirely specified. That limit is already stated under `#OVERSIGHT`. A high E-level does not remove it.
+- If `#OVERSIGHT` is later edited for approval-object binding (proposed in [#188](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues/188)), levels taken from today's wording will be wrong. That first wave is a proposal, not a booked change.
+
+**References**  
+- [#OVERSIGHT](/go/oversight)
+- [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege)
+- [#MONITOR USE](/go/monitoruse)
+- [Agentic AI overview](/go/agenticaioverview)
+- [AI security testing](/go/testing) — **Positive testing** (under prompt injection and under evasion); agentic testing (baseline under normal conditions; tool-call validation at the gateway; coverage gaps are findings)
+- [#202](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues/202) (this proposal); [#188](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/issues/188) (proposed control edits, including approval-object binding)
 
 ### RAG system security testing
 >Category: discussion  
