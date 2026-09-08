@@ -1,4 +1,9 @@
 items:
+  - title: "AI Security and the OWASP AI Exchange in 25 minutes - OWASP Global conference, Vienna 2026"
+    date: "2026-06-25"
+    url: "https://www.youtube.com/watch?v=9rZtAgF_BmU"
+    thumbnail: "/images/vienna2026talk.png"
+
   - title: "Your go-to resource on AI security: the OWASP AI Exchange in 3 minutes with founder Rob van der Veer"
     date: "2024-02-20"
     url: "https://youtu.be/kQC7ouDB_z8?si=8aH7f6JE4D-anIdD"
