@@ -670,6 +670,7 @@ Useful standards include:
 
   - ISO/IEC 42001 B.9.3 defines controls for human oversight and decisions regarding autonomy. Gap: covers this control partly (human oversight only, not business logic)
   - Not covered further in ISO/IEC standards.
+  - See [Named vs enforceable](/go/namedvsenforceable) for how to read this category page (range of mechanisms, not one E-level).
 
 #### #LEAST MODEL PRIVILEGE
 > Category: runtime information security control    
@@ -764,7 +765,7 @@ As mentioned above, it is essential to minimize actions that the model can poten
   - ISO 27002 control 8.2 Privileged access rights. Gap: covers this control fully, with the particularity that privileges assigned to autonomous model decisions need to be assigned with the risk of unwanted model behaviour in mind.
   - [OpenCRE on least privilege](https://www.opencre.org/cre/368-633) Gap: idem
   - [A Novel Zero-Trust Identity Framework for Agentic AI: Decentralized Authentication and Fine-Grained Access Control](https://arxiv.org/abs/2505.19301)
-
+  - See [Named vs enforceable](/go/namedvsenforceable) for how to read this page (preventative permissions vs a ledger that is inert unless the gateway keeps one).
 
 #### #MODEL ALIGNMENT
 > Category: development-time and runtime AI engineer control  

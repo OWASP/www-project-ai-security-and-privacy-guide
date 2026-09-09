@@ -237,6 +237,7 @@ Useful standards include:
   - ISO 27002 Controls 8.15 Logging and 8.16 Monitoring activities. Gap: covers this control fully, with the particularity: monitoring needs to look for specific patterns of AI attacks (e.g., model attacks through use). The ISO 27002 control has no details on that.
   - ISO/IEC 42001 B.6.2.6 discusses AI system operation and monitoring. Gap: covers this control fully, but on a high abstraction level.
   - See [OpenCRE](https://www.opencre.org/cre/058-083). Idem
+  - See [Named vs enforceable](/go/namedvsenforceable) for why an empty deny log is not evidence of enforcement (trip evidence).
 
 #### #RATE LIMIT
 >Category: runtime information security control for input threats  
