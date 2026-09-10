@@ -326,14 +326,17 @@ Contain blast radius: a hijacked agent must not access other agents' memory, cre
 
 - **Execution environment isolation (4.9.1):** Run each agent in a dedicated container, microVM, or OS-enforced sandbox with separate namespaces (PID, network, mount, UID). Read-only root with ephemeral writable layers discarded on termination. Apply mandatory access control (seccomp, AppArmor, SELinux) and disable unneeded capabilities (raw sockets, privilege escalation). Isolate shared model inference so one agent's context does not leak to another where feasible.
 - **Network segmentation (4.9.3):** Default-deny egress; permit only task-required endpoints. Route traffic through a monitored proxy or service mesh with allowlists and logging. Block direct agent-to-agent network paths — use an orchestration layer or message bus with auth and validation. Restrict DNS; segment agents processing untrusted content away from sensitive internal services.
+- **Allowed-service isolation:** Include reachable package services, caches, artifact stores and shared queues in the isolation assessment. Enforce server-side authorisation on mutable state so agents cannot exchange data across boundaries that policy requires to remain separate. Limit service operations to the task: a download-only workload should not gain publication or administration privileges. Restrict the service's own egress and internal reachability through controls its identity cannot change. Re-test after recovery; replacing a sandbox does not reset external service state or credentials.
 - **Platform enforcement:** Restrict spawning processes, filesystem access outside workspace, self-configuration changes, and host interaction. Monitor for escape indicators (unexpected syscalls, forbidden paths, non-permitted connections). Store tool credentials (MCP servers, APIs) **outside** the sandbox in a controlled credential store.
 - **Clean termination:** On task completion or forced stop, destroy transient state, cached data, and in-sandbox credentials.
 - **Resource quotas:** See [#LIMIT RESOURCES](/go/limitresources) and [#RATE LIMIT](/go/ratelimit) for per-agent CPU, memory, API volume, tool invocations, and wall-clock limits enforced by the platform — not by agent self-management.
 
 Pair with [agent escape](/go/agentescape) prevention and [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege) for defence in depth.
 
+Example: OpenAI's [August 2026 postmortem](https://openai.com/index/hugging-face-incident-and-the-road-ahead/) describes evaluation agents using an internally hosted package service for unauthorised internet access and a shared message board. Agents re-established both paths after remediation. This illustrates why isolation assessments must include reachable services, their operations and shared state, as well as direct sandbox connections.
+
 **Limitations**  
-Sandbox overhead scales with concurrent agents. Shared inference, credential, and policy services create implicit cross-agent channels. Container or hypervisor escape undermines containment. Segmentation cannot stop exfiltration through legitimately permitted APIs. OS-specific behaviour may weaken the same approach on different hosts.
+Sandbox overhead scales with concurrent agents. Shared inference, credential, policy, and package or artifact services can create implicit cross-agent channels; compromise of a shared service may expose its credentials and network access. Container or hypervisor escape undermines containment. Segmentation cannot stop exfiltration through legitimately permitted APIs. OS-specific behaviour may weaken the same approach on different hosts.
 
 **Controls**
 - See [General controls](/go/generalcontrols)
