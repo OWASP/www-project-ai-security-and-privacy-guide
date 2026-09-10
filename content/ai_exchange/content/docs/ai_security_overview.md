@@ -77,6 +77,8 @@ Security here means preventing unauthorized access, use, disclosure, disruption,
 
 Our **mission** is to be the global go-to resource for security and privacy practitioners working with AI and data-centric systems—bringing alignment and encouraging collaboration across initiatives. In doing so, we create a safe, open, and independent space where everyone can find and share insights. Follow [AI Exchange at LinkedIn](https://www.linkedin.com/company/owasp-ai-exchange/).
 
+See our [talk at OWASP Global Appsec Vienna 2026](https://youtu.be/9rZtAgF_BmU?t=29) for a 25 minutes overview of AI security and the AI Exchange.
+
 **How it works**  
 The AI Exchange is displayed here at [owaspai.org](https://owaspai.org) and edited using a [GitHub repository](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/tree/main/content/ai_exchange/content) (see the links _Edit page_ at the top of every page). It is an **open-source living publication** for the worldwide exchange of AI security & privacy expertise. It is structured as one coherent resource consisting of several sections under 'content', each represented by a page on the website.
 
