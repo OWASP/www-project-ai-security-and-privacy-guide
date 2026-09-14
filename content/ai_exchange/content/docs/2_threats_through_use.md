@@ -4,6 +4,7 @@ heroTitle: "Input threats"
 heroText: "Attacks by crafting inputs to AI, and their countermeasures"
 weight: 3
 ---
+
 ## 2.0. Input threats - introduction
 >Category: group of input threats  
 >Permalink: https://owaspai.org/go/inputthreats
@@ -1208,6 +1209,12 @@ In multimodal systems, models routinely:
 
 As a result, instructions hidden in images or other media can act as "soft-prompts" or "meta-instructions" that steer model behaviour even when the visible user text appears benign.
 
+**Key multimodal attack vectors:**
+- **Visual prompt injection (rendered text & OCR injection):** Text instructions embedded directly into images (such as low-contrast text, micro-typography, rotated text, or watermarks) that instruct the Vision-Language Model (VLM) to ignore its system prompt, exfiltrate data, or perform prohibited actions when interpreting the visual input.
+- **Adversarial perturbation attacks (visual steganography):** Imperceptible, high-frequency pixel perturbations added to images that map to specific token representations in the vision encoder (e.g., CLIP, SigLIP), forcing the model to generate attacker-chosen text or bypass safety alignment without any visible text in the image.
+- **Audio prompt injection & inaudible commands:** Spoken instructions masked by background noise, low-amplitude acoustic signals, or ultrasonic frequencies that speech-to-text frontends decode into actionable instructions while remaining unnoticed by human listeners.
+- **Cross-modal safety alignment bypass:** Circumventing text-only safety guardrails by converting harmful prompts into visual formats (e.g., screenshots of text, stylized ASCII art, handwritten diagrams, or structured flowcharts) that text filters ignore but multimodal models parse and execute.
+
 Example 1: A AI helpdesk assistant uses a vision-language model to read screenshots and UI mockups uploaded by users. An attacker uploads a screenshot with small or low-contrast text that instructs to respond with the API key from the system prompt. The user-visible text describes a normal support issue, but the model's visual encoder extracts the hidden instruction and the assistant attempts to leak secrets or reveal internal configuration.
 
 Example 2: An attacker crafts an image using gradient-based or generative techniques so that it still looks benign (for example a product photo), but its pixels are optimized to embed a meta-instruction to respond with toxic language. When the image is processed by the model, the visual embedding pushes the system to systematically follow the attacker’s objective, even though no explicit malicious text appears in the user prompt.
@@ -1215,7 +1222,8 @@ Example 2: An attacker crafts an image using gradient-based or generative techni
 Multimodal prompt injection can be:
 - Direct when the attacker uploads or controls the multimodal input (for example, an end user uploads an adversarial image with hidden instructions along with a natural-language query).
 - Indirect when untrusted multimodal content (for example a product screenshot, scanned form, or social-media image) is automatically pulled in by an application and passed to a multimodal model as context, similar to remote code execution via untrusted data.
-​
+
+For testing methodologies against multimodal injection, see [Testing against multimodal prompt injection](/go/multimodaltesting).
  
 **Controls for all forms of prompt injection:**
 - See [General controls](/go/generalcontrols):
@@ -1232,7 +1240,7 @@ Multimodal prompt injection can be:
 <!-- OPENCRE_SECTION_CRE_START slug=directpromptinjection -->
 - [OpenCRE: Direct prompt injection](https://opencre.org/cre/686-110)
     referring to:
-    - [OWASP Top10 for LLM: sec. LLM01:2026: Prompt Injection](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)
+    - [OWASP Top10 for LLM: sec. LLM01:2025: Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
     - [MITRE ATLAS: sec. AML.T0051.000: LLM Prompt Injection: Direct](https://atlas.mitre.org/techniques/AML.T0051.000)
     - [ENISA: sec. Table 3:: Evasion](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [BIML: sec. BIML-24(LLM): input:2: Prompt Injection](https://berryvilleiml.com/results/BIML-LLM24.pdf)
@@ -1404,7 +1412,7 @@ See the [seven layers section](/go/promptinjectionsevenlayers) on how these cont
 <!-- OPENCRE_SECTION_CRE_START slug=indirectpromptinjection -->
 - [OpenCRE: Indirect prompt injection](https://opencre.org/cre/012-625)
     referring to:
-    - [OWASP Top10 for LLM: sec. LLM01:2026: Prompt Injection](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)
+    - [OWASP Top10 for LLM: sec. LLM01:2025: Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
     - [MITRE ATLAS: sec. AML.T0051.001: LLM Prompt Injection: Indirect](https://atlas.mitre.org/techniques/AML.T0051.001)
     - [ENISA: sec. Table 3:: Evasion](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [BIML: sec. BIML-24(LLM): input:2: Prompt Injection](https://berryvilleiml.com/results/BIML-LLM24.pdf)
@@ -1637,7 +1645,7 @@ Membership inference is presenting a model with input data that identifies somet
 <!-- OPENCRE_SECTION_CRE_START slug=modelinversionandmembership -->
 - [OpenCRE: Model inversion / Membership inference](https://opencre.org/cre/034-540)
     referring to:
-    - [OWASP Top10 for LLM: sec. LLM02:2026: Sensitive Information Disclosure](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)
+    - [OWASP Top10 for LLM: sec. LLM02:2025: Sensitive Information Disclosure: Inference-based data disclosure attacks](https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/)
     - [MITRE ATLAS: sec. AML.T0024.001: Exfiltration via AI Inference API: Invert AI Model](https://atlas.mitre.org/techniques/AML.T0024.001)
     - [MITRE ATLAS: sec. AML.T0024.000: Exfiltration via AI Inference API: Infer Training Data Membership](https://atlas.mitre.org/techniques/AML.T0024.000)
     - [ETSI: sec. 6.4.1: Model inversion attacks](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/005/01.01.01_60/gr_SAI005v010101p.pdf)
@@ -1717,7 +1725,7 @@ This threat applies if the model represents intellectual property (i.e., a trade
   - [#MONITOR USE](/go/monitoruse) to detect suspicious input and respond 
   - [#RATE LIMIT](/go/ratelimit) to limit the attacker presenting many inputs in a short time
   - [#MODEL ACCESS CONTROL](/go/modelaccesscontrol) to reduce the number of potential attackers to a minimum
-  - [#ANOMALOUS INPUT HANDLING](/go/anamlousinputhandling) since model exfiltration techniques try to cover the input space, potentially introducing inputs that normally would not occur
+  - [#ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling) since model exfiltration techniques try to cover the input space, potentially introducing inputs that normally would not occur
   - [#UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling) to detect sequences that would indicate covering an input space methodically,
 - Controls for model exfiltration specifically:
   - [#MODEL WATERMARKING](/go/modelwatermarking) to enable post-theft ownership verification when residual risk remains - discussed below, although less effective for proving exfiltration than proving an actual copy of the model was used.
