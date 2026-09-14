@@ -291,6 +291,28 @@ Global Jurisdictional considerations (as of end of 2023):
 - China: (i) Regulations on the Administration of Deep Synthesis of Internet Information Services, (ii) Shanghai Municipal Regulations on Promoting Development of AI Industry, (iii) Shenzhen Special Economic Zone AI Industry Promotion Regulations, (iv) Provisional Administrative Measures for Generative AI Services
 
 **Implementation**  
+### Operationalizing AI compliance
+
+AI compliance should be integrated into the organization's existing governance and risk management processes rather than treated as a standalone legal review.
+
+Organizations should establish a repeatable process to:
+
+1. Identify applicable legal, regulatory, contractual, and internal requirements for each AI initiative.
+2. Determine the organization's role and the applicability of individual requirements based on the AI system's intended purpose, context of use, and jurisdiction.
+3. Translate applicable requirements into risks, controls, and implementation responsibilities.
+4. Assign a responsible owner for each control.
+5. Define and retain evidence demonstrating that the control has been implemented and operates as intended.
+6. Periodically review compliance when the AI system, its intended use, applicable regulation, organizational role, or risk profile changes.
+
+A practical compliance record can provide traceability through:
+
+**Requirement → Applicability → Risk → Control → Control owner → Evidence → Review status**
+
+This approach helps prevent compliance from becoming a one-time checklist exercise and supports traceability between regulatory requirements, organizational risks, and implemented controls.
+
+Where an organization operates an AI management system, these activities can be incorporated into the broader AI governance framework, for example one aligned with ISO/IEC 42001. Security-related requirements and controls should also be coordinated with the organization's information security management system, where applicable.
+
+The compliance process should remain connected to #AI PROGRAM, including the AI inventory, impact analysis, risk management, and assignment of responsibilities.
 General Legal Considerations on AI/Security:
 - Privacy Laws: AI must comply with all local/global privacy laws at all times, such as GDPR, CCPA, HIPAA. See the [Privacy section](/go/aiprivacy).
 - Data Governance: any AI components/functions provided by a 3rd party for integration must have data governance frameworks, including those for the protection of personal data and structure/definitions on how its collected, processed, stored
