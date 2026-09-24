@@ -796,7 +796,7 @@ A list of GenAI test tools can also be found at the [OWASP GenAI security projec
 | **Tool Name: PyRIT** |  |
 | --- | --- |
 | Developer/ Source | Microsoft |
-| Github Reference | [https://github.com/Azure/PyRIT](https://github.com/Azure/PyRIT) |
+| Github Reference | [https://github.com/microsoft/PyRIT](https://github.com/microsoft/PyRIT) |
 | Language | Python |
 | Licensing | Open-source under the MIT License. |
 | Provides Mitigation | Prevention: No ❌ Detection: Yes ✅ |
