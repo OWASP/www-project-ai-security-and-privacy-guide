@@ -292,7 +292,7 @@ Global Jurisdictional considerations (as of end of 2023):
 
 **Implementation**  
 
-** Implementation - Operationalizing AI compliance**
+**Implementation - Operationalizing AI compliance**  
 
 AI compliance should be integrated into the organization's existing governance and risk management processes rather than treated as a standalone legal review.
 
