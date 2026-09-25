@@ -34,6 +34,7 @@ Find clickable topics in alphabetical order below. For an overview of threats an
 [Direct prompt injection](/go/directpromptinjection)  
 
 ### E  
+[Enforceability](/go/namedvsenforceable)  
 [EU AI Act](/go/checkcompliance)  
 [Evasion](/go/evasion)  
 [Explainability](/go/explainability)  
@@ -75,6 +76,7 @@ Find clickable topics in alphabetical order below. For an overview of threats an
 [Monitoring](/go/monitoruse)  
 
 ### N  
+[Named vs enforceable](/go/namedvsenforceable)  
 
 ### O  
 [Oversight](/go/oversight)  
