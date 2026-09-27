@@ -129,6 +129,16 @@ RAG testing extends the general approach above — same lifecycle steps, but wit
 - Combine with **conventional testing** of the ingestion and retrieval infrastructure itself — the vector store API, search endpoints, and any document-parsing step (PDF/Office parsers, OCR) are ordinary application attack surface (SSRF, deserialization, path traversal, injection) independent of the model.
 - Define minimum coverage up front — which corpus sources, retrieval configurations, and authorization boundaries were tested, and at what scale. **Report untested sources or boundaries explicitly**; an untested ingestion path is a finding, not an assumption of safety.
 
+**Automating retrieval-scope enforcement**
+
+Of the tests above, retrieval-scope enforcement is the one that automates and regression-runs cleanly without a model in the loop: a query issued as a given identity either returns chunks inside that identity's authorised scope or it does not, so both the input and the verdict are deterministic. A provider-agnostic approach:
+
+- Model identity as *subject + tenant + roles*, and model authorised scope at both document and chunk granularity — access to one chunk of a document does not imply access to the rest of it.
+- Check tenant isolation independently of document identifiers, so a retrieval that returns the "right" document for the wrong tenant still fails.
+- Drive the retriever through a thin adapter and assert on the **retrieved chunks**, not the generated answer, so the same test set runs against any vector store or search index.
+- Express tests as multi-step sequences rather than single snapshots, so state transitions — a role downgrade, an ACL edit, a permission revocation — can be asserted to take effect at retrieval time and not only at the application layer.
+- Validate the suite against a deliberately vulnerable fixture backend as well as the live index, to confirm the checks actually detect the violations they claim to.
+
 **Red teaming exercises**
 
 - **Cross-tenant/cross-permission retrieval**: as a low-privilege identity, attempt to retrieve or induce disclosure of content scoped to a higher-privilege identity or another tenant, through both direct queries and indirect injection.
@@ -154,6 +164,7 @@ Prioritise findings by: authorization impact (does this cross a trust boundary),
 - [OWASP Cheat Sheet: RAG Security](https://cheatsheetseries.owasp.org/cheatsheets/RAG_Security_Cheat_Sheet.html)
 - [OWASP AI Testing Guide](https://owasp.org/www-project-ai-testing-guide/)
 - See [prompt injection testing](/go/testingpromptinjection) above for payload construction and detection pairing — reused directly for the retrieval-channel tests here.
+- [retrieval-scope-tester](https://github.com/vishnu-77/retrieval-scope-tester) — an external reference implementation of the retrieval-scope enforcement approach above (not an OWASP project).
 
 ### Testing against Prompt injection
 > Category: AI security test  
