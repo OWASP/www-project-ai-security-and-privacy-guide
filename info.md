@@ -5,7 +5,7 @@
 * For Builders, Breakers, Buyers
 
 ### Social Links
-* [Slack #project-ai](https://owasp.slack.com/archives/C04FV0D1GES)
+* [Slack #project-ai-community](https://owasp.slack.com/archives/C04FV0D1GES)
 
 ### Document Repository
 * [Repo](https://github.com/OWASP/www-project-ai-security-and-privacy-guide/)
