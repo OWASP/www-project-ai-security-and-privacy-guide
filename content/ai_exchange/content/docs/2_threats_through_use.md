@@ -1577,6 +1577,7 @@ Sensitive output handling is applicable in case:
 **Implementation**
 - **Detect sensitive data in output:** Scan model output for exposure-restricted information such as names, phone numbers, identifiers, passwords, or other sensitive content. 
 - **Apply enforcement at output time:** When sensitive content is detected, disclosure can be prevented through filtering, masking, or stopping the output before it is exposed - provided detection confidence is sufficiently high. 
+- **Filter streamed output across chunk boundaries:** When output is streamed to the user in chunks (e.g. token by token), a sensitive value can be split across two or more chunks so that no single chunk matches. Filtering each chunk on its own, or adding a fixed number of characters from the previous chunk before filtering, does not prevent this: by the time the combined text is checked, the first part has already been sent - even though the filter may log a successful detection. Hold back text until no match can still extend into it, or buffer up to a sentence or response boundary, and stop the output rather than release held text when the buffer reaches its size limit while a match may still be open. A useful test: for every way of splitting the same text into chunks, the streamed output should equal the output of filtering the whole text at once.
 - **Log:** Logging of detections is key, and if confidence in the detection is low, it can be marked with an alert to pick up later.
 - **Detect recitation of training data:** Where feasible, recitation checks can be applied to identify whether long strings or sequences in model output appear in an indexed set of training data, including pretraining and fine-tuning datasets. This can help identify unintended memorization and potential data leakage.
 - **Use GenAI for detection**: In case natural language allows for too many variations, synonyms, and indirect phrasing, then semantic interpretation using language models can complement rules-based approaches and improve robustness. A variant of this is to use [#MODEL ALIGNMENT](/go/modelalignment) (e.g., system prompts) to prevent sensitive output - which suffers from inherent limitations.
@@ -1607,6 +1608,7 @@ Providing models with instructions not to disclose certain data (for example via
 - False positives can cause serious system malfunction or prevent legitimate output.
 - Some sensitive disclosures may be subtle or context-dependent and difficult to detect automatically.
 - Attackers may attempt to obfuscate output to circumvent detection (e.g. base64 encoding a token)
+- Streaming output to the user as it is generated can defeat filtering if chunks are filtered independently, because a sensitive value split across chunks leaks before it is detected (see Implementation)
 
 **References**
 <!-- OPENCRE_SECTION_CRE_START slug=sensitiveoutputhandling -->
