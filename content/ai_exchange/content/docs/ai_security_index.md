@@ -9,6 +9,7 @@ weight: 9
 Find clickable topics in alphabetical order below. For an overview of threats and their controls, see the [Periodic table of AI security](/go/periodictable).
 
 ### A  
+[Adapter and fine-tuning (LoRA / PEFT)](/go/supplychainmanage)  
 [Adversarial attacks](/go/evasion)  
 [Agent message structure manipulation](/go/agentmessagestructuremanipulation)  
 [Agentic AI](/go/agenticaithreats)  
@@ -19,6 +20,7 @@ Find clickable topics in alphabetical order below. For an overview of threats an
 [Bias](/go/unwantedbiastesting)  
 
 ### C  
+[Checkpoint deserialization attack (SafeTensors/Pickle)](/go/modeldeserializationattack)  
 [Compliance](/go/checkcompliance)  
 [Continuous validation](/go/continuousvalidation)  
 [Contribute](/contribute)  
@@ -59,9 +61,11 @@ Find clickable topics in alphabetical order below. For an overview of threats an
 [Logging](/go/monitoruse)  
 
 ### M  
-[MCP](/go/agenticaithreats)  
+[MCP (Model Context Protocol) security](/go/mcpsecurity)  
+[MCP security testing](/go/mcptesting)  
 [Media](/go/media)  
 [Model alignment](/go/modelalignment)  
+[Model deserialization attack](/go/modeldeserializationattack)  
 [Model input leak](/go/leakinput)  
 [Model inversion / Membership inference](/go/modelinversionandmembership)  
 [Model output contains injection](/go/insecureoutput)  
@@ -73,6 +77,8 @@ Find clickable topics in alphabetical order below. For an overview of threats an
 [Model direct leak development-time](/go/devmodelleak)  
 [Model exfiltration](/go/modeltheftuse)  
 [Monitoring](/go/monitoruse)  
+[Multimodal prompt injection](/go/multimodalthreats)  
+[Multimodal security testing](/go/multimodaltesting)  
 
 ### N  
 
