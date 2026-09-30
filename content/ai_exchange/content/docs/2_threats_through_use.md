@@ -1617,6 +1617,8 @@ Providing models with instructions not to disclose certain data (for example via
     - [ENISA: sec. Table 5:: Reduce the information given by the model](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [MITRE ATLAS: sec. AML.M0020: Generative AI Guardrails](https://atlas.mitre.org/mitigations/AML.M0020)
 <!-- OPENCRE_SECTION_CRE_END slug=sensitiveoutputhandling -->
+- [Split-Boundary Leaks in Streaming Guardrails](https://doi.org/10.5281/zenodo.22909585) ([web version](https://llmshieldproxy.com/docs/split-boundary-leaks/)): report on the same defect found independently in four LLM streaming stacks, and the invariant a streaming filter must satisfy
+- [chunk-invariance](https://pypi.org/project/chunk-invariance/) ([npm](https://www.npmjs.com/package/chunk-invariance)): a test that checks a streaming filter gives the same result at every split point
 
 Useful standards include:
 
