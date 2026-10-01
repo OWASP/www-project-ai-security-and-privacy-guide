@@ -50,7 +50,7 @@ weight: 1
 >Category: discussion  
 >Permalink: https://owaspai.org/go/about
 
-If you want to jump right into the content, head on to the [Table of contents](/go/toc) or [How to use this document](/go/document).  
+To jump right into the content, head on to the [Table of contents](/go/toc) or [How to use this document](/go/document).  
 
 **Summary**  
 Welcome to the go-to comprehensive resource for AI security & privacy - over 300 pages of practical advice and references on protecting AI, and data-centric systems from threats - where AI consists of ALL AI: Agentic AI, Analytical AI, Discriminative AI, Generative AI and heuristic systems. This content serves as key bookmark for practitioners, and is contributed actively and substantially to international standards such as ISO/IEC and the AI Act through official standard partnerships. Through broad collaboration with key institutes and SDOs, the _Exchange_ represents the consensus on AI security and privacy.
