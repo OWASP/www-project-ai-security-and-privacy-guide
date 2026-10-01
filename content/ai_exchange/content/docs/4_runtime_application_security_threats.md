@@ -7,7 +7,7 @@ weight: 5
 > Category: group of runtime threats  
 > Permalink: https://owaspai.org/go/runtimeconventionalsec
 
-An AI system is an IT system, so at runtime it can be vulnerable to any security attack - for example to break into the application's user database. These 'conventional' attacks to generic assets, and their countermeasures are covered in many other resources. This section focuses only on what is AI-specific.  
+An AI system is an IT system, so at runtime it can be vulnerable to any security attack - for example breaking into the application's user database. These 'conventional' attacks to generic assets, and their countermeasures are covered in many other resources. This section focuses only on what is AI-specific.  
 
 [Section 2](/go/threatsuse) covers runtime attacks that are AI-specific: attacks performed through inference - by using the system and providing model input. [Section 3](/go/developmenttime) covers attacks during development-time: mostly conventional attacks (e.g. breaking into a training database) with sometimes AI-specific consequences (e.g., changing model behaviour) plus AI-specific supply chain attacks.  
 
