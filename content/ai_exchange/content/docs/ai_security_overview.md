@@ -75,7 +75,7 @@ Data-centric systems can be divided into AI systems and 'big data' systems that 
 
 Security here means preventing unauthorized access, use, disclosure, disruption, modification, or destruction. Modification includes manipulating the behaviour of an AI model in unwanted ways.
 
-Our **mission** is to be the global go-to resource for security and privacy practitioners working with AI and data-centric systems—bringing alignment and encouraging collaboration across initiatives. In doing so, we create a safe, open, and independent space where everyone can find and share insights. Follow [AI Exchange at LinkedIn](https://www.linkedin.com/company/owasp-ai-exchange/).
+Our **mission** is to help make AI a force for good rather than a source of harm, by enabling practitioners to secure it and build trust in its use. For that, we aim to be the global go-to resource for security and privacy practitioners working with AI and data-centric systems—bringing alignment and encouraging collaboration across initiatives. In doing so, we create a safe, open, and independent space where everyone can find and share insights. Follow [AI Exchange at LinkedIn](https://www.linkedin.com/company/owasp-ai-exchange/).
 
 See our [talk at OWASP Global Appsec Vienna 2026](https://youtu.be/9rZtAgF_BmU?t=29) for a 25 minutes overview of AI security and the AI Exchange.
 
