@@ -1252,3 +1252,28 @@ blockquote a:hover {
     opacity: 0.3 !important;
   }
 }
+.edit-help {
+  position: relative;
+  cursor: help;
+}
+
+/* tooltip introduced for Edit page function */
+.edit-help-tooltip {
+  display: none;
+  position: absolute;
+  left: 1.4rem;
+  top: -0.5rem;
+  width: 320px;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  background: #222;
+  color: white;
+  font-size: 0.85rem;
+  line-height: 1.35;
+  z-index: 100;
+}
+
+.edit-help:hover .edit-help-tooltip,
+.edit-help:focus-within .edit-help-tooltip {
+  display: block;
+}
