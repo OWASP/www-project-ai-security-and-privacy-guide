@@ -1269,6 +1269,98 @@ Notes:
 - Prompt Injection: Evaluates the robustness of generative AI models by exploiting weaknesses in prompt design, leading to undesired outputs or bypassing model safeguards.
 *[https://owaspai.org/go/promptinjection](https://owaspai.org/go/promptinjection)*
 
+### Tool Name: Ziran
+
+| **Tool Name: Ziran** |  |
+| --- | --- |
+| Developer/ Source | TaoQ AI |
+| Github Reference | [https://github.com/taoq-ai/ziran](https://github.com/taoq-ai/ziran)
+Documentation: [https://taoq-ai.github.io/ziran/](https://taoq-ai.github.io/ziran/) |
+| Language | Python |
+| Licensing | Apache 2.0 License |
+| Provides Mitigation | Prevention: No ❌ Detection: Yes ✅ |
+| API Availability | Yes ✅ (Python API and CLI) |
+
+| Factor | Details |
+| --- | --- |
+| **Popularity** | - **GitHub Stars:** ~10 stars (as of Sep 2026) |
+|  | - **GitHub Forks:** ~3 forks |
+|  | - **Number of Issues:** ~27 open issues |
+|  | - **Trend:** New project, first release Feb 2026, frequent releases (v0.40.0 in Sep 2026). |
+| **Community Support** | - **Active Issues:** Issue templates for bugs, features and skill CVEs; small team. |
+|  | - **Documentation:** Documentation site with getting started, concepts, guides and reference; 20+ runnable examples. |
+|  | - **Discussion Forums:** GitHub issues. |
+|  | - **Contributors:** 4 contributors. |
+| **Scalability** | - **Framework Support:** LangChain, CrewAI, Amazon Bedrock and AgentCore, Anthropic, and any remote agent over REST, OpenAI-compatible, MCP or A2A endpoints. |
+|  | - **Large-Scale Deployment:** Runs as a CI quality gate (GitHub Action, GitLab CI, Jenkins, CircleCI, Azure Pipelines) with SARIF output; optional web dashboard and Docker image. |
+| **Integration** | - **Compatibility:** Agents with tools, memory and multi-step reasoning; multi-agent systems; OpenTelemetry tracing; Promptfoo integration. |
+
+**Tool Rating**
+
+| **Criteria** | **High** | **Medium** | **Low** |
+| --- | --- | --- | --- |
+| **Popularity** |  |  | ✅ |
+| **Community Support** |  |  | ✅ |
+| **Scalability** |  | ✅ |  |
+| **Ease of Integration** |  | ✅ |  |
+
+**Data Modality**
+
+| Data Modality | Supported |
+| --- | --- |
+| Text | ✅ |
+| Image |  |
+| Audio |  |
+| Video |  |
+| Tabular data |  |
+
+**Machine Learning Tasks**
+
+| Task Type | Data Modality | Supported |
+| --- | --- | --- |
+| LLM agents with tool use | Text | ✅ |
+| Multi-agent systems | Text | ✅ |
+| Classification | All |  |
+
+**Framework Applicability**
+
+| Framework / Tool | Category | Supported |
+| --- | --- | --- |
+| LangChain | GenAI agents | ✅ |
+| CrewAI | GenAI agents | ✅ |
+| Model Context Protocol (MCP) | GenAI agents | ✅ |
+| Agent-to-Agent (A2A) | GenAI agents | ✅ |
+| OpenAI API (chat completions) | GenAI | ✅ |
+| Amazon Bedrock / AgentCore | GenAI | ✅ |
+| Anthropic API | GenAI | ✅ |
+| Huggingface | ML, GenAI |  |
+| PyTorch | DL, GenAI |  |
+| Tensorflow | DL, GenAI |  |
+
+**OWASP AI Exchange Threat Coverage**
+
+| Topic | Coverage |
+| --- | --- |
+| Development time model poisoning |  |
+| Runtime model poisoning |  |
+| Model theft by use |  |
+| Training data poisoning |  |
+| Training data leak |  |
+| Runtime model theft |  |
+| Evasion |  |
+| Model inversion / Membership inference |  |
+| Denial of model service |  |
+| Direct prompt injection | ✅ |
+| Data disclosure | ✅ |
+| Model input leak |  |
+| Indirect prompt injection | ✅ |
+| Development time model theft |  |
+| Output contains injection |  |
+
+- Direct prompt injection: Tests the agent with injection, jailbreak and system prompt extraction vectors, and checks the tool calls that follow rather than only the text reply. [*https://owaspai.org/go/promptinjection*](https://owaspai.org/go/promptinjection)
+- Indirect prompt injection: Memory poisoning and retrieval poisoning vectors delivered through documents and tool outputs. [*https://owaspai.org/go/promptinjection*](https://owaspai.org/go/promptinjection)
+- Data disclosure: Finds tool chains that move data to external endpoints (for example a file read followed by an HTTP request) and PII leakage paths. [*https://owaspai.org/go/dataleak*](https://owaspai.org/go/dataleak)
+
 ## Tool Ratings
 This section rates the discussed tools by Popularity, Community Support, Scalability and Integration.
 
