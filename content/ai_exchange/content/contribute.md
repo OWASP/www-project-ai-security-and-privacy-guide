@@ -132,11 +132,9 @@ weight: 1
       <div class="relative flex flex-col h-full">
         <div class="flex flex-col flex-1 bg-white border border-gray-200 rounded-xl shadow-md p-6">
           <img src="/images/submit.png" alt="Submit icon" class="w-8 h-8 mb-4" />
-          <h4 class="text-gray-900 mb-2 text-xl font-medium">Submit</h4>
+          <h4 class="text-gray-900 mb-2 text-xl font-medium">Edit</h4>
           <p class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px]">
-            Fork our repo and submit a
-            <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/pulls" target="_blank" class="text-green-600 underline">Pull Request</a>
-            for fixes or suggestions.
+            Use 'Edit page' or edit files in our <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/tree/main/content/ai_exchange/content/docs" target="_blank" class="text-green-600 underline">GitHub repository</a>.
           </p>
         </div>
         <!-- OR -->
