@@ -275,12 +275,12 @@ Maintaining structured records for AI-specific assets and services helps establi
 Such records are often referred to as Model Cards, AIBOMs (AI Bill of Materials), or MLBOMs (Machine Learning Bill of Materials), and can complement traditional SBOM practices by including AI-specific artifacts.
 
 **AI Bill of Materials (AIBOM)**
-An AIBOM is a structured, machine-readable description of an AI system that records what the system actually contains and how information flows through it. It captures the components that an SBOM was never built to describe: model weights and adapters, training and fine-tuning datasets, prompts and templates, retrieval corpora, guardrail and moderation services, orchestration frameworks, and provider-managed APIs. Unlike a score or compliance verdict, an AIBOM records fact, which lets it serve as a common evidence base for security, governance, procurement, and audit decisions. See the [OWASP AIBOM Foundations Guide](https://owaspaibom.org/whitepapers/) for the full specification.
+An AIBOM is a structured, machine-readable description of an AI system that records what the system actually contains and how information flows through it. It captures the components that an SBOM was never built to describe: model weights and adapters, training and fine-tuning datasets, prompts and templates, retrieval corpora, guardrail and moderation services, orchestration frameworks, and provider-managed APIs. Unlike a score or compliance verdict, an AIBOM records fact, which lets it serve as a common evidence base for security, governance, procurement, and audit decisions. Refer the [OWASP AIBOM Project](https://owaspaibom.org), the individual [Workstreams](https://owaspaibom.org/workstreams/) and the [OWASP AIBOM Foundations Guide](https://owaspaibom.org/whitepapers/) for the full specification.
 
 Typical AIBOM content includes:
 - **Models:** base model digests, declared licenses, distribution channels, signatures, fine-tunes, LoRA/PEFT adapters, checkpoints.
 - **Datasets:** dataset ID/version, hash, licenses, source URLs, snapshots, collection methods, sensitivity/anonymization notes.
-- **Agents and tools:** orchestrators, APIs, extensions, MCP servers.
+- **Agents and tools:** orchestrators, APIs, extensions, MCP servers with focus on AgBOM (Agentic Bill of Materials).
 - **Prompts and guardrails:** templates, policy packs, security notes.
 - **Runtime:** containers, dependencies, timestamps.
 - **Build provenance:** digests of built images, input source locations, build arguments, build duration.
