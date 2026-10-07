@@ -287,6 +287,11 @@ Typical AIBOM content includes:
 
 For an AIBOM to be usable as a governance artifact rather than a shelf document, four properties matter: *accountable authorship* (who asserted each claim, when, and how), *declared scope and an explicit completeness claim* (what it covers and how confidently), *claims tied to evidence* (hashes, signatures, model cards, evaluation results that a consumer can independently check), and *a controlled lifecycle* (versioned, approved, refreshed on material change, and preserved after retirement). An AIBOM is not a control in itself: it blocks nothing until an organization builds a gate, a review, or a query that reads it. 
 
+**Structure.** An AIBOM has four parts: a *header* declaring graph type, scope, and completeness; a *component list* of models, datasets, agents, tools, services, and runtime elements; *directed data flows* that connect components and record what moves between them (payload, protocol, encryption, timing); and *evidence and provenance references* (hashes, signatures, model cards, evaluations) attached to specific nodes and edges. Components may be grouped into *trust zones* (own infrastructure, provider cloud, public internet) so that boundary crossings — where supply chain risk concentrates — are explicit in the record.
+
+**Encoding.** The AIBOM structure is expressible natively in [OWASP CycloneDX](https://cyclonedx.org), the OWASP flagship BOM standard also ratified as Ecma International ECMA-424. CycloneDX v1.5 and later support a `machine-learning-model` component type as the basis for a Machine Learning Bill of Materials (ML-BOM). See the [OWASP CycloneDX Authoritative Guide to AI/ML-BOM](https://cyclonedx.org/guides/OWASP_CycloneDX-Authoritative-Guide-to-AI-ML-BOM-en.pdf) for the field-level encoding of model identifiers (PURL), dataset components, model cards (parameters, quantitative analysis, considerations), tokenizers and prompt templates, training and testing details, intended use and ethical considerations, and EU AI Act mappings. 
+
+
 **Implementation of lifecycle-aware record updates**  
 Provenance and traceability records benefit from being updated at meaningful points in the AI system lifecycle. Typical update points include initial model development, major model version releases, pre-production deployment, significant architecture changes, introduction of new training datasets, and critical dependency updates. Additional checkpoints may be defined based on team practices or risk posture.Making these update points explicitly helps ensure records remain accurate as models, data, and dependencies evolve over time.
   
@@ -374,7 +379,8 @@ Complex multi-party supply chains may make full traceability difficult, and trus
     - [ENISA: sec. Table 5:: Ensure reliable sources are used](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [MITRE ATLAS: sec. AML.M0014: Verify AI Artifacts](https://atlas.mitre.org/mitigations/AML.M0014)
     - [MITRE ATLAS: sec. AML.M0023: AI Bill of Materials](https://atlas.mitre.org/mitigations/AML.M0023)
-    - [OWASP AIBOM Foundations Guide v1.0](https://owaspaibom.org/whitepapers/) 
+    - [OWASP AIBOM Foundations Guide v1.0](https://owaspaibom.org/whitepapers/)
+    - [OWASP CycloneDX Authoritative Guide to AI/ML-BOM](https://cyclonedx.org/guides/OWASP_CycloneDX-Authoritative-Guide-to-AI-ML-BOM-en.pdf)
     - [NIST AI 100-2: sec. 3.2: AI Supply Chain Attacks and Mitigations](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
 <!-- OPENCRE_SECTION_CRE_END slug=supplychainmanage -->
 See [MITRE ATLAS - ML Supply chain compromise](https://atlas.mitre.org/techniques/AML.T0010).
