@@ -263,57 +263,45 @@ Risk management determines when deeper governance or verification is warranted, 
 **Implementation**  
 
 **Implementation of provenance, record keeping, and traceability**  
-The AI supply chain can be complex. Just like with obtained source code or software components, data, models, model hosting, and abilities may involve multiple suppliers. For example: a model is trained by one vendor and then fine-tuned by another vendor. Or: an AI system contains multiple models, one is a model that has been fine-tuned with data from source X, using a base model from vendor A that claims data is used from sources Y and Z, where the data from source Z was labeled by vendor B. Because of this supply chain complexity, data and model provenance is a helpful activity. 
+The AI supply chain can be complex. Just like with obtained source code or software components, data, models, model hosting, and abilities may involve multiple suppliers, including internal suppliers. For example: a model is trained by one vendor and then fine-tuned by another vendor. Or: an AI system contains multiple models, one is a model that has been fine-tuned with data from source X, using a base model from vendor A that claims data is used from sources Y and Z, where the data from source Z was labeled by vendor B. Because of this supply chain complexity, data and model provenance is a helpful activity. 
 
-Maintaining structured records for AI-specific assets and services helps establish provenance and accountability across the supply chain. Relevant information includes:
-- origin and versioning of models and datasets (provenance) including pre-trained model lineage,
+Maintaining structured, ideally machine-readable records for AI-specific assets and services helps establish provenance and accountability across the internal and exernal supply chain. Relevant information includes:
+- origin and versioning of models and datasets (provenance) including pre-trained model lineage, declared licenses, collection methods, and distribution channels,
+- sensitivity/anonymization notes of datasets,
+- description of prompts and guardrails,
+- information on any finetuning (e.g. LoRA/PEFT adapters)
 - checksums or hashes to identify specific instances,
 - training data sources and augmentation steps and data used to augment training data,
 - dependencies and environment requirements (e.g. hardware, frameworks, packages, etc.) relevant to security,
 - ownership, authorship, and responsible teams or suppliers.
 
-Such records are often referred to as Model Cards, AIBOMs (AI Bill of Materials), or MLBOMs (Machine Learning Bill of Materials), and can complement traditional SBOM practices by including AI-specific artifacts.
+Such records are often referred to as Model Cards, AIBOMs (AI Bill of Materials), or MLBOMs (Machine Learning Bill of Materials), and can complement traditional SBOM practices by including AI-specific artefacts.
 
-**AI Bill of Materials (AIBOM)**
-An AIBOM is a structured, machine-readable description of an AI system that records what the system actually contains and how information flows through it. It captures the components that an SBOM was never built to describe: model weights and adapters, training and fine-tuning datasets, prompts and templates, retrieval corpora, guardrail and moderation services, orchestration frameworks, and provider-managed APIs. Unlike a score or compliance verdict, an AIBOM records fact, which lets it serve as a common evidence base for security, governance, procurement, and audit decisions. Refer the [OWASP AIBOM Project](https://owaspaibom.org), the individual [Workstreams](https://owaspaibom.org/workstreams/) and the [OWASP AIBOM Foundations Guide](https://owaspaibom.org/whitepapers/) for the full specification.
+Bills of Materials may also contain runtime dependencies, such as services being referenced through a channel. In agentic AI this includes MCP servers and skills - where the latter is in essence not a service, but a specific context -specification from the supply chain.
 
-Typical AIBOM content includes:
-- **Models:** base model digests, declared licenses, distribution channels, signatures, fine-tunes, LoRA/PEFT adapters, checkpoints.
-- **Datasets:** dataset ID/version, hash, licenses, source URLs, snapshots, collection methods, sensitivity/anonymization notes.
-- **Agents and tools:** orchestrators, APIs, extensions, MCP servers with focus on AgBOM (Agentic Bill of Materials).
-- **Prompts and guardrails:** templates, policy packs, security notes.
-- **Runtime:** containers, dependencies, timestamps.
-- **Build provenance:** digests of built images, input source locations, build arguments, build duration.
+For a Bill of Materials to be usable as a governance artefact rather than a shelf document, four properties matter: *accountable authorship* (who asserted each claim, when, and how), *declared scope and an explicit completeness claim* (what it covers and how confidently), *claims tied to evidence* (hashes, signatures, model cards, evaluation results that a consumer can independently check), and *a controlled lifecycle* (versioned, approved, refreshed on material change, and preserved after retirement). An AIBOM is not a control in itself: it blocks nothing until an organization builds a gate, a review, or a query that reads it. 
 
-For an AIBOM to be usable as a governance artifact rather than a shelf document, four properties matter: *accountable authorship* (who asserted each claim, when, and how), *declared scope and an explicit completeness claim* (what it covers and how confidently), *claims tied to evidence* (hashes, signatures, model cards, evaluation results that a consumer can independently check), and *a controlled lifecycle* (versioned, approved, refreshed on material change, and preserved after retirement). An AIBOM is not a control in itself: it blocks nothing until an organization builds a gate, a review, or a query that reads it. 
-
-**Structure.** An AIBOM has four parts: a *header* declaring graph type, scope, and completeness; a *component list* of models, datasets, agents, tools, services, and runtime elements; *directed data flows* that connect components and record what moves between them (payload, protocol, encryption, timing); and *evidence and provenance references* (hashes, signatures, model cards, evaluations) attached to specific nodes and edges. Components may be grouped into *trust zones* (own infrastructure, provider cloud, public internet) so that boundary crossings — where supply chain risk concentrates — are explicit in the record.
-
-**Encoding.** The AIBOM structure is expressible natively in [OWASP CycloneDX](https://cyclonedx.org), the OWASP flagship BOM standard also ratified as Ecma International ECMA-424. CycloneDX v1.5 and later support a `machine-learning-model` component type as the basis for a Machine Learning Bill of Materials (ML-BOM). See the [OWASP CycloneDX Authoritative Guide to AI/ML-BOM](https://cyclonedx.org/guides/OWASP_CycloneDX-Authoritative-Guide-to-AI-ML-BOM-en.pdf) for the field-level encoding of model identifiers (PURL), dataset components, model cards (parameters, quantitative analysis, considerations), tokenizers and prompt templates, training and testing details, intended use and ethical considerations, and EU AI Act mappings. 
-
+An authoritative structure for AIBOM can be found at [OWASP CycloneDX](https://cyclonedx.org), the OWASP flagship BOM standard also ratified as Ecma International ECMA-424. CycloneDX v1.5 and later support a `machine-learning-model` component type as the basis for a Machine Learning Bill of Materials (ML-BOM). See the [OWASP CycloneDX Authoritative Guide to AI/ML-BOM](https://cyclonedx.org/guides/OWASP_CycloneDX-Authoritative-Guide-to-AI-ML-BOM-en.pdf) for the field-level encoding of model identifiers (PURL), dataset components, model cards (parameters, quantitative analysis, considerations), tokenizers and prompt templates, training and testing details, intended use and ethical considerations, and EU AI Act mappings. 
 
 **Implementation of lifecycle-aware record updates**  
 Provenance and traceability records benefit from being updated at meaningful points in the AI system lifecycle. Typical update points include initial model development, major model version releases, pre-production deployment, significant architecture changes, introduction of new training datasets, and critical dependency updates. Additional checkpoints may be defined based on team practices or risk posture.Making these update points explicitly helps ensure records remain accurate as models, data, and dependencies evolve over time.
   
-**Implementation of Integrity, verification, and vulnerability management**  
-Supply chain management benefits from verifying the integrity and authenticity of supplied data and models. Common techniques include:
+**Implementation of Integrity, verification**  
+Supply chain management benefits from verifying the integrity and authenticity of supplied components (e.g. data and models). Common techniques include:
 - checksum or hash verification,
 - signed attestations and integrity metadata,
 - content-addressable storage or verification at read time,
 - periodic integrity audits.
 
+This helps to protect against for example:
+- *Public model repositories compromised with serialization payloads*: public hubs have repeatedly shipped models carrying malicious code in serialization formats such as pickle. Comparing a deployed model's hash against the signature recorded in the AIBOM detects tampering before the model is loaded.
+- *Dataset contamination*: training and fine-tuning data scraped from the public web can be deliberately seeded with poisoned content.
+
 **Agent component integrity:** Maintain a per-agent bill of materials (model versions, MCP servers, skills, plugins, libraries, configuration files). Sign components at origin; verify signatures in the deployment pipeline and reject deployments that fail verification or do not match the approved BOM. Monitor at runtime for unauthorised component changes (drift from deployed versions). Apply the same standards to third-party components; items without verifiable provenance should be treated as untrusted.
 
 Monitoring for known vulnerabilities affecting supplied models, data pipelines, and dependencies, based on regular review of relevant security advisories and communications, allows teams to respond to newly discovered risks in a timely manner, informed by severity and exploitability, through updates, containment, or compensating controls. These activities can be integrated into broader vulnerability management and incident response processes (see #[DEV SECURITY](/go/devsecurity)).
 
-**Agent dependency vulnerability management:** Maintain a continuously updated inventory of agent dependencies — model providers, tool and MCP server endpoints, orchestration frameworks, and runtime libraries. Subscribe to advisories, automate scanning in CI/CD, and define severity-based remediation SLAs. When immediate patching is infeasible, apply compensating controls (restrict affected tools, narrow segmentation, increase monitoring, temporarily disable functionality). Note that vulnerability disclosure for model providers and MCP servers is less mature than for conventional software; periodic reviews should also retire deprecated or unmaintained components.
-
-**AIBOM-supported detection of supply chain threats:** AIBOM records give defenders the specific fields needed to detect common AI supply chain attacks:
-- *Compromised public model repositories*: public hubs have repeatedly shipped models carrying malicious code in serialization formats such as pickle. Comparing a deployed model's hash against the signature recorded in the AIBOM detects tampering before the model is loaded.
-- *Dataset contamination*: training and fine-tuning data scraped from the public web can be deliberately seeded with poisoned content. Dataset IDs, source URLs, snapshots, and processing steps in the AIBOM let teams audit what entered the pipeline and when.
-- *Transitive dependencies*: every model carries upstream dependencies on tokenizers, base weights, and supporting libraries. Recording these in the AIBOM makes the full lineage queryable when a CVE lands on any node.
-- *Insider and developer risk*: internal fine-tuning and labelling pipelines introduce the same provenance gaps as external ones. Applying the AIBOM's authorship, approval, and hash fields to internal artifacts closes that gap.
-- *Silent provider changes*: a hosted model's versioned alias can be re-pointed to a new snapshot by the provider at any time. The AIBOM records which exact snapshot was evaluated and approved, so a behaviour shift or incident maps directly to the upstream change.
+**Dependency vulnerability management:** Maintain a continuously updated inventory of dependencies — model providers, tool and MCP server endpoints, orchestration frameworks, and runtime libraries. Subscribe to advisories, automate scanning in CI/CD, and define severity-based remediation SLAs. When immediate patching is infeasible, apply compensating controls (restrict affected tools, narrow segmentation, increase monitoring, temporarily disable functionality). Note that vulnerability disclosure for model providers and MCP servers is less mature than for conventional software; periodic reviews should also retire deprecated or unmaintained components. Include transitive dependencies: every model carries upstream dependencies on tokenizers, base weights, and supporting libraries. Recording and tracking these AIBOM makes the full lineage queryable when a CVE lands on any node.
 
 **Implementation of supplier evaluation and security assessment of supplied models, model hosting, and abilities**  
 Evaluating the trustworthiness of suppliers (external vendors or internal teams) helps contextualize supply chain risk. This may include reviewing:
@@ -379,11 +367,12 @@ Complex multi-party supply chains may make full traceability difficult, and trus
     - [ENISA: sec. Table 5:: Ensure reliable sources are used](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
     - [MITRE ATLAS: sec. AML.M0014: Verify AI Artifacts](https://atlas.mitre.org/mitigations/AML.M0014)
     - [MITRE ATLAS: sec. AML.M0023: AI Bill of Materials](https://atlas.mitre.org/mitigations/AML.M0023)
-    - [OWASP AIBOM Foundations Guide v1.0](https://owaspaibom.org/whitepapers/)
-    - [OWASP CycloneDX Authoritative Guide to AI/ML-BOM](https://cyclonedx.org/guides/OWASP_CycloneDX-Authoritative-Guide-to-AI-ML-BOM-en.pdf)
     - [NIST AI 100-2: sec. 3.2: AI Supply Chain Attacks and Mitigations](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
 <!-- OPENCRE_SECTION_CRE_END slug=supplychainmanage -->
-See [MITRE ATLAS - ML Supply chain compromise](https://atlas.mitre.org/techniques/AML.T0010).
+- [MITRE ATLAS - ML Supply chain compromise](https://atlas.mitre.org/techniques/AML.T0010).
+- [OWASP AIBOM Foundations Guide v1.0](https://owaspaibom.org/whitepapers/)
+- [OWASP CycloneDX Authoritative Guide to AI/ML-BOM](https://cyclonedx.org/guides/OWASP_CycloneDX-Authoritative-Guide-to-AI-ML-BOM-en.pdf)
+
 
 Useful standards include:
 - ISO  Controls 5.19, 5.20, 5.21, 5.22, 5.23, 8.30. Gap: covers this control fully, with said particularity, and lacking controls on data provenance.
@@ -391,7 +380,7 @@ Useful standards include:
 - ISO/IEC AWI 5181 (Data provenance). Gap: covers the data provenance aspect to complete the coverage together with the ISO 27002 controls - provided that the provenance concerns all sensitive data and is not limited to personal data.
 - ISO/IEC 42001 (AI management) briefly mentions data provenance and refers to ISO 5181 in section B.7.5
 - [ETSI GR SAI 002 V 1.1.1 Securing Artificial Intelligence (SAI) – Data Supply Chain Security](https://www.etsi.org/deliver/etsi_gr/SAI/001_099/002/01.01.01_60/gr_SAI002v010101p.pdf)
-- [OpenCRE](https://www.opencre.org/cre/613-285)
+- [OpenCRE on Supply Chain Management](https://www.opencre.org/cre/613-285)
 
 ---
 
