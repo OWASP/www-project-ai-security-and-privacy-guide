@@ -587,10 +587,10 @@ Clickable version, based on the [Periodic table](/go/periodictable):
 <table><thead>
 <tr><th>Asset &amp; Impact</th><th>Attack surface with lifecycle</th><th>Threat/Risk category</th></tr>
 </thead><tbody>
-<tr><td rowspan="7">Model behaviour Integrity</td><td rowspan="3">Runtime -Input attack (provide input/ read output)</td><td><a href="/go/directpromptinjection">Direct prompt injection</a></td></tr>
-<tr>                                         <td><a href="/go/indirectpromptinjection">Indirect prompt injection</a></td></tr>
-<tr>                                         <td><a href="/go/evasion">Evasion</a> (e.g., adversarial examples)</td></tr>
-<tr>                                         <td>Runtime - Break into deployed model</td><td><a href="/go/runtimemodelpoison">Direct runtime Model poisoning</a> (reprogramming)</td></tr>
+<tr><td rowspan="9">Model behaviour Integrity</td><td rowspan="3">Runtime -Input attack (provide input/ read output)</td><td><a href="/go/directpromptinjection">Direct prompt injection (CRE686-110)</a></td></tr>
+<tr>                                         <td><a href="/go/indirectpromptinjection">Indirect prompt injection (CRE012-625)</a></td></tr>
+<tr>                                         <td><a href="/go/evasion">Evasion (CRE370-877)</a></td></tr>
+<tr>                                         <td>Runtime - Break into deployed model</td><td><a href="/go/runtimemodelpoison">Direct runtime Model poisoning (CRE020-540)</a> (reprogramming)</td></tr>
 <tr>                                         <td>Runtime - Break into augmmentation data</td><td><a href="/go/augmentationdatamanipulation">Augmentation data manipulation</a></td></tr>
 <tr><td rowspan="2">Development -Engineering environment</td><td><a href="/go/devmodelpoison">Direct development-time model poisoning</a></td></tr>
 <tr>                                         <td><a href="/go/datapoison">Data poisoning of train/finetune data</a></td></tr>
