@@ -222,9 +222,10 @@ Alternative ways for augmentation data to leak are:
 > Permalink: https://owaspai.org/go/augmentationdataconfidentiality
 
 **Description**  
-See the [security program](/go/secprogram) and [application security](/go/secdevprogram), [development environment security](/go/devsecurity), and [data segregation](/go/segregatedata) to protect the confidentiality of transporting and storing augmentation data (e.g., access control, encryption, minimize retention). Because stored vectors can be inverted to recover source text (see 4.6), hold vector database backups at the sensitivity tier of the source documents, and treat embeddings sent to a third-party embedding service as a transfer of the underlying data.
-
-
+See the [security program](/go/secprogram) and [application security](/go/secdevprogram), [development environment security](/go/devsecurity), and [data segregation](/go/segregatedata) to protect the confidentiality of transporting and storing augmentation data (e.g., access control, encryption, minimize retention). Assets to protect: 
+- A typical place for augmentation data to be stored is in vector databases
+- because augmentation data is any data that is inserted into the input of the model, it includes all context, which can be stored in for example MD files, memory, or system prompt storage.
+- Because stored vectors can be inverted to recover source text (see 4.6), hold vector database backups at the sensitivity tier of the source documents, and treat embeddings sent to a third-party embedding service as a transfer of the underlying data.
 
 ---
 
