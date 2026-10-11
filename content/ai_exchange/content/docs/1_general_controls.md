@@ -607,7 +607,7 @@ Example: LLMs (GenAI), just like most AI models, induce their results based on t
 > Permalink: https://owaspai.org/go/oversight
 
 **Description**  
-Oversight of internal and external AI system behaviour by humans and/or automated mechanisms (e.g.,using rules).
+Oversight of internal and external AI system behaviour by humans and/or automated mechanisms (e.g. using rules).
 
 **Objective**  
 Detect unwanted AI behaviour and respond to it. Responses include correcting, halting execution, deferring to an (other) human-in-the-loop, or issuing an alert to be investigated.
@@ -630,6 +630,11 @@ Automated oversight is about implementing **detection mechanisms** to recognize 
     - A special category of sensitive data: system prompts, as they can be used by attackers to circumvent prompt injection protection in such prompts. 
     - Suspicious actions or sequences of actions detected in the AI system, either by looking at function calls in model output, function calls before they are executed, or after they are executed.
 
+Best practices:
+- Apply **Grounding checks** if recognizing unwanted output based on context is too difficult to catch in rules, and the detection of malicious input is insufficient. The idea of grounding checks is to let a separate Generative AI model decide if an input or output is off-topic or escalates capabilities (e.g. a LLM powered food recipes app suddenly is trying to send emails). This takes the use of LLMs to detect suspicious input and output a step further by including context. This is required in case GenAI-based recognition is insufficient to cover certain attack scenarios (see above).
+- Implement appropriate general detection and response mechanisms as presented in [#MONITOR USE](/go/monitoruse) where part of the response can be to involve a human-in-the-loop.
+- Include as part of response options **rollback mechanisms** to enable oversight to go back to a certain state after system malfunction or manipulation has been observed and the state of the system cannot be trusted, or has been disrupted.
+
 Strategies for action detection:
 - **Detect privilege escalation:** Ideally, the privileges of an AI agent are already hardened to the task (see [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege)), in which case detection comes down to issuing an alert once a model attempts to execute an action for which it has no permissions.
 - In addition, the strategy can include the detection of unusual function calls in the context, issuing alerts for further investigation, or asking for approval by a human in the loop. Manipulation of function flow is commonly referred to as _application flow perturbation_. An advanced way to detect manipulated workflows is to perform rule-based sanity checks during steps, e.g. verify whether certain safety checks of filters were executed before processing data.
@@ -640,9 +645,11 @@ Strategies for action detection:
 - **Deceptive reasoning and chain-of-thought manipulation:** Monitor stated plans and chain-of-thought outputs for consistency with task objectives and policy constraints — flag justifications for policy exceptions, self-granted permission escalation, or rationalisation of normally refused actions. Compare stated intent against actual tool calls and side effects; divergence is a high-confidence indicator of corrupted reasoning or [prompt injection](/go/promptinjection) / [memory manipulation](/go/augmentationdatamanipulation). For high-impact decisions, apply independent reasoning validation with a separate constrained model (preferably a different model family). Restrict agent introspection on its own guardrails, policy boundaries, or monitoring mechanisms where feasible.
 - **Impersonation and delegation anomalies:** Flag inter-agent traffic from identities not in the verified registry, behavioural baseline deviations, or delegation chains exceeding configured depth — see [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege) delegation controls and [agent message structure manipulation](/go/agentmessagestructuremanipulation).
 - **Secure orchestration:** Treat the orchestrator as the highest-leverage target — validate and segregate all inputs (sub-agent responses, tool outputs, external content) as untrusted; limit orchestrator permissions to coordination only (no direct high-impact tool credentials); tamper-evident workflow log external to orchestrator memory; human approval before irreversible or cross-system workflows; block direct orchestrator egress — route external access through segmented sub-agents ([agent sandboxing](/go/agentsandboxing)); reconcile agent actions against workflow log for phantom steps.
-- Apply **Grounding checks** if recognizing unwanted output based on context is too difficult to catch in rules, and the detection of malicious input is insufficient. The idea of grounding checks is to let a separate Generative AI model decide if an input or output is off-topic or escalates capabilities (e.g. a LLM powered food recipes app suddenly is trying to send emails). This takes the use of LLMs to detect suspicious input and output a step further by including context. This is required in case GenAI-based recognition is insufficient to cover certain attack scenarios (see above).
-- Implement appropriate general detection and response mechanisms as presented in [#MONITOR USE](/go/monitoruse) where part of the response can be to involve a human-in-the-loop.
-- Include as part of response options **rollback mechanisms** to enable oversight to go back to a certain state after system malfunction or manipulation has been observed and the state of the system cannot be trusted, or has been disrupted.
+- **Agentic Rule of Two:** until reliable model-layer refusal exists, an agent session should satisfy no more than two of: (A) processing untrustworthy inputs, (B) accessing sensitive systems or private data, (C) changing state or communicating externally. When all three are required, operate under human-in-the-loop supervision.
+- **Privilege-based data flow control (CaMeL):** attach capability metadata to values and restrict data and control flows with policies.
+- **Tool-boundary firewalls:** complementary firewalls at the agent-to-tool boundary — an input firewall limits private information reaching tool execution (as described in [#SENSITIVE OUTPUT HANDLING](/go/sensitiveoutputhandling)); an output firewall sanitises tool responses (as described in [#PROMPT INJECTION I/O/HANDLING](/go/promptinjectioniohandling)). These are typically lighter than dual-LLM architectures. 
+
+
 
 **Implementation of Human oversight (human-in-the-loop)**  
 Classify agent actions by **risk tier** before deployment and assign oversight requirements: fully autonomous execution; soft confirmation (user notified with option to cancel); hard confirmation (user must actively approve with context); or mandatory human initiation (agent cannot start without human trigger). Implement checkpoints as **infrastructure-layer gates**, not LLM instructions — the agent must be technically incapable of proceeding without a verified human approval signal.
