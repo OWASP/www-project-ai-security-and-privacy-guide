@@ -1111,29 +1111,12 @@ After training data has been poisoned (see [data poisoning section](/go/datapois
 >Permalink: https://owaspai.org/go/promptinjection
 
 **Description**  
-Prompt injection attacks involve maliciously crafting or manipulating instructions in input prompts, directly or indirectly, in order to exploit vulnerabilities in model processing capabilities or to trick them into executing unintended actions.  
+Prompt injection attacks involve maliciously crafting or manipulating instructions in input prompts, directly or indirectly, in order to exploit vulnerabilities in model processing capabilities to trick them into providing unwanted output or executing unwanted actions.  
+
 This section discusses the two types of prompt injection and the mitigation controls:
 - [Direct prompt injection](/go/directpromptinjection)
 - [Indirect prompt injection](/go/indirectpromptinjection)
 
-**Agentic prompt injection**  
-In agentic systems, user data and system commands share the same context plane — there is no parameterized-query equivalent. The dominant risk often shifts from safety violations (offensive or policy-breaking text) to **integrity compromises** where adversaries hijack agent **actions** through tools and side effects. See [Agentic AI](/go/agenticaithreats) and the [seven layers of protection](/go/promptinjectionsevenlayers).
-
-Beyond direct and indirect injection, agentic deployments add:
-
-- **In-context manipulation:** injection of adversarial content into the agent's active context window during a session. This overlaps [indirect prompt injection](/go/indirectpromptinjection) when untrusted content is retrieved into the window; unlike one-shot injection, effects can accumulate across turns within the session unless context is reset.
-- **Stored injection:** a subclass of indirect injection where the payload persists in a data store (RAG index, shared documents, database) and is retrieved in later sessions — see also [augmentation data manipulation](/go/augmentationdatamanipulation) and [data poisoning](/go/datapoison).
-- **Multi-agent propagation:** a low-privileged agent is tricked into requesting a higher-privileged agent to perform an action on its behalf.
-
-**Structural mitigations for agentic systems:**
-
-- **Agentic Rule of Two:** until reliable model-layer refusal exists, an agent session should satisfy no more than two of: (A) processing untrustworthy inputs, (B) accessing sensitive systems or private data, (C) changing state or communicating externally. When all three are required, operate under human-in-the-loop supervision ([#OVERSIGHT](/go/oversight)).
-- **Privilege-based data flow control (CaMeL):** attach capability metadata to values and restrict data and control flows with policies; convert user intent to sandboxed code steps rather than unconstrained natural-language tool calls.
-- **Instruction and data separation:** split context into commands versus data — see [#INPUT SEGREGATION](/go/inputsegregation) and [#PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling).
-- **Tool-boundary firewalls:** complementary firewalls at the agent-to-tool boundary — an input firewall limits private information reaching tool execution; an output firewall sanitises tool responses. These are typically lighter than dual-LLM architectures.
-- **Detection layers:** defences operate at text, model, and execution levels; execution-level detection (observing actual tool calls and side effects) is often the most reliable when confidentiality and integrity of actions matter.
-
-Static or model-only defences evaluated against fixed example attacks do not provide security guarantees against adaptive adversaries. Under current architectures, prompt injection is not solvable at the model layer alone. Rely on structural [blast radius control](/go/limitunwanted) — [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege), [#OVERSIGHT](/go/oversight), [#MONITOR USE](/go/monitoruse) — rather than probabilistic filters over model output alone.
 
 ### 2.2.1. Direct prompt injection
 >Category: input threat  
@@ -1142,13 +1125,12 @@ Static or model-only defences evaluated against fixed example attacks do not pro
 **Description**  
 Direct prompt injection: a user tries to fool a Generative AI (e.g. a Large Language Model) by presenting prompts that make it behave in unwanted ways. It can be seen as social engineering of a generative AI. This is different from an [evasion attack](/go/evasion) which inputs manipulated data (instead of instructions) to make the model perform its task incorrectly.
 
-Impact: Obtaining information from the AI that is offensive, confidential, could grant certain legal rights, or triggers unauthorized functionality. Note that the person providing the prompt is the one receiving this information. The model itself is typically not altered, so this attack does not affect anyone else outside of the user (i.e., the attacker). The exception is when a model works with a shared context between users that can be influenced by user instructions.
+Impact: Obtaining information from the AI that is offensive, confidential, could grant certain legal rights, or trigger unauthorized functionality. Note that the person providing the prompt is the one receiving this information. The model itself is typically not altered, so this attack does not affect anyone else outside of the user (i.e., the attacker). The exception is when a model works with a shared context between users that can be influenced by user instructions.
 
 Many Generative AI systems have been adjusted by their suppliers to behave (so-called _alignment_ or _safety training_), for example to prevent offensive language, or dangerous instructions. When prompt injection is  aimed at countering this, it is referred to as a *jailbreak attack*. Jailbreak attack strategies include:
 1. Abusing competing objectives. For example: if a model wants to be helpful, but also can't give you malicious instructions, then a prompt injection could abuse this by appealing to the helpfulness to still get the instructions.
 2. Using input that is not recognized by the alignment ('out of distribution') but IS resulting in an answer based on the training data ('in distribution'). For example: using special encoding that fools safety training, but still results in the unwanted output.
 
-**Agentic jailbreak (multi-turn):** In multi-turn agents, jailbreak is often a **session-level** problem — safety constraints that hold on turn one can degrade under incremental reframing across many turns (_crescendo_ patterns). Per-request safety checks may miss progressive constraint relaxation: an agent that refuses in turn one but complies by turn ten has been jailbroken across the session. Use session-level behavioural tracking ([#OVERSIGHT](/go/oversight)) and include multi-turn paths in [testing](/go/testing). This is distinct from **[agent escape](/go/agentescape)** — exceeding the operational boundary through unauthorised tools, systems, or scope — which must be enforced at the infrastructure layer ([#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege)), not by alignment alone.
 
 Common forms (attack classes, strategies) of prompt injections include:
 
@@ -1181,6 +1163,9 @@ Very long inputs can overwhelm the AI or make safety instructions less effective
 
 j) Training data extraction  
 Attempts to extract sensitive training data are addressed separately as [disclosure in model output](/go/disclosureinoutput).
+
+k) Agentic jailbreak (multi-turn): In multi-turn agents, jailbreak is often a session-level problem — safety constraints that hold on turn one can degrade under incremental reframing across many turns (_crescendo_ patterns). Per-request safety checks may miss progressive constraint relaxation: an agent that refuses in turn one but complies by turn ten has been jailbroken across the session. Use session-level behavioural tracking ([#OVERSIGHT](/go/oversight)) and include multi-turn paths in [testing](/go/testing). This is distinct from [agent escape](/go/agentescape) — exceeding the operational boundary through unauthorised tools, systems, or scope — which must be enforced at the infrastructure layer ([#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege)), not by alignment alone.
+
 
 
 **Examples of prompt injection**  
@@ -1216,16 +1201,18 @@ Multimodal prompt injection can be:
 - Direct when the attacker uploads or controls the multimodal input (for example, an end user uploads an adversarial image with hidden instructions along with a natural-language query).
 - Indirect when untrusted multimodal content (for example a product screenshot, scanned form, or social-media image) is automatically pulled in by an application and passed to a multimodal model as context, similar to remote code execution via untrusted data.
 ​
- 
+<!-- This section is copied under indirect prompt injection --> 
 **Controls for all forms of prompt injection:**
 - See [General controls](/go/generalcontrols):
-  - Especially [limiting the impact of unwanted model behaviour](/go/limitunwanted) is important, with key controls [MODEL ALIGNMENT](/go/modelalignment), [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege) and [OVERSIGHT](/go/oversight), given that prompt injection is hard to prevent.
+  - Especially [limiting the impact of unwanted model behaviour](/go/limitunwanted) is important, with key controls [MODEL ALIGNMENT](/go/modelalignment), [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege) and [OVERSIGHT](/go/oversight), given that prompt injection is hard to prevent and therefore blast radius control is key. 
 - Controls for [input threats](/go/inputthreats), to limit the user set, oversee use and, prevent experiments that require many interactions:
   - [#MONITOR USE](/go/monitoruse) to detect suspicious input or output
   - [#RATE LIMIT](/go/ratelimit) to limit the attacker trying numerous attack variants in a short time
   - [#MODEL ACCESS CONTROL](/go/modelaccesscontrol) to reduce the number of potential attackers to a minimum
 - Controls for [prompt injection](/go/promptinjection):
   - [#PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling) to handle any suspicious input or output - see below
+ 
+See the [seven layers section](/go/promptinjectionsevenlayers) on how these controls form layers of protection. After model alignment and filtering and detection, it should be assumed that prompt injection can still happen and therefore it is critical that _blast radius control_ is performed.
  
 
 **References**  
@@ -1369,9 +1356,12 @@ This control does not replace access control, rate limiting, or monitoring, but 
 **Description**  
 Indirect prompt injection: a third party fools a large language model (GenAI) through the inclusion of (often hidden) instructions as part of a text that is inserted into a prompt by an application, causing unintended actions or answers by the LLM (GenAI). This is similar to remote code execution.
 
-In agentic systems that retrieve external content, invoke tools, or share memory across sessions, indirect injection is typically the **dominant** threat class — every external source is an attack surface. Persistent payloads in RAG indexes or shared documents and [multi-agent propagation](/go/promptinjection) (delegating to a higher-privileged agent) extend the classic pattern.
+The underlying cause of this threat is that data and instrucctions share the same context plane: the prompt — there is no parameterized-query equivalent like in databases where there is a strict separation between instruction and data.
 
-Impact: Getting unwanted answers or actions (see [Agentic AI](/go/agenticaithreats)) from instructions in untrusted input that has been inserted in a prompt.
+In agentic systems that retrieve external content, invoke tools, or share memory across sessions, indirect injection is typically the **dominant** threat class — every external source is an attack surface. Persistent payloads in RAG indexes or shared documents and [multi-agent propagation](/go/promptinjection) (delegating to a higher-privileged agent) extend the classic pattern. 
+
+Impact: Getting unwanted answers or actions (see [Agentic AI](/go/agenticaioverview)) from instructions in untrusted input data has been inserted in a prompt by the application.
+
 
 Example 1: let's say a chat application takes questions about car models. It turns a question into a prompt to a Large Language Model (LLM, a GenAI) by adding the text from the website about that car. If that website has been compromised with instructions invisible to the eye, those instructions are inserted into the prompt and may result in the user getting false or offensive information.
 
@@ -1381,14 +1371,20 @@ Example 3: consider multi-modal agents where they parse both text and image data
 
 Example 4: Say an LLM is connected to a plugin that has access to a Github account and the LLM also has access to web sites to look up information. An attacker can hide instructions on a website and then make sure that the LLM reads that website. These instructions may then for example make a private coding project public. See this [talk by Johann Rehberger](https://youtu.be/ADHAokjniE4?si=sAGImaFX49mi8dmk&t=1474)
 
+Example 5: Multi-agent propagation: a low-privileged agent is tricked into requesting a higher-privileged agent to perform an action on its behalf.
+
+Example 6: Stored injection: a subclass of indirect injection where the payload persists in a data store (RAG index, shared documents, database) and is retrieved in later sessions — see also [augmentation data manipulation](/go/augmentationdatamanipulation).
+
+
 Mappings
 - [OWASP Top 10 for LLM 01: Prompt Injection](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)
 - [MITRE ATLAS - LLM Prompt Injection](https://atlas.mitre.org/techniques/AML.T0051)
 
+<!-- This section is copied under direct prompt injection --> 
 **Controls**
 
 - See [General controls](/go/generalcontrols):
-  - Especially [limiting the impact of unwanted model behaviour](/go/limitunwanted) is important, with key controls [MODEL ALIGNMENT](/go/modelalignment), [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege) and [OVERSIGHT](/go/oversight), given that prompt injection is hard to prevent.
+  - Especially [limiting the impact of unwanted model behaviour](/go/limitunwanted) is important, with key controls [MODEL ALIGNMENT](/go/modelalignment), [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege) and [OVERSIGHT](/go/oversight), given that prompt injection is hard to prevent and therefore blast radius control is key. Execution-level detection (oversight of actual tool calls and side effects) is often the most reliable when confidentiality and integrity of actions matter.
 - Controls for [input threats](/go/inputthreats), to limit the user set, oversee use and, prevent experiments that require many interactions:
   - [#MONITOR USE](/go/monitoruse) to detect suspicious input or output
   - [#RATE LIMIT](/go/ratelimit) to limit the attacker trying numerous attack variants in a short time
