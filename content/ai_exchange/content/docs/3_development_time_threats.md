@@ -265,7 +265,7 @@ Risk management determines when deeper governance or verification is warranted, 
 **Implementation of provenance, record keeping, and traceability**  
 The AI supply chain can be complex. Just like with obtained source code or software components, data, models, model hosting, and abilities may involve multiple suppliers, including internal suppliers. For example: a model is trained by one vendor and then fine-tuned by another vendor. Or: an AI system contains multiple models, one is a model that has been fine-tuned with data from source X, using a base model from vendor A that claims data is used from sources Y and Z, where the data from source Z was labeled by vendor B. Because of this supply chain complexity, data and model provenance is a helpful activity. 
 
-Maintaining structured, ideally machine-readable records for AI-specific assets and services helps establish provenance and accountability across the internal and exernal supply chain. Relevant information includes:
+Maintaining structured, ideally machine-readable records for AI-specific assets and services helps establish provenance and accountability across the internal and external supply chain. Relevant information includes:
 - origin and versioning of models and datasets (provenance) including pre-trained model lineage, declared licenses, collection methods, and distribution channels,
 - sensitivity/anonymization notes of datasets,
 - description of prompts and guardrails,
