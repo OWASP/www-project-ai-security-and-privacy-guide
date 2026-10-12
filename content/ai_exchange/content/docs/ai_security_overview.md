@@ -221,7 +221,7 @@ The AI Exchange is a single coherent resource on the security and privacy of AI 
    If you want your **AI system to be secure**, start with [threat modeling](/go/threatmodel) to guide you through a number of questions, resulting in the threats that apply. And when you click on those threats you'll find the controls (countermeasures) to check for, or to implement.
    Alternatively, you can let our [THREAT ADVISOR](/go/threatadvisor) ask YOU questions about your system and threat model for you. Just go to the advisor (requires a Google account) and start by briefly describing your system. Your data will remain in your own Google workspace.
 - **Learn AI security**:  
-  - Step 1: If you like a 101 on AI engineering, walk throught the [AI engineering primer for security professionals](/go/aiengineeringprimer)
+  - Step 1: If you like a 101 on AI engineering, walk through the [AI engineering primer for security professionals](/go/aiengineeringprimer)
   - Step 2: First study the brief [AI security essentials](/go/essentials) for the **big picture**.
   - Step 3: **Select** the threats that are relevant to your practice, by looking at [threat modeling](/go/threatmodel) - or let AI interview you to find out (see above), or skip this step if you want to learn the complete threat picture.
   - Step 4: If you're AI models can **trigger actions**, see the brief [Agentic AI overview](/go/agenticaioverview) to see how that aspect is throughout the Exchange.
@@ -393,7 +393,7 @@ The controls for AI security can be divided into four essential categories and 8
    > [MONITOR USE](/go/monitoruse)
 
 **Limit:**   
-- **Minimize or obfuscate sensitive data** because a model can accidentally leak daa or be misled to:
+- **Minimize or obfuscate sensitive data** because a model can accidentally leak data or be misled to:
   > ([DATA MINIMIZE](/go/dataminimize), [ALLOWED DATA](/go/alloweddata), [SHORT RETAIN](/go/shortretain), [OBFUSCATE TRAINING DATA](/go/obfuscatetrainingdata))
 - **Limit model behaviour**  because a model can accidentally make a mistake or be misled to:
   > [OVERSIGHT](/go/oversight), [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege), [AI TRANSPARENCY](/go/aitransparency), [EXPLAINABILITY](/go/explainability), [CONTINUOUS VALIDATION](/go/continuousvalidation), [UNWANTED BIAS TESTING](/go/unwantedbiastesting)
@@ -636,7 +636,7 @@ The table below gives practitioners a compact way to move from a general AI risk
 | Data and model supply chain | Untrusted data, third-party models, external hosting, or inherited vulnerabilities enter the AI system | [SUPPLY CHAIN MANAGE](/go/supplychainmanage), [DATA QUALITY CONTROL](/go/dataqualitycontrol)|
 | Sensitive data exposure | Training data, prompts, outputs, embeddings, logs, or augmentation data may reveal confidential or personal data | [DATA MINIMIZE](/go/dataminimize), [ALLOWED DATA](/go/alloweddata), [SHORT RETAIN](/go/shortretain), [OBFUSCATE TRAINING DATA](/go/obfuscatetrainingdata), [SENSITIVE OUTPUT HANDLING](/go/sensitiveoutputhandling), [SMALL MODEL](/go/smallmodel), [MODEL INPUT CONFIDENTIALITY](/go/modelinputconfidentiality), [AUGMENTATION DATA CONFIDENTIALITY](/go/augmentationdataconfidentiality) |
 | Manipulated model behavior | Adversarial inputs, prompt injection, poisoned data, or compromised models can change intended behavior | [OVERSIGHT](/go/oversight), [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege), [MODEL ALIGNMENT](/go/modelalignment), [PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling), [INPUT SEGREGATION](/go/inputsegregation), [ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling), [EVASION INPUT HANDLING](/go/evasioninputhandling), [EVASION ROBUST MODEL](/go/evasionrobustmodel), [TRAIN ADVERSARIAL](/go/trainadversarial), [ADVERSARIAL ROBUST DISTILLATION](/go/adversarialrobustdestillation), [POISON ROBUST MODEL](/go/poisonrobustmodel) |
-| Runtime resilience and abuse | Attackers can perform input attacks | [MONITOR USE](/go/monitoruse), [RATE LIMIT](/go/ratelimit), [MODEL ACCESSS CONTROL](/go/modelaccesscontrol), [ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling), [DOS INPUT VALIDATION](/go/dosinputvalidation), [LIMIT RESOURCES](/go/limitresources), [UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling), and see Manipulated model behaviour for controls against those input attacks |
+| Runtime resilience and abuse | Attackers can perform input attacks | [MONITOR USE](/go/monitoruse), [RATE LIMIT](/go/ratelimit), [MODEL ACCESS CONTROL](/go/modelaccesscontrol), [ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling), [DOS INPUT VALIDATION](/go/dosinputvalidation), [LIMIT RESOURCES](/go/limitresources), [UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling), and see Manipulated model behaviour for controls against those input attacks |
 | Ready-made or externally hosted models | The organization depends on a provider, external model hosting, or user-facing "shadow AI" alternatives | [SUPPLY CHAIN MANAGE](/go/supplychainmanage),  [DATA MINIMIZE](/go/dataminimize), [ALLOWED DATA](/go/alloweddata) |
 
 ### Threat map with controls - general
@@ -670,7 +670,7 @@ The controls for AI security can be divided into four essential categories and 8
    > [MONITOR USE](/go/monitoruse)
 
 **Limit:**   
-- **Minimize or obfuscate sensitive data** because a model can accidentally leak daa or be misled to:
+- **Minimize or obfuscate sensitive data** because a model can accidentally leak data or be misled to:
   > ([DATA MINIMIZE](/go/dataminimize), [ALLOWED DATA](/go/alloweddata), [SHORT RETAIN](/go/shortretain), [OBFUSCATE TRAINING DATA](/go/obfuscatetrainingdata))
 - **Limit model behaviour**  because a model can accidentally make a mistake or be misled to:
   > [OVERSIGHT](/go/oversight), [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege), [AI TRANSPARENCY](/go/aitransparency), [EXPLAINABILITY](/go/explainability), [CONTINUOUS VALIDATION](/go/continuousvalidation), [UNWANTED BIAS TESTING](/go/unwantedbiastesting)
@@ -730,7 +730,7 @@ The map below shows threats and controls of a ready-made model in an externally 
 
 [![AI Security Threats and controls - GenAI as-is](/images/threatscontrols-readymodel-hosted.png?v=2)](/images/threatscontrols-readymodel-hosted.png?v=2)
 
-A typical challenge for organizations is to control the use of ready-made-models for general purpose Generative AI (e.g., ChatGPT), since employees typically can access many of them, even for free. Some of these models may not satisfy the organization's requirements for security and privacy. Still, employees can be very tempted to use them with the lack of a better alterative, sometimes referred to as _shadow AI_. The best solution for this problem is to provide a good alternative in the form of an AI model that has been deployed and configured in a secure and privacy-preserving way, of sufficient quality, and complying with the organization's values and policies. In addition, the risks of shadow AI need to be made very clear to users.
+A typical challenge for organizations is to control the use of ready-made-models for general purpose Generative AI (e.g., ChatGPT), since employees typically can access many of them, even for free. Some of these models may not satisfy the organization's requirements for security and privacy. Still, employees can be very tempted to use them with the lack of a better alternative, sometimes referred to as _shadow AI_. The best solution for this problem is to provide a good alternative in the form of an AI model that has been deployed and configured in a secure and privacy-preserving way, of sufficient quality, and complying with the organization's values and policies. In addition, the risks of shadow AI need to be made very clear to users.
 
 ### Periodic table of AI security
 >Category: discussion  
