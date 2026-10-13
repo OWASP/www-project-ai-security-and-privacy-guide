@@ -602,6 +602,8 @@ Example: LLMs (GenAI), just like most AI models, induce their results based on t
 - [#EXPLAINABILITY](/go/EXPLAINABILITY)
 - [#UNWANTED BIAS TESTING](/go/UNWANTEDBIASTESTING)
 
+See the [Seven layers of prompt injection protection](/go/promptinjectionsevenlayers) to see how these controls interact for one of the key AI threats.
+
 #### #OVERSIGHT
 > Category: runtime control    
 > Permalink: https://owaspai.org/go/oversight
@@ -709,6 +711,7 @@ Useful standards include:
 
 **Description**  
 Least model privilege: Minimize what a model can do (trigger actions or access data), to prevent harm in case the model is manipulated, or makes a mistake by itself. 
+See the [Seven layers of prompt injection protection](/go/promptinjectionsevenlayers) to see how privilege controls interact for one of the key AI threats.
 
 **Implementation**
 - **Limit both permissions and attack surface**. Privileges can be controlled by configuring permissions in an authorization mechanism, and by removing access to elements and thus reducing the attack surface for a manipulated model (e.g., isolating or sand-boxing an agent by removing commands it could call from an image, or limit network access).
