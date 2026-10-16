@@ -213,9 +213,7 @@ weight: 1
   </div>
 </div>
 
-GENERAL WRITING GOAL: the non AI security  expert understands the topic, gets the important points of considerations and where to find more details - prioritizing clarity and completeness at the principle level while minimizing the number of words as a second priority.
 
-          <div class="py-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-200">
   <div class="container mx-auto p-0 max-w-3xl">
     <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 text-center">
       Site analytics
