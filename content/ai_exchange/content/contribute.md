@@ -200,10 +200,10 @@ weight: 1
         <span class="font-semibold">Refrain from Unnecessary Self-Promotion:</span> If referencing tools or articles you’re affiliated with, please disclose this relationship in your pull request.
       </p>
       <p class="mb-4">
-        <span class="font-semibold">AI: Anyone submitting work to OWASP that was created with material AI assistance must clearly label that use. Disclosure must identify, at minimum: (a) that AI was used; and (b)  what the AI was used for and to what extent (e.g., "first draft generated, then substantially rewritten," "code review assistance," "all diagrams AI-generated").
+        <span class="font-semibold">AI:</span> Anyone submitting work to OWASP that was created with material AI assistance must clearly label that use. Disclosure must identify, at minimum: (a) that AI was used; and (b)  what the AI was used for and to what extent (e.g., "first draft generated, then substantially rewritten," "code review assistance," "all diagrams AI-generated").
       </p>
       <p class="mb-4">
-        <span class="font-semibold">GENERAL WRITING GOAL: the non AI security  expert understands the topic, gets the important points of considerations and where to find more details - prioritizing clarity and completeness at the principle level while minimizing the number of words as a second priority.
+        <span class="font-semibold">General writing goal:</span> the non AI security  expert understands the topic, gets the important points of considerations and where to find more details - prioritizing clarity and completeness at the principle level while minimizing the number of words as a second priority.
       </p>
       <p>
         If you’re unsure about anything, feel free to
