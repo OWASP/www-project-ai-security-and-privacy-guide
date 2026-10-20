@@ -7,7 +7,7 @@ weight: 6
 > Category: discussion  
 > Permalink: https://owaspai.org/go/testing
 
-## Introduction
+## 5.1 Introduction
 Testing an AI system’s security relies on three strategies - part of the [secure development program](/go/secdevprogram):
 1.	**Conventional security testing** (i.e. _pentesting_): trying to attack the system through conventional attack surfaces (anything but AI input attacks): databases, network, development environment etc. AI introduces a number of digital assets for which conventional threats obviously apply - like for any digital asset. Examples of these assets are: model input, model parameters, and agent memory (augmentation data). See the [AI Security Matrix](/go/aisecuritymatrix) to see all the threats that are not input attacks, and perform [threat modeling](/go/threatmodel) to see which are relevant.
 2.	**Model performance validation** (see [continuous validation](/go/continuousvalidation)): testing if the model behaves according to its specified acceptance criteria using a testing set with inputs and outputs that represent the intended behaviour of the model. For security,this is to detect if the model behaviour has been altered permanently through data poisoning or model poisoning. For non-security, it is for testing functional correctness, model drift etc.
@@ -29,7 +29,7 @@ This section discusses:
 - [OWASP AI security testing guide](https://owasp.org/www-project-ai-testing-guide/)
 
 
-## 5.1 Threats to test for
+## 5.2 Threats to test for
 A comprehensive list of threats and controls coverage based on assets, impact, and attack surfaces is available as a [Periodic Table of AI Security](/go/periodictable). In this section, we provide a list of tools for AI Red Teaming Predictive and Generative AI systems, aiding steps such as Attack Scenarios, Test Execution through automated red teaming, and, oftentimes, Risk Assessment through risk scoring.
 
 Each listed tool addresses a subset of the threat landscape of AI systems. Below, we list some key threats to consider:
@@ -55,9 +55,9 @@ Each listed tool addresses a subset of the threat landscape of AI systems. Below
 While we have mentioned the key threats for each of the AI Paradigm, we strongly encourage the reader to refer to all threats at the AI Exchange, based on the outcome of the Objective and scope definition phase in AI Red Teaming.
 
 
-## 5.2 AI security testing strategies
+## 5.3 AI security testing strategies
 
-### 5.2.1 General AI security testing approach
+### 5.3.1 General AI security testing approach
 
 A systematic approach to AI security testing involves a few key steps:
 
@@ -70,7 +70,7 @@ A systematic approach to AI security testing involves a few key steps:
 - **Prioritization and Risk Mitigation:** Develop an action plan for remediation, implement mitigation measures, and calculate residual risk.
 - **Validation of Fixes:** Retest the system post-remediation.
 
-### 5.2.2 Agentic AI security testing
+### 5.3.2 Agentic AI security testing
 
 Agentic testing extends the general approach above — same lifecycle steps, but the attack surface spans tools, orchestration, inter-agent channels, and session-persistent state, not only model I/O.
 
@@ -109,7 +109,7 @@ Scope agentic pen tests across:
 
 Prioritise findings with an agentic-aware severity model: autonomous execution scope, persistence across sessions, multi-agent propagation potential, and irreversibility of impact.
 
-### 5.2.3 RAG system security testing
+### 5.3.3 RAG system security testing
 >Category: discussion  
 >Permalink: https://owaspai.org/go/ragtesting
 
@@ -166,7 +166,7 @@ Prioritise findings by: authorization impact (does this cross a trust boundary),
 - See [prompt injection testing](/go/testingpromptinjection) above for payload construction and detection pairing — reused directly for the retrieval-channel tests here.
 - [retrieval-scope-tester](https://github.com/vishnu-77/retrieval-scope-tester) — an external reference implementation of the retrieval-scope enforcement approach above (not an OWASP project).
 
-### 5.2.4 Testing against Prompt injection
+### 5.3.4 Testing against Prompt injection
 > Category: AI security test  
 > Permalink: https://owaspai.org/go/testingpromptinjection
 
@@ -249,7 +249,7 @@ It is of course important to also test the AI system for correct behaviour in be
 - [OpenAI Evals benchmark](https://github.com/openai/evals)
 
 
-### 5.2.5 Testing against Evasion
+### 5.3.5 Testing against Evasion
 > Category: AI security test  
 > Permalink: https://owaspai.org/go/testingevasion
 
@@ -309,8 +309,7 @@ NOTE Depending on the intended use, a single evasion input may be enough to caus
 It is of course important to also test the AI system for correct behaviour in benign situations. Depending on context, such testing may be integrated in the implementation of the security test by using the same mechanisms. Such testing ideally includes the testing of detection mechanisms, to ensure that not too many false positives are triggered by benign inputs. Positive testing is essential to ensure that security mechanisms do not degrade intended functionality or user experience beyond acceptable levels.
 
 
-
-## **5.3 Red Teaming tools for AI and GenAI**
+## **5.5 Red Teaming tools for AI and GenAI**
 
 The below mind map provides an overview of open-source tools for AI Red Teaming, categorized into Predictive AI Red Teaming and Generative AI Red Teaming, highlighting examples like ART, Armory, TextAttack, and Promptfoo. These tools represent current capabilities but are not exhaustive or ranked by importance, as additional tools and methods will likely emerge and be integrated into this space in the future.
 
@@ -322,7 +321,7 @@ The diagram below categorizes threats in AI systems and maps them to relevant op
 
 The below section will cover the tools for Predictive AI, followed by the section for Generative AI.
 
-## **5.4 Open source tools for Predictive AI Red Teaming**
+## **5.6 Open source tools for Predictive AI Red Teaming**
 > Category: tool review  
 > Permalink: https://owaspai.org/go/testingtoolspredictiveai
 
@@ -792,7 +791,7 @@ Notes:
 - Development-time Model poisoning: Simulates attacks during development to evaluate vulnerabilities[*https://owaspai.org/go/modelpoison*](https://owaspai.org/go/modelpoison)
 - Evasion:Tests model performance against adversarial inputs[*https://owaspai.org/go/evasion*](https://owaspai.org/go/evasion)
 
-## 5.5 Open source tools for Generative AI Red Teaming
+## 5.7 Open source tools for Generative AI Red Teaming
 > Category: tool review  
 > Permalink: https://owaspai.org/go/testingtoolsgenai
 
@@ -1263,7 +1262,7 @@ Notes:
 - Prompt Injection: Evaluates the robustness of generative AI models by exploiting weaknesses in prompt design, leading to undesired outputs or bypassing model safeguards.
 *[https://owaspai.org/go/promptinjection](https://owaspai.org/go/promptinjection)*
 
-## 5.6 Tool Ratings
+## 5.8 Tool Ratings
 This section rates the discussed tools by Popularity, Community Support, Scalability and Integration.
 
 [![](https://owaspai.org/images/testtoolrating.png)](https://owaspai.org/images/testtoolrating.png)
