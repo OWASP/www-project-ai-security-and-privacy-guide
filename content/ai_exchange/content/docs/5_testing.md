@@ -29,7 +29,7 @@ This section discusses:
 - [OWASP AI security testing guide](https://owasp.org/www-project-ai-testing-guide/)
 
 
-## Threats to test for
+## 5.1 Threats to test for
 A comprehensive list of threats and controls coverage based on assets, impact, and attack surfaces is available as a [Periodic Table of AI Security](/go/periodictable). In this section, we provide a list of tools for AI Red Teaming Predictive and Generative AI systems, aiding steps such as Attack Scenarios, Test Execution through automated red teaming, and, oftentimes, Risk Assessment through risk scoring.
 
 Each listed tool addresses a subset of the threat landscape of AI systems. Below, we list some key threats to consider:
@@ -55,9 +55,9 @@ Each listed tool addresses a subset of the threat landscape of AI systems. Below
 While we have mentioned the key threats for each of the AI Paradigm, we strongly encourage the reader to refer to all threats at the AI Exchange, based on the outcome of the Objective and scope definition phase in AI Red Teaming.
 
 
-## AI security testing strategies
+## 5.2 AI security testing strategies
 
-### General AI security testing approach
+### 5.2.1 General AI security testing approach
 
 A systematic approach to AI security testing involves a few key steps:
 
@@ -70,7 +70,7 @@ A systematic approach to AI security testing involves a few key steps:
 - **Prioritization and Risk Mitigation:** Develop an action plan for remediation, implement mitigation measures, and calculate residual risk.
 - **Validation of Fixes:** Retest the system post-remediation.
 
-### Agentic AI security testing
+### 5.2.2 Agentic AI security testing
 
 Agentic testing extends the general approach above — same lifecycle steps, but the attack surface spans tools, orchestration, inter-agent channels, and session-persistent state, not only model I/O.
 
@@ -109,7 +109,7 @@ Scope agentic pen tests across:
 
 Prioritise findings with an agentic-aware severity model: autonomous execution scope, persistence across sessions, multi-agent propagation potential, and irreversibility of impact.
 
-### RAG system security testing
+### 5.2.3 RAG system security testing
 >Category: discussion  
 >Permalink: https://owaspai.org/go/ragtesting
 
@@ -166,7 +166,7 @@ Prioritise findings by: authorization impact (does this cross a trust boundary),
 - See [prompt injection testing](/go/testingpromptinjection) above for payload construction and detection pairing — reused directly for the retrieval-channel tests here.
 - [retrieval-scope-tester](https://github.com/vishnu-77/retrieval-scope-tester) — an external reference implementation of the retrieval-scope enforcement approach above (not an OWASP project).
 
-### Testing against Prompt injection
+### 5.2.4 Testing against Prompt injection
 > Category: AI security test  
 > Permalink: https://owaspai.org/go/testingpromptinjection
 
@@ -249,7 +249,7 @@ It is of course important to also test the AI system for correct behaviour in be
 - [OpenAI Evals benchmark](https://github.com/openai/evals)
 
 
-### Testing against Evasion
+### 5.2.5 Testing against Evasion
 > Category: AI security test  
 > Permalink: https://owaspai.org/go/testingevasion
 
@@ -310,7 +310,7 @@ It is of course important to also test the AI system for correct behaviour in be
 
 
 
-## **Red Teaming Tools for AI and GenAI**
+## **5.3 Red Teaming tools for AI and GenAI**
 
 The below mind map provides an overview of open-source tools for AI Red Teaming, categorized into Predictive AI Red Teaming and Generative AI Red Teaming, highlighting examples like ART, Armory, TextAttack, and Promptfoo. These tools represent current capabilities but are not exhaustive or ranked by importance, as additional tools and methods will likely emerge and be integrated into this space in the future.
 
@@ -320,9 +320,9 @@ The diagram below categorizes threats in AI systems and maps them to relevant op
 
 [![](https://owaspai.org/images/attackstotesttools.jpg)](https://owaspai.org/images/attackstotesttools.jpg)
 
-The below section will cover the tools for predictive AI, followed by the section for generative AI.
+The below section will cover the tools for Predictive AI, followed by the section for Generative AI.
 
-## **Open source Tools for Predictive AI Red Teaming**
+## **5.4 Open source tools for Predictive AI Red Teaming**
 > Category: tool review  
 > Permalink: https://owaspai.org/go/testingtoolspredictiveai
 
@@ -792,7 +792,7 @@ Notes:
 - Development-time Model poisoning: Simulates attacks during development to evaluate vulnerabilities[*https://owaspai.org/go/modelpoison*](https://owaspai.org/go/modelpoison)
 - Evasion:Tests model performance against adversarial inputs[*https://owaspai.org/go/evasion*](https://owaspai.org/go/evasion)
 
-## Open source Tools for Generative AI Red Teaming
+## 5.5 Open source tools for Generative AI Red Teaming
 > Category: tool review  
 > Permalink: https://owaspai.org/go/testingtoolsgenai
 
@@ -899,8 +899,7 @@ Notes:
 | --- | --- |
 | Developer/ Source | NVIDIA |
 | Github Reference | https://docs.garak.ai/garak  moved to https://github.com/NVIDIA/garak
-Literature: https://arxiv.org/abs/2406.11036
-https://github.com/NVIDIA/garak |
+| Literature | https://arxiv.org/abs/2406.11036 <br>https://github.com/NVIDIA/garak |
 | Language | Python |
 | Licensing | Apache 2.0 License |
 | Provides Mitigation | Prevention: No ❌ Detection: Yes ✅ |
@@ -1178,12 +1177,7 @@ Notes:
 | Developer/ Source | Promptfoo community |
 | Github Reference | [https://github.com/promptfoo/promptfoo](https://github.com/promptfoo/promptfoo) | [Types of LLM vulnerabilities | promptfoo](https://www.promptfoo.dev/docs/red-team/llm-vulnerability-types/) |
 | Language | Python, NodeJS |
-| Licensing | Open-source under the MIT License.  |
-|  | This project is licensed under multiple licenses:
-
-1. The main codebase is licensed under the MIT License (see below)
-2. The `/src/redteam/` directory is proprietary and licensed under the Promptfoo Enterprise License
-3. Some third-party components have their own licenses as indicated by LICENSE files in their respective directories |
+| Licensing | Open-source under the MIT License.<br><br>This project is licensed under multiple licenses:<br>1. The main codebase is licensed under the MIT License (see below)<br>2. The `/src/redteam/` directory is proprietary and licensed under the Promptfoo Enterprise License<br>3. Some third-party components have their own licenses as indicated by LICENSE files in their respective directories |
 | Provides Mitigation | Prevention: Yes ✅ Detection: Yes ✅ |
 | API Availability | Yes ✅  |
 
@@ -1269,7 +1263,7 @@ Notes:
 - Prompt Injection: Evaluates the robustness of generative AI models by exploiting weaknesses in prompt design, leading to undesired outputs or bypassing model safeguards.
 *[https://owaspai.org/go/promptinjection](https://owaspai.org/go/promptinjection)*
 
-## Tool Ratings
+## 5.6 Tool Ratings
 This section rates the discussed tools by Popularity, Community Support, Scalability and Integration.
 
 [![](https://owaspai.org/images/testtoolrating.png)](https://owaspai.org/images/testtoolrating.png)
