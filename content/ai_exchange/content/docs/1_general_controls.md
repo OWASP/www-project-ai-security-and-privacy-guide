@@ -358,8 +358,9 @@ Useful standards include:
 
   - [OpenCRE on Compliance](https://www.opencre.org/cre/510-324)
   - ISO 27002 Control 5.36 Compliance with policies, rules and standards. Gap: covers this control fully, with the particularity that AI regulation needs to be taken into account.
-  - ISO/IEC 27090 (AI security) and 27091 (AI privacy) are both in development at the moment of writing (Oct 2025), and likely come out in 2026. The AI Exchange has contributed substantial content to the 27090.
-  - prEN 18282 is the European standard for AI Security - brought forward by CEN/CENELEC and with a substantial part contributed by the AI Exchange. Exchange founder Rob van der Veer is liaison officer for the official partnership between the AI Exchange and CEN/CENELEC/ISO, as well as co-editor for 18282. The standard has been in development for almost two years at the moment of writing (Oct 2025) and expected to go into public enquiry early 2026, and be published in 2026.
+  - [ISO/IEC 27090](https://www.iso.org/standard/27090) (AI security) is a guidance standard and has been published in October 2026. The AI Exchange has contributed substantial content to the 27090, and Exchange founder Rob van der Veer was part of the working group.
+  - ISO/IEC 27090 (AI privacy) and 27091 (AI privacy) is in development at the moment of writing (Oct 2026), and likely come out in 2027. 
+  - prEN 18282 is the draft harmonized cybersecurity standard for the EU AI Act - brought forward by CEN/CENELEC JTC21/WG5 and with a substantial part contributed by the AI Exchange. Exchange founder Rob van der Veer is liaison officer for the official partnership between the AI Exchange and CEN/CENELEC/ISO, as well as co-editor for 18282. At the moment of writing (Oct 2026), the standard is ready to go for final internal review, and is expected to be published in the beginning of 2027. After publishing, it depends on publication in the Official Journal if the standard can be used for presumption of conformity for high risk AI systems.
 
 #### #SEC EDUCATE
 > Category: governance control  
