@@ -31,12 +31,10 @@ weight: 1
 
 <div class="py-16 px-2 sm:px-6 lg:px-8 shadow-md bg-[#F1F1F1]">
   <div class="container mx-auto p-0">
-    <div class="mb-6 px-4 sm:px-6 lg:px-8 text-left md:text-center">
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 opacity-100">
-        Contribute to the OWASP AI Exchange
-      </h2>
-    </div>
-    <p class="text-gray-600 font-roboto text-base sm:text-lg md:text-[20px] leading-relaxed text-left md:text-center mb-10 max-w-full md:max-w-3xl md:mx-auto">
+    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mt-0 mb-4 text-center">
+      Ways to contribute
+    </h2>
+    <p class="text-gray-600 font-roboto text-base sm:text-lg leading-relaxed text-center mb-10 max-w-3xl mx-auto px-2">
       The <span class="font-semibold">OWASP projects</span> are an open source effort, and we enthusiastically
       welcome all forms of contributions and feedback.
       If you are interested in AI security,
@@ -172,60 +170,68 @@ weight: 1
 
 <div class="py-16 px-2 sm:px-4 lg:px-8 bg-white">
   <div class="container mx-auto p-0">
-    <h2 class="text-3xl mt-0 sm:text-4xl font-bold text-gray-900 mb-8 text-center">
-      Contributers hall of fame
+    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mt-0 mb-4 text-center">
+      Contributors hall of fame
     </h2>
     {{< contributors >}}
-    <br>To propose an update for the above hall of fame, it can be edited <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/edit/main/content/ai_exchange/content/contributors.csv"  class="text-gray-600 font-medium underline">here</a>.
-    <br>
+    <p class="mt-8 text-center text-gray-600 font-roboto text-sm sm:text-base">
+      Missing, or want to update your entry?
+      <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/edit/main/content/ai_exchange/content/contributors.csv" class="text-green-600 font-semibold underline">Edit the hall of fame on GitHub</a>.
+    </p>
   </div>
 </div>
 
-<div class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+<div class="py-16 px-2 sm:px-6 lg:px-8 bg-[#F1F1F1]">
   <div class="container mx-auto p-0">
-    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-8 text-center">
+    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mt-0 mb-4 text-center">
       Contribution guidelines
     </h2>
-    <div class="text-gray-700 font-roboto text-base sm:text-lg md:text-[20px] leading-relaxed text-center">
-      <p class="mb-4">
-        We value every contribution to our project, but it’s important to be aware of certain guidelines:
-      </p>
-      <p class="mb-4">
-        <span class="font-semibold">Consider the roadmap:</span> The <a href="/go/roadmap" class="text-gray-600 font-medium underline">OWASP AI Exchange roadmap</a> leads the way on how we prioritize and organize contributions,
-      </p>
-      <p class="mb-4">
-        <span class="font-semibold">Avoid Advertising:</span> The OWASP AI projects should not promote commercial tools, companies, or individuals. The focus should be on open-source tools.
-      </p>
-      <p class="mb-4">
-        <span class="font-semibold">Refrain from Unnecessary Self-Promotion:</span> If referencing tools or articles you’re affiliated with, please disclose this relationship in your pull request.
-      </p>
-      <p class="mb-4">
-        <span class="font-semibold">AI:</span> Anyone submitting work to OWASP that was created with material AI assistance must clearly label that use. Disclosure must identify, at minimum: (a) that AI was used; and (b)  what the AI was used for and to what extent (e.g., "first draft generated, then substantially rewritten," "code review assistance," "all diagrams AI-generated").
-      </p>
-      <p class="mb-4">
-        <span class="font-semibold">General writing goal:</span> the non AI security  expert understands the topic, gets the important points of considerations and where to find more details - prioritizing clarity and completeness at the principle level while minimizing the number of words as a second priority.
-      </p>
-      <p>
-        If you’re unsure about anything, feel free to
-        <a href="/connect" class="text-gray-600 font-medium underline">reach out to us</a> with your questions.
-      </p>
+    <p class="text-gray-600 font-roboto text-base sm:text-lg leading-relaxed text-center mb-10 max-w-3xl mx-auto px-2">
+      We value every contribution to our project, but it’s important to be aware of certain guidelines.
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+      <div class="flex flex-col bg-white border border-gray-200 rounded-xl shadow-md p-6">
+        <h3 class="text-gray-900 mt-0 mb-2 text-xl font-medium">Consider the roadmap</h3>
+        <p class="text-gray-500 text-[16px] font-roboto font-medium leading-[24px]">
+          The <a href="/go/roadmap" class="text-green-600 underline">OWASP AI Exchange roadmap</a> leads the way on how we prioritize and organize contributions.
+        </p>
+      </div>
+      <div class="flex flex-col bg-white border border-gray-200 rounded-xl shadow-md p-6">
+        <h3 class="text-gray-900 mt-0 mb-2 text-xl font-medium">Avoid advertising</h3>
+        <p class="text-gray-500 text-[16px] font-roboto font-medium leading-[24px]">
+          The OWASP AI projects should not promote commercial tools, companies, or individuals. The focus should be on open-source tools.
+        </p>
+      </div>
+      <div class="flex flex-col bg-white border border-gray-200 rounded-xl shadow-md p-6">
+        <h3 class="text-gray-900 mt-0 mb-2 text-xl font-medium">No unnecessary self-promotion</h3>
+        <p class="text-gray-500 text-[16px] font-roboto font-medium leading-[24px]">
+          If referencing tools or articles you’re affiliated with, please disclose this relationship in your pull request.
+        </p>
+      </div>
+      <div class="flex flex-col bg-white border border-gray-200 rounded-xl shadow-md p-6">
+        <h3 class="text-gray-900 mt-0 mb-2 text-xl font-medium">Label AI use</h3>
+        <p class="text-gray-500 text-[16px] font-roboto font-medium leading-[24px]">
+          Anyone submitting work to OWASP that was created with material AI assistance must clearly label that use. Disclosure must identify, at minimum: (a) that AI was used; and (b) what the AI was used for and to what extent (e.g., "first draft generated, then substantially rewritten," "code review assistance," "all diagrams AI-generated").
+        </p>
+      </div>
+      <div class="flex flex-col bg-white border border-gray-200 rounded-xl shadow-md p-6">
+        <h3 class="text-gray-900 mt-0 mb-2 text-xl font-medium">General writing goal</h3>
+        <p class="text-gray-500 text-[16px] font-roboto font-medium leading-[24px]">
+          The non AI security expert understands the topic, gets the important points of considerations and where to find more details - prioritizing clarity and completeness at the principle level while minimizing the number of words as a second priority.
+        </p>
+      </div>
+      <div class="flex flex-col bg-white border border-gray-200 rounded-xl shadow-md p-6">
+        <h3 class="text-gray-900 mt-0 mb-2 text-xl font-medium">Not sure?</h3>
+        <p class="text-gray-500 text-[16px] font-roboto font-medium leading-[24px]">
+          If you’re unsure about anything, feel free to <a href="/connect" class="text-green-600 underline">reach out to us</a> with your questions.
+        </p>
+      </div>
     </div>
-  </div>
-</div>
-
-
-  <div class="container mx-auto p-0 max-w-3xl">
-    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 text-center">
-      Site analytics
-    </h2>
-    <div class="text-gray-700 font-roboto text-base sm:text-lg leading-relaxed text-center">
-      <p class="mb-4">
-        This website uses <a href="https://www.goatcounter.com/" target="_blank" rel="noopener" class="text-green-600 font-medium underline">GoatCounter</a> to count page views so we can see which content is most useful and improve the guide over time.
-      </p>
-      <p class="mb-4">
+    <div class="mt-12 max-w-3xl mx-auto text-center font-roboto px-2">
+      <h3 class="text-gray-900 mt-0 mb-2 text-lg font-medium">Site analytics</h3>
+      <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+        This website uses <a href="https://www.goatcounter.com/" target="_blank" rel="noopener" class="text-green-600 font-medium underline">GoatCounter</a> to count page views, so we can see which content is most useful and improve the guide over time.
         GoatCounter is privacy-friendly: it does not use cookies, does not track individuals across websites, and does not sell data. We use it only for aggregate readership statistics.
-      </p>
-      <p>
         Questions? <a href="/connect" class="text-green-600 font-medium underline">Contact the project team</a>.
       </p>
     </div>
@@ -237,19 +243,6 @@ weight: 1
 
 <style>
   @media (max-width: 640px) {
-    table {
-      display: block;
-      max-height: 160px; /* height enough for ~2 rows */
-      overflow-y: auto;  /* vertical scroll for more rows */
-      overflow-x: auto;  /* horizontal scroll if needed */
-      white-space: nowrap;
-      border-collapse: collapse;
-    }
-
-    th, td {
-      padding: 0.5rem !important;
-    }
-
     .intro-banner h1 {
       font-size: 1.8rem !important;
       line-height: 2.2rem !important;
@@ -260,14 +253,6 @@ weight: 1
       font-size: 1rem !important;
     }
 
-    /* Optional: adds smooth scrolling and scrollbar styling */
-    table::-webkit-scrollbar {
-      width: 6px;
-    }
-    table::-webkit-scrollbar-thumb {
-      background: #ccc;
-      border-radius: 3px;
-    }
   }
 </style>
 

@@ -1,19 +1,15 @@
 {{- /*
-  Contributors hall of fame — reads a simple semicolon-separated file and renders
-  BOTH the desktop table and the mobile cards from the same data (at build time).
+  Contributors hall of fame, rendered as paged cards.
 
-  Edit  content/contributors.csv  to add or change contributors:
-    * One contributor per line.
-    * Columns separated by a semicolon:  Name ; Organization ; Country ; Contributions ; Lead
-    * No quotes, no field names to repeat. Spaces around the ";" don't matter (trimmed).
-    * Leave a column empty if unknown (trailing empty columns may be omitted).
-    * Put "yes" in the 5th "Lead" column to show a leadership name in bold.
-    * Line 1 is the header row and is skipped — keep it.
-  To use a different separator (e.g. a pipe), change $sep below to "|".
+  Data comes from content/contributors.csv (semicolon-separated):
+    Name ; Organization ; Country ; Contributions ; Lead
+  Line 1 is the header and is skipped. Empty or "-" means unknown.
+  Put "yes" in the Lead column to show the "Leadership team" badge.
 
-  Mobile note: the cards below are rendered from the data directly, so they never
-  depend on JavaScript reading the (hidden) table. The small script only powers the
-  optional "Show More" collapse; without it, all cards simply show.
+  All cards are rendered at build time; the script at the bottom only adds
+  paging and search, so without JS everything still shows as a plain grid.
+  Avatar colours are picked from a hash of the name so they don't shuffle
+  when someone is added.
 */ -}}
 {{- $sep := ";" -}}
 {{- $raw := os.ReadFile "content/contributors.csv" -}}
@@ -26,101 +22,315 @@
     {{- $c := split $line $sep -}}
     {{- if lt (len $c) 4 }}{{ range seq (sub 4 (len $c)) }}{{ $c = $c | append "" }}{{ end }}{{ end -}}
     {{- $lead := "" }}{{ if gt (len $c) 4 }}{{ $lead = trim (index $c 4) " " }}{{ end -}}
+    {{- $org := trim (index $c 1) " " }}{{ if eq $org "-" }}{{ $org = "" }}{{ end -}}
+    {{- $country := trim (index $c 2) " " }}{{ if eq $country "-" }}{{ $country = "" }}{{ end -}}
     {{- $people = $people | append (dict
         "name" (trim (index $c 0) " ")
-        "organization" (trim (index $c 1) " ")
-        "country" (trim (index $c 2) " ")
+        "organization" $org
+        "country" $country
         "contrib" (trim (index $c 3) " ")
         "lead" (ne $lead "")) -}}
   {{- end }}
 {{- end -}}
+{{- $countries := slice -}}
+{{- /* Count countries once, e.g. "London, United Kingdom" and "UK" are the same */ -}}
+{{- $aliases := dict "united kingdom" "uk" "great britain" "uk" "england" "uk" "united states" "us" "usa" "us" "united states of america" "us" -}}
+{{- range $people }}
+  {{- if .country }}
+    {{- $parts := split .country "," -}}
+    {{- $k := lower (trim (index $parts (sub (len $parts) 1)) " ") -}}
+    {{- $k = index $aliases $k | default $k -}}
+    {{- $countries = $countries | append $k -}}
+  {{- end }}
+{{- end -}}
+{{- $palette := slice "#2E7D32" "#2F6F86" "#1F2937" "#8A4B08" "#5B3F8C" "#9F1D4F" -}}
+{{- $tints := slice "#DEEADE" "#DEE8EC" "#DBDDDF" "#ECE2D7" "#E5E0ED" "#F0DBE3" -}}
 <style>
-  /* ---------- desktop table ---------- */
-  table.hof { min-width: 100%; width: 100%; border-collapse: collapse; }
-  table.hof thead { background-color: #4CAF50; }
-  table.hof th {
-    padding: 0.75rem; text-align: left; font-weight: 500; color: #fff;
-    text-transform: uppercase; border-right: 1px solid #9ca3af; font-size: 0.75rem;
+  .hof { --hof-accent: #2E7D32; color: #111827; }
+  .hof *, .hof *::before, .hof *::after { box-sizing: border-box; }
+
+  /* intro + search */
+  .hof .hof-intro { margin: 0 auto 2rem; max-width: 48rem; padding: 0 0.5rem; text-align: center; font-size: 1.125rem; line-height: 1.625; color: #4B5563; }
+  .hof-intro strong { color: #111827; }
+  .hof-find { margin: 0 auto 1.75rem; max-width: 26rem; }
+  .hof-find label { display: block; margin-bottom: 0.375rem; font-size: 0.875rem; font-weight: 500; color: #111827; }
+  .hof-find-box { position: relative; }
+  .hof-find-box svg { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; pointer-events: none; }
+  .hof-find input {
+    width: 100%; height: 48px; padding: 0 1.125rem 0 2.875rem; border: 1px solid #D1D5DB; border-radius: 9999px;
+    background: #fff; font: inherit; font-size: 1rem; color: #111827; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
   }
-  table.hof th:last-child { border-right: 0; }
-  table.hof td {
-    padding: 1rem 1.5rem; color: #374151; vertical-align: top;
-    white-space: normal; overflow-wrap: break-word;
-    border-right: 1px solid #9ca3af; border-top: 1px solid #9ca3af;
+  .hof-find input:focus { outline: none; border-color: var(--hof-accent); box-shadow: 0 0 0 3px rgba(46,125,50,0.25); }
+  .hof-find-status { margin: 0.375rem 0 0; min-height: 1.25rem; text-align: center; font-size: 0.8125rem; color: #4B5563; }
+  .hof:not(.is-paged) .hof-find { display: none; }
+
+  /* arrows sit beside the cards on desktop and move below them on phones */
+  .hof-stage { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "prev wall next" ". nav ."; column-gap: 1rem; row-gap: 0.5rem; align-items: center; }
+  .hof-wall { grid-area: wall; background: #F1F1F1; border-radius: 20px; padding: 2.25rem 2rem; }
+  .hof-wall:focus-visible { outline: 3px solid var(--hof-accent); outline-offset: 3px; }
+  .hof-prev { grid-area: prev; }
+  .hof-next { grid-area: next; }
+  .hof-nav { grid-area: nav; display: flex; justify-content: center; }
+  .hof-arrow {
+    width: 52px; height: 52px; border-radius: 50%; border: 1px solid #D1D5DB; background: #fff; color: #111827;
+    display: inline-flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    transition: background-color 0.15s ease;
   }
-  table.hof td:first-child { color: #111827; }
-  table.hof td:last-child  { border-right: 0; }
-  table.hof tr.lead td:first-child { font-weight: 700; }
-  table.hof tbody tr:nth-child(odd)  { background-color: #F4F2F2; }
-  table.hof tbody tr:nth-child(even) { background-color: #fff; }
-  @media (min-width: 640px) { table.hof th { padding: 0.75rem 1.5rem; font-size: 0.875rem; } }
+  .hof-arrow:hover:not(:disabled) { background: #F3F4F6; }
+  .hof-arrow:disabled { opacity: 0.4; cursor: default; }
+  .hof-arrow:focus-visible, .hof-dot:focus-visible { outline: 3px solid var(--hof-accent); outline-offset: 2px; }
+  .hof-arrow svg { width: 22px; height: 22px; }
+  .hof [hidden] { display: none !important; }
 
-  /* ---------- mobile cards (hidden on desktop) ---------- */
-  .hof-cards { display: none; }
-  .hof-more-btn { display: none; }
+  /* cards */
+  .hof-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.75rem 1.5rem; }
+  .hof[data-cols="1"] .hof-grid { grid-template-columns: minmax(0, 1fr); gap: 0.75rem; }
+  .hof[data-cols="2"] .hof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hof[data-cols="3"] .hof-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .hof[data-cols="4"] .hof-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  /* matches the "Ways to contribute" cards on this page */
+  .hof .hof-grid > .hof-card {
+    margin: 0; background: #fff; border: 1px solid #E5E7EB; border-radius: 0.75rem; padding: 1.5rem;
+    display: flex; flex-direction: column; gap: 0.75rem; min-height: 12rem;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation-duration: 0.45s; animation-fill-mode: backwards; animation-timing-function: cubic-bezier(.2,.7,.2,1);
+  }
+  .hof .hof-grid > .hof-card:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1); }
+  .hof .hof-grid > .hof-card.is-match { border-color: var(--hof-accent); box-shadow: 0 0 0 2px var(--hof-accent), 0 10px 15px -3px rgba(0,0,0,0.1); }
+  .hof-card.hof-in-r { animation-name: hof-in-r; }
+  .hof-card.hof-in-l { animation-name: hof-in-l; }
+  @keyframes hof-in-r { from { opacity: 0; translate: 48px 12px; } to { opacity: 1; translate: 0 0; } }
+  @keyframes hof-in-l { from { opacity: 0; translate: -48px 12px; } to { opacity: 1; translate: 0 0; } }
 
-  @media (max-width: 768px) {
-    .hof-table-wrap { display: none; }          /* hide the table on small screens */
-    .hof-cards { display: block; margin-top: 1.5rem; }
+  .hof-head { display: flex; flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .hof-avatar { flex: 0 0 48px; width: 48px; height: 48px; border-radius: 50%; overflow: hidden; background: var(--t); box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06); }
+  .hof-avatar svg { display: block; width: 48px; height: 48px; fill: var(--c); }
+  .hof-who { min-width: 0; display: flex; flex-direction: column; gap: 0.2rem; }
+  .hof .hof-name { margin: 0; padding: 0; border: 0; font-size: 1.125rem; line-height: 1.35; font-weight: 500; color: #111827; overflow-wrap: anywhere; }
+  .hof-meta { font-size: 0.875rem; line-height: 1.4; color: #6B7280; }
+  .hof .hof-text { margin: 0; flex-grow: 1; font-size: 1rem; line-height: 1.5rem; font-weight: 500; color: #6B7280; }
+  .hof-badge { align-self: flex-start; padding: 0.2rem 0.625rem; border-radius: 9999px; background: #E8F5E9; color: #1B5E20; font-size: 0.75rem; font-weight: 500; }
 
-    .hof-card {
-      background: #f8f9fa; border: 1px solid #ddd; border-radius: 10px;
-      padding: 1rem; margin-bottom: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .hof-card-line { display: flex; gap: 0.6rem; margin: 0.2rem 0; }
-    .hof-card-label {
-      flex: 0 0 6.5rem; color: #6b7280; font-weight: 600;
-      text-transform: uppercase; font-size: 0.7rem; padding-top: 0.15rem;
-    }
-    .hof-card-val { color: #333; font-size: 0.9rem; }
-    .hof-card-val.hof-lead { font-weight: 700; }
+  /* page dots */
+  .hof-dots { display: flex; align-items: center; }
+  .hof-dot { width: 44px; height: 44px; border: 0; padding: 0; background: transparent; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
+  .hof-dot span { display: block; width: 10px; height: 10px; border-radius: 5px; background: #8792A2; transition: width 0.25s ease, background-color 0.25s ease; }
+  .hof-dot[aria-current="page"] span { width: 28px; background: var(--hof-accent); }
+  .hof-dot.is-edge span { width: 6px; height: 6px; }
+  .hof-page-label { margin: 0.25rem 0 0; text-align: center; font-size: 0.875rem; font-weight: 500; color: #4B5563; }
 
-    .hof-cards.collapsed .hof-card:nth-child(n+11) { display: none; }
-    .hof-more-btn {
-      display: block; margin: 0.5rem auto 0; background-color: #4CAF50; color: #fff;
-      border: none; padding: 0.6rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 600;
-    }
-    .hof-more-btn:hover { background-color: #3d8b41; }
+  /* phones */
+  @media (max-width: 640px) {
+    .hof .hof-intro { font-size: 1rem; }
+    .hof-stage { grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "wall wall wall" "prev nav next"; column-gap: 0.25rem; row-gap: 0.75rem; }
+    .hof-wall { padding: 0.875rem 0.75rem; border-radius: 16px; touch-action: pan-y; }
+    .hof-arrow { width: 44px; height: 44px; box-shadow: none; }
+    .hof-arrow svg { width: 20px; height: 20px; }
+    .hof-dot { width: 30px; }
+    .hof .hof-grid > .hof-card { min-height: 0; padding: 1.25rem; gap: 0.625rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hof-card { animation: none !important; transition: none; }
   }
 </style>
 
-<div class="hof-table-wrap overflow-x-auto shadow-lg border border-gray-400 rounded-lg">
-  <table class="hof">
-    <thead>
-      <tr><th>Name</th><th>Organization</th><th>Country</th><th>Contributions</th></tr>
-    </thead>
-    <tbody>
-      {{- range $people }}
-      <tr{{ if .lead }} class="lead"{{ end }}><td>{{ .name }}</td><td>{{ .organization }}</td><td>{{ .country }}</td><td>{{ .contrib }}</td></tr>
-      {{- end }}
-    </tbody>
-  </table>
-</div>
+<div class="hof" data-hof>
+  <p class="hof-intro">{{ len $people }} people from {{ len (uniq $countries) }} countries have shaped the <strong>OWASP AI Exchange</strong>. Project leadership is listed first.</p>
 
-<div id="hofCards" class="hof-cards">
-  {{- range $people }}
-  <div class="hof-card">
-    <div class="hof-card-line"><span class="hof-card-label">Name</span><span class="hof-card-val{{ if .lead }} hof-lead{{ end }}">{{ .name }}</span></div>
-    {{- if .organization }}<div class="hof-card-line"><span class="hof-card-label">Organization</span><span class="hof-card-val">{{ .organization }}</span></div>{{ end }}
-    {{- if .country }}<div class="hof-card-line"><span class="hof-card-label">Country</span><span class="hof-card-val">{{ .country }}</span></div>{{ end }}
-    {{- if .contrib }}<div class="hof-card-line"><span class="hof-card-label">Contributions</span><span class="hof-card-val">{{ .contrib }}</span></div>{{ end }}
+  <div class="hof-find">
+    <label for="hofFind">Find your name</label>
+    <div class="hof-find-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#4B5563" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+      <input id="hofFind" type="search" autocomplete="off" placeholder="Name, organization or country">
+    </div>
+    <p class="hof-find-status" aria-live="polite"></p>
   </div>
-  {{- end }}
-  <button id="hofMoreBtn" class="hof-more-btn" type="button">Show More</button>
+
+  <div class="hof-stage">
+    <button class="hof-arrow hof-prev" type="button" aria-label="Previous page" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg>
+    </button>
+
+    <section class="hof-wall" aria-label="Contributors">
+      <ul class="hof-grid" role="list">
+        {{- range $people }}
+        {{- $h := md5 .name -}}
+        {{- $b1 := int (printf "0x%s" (substr $h 0 2)) -}}
+        {{- $ci := mod $b1 (len $palette) -}}
+        {{- $meta := slice -}}
+        {{- if .country }}{{ $meta = $meta | append .country }}{{ end -}}
+        {{- if .organization }}{{ $meta = $meta | append .organization }}{{ end }}
+        <li class="hof-card" style="--c: {{ index $palette $ci }}; --t: {{ index $tints $ci }}" data-search="{{ lower (printf "%s %s %s" .name .organization .country) }}">
+          <div class="hof-head">
+            <span class="hof-avatar" aria-hidden="true"><svg viewBox="0 0 56 56"><circle cx="28" cy="22" r="10"></circle><path d="M7 60c0-14 9.4-23 21-23s21 9 21 23z"></path></svg></span>
+            <div class="hof-who">
+              <h3 class="hof-name">{{ .name }}</h3>
+              {{- if $meta }}<span class="hof-meta">{{ delimit $meta " · " }}</span>{{ end }}
+            </div>
+          </div>
+          {{- if .contrib }}<p class="hof-text">{{ .contrib }}</p>{{ end }}
+          {{- if .lead }}<span class="hof-badge">Leadership team</span>{{ end }}
+        </li>
+        {{- end }}
+      </ul>
+    </section>
+
+    <button class="hof-arrow hof-next" type="button" aria-label="Next page" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg>
+    </button>
+
+    <div class="hof-nav" hidden>
+      <div class="hof-dots" role="group" aria-label="Pages"></div>
+    </div>
+  </div>
+  <p class="hof-page-label" aria-live="polite" hidden></p>
 </div>
 
 <script>
 (function () {
-  var cards = document.getElementById("hofCards");
-  var btn = document.getElementById("hofMoreBtn");
-  if (!cards || !btn) return;
-  var count = cards.getElementsByClassName("hof-card").length;
-  if (count > 10) {
-    cards.classList.add("collapsed");
-    btn.style.display = "block";
-    btn.addEventListener("click", function () {
-      btn.textContent = cards.classList.toggle("collapsed") ? "Show More" : "Show Less";
-    });
+  var root = document.querySelector("[data-hof]");
+  if (!root) return;
+  var wall = root.querySelector(".hof-wall");
+  var cards = Array.prototype.slice.call(root.querySelectorAll(".hof-card"));
+  var prev = root.querySelector(".hof-prev");
+  var next = root.querySelector(".hof-next");
+  var nav = root.querySelector(".hof-nav");
+  var dots = root.querySelector(".hof-dots");
+  var label = root.querySelector(".hof-page-label");
+  var find = root.querySelector("#hofFind");
+  var status = root.querySelector(".hof-find-status");
+  if (!cards.length) return;
+
+  var MAX_DOTS = 7;
+  var page = 0, per = 12, cols = 4, pages = 1, query = "", matchIdx = [];
+
+  function firstName(card) { return card.querySelector(".hof-name").textContent.trim().split(/\s+/)[0]; }
+  function range(p) {
+    var a = cards[p * per], b = cards[Math.min(cards.length, (p + 1) * per) - 1];
+    return firstName(a) + " → " + firstName(b);
   }
+
+  var lastW = -1;
+  function layout() {
+    var w = root.clientWidth;
+    if (w === lastW) return; // ignore height-only changes
+    lastW = w;
+    wall.style.minHeight = "";
+    var c = 4, r = 3;
+    if (w < 480) { c = 1; r = 4; }
+    else if (w < 720) { c = 2; r = 3; }
+    else if (w < 1000) { c = 3; r = 3; }
+    if (c * r !== per || c !== cols) {
+      var firstIndex = page * per;
+      cols = c; per = c * r;
+      pages = Math.max(1, Math.ceil(cards.length / per));
+      page = Math.min(pages - 1, Math.floor(firstIndex / per));
+      root.setAttribute("data-cols", String(cols));
+      render(0);
+    } else {
+      wall.style.minHeight = wall.offsetHeight + "px";
+    }
+  }
+
+  function render(dir) {
+    var start = page * per, end = start + per;
+    cards.forEach(function (card, i) {
+      var on = i >= start && i < end;
+      card.hidden = !on;
+      card.classList.remove("hof-in-l", "hof-in-r");
+      if (on && dir) {
+        void card.offsetWidth; // restart the animation
+        card.style.animationDelay = (i - start) * 35 + "ms";
+        card.classList.add(dir > 0 ? "hof-in-r" : "hof-in-l");
+      }
+    });
+    prev.disabled = page === 0;
+    next.disabled = page >= pages - 1;
+    wall.setAttribute("aria-label", "Contributors, page " + (page + 1) + " of " + pages);
+    label.textContent = "Page " + (page + 1) + " of " + pages + " · " + range(page);
+
+    // only show a few dots around the current page
+    dots.textContent = "";
+    var count = Math.min(pages, MAX_DOTS);
+    var from = Math.max(0, Math.min(page - Math.floor(count / 2), pages - count));
+    for (var p = from; p < from + count; p++) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "hof-dot";
+      var edge = pages > count && ((p === from && from > 0) || (p === from + count - 1 && p < pages - 1));
+      if (edge) b.classList.add("is-edge");
+      b.setAttribute("aria-label", "Page " + (p + 1) + ": " + range(p));
+      b.title = range(p);
+      if (p === page) b.setAttribute("aria-current", "page");
+      b.appendChild(document.createElement("span"));
+      b.addEventListener("click", go.bind(null, p));
+      dots.appendChild(b);
+    }
+
+    // keep the height stable when the last page has fewer cards
+    var h = wall.offsetHeight;
+    if (!wall.style.minHeight || h > parseFloat(wall.style.minHeight)) wall.style.minHeight = h + "px";
+  }
+
+  function go(p) {
+    p = Math.max(0, Math.min(pages - 1, p));
+    if (p === page) return;
+    var dir = p > page ? 1 : -1;
+    page = p;
+    render(dir);
+  }
+
+  prev.addEventListener("click", function () { go(page - 1); });
+  next.addEventListener("click", function () { go(page + 1); });
+
+  wall.setAttribute("tabindex", "0");
+  wall.setAttribute("aria-roledescription", "carousel");
+  wall.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowRight") { e.preventDefault(); go(page + 1); }
+    else if (e.key === "ArrowLeft") { e.preventDefault(); go(page - 1); }
+  });
+
+  var tx = null, ty = null;
+  wall.addEventListener("touchstart", function (e) { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
+  wall.addEventListener("touchend", function (e) {
+    if (tx === null) return;
+    var dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+    tx = ty = null;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) go(page + (dx < 0 ? 1 : -1));
+  }, { passive: true });
+
+  function search() {
+    query = find.value.trim().toLowerCase();
+    matchIdx = [];
+    cards.forEach(function (card, i) {
+      var hit = !!query && card.getAttribute("data-search").indexOf(query) !== -1;
+      card.classList.toggle("is-match", hit);
+      if (hit) matchIdx.push(i);
+    });
+    if (!query) { status.textContent = ""; return; }
+    if (!matchIdx.length) { status.textContent = "No contributor matches “" + find.value.trim() + "”."; return; }
+    var firstPage = Math.floor(matchIdx[0] / per);
+    go(firstPage);
+    status.textContent = (matchIdx.length === 1 ? "1 match" : matchIdx.length + " matches") +
+      ", first on page " + (firstPage + 1) + "." + (matchIdx.length > 1 ? " Press Enter for the next one." : "");
+  }
+  find.addEventListener("input", search);
+  find.addEventListener("keydown", function (e) {
+    if (e.key !== "Enter" || !matchIdx.length) return;
+    e.preventDefault();
+    var later = matchIdx.filter(function (i) { return Math.floor(i / per) > page; });
+    go(Math.floor((later.length ? later[0] : matchIdx[0]) / per));
+  });
+
+  root.classList.add("is-paged");
+  prev.hidden = false;
+  next.hidden = false;
+  nav.hidden = false;
+  label.hidden = false;
+  per = 0;
+  layout();
+  if (window.ResizeObserver) new ResizeObserver(layout).observe(root);
+  else window.addEventListener("resize", layout);
 })();
 </script>
