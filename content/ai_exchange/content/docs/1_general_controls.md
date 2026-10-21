@@ -353,6 +353,7 @@ The Exchange documents **security controls and threats**. Deeper classification,
   - [Vischer on legal aspects of AI](https://www.vischer.com/en/artificial-intelligence/)
   - [Summary of AI Act by SIG](https://www.softwareimprovementgroup.com/eu-ai-act-summary/)
   - [Summary of US AI legislation by SIG](https://www.softwareimprovementgroup.com/us-ai-legislation-overview/)
+  - [EU AI Act Obligation-to-Evidence Dataset](https://github.com/Kroniquedubaboo/eu-ai-act-obligation-evidence-dataset): open (CC BY 4.0) machine-readable mapping of EU AI Act obligations to duty-holders, deadlines and the evidence artifacts that demonstrate them, with primary-source citations. Can seed the Requirement → Evidence record described above.
 
 Useful standards include:
 
