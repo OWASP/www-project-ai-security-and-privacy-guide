@@ -503,6 +503,16 @@ blockquote a:hover {
   padding-left: 0.5rem;
 }
 
+.toc-content a.toc-active {
+  color: #166534;
+  background-color: #dcfce7;
+  font-weight: 600;
+  border-left: 3px solid #16a34a;
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+
 
 .toc-content ul ul {
   margin-left: 1rem;

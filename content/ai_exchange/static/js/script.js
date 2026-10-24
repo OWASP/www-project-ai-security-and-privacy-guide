@@ -51,3 +51,53 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+
+document.addEventListener("DOMContentLoaded", () => {
+  const tocLinks = Array.from(
+    document.querySelectorAll('.toc-content a[href^="#"]')
+  );
+
+  const sections = tocLinks
+    .map(link => {
+      const id = decodeURIComponent(link.hash.slice(1));
+      return {
+        link,
+        heading: document.getElementById(id)
+      };
+    })
+    .filter(item => item.heading);
+
+  if (!sections.length) return;
+
+  function updateActiveSection() {
+    const threshold = 120;
+    let active = sections[0];
+
+    for (const section of sections) {
+      if (section.heading.getBoundingClientRect().top <= threshold) {
+        active = section;
+      }
+    }
+
+    for (const section of sections) {
+      const selected = section === active;
+      section.link.classList.toggle("toc-active", selected);
+
+      if (selected) {
+        section.link.setAttribute("aria-current", "location");
+      } else {
+        section.link.removeAttribute("aria-current");
+      }
+    }
+  }
+
+  window.addEventListener("scroll", updateActiveSection, {
+    passive: true
+  });
+
+  window.addEventListener("resize", updateActiveSection);
+  window.addEventListener("hashchange", updateActiveSection);
+
+  updateActiveSection();
+});
+
