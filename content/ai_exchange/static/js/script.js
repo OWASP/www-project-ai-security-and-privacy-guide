@@ -101,3 +101,41 @@ document.addEventListener("DOMContentLoaded", () => {
   updateActiveSection();
 });
 
+// Back to top button
+
+(function () {
+  function initBackToTop() {
+    const button = document.getElementById("back-to-top");
+
+    if (!button) return;
+
+    function updateVisibility() {
+      button.hidden = window.scrollY < 300;
+    }
+
+    button.addEventListener("click", function () {
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      window.scrollTo({
+        top: 0,
+        behavior: prefersReducedMotion ? "auto" : "smooth"
+      });
+    });
+
+    window.addEventListener("scroll", updateVisibility, {
+      passive: true
+    });
+
+    window.addEventListener("pageshow", updateVisibility);
+
+    updateVisibility();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initBackToTop);
+  } else {
+    initBackToTop();
+  }
+})();
