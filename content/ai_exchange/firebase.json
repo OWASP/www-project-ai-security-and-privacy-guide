@@ -779,6 +779,11 @@
         "type": 302
       },
       {
+        "source": "/go/evaluationintegrity",
+        "destination": "/docs/5_testing/#536-testing-evaluation-integrity",
+        "type": 302
+      },
+      {
         "source": "/go/testingtoolspredictiveai",
         "destination": "/docs/5_testing/#open-source-tools-for-predictive-ai-red-teaming",
         "type": 302

@@ -928,6 +928,7 @@ There is a terminology difference between AI performance testing and traditional
 **Limitations**  
 Continuous validation relies on the representativeness and integrity of the test dataset. Attacks that are triggered only by rare or highly specific inputs may not be detected if those inputs are absent from test sets.
 If attackers are able to manipulate both the model and the test data, validation results may no longer be trustworthy. Validation alone therefore does not replace other integrity and monitoring controls.
+Results are equally untrustworthy when the scoring step reads anything the model can influence, for example a verdict parsed from model output, or failed samples silently left out of a metric. See [testing evaluation integrity](/go/evaluationintegrity).
 
 
 **References**

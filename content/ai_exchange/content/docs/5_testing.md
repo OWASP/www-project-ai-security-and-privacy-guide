@@ -65,7 +65,7 @@ A systematic approach to AI security testing involves a few key steps:
 - **Understand the AI System:** Details about the model, use cases, and deployment scenarios.
 - **Identify Potential Threats:** Threat modeling, identification of attack surface, exploration, and threat actors.
 - **Develop Attack Scenarios:** Design of attack scenarios and edge cases.
-- **Test Execution:** Conduct manual or automated tests for the attack scenarios.
+- **Test Execution:** Conduct manual or automated tests for the attack scenarios, using an evaluation step that the system under test cannot influence (see [testing evaluation integrity](/go/evaluationintegrity)).
 - **Risk Assessment:** Documentation of the identified vulnerabilities and risks.
 - **Prioritization and Risk Mitigation:** Develop an action plan for remediation, implement mitigation measures, and calculate residual risk.
 - **Validation of Fixes:** Retest the system post-remediation.
@@ -196,6 +196,7 @@ If the AI system goes beyond a standard chatbot in a generic situation, then the
 **(3) Orchestrate inputs and detections**  
 Implement an automated test that presents the attack inputs in this set to the AI system, preferably where each input is paired with a detection method (e.g., a search pattern to verify if sensitive data is indeed in the output) - so that the entire test can be automated as much as possible. Try to tailor the detection to take into account when the attack would be evaluated as an unacceptable severity (see Evaluation step).  
 Note that some harmful outputs cannot be detected with obvious matching patterns. They require evaluation using Generative AI, or human inspection.  
+Make sure the system under test cannot influence these detections, for example by writing a verdict into its own output. See [testing evaluation integrity](/go/evaluationintegrity).  
 Also make sure to include protection mechanisms in the test: present attack inputs in such a way that relevant filtering and detection mechanisms are included (i.e. present it to the system API instead of directly to model) - as used in production.
 
 **(4) Include indirect prompt injection when relevant**  
@@ -307,6 +308,63 @@ NOTE Depending on the intended use, a single evasion input may be enough to caus
 
 **Positive testing**  
 It is of course important to also test the AI system for correct behaviour in benign situations. Depending on context, such testing may be integrated in the implementation of the security test by using the same mechanisms. Such testing ideally includes the testing of detection mechanisms, to ensure that not too many false positives are triggered by benign inputs. Positive testing is essential to ensure that security mechanisms do not degrade intended functionality or user experience beyond acceptable levels.
+
+### 5.3.6 Testing evaluation integrity
+> Category: AI security test  
+> Permalink: https://owaspai.org/go/evaluationintegrity
+
+**Test description**  
+Every AI security test, [continuous validation](/go/continuousvalidation) run and [automated oversight](/go/oversight) mechanism relies on an evaluation step that decides the result: a pattern match, a detector, an LLM acting as judge or monitor, a test runner, or a metric over many samples. This test checks that the evaluation step cannot be steered by the system it evaluates (the _evaluator trust boundary_, see references):
+
+**A verdict or score must not depend on anything the system under test can influence.**
+
+Reading the output of the system under test is the measurement: the output may be the object of the judgement, but not an input to it. A typical failure is a verdict parsed from a string that also contains the answer, so an answer that contains `GRADE: PASS` grades itself. No attacker is needed: the same parse fires on ordinary text that happens to contain a verdict word, and on a model that drifts into the pattern during optimization. A more robust judge model does not help, because the defect is in the scoring code. In one published measurement (see references), the same judge model accepted none of 25 planted verdicts when its verdict was read from its own final line, and all of them when it was read by a first-match search over text that included the answer. That search also mis-scored 3 of 8 benign answers. When such scoring code is used as a reward in training or fine-tuning, the model can learn to exploit it.
+
+The evaluation step can trust the system under test in the following ways:
+
+| Mechanism | What goes wrong | Fix |
+|---|---|---|
+| Injected verdict | The verdict is parsed from text the system under test wrote, often the first regex match or first JSON object in a string that includes the answer | Parse only the judge's own reply, bound to its last line or a delimited field. Never search the answer for a verdict |
+| Unsanitized model output | Answers, chain-of-thought or tool-call arguments enter a judge or monitor prompt unescaped | Pass them as escaped, delimited data in a separate message, and keep instructions in a role the system under test cannot write |
+| Fail-open on error | A missing verdict, parse error or backend failure is recorded as pass or safe | Fail closed: record the sample as unscorable and flag it |
+| Denominator drop | Errored, refused or unscorable samples are silently left out of an average | Count them, or report them as a separate number next to the total |
+| Unscorable read as absent | "Could not score" is recorded as "attack did not succeed" or "nothing harmful found" | Make unscorable a distinct result value, never folded into fail or safe |
+| Missing normalization | A detector compares raw text, so homoglyph, fullwidth or zero-width variants pass | Normalize both the patterns and the output before matching (see [#PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling)) |
+| Composition blindness | A per-step monitor misses a harmful action split over individually benign steps | Carry state across steps, or document that composed actions are not covered |
+| Metric miscounting | Aggregation loses structure, for example duplicate names collapse into one result | Score per key and per expected answer, keyed by unique identifiers |
+| Forged execution artifact | The runner trusts `PASSED` lines or an equality check that the code under test can produce | Use evidence the code under test cannot write: the exit status, or a comparison with frozen ground truth in the grader's own process |
+| Evaluation context leakage | Run identifiers, environment variables or harness files let the system tell it is being evaluated | Strip or randomize identifying context, and measure whether the system can still tell |
+
+**Test procedure**  
+See the [section above](/go/testing) for the general steps in AI security testing.  
+The steps specific for this test are:
+
+**(1) Map the evaluation path**  
+For each verdict or score, list everything it is computed from and mark what the system under test can write, cause or observe: its output and reasoning, tool-call arguments, files and logs it can change, errors it can trigger, and the environment it can read. Every marked item that feeds the verdict, other than the answer being judged, is a finding.
+
+**(2) Plant verdicts**  
+Present failing answers that contain a passing verdict in the format the evaluator expects: verdict markers, verdict JSON, a fake rubric completion, delimiter or role spoofing, invisible characters. The test fails if a planted verdict turns a fail into a pass. Include benign controls with no planted verdict, to catch a parse that mis-scores with no attack involved, for example by matching the word PASS in the judge's own explanation or in ordinary prose. When the judge is a model, run several trials.
+
+**(3) Force evaluation failures**  
+Make the evaluator unable to score: an empty or malformed judge reply, a timeout or error from the judge or detector backend, output the parser rejects. The test fails if any of these is recorded as a pass or as safe, or if the sample disappears from the reported results. The reported total should equal scored plus unscorable samples, with both shown.
+
+**(4) Check the remaining mechanisms**  
+Re-run detections with homoglyph, fullwidth, zero-width and case variants of output that should be flagged. Where code is executed, let the code under test print success markers or return objects that override equality. For monitors, split a disallowed action over individually benign steps. Check whether the system under test can read identifiers of the evaluation. Record each failure as a finding, or as a documented limitation of the test.
+
+**(5) Rerun**  
+Rerun after any change to the judge prompt, parser, metric code or tool version, since each can reintroduce the problem.
+
+**Examples**  
+Public fixes in open-source evaluation tools:
+- Inspect AI ([#4297](https://github.com/UKGovernmentBEIS/inspect_ai/pull/4297)): the default model-graded `GRADE:` parser mis-scored ordinary prose such as the word `downgrade:`, zero-width characters and lower-case verdicts. It now matches the verdict marker as an independent token.
+- ControlArena ([#798](https://github.com/UKGovernmentBEIS/control-arena/pull/798)): tool-call arguments entered monitor prompts unescaped. They are now serialized as JSON, with structural tags escaped.
+- promptfoo ([#10611](https://github.com/promptfoo/promptfoo/pull/10611)): an `llm-rubric` grader response without a verdict defaulted to a pass. It now derives the verdict from a usable score or fails closed.
+- garak ([#1884](https://github.com/NVIDIA/garak/pull/1884)): string detectors did no Unicode normalization. An opt-in `normalize` setting now normalizes both the trigger strings and the output.
+- SWE-bench ([#620](https://github.com/SWE-bench/SWE-bench/pull/620)): the grader counted `PASSED` lines that the evaluated patch could print itself. It now checks the test command's exit code.
+
+**References**  
+- Kearney, J. (2026). [The Evaluator Trust Boundary: A defect class in AI evaluation infrastructure, its prevalence across 36 organizations, and its removal by training](https://doi.org/10.5281/zenodo.21633620). Defines the ten mechanisms above (ETB-01 to ETB-10) and links each public report.
+- [Prompt injection testing](/go/testingpromptinjection), whose paired detections are one kind of evaluation step this test covers.
 
 
 ## **5.5 Red Teaming tools for AI and GenAI**
