@@ -51,3 +51,91 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+
+document.addEventListener("DOMContentLoaded", () => {
+  const tocLinks = Array.from(
+    document.querySelectorAll('.toc-content a[href^="#"]')
+  );
+
+  const sections = tocLinks
+    .map(link => {
+      const id = decodeURIComponent(link.hash.slice(1));
+      return {
+        link,
+        heading: document.getElementById(id)
+      };
+    })
+    .filter(item => item.heading);
+
+  if (!sections.length) return;
+
+  function updateActiveSection() {
+    const threshold = 120;
+    let active = sections[0];
+
+    for (const section of sections) {
+      if (section.heading.getBoundingClientRect().top <= threshold) {
+        active = section;
+      }
+    }
+
+    for (const section of sections) {
+      const selected = section === active;
+      section.link.classList.toggle("toc-active", selected);
+
+      if (selected) {
+        section.link.setAttribute("aria-current", "location");
+      } else {
+        section.link.removeAttribute("aria-current");
+      }
+    }
+  }
+
+  window.addEventListener("scroll", updateActiveSection, {
+    passive: true
+  });
+
+  window.addEventListener("resize", updateActiveSection);
+  window.addEventListener("hashchange", updateActiveSection);
+
+  updateActiveSection();
+});
+
+// Back to top button
+
+(function () {
+  function initBackToTop() {
+    const button = document.getElementById("back-to-top");
+
+    if (!button) return;
+
+    function updateVisibility() {
+      button.hidden = window.scrollY < 300;
+    }
+
+    button.addEventListener("click", function () {
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      window.scrollTo({
+        top: 0,
+        behavior: prefersReducedMotion ? "auto" : "smooth"
+      });
+    });
+
+    window.addEventListener("scroll", updateVisibility, {
+      passive: true
+    });
+
+    window.addEventListener("pageshow", updateVisibility);
+
+    updateVisibility();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initBackToTop);
+  } else {
+    initBackToTop();
+  }
+})();

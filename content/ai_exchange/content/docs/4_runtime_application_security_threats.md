@@ -7,7 +7,7 @@ weight: 5
 > Category: group of runtime threats  
 > Permalink: https://owaspai.org/go/runtimeconventionalsec
 
-An AI system is an IT system, so at runtime it can be vulnerable to any security attack - for example to break into the application's user database. These 'conventional' attacks to generic assets, and their countermeasures are covered in many other resources. This section focuses only on what is AI-specific.  
+An AI system is an IT system, so at runtime it can be vulnerable to any security attack - for example breaking into the application's user database. These 'conventional' attacks to generic assets, and their countermeasures are covered in many other resources. This section focuses only on what is AI-specific.  
 
 [Section 2](/go/threatsuse) covers runtime attacks that are AI-specific: attacks performed through inference - by using the system and providing model input. [Section 3](/go/developmenttime) covers attacks during development-time: mostly conventional attacks (e.g. breaking into a training database) with sometimes AI-specific consequences (e.g., changing model behaviour) plus AI-specific supply chain attacks.  
 
@@ -169,7 +169,7 @@ The following factors can complicate this risk:
 1. Metadata. If there is metadata to the input (e.g., identifying a user), this can increase the risk - for example when a sensitive conversation in prompts is linked to the user.
 2. Cloud AI. When AI models run in the cloud (often the case for GenAI) then this risk needs special attention, especially if this is managed by an external party. Input data will be unencrypted at inference time (when processed by the model). Therefore, it is critical that proper security measures are in place for the data in transit and at rest, and ideally the data is not retained at all. For security reasons, some third parties monitor and log the input, which is why it is critical to read the fine print and select the right license and configuration. Sometimes monitoring requires opt-out. For more information see the [ready-made models section](/go/readymademodel).
 3. Court orders. If input is stored at the third party, you run the risk of that data to be subject to a subpoena - depending on jurisdiction (e.g. Cloud Security Act).
-4. Agumented data. GenAI model input (prompts) can contain rich context information with sensitive data (e.g., company secrets). The latter issue occurs with *in context learning* or *Retrieval Augmented Generation(RAG)* (adding background information to a prompt): for example data from all reports ever written at a consultancy firm. First of all, this context information will travel with the prompt to the cloud, and second: the context information may likely leak to the output, so it's important to apply the access rights of the user to the retrieval of the context. For example: if a user from department X asks a question to an LLM - it should not retrieve context that department X has no access to, because that information may leak in the output.
+4. Augmented data. GenAI model input (prompts) can contain rich context information with sensitive data (e.g., company secrets). The latter issue occurs with *in context learning* or *Retrieval Augmented Generation(RAG)* (adding background information to a prompt): for example data from all reports ever written at a consultancy firm. First of all, this context information will travel with the prompt to the cloud, and second: the context information may likely leak to the output, so it's important to apply the access rights of the user to the retrieval of the context. For example: if a user from department X asks a question to an LLM - it should not retrieve context that department X has no access to, because that information may leak in the output.
 5. External services. Model actions may trigger other services, further spreading the input data. For example: when you ask a cloud AI to process your pdf document and the AI starts calling various services to help process the document. 
 
 See [Risk analysis](https://owaspai.org/docs/ai_security_overview/#how-to-select-relevant-threats-and-controls-risk-analysis) on responsible parties.
@@ -194,7 +194,7 @@ Model input confidentiality: see [SECDEVPROGRAM](/go/secdevprogram) to attain co
 **Description**  
 Impact: Confidentiality breach of sensitive augmentation data through a conventional attack on the data at rest or in transit.
 
-Augmentation data (ad hoc retrieved information inserted into a prompt, such as system prompts, or documents), needs to be transfered and stored - for example for Retrieval Augmented Generation typically in _vector databases_. This increases the attack surface for any sensitive data, since it's stored outside its regular storage with the regular protection (e.g., company document archive) and therefore requires additional protection.   
+Augmentation data (ad hoc retrieved information inserted into a prompt, such as system prompts, or documents), needs to be transferred and stored - for example for Retrieval Augmented Generation typically in _vector databases_. This increases the attack surface for any sensitive data, since it's stored outside its regular storage with the regular protection (e.g., company document archive) and therefore requires additional protection.   
 
 So-called _vectors_ that form a representation of augmentation data are typically vulnerable for extracting information and should therefore be included in protection. The extraction technique is _embedding inversion_: reconstructing source text from stored vectors. Reported recovery ranges from about 50-70% of the words in sentence embeddings up to 92% exact reconstruction of short inputs, and more recent work performs this zero-shot against a black-box encoder, without training a model for the target encoder. Defenses such as adding noise to stored embeddings reduce recovery but trade off retrieval quality and do not fully prevent it. This matters for incident classification: an exposed vector store is often rated low severity because "only the embeddings leaked" while the source documents sit encrypted elsewhere. If the vectors are invertible that rating is wrong, the source text should be treated as exposed, and under regimes such as GDPR Article 33 that changes the breach notification assessment.
 
@@ -222,9 +222,10 @@ Alternative ways for augmentation data to leak are:
 > Permalink: https://owaspai.org/go/augmentationdataconfidentiality
 
 **Description**  
-See the [security program](/go/secprogram) and [application security](/go/secdevprogram), [development environment security](/go/devsecurity), and [data segregation](/go/segregatedata) to protect the confidentiality of transporting and storing augmentation data (e.g., access control, encryption, minimize retention). Because stored vectors can be inverted to recover source text (see 4.6), hold vector database backups at the sensitivity tier of the source documents, and treat embeddings sent to a third-party embedding service as a transfer of the underlying data.
-
-
+See the [security program](/go/secprogram) and [application security](/go/secdevprogram), [development environment security](/go/devsecurity), and [data segregation](/go/segregatedata) to protect the confidentiality of transporting and storing augmentation data (e.g., access control, encryption, minimize retention). Assets to protect: 
+- A typical place for augmentation data to be stored is in vector databases
+- because augmentation data is any data that is inserted into the input of the model, it includes all context, which can be stored in for example MD files, memory, or system prompt storage.
+- Because stored vectors can be inverted to recover source text (see 4.6), hold vector database backups at the sensitivity tier of the source documents, and treat embeddings sent to a third-party embedding service as a transfer of the underlying data.
 
 ---
 

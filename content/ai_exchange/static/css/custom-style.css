@@ -503,6 +503,16 @@ blockquote a:hover {
   padding-left: 0.5rem;
 }
 
+.toc-content a.toc-active {
+  color: #166534;
+  background-color: #dcfce7;
+  font-weight: 600;
+  border-left: 3px solid #16a34a;
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+
 
 .toc-content ul ul {
   margin-left: 1rem;
@@ -1251,4 +1261,70 @@ blockquote a:hover {
   .stars-wide {
     opacity: 0.3 !important;
   }
+}
+.edit-help {
+  position: relative;
+  cursor: help;
+}
+
+/* tooltip introduced for Edit page function */
+.edit-help-tooltip {
+  display: none;
+  position: absolute;
+  left: 1.4rem;
+  top: -0.5rem;
+  width: 320px;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  background: #222;
+  color: white;
+  font-size: 0.85rem;
+  line-height: 1.35;
+  z-index: 100;
+}
+
+.edit-help:hover .edit-help-tooltip,
+.edit-help:focus-within .edit-help-tooltip {
+  display: block;
+}
+
+
+/* Back to top button */
+
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #166534;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+
+  font-size: 24px;
+  cursor: pointer;
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease;
+}
+
+.back-to-top:hover {
+  background-color: #15803d;
+}
+
+.back-to-top:focus-visible {
+  outline: 3px solid #86efac;
+  outline-offset: 3px;
+}
+
+.back-to-top[hidden] {
+  display: none;
 }

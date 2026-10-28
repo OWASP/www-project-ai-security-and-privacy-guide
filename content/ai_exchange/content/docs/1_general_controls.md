@@ -358,8 +358,9 @@ Useful standards include:
 
   - [OpenCRE on Compliance](https://www.opencre.org/cre/510-324)
   - ISO 27002 Control 5.36 Compliance with policies, rules and standards. Gap: covers this control fully, with the particularity that AI regulation needs to be taken into account.
-  - ISO/IEC 27090 (AI security) and 27091 (AI privacy) are both in development at the moment of writing (Oct 2025), and likely come out in 2026. The AI Exchange has contributed substantial content to the 27090.
-  - prEN 18282 is the European standard for AI Security - brought forward by CEN/CENELEC and with a substantial part contributed by the AI Exchange. Exchange founder Rob van der Veer is liaison officer for the official partnership between the AI Exchange and CEN/CENELEC/ISO, as well as co-editor for 18282. The standard has been in development for almost two years at the moment of writing (Oct 2025) and expected to go into public enquiry early 2026, and be published in 2026.
+  - [ISO/IEC 27090](https://www.iso.org/standard/27090) (AI security) is a guidance standard and has been published in October 2026. The AI Exchange has contributed substantial content to the 27090, and Exchange founder Rob van der Veer was part of the working group.
+  - ISO/IEC 27090 (AI privacy) and 27091 (AI privacy) is in development at the moment of writing (Oct 2026), and likely come out in 2027. 
+  - prEN 18282 is the draft harmonized cybersecurity standard for the EU AI Act - brought forward by CEN/CENELEC JTC21/WG5 and with a substantial part contributed by the AI Exchange. Exchange founder Rob van der Veer is liaison officer for the official partnership between the AI Exchange and CEN/CENELEC/ISO, as well as co-editor for 18282. At the moment of writing (Oct 2026), the standard is ready to go for final internal review, and is expected to be published in the beginning of 2027. After publishing, it depends on publication in the Official Journal if the standard can be used for presumption of conformity for high risk AI systems.
 
 #### #SEC EDUCATE
 > Category: governance control  
@@ -602,12 +603,14 @@ Example: LLMs (GenAI), just like most AI models, induce their results based on t
 - [#EXPLAINABILITY](/go/EXPLAINABILITY)
 - [#UNWANTED BIAS TESTING](/go/UNWANTEDBIASTESTING)
 
+See the [Seven layers of prompt injection protection](/go/promptinjectionsevenlayers) to see how these controls interact for one of the key AI threats.
+
 #### #OVERSIGHT
 > Category: runtime control    
 > Permalink: https://owaspai.org/go/oversight
 
 **Description**  
-Oversight of internal and external AI system behaviour by humans and/or automated mechanisms (e.g.,using rules).
+Oversight of internal and external AI system behaviour by humans and/or automated mechanisms (e.g. using rules).
 
 **Objective**  
 Detect unwanted AI behaviour and respond to it. Responses include correcting, halting execution, deferring to an (other) human-in-the-loop, or issuing an alert to be investigated.
@@ -630,6 +633,11 @@ Automated oversight is about implementing **detection mechanisms** to recognize 
     - A special category of sensitive data: system prompts, as they can be used by attackers to circumvent prompt injection protection in such prompts. 
     - Suspicious actions or sequences of actions detected in the AI system, either by looking at function calls in model output, function calls before they are executed, or after they are executed.
 
+Best practices:
+- Apply **Grounding checks** if recognizing unwanted output based on context is too difficult to catch in rules, and the detection of malicious input is insufficient. The idea of grounding checks is to let a separate Generative AI model decide if an input or output is off-topic or escalates capabilities (e.g. a LLM powered food recipes app suddenly is trying to send emails). This takes the use of LLMs to detect suspicious input and output a step further by including context. This is required in case GenAI-based recognition is insufficient to cover certain attack scenarios (see above).
+- Implement appropriate general detection and response mechanisms as presented in [#MONITOR USE](/go/monitoruse) where part of the response can be to involve a human-in-the-loop.
+- Include as part of response options **rollback mechanisms** to enable oversight to go back to a certain state after system malfunction or manipulation has been observed and the state of the system cannot be trusted, or has been disrupted.
+
 Strategies for action detection:
 - **Detect privilege escalation:** Ideally, the privileges of an AI agent are already hardened to the task (see [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege)), in which case detection comes down to issuing an alert once a model attempts to execute an action for which it has no permissions.
 - In addition, the strategy can include the detection of unusual function calls in the context, issuing alerts for further investigation, or asking for approval by a human in the loop. Manipulation of function flow is commonly referred to as _application flow perturbation_. An advanced way to detect manipulated workflows is to perform rule-based sanity checks during steps, e.g. verify whether certain safety checks of filters were executed before processing data.
@@ -640,9 +648,11 @@ Strategies for action detection:
 - **Deceptive reasoning and chain-of-thought manipulation:** Monitor stated plans and chain-of-thought outputs for consistency with task objectives and policy constraints — flag justifications for policy exceptions, self-granted permission escalation, or rationalisation of normally refused actions. Compare stated intent against actual tool calls and side effects; divergence is a high-confidence indicator of corrupted reasoning or [prompt injection](/go/promptinjection) / [memory manipulation](/go/augmentationdatamanipulation). For high-impact decisions, apply independent reasoning validation with a separate constrained model (preferably a different model family). Restrict agent introspection on its own guardrails, policy boundaries, or monitoring mechanisms where feasible.
 - **Impersonation and delegation anomalies:** Flag inter-agent traffic from identities not in the verified registry, behavioural baseline deviations, or delegation chains exceeding configured depth — see [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege) delegation controls and [agent message structure manipulation](/go/agentmessagestructuremanipulation).
 - **Secure orchestration:** Treat the orchestrator as the highest-leverage target — validate and segregate all inputs (sub-agent responses, tool outputs, external content) as untrusted; limit orchestrator permissions to coordination only (no direct high-impact tool credentials); tamper-evident workflow log external to orchestrator memory; human approval before irreversible or cross-system workflows; block direct orchestrator egress — route external access through segmented sub-agents ([agent sandboxing](/go/agentsandboxing)); reconcile agent actions against workflow log for phantom steps.
-- Apply **Grounding checks** if recognizing unwanted output based on context is too difficult to catch in rules, and the detection of malicious input is insufficient. The idea of grounding checks is to let a separate Generative AI model decide if an input or output is off-topic or escalates capabilities (e.g. a LLM powered food recipes app suddenly is trying to send emails). This takes the use of LLMs to detect suspicious input and output a step further by including context. This is required in case GenAI-based recognition is insufficient to cover certain attack scenarios (see above).
-- Implement appropriate general detection and response mechanisms as presented in [#MONITOR USE](/go/monitoruse) where part of the response can be to involve a human-in-the-loop.
-- Include as part of response options **rollback mechanisms** to enable oversight to go back to a certain state after system malfunction or manipulation has been observed and the state of the system cannot be trusted, or has been disrupted.
+- **Agentic Rule of Two:** until reliable model-layer refusal exists, an agent session should satisfy no more than two of: (A) processing untrustworthy inputs, (B) accessing sensitive systems or private data, (C) changing state or communicating externally. When all three are required, operate under human-in-the-loop supervision.
+- **Privilege-based data flow control (CaMeL):** attach capability metadata to values and restrict data and control flows with policies.
+- **Tool-boundary firewalls:** complementary firewalls at the agent-to-tool boundary — an input firewall limits private information reaching tool execution (as described in [#SENSITIVE OUTPUT HANDLING](/go/sensitiveoutputhandling)); an output firewall sanitises tool responses (as described in [#PROMPT INJECTION I/O/HANDLING](/go/promptinjectioniohandling)). These are typically lighter than dual-LLM architectures. 
+
+
 
 **Implementation of Human oversight (human-in-the-loop)**  
 Classify agent actions by **risk tier** before deployment and assign oversight requirements: fully autonomous execution; soft confirmation (user notified with option to cancel); hard confirmation (user must actively approve with context); or mandatory human initiation (agent cannot start without human trigger). Implement checkpoints as **infrastructure-layer gates**, not LLM instructions — the agent must be technically incapable of proceeding without a verified human approval signal.
@@ -702,6 +712,7 @@ Useful standards include:
 
 **Description**  
 Least model privilege: Minimize what a model can do (trigger actions or access data), to prevent harm in case the model is manipulated, or makes a mistake by itself. 
+See the [Seven layers of prompt injection protection](/go/promptinjectionsevenlayers) to see how privilege controls interact for one of the key AI threats.
 
 **Implementation**
 - **Limit both permissions and attack surface**. Privileges can be controlled by configuring permissions in an authorization mechanism, and by removing access to elements and thus reducing the attack surface for a manipulated model (e.g., isolating or sand-boxing an agent by removing commands it could call from an image, or limit network access).
