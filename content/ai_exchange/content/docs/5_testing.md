@@ -1355,7 +1355,7 @@ Documentation: [https://taoq-ai.github.io/ziran/](https://taoq-ai.github.io/zira
 - Data disclosure: Finds tool chains that move data to external endpoints (for example a file read followed by an HTTP request) and PII leakage paths. [*https://owaspai.org/go/dataleak*](https://owaspai.org/go/dataleak)
 
 ## Tool Ratings
-## 5.8 Tool Ratings
+
 This section rates the discussed tools by Popularity, Community Support, Scalability and Integration.
 
 [![](https://owaspai.org/images/testtoolrating.png)](https://owaspai.org/images/testtoolrating.png)
