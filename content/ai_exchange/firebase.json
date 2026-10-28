@@ -765,27 +765,27 @@
       },
       {
         "source": "/go/testingpromptinjection",
-        "destination": "/docs/5_testing/#testing-against-prompt-injection",
+        "destination": "/docs/5_testing/#534-testing-against-prompt-injection",
         "type": 302
       },
       {
         "source": "/go/ragtesting",
-        "destination": "/docs/5_testing/#rag-system-security-testing",
+        "destination": "/docs/5_testing/#533-rag-system-security-testing",
         "type": 302
       },
       {
         "source": "/go/testingevasion",
-        "destination": "/docs/5_testing/#testing-against-evasion",
+        "destination": "/docs/5_testing/#535-testing-against-evasion",
         "type": 302
       },
       {
         "source": "/go/testingtoolspredictiveai",
-        "destination": "/docs/5_testing/#open-source-tools-for-predictive-ai-red-teaming",
+        "destination": "/docs/5_testing/#56-open-source-tools-for-predictive-ai-red-teaming",
         "type": 302
       },
       {
         "source": "/go/testingtoolsgenai",
-        "destination": "/docs/5_testing/#open-source-tools-for-generative-ai-red-teaming",
+        "destination": "/docs/5_testing/#57-open-source-tools-for-generative-ai-red-teaming",
         "type": 302
       },
       {
