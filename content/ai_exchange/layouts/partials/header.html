@@ -475,8 +475,8 @@
   fill: currentColor;
 }
 
-/* Mobile Styles */
-@media (max-width: 768px) {
+/* Mobile Styles (hamburger menu below 1280px: the full menu + icons don't fit on narrower screens) */
+@media (max-width: 1279px) {
   .desktop-nav {
     display: none !important;
   }
@@ -523,7 +523,7 @@
 }
 
 /* Desktop Styles */
-@media (min-width: 769px) {
+@media (min-width: 1280px) {
   .mobile-menu-overlay {
     display: none !important;
   }
