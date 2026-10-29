@@ -622,6 +622,7 @@ It is the nature of AI models that they can be wrong. In addition, they can be m
 - [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege) restricts model actions through permissions and therefore is preventative, while #OVERSIGHT is about detection: it is reactive or gate-based — both may apply to the same action tier.
 - [#MODEL ALIGNMENT](/go/modelalignment) is a form of oversight where the model is taught and instructed regarding its wanted and unwanted behaviour. This is done through training, fine-tuning, and system prompts. It is as a separate control because it's implementation is different and the effectiveness relies on the model's ability to be conditioned - which has its own limitations.
 - [#MONITOR USE])(/go/monitoruse) is the overarching control of monitoring, including elements such as logging, continuous validation of model performance, incident response, input detections, and the control for this clause: #OVERSIGHT.
+- [Testing evaluation integrity](/go/evaluationintegrity) applies to automated oversight as well: a monitor or LLM judge that reads content the overseen system can write can be steered by it, so oversight mechanisms should be tested with the same procedure.
 
 **Implementation**  
 Oversight spans **automated** mechanisms (rules, monitors, policy gates) and **human** mechanisms (informed review and approval). Automated oversight scales; human oversight provides accountability, handles ambiguous high-impact decisions, and can bring in more context knowledge. These mechanisms go hand in hand: automated detections can identify situations that require human intervention.  
@@ -929,6 +930,7 @@ There is a terminology difference between AI performance testing and traditional
 **Limitations**  
 Continuous validation relies on the representativeness and integrity of the test dataset. Attacks that are triggered only by rare or highly specific inputs may not be detected if those inputs are absent from test sets.
 If attackers are able to manipulate both the model and the test data, validation results may no longer be trustworthy. Validation alone therefore does not replace other integrity and monitoring controls.
+Results are equally untrustworthy when the scoring step reads anything the model can influence, for example a verdict parsed from model output, or failed samples silently left out of a metric. See [testing evaluation integrity](/go/evaluationintegrity).
 
 
 **References**
