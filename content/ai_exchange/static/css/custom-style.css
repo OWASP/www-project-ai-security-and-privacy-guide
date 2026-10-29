@@ -73,8 +73,9 @@ h1 {
   position:absolute;
   bottom:0;
   right:0;
-  width:650px;
-  height:650px;
+  /* scale with the window so the globe doesn't slide under the text on mid-size screens */
+  width:clamp(320px, 45vw, 650px);
+  height:clamp(320px, 45vw, 650px);
   background:url('../images/globe.webp') no-repeat bottom/contain;
   pointer-events:none;
   z-index:1;
@@ -83,6 +84,21 @@ h1 {
     position:relative;
     padding: 80px 0px 80px;
     width: 55%;
+}
+/* Hero buttons: 2x2 grid of equal-width buttons, so 4 buttons stay tidy at every width */
+.hero-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  max-width: 26rem;
+}
+.hero-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  white-space: nowrap;
 }
 .intro-banner {
     background: radial-gradient(1000px 500px at 90% -10%, #11306a 0%, #061125 60%, #030917 100%), url('/images/hero-stars.svg');
@@ -929,17 +945,16 @@ blockquote a:hover {
     margin-bottom: 1.5rem;
   }
   
-  .hero-content .flex {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
+  .hero-buttons {
+    margin: 0 auto;
   }
-  
-  .hero-content a {
-    width: 100%;
+}
+
+/* Very narrow phones: one button per row */
+@media (max-width: 360px) {
+  .hero-buttons {
+    grid-template-columns: 1fr;
     max-width: 280px;
-    text-align: center;
-    padding: 12px 20px;
   }
 }
 
