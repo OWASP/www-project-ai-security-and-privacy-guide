@@ -3,7 +3,7 @@
     class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center"
   >
     {{ range first 3 .Site.Data.media.items }}
-    <div class="w-full sm:w-[350px] lg:w-[450px]">
+    <div class="w-full" style="max-width: 450px;">
       <!-- Clickable Thumbnail -->
       <a
         href="{{ .url }}"
