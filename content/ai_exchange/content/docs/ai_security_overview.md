@@ -215,6 +215,8 @@ The AI Exchange is a single coherent resource on the security and privacy of AI 
   See [How to organize AI security](https://owaspai.org/go/organize)..
 - **Start AI security as individual**:  
   See 'Learn AI security' below to familiarize yourself with the threats and controls or look in the [references section](/go/references) for a large table with training material.
+- **No background in security or AI**:  
+  See the [AI security primer for a general audience](/go/generalaudienceprimer) below.
 - **Understand how AI systems are engineered before securing them**:
   See the [AI engineering primer for security professionals](/go/aiengineeringprimer) below. It explains common delivery models, engineering activities, artifacts, and the security decisions attached to them.
 - **Threat model your system, to learn how to secure it**:  
@@ -260,6 +262,35 @@ This page (AI security overview) will continue with discussions about:
 - Various overviews of threats and controls: the matrix, the periodic table, and the navigator
 - Risk analysis to select relevant threats and controls
 - Various other topics: heuristic systems, responsible AI, generative AI, the NCSC/CISA guidelines, and copyright
+
+---
+
+### AI security primer for a general audience
+>Category: discussion  
+>Permalink: https://owaspai.org/go/generalaudienceprimer
+
+This primer is for readers without a background in IT, security, or AI. It explains in plain language why AI security exists and what can go wrong. Security is only one part of using AI well. For fairness, transparency, and other concerns beyond security, see [Responsible AI](/go/responsibleai).
+
+**Why AI needs its own security conversation**  
+Conventional software follows exact instructions written by people, so its behavior is predictable. AI systems instead learn patterns from large amounts of data and produce answers based on those patterns. That makes them useful, but it also means they can be wrong on their own, and they can be made wrong or made to misbehave by someone else. Protecting AI is therefore partly the familiar work of protecting computer systems, plus new work that comes from how AI is built and used.
+
+**What can go wrong**  
+Three main things change with AI:
+
+- **The AI can be attacked by talking to it.** Conventional software follows rules written by people, so its behavior can be read, inspected, and tested before it is used. An AI system has no such rules to read. Its behavior comes from patterns it learned from data, and even the same question can get different answers each time. Testing can show how it tends to behave, but not everything it might do. An attacker can exploit this by crafting input that misleads the AI, either typed directly or hidden in a document, email, or web page the AI is asked to read. Examples include convincing a chatbot to ignore its rules, tricking it into taking a harmful action, or coaxing it into revealing information.
+- **What you get from others may be compromised.** Attackers have always tried to abuse the trust organizations place in their suppliers. What changes with AI is what is supplied, which now includes models, training data, hosting, and abilities. Abilities are add-on tools and services that let an AI look things up or take actions for you (technically known as MCP services, skills, or plugins). Tampering is also harder to spot. Even after passing the usual safety and performance tests, a manipulated model, or a model trained on manipulated data, can still carry a hidden trigger planted by the attacker, for example a specific word or phrase that makes it do what the attacker intended. A tampered ability can do harm directly, because it acts with whatever access it was given.
+- **AI creates new valuable things that need protection.** The data used to teach the AI, the model itself, the instructions it runs on, and everything users type into it are all assets. Each can leak or be manipulated, just like any other sensitive information in the organization.
+
+**The everyday risk is what you type in**  
+When you use an AI service that runs in the cloud, everything you type is sent to the provider and must be readable there for the AI to process it. Your text leaves your organization in readable form. Providers usually limit what they store and for how long, but pasting client records, employee data, or confidential plans into an external AI tool means that data now exists outside your organization. When in doubt, ask what your organization's policy is, and prefer the tools your organization has approved (using unapproved ones is sometimes called shadow AI). For a deeper look, see [ready-made models](/go/readymademodel) and [input data leak](/go/inputdataleak).
+
+**Who is responsible for what**  
+The supplier secures the model and its infrastructure, but using an AI service from a supplier does not transfer responsibility to them. Your organization remains responsible for the data it puts in the AI, the rules it sets, what the AI is allowed to do, and how its output is used. If something goes wrong with your data or your customers, your organization is still accountable.
+
+**Where to go next**  
+- To learn the basics of AI threats and their countermeasures, continue with the [AI security essentials](/go/essentials).
+- If your organization is starting with AI, see [How to organize AI security](/go/organize).
+- For everything about AI beyond security, such as fairness and transparency, see [Responsible AI](/go/responsibleai).
 
 ---
 
