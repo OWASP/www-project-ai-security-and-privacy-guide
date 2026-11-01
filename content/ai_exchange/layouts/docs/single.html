@@ -24,7 +24,7 @@
 <div class="docs-layout" x-data="{ openSidebar: false, openToc: false }">
 
   <!-- ✅ Mobile Dropdown Buttons -->
-  <div class="md:hidden flex flex-col gap-3 p-4">
+  <div class="min-[1025px]:hidden flex flex-col gap-3 p-4">
     <!-- Sidebar dropdown -->
     <div class="bg-[#EEF3FF] rounded-xl shadow-sm">
       <button
@@ -89,7 +89,7 @@
   </div>
 
   <!-- ✅ Desktop Layout (unchanged) -->
-  <div class="hidden md:flex docs-sidebar-column">
+  <div class="hidden min-[1025px]:flex docs-sidebar-column">
     <aside class="docs-sidebar p-0">
       <div class="sidebar-container pt-6">
         <nav class="sidebar-nav">
@@ -156,7 +156,7 @@
   </main>
 
   <!-- ✅ Right TOC (desktop only) -->
-  <aside class="hidden md:block docs-toc docs-sidebar-column">
+  <aside class="hidden min-[1025px]:block docs-toc docs-sidebar-column">
     <div class="toc-container sticky">
       <h3 class="toc-title py-2">On this page</h3>
       <div class="toc-content bg-gradient-to-b from-[#CCF6CE] to-[#FDFBFB] border border-gray-300 rounded-lg p-4">
