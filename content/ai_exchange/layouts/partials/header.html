@@ -475,13 +475,23 @@
   fill: currentColor;
 }
 
-/* Mobile Styles (hamburger menu below 1280px: the full menu + icons don't fit on narrower screens) */
-@media (max-width: 1279px) {
-  .desktop-nav {
+/* Full window width: Tailwind's .container steps down to 1024px/768px here, too narrow for the menu */
+@media (min-width: 960px) and (max-width: 1279px) {
+  .main-header .header-container {
+    max-width: 100%;
+  }
+}
+
+/* Social icons go first: they don't fit next to the full menu below 1180px */
+@media (max-width: 1179px) {
+  .desktop-social {
     display: none !important;
   }
-  
-  .desktop-social {
+}
+
+/* Mobile Styles (hamburger menu below 960px: the text menu doesn't fit on narrower screens) */
+@media (max-width: 959px) {
+  .desktop-nav {
     display: none !important;
   }
   
@@ -523,7 +533,7 @@
 }
 
 /* Desktop Styles */
-@media (min-width: 1280px) {
+@media (min-width: 960px) {
   .mobile-menu-overlay {
     display: none !important;
   }
