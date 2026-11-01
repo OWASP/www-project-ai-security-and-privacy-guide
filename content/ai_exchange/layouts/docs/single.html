@@ -128,26 +128,9 @@
         <span class="breadcrumb-separator">></span>
         <span class="current-page">{{ .Title }}</span>
       </nav>
-      <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-6">
+      <div class="mb-6">
         <h1 class="docs-title" style="margin-bottom: 0;">{{ .Title }}</h1>
-        {{ if .File }}
-        <div class="edit-page-wrapper">
-          <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/edit/main/content/ai_exchange/content/{{ .File.Path }}"
-             class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-emerald-600 transition-colors mt-4 sm:mt-0"
-             target="_blank" rel="noopener noreferrer"
-             title="Suggest an improvement via GitHub">
-            <i class="fa-brands fa-github text-lg"></i>
-            <span class="font-medium underline decoration-1 underline-offset-4">Edit page</span>
-          </a>
-        
-          <span class="edit-help" tabindex="0" aria-label="Help with editing on GitHub">
-            ⓘ
-            <span class="edit-help-tooltip">
-              New to GitHub? Get a free GitHub account. Don’t worry if GitHub asks you to create a “fork” — that is simply your editable copy of the project. Make your change, click <strong>Propose changes</strong>, then <strong>Create pull request</strong> to send your suggestion to the AI Exchange maintainers for review.
-            </span>
-          </span>
-        </div>
-        {{ end }}
+        {{ partial "edit-page-link.html" (dict "page" . "placement" "content") }}
       </div>
       <div class="docs-body documentation">
         {{ .Content }}
@@ -158,6 +141,7 @@
   <!-- ✅ Right TOC (desktop only) -->
   <aside class="hidden min-[1025px]:block docs-toc docs-sidebar-column">
     <div class="toc-container sticky">
+      {{ partial "edit-page-link.html" (dict "page" . "placement" "toc") }}
       <h3 class="toc-title py-2">On this page</h3>
       <div class="toc-content bg-gradient-to-b from-[#CCF6CE] to-[#FDFBFB] border border-gray-300 rounded-lg p-4">
         {{ .TableOfContents }}
