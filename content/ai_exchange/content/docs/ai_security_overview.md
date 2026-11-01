@@ -1091,7 +1091,7 @@ Security protecting confidentiality diagram:
 [![](/images/wayfinder-security-confidential.png)](/images/wayfinder-security-confidential.png)
 
 
-### The complete responsible/trustworthy AI picture
+#### The complete responsible/trustworthy AI picture
 The image below shows all aspects of responsible/trustworthy AI in one visual. It also includes another security aspect outside the scope of the AI Exchange: the use of the AI system to perform attacks - either as intended or unintended use. This is a security concern when it comes to responsible use, but it is not about protecting the AI system against attacks.  
 
 [![](/images/wayfinder.png)](/images/wayfinder.png)
