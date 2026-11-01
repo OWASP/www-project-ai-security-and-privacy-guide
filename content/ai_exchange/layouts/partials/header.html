@@ -104,6 +104,7 @@
 <div class="search-overlay" id="searchOverlay">
   <div class="search-container">
     <div class="search-header">
+      <button class="search-share" id="search-share" type="button" hidden>Share search</button>
       <button class="search-close" id="search-close" aria-label="Close search">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -594,6 +595,31 @@
   height: 24px;
 }
 
+.search-share {
+  height: 48px;
+  padding: 0 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-share:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.search-share:focus-visible {
+  outline: 3px solid #86efac;
+  outline-offset: 3px;
+}
+
+.search-share[hidden] {
+  display: none;
+}
+
 /* Pagefind UI container - match overlay dark theme */
 .pagefind-search-container {
   --pagefind-ui-scale: 1;
@@ -778,9 +804,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchToggle = document.getElementById("search-toggle");
   const searchOverlay = document.getElementById("searchOverlay");
   const searchClose = document.getElementById("search-close");
+  const searchShare = document.getElementById("search-share");
+  const isSearchPage = location.pathname.replace(/\/$/, "") === "/search";
+  let pagefindUI;
 
   if (typeof PagefindUI !== "undefined") {
-    new PagefindUI({
+    pagefindUI = new PagefindUI({
       element: "#pagefind-search",
       translations: { placeholder: "Search articles, guides, and content..." },
       showSubResults: true,
@@ -816,8 +845,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }, true);
   }
 
+  function getSearchInput() {
+    return pagefindSearch && pagefindSearch.querySelector("input[type=\"search\"], input[type=\"text\"], .pagefind-ui__search-input, input");
+  }
+
   function focusSearchInput() {
-    const input = pagefindSearch && pagefindSearch.querySelector("input[type=\"search\"], input[type=\"text\"], .pagefind-ui__search-input, input");
+    const input = getSearchInput();
     if (input) {
       input.focus();
       return true;
@@ -844,17 +877,63 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function closeSearch() {
+    // Nothing sits behind the overlay on /search/, so closing leaves the page
+    if (isSearchPage) {
+      location.assign("/");
+      return;
+    }
+    searchOverlay.classList.remove("active");
+    document.body.style.overflow = "auto";
+  }
+
   if (searchClose) {
-    searchClose.addEventListener("click", () => {
-      searchOverlay.classList.remove("active");
-      document.body.style.overflow = "auto";
+    searchClose.addEventListener("click", closeSearch);
+  }
+
+  function searchUrl(query) {
+    return location.origin + "/search/" + (query ? "?q=" + encodeURIComponent(query) : "");
+  }
+
+  // Keeps the share button, and the address bar on /search/, in step with the search box
+  function syncSearchUrl() {
+    const input = getSearchInput();
+    const query = input ? input.value.trim() : "";
+    if (searchShare) searchShare.hidden = !query;
+    if (isSearchPage) history.replaceState(null, "", searchUrl(query));
+  }
+
+  if (pagefindSearch) {
+    pagefindSearch.addEventListener("input", syncSearchUrl);
+    // The clear button empties the box without an input event
+    pagefindSearch.addEventListener("click", () => setTimeout(syncSearchUrl));
+  }
+
+  if (searchShare) {
+    searchShare.addEventListener("click", async () => {
+      const url = searchUrl(getSearchInput().value.trim());
+      try {
+        await navigator.clipboard.writeText(url);
+        searchShare.textContent = "Link copied";
+        setTimeout(() => { searchShare.textContent = "Share search"; }, 2000);
+      } catch (_) {
+        window.prompt("Copy this link to share your search:", url);
+      }
     });
+  }
+
+  if (isSearchPage) {
+    openSearch();
+    const query = new URLSearchParams(location.search).get("q");
+    if (query && pagefindUI) {
+      pagefindUI.triggerSearch(query);
+      if (searchShare) searchShare.hidden = false;
+    }
   }
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && searchOverlay && searchOverlay.classList.contains("active")) {
-      searchOverlay.classList.remove("active");
-      document.body.style.overflow = "auto";
+      closeSearch();
       return;
     }
     if (e.key === "/" && searchOverlay && !searchOverlay.classList.contains("active")) {
