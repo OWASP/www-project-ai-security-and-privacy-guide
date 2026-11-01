@@ -240,7 +240,7 @@ h1 {
   height: fit-content;
 }
 .toc-content nav#TableOfContents {
-  height: 78vh;
+  height: calc(78vh - 2rem); /* leaves room for Edit page above the pane */
   overflow-y: scroll;
 }
 
@@ -1277,8 +1277,33 @@ blockquote a:hover {
     opacity: 0.3 !important;
   }
 }
-.edit-help {
+/* Edit page: at the top of the right pane while that sits beside the content,
+   in the content column once the pane drops below it (same 1024px as .docs-layout) */
+.edit-page-wrapper {
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.edit-page-wrapper--content {
+  margin-top: 0.75rem;
+}
+
+@media (min-width: 1025px) {
+  .edit-page-wrapper--content {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .edit-page-wrapper--toc {
+    display: none;
+  }
+}
+
+.edit-help {
   cursor: help;
 }
 
@@ -1286,9 +1311,10 @@ blockquote a:hover {
 .edit-help-tooltip {
   display: none;
   position: absolute;
-  left: 1.4rem;
-  top: -0.5rem;
-  width: 320px;
+  left: 0;
+  top: 100%;
+  width: min(320px, calc(100vw - 3rem));
+  white-space: normal;
   padding: 0.6rem 0.8rem;
   border-radius: 6px;
   background: #222;
@@ -1296,6 +1322,11 @@ blockquote a:hover {
   font-size: 0.85rem;
   line-height: 1.35;
   z-index: 100;
+}
+
+.edit-page-wrapper--toc .edit-help-tooltip {
+  left: auto;
+  right: 0;
 }
 
 .edit-help:hover .edit-help-tooltip,
