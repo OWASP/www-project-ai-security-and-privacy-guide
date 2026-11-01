@@ -1,0 +1,76 @@
+{{/* Live look for the hero page count. scripts/generate-pdf.js stamps the real count and date into the built page. */}}
+<style>
+.page-count {
+  font-variant-numeric: tabular-nums;
+}
+
+.page-count-digit {
+  display: inline-block;
+  height: 1.2em;
+  line-height: 1.2em;
+  overflow: hidden;
+  vertical-align: -0.26em; /* overflow moves the baseline to the box's bottom edge */
+}
+
+.page-count-strip {
+  display: block;
+  transition: transform 3s cubic-bezier(0.15, 0.7, 0.2, 1);
+}
+
+.page-count-strip span {
+  display: block;
+  height: 1.2em;
+}
+
+.page-count-updated {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4ade80;
+}
+
+.page-count-updated[hidden] {
+  display: none;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const count = document.querySelector("[data-pdf-pages]");
+  const pages = count && count.dataset.pdfPages;
+  if (!pages) return; // Local builds have no PDF, so they keep the fallback text
+
+  const label = document.querySelector("[data-pdf-updated]");
+  const days = Math.floor((Date.now() - Date.parse(count.dataset.pdfDate)) / 86400000);
+  if (label && days >= 0 && days < 30) {
+    label.textContent = "Updated " + (days === 0 ? "today" : days === 1 ? "yesterday" : days + " days ago");
+    label.hidden = false;
+  }
+
+  // Odometer: each digit rolls to its real value, the rightmost one furthest
+  const digits = [...pages];
+  count.setAttribute("aria-label", pages);
+  count.textContent = "";
+  const strips = digits.map((digit, i) => {
+    const spins = i + 1;
+    const stops = spins * 10 + Number(digit);
+    const column = document.createElement("span");
+    column.className = "page-count-digit";
+    column.setAttribute("aria-hidden", "true");
+    const strip = document.createElement("span");
+    strip.className = "page-count-strip";
+    for (let n = 0; n <= stops; n++) {
+      strip.appendChild(document.createElement("span")).textContent = n % 10;
+    }
+    column.appendChild(strip);
+    count.appendChild(column);
+    return { strip, stops };
+  });
+
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    strips.forEach(({ strip, stops }) => {
+      strip.style.transform = "translateY(" + (-100 * stops / (stops + 1)) + "%)";
+    });
+  }));
+});
+</script>
