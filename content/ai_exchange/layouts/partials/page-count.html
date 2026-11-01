@@ -4,12 +4,21 @@
   font-variant-numeric: tabular-nums;
 }
 
+/* A hidden digit keeps the column on the text baseline; the visible strip scrolls on top of it */
 .page-count-digit {
+  position: relative;
   display: inline-block;
-  height: 1.2em;
   line-height: 1.2em;
+}
+
+.page-count-ghost {
+  visibility: hidden;
+}
+
+.page-count-window {
+  position: absolute;
+  inset: 0;
   overflow: hidden;
-  vertical-align: -0.26em; /* overflow moves the baseline to the box's bottom edge */
 }
 
 .page-count-strip {
@@ -27,6 +36,7 @@
   font-size: 0.875rem;
   font-weight: 500;
   color: #4ade80;
+  text-align: left;
 }
 
 .page-count-updated[hidden] {
@@ -57,12 +67,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const column = document.createElement("span");
     column.className = "page-count-digit";
     column.setAttribute("aria-hidden", "true");
+    const ghost = document.createElement("span");
+    ghost.className = "page-count-ghost";
+    ghost.textContent = digit;
+    const clip = document.createElement("span");
+    clip.className = "page-count-window";
     const strip = document.createElement("span");
     strip.className = "page-count-strip";
     for (let n = 0; n <= stops; n++) {
       strip.appendChild(document.createElement("span")).textContent = n % 10;
     }
-    column.appendChild(strip);
+    clip.appendChild(strip);
+    column.append(ghost, clip);
     count.appendChild(column);
     return { strip, stops };
   });
@@ -72,5 +88,11 @@ document.addEventListener("DOMContentLoaded", () => {
       strip.style.transform = "translateY(" + (-100 * stops / (stops + 1)) + "%)";
     });
   }));
+
+  // Back to plain text once settled: moved rows paint a fraction of a pixel off the word "pages"
+  setTimeout(() => {
+    count.textContent = pages;
+    count.removeAttribute("aria-label");
+  }, 3100);
 });
 </script>
