@@ -420,6 +420,7 @@ h1 {
 .docs-body.documentation {
   line-height: 1.7;
   color: #374151;
+  overflow-wrap: anywhere; /* long URLs wrap instead of widening the page */
 }
 .docs-body.documentation a {
   font-weight: 600;
