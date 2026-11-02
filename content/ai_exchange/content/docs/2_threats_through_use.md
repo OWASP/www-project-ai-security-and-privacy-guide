@@ -1654,7 +1654,7 @@ Membership inference is presenting a model with input data that identifies somet
 
 - [Article on membership inference](https://medium.com/disaitek/demystifying-the-membership-inference-attack-e33e510a0c39)
 
-The more details a model is able to learn, the more it can store information on individual training set entries. If this happens more than necessary, this is called overfitting. Overfitting increases the risk of model inversion and membership inference by making it easier to infer or reconstruct characteristics of specific training records.  Model design and training choices therefore influence the feasibility of these attacks. Models with excessive capacity or parameter counts are generally more capable of memorizing fine-grained details of the training data therefore smaller models are preferred to prevent overfitting. Additionally choosing model types such linear models or Naive Bayes Classifiers over neural networks and decision trees reduces the likelihood of overfitting individual samples. Using regularization during training can also help.
+The more details a model is able to learn, the more it can store information on individual training set entries. If this happens more than necessary, this is called overfitting. Overfitting increases the risk of model inversion and membership inference by making it easier to infer or reconstruct characteristics of specific training records. Large language models can also memorize individual training samples without overfitting, and larger models memorize more ([Tirumala et al., 2022](https://arxiv.org/abs/2205.10770)); training data has been extracted from them even for sequences that occurred in only one training document ([Carlini et al., 2021](https://arxiv.org/abs/2012.07805)).  Model design and training choices therefore influence the feasibility of these attacks. Models with excessive capacity or parameter counts are generally more capable of memorizing fine-grained details of the training data therefore smaller models are preferred to prevent overfitting. Additionally choosing model types such linear models or Naive Bayes Classifiers over neural networks and decision trees reduces the likelihood of overfitting individual samples. Using regularization during training can also help.
 
 **Controls for Model inversion and Membership inference:**
 
@@ -1676,6 +1676,7 @@ The more details a model is able to learn, the more it can store information on 
 
 **Description**  
 Small model: overfitting (storing individual training samples) can be prevented by keeping the model small so it is not able to store detail at the level of individual training set samples.
+This applies mainly to conventional machine learning models. Large language models can memorize individual samples without overfitting, so for them model size is not a practical control. Limiting the training data ([#DATA MINIMIZE](/go/dataminimize)), removing duplicates from it ([Lee et al., 2022](https://arxiv.org/abs/2107.06499)) and training with differential privacy ([#OBFUSCATE TRAINING DATA](/go/obfuscatetrainingdata)) reduce memorization more directly.
 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=smallmodel -->
