@@ -131,12 +131,14 @@ RAG testing extends the general approach above — same lifecycle steps, but wit
 
 **Automating retrieval-scope enforcement**
 
-Of the tests above, retrieval-scope enforcement is the one that automates and regression-runs cleanly without a model in the loop: a query issued as a given identity either returns chunks inside that identity's authorised scope or it does not, so both the input and the verdict are deterministic. A provider-agnostic approach:
+Of the tests above, retrieval-scope enforcement is the one that automates and regression-runs cleanly without a model in the loop: a query issued as a given identity either returns chunks inside that identity's authorised scope or it does not, so the pass/fail rule is deterministic. The retrieval itself may not be: index rebuilds, embedding model changes and top-k cut-offs can change what comes back. A clean run shows no leakage for the queries tested, not that access control is enforced. A provider-agnostic approach:
 
 - Model identity as *subject + tenant + roles*, and model authorised scope at both document and chunk granularity — access to one chunk of a document does not imply access to the rest of it.
 - Check tenant isolation independently of document identifiers, so a retrieval that returns the "right" document for the wrong tenant still fails.
-- Drive the retriever through a thin adapter and assert on the **retrieved chunks**, not the generated answer, so the same test set runs against any vector store or search index.
-- Express tests as multi-step sequences rather than single snapshots, so state transitions — a role downgrade, an ACL edit, a permission revocation — can be asserted to take effect at retrieval time and not only at the application layer.
+- Drive the retriever through a thin adapter and assert on the **retrieved chunks and everything else the API returns** (titles, snippets, citations, scores), not the generated answer, so the same test set runs against any vector store or search index.
+- Express tests as multi-step sequences rather than single snapshots, so state transitions — a role downgrade, an ACL edit, a permission revocation — can be asserted to take effect at retrieval time and not only at the application layer. Check that the change also reaches caches, re-rankers, conversation memory and leftover embeddings, not only the main index.
+- Check where the filter runs. A filter applied before the search never returns out-of-scope chunks; one applied after the top-k cut can still leak through counts, scores, timing or citation metadata. Also test that user input cannot change the filter.
+- Add at least one end-to-end check that the identity comes from a verified token. Testing the retriever with a fixed identity shows the filter works, not that the application passes the caller's identity rather than a shared service account (the confused-deputy problem).
 - Validate the suite against a deliberately vulnerable fixture backend as well as the live index, to confirm the checks actually detect the violations they claim to.
 
 **Red teaming exercises**
@@ -164,7 +166,7 @@ Prioritise findings by: authorization impact (does this cross a trust boundary),
 - [OWASP Cheat Sheet: RAG Security](https://cheatsheetseries.owasp.org/cheatsheets/RAG_Security_Cheat_Sheet.html)
 - [OWASP AI Testing Guide](https://owasp.org/www-project-ai-testing-guide/)
 - See [prompt injection testing](/go/testingpromptinjection) above for payload construction and detection pairing — reused directly for the retrieval-channel tests here.
-- [retrieval-scope-tester](https://github.com/vishnu-77/retrieval-scope-tester) — an external reference implementation of the retrieval-scope enforcement approach above (not an OWASP project).
+- [retrieval-scope-tester](https://github.com/vishnu-77/retrieval-scope-tester) — an external reference implementation of the chunk, tenant and state-change checks above (not an OWASP project).
 
 ### 5.3.4 Testing against Prompt injection
 > Category: AI security test  
