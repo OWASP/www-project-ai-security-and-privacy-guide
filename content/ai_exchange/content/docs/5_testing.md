@@ -48,7 +48,7 @@ Each listed tool addresses a subset of the threat landscape of AI systems. Below
 
 - [Prompt Injection](https://owaspai.org/go/promptinjection): In this type of attack, the attacker provides the model with manipulative instructions aimed at achieving malicious outcomes or objectives
 - [Sensitive data output from model ](/go/disclosureinoutput): A form of prompt injection, aiming to let the model disclose sensitive data
-- [Insecure Output Handling](https://owaspai.org/go/outputconatinsconventionalinjection): Generative AI systems can be vulnerable to traditional injection attacks, leading to risks if the outputs are improperly handled or processed.
+- [Insecure Output Handling](https://owaspai.org/go/outputcontainsconventionalinjection): Generative AI systems can be vulnerable to traditional injection attacks, leading to risks if the outputs are improperly handled or processed.
 
 **Agentic AI:** Agentic systems add non-deterministic multi-step execution, dynamic tool use, inter-agent communication, and persistent state. Key threats beyond single-turn generative testing include [goal hijacking](/go/agenticaithreats), unauthorised tool invocation, [multi-agent propagation](/go/agentmessagestructuremanipulation), [persistent memory poisoning](/go/augmentationdatamanipulation), [agent escape](/go/agentescape), and delegation-chain abuse. See the [Agentic AI threat overview](/go/agenticaithreats) and the [Agentic AI red teaming guide](https://cloudsecurityalliance.org/download/artifacts/agentic-ai-red-teaming-guide) (CSA × AI Exchange).
 

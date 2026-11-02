@@ -39,7 +39,7 @@ References on specific topics can be found throughout the content of AI Exchange
 - [NIST](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
 - [NISTIR 8269 - A Taxonomy and Terminology of Adversarial Machine Learning](https://csrc.nist.rip/external/nvlpubs.nist.gov/nistpubs/ir/2019/NIST.IR.8269-draft.pdf)
 - [OWASP ML top 10](https://mltop10.info/)
-- [BIML ML threat taxonomy](https://berryvilleiml.com/taxonomy/)
+- [BIML ML threat taxonomy](https://web.archive.org/web/20260412173327/https://berryvilleiml.com/taxonomy/)
 - [BIML LLM risk analysis - please register there](https://berryvilleiml.com/docs/BIML-LLM24.pdf)
 - [PLOT4ai threat library](https://plot4.ai/library)
 - [BSI AI recommendations including security aspects (Germany) - in English](https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Kuenstliche-Intelligenz/kuenstliche-intelligenz_node.html#doc916902bodyText8)
