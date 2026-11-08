@@ -129,6 +129,11 @@
         "type": 302
       },
       {
+        "source": "/go/generalaudienceprimer",
+        "destination": "/docs/ai_security_overview/#ai-security-primer-for-a-general-audience",
+        "type": 302
+      },
+      {
         "source": "/go/riskanalysis",
         "destination": "/docs/ai_security_overview/#how-to-select-relevant-threats-and-controls-risk-analysis",
         "type": 302
