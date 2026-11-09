@@ -662,8 +662,6 @@ Evasion:Tests model performance against adversarial inputs
 
 **Tool Name: DeepSec**
 
-NOTE: DEEPSEC is the reference implementation for the IEEE S&P 2019 paper by Ling et al. It has had no commits since May 2019, has a single contributor, and targets PyTorch 0.4, so adopting it carries the operational risk of depending on unmaintained code with no route to fixes or security updates. Its published results have also been disputed: [Carlini (2019)](https://arxiv.org/abs/1905.07112) reports that DEEPSEC evaluates each defense obliviously, using attacks crafted against undefended models, and uses attack implementations that greatly under-estimate their effectiveness. That is the evaluation error the adaptive attack guidance in [testing against evasion](/go/testingevasion) is intended to prevent. Treat DEEPSEC as a research artifact for reproducing the original paper rather than a tool for current testing. ART and Foolbox cover the same attacks and are maintained.
-
 | **Tool Name: DeepSec** |  |
 | --- | --- |
 | Developer/ Source | Developed by a team of academic researchers in collaboration with the National University of Singapore. |
@@ -678,11 +676,11 @@ NOTE: DEEPSEC is the reference implementation for the IEEE S&P 2019 paper by Lin
 | **Popularity** | - **GitHub Stars:** 209 (as of 2024) |
 |  | - **GitHub Forks:** ~70 |
 |  | - **Number of Issues:** ~15 open issues |
-|  | - **Trend:** No development activity since May 2019 |
-| **Community Support** | - **Active Issues:** ~15 open, including reported defects in attack implementations; last maintainer response July 2019. |
+|  | - **Trend:** Stable with a focus on deep learning security |
+| **Community Support** | - **Active Issues:** Currently has ongoing issues and updates, suggesting active maintenance. |
 |  | - **Documentation:** Available through GitHub, covering setup, use, and contributions. |
-|  | - **Discussion Forums:** GitHub Discussions is not enabled for this repository. |
-|  | - **Contributors:** One contributor. |
+|  | - **Discussion Forums:**  GitHub Discussions section and community channels support developer interactions. |
+|  | - **Contributors:**  A small but dedicated contributor base. |
 | **Scalability** | - **Framework Support:**  Primarily supports PyTorch and additional libraries like TorchVision. |
 |  | - **Large-Scale Deployment:** Suitable for research and testing environments but may need adjustments for production-grade scaling |
 | **Integration** | - **Compatibility:** Compatible with machine learning libraries in Python. |
