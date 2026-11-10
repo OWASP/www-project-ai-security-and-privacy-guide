@@ -1289,6 +1289,11 @@ Example: An email summarizer has one agent orchestrating the workflow and anothe
 
 ![](/images/sevenlayers.jpeg)
 
+**Measured effect of four layers in one lab test**  
+A lab test of indirect prompt injection ran five attacks against a mock support agent on three models, with each defense applied alone (20 trials per attack, defense and model; 300 attack trials per defense). Without a defense, 69 of 300 attacks succeeded. [Prompt input segregation](/go/inputsegregation) (random untrusted markers plus an instruction not to follow text inside them) lowered this to 28 of 300, but one model still followed a refund instruction inside the markers in 20 of 20 trials, and the markers caused 6 false refusals of a legitimate task on that model. Tool authorization enforced in the backend (layers 5 and 6) and a simulated approval step (layer 3, a rule that denied sensitive calls the user had not asked for) each took the email-to-an-outside-address attack and the refund-above-the-cap attack to 0 of 60 trials. Neither changed the two attacks that act through the reply text: an image URL carrying data (25 and 24 of 60, against 23 of 60 without a defense) and a system prompt leak (8 and 12 of 60, against 10 of 60). An allowlist for URLs in the rendered reply closed the image route (0 of 60) and left the action attacks unchanged.
+
+The test used a mock application with one short system prompt, plain-language attacks that were not adapted to the defenses, and an approver that was a rule and not a person. The defenses were not stacked. One model made no harmful attempt in 500 attack trials, so the counts above mostly come from the other two. The results suggest that each layer covers a different failure: controls on actions do not see attacks that use the reply text, and output controls do not see actions. Data and code: [Excession Labs, Indirect prompt injection lab](https://airedteamingservices.com/research/indirect-prompt-injection-lab/).
+
 
 #### #PROMPT INJECTION I/O HANDLING
 > Category: runtime AI engineer controls against input threats  
