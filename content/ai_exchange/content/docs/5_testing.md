@@ -326,7 +326,7 @@ The below section will cover the tools for Predictive AI, followed by the sectio
 > Permalink: https://owaspai.org/go/testingtoolspredictiveai
 
 
-This subsection covers the following tools for security testing Predictive AI: Adversarial Robustness Toolbox (ART), Armory, Foolbox, DeepSec, and TextAttack.
+This subsection covers the following tools for security testing Predictive AI: Adversarial Robustness Toolbox (ART), Armory, Foolbox, and TextAttack.
 
 ### **Tool Name: The Adversarial Robustness Toolbox (ART)**
 
@@ -574,98 +574,6 @@ Notes:
 | --- | --- | --- |
 | Tensorflow | DL, GenAI | ✅ |
 | Keras | DL, GenAI | ✅ |
-| PyTorch | DL, GenAI | ✅ |
-| MxNet | DL |  |
-| Scikit-learn | ML |  |
-| XGBoost | ML |  |
-| LightGBM | ML |  |
-| CatBoost | ML |  |
-| GPy | ML |  |
-
-**OWASP AI Exchange Threat Coverage**
-
-| Topic | Coverage |
-| --- | --- |
-| Development time model poisoning |  |
-| Runtime model poisoning |  |
-| Model theft by use |  |
-| Training data poisoning |  |
-| Training data leak |  |
-| Runtime model theft |  |
-| Evasion (Tests model performance against adversarial inputs) | ✅ |
-| Model inversion / Membership inference |  |
-| Denial of model service |  |
-| Direct prompt injection |  |
-| Data disclosure |  |
-| Model input leak |  |
-| Indirect prompt injection |  |
-| Development time model theft |  |
-| Output contains injection |  |
-
-Notes:
-
-Evasion:Tests model performance against adversarial inputs
-
-[*https://owaspai.org/go/evasion*](https://owaspai.org/go/evasion)
-
-**Tool Name: DeepSec**
-
-| **Tool Name: DeepSec** |  |
-| --- | --- |
-| Developer/ Source | Developed by a team of academic researchers in collaboration with the National University of Singapore. |
-| Github Reference | [https://github.com/ryderling/DEEPSEC](https://github.com/ryderling/DEEPSEC) |
-| Language | Python |
-| Licensing | Open-source under the Apache License 2.0. |
-| Provides Mitigation | Prevention: No ❌Detection: Yes ✅ |
-| API Availability | Yes ✅ |
-
-| Factor | Details |
-| --- | --- |
-| **Popularity** | - **GitHub Stars:** 209 (as of 2024) |
-|  | - **GitHub Forks:** ~70 |
-|  | - **Number of Issues:** ~15 open issues |
-|  | - **Trend:** Stable with a focus on deep learning security |
-| **Community Support** | - **Active Issues:** Currently has ongoing issues and updates, suggesting active maintenance. |
-|  | - **Documentation:** Available through GitHub, covering setup, use, and contributions. |
-|  | - **Discussion Forums:**  GitHub Discussions section and community channels support developer interactions. |
-|  | - **Contributors:**  A small but dedicated contributor base. |
-| **Scalability** | - **Framework Support:**  Primarily supports PyTorch and additional libraries like TorchVision. |
-|  | - **Large-Scale Deployment:** Suitable for research and testing environments but may need adjustments for production-grade scaling |
-| **Integration** | - **Compatibility:** Compatible with machine learning libraries in Python. |
-
-**Tool Rating**
-
-| **Criteria** | **High** | **Medium** | **Low** |
-| --- | --- | --- | --- |
-| **Popularity** |  |  | ✅ |
-| **Community Support** |  |  | ✅ |
-| **Scalability** |  |  | ✅ |
-| **Ease of Integration** |  |  | ✅ |
-
-**Data Modality**
-
-| Data Modality | Supported |
-| --- | --- |
-| Text | ✅ |
-| Image | ✅ |
-| Audio |  |
-| Video |  |
-| Tabular data |  |
-
-**Machine Learning Tasks**
-
-| Task Type | Data Modality | Supported |
-| --- | --- | --- |
-| Classification | All (See Data modality section) | ✅ |
-| Object Detection | Computer Vision |  |
-| Speech Recognition | Audio |  |
-
-**Framework Applicability**
-
-| Framework / Tool | Category | Supported |
-| --- | --- | --- |
-| Tensorflow | DL, GenAI | ✅ |
-| Keras | DL, GenAI |  |
 | PyTorch | DL, GenAI | ✅ |
 | MxNet | DL |  |
 | Scikit-learn | ML |  |
