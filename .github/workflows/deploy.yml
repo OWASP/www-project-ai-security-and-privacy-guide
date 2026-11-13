@@ -13,11 +13,11 @@ jobs:
     environment: production
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.4.0
       # Add any build steps here. For example:
       # - run: npm ci && npm run build
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
+        uses: peaceiris/actions-hugo@v3.2.1
         with:
           hugo-version: '0.147.0'
           extended: true
@@ -30,7 +30,7 @@ jobs:
         run: npx pagefind --site public
         working-directory: content/ai_exchange
       - name: Cache Puppeteer browser
-        uses: actions/cache@v4
+        uses: actions/cache@v4.3.0
         with:
           path: ~/.cache/puppeteer
           key: puppeteer-${{ hashFiles('package-lock.json') }}      
@@ -38,7 +38,7 @@ jobs:
         run: |
           npm ci
           npm run build:pdf
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - uses: FirebaseExtended/action-hosting-deploy@v0.11.0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
