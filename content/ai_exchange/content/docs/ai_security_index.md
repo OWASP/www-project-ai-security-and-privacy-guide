@@ -13,6 +13,7 @@ Find clickable topics in alphabetical order below. For an overview of threats an
 [Agent message structure manipulation](/go/agentmessagestructuremanipulation)  
 [Agentic AI](/go/agenticaithreats)  
 [AI engineering](/go/aiengineeringprimer)<br>
+[AISVS](/go/aisvs)<br>
 [Alignment](/go/modelalignment)  
 
 ### B  
