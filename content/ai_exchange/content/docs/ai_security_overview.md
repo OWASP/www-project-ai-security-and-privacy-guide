@@ -20,14 +20,14 @@ weight: 1
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Threats](/go/threatsoverview)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Threat matrix](/go/aisecuritymatrix)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Agentic AI overview](/go/agenticaioverview)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: RAG systems](/go/ragsystemsoverview)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: RAG systems](/go/ragoverview)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Navigator](/go/navigator)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Controls](/go/controlsoverview)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Periodic table of threats and controls](/go/periodictable)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [Risk analysis](/go/riskanalysis)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Threat modeling](/go/threatmodel)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [How about ...](/docs/ai_security_overview/#how-about-)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Responsible AI](/go/responsibleAI)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Responsible AI](/go/responsibleai)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Generative AI](/go/genai)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Highlight: Copyright infringement](/go/copyright)  
 
@@ -488,7 +488,7 @@ For leaking sensitive data in agentic AI, you need three things, also called the
 2. Access: Access of that LLM or connected agents to sensitive data
 3. Send: The ability of that LLM or connected agents to initiate sending out data to the attacker
 
-See [Simon Willison’s excellent work](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) for more details, and for examples in agentic AI software development [here](https://www.darkreading.com/application-security/github-copilot-camoleak-ai-attack-exfils-data) and [here](https://ainativedev.io/news/malicious-github-issue-ai-agent-leak).
+See [Simon Willison’s excellent work](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) for more details, and for examples in agentic AI software development [here](https://www.darkreading.com/application-security/github-copilot-camoleak-ai-attack-exfils-data) and [here](https://tessl.io/blog/malicious-github-issue-ai-agent-leak).
 
 [Prompt injection](/go/promptinjection) and mostly the [indirect](/go/indirectpromptinjection) form is the key threat in most agentic AI systems. The [prompt injection section](/go/promptinjection) covers agentic taxonomy (stored injection, multi-agent propagation) and structural mitigations (Agentic Rule of Two, tool-boundary firewalls). See the [seven layers section](/go/promptinjectionsevenlayers) on how these controls form layers of protection. After model alignment and filtering and detection, it should be assumed that prompt injection can still happen and therefore it is critical that _blast radius control_ is performed.
 
@@ -527,7 +527,7 @@ A typical RAG pipeline has five stages, each with a distinct trust boundary:
 
 RAG is not a separate threat landscape — the same asset/impact model applies (see the [threats overview](/go/threatsoverview) and [AI security matrix](/go/aisecuritymatrix)). This section highlights where RAG concentrates existing threats, and where it introduces attack surface that a plain chatbot or single-document-in-context system doesn't have.
 
-Below is a diagram explaining RAG, with [OpenCRE](opencre.org/chatbot) as an example: 
+Below is a diagram explaining RAG, with [OpenCRE](https://opencre.org/chatbot) as an example: 
 1. You ask a question on security.
 2. The system finds relevant information in the security standards in OpenCRE
 3. That relevant information is added to your question to form a prompt to an LLM that answers your question using primarily the information plus what it has learned by reading the internet.
@@ -637,7 +637,7 @@ The table below gives practitioners a compact way to move from a general AI risk
 | AI development lifecycle | AI engineering work is separated from secure development, software quality, model traceability, or risk management | [DEV PROGRAM](/go/devprogram), [SECDEV PROGRAM](/go/secdevprogram), [CONTINUOUS VALIDATION](/go/continuousvalidation), [UNWANTED BIAS TESTING](/go/unwantedbiastesting), [DISCRETE](/go/discrete), [DEV SECURITY](/go/devsecurity), [SEGREGATE DATA](/go/segregatedata) |
 | Data and model supply chain | Untrusted data, third-party models, external hosting, or inherited vulnerabilities enter the AI system | [SUPPLY CHAIN MANAGE](/go/supplychainmanage), [DATA QUALITY CONTROL](/go/dataqualitycontrol)|
 | Sensitive data exposure | Training data, prompts, outputs, embeddings, logs, or augmentation data may reveal confidential or personal data | [DATA MINIMIZE](/go/dataminimize), [ALLOWED DATA](/go/alloweddata), [SHORT RETAIN](/go/shortretain), [OBFUSCATE TRAINING DATA](/go/obfuscatetrainingdata), [SENSITIVE OUTPUT HANDLING](/go/sensitiveoutputhandling), [SMALL MODEL](/go/smallmodel), [MODEL INPUT CONFIDENTIALITY](/go/modelinputconfidentiality), [AUGMENTATION DATA CONFIDENTIALITY](/go/augmentationdataconfidentiality) |
-| Manipulated model behavior | Adversarial inputs, prompt injection, poisoned data, or compromised models can change intended behavior | [OVERSIGHT](/go/oversight), [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege), [MODEL ALIGNMENT](/go/modelalignment), [PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling), [INPUT SEGREGATION](/go/inputsegregation), [ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling), [EVASION INPUT HANDLING](/go/evasioninputhandling), [EVASION ROBUST MODEL](/go/evasionrobustmodel), [TRAIN ADVERSARIAL](/go/trainadversarial), [ADVERSARIAL ROBUST DISTILLATION](/go/adversarialrobustdestillation), [POISON ROBUST MODEL](/go/poisonrobustmodel) |
+| Manipulated model behavior | Adversarial inputs, prompt injection, poisoned data, or compromised models can change intended behavior | [OVERSIGHT](/go/oversight), [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege), [MODEL ALIGNMENT](/go/modelalignment), [PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling), [INPUT SEGREGATION](/go/inputsegregation), [ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling), [EVASION INPUT HANDLING](/go/evasioninputhandling), [EVASION ROBUST MODEL](/go/evasionrobustmodel), [TRAIN ADVERSARIAL](/go/trainadversarial), [ADVERSARIAL ROBUST DISTILLATION](/go/adversarialrobustdistillation), [POISON ROBUST MODEL](/go/poisonrobustmodel) |
 | Runtime resilience and abuse | Attackers can perform input attacks | [MONITOR USE](/go/monitoruse), [RATE LIMIT](/go/ratelimit), [MODEL ACCESS CONTROL](/go/modelaccesscontrol), [ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling), [DOS INPUT VALIDATION](/go/dosinputvalidation), [LIMIT RESOURCES](/go/limitresources), [UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling), and see Manipulated model behaviour for controls against those input attacks |
 | Ready-made or externally hosted models | The organization depends on a provider, external model hosting, or user-facing "shadow AI" alternatives | [SUPPLY CHAIN MANAGE](/go/supplychainmanage),  [DATA MINIMIZE](/go/dataminimize), [ALLOWED DATA](/go/alloweddata) |
 
@@ -884,7 +884,7 @@ Another example: If your agentic system uses an LLM, then it is in theory suscep
   
   - Consider the threat of [augmentation data manipulation](/go/augmentationdatamanipulation) as this data plays a role in determining the model behaviour.
   - Is this augmentation data stored in a database for the purpose of the AI system (e.g., a vector database)? If Yes: you need to protect against [direct augmentation data leak](/go/augmentationdataleak). Note that this also counts for system prompts, if they are sensitive.
-  - Consult [RAG systems overview](/go/ragsystemsoverview) for further considerations.
+  - Consult [RAG systems overview](/go/ragoverview) for further considerations.
 
   > QUESTION: Who runs the model?
   - The supplier runs the model: select a trustworthy supplier through [supply chain management](/go/supplychainmanage), to make sure the deployed model cannot be manipulated through ([runtime model poisoning](/go/runtimemodelpoison)) - just the way you would expect any supplier to protect their running application from manipulation.
@@ -1134,7 +1134,7 @@ GenAI security particularities are:
 GenAI References:
 
 - [OWASP LLM Top 10 (2026)](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)
-- [Demystifying the LLM top 10](https://blog.kloudzone.co.in/demystifying-the-owasp-top-10-for-large-language-model-applications/)
+- [Demystifying the LLM top 10](https://web.archive.org/web/20240228152356/http://blog.kloudzone.co.in/demystifying-the-owasp-top-10-for-large-language-model-applications/)
 - [Impacts and risks of GenAI](https://arxiv.org/pdf/2306.13033.pdf)
 - [LLMsecurity.net](https://llmsecurity.net/)
 
@@ -1271,7 +1271,7 @@ More information is available here: [: GitHub Copilot copyright case narrowed
 but not neutered • The Register](https://www.theregister.com/2024/01/12/github_copilot_copyright_case_narrowed/)
 
 ####  Copyright damages indemnification
-Note that AI vendors have started to take responsibility for copyright issues of their models, under certain circumstances. Microsoft offers users the so-called [Copilot Copyright Commitment](https://www.microsoft.com/en-us/licensing/news/microsoft-copilot-copyright-commitment), which indemnifies users from legal damages regarding copyright of code that Copilot has produced - provided [a number of things](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/customer-copyright-commitment) including that the client has used content filters and other safety systems in Copilot and uses specific services. Google Cloud offers its [Generative AI indemnification](https://cloud.google.com/blog/products/ai-machine-learning/protecting-customers-with-generative-ai-indemnification).  
+Note that AI vendors have started to take responsibility for copyright issues of their models, under certain circumstances. Microsoft offers users the so-called [Copilot Copyright Commitment](https://blogs.microsoft.com/on-the-issues/2023/09/07/copilot-copyright-commitment-ai-legal-concerns/), which indemnifies users from legal damages regarding copyright of code that Copilot has produced - provided [a number of things](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/customer-copyright-commitment) including that the client has used content filters and other safety systems in Copilot and uses specific services. Google Cloud offers its [Generative AI indemnification](https://cloud.google.com/blog/products/ai-machine-learning/protecting-customers-with-generative-ai-indemnification).  
 Read more at [The Verge on Microsoft indemnification](https://www.theverge.com/2023/9/7/23863349/microsoft-ai-assume-responsibility-copyright-lawsuit) and [Direction Microsoft on the requirements of the indemnification](https://www.directionsonmicrosoft.com/blog/why-microsofts-copilot-copyright-commitment-may-not-mean-much-for-customers-yet/).
 
 #### Do generative AI models really copy existing work?

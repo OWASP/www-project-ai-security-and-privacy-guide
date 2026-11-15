@@ -375,7 +375,7 @@
       },
       {
         "source": "/go/openboxevasion",
-        "destination": "/docs/2_threats_through_use/#212-percect-knowledge-evasion",
+        "destination": "/docs/2_threats_through_use/#212-perfect-knowledge-evasion",
         "type": 302
       },
       {
@@ -445,7 +445,7 @@
       },
       {
         "source": "/go/disclosureuseoutput",
-        "destination": "/docs/2_threats_through_use/#231-disclosure-of-sensitive-data-in-output",
+        "destination": "/docs/2_threats_through_use/#231-disclosure-of-sensitive-data-in-model-output",
         "type": 302
       },
       {

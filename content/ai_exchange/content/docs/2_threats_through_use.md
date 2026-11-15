@@ -1409,7 +1409,7 @@ See the [seven layers section](/go/promptinjectionsevenlayers) on how these cont
     - [NIST AI 100-2: sec. 3.4: Indirect Prompt Injection Attacks](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
 <!-- OPENCRE_SECTION_CRE_END slug=indirectpromptinjection -->
 - [Illustrative blog by Simon Willison](https://simonwillison.net/2023/Apr/14/worst-that-can-happen/)
-- [the NCC Group discussion](https://research.nccgroup.com/2022/12/05/exploring-prompt-injection-attacks/)
+- [the NCC Group discussion](https://www.nccgroup.com/research/exploring-prompt-injection-attacks/)
 - [How Microsoft defends against indirect prompt injection](https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks)
 - [Design Patterns for Securing LLM Agents against Prompt Injections](https://arxiv.org/html/2506.08837v3)
 
@@ -1481,7 +1481,7 @@ This control does not address direct prompt injection where the attacker provide
     - [NIST AI 100-2: sec. 3.4.5: Filtering retrieved inputs](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
 <!-- OPENCRE_SECTION_CRE_END slug=inputsegregation -->
 - [Simon Willison’s article](https://simonwillison.net/2023/Apr/14/worst-that-can-happen/)
-- [NCC Group discussion](https://research.nccgroup.com/2022/12/05/exploring-prompt-injection-attacks/)
+- [NCC Group discussion](https://www.nccgroup.com/research/exploring-prompt-injection-attacks/)
 
 ---
 
@@ -1719,7 +1719,7 @@ This threat applies if the model represents intellectual property (i.e., a trade
   - [#MONITOR USE](/go/monitoruse) to detect suspicious input and respond 
   - [#RATE LIMIT](/go/ratelimit) to limit the attacker presenting many inputs in a short time
   - [#MODEL ACCESS CONTROL](/go/modelaccesscontrol) to reduce the number of potential attackers to a minimum
-  - [#ANOMALOUS INPUT HANDLING](/go/anamlousinputhandling) since model exfiltration techniques try to cover the input space, potentially introducing inputs that normally would not occur
+  - [#ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling) since model exfiltration techniques try to cover the input space, potentially introducing inputs that normally would not occur
   - [#UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling) to detect sequences that would indicate covering an input space methodically,
 - Controls for model exfiltration specifically:
   - [#MODEL WATERMARKING](/go/modelwatermarking) to enable post-theft ownership verification when residual risk remains - discussed below, although less effective for proving exfiltration than proving an actual copy of the model was used.
@@ -1864,7 +1864,7 @@ This leads to red teaming and blue teaming practices that need to fit the cultur
 | **Singapore**     | ❌ No political or cultural references. Focuses on ethics and robustness.                          | [Model AI Governance Framework](https://aiverifyfoundation.sg/resources/mgf-gen-ai/) |
 | **European Union**| ❌ Risk based legal framework with no ideological content constraints.                             | [EU Artificial Intelligence Act](https://artificialintelligenceact.eu/the-act/) |
 | **United States–UK** | ❌ Focused on technical security and global collaboration.                                        | [Secure AI System Development Guidelines](https://www.ncsc.gov.uk/files/Guidelines-for-secure-AI-system-development.pdf) |
-| **South Korea**   | ⚠️ Ethical and rights based approach, not explicitly cultural.                                     | [Policy direction for safe use of personal information in the era of artificial intelligence](https://www.pipc.go.kr/np/cop/bbs/selectBoardArticle.do?bbsId=BS074&mCode=C020010000&nttId=9083]) |
+| **South Korea**   | ⚠️ Ethical and rights based approach, not explicitly cultural.                                     | [Policy direction for safe use of personal information in the era of artificial intelligence](https://www.pipc.go.kr/np/cop/bbs/selectBoardArticle.do?bbsId=BS074&mCode=C020010000&nttId=9083) |
 | **Japan**         | ❌ Supports innovation and social benefit without cultural enforcement.                            | [AI Guidelines for Business](https://www.meti.go.jp/shingikai/mono_info_service/ai_shakai_jisso/pdf/20240419_9.pdf) |
 | **Australia**     | ❌ Risk based guidance and guardrails without cultural emphasis.                                   | [AI Safety Standards](https://www.industry.gov.au/sites/default/files/2024-09/voluntary-ai-safety-standard.pdf) |
 | **Israel**        | ❌ Voluntary, sector specific ethics with no cultural prescriptions.                               | [Israel’s Policy on Artificial Intelligence: Regulations and Ethics](https://www.gov.il/en/pages/ai_2023) |

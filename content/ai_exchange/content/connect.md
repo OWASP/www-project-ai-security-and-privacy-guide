@@ -186,6 +186,7 @@ sidebar:
 
 <!-- OWASP AI Project Leader Section -->
 <section
+  id="owasp-ai-project-leader"
   class="w-full bg-white py-14 px-4 sm:px-6 md:px-10 font-['Roboto'] text-center sm:text-left"
 >
   <h2
