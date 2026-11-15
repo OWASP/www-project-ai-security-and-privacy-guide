@@ -11,7 +11,7 @@ An AI system is an IT system, so at runtime it can be vulnerable to any security
 
 [Section 2](/go/threatsuse) covers runtime attacks that are AI-specific: attacks performed through inference - by using the system and providing model input. [Section 3](/go/developmenttime) covers attacks during development-time: mostly conventional attacks (e.g. breaking into a training database) with sometimes AI-specific consequences (e.g., changing model behaviour) plus AI-specific supply chain attacks.  
 
-So, this page covers conventional security attacks that have AI-specific consequences. For example: changing model behaviour by hacking into a runtime database of augmentation data (data that is added to the model input). The details of how these attacks are performed are covered in many other resources. This section focuses on the AI-specific consequences and the categories of controls required. In-depth coverage of controls against conventional attacks are covered in many other resources. This section focuses on AI-specific aspects of these controls, such as the option of using a Trusted Execution Environment for models.  
+So, this page covers conventional security attacks that have AI-specific consequences. For example: changing model behaviour by hacking into a runtime database of augmentation data (data that is added to the model input). The details of how these attacks are performed are covered in many other resources. This section focuses on the AI-specific consequences and the categories of controls required. In-depth coverage of controls against conventional attacks is covered in many other resources. This section focuses on AI-specific aspects of these controls, such as the option of using a Trusted Execution Environment for models.  
 
 The subsections cover non-AI-specific threats, model poisoning, model leak, insecure output handling, leaking input data, attacks on augmentation data, agent escape, and agent sandboxing.
 
@@ -61,7 +61,7 @@ This threat involves manipulating the behavior of the model by altering the para
 > Permalink: https://owaspai.org/go/runtimemodelintegrity
 
 **Description**  
-Run-time model integrity: apply traditional conventional security controls to protect the storage of model parameters (e.g., access control, checksums, encryption) A Trusted Execution Environment can help to protect model integrity.
+Run-time model integrity: apply traditional conventional security controls to protect the storage of model parameters (e.g., access control, checksums, encryption). A Trusted Execution Environment can help to protect model integrity.
 
 #### #RUNTIME MODEL IO INTEGRITY
 > Category: runtime information security control against conventional security threats  
@@ -103,7 +103,7 @@ This threat applies if the model represents intellectual property (i.e., a trade
 **Description**  
 Run-time model confidentiality: see [SECDEVPROGRAM](/go/secdevprogram) to attain conventional security, with the focus on protecting the storage of model parameters (e.g., access control, encryption).  
 
-A Trusted Execution Environment can be highly effective in safeguarding the runtime environment, isolating model operations from potential threats, including side-channel hardware attacks like [DeepSniffer](https://sites.cs.ucsb.edu/~sherwood/pubs/ASPLOS-20-deepsniff.pdf). By ensuring that sensitive computations occur within this secure enclave,the TEE reduces the risk of attackers gaining useful information through side-channel methods.
+A Trusted Execution Environment can be highly effective in safeguarding the runtime environment, isolating model operations from potential threats, including side-channel hardware attacks like [DeepSniffer](https://sites.cs.ucsb.edu/~sherwood/pubs/ASPLOS-20-deepsniff.pdf). By ensuring that sensitive computations occur within this secure enclave, the TEE reduces the risk of attackers gaining useful information through side-channel methods.
 
 Side-Channel Mitigation Techniques:
 - Masking: Introducing random delays or noise during inference can help obscure the relationship between input data and the model’s response times, thereby complicating timing-based side-channel attacks. See [Masking against Side-Channel Attacks: A Formal Security Proof](https://www.iacr.org/archive/eurocrypt2013/78810139/78810139.pdf)
@@ -168,7 +168,7 @@ Input data (e.g., GenAI prompts) can be sensitive and can either leak through a 
 The following factors can complicate this risk:
 1. Metadata. If there is metadata to the input (e.g., identifying a user), this can increase the risk - for example when a sensitive conversation in prompts is linked to the user.
 2. Cloud AI. When AI models run in the cloud (often the case for GenAI) then this risk needs special attention, especially if this is managed by an external party. Input data will be unencrypted at inference time (when processed by the model). Therefore, it is critical that proper security measures are in place for the data in transit and at rest, and ideally the data is not retained at all. For security reasons, some third parties monitor and log the input, which is why it is critical to read the fine print and select the right license and configuration. Sometimes monitoring requires opt-out. For more information see the [ready-made models section](/go/readymademodel).
-3. Court orders. If input is stored at the third party, you run the risk of that data to be subject to a subpoena - depending on jurisdiction (e.g. Cloud Security Act).
+3. Court orders. If input is stored at the third party, you run the risk of that data being subject to a subpoena - depending on jurisdiction (e.g. Cloud Security Act).
 4. Augmented data. GenAI model input (prompts) can contain rich context information with sensitive data (e.g., company secrets). The latter issue occurs with *in context learning* or *Retrieval Augmented Generation(RAG)* (adding background information to a prompt): for example data from all reports ever written at a consultancy firm. First of all, this context information will travel with the prompt to the cloud, and second: the context information may likely leak to the output, so it's important to apply the access rights of the user to the retrieval of the context. For example: if a user from department X asks a question to an LLM - it should not retrieve context that department X has no access to, because that information may leak in the output.
 5. External services. Model actions may trigger other services, further spreading the input data. For example: when you ask a cloud AI to process your pdf document and the AI starts calling various services to help process the document. 
 
@@ -196,7 +196,7 @@ Impact: Confidentiality breach of sensitive augmentation data through a conventi
 
 Augmentation data (ad hoc retrieved information inserted into a prompt, such as system prompts, or documents), needs to be transferred and stored - for example for Retrieval Augmented Generation typically in _vector databases_. This increases the attack surface for any sensitive data, since it's stored outside its regular storage with the regular protection (e.g., company document archive) and therefore requires additional protection.   
 
-So-called _vectors_ that form a representation of augmentation data are typically vulnerable for extracting information and should therefore be included in protection. The extraction technique is _embedding inversion_: reconstructing source text from stored vectors. Reported recovery ranges from about 50-70% of the words in sentence embeddings up to 92% exact reconstruction of short inputs, and more recent work performs this zero-shot against a black-box encoder, without training a model for the target encoder. Defenses such as adding noise to stored embeddings reduce recovery but trade off retrieval quality and do not fully prevent it. This matters for incident classification: an exposed vector store is often rated low severity because "only the embeddings leaked" while the source documents sit encrypted elsewhere. If the vectors are invertible that rating is wrong, the source text should be treated as exposed, and under regimes such as GDPR Article 33 that changes the breach notification assessment.
+So-called _vectors_ that form a representation of augmentation data are typically vulnerable to information extraction and should therefore be included in protection. The extraction technique is _embedding inversion_: reconstructing source text from stored vectors. Reported recovery ranges from about 50-70% of the words in sentence embeddings up to 92% exact reconstruction of short inputs, and more recent work performs this zero-shot against a black-box encoder, without training a model for the target encoder. Defenses such as adding noise to stored embeddings reduce recovery but trade off retrieval quality and do not fully prevent it. This matters for incident classification: an exposed vector store is often rated low severity because "only the embeddings leaked" while the source documents sit encrypted elsewhere. If the vectors are invertible that rating is wrong, the source text should be treated as exposed, and under regimes such as GDPR Article 33 that changes the breach notification assessment.
 
 Alternative ways for augmentation data to leak are:
 - [input data leak](/go/inputdataleak)
@@ -321,7 +321,7 @@ Agents with very broad authorised scope can cause harm through jailbreak without
 Runtime operational control — not pre-deployment testing alone. Each live agent runs in a bounded environment (compute, memory, storage, network, IPC) so compromise, malfunction, or [prompt injection](/go/promptinjection) cannot spread beyond its designated boundary.
 
 **Objective**  
-Contain blast radius: a hijacked agent must not access to things that may lead to unwanted results - e.g. exfiltrating data through uncontrolled network paths.
+Contain blast radius: a hijacked agent must not have access to things that may lead to unwanted results - e.g. exfiltrating data through uncontrolled network paths.
 
 **Implementation**
 

@@ -10,8 +10,8 @@ weight: 6
 ## 5.1 Introduction
 Testing an AI system’s security relies on three strategies - part of the [secure development program](/go/secdevprogram):
 1.	**Conventional security testing** (i.e. _pentesting_): trying to attack the system through conventional attack surfaces (anything but AI input attacks): databases, network, development environment etc. AI introduces a number of digital assets for which conventional threats obviously apply - like for any digital asset. Examples of these assets are: model input, model parameters, and agent memory (augmentation data). See the [AI Security Matrix](/go/aisecuritymatrix) to see all the threats that are not input attacks, and perform [threat modeling](/go/threatmodel) to see which are relevant.
-2.	**Model performance validation** (see [continuous validation](/go/continuousvalidation)): testing if the model behaves according to its specified acceptance criteria using a testing set with inputs and outputs that represent the intended behaviour of the model. For security,this is to detect if the model behaviour has been altered permanently through data poisoning or model poisoning. For non-security, it is for testing functional correctness, model drift etc.
-3.	**AI security testing** (this section), the part of _AI red teaming_ that complemens conventional security testing by trying to perform AI input attacks - see the [AI Security Matrix](/go/aisecuritymatrix): e.g. prompt injection and model exfiltration. Typically this involves presenting an AI system with various inputs, especially when attacks require many interactions to succeed. But it may also involve finding ways for data to travel indirectly into a model, for example with indirect prompt injection. This may involve a step where a conventional attack plants manipulated information, such as in a part of system memory that is used by an agent, and thus can influence its behaviour. There are more examples of attacks that are a combination of a conventional step and an input attack, such as: stealing a model, so to prepare or execute model inversion, or evasion, disclosure in output, or prompt injection. Another example is planting a backdoor in a training database, and then later trying to get that triggered by specific input. These examples show that testing AI systems ideally involves a collaboration between pentesting and AI security testing.
+2.	**Model performance validation** (see [continuous validation](/go/continuousvalidation)): testing if the model behaves according to its specified acceptance criteria using a testing set with inputs and outputs that represent the intended behaviour of the model. For security, this is to detect if the model behaviour has been altered permanently through data poisoning or model poisoning. For non-security, it is for testing functional correctness, model drift etc.
+3.	**AI security testing** (this section), the part of _AI red teaming_ that complements conventional security testing by trying to perform AI input attacks - see the [AI Security Matrix](/go/aisecuritymatrix): e.g. prompt injection and model exfiltration. Typically this involves presenting an AI system with various inputs, especially when attacks require many interactions to succeed. But it may also involve finding ways for data to travel indirectly into a model, for example with indirect prompt injection. This may involve a step where a conventional attack plants manipulated information, such as in a part of system memory that is used by an agent, and thus can influence its behaviour. There are more examples of attacks that are a combination of a conventional step and an input attack, such as: stealing a model, so to prepare or execute model inversion, or evasion, disclosure in output, or prompt injection. Another example is planting a backdoor in a training database, and then later trying to get that triggered by specific input. These examples show that testing AI systems ideally involves a collaboration between pentesting and AI security testing.
 
 **Scope of AI security testing**  
 AI security tests simulate adversarial behaviors to uncover vulnerabilities, weaknesses, and risks in AI systems. While the focus areas of traditional AI testing are functionality and performance, the focus areas of AI Red Teaming go beyond standard validation and include intentional stress testing, attacks, and attempts to bypass safeguards. While the focus of red teaming can extend beyond Security, in this document, we focus primarily on “AI Red Teaming for AI Security” and we leave out conventional security testing (_pentesting) as that is covered already in many resources.
@@ -52,7 +52,7 @@ Each listed tool addresses a subset of the threat landscape of AI systems. Below
 
 **Agentic AI:** Agentic systems add non-deterministic multi-step execution, dynamic tool use, inter-agent communication, and persistent state. Key threats beyond single-turn generative testing include [goal hijacking](/go/agenticaithreats), unauthorised tool invocation, [multi-agent propagation](/go/agentmessagestructuremanipulation), [persistent memory poisoning](/go/augmentationdatamanipulation), [agent escape](/go/agentescape), and delegation-chain abuse. See the [Agentic AI threat overview](/go/agenticaithreats) and the [Agentic AI red teaming guide](https://cloudsecurityalliance.org/download/artifacts/agentic-ai-red-teaming-guide) (CSA × AI Exchange).
 
-While we have mentioned the key threats for each of the AI Paradigm, we strongly encourage the reader to refer to all threats at the AI Exchange, based on the outcome of the Objective and scope definition phase in AI Red Teaming.
+While we have mentioned the key threats for each of the AI paradigms, we strongly encourage the reader to refer to all threats at the AI Exchange, based on the outcome of the Objective and scope definition phase in AI Red Teaming.
 
 
 ## 5.3 AI security testing strategies
@@ -208,20 +208,20 @@ An input attack may fail if it is recognized as malicious, either by the model (
 Make sure to run the test multiple times, to take into account the non-deterministic nature of models, if any. Use the same model versions, prompts, tools, permissions, and configuration as used in production.
 
 **(7) Analyse identified technical attack successes**  
-Run by the detections of technically successful attacks to determine the severity of harm:
+Run through the detections of technically successful attacks to determine the severity of harm:
 - identified exposure of data
 - unwanted actions triggered
 - offensive language / harmful content: how severe is this given the audience and how they have been informed about the system. If the system discloses dangerous content - how difficult would it be for the users to get this information elsewhere on the internet or publicly available models (e.g., recipe for napalm). The severity of unwanted content varies widely depending on the context.
 - misinformation / misleading content: how severe is this in the context (e.g., any legal disclaimers), for example: how bad is it, if a user was able to let a chatbot quote a price for a product - would that be legally binding?
 
 **(8) Evaluate and conclude**  
-The test fails, if the severity of harm cannot be accepted in light of how likely the attack input will be presented. In case the attack succeeds but IS detected to result in an alert, then take into account how the response and the response time would mitigate this attack - possibly leading to accept the risk and thus succeeding the test.  
+The test fails, if the severity of harm cannot be accepted in light of how likely the attack input will be presented. In case the attack succeeds but IS detected to result in an alert, then take into account how the response and the response time would mitigate this attack - possibly leading to accepting the risk and thus passing the test.  
 
 Always assume that attackers are aware of these input attacks, so likelihood is high if they have direct access to input, and for indirect prompt injection the likelihood is determined by the attacker succeeding in manipulating the data unnoticed before the data enters input. This involves the attacker discovering the attack vector and gaining access to it. Note that for indirect prompt injection, the attacker is typically not the current user of the AI system.  
 
 Rare but high-impact outcomes should not be dismissed solely due to low observed frequency.  
 
-The variation algorithm part of the test measures how much effort or computation is required to mislead detection. This robustness metric has a limited impact on the estimated risk. It mainly shows that an attacker would need to invest some effort, either manually or by using tooling. Given the widespread availability of such tools, some robustness will only defer attackers who do not put in any effort.  
+The variation algorithm part of the test measures how much effort or computation is required to mislead detection. This robustness metric has a limited impact on the estimated risk. It mainly shows that an attacker would need to invest some effort, either manually or by using tooling. Given the widespread availability of such tools, some robustness will only deter attackers who do not put in any effort.  
 In other words, if an attack works and the system shows some robustness against variations, this mainly rules out attack scenarios where users are just playing around to see if the model slightly misbehaves, leading to reputation damage because the attack was too easy to achieve. For attacks with severe impact, this argument does not apply, as systems are expected to be resilient against it - even if attackers deliberately invest effort to bypass defenses.
 
 
@@ -254,7 +254,7 @@ It is of course important to also test the AI system for correct behaviour in be
 > Permalink: https://owaspai.org/go/testingevasion
 
 #### Test description
-Resistance to [evasion attacks](/go/evasion), is tested by looking for feasible inputs that lead to unintended outputs with unacceptable impact severity. The test checks three aspects:
+Resistance to [evasion attacks](/go/evasion) is tested by looking for feasible inputs that lead to unintended outputs with unacceptable impact severity. The test checks three aspects:
 1. whether the model produces unintended output for certain inputs;
 2. whether the AI system can limit or stop the search for such inputs, for example through rate limiting or detection;
 3. whether surrogate models can be created and used to prepare the attack.
@@ -275,9 +275,9 @@ b) whether attackers could reasonably create the evasion inputs, considering how
 
 EXAMPLE: If the AI system receives images directly from a low-resolution camera, an attacker has limited ability to make precise, small modifications to the input.
 
-**(2) Perform searches for succesful evasion**  
+**(2) Perform searches for successful evasion**  
 Search for effective evasion inputs, meaning inputs that satisfy the feasibility criteria and would have unacceptable impact severity:
--  When relevant, perform a **perfect-knowledge attack** using the target model's parameters. Use state-of-the-art tools to search for evasion inputs, starting from known inputs that produce correct outputs. Keep changes within the perturbation limit derived from the feasibility criteria. Perform both diffuse and localized searches, where localized changes are feasible. For localized changes, the allowed perturbation may typically be higher or absent. A perfect-knowledge attack is relevant when attacker has complete access to model parameters (typically, when the attacker is able to leverage the parameters for gradient calculations). Otherwise, this attack type may be skipped. The search needs to include both in-distribution and out-of-distribution inputs, such as known samples from all classes and samples that do not belong to any class in a classification task.
+-  When relevant, perform a **perfect-knowledge attack** using the target model's parameters. Use state-of-the-art tools to search for evasion inputs, starting from known inputs that produce correct outputs. Keep changes within the perturbation limit derived from the feasibility criteria. Perform both diffuse and localized searches, where localized changes are feasible. For localized changes, the allowed perturbation may typically be higher or absent. A perfect-knowledge attack is relevant when the attacker has complete access to model parameters (typically, when the attacker is able to leverage the parameters for gradient calculations). Otherwise, this attack type may be skipped. The search needs to include both in-distribution and out-of-distribution inputs, such as known samples from all classes and samples that do not belong to any class in a classification task.
 - When needed, perform a **zero-knowledge attack** by following the previous procedure but allowing the tooling to use only the model output, not the model parameters, while iteratively adapting the inputs. This step is not required if the previous step already found a feasible evasion input with unacceptable results.
 - When possible and needed, perform a **transfer attack** using surrogate models. Follow the procedure of the first step but search against the surrogate model. This is possible if the attacker can find or create a model with the same or a similar task. The surrogate may be a commercial or open-source model, or a new model trained on task data that the attacker can obtain or create, depending on the attacker profile. This step is not required if earlier steps already found a feasible evasion input with unacceptable results.
 - When possible and needed, perform a **heuristic attack** on the model. This applies when domain knowledge and understanding of the intended use suggest that certain changes may produce the desired effect. For example, testers may check whether an image of a red balloon on a sidewalk is classified as a stop sign. This step is not required if earlier steps already found a feasible evasion input with unacceptable results.
@@ -292,7 +292,7 @@ EXAMPLE: Heuristic changes can include replacing words with synonyms or typos, c
 
 EXAMPLE: A possible test scenario is: the tester does not perform a perfect-knowledge search on the target model because it is very unlikely that the attacker can steal the non-public model. The tester then tries a zero-knowledge search on the target model and does not succeed. Some adversarial samples are found, but most are not feasible inputs; where they are feasible, the misclassification is harmless. The tester then tries transfer attacks with a surrogate model. No existing model is available for the similar task of estimating a horse's age from an image, but a database of horse images with ages is available. Risk analysis shows that the relevant attacker profile includes an experienced machine learning expert with several days available, so the tester trains a surrogate model on that database. The tester uses Projected Gradient Descent on the surrogate and finds several evasion inputs. Some of these inputs also cause wrong outputs in the target model. One would cause unacceptable harm. The conclusion is that the AI system fails the evasion-resistance test because an attacker could train a model copy and use it to prepare harmful evasion inputs.
 
-**(3) Separate feasiblity tests**  
+**(3) Separate feasibility tests**  
 Where feasibility is uncertain, perform separate feasibility tests to determine whether the criteria are met. Such tests may check whether existing detection mechanisms would block a particular evasion input, or whether an attacker could create the input in a real-world situation.
 
 Tools for state-of-the-art testing are usually available for the relevant problem space, see our [test tools section](go/testingtoolspredictiveai/).
@@ -798,7 +798,7 @@ Notes:
 
 This subsection covers the following tools for security testing Generative AI: PyRIT, Garak, Prompt Fuzzer, Guardrail, and Promptfoo.
 
-A list of GenAI test tools can also be found at the [OWASP GenAI security project solutions page](https://genai.owasp.org/ai-security-solutions-landscape/) (click the category 'Test & Evaluate'. This project also published a [GenAI Red Teaming guide](https://genai.owasp.org/resource/genai-red-teaming-guide/).
+A list of GenAI test tools can also be found at the [OWASP GenAI security project solutions page](https://genai.owasp.org/ai-security-solutions-landscape/) (click the category 'Test & Evaluate'). This project also published a [GenAI Red Teaming guide](https://genai.owasp.org/resource/genai-red-teaming-guide/).
 
 
 ### Tool Name: PyRIT
@@ -909,7 +909,7 @@ Notes:
 | **Popularity** | - **GitHub Stars:** ~3,5K stars (as of Dec 2024) |
 |  | - **GitHub Forks:** ~306forks |
 |  | - **Number of Issues:** ~303 open issues, 299 closed issues |
-|  | - **Trend:** Growing, particularly with in attack generation, and LLM vulnerability scanning. |
+|  | - **Trend:** Growing, particularly in attack generation, and LLM vulnerability scanning. |
 | **Community Support** | - **Active Issues:** Actively responds to the issues and tries to close it within a week |
 |  | - **Documentation:** Detailed documentation with guidance and example experiments. |
 |  | - **Discussion Forums:**  Active GitHub discussions, as well as discord. |
@@ -1090,7 +1090,7 @@ Notes:
 
 | Factor | Details |
 | --- | --- |
-| **Popularity** | - **GitHub Stars:** ~4,3K (as 2024) |
+| **Popularity** | - **GitHub Stars:** ~4,3K (as of 2024) |
 |  | - **GitHub Forks:** ~326 |
 |  | - **Number of Issues:**  ~296 Closed, 40 Open.  |
 |  | - **Trend:** Steady growth with consistent and timely updates. |
@@ -1186,7 +1186,7 @@ Notes:
 |  | - **GitHub Forks:**  ~320 forks |
 |  | - **Number of Issues:** ~523 closed, 108 open |
 |  | - **Trend:** Consistent update |
-| **Community Support** | - **Active Issues:** Issues are  addressed within acouple of days. |
+| **Community Support** | - **Active Issues:** Issues are  addressed within a couple of days. |
 |  | - **Documentation:** Detailed documentation with user guide and examples. |
 |  | - **Discussion Forums:** Active Github issue and also support available on Discord |
 |  | - **Contributors:** Over 113 contributors. |
