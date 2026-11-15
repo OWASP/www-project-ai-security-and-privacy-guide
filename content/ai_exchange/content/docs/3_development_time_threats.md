@@ -369,7 +369,7 @@ Complex multi-party supply chains may make full traceability difficult, and trus
     - [MITRE ATLAS: sec. AML.M0023: AI Bill of Materials](https://atlas.mitre.org/mitigations/AML.M0023)
     - [NIST AI 100-2: sec. 3.2: AI Supply Chain Attacks and Mitigations](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
 <!-- OPENCRE_SECTION_CRE_END slug=supplychainmanage -->
-- [MITRE ATLAS - ML Supply chain compromise](https://atlas.mitre.org/techniques/AML.T0010).
+- [MITRE ATLAS - Supply Chain Compromise](https://atlas.mitre.org/techniques/AML.T0010).
 - [OWASP AIBOM Foundations Guide v1.0](https://owaspaibom.org/whitepapers/)
 - [OWASP CycloneDX Authoritative Guide to AI/ML-BOM](https://cyclonedx.org/guides/OWASP_CycloneDX-Authoritative-Guide-to-AI-ML-BOM-en.pdf)
 
@@ -465,9 +465,9 @@ An attacker manipulates data that the model uses to learn, in order to affect th
 
 The manipulated data can be training data, but also in-context-learning data that is used to augment the input (e.g., a prompt) to a model with information to use. Collaborative mitigations like [#FEDERATED LEARNING](/go/federatedlearning) can reduce data centralization but require additional poisoning controls based on extension of attack surface.
 
-Example 1: an attacker breaks into a training set database to add images of houses and labels them as 'fighter planes', to mislead the camera system of an autonomous missile. The missile is then manipulated to attack houses. With a good test set this unwanted behaviour may be detected. However, the attacker can also perform so-called targeted data poisoning by making the poisoned data represent input that normally doesn't occur and therefore would not be in a testset. The attacker can then create that abnormal input in practice. In the previous example this could be houses with white crosses on the door.  See [MITRE ATLAS - Poison training data](https://atlas.mitre.org/techniques/AML.T0020)
+Example 1: an attacker breaks into a training set database to add images of houses and labels them as 'fighter planes', to mislead the camera system of an autonomous missile. The missile is then manipulated to attack houses. With a good test set this unwanted behaviour may be detected. However, the attacker can also perform so-called targeted data poisoning by making the poisoned data represent input that normally doesn't occur and therefore would not be in a testset. The attacker can then create that abnormal input in practice. In the previous example this could be houses with white crosses on the door.  See [MITRE ATLAS - Training Data Poisoning](https://atlas.mitre.org/techniques/AML.T0020)
 
-Example 2: a malicious supplier poisons data that is later obtained by another party to train a model. See [MITRE ATLAS - Publish poisoned datasets](https://atlas.mitre.org/techniques/AML.T0019)
+Example 2: a malicious supplier poisons data that is later obtained by another party to train a model. See [MITRE ATLAS - Publish Poisoned AI Artifacts: Datasets](https://atlas.mitre.org/techniques/AML.T0115.000)
 
 Example 3: unwanted information (e.g. false facts) in documents on the internet causes a Large Language Model (GenAI) to output unwanted results ([OWASP for LLM 05: Data and Model Poisoning](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)). That unwanted information can be planted by an attacker, but of course also by accident. The latter case is a real GenAI risk, but technically comes down to the issue of having false data in a training set which falls outside of the security scope. Planted unwanted information in GenAI training data falls under the category of Sabotage attack as the intention is to make the model behave in unwanted ways for regular input.
 

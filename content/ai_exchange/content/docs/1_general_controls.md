@@ -567,7 +567,7 @@ For example:
 Useful standards include:
   - ISO 27002 Control 5.9: Inventory of information and other associated assets. Gap: covers this control fully, with the particularity that technical data science details can be sensitive.
   - See [OpenCRE on data classification and handling](https://www.opencre.org/cre/074-873). Gap: idem
-  - [MITRE ATLAS Acquire Public ML Artifacts](https://atlas.mitre.org/techniques/AML.T0002)
+  - [MITRE ATLAS - Acquire Public AI Artifacts](https://atlas.mitre.org/techniques/AML.T0002)
 
 ---
 
