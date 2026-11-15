@@ -1,0 +1,19 @@
+{{/* Edit page link. Pass the page as "page" and "toc" or "content" as "placement". */}}
+{{ with .page.File }}
+<div class="edit-page-wrapper edit-page-wrapper--{{ $.placement }}">
+  <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/edit/main/content/ai_exchange/content/{{ .Path }}"
+     class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-emerald-600 transition-colors"
+     target="_blank" rel="noopener noreferrer"
+     title="Suggest an improvement via GitHub">
+    <i class="fa-brands fa-github text-lg"></i>
+    <span class="font-medium underline decoration-1 underline-offset-4">Edit page</span>
+  </a>
+
+  <span class="edit-help" tabindex="0" aria-label="Help with editing on GitHub">
+    ⓘ
+    <span class="edit-help-tooltip">
+      New to GitHub? Get a free GitHub account. Don’t worry if GitHub asks you to create a “fork” — that is simply your editable copy of the project. Make your change, click <strong>Propose changes</strong>, then <strong>Create pull request</strong> to send your suggestion to the AI Exchange maintainers for review.
+    </span>
+  </span>
+</div>
+{{ end }}

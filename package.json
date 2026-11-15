@@ -12,7 +12,7 @@
     "puppeteer:install": "node e2e/install-puppeteer.js",
     "postinstall": "node e2e/install-puppeteer.js",
     "test:e2e": "node e2e/run.js",
-    "test": "node --test test/opencre-enrich/opencre-enrich.test.js",
+    "test": "node --test test/opencre-enrich/opencre-enrich.test.js test/pdf-page-count/pdf-page-count.test.js",
     "test:opencre-enrich": "node --test test/opencre-enrich/opencre-enrich.test.js"
   },
   "dependencies": {

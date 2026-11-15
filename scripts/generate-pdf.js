@@ -5,6 +5,7 @@ const { JSDOM } = require('jsdom');
 const puppeteer = require('puppeteer');
 const { PDFDocument, PDFHexString, PDFName } = require('pdf-lib');
 const { collectOutline } = require('./pdf-outline');
+const { stampPageCount } = require('./pdf-page-count');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 const SITE_DIR = path.join(PROJECT_ROOT, 'content/ai_exchange/public');
@@ -542,6 +543,8 @@ async function main() {
     fs.writeFileSync(pdfPath, modifiedPdfBytes);
 
     console.log(`PDF saved to ${pdfPath}`);
+    stampPageCount(path.join(SITE_DIR, 'index.html'), pdfDoc.getPageCount());
+    console.log(`Front page updated to ${pdfDoc.getPageCount()} pages.`);
     console.log('PDF generation complete.');
 
   } finally {

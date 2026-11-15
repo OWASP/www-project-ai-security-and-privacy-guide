@@ -16,7 +16,7 @@ npm run pagefind     # Build search index
 npm run build:pdf    # Generate PDF (requires site to be built)
 ```
 
-The PDF is saved to `content/ai_exchange/public/OWASP-AI-Exchange.pdf`.
+The PDF is saved to `content/ai_exchange/public/OWASP-AI-Exchange.pdf`. The generator also writes the PDF's page count and the date into `public/index.html`, which the front page shows. Without a PDF build, such as with `hugo server`, the front page shows its fallback text.
 
 ## Modifying the PDF Look and Feel
 

@@ -1738,7 +1738,7 @@ If attackers are able to access the model and the model allows intensive use, th
     - [ENISA: sec. Table 3:: Model disclosure](https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms)
 <!-- OPENCRE_SECTION_CRE_END slug=modelexfiltration -->
 
-- [Article on model exfiltration](https://www.mlsecurity.ai/post/what-is-model-stealing-and-why-it-matters)
+- [Article on model exfiltration](https://web.archive.org/web/20260611193746/https://www.mlsecurity.ai/post/what-is-model-stealing-and-why-it-matters)
 - ['Thieves on Sesame street' on model exfiltration of large language models](https://arxiv.org/abs/1910.12366) (GenAI)
 
 
@@ -1861,7 +1861,7 @@ This leads to red teaming and blue teaming practices that need to fit the cultur
 | **China**         | ✅ Explicit enforcement of socialist values and national unity.                                     | [Interim Measures for Generative AI Services](https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm) |
 | **Saudi Arabia**  | ✅ Requires cultural alignment in generative AI outputs.                                            | [AI Ethics Principles](https://sdaia.gov.sa/en/SDAIA/about/Documents/ai-principles.pdf) |
 | **United Arab Emirates** | ⚠️ Implied concern for societal impact, not explicitly cultural.                               | [UAE AI Ethics Guidelines (MOCAI)](https://ai.gov.ae/wp-content/uploads/2023/03/MOCAI-AI-Ethics-EN-1.pdf) |
-| **Singapore**     | ❌ No political or cultural references. Focuses on ethics and robustness.                          | [Model AI Governance Framework](https://aiverifyfoundation.sg/wp-content/uploads/2024/05/Model-AI-Governance-Framework-for-Generative-AI-May-2024-1-1.pdf) |
+| **Singapore**     | ❌ No political or cultural references. Focuses on ethics and robustness.                          | [Model AI Governance Framework](https://aiverifyfoundation.sg/resources/mgf-gen-ai/) |
 | **European Union**| ❌ Risk based legal framework with no ideological content constraints.                             | [EU Artificial Intelligence Act](https://artificialintelligenceact.eu/the-act/) |
 | **United States–UK** | ❌ Focused on technical security and global collaboration.                                        | [Secure AI System Development Guidelines](https://www.ncsc.gov.uk/files/Guidelines-for-secure-AI-system-development.pdf) |
 | **South Korea**   | ⚠️ Ethical and rights based approach, not explicitly cultural.                                     | [Policy direction for safe use of personal information in the era of artificial intelligence](https://www.pipc.go.kr/np/cop/bbs/selectBoardArticle.do?bbsId=BS074&mCode=C020010000&nttId=9083]) |

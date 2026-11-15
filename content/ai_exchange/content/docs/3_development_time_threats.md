@@ -233,7 +233,7 @@ Supply chain management focuses on managing the supply chain to minimize the sec
 Because of these characteristics, classic supply chain management may not fully cover AI development environments, particularly notebook-based workflows and MLOps tooling.
 
 **Supplied abilities**
-An AI system may have agents that use services provided by third parties during operation. This can for example be Skills: descriptions of abilities for an agent to use, or MCP servers: tools that may be used by agents to perform certain tasks. These abilities may be provided by the AI system maker, or by third parties. Other examples are plugins, external agenets, and custom tool adapters.  
+An AI system may have agents that use services provided by third parties during operation. This can for example be Skills: descriptions of abilities for an agent to use, or [MCP servers](/https://github.com/OWASP/MCP-Taxonomy): tools that may be used by agents to perform certain tasks. These abilities may be provided by the AI system maker, or by third parties. Other examples are plugins, external agenets, and custom tool adapters.  
 The use of external services is not unique to AI systems. Software system have been using third party runtime services for a long time - for example an external service that draws maps on your website. In agentic AI, such ‘supplied abilities’ can be used on a large scale and for critical funcionts.
 
 **Objective**  

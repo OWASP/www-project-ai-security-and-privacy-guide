@@ -153,7 +153,7 @@ As said, many of the discussion topics on AI are about human rights, social just
 ## Before you start: Privacy restrictions on what you can do with AI
 The GDPR does not restrict the applications of AI explicitly but does provide safeguards that may limit what you can do, in particular regarding lawfulness and limitations on purposes of collection, processing, and storage - as mentioned above. For more information on lawful grounds, see [article 6](https://gdpr.eu/article-6-how-to-process-personal-data-legally/)
 
-The [US Federal Trade Committee](https://www.ftc.gov/business-guidance/blog/2023/02/keep-your-ai-claims-check) provides some good (global) guidance in communicating carefully about your AI, including not to overpromise.
+The [US Federal Trade Commission](https://web.archive.org/web/20250317230141/https://www.ftc.gov/business-guidance/blog/2023/02/keep-your-ai-claims-check) provides some good (global) guidance in communicating carefully about your AI, including not to overpromise.
 
 The [EU AI act](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:52021PC0206&from=EN) does pose explicit application limitations, such as mass surveillance, predictive policing, and restrictions on high-risk purposes such as selecting people for jobs. In addition, there are regulations for specific domains that restrict the use of data, putting limits to some AI approaches (e.g., the medical domain). 
 
