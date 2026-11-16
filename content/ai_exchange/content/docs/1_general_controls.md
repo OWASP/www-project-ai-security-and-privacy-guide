@@ -595,13 +595,13 @@ Example: When Large Language Models (GenAI) can perform actions, the privileges 
 Example: LLMs (GenAI), just like most AI models, induce their results based on training data, meaning that they can make up things that are false. In addition, the training data can contain false or outdated information. At the same time, LLMs (GenAI) can come across as very confident about their output. These aspects make overreliance of LLM (GenAI) ([OWASP for LLM 07: Misinformation](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)) a real risk, plus excessive agency as a result of that ([OWASP for LLM 03: Excessive Agency](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)). Note that all AI models in principle can suffer from overreliance - not just Large Language Models.
 
 **Controls to limit the effects of unwanted model behaviour:**
-- [#OVERSIGHT](/go/OVERSIGHT)
-- [#LEAST MODEL PRIVILEGE](/go/LEASTMODELPRIVILEGE)
-- [#MODEL ALIGNMENT](/go/MODELALIGNMENT)
-- [#AI TRANSPARENCY](/go/AITRANSPARENCY)
-- [#CONTINUOUS VALIDATION](/go/CONTINUOUSVALIDATION)
-- [#EXPLAINABILITY](/go/EXPLAINABILITY)
-- [#UNWANTED BIAS TESTING](/go/UNWANTEDBIASTESTING)
+- [#OVERSIGHT](/go/oversight)
+- [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege)
+- [#MODEL ALIGNMENT](/go/modelalignment)
+- [#AI TRANSPARENCY](/go/aitransparency)
+- [#CONTINUOUS VALIDATION](/go/continuousvalidation)
+- [#EXPLAINABILITY](/go/explainability)
+- [#UNWANTED BIAS TESTING](/go/unwantedbiastesting)
 
 See the [Seven layers of prompt injection protection](/go/promptinjectionsevenlayers) to see how these controls interact for one of the key AI threats.
 
