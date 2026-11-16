@@ -5,14 +5,14 @@ _site/
 
 # MARK: - Hugo website
 go.work
-*/public/
-*/resources/_gen/
-*/assets/jsconfig.json
-*/hugo_stats.json
-*/hugo.exe
-*/hugo.darwin
-*/hugo.linux
-*/.hugo_build.lock
+**/public/
+**/resources/_gen/
+**/assets/jsconfig.json
+**/hugo_stats.json
+**/hugo.exe
+**/hugo.darwin
+**/hugo.linux
+**/.hugo_build.lock
 *.exe
 *.exe~
 *.dll
@@ -31,3 +31,10 @@ tmp/
 # Local tool caches (Puppeteer Chrome, optional Go toolchain)
 .cache/
 .tools/
+
+# Temporary page that scripts/generate-pdf.js writes on every PDF build
+scripts/print.html
+
+# OS and merge-tool leftovers
+.DS_Store
+*.orig
