@@ -67,7 +67,7 @@ New techniques that enable use limitation include:
 
 Fairness means handling personal data in a way individuals expect and not using it in ways that lead to unjustified adverse effects. The algorithm should not behave in a discriminating way. (See also [this article](https://iapp.org/news/a/what-is-the-role-of-privacy-professionals-in-preventing-discrimination-and-ensuring-equal-treatment/)). Furthermore: accuracy issues of a model become a privacy problem if the model output leads to actions that invade privacy (e.g., undergoing fraud investigation). Accuracy issues can be caused by a complex problem, insufficient data, mistakes in data and model engineering, and manipulation by attackers. The latter example shows that there can be a relation between model security and privacy.
  
-GDPR's Article 5 refers to "fair processing" and EDPS' [guideline](https://edpb.europa.eu/sites/default/files/files/file1/edpb_guidelines_201904_dataprotection_by_design_and_by_default_v2.0_en.pdf) defines fairness as the prevention of "unjustifiably detrimental, unlawfully discriminatory, unexpected or misleading" processing of personal data. GDPR does not specify how fairness can be measured, but the EDPS recommends the right to information (transparency), the right to intervene (access, erasure, data portability, rectify), and the right to limit the processing (right not to be subject to automated decision-making and non-discrimination) as measures and safeguards to implement the principle of fairness. 
+GDPR's Article 5 refers to "fair processing" and EDPB's [guideline](https://edpb.europa.eu/sites/default/files/files/file1/edpb_guidelines_201904_dataprotection_by_design_and_by_default_v2.0_en.pdf) defines fairness as the prevention of "unjustifiably detrimental, unlawfully discriminatory, unexpected or misleading" processing of personal data. GDPR does not specify how fairness can be measured, but the EDPB recommends the right to information (transparency), the right to intervene (access, erasure, data portability, rectify), and the right to limit the processing (right not to be subject to automated decision-making and non-discrimination) as measures and safeguards to implement the principle of fairness. 
 
 In the [literature](http://fairware.cs.umass.edu/papers/Verma.pdf), there are different fairness metrics that you can use. These range from group fairness, false positive error rate,  unawareness, and counterfactual fairness. There is no industry standard yet on which metric to use, but you should assess fairness especially if your algorithm is making significant decisions about the individuals (e.g., banning access to the platform, financial implications, denial of services/opportunities, etc.). There are also efforts to test algorithms using different metrics. For example,  NIST's [FRVT project](https://pages.nist.gov/frvt/html/frvt11.html) tests different face recognition algorithms on fairness using different metrics.
 
@@ -105,7 +105,7 @@ Further reading:
 Privacy standards such as FIPP or ISO29100 refer to maintaining privacy notices, providing a copy of users' data upon request, giving notice when major changes in personal data processing occur, etc.
 
 GDPR also refers to such practices but also has a specific clause related to algorithmic-decision making. 
-GDPR's [Article 22](https://ec.europa.eu/newsroom/article29/items/612053) allows individuals specific rights under specific conditions. This includes getting a human intervention to an algorithmic decision, an ability to contest the decision, and get meaningful information about the logic involved. For examples of "meaningful information", see EDPS's [guideline](https://ec.europa.eu/newsroom/article29/items/612053).  The US [Equal Credit Opportunity Act](https://www.consumerfinance.gov/about-us/newsroom/cfpb-acts-to-protect-the-public-from-black-box-credit-models-using-complex-algorithms/) requires detailed explanations on individual decisions by algorithms that deny credit. 
+GDPR's [Article 22](https://ec.europa.eu/newsroom/article29/items/612053) allows individuals specific rights under specific conditions. This includes getting a human intervention to an algorithmic decision, an ability to contest the decision, and get meaningful information about the logic involved. For examples of "meaningful information", see the Article 29 Working Party [guidelines](https://ec.europa.eu/newsroom/article29/items/612053) (WP251rev.01), endorsed by the EDPB.  The US [Equal Credit Opportunity Act](https://www.consumerfinance.gov/about-us/newsroom/cfpb-acts-to-protect-the-public-from-black-box-credit-models-using-complex-algorithms/) requires detailed explanations on individual decisions by algorithms that deny credit. 
 
 Transparency is not only needed for the end-user. Your models and datasets should be understandable by internal stakeholders as well: model developers, internal audit, privacy engineers, domain experts, and more. This typically requires the following:
 
@@ -135,7 +135,7 @@ Consent may be used or required in specific circumstances. In such cases, consen
   3. consent should be granular (use consent per purpose, and avoid blanket consent)
   4. consent should not be bundled with T&S
   5. consent records should be protected from tampering
-  6. consent method and text should adhere to specific requirements of the jurisdiction in which consent is required (e.g., GDPR requires unambiguous, freely given, written in clear and plain language, explicit and withdrawable)
+  6. consent method and text should adhere to specific requirements of the jurisdiction in which consent is required (e.g., GDPR requires consent to be freely given, specific, informed, unambiguous, written in clear and plain language and withdrawable, and explicit in specific cases such as special category data, automated decision-making and some transfers outside the EU)
   7. Consent withdrawal should be as easy as giving consent
   8. If consent is withdrawn, then all associated data with the consent should be deleted and the model should be re-trained.
   
@@ -155,7 +155,7 @@ The GDPR does not restrict the applications of AI explicitly but does provide sa
 
 The [US Federal Trade Commission](https://web.archive.org/web/20250317230141/https://www.ftc.gov/business-guidance/blog/2023/02/keep-your-ai-claims-check) provides some good (global) guidance in communicating carefully about your AI, including not to overpromise.
 
-The [EU AI act](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:52021PC0206&from=EN) does pose explicit application limitations, such as mass surveillance, predictive policing, and restrictions on high-risk purposes such as selecting people for jobs. In addition, there are regulations for specific domains that restrict the use of data, putting limits to some AI approaches (e.g., the medical domain). 
+The [EU AI act](https://eur-lex.europa.eu/eli/reg/2024/1689/oj) does pose explicit application limitations, such as mass surveillance, predictive policing, and restrictions on high-risk purposes such as selecting people for jobs. In addition, there are regulations for specific domains that restrict the use of data, putting limits to some AI approaches (e.g., the medical domain). 
 
 **The EU AI Act in a nutshell:**
 
@@ -169,9 +169,9 @@ The Act identifies four risk levels for AI systems:
 
 So organizations will have to know their AI initiatives and perform high-level risk analysis to determine the risk level.
 
-AI is broadly defined here and includes wider statistical approaches and optimization algorithms.
+AI is broadly defined here: a machine-based system that infers, from the input it receives, how to generate outputs such as predictions, content, recommendations or decisions. Systems based only on rules defined by people to automatically execute operations are not covered.
 
-Generative AI needs to disclose what copyrighted sources were used, and prevent illegal content. To illustrate: if OpenAI for example would violate this rule, they could face a 10 billion dollar fine.
+Providers of general-purpose AI models (such as the models behind generative AI) need a policy to comply with EU copyright law, and need to publish a sufficiently detailed summary of the content used for training. To illustrate: a provider that violates these rules can be fined by the Commission up to 3% of its annual worldwide turnover or EUR 15 million, whichever is higher.
 
 Links:
 * [AI Act](https://www.europarl.europa.eu/topics/en/article/20230601STO93804/eu-ai-act-first-regulation-on-artificial-intelligence)
