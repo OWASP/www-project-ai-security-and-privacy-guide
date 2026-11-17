@@ -1719,7 +1719,7 @@ This threat applies if the model represents intellectual property (i.e., a trade
   - [#MONITOR USE](/go/monitoruse) to detect suspicious input and respond 
   - [#RATE LIMIT](/go/ratelimit) to limit the attacker presenting many inputs in a short time
   - [#MODEL ACCESS CONTROL](/go/modelaccesscontrol) to reduce the number of potential attackers to a minimum
-  - [#ANOMALOUS INPUT HANDLING](/go/anamlousinputhandling) since model exfiltration techniques try to cover the input space, potentially introducing inputs that normally would not occur
+  - [#ANOMALOUS INPUT HANDLING](/go/anomalousinputhandling) since model exfiltration techniques try to cover the input space, potentially introducing inputs that normally would not occur
   - [#UNWANTED INPUT SERIES HANDLING](/go/unwantedinputserieshandling) to detect sequences that would indicate covering an input space methodically,
 - Controls for model exfiltration specifically:
   - [#MODEL WATERMARKING](/go/modelwatermarking) to enable post-theft ownership verification when residual risk remains - discussed below, although less effective for proving exfiltration than proving an actual copy of the model was used.
@@ -1864,9 +1864,9 @@ This leads to red teaming and blue teaming practices that need to fit the cultur
 | **Singapore**     | ❌ No political or cultural references. Focuses on ethics and robustness.                          | [Model AI Governance Framework](https://aiverifyfoundation.sg/resources/mgf-gen-ai/) |
 | **European Union**| ❌ Risk based legal framework with no ideological content constraints.                             | [EU Artificial Intelligence Act](https://artificialintelligenceact.eu/the-act/) |
 | **United States–UK** | ❌ Focused on technical security and global collaboration.                                        | [Secure AI System Development Guidelines](https://www.ncsc.gov.uk/files/Guidelines-for-secure-AI-system-development.pdf) |
-| **South Korea**   | ⚠️ Ethical and rights based approach, not explicitly cultural.                                     | [Policy direction for safe use of personal information in the era of artificial intelligence](https://www.pipc.go.kr/np/cop/bbs/selectBoardArticle.do?bbsId=BS074&mCode=C020010000&nttId=9083]) |
+| **South Korea**   | ⚠️ Ethical and rights based approach, not explicitly cultural.                                     | [Policy direction for safe use of personal information in the era of artificial intelligence](https://www.pipc.go.kr/np/cop/bbs/selectBoardArticle.do?bbsId=BS074&mCode=C020010000&nttId=9083) |
 | **Japan**         | ❌ Supports innovation and social benefit without cultural enforcement.                            | [AI Guidelines for Business](https://www.meti.go.jp/shingikai/mono_info_service/ai_shakai_jisso/pdf/20240419_9.pdf) |
-| **Australia**     | ❌ Risk based guidance and guardrails without cultural emphasis.                                   | [AI Safety Standards](https://www.industry.gov.au/sites/default/files/2024-09/voluntary-ai-safety-standard.pdf) |
+| **Australia**     | ❌ Risk based guidance and guardrails without cultural emphasis.                                   | [AI Safety Standards](https://web.archive.org/web/20260217104638/https://www.industry.gov.au/sites/default/files/2024-09/voluntary-ai-safety-standard.pdf) |
 | **Israel**        | ❌ Voluntary, sector specific ethics with no cultural prescriptions.                               | [Israel’s Policy on Artificial Intelligence: Regulations and Ethics](https://www.gov.il/en/pages/ai_2023) |
 | **Vietnam**       | ❌ General ethical and safety focus, no explicit mention of societal values.                       | [Draft Law on High Technology and Emerging Technology](https://chinhphu.vn/du-thao-vbqppl/du-thao-luat-cong-nghiep-cong-nghe-so-6652) |
 | **Taiwan**        | ❌ Sectoral regulations without cultural or political constraints.                                 | [General Explanation of the Draft Basic Law on Artificial Intelligence](https://join.gov.tw/policies/detail/4c714d85-ab9f-4b17-8335-f13b31148dc4) |
