@@ -448,14 +448,14 @@ Agentic AI systems are AI systems where the inference of a model can specify act
 
 There are many dimensions to Agentic AI, so it's best not to treat it in one specific way. Instead, the key is to look at an AI system's properties underneath: Can the AI models trigger actions? What harm can they cause? Are external services used? Is untrusted data coming in? Is memory used to keep context and plans? Can actions send out data? 
 
-In essence: **'Agentic’ can be seen as a spectrum**, where capability, autonomy, and impact increase. There are ‘mildly’ agentic systems at the one end, such as a door-opening AI camera, and ‘very’ agentic systems at the other end: with agents planning without human intervention, running in a loop, performing actions:
-- Mildly Agentic AI: performs actions
-- Fairly Agentic AI: also plans
-- Quite Agentic AI: also runs in loops
-- Very Agentic AI: all of the above without any human intervention
+**Don't let an 'Agentic AI' definition create a blind spot.** Almost all AI systems can trigger actions, and whether the workflow is fixed or flexible, or whether there is a loop, is not what determines the risk. A strict definition of 'agentic AI' as the trigger for security measures will leave out systems that have the properties that matter (untrusted data coming in, the ability to cause harm, the ability to send data out) but happen to fall outside the definition. Scope your security work by those properties, not by the label. In essence: **'Agentic’ can be seen as a spectrum**, where capability, autonomy, and impact increase. There are ‘mildly’ agentic systems at the one end, such as a door-opening AI camera, and ‘very’ agentic systems at the other end: with agents planning without human intervention, running in a loop, performing actions.
 
 The AI Exchange covers all AI systems, so also agentic AI systems, throughout its content. For the full threat and control picture, see the [threats overview](/go/threatsoverview), [AI security matrix](/go/aisecuritymatrix), and [periodic table of threats and controls](/go/periodictable).  
 This section highlights agentic attention points only — not a separate threat landscape. 
+
+**How to approach agentic AI security**
+- **Extend what you have, don't build a separate framework.** Agentic AI security is part of building secure AI systems, which again is an extension of building secure software systems. The AI Exchange already recommends to add AI to your existing information security management, risk inventory, asset inventory, and software development process instead of setting up a parallel 'AI security' track. That is less work and it builds on things that are already in place and proven.
+- **Assess the system, not the agent.** An agent cannot be judged secure or insecure in isolation, just like a model cannot. The risk depends on the use case, the intended use, the data and tools the agent can reach, and the other mechanisms and agents around it. The question to ask is not 'is this agent secure?' but 'is this system, which involves agents, secure for this use?'
 
 **There are four typical properties of agentic AI:**  
 1. **Action**: Agents don’t just chat — they invoke functions such as sending an email. That makes [LEAST MODEL PRIVILEGE](/go/leastmodelprivilege) a key control — including the [agentic authorisation framework](/go/leastmodelprivilege) (deny-by-default, infrastructure policy enforcement, task-bound tokens, agent identity).
@@ -481,7 +481,7 @@ This section highlights agentic attention points only — not a separate threat 
   - Prevention: for example: security of inter-model communication (e.g., MCP), [agent sandboxing](/go/agentsandboxing), [protecting memory integrity](/go/augmentationdataintegrity), [prompt injection defenses](/go/promptinjection), and [agent message structure manipulation](/go/agentmessagestructuremanipulation)
   - Blast radius control: [rule-based / human oversight](/go/oversight) and [least model privilege](/go/leastmodelprivilege)
   - Observability: [monitoring](/go/monitoruse)
-- **Validation gap:** Tools and methods to evaluate agentic security architecture and deployments are still evolving; without reliable validation, design and implementation weaknesses are harder to find before production. See [testing](/go/testing) and [continuous validation](/go/continuousvalidation).
+- **Validation gap:** Tools and methods to evaluate agentic security architecture and deployments are still evolving; without reliable validation, design and implementation weaknesses are harder to find before production. AI red teaming, the simulation of specific AI attacks to see if the system is resilient to them, is where the state of the art is least mature, and it is easily practised as security theater. Yet it is the main way to provide evidence, for example to auditors, that the selected controls actually work. See [testing](/go/testing) and [continuous validation](/go/continuousvalidation).
 
 For leaking sensitive data in agentic AI, you need three things, also called the _lethal trifecta_:
 1. Data: Attacker control of data that finds its way into an LLM at some point in the session of a user that has the desired access, to perform [indirect prompt injection](/go/indirectpromptinjection) 
@@ -491,6 +491,34 @@ For leaking sensitive data in agentic AI, you need three things, also called the
 See [Simon Willison’s excellent work](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) for more details, and for examples in agentic AI software development [here](https://www.darkreading.com/application-security/github-copilot-camoleak-ai-attack-exfils-data) and [here](https://ainativedev.io/news/malicious-github-issue-ai-agent-leak).
 
 [Prompt injection](/go/promptinjection) and mostly the [indirect](/go/indirectpromptinjection) form is the key threat in most agentic AI systems. The [prompt injection section](/go/promptinjection) covers agentic taxonomy (stored injection, multi-agent propagation) and structural mitigations (Agentic Rule of Two, tool-boundary firewalls). See the [seven layers section](/go/promptinjectionsevenlayers) on how these controls form layers of protection. After model alignment and filtering and detection, it should be assumed that prompt injection can still happen and therefore it is critical that _blast radius control_ is performed.
+
+**Common pitfalls**
+
+Two mistakes are seen most often in practice:
+1. **Access control in instructions.** Telling the model what it may not disclose or do (e.g., 'don't give personal data to anyone outside human resources') is unreliable and relatively easy to manipulate. It is done everywhere because it is so easy to do. Access control needs a deterministic mechanism in the architecture, outside the model.
+2. **Skipping hardening because it is tedious.** Restricting an agent beforehand to what its task needs (an email-summary agent only reads email, and only yours) takes effort, and it gets in the way the moment the agent needs to do one thing extra. So teams give broad permissions instead. The solution is to make the tedious work less tedious: make it quick to set, widen, and narrow privileges, so that least privilege stays workable as the use of the agent evolves.
+
+**Overestimated controls**
+
+No layer is sufficient on its own, and three of them tend to create a false sense of security that leads to neglecting the others:
+- **Model alignment.** The model does not have the context of your application, so it cannot know what counts as harm in your use case. It will refuse some things, but don't rely on it.
+- **Detection of malicious instructions in untrusted data.** Human text is full of instructions, and attackers make theirs look benign. Telling the two apart is hard, and so is deciding what to do when an instruction is found.
+- **Human oversight.** 'Human in the loop' is often thrown in as a wildcard. It only works if a human decision is feasible within the available time frame, and if the humans are alert, motivated, knowledgeable, and not worn down by a continuous stream of approvals. Without that, a powerful control quickly becomes security theater. See [#OVERSIGHT](/go/oversight).
+
+**Where to invest first**
+
+When not every layer can be implemented equally well, prioritise blast radius control: everything that limits the impact of what the model does, using as much understanding as possible of what is harmful, malicious, and benign.
+- **Beforehand, in the privileges**: externally enforced access control and practical hardening, as described under the pitfalls above ([#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege)).
+- **During, in the oversight**: detection of unwanted behaviour built into the application itself, so that the process can be stopped. Logging actions and reviewing them afterwards is not enough: many of the threats are about exfiltration, and by the time someone responds to the log the data is gone ([#OVERSIGHT](/go/oversight), [#MONITOR USE](/go/monitoruse)).
+- **Development and security operations together.** Some unwanted behaviour needs to be acted on immediately in the application, some can be responded to later. That requires development teams and security operations to design the detection scheme together. Where they work in silos, blast radius control ends up being after the fact. Respond later where you can, and act immediately when you should.
+
+**Staying secure after deployment**
+
+An agent that passed its security tests will still encounter new tools, unexpected inputs, and changing conditions. Security is therefore not a one-time approval:
+- **Test repeatedly.** Do red teaming continually, and automate it as much as possible ([continuous validation](/go/continuousvalidation)).
+- **Make privileges principle-based.** Define what a model can and cannot do in terms of what an action means, not in terms of specific tools, so that new tools can be mapped onto existing privileges.
+- **Make behaviour detection principle-based.** Instead of flagging 'the agent does X and then queries the customer database', flag 'the agent does X and then requests customer data'. The rule then keeps working when tools change.
+- **Apply just-in-time authorisation.** Decide at the moment of the action, with logic based on what the agent is currently doing and what the tool it wants to use does, whether to allow it. This is the last of the [seven layers](/go/promptinjectionsevenlayers).
 
 **Agentic security architecture principles**
 
