@@ -1,6 +1,15 @@
-# Preview deploy for PRs. Uses pull_request_target so fork PRs can get a preview
-# after a maintainer approves (secrets are only available in base repo context).
+# Preview deploy for PRs.
 #
+# - PRs from branches in this repo: build and deploy a Firebase preview channel.
+# - PRs from forks: build only (site, search index, PDF) as a check. GitHub does
+#   not expose repository secrets to `pull_request` runs from forks, so the
+#   Firebase deploy is skipped instead of failing.
+#
+# Do not switch this to `pull_request_target` to get fork previews: the build
+# runs `npm ci` / `npm run build:pdf` from the PR's code, which would execute
+# fork-controlled scripts with the Firebase service account available. If fork
+# previews are wanted later, build here and deploy the uploaded artifact from a
+# separate `workflow_run` workflow that never executes PR code.
 
 name: Deploy to Preview Channel
 
@@ -16,11 +25,11 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.4.0
         with:
           ref: refs/pull/${{ github.event.pull_request.number }}/merge
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
+        uses: peaceiris/actions-hugo@v3.2.1
         with:
           hugo-version: '0.147.0'
           extended: true
@@ -36,7 +45,7 @@ jobs:
         run: |
           npm ci
           npm run build:pdf
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - uses: FirebaseExtended/action-hosting-deploy@v0.11.0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
@@ -45,18 +54,19 @@ jobs:
           target: owasp-ai-exchange
           entryPoint: content/ai_exchange
 
-  # PRs from forks: build and deploy only after a reviewer approves.
-  # Requires an environment "production" with Required reviewers (Settings → Environments).
+  # PRs from forks: build-check only. Secrets are not available here, so the
+  # deploy step is skipped rather than failing the check.
   build_and_preview_fork:
     if: github.event.pull_request.head.repo.full_name != github.repository
     runs-on: ubuntu-latest
-    environment: production
+    env:
+      HAS_FIREBASE_SA: ${{ secrets.FIREBASE_SERVICE_ACCOUNT != '' }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.4.0
         with:
           ref: refs/pull/${{ github.event.pull_request.number }}/merge
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
+        uses: peaceiris/actions-hugo@v3.2.1
         with:
           hugo-version: '0.147.0'
           extended: true
@@ -72,7 +82,8 @@ jobs:
         run: |
           npm ci
           npm run build:pdf
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - uses: FirebaseExtended/action-hosting-deploy@v0.11.0
+        if: env.HAS_FIREBASE_SA == 'true'
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
@@ -80,3 +91,6 @@ jobs:
           projectId: project-integration-standards
           target: owasp-ai-exchange
           entryPoint: content/ai_exchange
+      - name: Note skipped preview
+        if: env.HAS_FIREBASE_SA != 'true'
+        run: echo "::notice::Fork PR built successfully; preview deploy skipped (secrets are not available to fork PRs)."
