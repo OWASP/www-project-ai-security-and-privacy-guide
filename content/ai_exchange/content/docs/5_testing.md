@@ -296,7 +296,7 @@ EXAMPLE: A possible test scenario is: the tester does not perform a perfect-know
 **(3) Separate feasibility tests**  
 Where feasibility is uncertain, perform separate feasibility tests to determine whether the criteria are met. Such tests may check whether existing detection mechanisms would block a particular evasion input, or whether an attacker could create the input in a real-world situation.
 
-Tools for state-of-the-art testing are usually available for the relevant problem space, see our [test tools section](go/testingtoolspredictiveai/).
+Tools for state-of-the-art testing are usually available for the relevant problem space, see our [test tools section](/go/testingtoolspredictiveai/).
 
 NOTE: These tools often rely on curated implementations of published adversarial AI attacks. They will not necessarily protect against zero-day attack algorithms.
 

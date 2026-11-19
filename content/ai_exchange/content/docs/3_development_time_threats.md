@@ -621,7 +621,7 @@ Sophisticated attackers can design poisoned samples to blend into the normal dat
 <!-- OPENCRE_SECTION_CRE_END slug=dataqualitycontrol -->
 - [GS1 Data quality framework](https://www.gs1.org/services/data-quality/data-quality-framework)
 - [IBM on data quality in AI](https://research.ibm.com/projects/data-quality-in-ai)
-- [SAND on data quality vs integrity](https://www.sandtech.com/insight/data-integrity-vs-data-quality-why-ai-models-need-both-for-success/)
+- [SAND on data quality vs integrity](https://web.archive.org/web/20260606135152/https://www.sandtech.com/insight/data-integrity-vs-data-quality-why-ai-models-need-both-for-success/)
 - ['Detection of Adversarial Training Examples in Poisoning Attacks through Anomaly Detection'](https://arxiv.org/abs/1802.03041)
 
 Useful standards include:

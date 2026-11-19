@@ -53,3 +53,14 @@ For best PDF output, use source images at least **600–800 px wide**. Small ima
 ## Content Parity
 
 PDF generation includes a content parity check. It fails if images or tables in the assembled PDF content don't match the website. Fix any missing images or content mismatches before the PDF will generate successfully.
+
+## Checking links
+
+After building the site, check for broken links:
+
+```bash
+npm run check:links            # internal links, anchors and /go/ redirects (offline, about a second)
+npm run check:links:external   # also external URLs (a few minutes)
+```
+
+The internal check runs on every PR preview, before the PDF is generated. External links are checked weekly by the `Check external links` workflow, and can be run by hand from the Actions tab.

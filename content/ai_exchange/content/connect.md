@@ -189,6 +189,7 @@ sidebar:
   class="w-full bg-white py-14 px-4 sm:px-6 md:px-10 font-['Roboto'] text-center sm:text-left"
 >
   <h2
+    id="owasp-ai-project-leader"
     class="text-2xl sm:text-3xl md:text-4xl font-medium text-slate-800 text-center mb-10"
   >
     OWASP AI Project Leader
