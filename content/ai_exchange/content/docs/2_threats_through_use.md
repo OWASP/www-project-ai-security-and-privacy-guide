@@ -713,7 +713,7 @@ Example 4: by altering a few words, an attacker succeeds in posting an offensive
     - [BIML: sec. BIML-78(2020): input:1: Adversarial Examples](https://berryvilleiml.com/results/interactive)
     - [NIST AI 100-2: sec. 2.2: Evasion Attacks](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
 <!-- OPENCRE_SECTION_CRE_END slug=evasion -->
-See [MITRE ATLAS - Evade ML model](https://atlas.mitre.org/techniques/AML.T0015)
+See [MITRE ATLAS - Evade AI Model](https://atlas.mitre.org/techniques/AML.T0015)
 
 **Controls for evasion**  
 An evasion attack typically consists of first searching for the inputs that mislead the model, and then applying it. That initial search can be very intensive, as it requires trying many variations of input. Therefore, limiting access to the model with for example rate limiting mitigates the risk, but still leaves the possibility of using a so-called [transfer attack](/go/transferattack) to search for the inputs in another, similar or same model.  
@@ -1538,7 +1538,7 @@ The model discloses sensitive training data or is abused to do so.
 **Description**  
 The output of the model may contain sensitive data from the training set or input (which may include augmentation data). For example, a large language model (GenAI) generating output including personal data that was part of its training set. Furthermore, GenAI can output other types of sensitive data, such as copyrighted text or images (see [Copyright](/go/copyright)). Once training data is in a GenAI model, original variations in access rights cannot be controlled anymore. ([OWASP for LLM 02: Sensitive Information Disclosure](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/))
 
-The disclosure is caused by an unintentional fault of including this data, and exposed through normal use or through provocation by an attacker using the system. See [MITRE ATLAS - LLM Data Leakage](https://atlas.mitre.org/techniques/AML.T0057)
+The disclosure is caused by an unintentional fault of including this data, and exposed through normal use or through provocation by an attacker using the system. See [MITRE ATLAS - Extract Memorized Data](https://atlas.mitre.org/techniques/AML.T0137.003) for data from the training set and [MITRE ATLAS - Data from AI Services](https://atlas.mitre.org/techniques/AML.T0085) for data from the input, such as augmentation data and conversation context.
 
 **Controls specific for sensitive data output from model:**
 
@@ -1773,7 +1773,7 @@ Watermarking can be effective evidence for direct model theft, but is limited fo
 >Permalink: https://owaspai.org/go/airesourceexhaustion
 
 **Description**  
-Specific input to the model leads to resource exhaustion, which can be the depletion of funds or availability issues (system being very slow or unresponsive, also called _denial of service_). The failure occurs from frequency, volume, or the content of the input. See [MITRE ATLAS - Denial of ML service](https://atlas.mitre.org/techniques/AML.T0029).
+Specific input to the model leads to resource exhaustion, which can be the depletion of funds or availability issues (system being very slow or unresponsive, also called _denial of service_). The failure occurs from frequency, volume, or the content of the input. See [MITRE ATLAS - Denial of AI Service](https://atlas.mitre.org/techniques/AML.T0029).
 
 Impact: Loss of money or the AI system is unavailable, leading to issues with processes, organizations or individuals that depend on the AI system (e.g. business continuity issues, safety issues in process control, unavailability of services)
 
