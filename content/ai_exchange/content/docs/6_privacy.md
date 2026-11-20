@@ -118,7 +118,7 @@ Transparency is not only needed for the end-user. Your models and datasets shoul
 Also known as "individual participation" under privacy standards, this principle allows individuals to submit requests to your organization related to their personal data. Most referred rights are: 
 
 1. right to access/portability: provide a copy of user data, preferably in a machine-readable format. If data is properly anonymized, it may be exempted from this right. 
-2. right to erasure: erase user data unless an exception applies. It is also a good practice to re-train your model without the deleted user's data.
+2. right to erasure: erase user data unless an exception applies. It is also a good practice to re-train your model without the deleted user's data. For monitoring logs that must stay tamper-evident, see [#MONITOR USE](/go/monitoruse) on keeping personal data out of the signed record.
 3. right to correction: allow users to correct factually incorrect data. Also, see accuracy below
 4. right to object: allow users to object to the usage of their data for a specific use (e.g., model training)
 
