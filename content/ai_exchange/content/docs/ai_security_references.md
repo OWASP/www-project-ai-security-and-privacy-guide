@@ -68,6 +68,7 @@ References on specific topics can be found throughout the content of AI Exchange
 - [OffSec ML Playbook](https://wiki.offsecml.com/)
 - [MIT AI Risk Repository](https://airisk.mit.edu/)
 - [Failure Modes in Machine Learning by Microsoft](https://learn.microsoft.com/en-us/security/engineering/failure-modes-in-machine-learning)
+- [RAGDefender: open-source post-retrieval defense against RAG knowledge poisoning, with the ACSAC 2025 paper](https://github.com/SecAI-Lab/RAGDefender)
 
 ## Education (Learning and Training):
 ---
