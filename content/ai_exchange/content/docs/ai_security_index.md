@@ -43,6 +43,7 @@ Find clickable topics in alphabetical order below. For an overview of threats an
 
 ### G  
 [GDPR](/go/aiprivacy)  
+[General audience primer](/go/generalaudienceprimer)
 [Generative AI](/go/genai)  
 [Governance](/go/governancecontrols)  
 
