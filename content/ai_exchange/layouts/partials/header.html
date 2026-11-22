@@ -32,10 +32,14 @@
     <nav class="main-navigation desktop-nav">
       <ul class="nav-list">
         {{ range .Site.Menus.main }}
-          <li class="nav-item">
-            <a href="{{ .URL }}" class="nav-link {{ if eq $.RelPermalink .URL }}active{{ end }}">
+          {{ $isContent := and .Page (eq .Page.Section "docs") }}
+          <li class="nav-item{{ if $isContent }} has-mega-menu{{ end }}">
+            <a href="{{ .URL }}" class="nav-link {{ if eq $.RelPermalink .URL }}active{{ end }}"{{ if $isContent }} aria-haspopup="true"{{ end }}>
               {{ .Name }}
             </a>
+            {{ if $isContent }}
+              {{ partial "content-mega-menu.html" . }}
+            {{ end }}
           </li>
         {{ end }}
       </ul>
