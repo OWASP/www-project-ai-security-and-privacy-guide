@@ -1,0 +1,39 @@
+{{/* Dropdown under the "Content" item in the desktop navbar: every content page, plus "Start here" shortcuts.
+     Titles and descriptions come from each page's heroTitle/heroText front matter, ordered by weight. */}}
+<div class="mega-menu">
+  <div class="mega-menu-panel">
+    <ul class="mega-menu-pages">
+      {{ range $i, $p := (where site.RegularPages "Section" "docs").ByWeight }}
+        <li>
+          <a href="{{ $p.RelPermalink }}" class="mega-menu-page">
+            <span class="mega-menu-number">{{ printf "%02d" $i }}</span>
+            <span class="mega-menu-text">
+              <span class="mega-menu-title">{{ $p.Params.heroTitle | default $p.Title }}</span>
+              {{ with $p.Params.heroText }}<span class="mega-menu-desc">{{ . | plainify }}</span>{{ end }}
+            </span>
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+
+    <div class="mega-menu-start">
+      <p class="mega-menu-start-heading">Start here</p>
+      <a href="/docs/ai_security_overview/#how-to-use-this-document" class="mega-menu-start-link">
+        <span class="mega-menu-title">How to use this document</span>
+        <span class="mega-menu-desc">Find your way through 300+ pages.</span>
+      </a>
+      <a href="/docs/ai_security_overview/#essentials-how-to-understand-the-basics-of-ai-security" class="mega-menu-start-link">
+        <span class="mega-menu-title">Essentials</span>
+        <span class="mega-menu-desc">The must-knows of AI security.</span>
+      </a>
+      <a href="/docs/ai_security_overview/#periodic-table-of-ai-security" class="mega-menu-start-link">
+        <span class="mega-menu-title">Periodic table</span>
+        <span class="mega-menu-desc">Threats mapped to their controls.</span>
+      </a>
+      <a href="/OWASP-AI-Exchange.pdf" target="_blank" rel="noopener noreferrer" class="mega-menu-start-link">
+        <span class="mega-menu-title">Download the PDF</span>
+        <span class="mega-menu-desc">The complete Exchange, offline.</span>
+      </a>
+    </div>
+  </div>
+</div>
