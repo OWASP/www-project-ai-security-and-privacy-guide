@@ -109,6 +109,11 @@
         "type": 302
       },
       {
+        "source": "/go/ccg",
+        "destination": "/contribute/#content-contribution-guidelines",
+        "type": 302
+      },
+      {
         "source": "/go/roadmap",
         "destination": "/docs/ai_security_overview/#ai-exchange-roadmap",
         "type": 302

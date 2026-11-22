@@ -1,4 +1,5 @@
 ---
+# FOR EDITING CONTENT: MAKE SURE YOU APPLY THE CONTENT CONTRIBUTION GUIDELINES: owaspai.org/go/ccg
 title: 1. General controls
 heroTitle: "General controls"
 heroText: "These are the controls every organisation should have in place..."
