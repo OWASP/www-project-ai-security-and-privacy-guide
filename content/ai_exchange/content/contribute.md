@@ -218,7 +218,7 @@ weight: 1
       <div class="flex flex-col bg-white border border-gray-200 rounded-xl shadow-md p-6">
         <h3 class="text-gray-900 mt-0 mb-2 text-xl font-medium">General writing goal</h3>
         <p class="text-gray-500 text-[16px] font-roboto font-medium leading-[24px]">
-          The non AI security expert understands the topic, gets the important points of considerations and where to find more details - prioritizing clarity and completeness at the principle level while minimizing the number of words as a second priority.
+          The non AI security expert understands the topic, gets the important points of consideration and where to find more details - prioritizing clarity and completeness at the principle level while minimizing the number of words as a second priority.
         </p>
       </div>
       <div class="flex flex-col bg-white border border-gray-200 rounded-xl shadow-md p-6">

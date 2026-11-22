@@ -8,6 +8,11 @@ on:
     # paths:
     # - "website/**"
 
+# Only the newest push to main needs to go live: a newer push cancels an older run still going
+concurrency:
+  group: deploy-live
+  cancel-in-progress: true
+
 jobs:
   deploy_live_website:
     environment: production

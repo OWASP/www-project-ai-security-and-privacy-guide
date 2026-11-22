@@ -88,7 +88,7 @@ In general risk management it may help to keep in mind the following particulari
    
 Useful standards include:
  - ISO/IEC 42001 AI management system. Gap: covers this control fully.
- - [US Federal Reserve SR 11-07: Guidance on Model Risk Management](https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm): supervisory guidance for banking organizations and supervisors.
+ - [US Federal Reserve SR 11-07: Guidance on Model Risk Management](https://web.archive.org/web/20260414150921/https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm): supervisory guidance for banking organizations and supervisors.
 
 42001 is about extending your risk management system - it focuses on governance. ISO 5338 (see #[DEV PROGRAM](/go/devprogram) below) is about extending your software lifecycle practices - it focuses on engineering and everything around it. ISO 42001 can be seen as a management system for the governance of responsible AI in an organization, similar to how ISO 27001 is a management system for information security. ISO 42001 doesn't go into the lifecycle processes. For example, it does not discuss how to train models, how to do data lineage, continuous validation, versioning of AI models, project planning challenges, and how and when exactly sensitive data is used in engineering.
 
@@ -131,7 +131,7 @@ The general process for performing an AI Use Case Privacy and Security Analysis 
  - Identify the security and privacy controls
  - Identify the security and privacy assurance concerns
 
-Because AI has specific assets (e.g. training data), **AI-specific honeypots** are a particularly interesting control. These are fake parts of the data/model/data science infrastructure that are exposed on purpose, in order to detect or capture attackers, before they succeed to access the real assets. Examples:
+Because AI has specific assets (e.g. training data), **AI-specific honeypots** are a particularly interesting control. These are fake parts of the data/model/data science infrastructure that are exposed on purpose, in order to detect or capture attackers, before they succeed in accessing the real assets. Examples:
 
 - Hardened data services, but with an unpatched vulnerability (e.g. Elasticsearch)
 - Exposed data lakes, not revealing details of the actual assets
@@ -142,14 +142,14 @@ Because AI has specific assets (e.g. training data), **AI-specific honeypots** a
 - External access granted to a specific library
 - Models imported as-is from GitHub
 
-Monitoring and incident response are standard elements of security programs and AI can be included in it by understanding the relevant AI security assets, threats, and controls. The discussion of threats include detection mechanisms that become part of monitoring. See [#MONITOR USE](/go/monitoruse) for more details.  Serious incidents may also trigger parallel regulatory obligations (for example EU AI Act Art 73 reporting and NIS2 notification timelines for in-scope entities) — coordinate technical response with [#CHECK COMPLIANCE](/go/checkcompliance), not inside monitoring controls.
+Monitoring and incident response are standard elements of security programs and AI can be included in it by understanding the relevant AI security assets, threats, and controls. The discussion of threats includes detection mechanisms that become part of monitoring. See [#MONITOR USE](/go/monitoruse) for more details.  Serious incidents may also trigger parallel regulatory obligations (for example EU AI Act Art 73 reporting and NIS2 notification timelines for in-scope entities) — coordinate technical response with [#CHECK COMPLIANCE](/go/checkcompliance), not inside monitoring controls.
 
 Note that new regulation can be more outcome-based (e.g. the EU AI Act), instead of control-focused (like ISO/IEC 27001) which makes it important to extend the Information Security Management System with assurance processes for showing that risks have been sufficiently mitigated.
 
 **References**  
 Useful standards include:
 
-  - The entire ISO 27000-27005 range is applicable to AI systems in the general sense as they are IT systems. Gap: covers this control fully regarding the processes, with the high-level particularity that there are three AI-specific attack surfaces that need to be taken into account in information security management: 1)AI development-time attacks including supply chain, 2)Input attacks, and 3)Runtime conventional security attacks. See the controls under the corresponding sections to see more particularities.
+  - The entire ISO 27000-27005 range is applicable to AI systems in the general sense as they are IT systems. Gap: covers this control fully regarding the processes, with the high-level particularity that there are three AI-specific attack surfaces that need to be taken into account in information security management: 1) AI development-time attacks including supply chain, 2) Input attacks, and 3) Runtime conventional security attacks. See the controls under the corresponding sections to see more particularities.
     These standards cover:
 
     - ISO/IEC 27000 – Information security management systems – Overview and vocabulary
@@ -201,7 +201,7 @@ Particularities for AI in software development, and how to address them:
 - New assets, threats and controls (as covered in this document) need to be considered, affecting requirements, policies, coding guidelines, training, tooling, testing practices and more. Usually, this is done by adding these elements in the organization's Information Security Management System, as described in [SECPROGRAM](/go/secprogram), and align secure software development to that - just like it has been aligned on the conventional assets, threats and controls.  This involves both conventional security threats and AI-specific threats, applying both conventional security controls and AI-specific ones. Typically, technical teams depend on the AI engineers when it comes to the AI-specific controls as they mostly require deep AI expertise. For example: if training data is confidential and collected in a distributed way, then a federated learning approach may be considered. AI-specific risks can be determined through [AI threat modeling](/go/threatmodel).
 
 - Apart from software components, the supply chain for AI can also include data, models, and model hosting. Data and models may have been poisoned, which is why data provenance and model management are central in [AI supply chain management](/go/supplychainmanage). In addition, the supply chain encompasses capabilities that agents interact with dynamically, such as skills and services (e.g. through MCP).
-- In AI, software components can also run in the development, for example tools to prepare training data or train a model. Because of this, the AI development environment is vulnerable to traditional software security risks, such as open source package vulnerabilities, CWEs, exposed secrets, and sensitive data leaks. Without robust controls in place, these risks go undetected by standard application security testing tools, potentially exposing the entire lifecycle to breaches.
+- In AI, software components can also run in the development environment, for example tools to prepare training data or train a model. Because of this, the AI development environment is vulnerable to traditional software security risks, such as open source package vulnerabilities, CWEs, exposed secrets, and sensitive data leaks. Without robust controls in place, these risks go undetected by standard application security testing tools, potentially exposing the entire lifecycle to breaches.
 
 - The AI development environment typically involves sensitive data, in contrast to conventional engineering where the use of such data by engineers is normally avoided. Therefore, apply [development security](/go/devsecurity) on the development environment. In addition to the conventional assets of code, configuration and secrets, the AI-specific development assets are:
   - Potentially sensitive data needed to train, test and validate models
@@ -319,7 +319,7 @@ The compliance process should remain connected to the [AI management system](/go
 
 **Implementation - General Legal Considerations on AI Security:**  
 - Privacy Laws: AI must comply with all local/global privacy laws at all times, such as GDPR, CCPA, HIPAA. See the [Privacy section](/go/aiprivacy).
-- Data Governance: any AI components/functions provided by a 3rd party for integration must have data governance frameworks, including those for the protection of personal data and structure/definitions on how its collected, processed, stored
+- Data Governance: any AI components/functions provided by a 3rd party for integration must have data governance frameworks, including those for the protection of personal data and structure/definitions on how it's collected, processed, stored
 - Data Breaches: any 3rd party supplier must answer as to how they store their data and security frameworks around it, which may include personal data or IP of end-users
 
 **Implementation - Non-Security Compliance Considerations:**  
@@ -360,8 +360,8 @@ Useful standards include:
   - [OpenCRE on Compliance](https://www.opencre.org/cre/510-324)
   - ISO 27002 Control 5.36 Compliance with policies, rules and standards. Gap: covers this control fully, with the particularity that AI regulation needs to be taken into account.
   - [ISO/IEC 27090](https://www.iso.org/standard/27090) (AI security) is a guidance standard and has been published in October 2026. The AI Exchange has contributed substantial content to the 27090, and Exchange founder Rob van der Veer was part of the working group.
-  - ISO/IEC 27090 (AI privacy) and 27091 (AI privacy) is in development at the moment of writing (Oct 2026), and likely come out in 2027. 
-  - prEN 18282 is the draft harmonized cybersecurity standard for the EU AI Act - brought forward by CEN/CENELEC JTC21/WG5 and with a substantial part contributed by the AI Exchange. Exchange founder Rob van der Veer is liaison officer for the official partnership between the AI Exchange and CEN/CENELEC/ISO, as well as co-editor for 18282. At the moment of writing (Oct 2026), the standard is ready to go for final internal review, and is expected to be published in the beginning of 2027. After publishing, it depends on publication in the Official Journal if the standard can be used for presumption of conformity for high risk AI systems.
+  - ISO/IEC 27091 (AI privacy) is in development at the moment of writing (Oct 2026), and will likely come out in 2027. 
+  - prEN 18229-8 is the draft harmonized cybersecurity standard for the EU AI Act - brought forward by CEN/CENELEC JTC21/WG5 and with a substantial part contributed by the AI Exchange. Exchange founder Rob van der Veer is liaison officer for the official partnership between the AI Exchange and CEN/CENELEC/ISO, as well as co-editor for 18282. At the moment of writing (Oct 2026), the standard is ready to go for final internal review, and is expected to be published in the beginning of 2027. After publishing, it depends on publication in the Official Journal if the standard can be used for presumption of conformity for high risk AI systems. Its full name is "Artificial Intelligence - AI system requirements - Part 8: Cybersecurity specifications for AI systems".
 
 #### #SEC EDUCATE
 > Category: governance control  
@@ -409,7 +409,7 @@ An exception to applicability to the AI system provider is when the deployer is 
 
 **Implementation**  
 In addition to removing (or archiving) unused or low-impact fields and records, data minimization can include:
-- removing data elements (fields, record) that do not materially affect model performance (e.g. correctness, robustness, fairness) based on experimentation or analysis;
+- removing data elements (fields, records) that do not materially affect model performance (e.g. correctness, robustness, fairness) based on experimentation or analysis;
 - retaining certain identifiers only to support data removal requests or lifecycle management, while excluding them from model training;
 - updating training datasets to reflect removals or corrections made in upstream source data (e.g. when personal data is destroyed from the source data then training data is updated to reflect the change);
 - original data can be preserved separately with access controls for future use.
@@ -512,7 +512,7 @@ AI models typically do not require exact or human-readable representations of tr
 
 **Limitations**  
 Obfuscation reduces the risk of re-identification or inference, but does not eliminate it:
-- Removing or obfuscating PII / personal data is often not sufficient, as someone's identity may be induced from the other data that you keep of the person (locations, times, visited websites, activities together with data and time, etc.). 
+- Removing or obfuscating PII / personal data is often not sufficient, as someone's identity may be induced from the other data that you keep of the person (locations, times, visited websites, activities together with date and time, etc.). 
 - Token-based approaches introduce additional risk if mapping tables are compromised.
 
 The risk of re-identification can be assessed by experts using statistical properties such as K-anonymity, L-diversity, and T-closeness.  
@@ -566,9 +566,9 @@ For example:
     - [MITRE ATLAS: sec. AML.M0001: Limit Model Artifact Release](https://atlas.mitre.org/mitigations/AML.M0001)
 <!-- OPENCRE_SECTION_CRE_END slug=discrete -->
 Useful standards include:
-  - ISO 27002 Control 5.9: Inventory of information and other associated assets. Gap: covers this control fully, with the particularity that technical data science details can be sensitive. .
+  - ISO 27002 Control 5.9: Inventory of information and other associated assets. Gap: covers this control fully, with the particularity that technical data science details can be sensitive.
   - See [OpenCRE on data classification and handling](https://www.opencre.org/cre/074-873). Gap: idem
-  - [MITRE ATlAS Acquire Public ML Artifacts](https://atlas.mitre.org/techniques/AML.T0002)
+  - [MITRE ATLAS Acquire Public ML Artifacts](https://atlas.mitre.org/techniques/AML.T0002)
 
 ---
 
@@ -621,8 +621,8 @@ It is the nature of AI models that they can be wrong. In addition, they can be m
 
 **Relation with other controls**  
 - [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege) restricts model actions through permissions and therefore is preventative, while #OVERSIGHT is about detection: it is reactive or gate-based — both may apply to the same action tier.
-- [#MODEL ALIGNMENT](/go/modelalignment) is a form of oversight where the model is taught and instructed regarding its wanted and unwanted behaviour. This is done through training, fine-tuning, and system prompts. It is as a separate control because it's implementation is different and the effectiveness relies on the model's ability to be conditioned - which has its own limitations.
-- [#MONITOR USE])(/go/monitoruse) is the overarching control of monitoring, including elements such as logging, continuous validation of model performance, incident response, input detections, and the control for this clause: #OVERSIGHT.
+- [#MODEL ALIGNMENT](/go/modelalignment) is a form of oversight where the model is taught and instructed regarding its wanted and unwanted behaviour. This is done through training, fine-tuning, and system prompts. It is a separate control because its implementation is different and the effectiveness relies on the model's ability to be conditioned - which has its own limitations.
+- [#MONITOR USE](/go/monitoruse) is the overarching control of monitoring, including elements such as logging, continuous validation of model performance, incident response, input detections, and the control for this clause: #OVERSIGHT.
 
 **Implementation**  
 Oversight spans **automated** mechanisms (rules, monitors, policy gates) and **human** mechanisms (informed review and approval). Automated oversight scales; human oversight provides accountability, handles ambiguous high-impact decisions, and can bring in more context knowledge. These mechanisms go hand in hand: automated detections can identify situations that require human intervention.  
@@ -635,13 +635,13 @@ Automated oversight is about implementing **detection mechanisms** to recognize 
     - Suspicious actions or sequences of actions detected in the AI system, either by looking at function calls in model output, function calls before they are executed, or after they are executed.
 
 Best practices:
-- Apply **Grounding checks** if recognizing unwanted output based on context is too difficult to catch in rules, and the detection of malicious input is insufficient. The idea of grounding checks is to let a separate Generative AI model decide if an input or output is off-topic or escalates capabilities (e.g. a LLM powered food recipes app suddenly is trying to send emails). This takes the use of LLMs to detect suspicious input and output a step further by including context. This is required in case GenAI-based recognition is insufficient to cover certain attack scenarios (see above).
+- Apply **Grounding checks** if recognizing unwanted output based on context is too difficult to catch in rules, and the detection of malicious input is insufficient. The idea of grounding checks is to let a separate Generative AI model decide if an input or output is off-topic or escalates capabilities (e.g. an LLM-powered food recipes app suddenly is trying to send emails). This takes the use of LLMs to detect suspicious input and output a step further by including context. This is required in case GenAI-based recognition is insufficient to cover certain attack scenarios (see above).
 - Implement appropriate general detection and response mechanisms as presented in [#MONITOR USE](/go/monitoruse) where part of the response can be to involve a human-in-the-loop.
 - Include as part of response options **rollback mechanisms** to enable oversight to go back to a certain state after system malfunction or manipulation has been observed and the state of the system cannot be trusted, or has been disrupted.
 
 Strategies for action detection:
 - **Detect privilege escalation:** Ideally, the privileges of an AI agent are already hardened to the task (see [#LEAST MODEL PRIVILEGE](/go/leastmodelprivilege)), in which case detection comes down to issuing an alert once a model attempts to execute an action for which it has no permissions.
-- In addition, the strategy can include the detection of unusual function calls in the context, issuing alerts for further investigation, or asking for approval by a human in the loop. Manipulation of function flow is commonly referred to as _application flow perturbation_. An advanced way to detect manipulated workflows is to perform rule-based sanity checks during steps, e.g. verify whether certain safety checks of filters were executed before processing data.
+- In addition, the strategy can include the detection of unusual function calls in the context, issuing alerts for further investigation, or asking for approval by a human in the loop. Manipulation of function flow is commonly referred to as _application flow perturbation_. An advanced way to detect manipulated workflows is to perform rule-based sanity checks during steps, e.g. verify whether certain safety checks or filters were executed before processing data.
 - **Agentic tool chains**: Require human approval (or automated policy gates) before irreversible or high-impact tool sequences — for example bulk writes, payments, privilege changes, or multi-step chains that compose read and write across boundaries. Detect abnormal tool-selection patterns (a powerful tool chosen where a read-only tool suffices) and escalated arguments; these often follow [prompt injection](/go/promptinjection). Guard against _approval fatigue_ on repetitive tool approvals by tiering risk and batching low-impact calls.
 - **Simulate-before-execute (semantic tool validation):** For high-impact tools, validate _what_ the call will do — not only _who_ may call. Use **Proposed State Change** (dry-run where available) before irreversible operations; an independent **adversarial judge** (different model family) comparing user intent to proposed parameters; **deterministic guardrails** on parsed impact with **cumulative session** limits (not per-call only); mandatory human approval for configured high blast-radius operations even when automated checks pass. Optional read-only tool restriction after risky web access or judge failure until task end or human clearance.
 - **Autonomous decision oversight**: Monitor for silent degradation of human-in-the-loop steps under latency or throughput pressure (for example auto-approving "low-risk" changes that later include high-impact actions). Detect inputs timed or shaped toward paths with weakest review (off-hours, bulk operations, trusted channels). Flag agents with configuration or policy-management access that relax rate limits, disable checks, or widen scopes without explicit human approval — even when framed as performance or reliability tuning.
@@ -651,7 +651,7 @@ Strategies for action detection:
 - **Secure orchestration:** Treat the orchestrator as the highest-leverage target — validate and segregate all inputs (sub-agent responses, tool outputs, external content) as untrusted; limit orchestrator permissions to coordination only (no direct high-impact tool credentials); tamper-evident workflow log external to orchestrator memory; human approval before irreversible or cross-system workflows; block direct orchestrator egress — route external access through segmented sub-agents ([agent sandboxing](/go/agentsandboxing)); reconcile agent actions against workflow log for phantom steps.
 - **Agentic Rule of Two:** until reliable model-layer refusal exists, an agent session should satisfy no more than two of: (A) processing untrustworthy inputs, (B) accessing sensitive systems or private data, (C) changing state or communicating externally. When all three are required, operate under human-in-the-loop supervision.
 - **Privilege-based data flow control (CaMeL):** attach capability metadata to values and restrict data and control flows with policies.
-- **Tool-boundary firewalls:** complementary firewalls at the agent-to-tool boundary — an input firewall limits private information reaching tool execution (as described in [#SENSITIVE OUTPUT HANDLING](/go/sensitiveoutputhandling)); an output firewall sanitises tool responses (as described in [#PROMPT INJECTION I/O/HANDLING](/go/promptinjectioniohandling)). These are typically lighter than dual-LLM architectures. 
+- **Tool-boundary firewalls:** complementary firewalls at the agent-to-tool boundary — an input firewall limits private information reaching tool execution (as described in [#SENSITIVE OUTPUT HANDLING](/go/sensitiveoutputhandling)); an output firewall sanitises tool responses (as described in [#PROMPT INJECTION I/O HANDLING](/go/promptinjectioniohandling)). These are typically lighter than dual-LLM architectures. 
 
 
 
@@ -672,7 +672,7 @@ Classify agent actions by **risk tier** before deployment and assign oversight r
 
 **Examples**:
   - Logic preventing the trunk of a car from opening while the car is moving, even if the driver seems to request it
-  - Logic signaling an alert when a software programming tool is making a series of updates to multiple projects in one go, after which the alert is processes by a human who can then decide to further investigate and/or to take action, which can include shutting down the complete system to prevent further harm
+  - Logic signaling an alert when a software programming tool is making a series of updates to multiple projects in one go, after which the alert is processed by a human who can then decide to further investigate and/or to take action, which can include shutting down the complete system to prevent further harm
   - Requesting user confirmation before sending a large number of emails as instructed by a model
   - Another form of human oversight is allowing users to undo or revert actions initiated by the AI system, such as reversing changes made to a file
   - A special form of guardrails is censoring unwanted output of GenAI models (e.g. violent, unethical)
@@ -762,7 +762,7 @@ Agent chains delegate tasks and act on behalf of users or peers. Protect delegat
 
 Example case: an AI model is connected to an email facility to summarize incoming emails to an end user:
 - Honor limitations of the actor: make sure the AI only can access the emails the end user can access.
--Task-based minimization: limit the email access to read-only - with the goal to avoid the model being manipulated to for example send spam emails, or include misinformation in the summaries, or gain access to sensitive emails of the user and send those to the attacker.
+- Task-based minimization: limit the email access to read-only - with the goal to avoid the model being manipulated to for example send spam emails, or include misinformation in the summaries, or gain access to sensitive emails of the user and send those to the attacker.
 
 **Flexibility balance**  
 How to strike the balance between:
@@ -773,7 +773,7 @@ Still, least model privilege is critical if successful manipulation is probable 
 
 One of the most powerful things to let AI agents do is to execute code. That is where task-based minimization becomes a challenge because on the one hand you want to broaden the possibilities for the agents, and on the other hand you want to limit those possibilities for attackers. Solutions include:
 - Replacing arbitrary code execution with the execution of a limited set of API calls
-- Removing commands (e.g. deleting them from a deployed operating system
+- Removing commands (e.g. deleting them from a deployed operating system)
 - Sand boxing the code execution by for example network segmentation, to minimize the attack surface of commands
 
 **Strategies for task-based minimization**  
@@ -781,8 +781,8 @@ As mentioned above, it is essential to minimize actions that the model can poten
 - **Harden based on general intent**: Since agents and agentic systems typically don't have a single fixed task: at least minimize permissions based on the reasonably foreseeable use cases. 
 - **Harden based on prompt intent**: The original prompt to an agent contains intent. Mechanisms (typically LLM based) can interpret that and set permissions. This is where least privilege mechanisms start to overlap with what is presented under [#OVERSIGHT](/go/oversight), including grounding checks. The difference is that the least privilege mechanism uses preventative permissions and the oversight mechanism is reactive. The effect is the same, and the advantage of permissions can be that they may serve as permissions for any subagents, which allows for inheritance of the context in the agentic flow.
 - **Harden based on role assignment**: As soon as an agent or agentic flow is assigned to a specific task (e.g., an LLM assigned to review new code in the form of a merge request), the permissions can be minimized to the role to perform that task.
-- **Harden based on risk elevation**: Logic can be implemented to harden permissions the moment that certain input enters an agentic flow - from un untrusted agent, from an untrusted source (e.g., a public comment database), or the other way around: sensitive data entering the flow. From that moment, the logic can for example disable all actions that allow sending out sensitive data. This needs to be balanced of course with  whether the intent is still possible, and whether the inclusion of those risk elevating elements is reason to downgrade agentic capability.
-- **Downgrading subagents**: Have inter-agent calls include reduced permission sets, where possible.For example: an email handling agent calling another agent to summarize an email message. Such a hand-down mechanism is best performed outside the LLM because of reliability issues of the model. For example, _LangChain_ supports this mechanism using tools and subagents. However, fine-grained runtime permission handoff (like delegated scoped credentials) is not native.
+- **Harden based on risk elevation**: Logic can be implemented to harden permissions the moment that certain input enters an agentic flow - from an untrusted agent, from an untrusted source (e.g., a public comment database), or the other way around: sensitive data entering the flow. From that moment, the logic can for example disable all actions that allow sending out sensitive data. This needs to be balanced of course with  whether the intent is still possible, and whether the inclusion of those risk elevating elements is reason to downgrade agentic capability.
+- **Downgrading subagents**: Have inter-agent calls include reduced permission sets, where possible. For example: an email handling agent calling another agent to summarize an email message. Such a hand-down mechanism is best performed outside the LLM because of reliability issues of the model. For example, _LangChain_ supports this mechanism using tools and subagents. However, fine-grained runtime permission handoff (like delegated scoped credentials) is not native.
 - **Hardening as incident response**: Based on the level of suspicion, automated or manual response mechanisms may harden an agentic flow, to reduce blast radius of a potentially corrupted state, without fully stopping it - so to limit interference of the response.
 - **Ephemeral permissions**: if an assigned task is expected to be done in a certain amount of time, then certain permissions can be set as temporary, to prevent manipulated agents making use of these permissions to cause harm. This can be seen as _temporal blast radius control_.
 - **Informing and nudging users to harden agents**: End users and administrators can have an important role in hardening permissions of agentic AI based on the task. Their general incentive is to NOT harden agents because 1) it takes time to analyse what is necessary, and 2) if the user is wrong, agentic tasks may fail. Therefore, it is important to create awareness with users about the risks and information on which permissions to set for which functions and which not to set for which risks. This is a form of [#AI TRANSPARENCY](/go/aitransparency). Strategies include: providing user training and user documentation on this subject, showing guidance in the user interface, with suggestions, and giving warnings in case riskful permissions are set.
@@ -860,11 +860,11 @@ AI transparency: Informing users on the AI system's properties to enable them to
 - Expected accuracy and robustness of the AI system's output
 - Any residual (security) risks
 
-Note that transparency here is about providing abstract information regarding the AI system and is therefore something else than _explainability_ of model decisions. The simplest form of transparencey is to inform users that an AI model is being involved. This is for example required by the EU AI Act for chatbots.
+Note that transparency here is about providing abstract information regarding the AI system and is therefore something else than _explainability_ of model decisions. The simplest form of transparency is to inform users that an AI model is being involved. This is for example required by the EU AI Act for chatbots.
 
 See the [DISCRETE](#discrete) control for the balance between being transparent and being discrete about the model. 
 
-Example: Informing users that when they choose an agent to perform a task, that the agent could be manipulated if it reads untrusted data and what consequences that could have (residual security risk) - followed by a recommendation to configure the permissions of the agent to the minimal set for the task.
+Example: Informing users that when they choose an agent to perform a task, the agent could be manipulated if it reads untrusted data and what consequences that could have (residual security risk) - followed by a recommendation to configure the permissions of the agent to the minimal set for the task.
 
 **References**  
 <!-- OPENCRE_SECTION_CRE_START slug=aitransparency -->

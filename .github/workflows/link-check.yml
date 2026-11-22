@@ -1,0 +1,26 @@
+# Weekly check of external links. Internal and /go/ links are checked on every PR preview,
+# but external links are slow to check and depend on other sites, so they run on a schedule.
+name: Check external links
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # Mondays 06:00 UTC
+  workflow_dispatch:
+
+jobs:
+  check_links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.147.0'
+          extended: true
+      - name: Build
+        run: |
+          cd content/ai_exchange
+          hugo mod get github.com/imfing/hextra@v0.11.1
+          hugo --gc --minify
+      - name: Check all links
+        run: node scripts/check-links.js --external

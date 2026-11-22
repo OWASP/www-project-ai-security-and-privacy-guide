@@ -2,7 +2,7 @@
 # FOR EDITING CONTENT: MAKE SURE YOU APPLY THE CONTENT CONTRIBUTION GUIDELINES: owaspai.org/go/ccg
 title: Index
 heroTitle: "Index"
-heroText: "Cickable topics."
+heroText: "Clickable topics."
 weight: 9
 ---
 >Permalink: https://owaspai.org/go/index
