@@ -1,4 +1,5 @@
 ---
+# FOR EDITING CONTENT: MAKE SURE YOU APPLY THE CONTENT CONTRIBUTION GUIDELINES: owaspai.org/go/ccg
 title: 5. AI security testing
 heroTitle: "AI security testing"
 heroText: "AI security tests simulate adversarial behaviours to uncover vulnerabilities, weaknesses and risks in AI systems."

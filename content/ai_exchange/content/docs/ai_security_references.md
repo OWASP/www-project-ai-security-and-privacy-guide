@@ -1,4 +1,5 @@
 ---
+# FOR EDITING CONTENT: MAKE SURE YOU APPLY THE CONTENT CONTRIBUTION GUIDELINES: owaspai.org/go/ccg
 title: AI Security References
 heroTitle: "AI Security References"
 heroText: "References on specific topics can be found throughout the AI Exchange content. This section contains an overview."

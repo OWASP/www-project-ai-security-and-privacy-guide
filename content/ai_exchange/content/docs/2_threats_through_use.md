@@ -1,4 +1,5 @@
 ---
+# FOR EDITING CONTENT: MAKE SURE YOU APPLY THE CONTENT CONTRIBUTION GUIDELINES: owaspai.org/go/ccg
 title: 2. Input threats
 heroTitle: "Input threats"
 heroText: "Attacks by crafting inputs to AI, and their countermeasures"

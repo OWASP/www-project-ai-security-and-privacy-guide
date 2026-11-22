@@ -1,4 +1,5 @@
 ---
+# FOR EDITING CONTENT: MAKE SURE YOU APPLY THE CONTENT CONTRIBUTION GUIDELINES: owaspai.org/go/ccg
 title: 6. AI privacy
 heroTitle: "AI Privacy"
 heroText: "Apart from protecting personal data, AI systems have several responsibilities when it comes to privacy."

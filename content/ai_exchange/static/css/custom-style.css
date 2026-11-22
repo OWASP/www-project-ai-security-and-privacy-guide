@@ -1330,6 +1330,11 @@ blockquote a:hover {
   right: 0;
 }
 
+.edit-help-link {
+  color: #6ee7b7;
+  text-decoration: underline;
+}
+
 .edit-help:hover .edit-help-tooltip,
 .edit-help:focus-within .edit-help-tooltip {
   display: block;

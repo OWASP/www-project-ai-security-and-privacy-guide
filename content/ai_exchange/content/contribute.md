@@ -46,13 +46,13 @@ weight: 1
     <!-- Cards Section -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-10 md:gap-y-6 text-left">
       <!-- Individual cards kept unchanged for desktop, responsive stacking maintained -->
+      <!-- Card 1 -->
       <div class="relative flex flex-col h-full">
         <div class="flex flex-col flex-1 bg-white border border-gray-200 rounded-xl shadow-md p-6">
-          <img src="/images/suggest.png" alt="Suggest icon" class="w-7 h-8 mb-4" />
-          <h4 class="text-gray-900 mb-2 text-xl font-medium">Suggest</h4>
+          <img src="/images/submit.png" alt="Submit icon" class="w-8 h-8 mb-4" />
+          <h4 class="text-gray-900 mb-2 text-xl font-medium">Edit</h4>
           <p class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px]">
-            Send your suggestion to the
-            <a href="https://owaspai.org/connect/#owasp-ai-project-leader" class="text-green-600 underline">leadership team</a>.
+            Use 'Edit page' in the <a href="/docs/ai_security_overview" class="text-green-600 underline">content</a> or edit the content files in the <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/tree/main/content/ai_exchange/content/docs" target="_blank" class="text-green-600 underline">folder</a>. See <a href="#content-contribution-guidelines" class="text-green-600 underline">Guidelines</a>.
           </p>
         </div>
         <!-- OR -->
@@ -73,32 +73,6 @@ weight: 1
         </div>
       </div>
       <!-- Card 2 -->
-      <div class="relative flex flex-col h-full">
-        <div class="flex flex-col flex-1 bg-white border border-gray-200 rounded-xl shadow-md p-6">
-          <img src="/images/join.png" alt="Join icon" class="w-7 h-8 mb-4" />
-          <h4 class="text-gray-900 mb-2 text-xl font-medium">Join</h4>
-          <p class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px]">
-            <a href="https://forms.gle/XwEEK52y4iZQChuJ6" target="_blank" class="text-green-600 underline">Apply</a> to join the authors (contributors in the closed #project-ai-authors Slack).
-          </p>
-        </div>
-        <!-- OR -->
-        <div
-          class="absolute -bottom-10 left-1/2 -translate-x-1/2 h-8 w-8 rounded-full bg-[#4D92AA] 
-          text-white text-[14px] font-semibold flex items-center justify-center shadow z-10 sm:hidden">
-          OR
-        </div>
-        <div
-          class="hidden sm:flex lg:hidden absolute -right-5 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-[#4D92AA] 
-          text-white text-[14px] font-semibold items-center justify-center shadow z-10">
-          OR
-        </div>
-        <div
-          class="hidden lg:flex absolute top-1/2 lg:-right-8 -translate-y-1/2 h-10 w-10 rounded-full bg-[#4D92AA] 
-          text-white text-[18px] font-semibold items-center justify-center shadow z-10">
-          OR
-        </div>
-      </div>
-      <!-- Card 3 -->
       <div class="relative flex flex-col h-full">
         <div class="flex flex-col flex-1 bg-white border border-gray-200 rounded-xl shadow-md p-6">
           <img src="/images/ideas.png" alt="Ideas icon" class="w-6 h-8 mb-4" />
@@ -126,13 +100,40 @@ weight: 1
           OR
         </div>
       </div>
+      <!-- Card 3 -->
+      <div class="relative flex flex-col h-full">
+        <div class="flex flex-col flex-1 bg-white border border-gray-200 rounded-xl shadow-md p-6">
+          <img src="/images/suggest.png" alt="Suggest icon" class="w-7 h-8 mb-4" />
+          <h4 class="text-gray-900 mb-2 text-xl font-medium">Suggest</h4>
+          <p class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px]">
+            Send your suggestion to the
+            <a href="https://owaspai.org/connect/#owasp-ai-project-leader" class="text-green-600 underline">leadership team</a>.
+          </p>
+        </div>
+        <!-- OR -->
+        <div
+          class="absolute -bottom-10 left-1/2 -translate-x-1/2 h-8 w-8 rounded-full bg-[#4D92AA] 
+          text-white text-[14px] font-semibold flex items-center justify-center shadow z-10 sm:hidden">
+          OR
+        </div>
+        <div
+          class="hidden sm:flex lg:hidden absolute -right-5 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-[#4D92AA] 
+          text-white text-[14px] font-semibold items-center justify-center shadow z-10">
+          OR
+        </div>
+        <div
+          class="hidden lg:flex absolute top-1/2 lg:-right-8 -translate-y-1/2 h-10 w-10 rounded-full bg-[#4D92AA] 
+          text-white text-[18px] font-semibold items-center justify-center shadow z-10">
+          OR
+        </div>
+      </div>
       <!-- Card 4 -->
       <div class="relative flex flex-col h-full">
         <div class="flex flex-col flex-1 bg-white border border-gray-200 rounded-xl shadow-md p-6">
-          <img src="/images/submit.png" alt="Submit icon" class="w-8 h-8 mb-4" />
-          <h4 class="text-gray-900 mb-2 text-xl font-medium">Edit</h4>
+          <img src="/images/join.png" alt="Join icon" class="w-7 h-8 mb-4" />
+          <h4 class="text-gray-900 mb-2 text-xl font-medium">Join</h4>
           <p class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px]">
-            Use 'Edit page' or edit files in our <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/tree/main/content/ai_exchange/content/docs" target="_blank" class="text-green-600 underline">GitHub repository</a>.
+            <a href="https://forms.gle/XwEEK52y4iZQChuJ6" target="_blank" class="text-green-600 underline">Apply</a> to join the authors (contributors in the closed #project-ai-authors Slack).
           </p>
         </div>
         <!-- OR -->
@@ -183,8 +184,8 @@ weight: 1
 
 <div class="py-16 px-2 sm:px-6 lg:px-8 bg-[#F1F1F1]">
   <div class="container mx-auto p-0">
-    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mt-0 mb-4 text-center">
-      Contribution guidelines
+    <h2 id="content-contribution-guidelines" class="text-3xl sm:text-4xl font-bold text-gray-900 mt-0 mb-4 text-center scroll-mt-24">
+      Content contribution guidelines
     </h2>
     <p class="text-gray-600 font-roboto text-base sm:text-lg leading-relaxed text-center mb-10 max-w-3xl mx-auto px-2">
       We value every contribution to our project, but it’s important to be aware of certain guidelines.
