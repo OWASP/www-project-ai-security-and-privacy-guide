@@ -50,9 +50,9 @@ weight: 1
       <div class="relative flex flex-col h-full">
         <div class="flex flex-col flex-1 bg-white border border-gray-200 rounded-xl shadow-md p-6">
           <img src="/images/submit.png" alt="Submit icon" class="w-8 h-8 mb-4" />
-          <h4 class="text-gray-900 mb-2 text-xl font-medium">Edit</h4>
+          <h4 class="text-gray-900 mb-2 text-xl font-medium">Edit/add content</h4>
           <p class="text-gray-500 text-[16px] font-roboto font-bold leading-[24px]">
-            Use 'Edit page' in the <a href="/docs/ai_security_overview" class="text-green-600 underline">content</a> or edit the content files in the <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/tree/main/content/ai_exchange/content/docs" target="_blank" class="text-green-600 underline">folder</a>. See <a href="#content-contribution-guidelines" class="text-green-600 underline">Guidelines</a>.
+            Use 'Edit page' in the <a href="/docs/ai_security_overview" class="text-green-600 underline">content</a> or edit the content files in the <a href="https://github.com/OWASP/www-project-ai-security-and-privacy-guide/tree/main/content/ai_exchange/content/docs" target="_blank" class="text-green-600 underline">Github folder</a>. See <a href="#content-contribution-guidelines" class="text-green-600 underline">Guidelines</a>.
           </p>
         </div>
         <!-- OR -->
