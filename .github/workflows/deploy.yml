@@ -17,6 +17,9 @@ jobs:
   deploy_live_website:
     environment: production
     runs-on: ubuntu-latest
+    env:
+      # Secrets are not available in forks or in PRs from forks. Without it, build only and skip the deploy.
+      HAS_FIREBASE_SECRET: ${{ secrets.FIREBASE_SERVICE_ACCOUNT != '' }}
     steps:
       - uses: actions/checkout@v4
       # Add any build steps here. For example:
@@ -43,7 +46,9 @@ jobs:
         run: |
           npm ci
           npm run build:pdf
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Deploy to Firebase Hosting
+        if: env.HAS_FIREBASE_SECRET == 'true'
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"

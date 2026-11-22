@@ -1,5 +1,6 @@
-# Preview deploy for PRs. Uses pull_request_target so fork PRs can get a preview
-# after a maintainer approves (secrets are only available in base repo context).
+# Preview deploy for PRs. The site is always built, so a broken build fails the PR.
+# The deploy step only runs when the Firebase secret is available: PRs from forks
+# (and runs in forks) don't get secrets with the pull_request event, so they build only.
 #
 
 name: Deploy to Preview Channel
@@ -19,6 +20,9 @@ jobs:
   build_and_preview_same_repo:
     if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
+    env:
+      # Secrets are not available in forks or in PRs from forks. Without it, build only and skip the deploy.
+      HAS_FIREBASE_SECRET: ${{ secrets.FIREBASE_SERVICE_ACCOUNT != '' }}
     environment: production
     steps:
       - uses: actions/checkout@v4
@@ -43,7 +47,9 @@ jobs:
         run: |
           npm ci
           npm run build:pdf
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Deploy to Firebase Hosting
+        if: env.HAS_FIREBASE_SECRET == 'true'
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
@@ -57,6 +63,9 @@ jobs:
   build_and_preview_fork:
     if: github.event.pull_request.head.repo.full_name != github.repository
     runs-on: ubuntu-latest
+    env:
+      # Secrets are not available in forks or in PRs from forks. Without it, build only and skip the deploy.
+      HAS_FIREBASE_SECRET: ${{ secrets.FIREBASE_SERVICE_ACCOUNT != '' }}
     environment: production
     steps:
       - uses: actions/checkout@v4
@@ -81,7 +90,9 @@ jobs:
         run: |
           npm ci
           npm run build:pdf
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Deploy to Firebase Hosting
+        if: env.HAS_FIREBASE_SECRET == 'true'
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
