@@ -1,4 +1,5 @@
 ---
+# FOR EDITING CONTENT: MAKE SURE YOU APPLY THE CONTENT CONTRIBUTION GUIDELINES: owaspai.org/go/ccg
 title: 4. Runtime conventional security threats
 heroTitle: "Runtime conventional security threats"
 heroText: "Attacks to the AI system in operation apart from the input attacks, and protective controls"
