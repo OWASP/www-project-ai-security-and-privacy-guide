@@ -9,6 +9,11 @@ on:
     paths:
       - "content/**"
 
+# A new push to the same PR cancels the preview run that is still going
+concurrency:
+  group: pr-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   # PRs from branches in this repo: build and deploy automatically.
   build_and_preview_same_repo:
@@ -29,6 +34,8 @@ jobs:
           cd content/ai_exchange
           hugo mod get github.com/imfing/hextra@v0.11.1
           hugo --gc --minify
+      - name: Check internal and /go/ links
+        run: node scripts/check-links.js
       - name: Build search index (Pagefind)
         run: npx pagefind --site public
         working-directory: content/ai_exchange
@@ -65,6 +72,8 @@ jobs:
           cd content/ai_exchange
           hugo mod get github.com/imfing/hextra@v0.11.1
           hugo --gc --minify
+      - name: Check internal and /go/ links
+        run: node scripts/check-links.js
       - name: Build search index (Pagefind)
         run: npx pagefind --site public
         working-directory: content/ai_exchange
