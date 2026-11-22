@@ -798,6 +798,11 @@
         "type": 302
       },
       {
+        "source": "/go/conference",
+        "destination": "https://sessionize.com/owasp-global-appsec-eu-2027-cfp-vienn/",
+        "type": 302
+      },
+      {
         "source": "/go/:subject/",
         "destination": "/go/:subject",
         "type": 302
