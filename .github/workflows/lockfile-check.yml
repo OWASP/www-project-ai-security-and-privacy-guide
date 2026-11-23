@@ -1,0 +1,33 @@
+# Fails when .github/workflows/actions.lock is out of sync with the workflows,
+# or when a locked commit no longer verifies upstream (moved tag, renamed or
+# replaced repository). Catches a workflow edit that forgot to regenerate the
+# lockfile before it breaks the deploy on main.
+name: Verify actions lockfile
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/**"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/**"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4.4.0
+        with:
+          persist-credentials: false
+      - name: Install gh-actions-lock
+        run: gh extension install github/gh-actions-lock --pin v0.4.0
+      - name: Verify the lockfile
+        run: gh actions-lock --verify
