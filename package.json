@@ -14,7 +14,7 @@
     "test:e2e": "node e2e/run.js",
     "check:links": "node scripts/check-links.js",
     "check:links:external": "node scripts/check-links.js --external",
-    "test": "node --test test/opencre-enrich/opencre-enrich.test.js test/pdf-page-count/pdf-page-count.test.js",
+    "test": "node --test test/opencre-enrich/opencre-enrich.test.js test/pdf-page-count/pdf-page-count.test.js test/link-report.test.js",
     "test:opencre-enrich": "node --test test/opencre-enrich/opencre-enrich.test.js"
   },
   "dependencies": {
