@@ -198,7 +198,8 @@ If the AI system goes beyond a standard chatbot in a generic situation, then the
 **(3) Orchestrate inputs and detections**  
 Implement an automated test that presents the attack inputs in this set to the AI system, preferably where each input is paired with a detection method (e.g., a search pattern to verify if sensitive data is indeed in the output) - so that the entire test can be automated as much as possible. Try to tailor the detection to take into account when the attack would be evaluated as an unacceptable severity (see Evaluation step).  
 Note that some harmful outputs cannot be detected with obvious matching patterns. They require evaluation using Generative AI, or human inspection.  
-Also make sure to include protection mechanisms in the test: present attack inputs in such a way that relevant filtering and detection mechanisms are included (i.e. present it to the system API instead of directly to model) - as used in production.
+Also make sure to include protection mechanisms in the test: present attack inputs in such a way that relevant filtering and detection mechanisms are included (i.e. present it to the system API instead of directly to model) - as used in production.  
+A simple detection for whether an injected instruction was followed is a canary: the attack input asks for a unique code (e.g., 'reply only with ZX-CANARY-7391') and the paired detection searches the output for that code. This keeps harmful content out of the test set, so the test can run against hosted models whose providers monitor for abuse.
 
 **(4) Include indirect prompt injection when relevant**  
 In case the system inserts (augments) input with untrusted data (data that can be manipulated), then the attack inputs should be presented to these insertion mechanisms as well - to simulate indirect prompt injection. In agentic AI systems, these are typically tool outputs (e.g., extracting the content of a user-supplied pdf). This may require setting up a dedicated testing API that lets the attack input follow the same route as untrusted data into the system and undergoing any filtering, detection, and insertion mechanisms. The insertion of the input attacks also may require adding tactics typical to indirect prompt injections, such as adding 'Ignore previous instructions'. 
@@ -207,7 +208,8 @@ In case the system inserts (augments) input with untrusted data (data that can b
 An input attack may fail if it is recognized as malicious, either by the model (through training or system prompts) or by detections external to the model. Such detection may be circumvented by adding variations to the input, for example by replacing words with synonyms, applying encoding, or changing formatting. Many of the available tools support creating such 'perturbations'. Note that this is in essence an Evasion attack test on the detection mechanisms in place.
 
 **(6) Run the test**  
-Make sure to run the test multiple times, to take into account the non-deterministic nature of models, if any. Use the same model versions, prompts, tools, permissions, and configuration as used in production.
+Make sure to run the test multiple times, to take into account the non-deterministic nature of models, if any. Use the same model versions, prompts, tools, permissions, and configuration as used in production.  
+To learn what each protection contributes, also run the set with protections added one at a time, for each model and each route into the system: for example the bare model, then with the system prompt, then with input and output filtering. This shows which risks rest on the system prompt alone, and whether a configured filter actually acts: a platform filter may not cover every model it hosts, even when the configuration shows it as assigned.
 
 **(7) Analyse identified technical attack successes**  
 Run through the detections of technically successful attacks to determine the severity of harm:
