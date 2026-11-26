@@ -5,6 +5,7 @@ heroTitle: "Runtime conventional security threats"
 heroText: "Attacks to the AI system in operation apart from the input attacks, and protective controls"
 weight: 5
 ---
+## 4.0 Runtime conventional security threats - Introduction
 > Category: group of runtime threats  
 > Permalink: https://owaspai.org/go/runtimeconventionalsec
 
@@ -12,7 +13,7 @@ An AI system is an IT system, so at runtime it can be vulnerable to any security
 
 [Section 2](/go/threatsuse) covers runtime attacks that are AI-specific: attacks performed through inference - by using the system and providing model input. [Section 3](/go/developmenttime) covers attacks during development-time: mostly conventional attacks (e.g. breaking into a training database) with sometimes AI-specific consequences (e.g., changing model behaviour) plus AI-specific supply chain attacks.  
 
-So, this page covers conventional security attacks that have AI-specific consequences. For example: changing model behaviour by hacking into a runtime database of augmentation data (data that is added to the model input). The details of how these attacks are performed are covered in many other resources. This section focuses on the AI-specific consequences and the categories of controls required. In-depth coverage of controls against conventional attacks is covered in many other resources. This section focuses on AI-specific aspects of these controls, such as the option of using a Trusted Execution Environment for models.  
+So, this page covers conventional security attacks on AI-specific assets, often with AI-specific consequences. For example: changing model behaviour by hacking into a runtime database of augmentation data (data that is added to the model input). The details of how these attacks are performed are covered in many other resources. This section focuses on the AI-specific consequences and the categories of controls required. In-depth coverage of controls against conventional attacks is covered in many other resources. This section focuses on AI-specific aspects of these controls, such as the option of using a Trusted Execution Environment for models.  
 
 The subsections cover non-AI-specific threats, model poisoning, model leak, insecure output handling, leaking input data, attacks on augmentation data, agent escape, and agent sandboxing.
 
