@@ -401,6 +401,7 @@ Only the applications that need the model server should be able to reach it, and
 - Expose only the inference endpoints the application uses. Block the endpoints that pull, push, create or delete models, load adapters or update weights, or allow them only from an administration network. Deploy models from a reviewed, read-only location instead of pulling them at runtime.
 - Record the hash of each model the server loads and compare it with the approved version (see [#RUNTIME MODEL INTEGRITY](/go/runtimemodelintegrity)). Log every model-management call with the caller's identity, and alert on calls that happen outside a planned deployment.
 - Block outbound internet access from the server, so it cannot push a model out or pull an unreviewed one.
+- In distributed inference, workers exchange KV caches and other state derived from users' prompts, for example when prefill and decode run on separate instances. vLLM documents this traffic, including KV cache transfer, as unencrypted and insecure by default, so keep it on an isolated network and make its ports reachable only from the other workers.
 
 **Limitations**  
 Once management endpoints are blocked, model updates need their own deployment process. Access control also does nothing against an authorized application that has been compromised.
@@ -414,7 +415,7 @@ Users who share a model server or a GPU should not be able to learn each other's
 
 **Implementation**
 - Give each tenant its own prefix cache. Where the server supports it, add a per-tenant cache salt, such as vLLM's `cache_salt`, set by a gateway rather than the client and kept secret. vLLM notes that the salt separates prefix-cache entries but is not an isolation boundary, so for stronger separation run a separate instance per tenant, or turn prefix caching off on shared servers.
-- Scope semantic caches by tenant and by the user's access rights, not by question similarity alone.
+- Scope semantic caches by tenant and by the user's access rights, not by question similarity alone. Check the user's current access rights when serving a cached answer, or invalidate affected entries when permissions change, so that revoked access does not live on in the cache.
 - Keep secrets out of system prompts. A shared system prompt can be recovered through the same side channels.
 - For sensitive workloads, do not share a GPU across trust boundaries unless the hardware keeps their memory separate.
 - Treat cache contents saved to disk as copies of the prompts they came from.
