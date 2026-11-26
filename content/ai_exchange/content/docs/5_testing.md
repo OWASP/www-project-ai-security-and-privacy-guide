@@ -428,8 +428,8 @@ Notes:
 
 | **Tool Name: Armory** |  |
 | --- | --- |
-| Developer/ Source | MITRE Corporation |
-| Github Reference | [https://github.com/twosixlabs/armory-library](https://github.com/twosixlabs/armory-library)[https://github.com/twosixlabs/armory](https://github.com/twosixlabs/armory) |
+| Developer/ Source | Two Six Technologies, developed under the DARPA GARD program |
+| Github Reference | [https://github.com/twosixlabs/armory-library](https://github.com/twosixlabs/armory-library) (current). The original [https://github.com/twosixlabs/armory](https://github.com/twosixlabs/armory) is deprecated and intended only for GARD program participants. |
 | Language | Python |
 | Licensing | Open-source under the MIT License. |
 | Provides Mitigation | Prevention: No ❌Detection: Yes ✅ |
@@ -437,17 +437,17 @@ Notes:
 
 | Factor | Details |
 | --- | --- |
-| **Popularity** | - **GitHub Stars:**  ~176 stars (as of 2024) |
-|  | - **GitHub Forks:**  ~67 forks |
-|  | - **Number of Issues:** ~ 59 open issues, 733 closed, 26 contributors |
-|  | - **Trend:** Growing, particularly within defense and cybersecurity sectors. |
-| **Community Support** | - **Active Issues:**  Fast response to issues (typically resolved within days to a week). |
+| **Popularity** | - **GitHub Stars:**  ~194 stars on the original repository, ~28 on armory-library (November 2026) |
+|  | - **GitHub Forks:**  ~65 forks on the original repository |
+|  | - **Number of Issues:** ~58 open and ~734 closed issues on the original repository |
+|  | - **Trend:** Low activity. The DARPA GARD program has ended; the last armory-library release was in February 2024. |
+| **Community Support** | - **Active Issues:**  Little activity since July 2025. |
 |  | - **Documentation:** Comprehensive, but more security-focused, with advanced tutorials on adversarial attacks and defenses. |
 |  | - **Discussion Forums:** Active GitHub discussions, some presence on security-specific forums (e.g., in relation to DARPA projects). |
-|  | - **Contributors:** Over 40 contributors, mostly security experts and researchers. |
-| **Scalability** | - **Framework Support:** Supports TensorFlow and Keras natively, with some integration options for PyTorch. |
+|  | - **Contributors:** 23 on the original repository and 28 on armory-library, mostly security experts and researchers. |
+| **Scalability** | - **Framework Support:** armory-library is built on PyTorch, Hugging Face and IBM's Adversarial Robustness Toolbox (ART). |
 |  | - **Large-Scale Deployment:** Mostly used in security-related deployments; scalability for non-security tasks is less documented. |
-| **Integration** | - **Compatibility:** Works well with TensorFlow and Keras; IBM ART integration for enhanced robustness |
+| **Integration** | - **Compatibility:** Works with PyTorch and Hugging Face models; attacks are implemented with IBM ART. |
 |  | - **API Availability**: Limited compared to IBM ART, but sufficient for adversarial ML use cases. |
 
 **Tool Rating**
