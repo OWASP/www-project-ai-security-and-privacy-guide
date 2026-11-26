@@ -93,7 +93,7 @@ Structured adversarial simulation for agentic systems is covered in the [Agentic
 - **Goal-level red teaming:** define an adversarial objective (exfiltration, privilege escalation, task hijacking) and pursue it across sessions and attack paths.
 - **Multi-turn / crescendo testing:** incremental reframing across many turns — safety constraints that hold on turn one may fail by turn ten or later.
 - **Cross-agent paths:** compromised or injected sub-agent influencing the orchestrator, peer-agent exfiltration, or privilege escalation through [delegation chains](/go/leastmodelprivilege).
-- **Human oversight as a social surface:** test whether urgency framing, confusion injection, or approval fatigue can bypass [#OVERSIGHT](/go/oversight) gates that work under normal review.
+- **Human oversight as a social surface:** test whether urgency framing, confusion injection, or approval fatigue can bypass [#OVERSIGHT](/go/oversight) gates that work under normal review. Include a case where the instruction is only in retrieved text and the stated rationale agrees with the action: the screen shows that span as plain text, masks a secret in it, and labels the rationale as model output.
 - **Supply-chain scenarios:** substituted model variants or tampered tool implementations that bypass output filtering.
 - **Protocol testing:** red-team MCP, A2A, and other inter-agent protocol implementations for implementation weaknesses, not only prompt-layer attacks.
 
