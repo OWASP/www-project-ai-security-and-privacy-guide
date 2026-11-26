@@ -784,6 +784,11 @@
         "type": 302
       },
       {
+        "source": "/go/testingresourceexhaustion",
+        "destination": "/docs/5_testing/#536-testing-against-ai-resource-exhaustion",
+        "type": 302
+      },
+      {
         "source": "/go/testingtoolspredictiveai",
         "destination": "/docs/5_testing/#56-open-source-tools-for-predictive-ai-red-teaming",
         "type": 302
