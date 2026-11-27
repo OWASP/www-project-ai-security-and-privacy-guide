@@ -324,7 +324,22 @@ Two prompts can have very different costs at the same request rate. This test fo
 Follow the [general AI security testing steps](/go/testing), then run the checks below.
 
 **(1) Set limits**  
-Use the risk analysis to decide what counts as a failure. Set limits for cost per request, per user, and per day, as well as response time and the number of model and tool calls per task. You need these thresholds to decide whether the test passes.
+Use the risk analysis to decide what counts as a failure. Set a number for each limit below, so that every result can be compared with it and different testers report the same result the same way:
+- **Tokens per request:** a ceiling on output tokens and on reasoning tokens for one request.
+- **Spend:** a cap per user or tenant per day, and a system-wide cap per day.
+- **Agent tasks:** a maximum number of steps (model and tool calls) and a maximum duration for one task, including its sub-agents.
+- **Response time:** a maximum time per request.
+
+If the risk analysis does not give numbers, start from these values and adjust them to the system once the baseline from step 2 is known:
+
+| Limit | Starting value |
+| --- | --- |
+| Output tokens per request | 3 × the 99th percentile in the baseline, and never above the model's configured maximum output |
+| Reasoning tokens per request | 3 × the 99th percentile in the baseline |
+| Spend per user or tenant per day | 10 × the median daily spend of a normal user |
+| Agent task | 25 steps or 5 minutes, whichever comes first |
+
+Report each finding as the measured value against the limit, for example "4,800 output tokens against a limit of 1,500".
 
 **(2) Measure a baseline**  
 Run normal tasks. For each request, record input and output tokens, model and tool calls, duration, and cost. Include reasoning tokens, which are billed and often hidden or shown only in summary.
@@ -345,13 +360,22 @@ Verify that spend limits block requests before they exceed the budget and that a
 
 EXAMPLE: A support assistant uses a paid model API and can split work into subtasks. A tester uploads a document with a hidden instruction to summarize each paragraph separately and translate every summary into 20 languages. The assistant follows it and makes hundreds of model calls for one request. There is no per-task limit, and the daily budget alert fires after the money is spent. The system fails the test.
 
-**(6) Decide whether the test passes**  
-Fail the test if an input or series of inputs within the relevant attacker profile's budget exceeds a limit from step 1, or if a control only takes effect after the impact has already occurred. Add mitigations and repeat the test until it passes.
+**(6) Check direct access to model endpoints**  
+Send inference requests straight to each model-serving endpoint, such as a self-hosted model server, an inference API or a model gateway, without going through the application. Try with no credentials and with credentials that are not meant for model access. Every request should be refused. An endpoint that answers lets an attacker skip all application-level limits, which makes it the cheapest route to denial of wallet. See [#RESTRICT MODEL SERVER ACCESS](/go/restrictmodelserveraccess).
+
+**(7) Decide whether the test passes**  
+Fail the test if an input or series of inputs within the relevant attacker profile's budget exceeds a limit from step 1, if a control only takes effect after the impact has already occurred, or if a model-serving endpoint accepts a request that does not come through the application. Add mitigations and repeat the test until it passes.
 
 NOTE: An attacker can spread usage across accounts or keys and keep each one below its limit. Account for that when deciding whether you also need system-wide limits and monitoring.
 
 **Positive testing**  
 Test legitimate heavy use too. Run long documents, legitimately long agent tasks, and peak traffic to verify that the limits do not block normal use.
+
+**References**  
+- [OWASP Top 10 for LLM: LLM06:2026: Unbounded Consumption](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)
+- [MITRE ATLAS: AML.T0034: Cost Harvesting](https://atlas.mitre.org/techniques/AML.T0034)
+- [MITRE ATLAS: AML.T0029: Denial of AI Service](https://atlas.mitre.org/techniques/AML.T0029)
+- [OWASP API Security Top 10 - API4: Unrestricted Resource Consumption](https://owasp.org/API-Security/editions/2023/en/0xa4-unrestricted-resource-consumption/)
 
 
 ## **5.5 Red Teaming tools for AI and GenAI**
