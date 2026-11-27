@@ -15,7 +15,7 @@ An AI system is an IT system, so at runtime it can be vulnerable to any security
 
 So, this page covers conventional security attacks on AI-specific assets, often with AI-specific consequences. For example: changing model behaviour by hacking into a runtime database of augmentation data (data that is added to the model input). The details of how these attacks are performed are covered in many other resources. This section focuses on the AI-specific consequences and the categories of controls required. In-depth coverage of controls against conventional attacks is covered in many other resources. This section focuses on AI-specific aspects of these controls, such as the option of using a Trusted Execution Environment for models.  
 
-The subsections cover non-AI-specific threats, model poisoning, model leak, insecure output handling, leaking input data, attacks on augmentation data, agent escape, and agent sandboxing.
+The subsections cover non-AI-specific threats, model poisoning, model leak, insecure output handling, leaking input data, attacks on augmentation data, agent escape, agent sandboxing, and self-hosted model servers.
 
 ## 4.1. Generic security threats
 > Category: group of runtime threats  
@@ -65,6 +65,8 @@ This threat involves manipulating the behavior of the model by altering the para
 **Description**  
 Run-time model integrity: apply traditional conventional security controls to protect the storage of model parameters (e.g., access control, checksums, encryption). A Trusted Execution Environment can help to protect model integrity.
 
+Some self-hosted model servers can replace a model through their own API, without direct access to the model files. See [self-hosted model servers](/go/modelserver) and [#RESTRICT MODEL SERVER ACCESS](/go/restrictmodelserveraccess).
+
 #### #RUNTIME MODEL IO INTEGRITY
 > Category: runtime information security control against conventional security threats  
 > Permalink: https://owaspai.org/go/runtimemodeliointegrity
@@ -104,6 +106,8 @@ This threat applies if the model represents intellectual property (i.e., a trade
 
 **Description**  
 Run-time model confidentiality: see [SECDEVPROGRAM](/go/secdevprogram) to attain conventional security, with the focus on protecting the storage of model parameters (e.g., access control, encryption).  
+
+Some self-hosted model servers (e.g., Ollama) can copy a model out through their own API by pushing it to an external registry. See [self-hosted model servers](/go/modelserver) and [#RESTRICT MODEL SERVER ACCESS](/go/restrictmodelserveraccess).
 
 A Trusted Execution Environment can be highly effective in safeguarding the runtime environment, isolating model operations from potential threats, including side-channel hardware attacks like [DeepSniffer](https://sites.cs.ucsb.edu/~sherwood/pubs/ASPLOS-20-deepsniff.pdf). By ensuring that sensitive computations occur within this secure enclave, the TEE reduces the risk of attackers gaining useful information through side-channel methods.
 
@@ -186,6 +190,8 @@ See [Risk analysis](https://owaspai.org/docs/ai_security_overview/#how-to-select
 
 **Description**  
 Model input confidentiality: see [SECDEVPROGRAM](/go/secdevprogram) to attain conventional security, with the focus on protecting the transport and storage of model input (e.g., access control, encryption, minimize retention)
+
+When several users or tenants share a model server, input can also leak between them through shared caches, and through GPU memory when untrusted code runs on the same GPU. See [#ISOLATE INFERENCE TENANTS](/go/isolateinferencetenants).
 
 ---
 
@@ -327,7 +333,7 @@ Contain blast radius: a hijacked agent must not have access to things that may l
 
 **Implementation**
 
-- **Execution environment isolation (4.9.1):** Run each agent in a dedicated container, microVM, or OS-enforced sandbox with separate namespaces (PID, network, mount, UID). Read-only root with ephemeral writable layers discarded on termination. Apply mandatory access control (seccomp, AppArmor, SELinux) and disable unneeded capabilities (raw sockets, privilege escalation). Isolate shared model inference so one agent's context does not leak to another where feasible.
+- **Execution environment isolation (4.9.1):** Run each agent in a dedicated container, microVM, or OS-enforced sandbox with separate namespaces (PID, network, mount, UID). Read-only root with ephemeral writable layers discarded on termination. Apply mandatory access control (seccomp, AppArmor, SELinux) and disable unneeded capabilities (raw sockets, privilege escalation). Isolate shared model inference so one agent's context does not leak to another where feasible (see [#ISOLATE INFERENCE TENANTS](/go/isolateinferencetenants)).
 - **Network segmentation (4.9.3):** Default-deny egress; permit only task-required endpoints. Route traffic through a monitored proxy or service mesh with allowlists and logging. Block direct agent-to-agent network paths — use an orchestration layer or message bus with auth and validation. Restrict DNS; segment agents processing untrusted content away from sensitive internal services.
 - **Allowed-service isolation:** Include reachable package services, caches, artifact stores and shared queues in the isolation assessment. Enforce server-side authorisation on mutable state so agents cannot exchange data across boundaries that policy requires to remain separate. Limit service operations to the task: a download-only workload should not gain publication or administration privileges. Restrict the service's own egress and internal reachability through controls its identity cannot change. Re-test after recovery; replacing a sandbox does not reset external service state or credentials. 
 - **Platform enforcement:** Restrict spawning processes, filesystem access outside workspace, self-configuration changes, and host interaction. Monitor for escape indicators (unexpected syscalls, forbidden paths, non-permitted connections). Store tool credentials (MCP servers, APIs) **outside** the sandbox in a controlled credential store.
@@ -344,3 +350,81 @@ Sandbox overhead scales with concurrent agents. Shared inference, credential, po
 **Controls**
 - See [General controls](/go/generalcontrols)
 - [#LIMIT RESOURCES](/go/limitresources), [#RATE LIMIT](/go/ratelimit), [#MONITOR USE](/go/monitoruse)
+
+---
+
+## 4.10. Self-hosted model servers
+> Category: group of runtime threats  
+> Permalink: https://owaspai.org/go/modelserver
+
+**Description**  
+Impact: an attacker who reaches the server can change the model ([runtime model poisoning](/go/runtimemodelpoison)), copy it ([runtime model leak](/go/runtimemodelleak)), read other users' prompts ([input data leak](/go/inputdataleak)) or use your GPUs for free ([AI resource exhaustion](/go/airesourceexhaustion)).
+
+A _model server_ (or _inference server_) loads a model, usually onto a GPU, and answers requests over an HTTP API. Ollama, vLLM and the llama.cpp server are open-source examples.
+
+1. **Open network access.** Ollama has no authentication, and vLLM's optional `--api-key` does not cover every endpoint. vLLM listens on all network interfaces by default. Ollama and the llama.cpp server listen only on the local machine when installed directly, but their official container images listen on all interfaces, so publishing the container port exposes them. [SentinelLABS and Censys (2026)](https://www.sentinelone.com/labs/silent-brothers-ollama-hosts-form-anonymous-ai-network-beyond-platform-guardrails/) counted about 175,000 exposed Ollama hosts over 293 days. Anyone who calls the server directly also skips the rate limits, monitoring and filters of the application in front of it.
+
+2. **Model management through the same API.** Ollama, for example, lets any caller pull, push, create and delete models through the API that answers prompts. Anyone who reaches these endpoints can swap a model, or the system prompt packaged with it, while keeping the name the application expects ([runtime model poisoning](/go/runtimemodelpoison)). They can also copy a fine-tuned model to their own registry ([runtime model leak](/go/runtimemodelleak)) or delete it. The create endpoint lets anyone who can reach the server hand a crafted model file to the model loader, so any unpatched loader bug can be triggered from the network. In one Ollama bug, a crafted model file made the loader read past a buffer into the server's memory, which can hold system prompts and other users' conversations. The leaked memory ended up in the resulting model, which the attacker could push to their own registry.
+
+3. **Shared caches and GPU memory.** With _prefix caching_, a server reuses the computation for the start of one prompt when the next prompt starts the same way. Some deployments also add a _semantic cache_, which returns a stored answer when a new question resembles an earlier one. If users share these caches, response times and the order of responses give away whether someone recently sent the same opening words or a similar question. Song et al. (2024) and Wu et al. (2025) use this to rebuild other users' prompts and system prompts from the prefix cache, one token at a time. A shared semantic cache can also hand one user an answer generated from another user's data. On several GPU families, the LeftoverLocals flaw let one program read data that another user's program had left in GPU local memory. The cache leaks need only the ability to send prompts to the same server, and the GPU leak needs code running on the same GPU. Both are forms of [input data leak](/go/inputdataleak).
+
+4. **Compute abuse.** Attackers use exposed servers for free inference, a form of _LLMjacking_ (using someone else's LLM resources without permission). Pillar Security (2026) describes a campaign that scans for unauthenticated Ollama servers and other servers with OpenAI-style APIs, then resells access through a marketplace. If the server forwards requests to a paid hosted model API, the owner pays for the attacker's use (CSA, 2026). A busy GPU without matching application traffic is a warning sign. See [AI resource exhaustion](/go/airesourceexhaustion).
+
+**Risk identification**  
+This applies whenever you run your own model server, including on a workstation that others can reach over the network. With a hosted model API, the provider runs the server and its caches. In August 2024, Song et al. timed repeated prompts on 11 hosted model APIs and found signs of prompt caching on 7. Ask your provider whether customers share its prompt cache (see [input data leak](/go/inputdataleak)). A semantic cache that you run in front of a hosted API remains your responsibility.
+
+**References**  
+- [Silent Brothers: Ollama Hosts Form Anonymous AI Network Beyond Platform Guardrails, SentinelLABS and Censys, 2026](https://www.sentinelone.com/labs/silent-brothers-ollama-hosts-form-anonymous-ai-network-beyond-platform-guardrails/)
+- [Exposed AI Infrastructure: Self-Hosted Services Under Attack, CSA, 2026](https://labs.cloudsecurityalliance.org/research/csa-research-note-exposed-ai-infrastructure-selfhosted-secur/)
+- [Operation Bizarre Bazaar, Pillar Security, 2026](https://www.pillar.security/blog/operation-bizarre-bazaar-first-attributed-llmjacking-campaign-with-commercial-marketplace-monetization)
+- [I Know What You Asked: Prompt Leakage via KV-Cache Sharing in Multi-Tenant LLM Serving, Wu et al., NDSS 2025](https://www.ndss-symposium.org/ndss-paper/i-know-what-you-asked-prompt-leakage-via-kv-cache-sharing-in-multi-tenant-llm-serving/)
+- [The Early Bird Catches the Leak: Unveiling Timing Side Channels in LLM Serving Systems, Song et al., 2024 (accepted to IEEE TIFS)](https://arxiv.org/abs/2409.20002)
+- [vLLM security documentation](https://docs.vllm.ai/en/latest/usage/security.html)
+- [vLLM API server launcher (source code)](https://github.com/vllm-project/vllm/blob/343b5a56a8c5e7aa10de020ec5fa597cc8207f1a/vllm/entrypoints/launchers/launcher.py#L386)
+- [CVE-2026-7482](https://nvd.nist.gov/vuln/detail/CVE-2026-7482): out-of-bounds read in Ollama's model loader through `/api/create`, exfiltrated through `/api/push`, fixed in 0.17.1
+- [CVE-2023-4969](https://nvd.nist.gov/vuln/detail/CVE-2023-4969): LeftoverLocals, data left in GPU local memory readable by other programs
+- [OWASP Top 10 for LLM: sec. LLM06:2026: Unbounded Consumption](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) (compute abuse)
+- [MITRE ATLAS: sec. AML.T0132: Misconfigured or Publicly Exposed AI Services](https://atlas.mitre.org/techniques/AML.T0132) (open network access)
+- [MITRE ATLAS: sec. AML.T0018: Manipulate AI Model Artifact](https://atlas.mitre.org/techniques/AML.T0018) (model replacement)
+- [MITRE ATLAS: sec. AML.T0025: Exfiltration via Cyber Means](https://atlas.mitre.org/techniques/AML.T0025) (model export)
+
+**Controls**
+- See [General controls](/go/generalcontrols)
+- [#MODEL ACCESS CONTROL](/go/modelaccesscontrol), [#RATE LIMIT](/go/ratelimit), [#LIMIT RESOURCES](/go/limitresources) and [#MONITOR USE](/go/monitoruse), applied at the server or at a proxy that is the only way to reach it
+- [#RUNTIME MODEL INTEGRITY](/go/runtimemodelintegrity) and [#RUNTIME MODEL CONFIDENTIALITY](/go/runtimemodelconfidentiality)
+- The below control(s), each marked with a # and a short name in capitals
+
+#### #RESTRICT MODEL SERVER ACCESS
+> Category: runtime information security control against conventional security threats  
+> Permalink: https://owaspai.org/go/restrictmodelserveraccess
+
+**Description**  
+Only the applications that need the model server should be able to reach it, and nobody should be able to manage models through the API that answers prompts.
+
+**Implementation**
+- Set the listening address explicitly to `127.0.0.1` or a private interface, because defaults differ between servers. For example, set `OLLAMA_HOST=127.0.0.1:11434` for Ollama, or pass `--host 127.0.0.1` to vLLM and the llama.cpp server (`llama-server`). Inside a container, a server listening on `127.0.0.1` cannot be reached through a published port. Leave it on all interfaces inside the container and publish the port only on the host's loopback or private address, for example `-p 127.0.0.1:11434:11434` rather than `-p 11434:11434`. Allow inbound traffic only from the application or gateway that uses the model.
+- Authenticate every request, either at the server or at a proxy that is the only network path to it (see [#MODEL ACCESS CONTROL](/go/modelaccesscontrol)).
+- Expose only the inference endpoints the application uses. Block the endpoints that pull, push, create or delete models, load adapters or update weights, or allow them only from an administration network. Deploy models from a reviewed, read-only location instead of pulling them at runtime.
+- Record the hash of each model the server loads and compare it with the approved version (see [#RUNTIME MODEL INTEGRITY](/go/runtimemodelintegrity)). Log every model-management call with the caller's identity, and alert on calls that happen outside a planned deployment.
+- Block outbound internet access from the server, so it cannot push a model out or pull an unreviewed one.
+- In distributed inference, keep the workers on an isolated network and allow their internal ports only from each other. Workers exchange KV caches and other state derived from users' prompts, for example when prefill and decode run on separate instances, and vLLM documents this traffic as unencrypted and insecure by default.
+
+**Limitations**  
+Once management endpoints are blocked, model updates need their own deployment process. Access control also does nothing against an authorized application that has been compromised.
+
+#### #ISOLATE INFERENCE TENANTS
+> Category: runtime information security control against conventional security threats  
+> Permalink: https://owaspai.org/go/isolateinferencetenants
+
+**Description**  
+Users who share a model server or a GPU should not be able to learn each other's prompts and responses through shared caches or GPU memory. Treat anyone across a trust boundary as a separate tenant. That includes different customers, departments with different data access, and agents that process untrusted input (see [agent sandboxing](/go/agentsandboxing)).
+
+**Implementation**
+- Give each tenant its own prefix cache. Where the server supports it, add a per-tenant cache salt, such as vLLM's `cache_salt`, set by a gateway rather than the client and kept secret. vLLM notes that the salt separates prefix-cache entries but is not an isolation boundary, so for stronger separation run a separate instance per tenant, or turn prefix caching off on shared servers.
+- Scope semantic caches by tenant and by the user's access rights, not by question similarity alone. Record which sources each entry used, and check the user's current access to them before serving it, or delete the entry when access changes.
+- Keep secrets out of system prompts. A shared system prompt can be recovered through the same side channels.
+- For sensitive workloads, do not share a GPU across trust boundaries unless the hardware keeps their memory separate.
+- Treat cache contents saved to disk as copies of the prompts they came from.
+
+**Limitations**  
+Isolation means less cache reuse, so cost and latency go up. If caches have to stay shared, adding randomness to response timing or request scheduling makes these attacks more expensive but does not stop them.
