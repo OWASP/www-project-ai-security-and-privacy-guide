@@ -438,8 +438,8 @@ Notes:
 | Factor | Details |
 | --- | --- |
 | **Popularity** | - **GitHub Stars:**  ~194 stars on the original repository, ~28 on armory-library (November 2026) |
-|  | - **GitHub Forks:**  ~65 forks on the original repository |
-|  | - **Number of Issues:** ~58 open and ~734 closed issues on the original repository |
+|  | - **GitHub Forks:**  ~65 forks on the original repository (November 2026) |
+|  | - **Number of Issues:** ~58 open and ~734 closed issues on the original repository (November 2026) |
 |  | - **Trend:** Low activity. The DARPA GARD program has ended; the last armory-library release was in February 2024. |
 | **Community Support** | - **Active Issues:**  Little activity since July 2025. |
 |  | - **Documentation:** Comprehensive, but more security-focused, with advanced tutorials on adversarial attacks and defenses. |
@@ -455,9 +455,9 @@ Notes:
 | **Criteria** | **High** | **Medium** | **Low** |
 | --- | --- | --- | --- |
 | **Popularity** |  |  | ✅ |
-| **Community Support** |  | ✅ |  |
+| **Community Support** |  |  | ✅ |
 | **Scalability** |  | ✅ |  |
-| **Ease of Integration** | ✅ |  |  |
+| **Ease of Integration** |  | ✅ |  |
 
 **Data Modality**
 
