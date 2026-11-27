@@ -1782,6 +1782,8 @@ Examples:
 - Malicious intensive use of a paid third party model leads to high costs for the use
 - A _sponge attack_ or _energy latency attack_ provides input that is designed to increase the computation time of the model, which essentially is a denial of wallet (DoW) attack, also potentially causing a denial of service. See [article on sponge examples](https://arxiv.org/pdf/2006.03463.pdf)
 
+To verify that the controls below work, see [testing against AI resource exhaustion](/go/testingresourceexhaustion).
+
 **Controls:**
 
 - See [General controls](/go/generalcontrols):

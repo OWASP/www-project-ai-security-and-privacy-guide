@@ -50,6 +50,7 @@ Each listed tool addresses a subset of the threat landscape of AI systems. Below
 - [Prompt Injection](https://owaspai.org/go/promptinjection): In this type of attack, the attacker provides the model with manipulative instructions aimed at achieving malicious outcomes or objectives
 - [Sensitive data output from model ](/go/disclosureinoutput): A form of prompt injection, aiming to let the model disclose sensitive data
 - [Insecure Output Handling](https://owaspai.org/go/outputcontainsconventionalinjection): Generative AI systems can be vulnerable to traditional injection attacks, leading to risks if the outputs are improperly handled or processed.
+- [AI resource exhaustion](https://owaspai.org/go/airesourceexhaustion): Inputs that make the model or agent consume excessive tokens, compute or tool calls, leading to high costs (denial of wallet) or unavailability. See [testing against AI resource exhaustion](/go/testingresourceexhaustion).
 
 **Agentic AI:** Agentic systems add non-deterministic multi-step execution, dynamic tool use, inter-agent communication, and persistent state. Key threats beyond single-turn generative testing include [goal hijacking](/go/agenticaithreats), unauthorised tool invocation, [multi-agent propagation](/go/agentmessagestructuremanipulation), [persistent memory poisoning](/go/augmentationdatamanipulation), [agent escape](/go/agentescape), and delegation-chain abuse. See the [Agentic AI threat overview](/go/agenticaithreats) and the [Agentic AI red teaming guide](https://cloudsecurityalliance.org/download/artifacts/agentic-ai-red-teaming-guide) (CSA × AI Exchange).
 
@@ -309,6 +310,72 @@ NOTE Depending on the intended use, a single evasion input may be enough to caus
 
 **Positive testing**  
 It is of course important to also test the AI system for correct behaviour in benign situations. Depending on context, such testing may be integrated in the implementation of the security test by using the same mechanisms. Such testing ideally includes the testing of detection mechanisms, to ensure that not too many false positives are triggered by benign inputs. Positive testing is essential to ensure that security mechanisms do not degrade intended functionality or user experience beyond acceptable levels.
+
+### 5.3.6 Testing against AI resource exhaustion
+> Category: AI security test  
+> Permalink: https://owaspai.org/go/testingresourceexhaustion
+
+**Test description**  
+To test for [AI resource exhaustion](/go/airesourceexhaustion), look for inputs that make the system spend far more money, compute, or time than intended. Check whether the controls in [#LIMIT RESOURCES](/go/limitresources), [#DOS INPUT VALIDATION](/go/dosinputvalidation), and [#MONITOR USE](/go/monitoruse) stop the work before the impact becomes unacceptable.
+
+Two prompts can have very different costs at the same request rate. This test focuses on that difference. Run conventional denial-of-service and load tests separately, including tests for [#RATE LIMIT](/go/ratelimit). See [OWASP API Security Top 10 - API4: Unrestricted Resource Consumption](https://owasp.org/API-Security/editions/2023/en/0xa4-unrestricted-resource-consumption/).
+
+**Test procedure**  
+Follow the [general AI security testing steps](/go/testing), then run the checks below.
+
+**(1) Set limits**  
+Use the risk analysis to decide what counts as a failure. Set a number for each limit below, so that every result can be compared with it and different testers report the same result the same way:
+- **Tokens per request:** a ceiling on output tokens and on reasoning tokens for one request.
+- **Spend:** a cap per user or tenant per day, and a system-wide cap per day.
+- **Agent tasks:** a maximum number of steps (model and tool calls) and a maximum duration for one task, including its sub-agents.
+- **Response time:** a maximum time per request.
+
+If the risk analysis does not give numbers, start from these values and adjust them to the system once the baseline from step 2 is known:
+
+| Limit | Starting value |
+| --- | --- |
+| Output tokens per request | 3 × the 99th percentile in the baseline, and never above the model's configured maximum output |
+| Reasoning tokens per request | 3 × the 99th percentile in the baseline |
+| Spend per user or tenant per day | 10 × the median daily spend of a normal user |
+| Agent task | 25 steps or 5 minutes, whichever comes first |
+
+Report each finding as the measured value against the limit, for example "4,800 output tokens against a limit of 1,500".
+
+**(2) Measure a baseline**  
+Run normal tasks. For each request, record input and output tokens, model and tool calls, duration, and cost. Include reasoning tokens, which are billed and often hidden or shown only in summary.
+
+**(3) Look for inputs that drive up usage**  
+Compare each test input with the baseline. Check for these common sources of amplification:
+- **Output amplification:** requests for unusually long output, such as turning a podcast transcript into 100 social posts, repeating text many times, or translating a document into 20 languages.
+- **Reasoning amplification:** inputs that make a reasoning model reason far longer than needed, increasing hidden reasoning tokens. See [OverThink](https://arxiv.org/abs/2502.02542).
+- **Sponge inputs:** inputs designed to maximize the model's compute time or energy use. See [sponge examples](https://arxiv.org/pdf/2006.03463.pdf).
+- **Context amplification:** inputs that make the system retrieve or load many documents or very large documents into the model context.
+- **Indirect triggers:** any of the inputs above, embedded in an uploaded document, retrieved web page, or tool result that the system processes. See [indirect prompt injection](/go/indirectpromptinjection).
+
+**(4) Test agent loops and fan-out**  
+Check whether an input can make the agent loop, retry indefinitely, keep calling the same tool, or launch many sub-agents. Verify that the platform, gateway, or orchestrator enforces per-task limits on model calls, tool calls, duration, and spend outside the agent. The limits should stop the task as soon as it hits a cap and apply across sub-agents and nested tasks, even when they have their own budgets.
+
+**(5) Test spend controls**  
+Verify that spend limits block requests before they exceed the budget and that alerts fire early enough for someone to act. Test concurrent requests, streamed responses, and requests whose final cost is only known after completion. Check per-user or per-tenant limits so one user cannot exhaust the budget or capacity others rely on.
+
+EXAMPLE: A support assistant uses a paid model API and can split work into subtasks. A tester uploads a document with a hidden instruction to summarize each paragraph separately and translate every summary into 20 languages. The assistant follows it and makes hundreds of model calls for one request. There is no per-task limit, and the daily budget alert fires after the money is spent. The system fails the test.
+
+**(6) Check direct access to model endpoints**  
+Send inference requests straight to each model-serving endpoint, such as a self-hosted model server, an inference API or a model gateway, without going through the application. Try with no credentials and with credentials that are not meant for model access. Every request should be refused. An endpoint that answers lets an attacker skip all application-level limits, which makes it the cheapest route to denial of wallet. See [#RESTRICT MODEL SERVER ACCESS](/go/restrictmodelserveraccess).
+
+**(7) Decide whether the test passes**  
+Fail the test if an input or series of inputs within the relevant attacker profile's budget exceeds a limit from step 1, if a control only takes effect after the impact has already occurred, or if a model-serving endpoint accepts a request that does not come through the application. Add mitigations and repeat the test until it passes.
+
+NOTE: An attacker can spread usage across accounts or keys and keep each one below its limit. Account for that when deciding whether you also need system-wide limits and monitoring.
+
+**Positive testing**  
+Test legitimate heavy use too. Run long documents, legitimately long agent tasks, and peak traffic to verify that the limits do not block normal use.
+
+**References**  
+- [OWASP Top 10 for LLM: LLM06:2026: Unbounded Consumption](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)
+- [MITRE ATLAS: AML.T0034: Cost Harvesting](https://atlas.mitre.org/techniques/AML.T0034)
+- [MITRE ATLAS: AML.T0029: Denial of AI Service](https://atlas.mitre.org/techniques/AML.T0029)
+- [OWASP API Security Top 10 - API4: Unrestricted Resource Consumption](https://owasp.org/API-Security/editions/2023/en/0xa4-unrestricted-resource-consumption/)
 
 
 ## **5.5 Red Teaming tools for AI and GenAI**
