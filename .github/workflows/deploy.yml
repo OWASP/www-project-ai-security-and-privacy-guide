@@ -15,6 +15,10 @@ concurrency:
 
 jobs:
   deploy_live_website:
+    # Only the OWASP repository deploys the live site. Forks have no Firebase secret, so the job is
+    # skipped there. In this repository it still fails when the secret is missing, so a broken
+    # deploy never shows up as green.
+    if: github.repository == 'OWASP/www-project-ai-security-and-privacy-guide'
     environment: production
     runs-on: ubuntu-latest
     steps:

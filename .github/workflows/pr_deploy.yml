@@ -1,5 +1,6 @@
-# Preview deploy for PRs. Uses pull_request_target so fork PRs can get a preview
-# after a maintainer approves (secrets are only available in base repo context).
+# Builds every PR and deploys a preview for PRs from branches in this repository.
+# PRs from forks are built and checked only: GitHub doesn't pass secrets to
+# pull_request runs from forks, so they get no preview.
 #
 
 name: Deploy to Preview Channel
@@ -8,6 +9,9 @@ on:
   pull_request:
     paths:
       - "content/**"
+      - "scripts/**"
+      - "package*.json"
+      - ".github/workflows/pr_deploy.yml"
 
 # A new push to the same PR cancels the preview run that is still going
 concurrency:
@@ -52,12 +56,12 @@ jobs:
           target: owasp-ai-exchange
           entryPoint: content/ai_exchange
 
-  # PRs from forks: build and deploy only after a reviewer approves.
-  # Requires an environment "production" with Required reviewers (Settings → Environments).
+  # PRs from forks: build only, no preview. GitHub doesn't pass secrets to pull_request runs
+  # from forks, so a Firebase deploy can't work here. The build still fails the check when the
+  # site, links, search index or PDF are broken.
   build_and_preview_fork:
     if: github.event.pull_request.head.repo.full_name != github.repository
     runs-on: ubuntu-latest
-    environment: production
     steps:
       - uses: actions/checkout@v4
         with:
@@ -81,11 +85,5 @@ jobs:
         run: |
           npm ci
           npm run build:pdf
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
-          expires: 3d
-          projectId: project-integration-standards
-          target: owasp-ai-exchange
-          entryPoint: content/ai_exchange
+      - name: Preview deploy skipped
+        run: echo "::notice title=Preview deploy skipped::PRs from forks are built and checked, but not deployed to a preview channel (no access to the Firebase secret)."
