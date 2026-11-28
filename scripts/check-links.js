@@ -23,6 +23,13 @@ const SKIP_PATHS = ['/pagefind/'];
 const SKIP_EXTERNAL_HOSTS = new Set(['fonts.googleapis.com', 'fonts.gstatic.com', 'atlas.mitre.org']);
 // Statuses from sites that block automated requests: reported, but not a failure
 const UNVERIFIABLE_STATUSES = new Set([401, 403, 429, 999]);
+// Sites (and their subdomains) that block every automated check, so checking them only adds noise.
+// Their links are counted in one line instead of listed. DOI links (doi.org, dl.acm.org/doi/...)
+// are not here: they are checked through the doi.org API instead.
+const BLOCKING_HOSTS = ['linkedin.com', 'twitter.com', 'x.com', 'iso.org', 'slack.com'];
+// Where links are written: content pages, and layouts/data/config for links on every page
+const SOURCE_DIRS = ['content', 'layouts', 'data'].map(d => path.join(SITE_DIR, d));
+const SOURCE_FILES = [path.join(SITE_DIR, 'hugo.yaml'), path.join(SITE_DIR, 'firebase.json')];
 
 const redirects = JSON.parse(fs.readFileSync(path.join(SITE_DIR, 'firebase.json'), 'utf8')).hosting.redirects;
 const exactRedirects = new Map(
@@ -80,17 +87,17 @@ function checkInternal(url, page, viaGo = null, hops = 0) {
   const shown = viaGo ? `${viaGo} -> ${url.pathname}${url.hash}` : `${url.pathname}${url.hash}`;
   if (url.pathname.startsWith('/go/') || url.pathname.startsWith('/goto/')) {
     const destination = resolveRedirect(url.pathname);
-    if (!destination) return problems.push({ page, link: shown, problem: 'no /go/ redirect' });
-    if (hops > 3) return problems.push({ page, link: shown, problem: 'redirect loop' });
+    if (!destination) return problems.push({ page, link: shown, needle: viaGo || url.pathname + url.hash, problem: 'no /go/ redirect' });
+    if (hops > 3) return problems.push({ page, link: shown, needle: viaGo || url.pathname + url.hash, problem: 'redirect loop' });
     const target = new URL(destination, ORIGIN);
     if (!OWN_HOSTS.has(target.hostname)) return addExternal(target.href, page);
     return checkInternal(target, page, viaGo || url.pathname, hops + 1);
   }
   const file = findFile(url.pathname);
-  if (!file) return problems.push({ page, link: shown, problem: 'page does not exist' });
+  if (!file) return problems.push({ page, link: shown, needle: viaGo || url.pathname + url.hash, problem: 'page does not exist' });
   const anchor = decodeURIComponent(url.hash.slice(1));
   if (anchor && file.endsWith('.html') && !pageIds(file).has(anchor)) {
-    problems.push({ page, link: shown, problem: 'anchor does not exist' });
+    problems.push({ page, link: shown, needle: viaGo || url.pathname + url.hash, problem: 'anchor does not exist' });
   }
 }
 
@@ -108,11 +115,11 @@ for (const file of listPages(PUBLIC_DIR)) {
     const raw = decodeEntities((m[1] ?? m[2] ?? m[3]).trim());
     if (!raw || /^(mailto|javascript|data|tel):/i.test(raw)) continue;
     let url;
-    try { url = new URL(raw, ORIGIN + page); } catch { problems.push({ page, link: raw, problem: 'invalid URL' }); continue; }
+    try { url = new URL(raw, ORIGIN + page); } catch { problems.push({ page, link: raw, needle: raw, problem: 'invalid URL' }); continue; }
     if (OWN_HOSTS.has(url.hostname)) {
       if (raw.startsWith('#')) {
         const anchor = decodeURIComponent(url.hash.slice(1));
-        if (anchor && !pageIds(file).has(anchor)) problems.push({ page, link: raw, problem: 'anchor does not exist' });
+        if (anchor && !pageIds(file).has(anchor)) problems.push({ page, link: raw, needle: raw, problem: 'anchor does not exist' });
       } else {
         checkInternal(url, page);
       }
@@ -128,16 +135,46 @@ for (const r of redirects.filter(r => r.source && !/[:*]/.test(r.source))) {
   if (OWN_HOSTS.has(target.hostname)) checkInternal(target, 'firebase.json', r.source);
 }
 
+const hostIn = (url, hosts) => {
+  const host = new URL(url).hostname;
+  return hosts.some(h => host === h || host.endsWith('.' + h));
+};
+
+// doi.org/10.x/y and dl.acm.org/doi/(abs/|pdf/|full/)10.x/y -> 10.x/y
+function doiOf(url) {
+  const u = new URL(url);
+  if (u.hostname === 'doi.org' || u.hostname === 'dx.doi.org') return decodeURIComponent(u.pathname.slice(1)) || null;
+  const acm = u.hostname === 'dl.acm.org' && u.pathname.match(/^\/doi\/(?:abs\/|pdf\/|full\/|epdf\/)?(10\.[^?#]+)/);
+  return acm ? decodeURIComponent(acm[1]) : null;
+}
+
+// Publishers block automated requests, but doi.org has an API that says whether a DOI exists
+async function checkDoi(doi) {
+  const res = await fetch(`https://doi.org/api/handles/${encodeURI(doi)}`, { signal: AbortSignal.timeout(20000) });
+  if (res.status === 404) return { ok: false, status: 'DOI not found' };
+  if (!res.ok) return { ok: null, status: res.status };
+  const body = await res.json();
+  return body.responseCode === 1 ? { ok: true } : { ok: false, status: `DOI not found (${body.responseCode})` };
+}
+
 async function checkExternal() {
-  const results = { broken: [], unverified: [] };
+  const results = { broken: [], unverified: [], blocking: [] };
   const urls = [...external.keys()].filter(u => !SKIP_EXTERNAL_HOSTS.has(new URL(u).hostname));
+  results.blocking = urls.filter(u => hostIn(u, BLOCKING_HOSTS));
   const headers = {
     'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36',
     Accept: 'text/html,application/xhtml+xml,*/*;q=0.8',
   };
   async function check(url) {
+    const doi = doiOf(url);
     for (let attempt = 0; attempt < 2; attempt++) {
       try {
+        if (doi) {
+          const r = await checkDoi(doi);
+          if (r.ok) return;
+          if (r.ok === null && attempt === 0) continue;
+          return (r.ok === false ? results.broken : results.unverified).push({ url, status: r.status });
+        }
         const res = await fetch(url, { headers, redirect: 'follow', signal: AbortSignal.timeout(20000) });
         res.body?.cancel();
         if (res.ok) return;
@@ -153,31 +190,83 @@ async function checkExternal() {
       }
     }
   }
-  const queue = [...urls];
+  const queue = urls.filter(u => !hostIn(u, BLOCKING_HOSTS));
   await Promise.all(Array.from({ length: 8 }, async () => { while (queue.length) await check(queue.shift()); }));
   console.log(`External: checked ${urls.length} URLs`);
   return results;
 }
 
-function report(title, rows, format) {
-  if (!rows.length) return '';
-  const lines = [`\n${title} (${rows.length}):`, ...rows.map(format)];
-  console.log(lines.join('\n'));
-  return lines.join('\n') + '\n';
+// --- Report, grouped by the file to edit ---
+
+const REPO_DIR = path.join(__dirname, '..');
+let sourceIndex = null;
+function sources() {
+  if (!sourceIndex) {
+    const listAll = dir => fs.existsSync(dir) ? fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => {
+      const full = path.join(dir, e.name);
+      return e.isDirectory() ? listAll(full) : [full];
+    }) : [];
+    const files = [...SOURCE_DIRS.flatMap(listAll), ...SOURCE_FILES.filter(f => fs.existsSync(f))]
+      .filter(f => /\.(md|html|ya?ml|json|toml|csv)$/.test(f) && !f.endsWith('.orig'));
+    sourceIndex = files.map(f => ({ file: path.relative(REPO_DIR, f).split(path.sep).join('/'), text: fs.readFileSync(f, 'utf8') }));
+  }
+  return sourceIndex;
+}
+
+// The files that contain a link as written. The content file of the page it is on comes first:
+// a link like "#anchor" or "/docs/" is written in many files.
+function sourceFilesFor(needle, pages) {
+  const variants = [...new Set([needle, needle.replace(/\/$/, ''), needle.replace(/&/g, '&amp;')])].filter(v => v.length > 1);
+  const found = sources().filter(s => variants.some(v => s.text.includes(v))).map(s => s.file);
+  const pageFiles = pages.flatMap(p => {
+    const rel = p.replace(/^\/|\/$/g, '');
+    return ['.md', '/_index.md', '/index.md'].map(ext => `content/ai_exchange/content/${rel || '_index'}${rel ? ext : '.md'}`);
+  });
+  const own = found.filter(f => pageFiles.includes(f));
+  if (own.length) return own;
+  if (found.length) return found;
+  return [`(source not found, on ${pages.join(', ')})`];
+}
+
+function report({ internal, broken = [], unverified = [], blocking = [] }) {
+  const byFile = new Map();
+  const add = (files, row) => files.forEach(f => {
+    if (!byFile.has(f)) byFile.set(f, []);
+    byFile.get(f).push(row);
+  });
+  const pagesOf = url => [...external.get(url)];
+  for (const p of internal) add(sourceFilesFor(p.needle, [p.page]), { order: 0, text: `BROKEN        ${p.problem}: ${p.link}` });
+  for (const r of broken) add(sourceFilesFor(r.url, pagesOf(r.url)), { order: 0, text: `BROKEN        ${r.status}: ${r.url}` });
+  for (const r of unverified) add(sourceFilesFor(r.url, pagesOf(r.url)), { order: 1, text: `NOT VERIFIED  ${r.status}: ${r.url}` });
+
+  // Files with broken links first, then files with only unverified links
+  const files = [...byFile.entries()].sort(([a, ra], [b, rb]) =>
+    Math.min(...ra.map(r => r.order)) - Math.min(...rb.map(r => r.order)) || a.localeCompare(b));
+  const lines = [];
+  for (const [file, rows] of files) {
+    lines.push('', file, ...rows.sort((a, b) => a.order - b.order).map(r => `  ${r.text}`));
+  }
+  if (blocking.length) {
+    const hosts = [...new Set(blocking.map(u => new URL(u).hostname.replace(/^www\./, '')))].sort();
+    lines.push('', `Not checked: ${blocking.length} link(s) to sites that block every automated check (${hosts.join(', ')})`);
+  }
+  lines.push('', `Broken: ${internal.length + broken.length}, not verified: ${unverified.length}`);
+  if (unverified.length) lines.push('NOT VERIFIED: the site blocked the check or timed out, so the link may be fine. Check it in a browser.');
+  const text = lines.join('\n');
+  console.log(text);
+  return text + '\n';
 }
 
 (async () => {
-  let summary = report('Broken internal links', problems, p => `  ${p.problem}: ${p.link}  (on ${p.page})`);
   console.log(`Internal: ${problems.length} problem(s)`);
   let failed = problems.length > 0;
+  let results = {};
   if (process.argv.includes('--external')) {
-    const { broken, unverified } = await checkExternal();
-    const pagesOf = url => [...external.get(url)].join(', ');
-    summary += report('Broken external links', broken, r => `  ${r.status}: ${r.url}  (on ${pagesOf(r.url)})`);
-    summary += report('Could not verify (site blocks automated checks, or timed out)', unverified, r => `  ${r.status}: ${r.url}`);
-    failed = failed || broken.length > 0;
+    results = await checkExternal();
+    failed = failed || results.broken.length > 0;
   }
-  if (process.env.GITHUB_STEP_SUMMARY && summary) {
+  const summary = report({ internal: problems, ...results });
+  if (process.env.GITHUB_STEP_SUMMARY) {
     fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, '## Link check\n```\n' + summary + '```\n');
   }
   process.exit(failed ? 1 : 0);
