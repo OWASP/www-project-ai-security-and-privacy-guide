@@ -10,6 +10,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const { formatExternalByPage } = require('./link-report');
 
 const SITE_DIR = path.join(__dirname, '..', 'content/ai_exchange');
 const PUBLIC_DIR = path.join(SITE_DIR, 'public');
@@ -168,17 +169,26 @@ function report(title, rows, format) {
 
 (async () => {
   let summary = report('Broken internal links', problems, p => `  ${p.problem}: ${p.link}  (on ${p.page})`);
+  let unverifiedSummary = '';
   console.log(`Internal: ${problems.length} problem(s)`);
   let failed = problems.length > 0;
   if (process.argv.includes('--external')) {
     const { broken, unverified } = await checkExternal();
-    const pagesOf = url => [...external.get(url)].join(', ');
-    summary += report('Broken external links', broken, r => `  ${r.status}: ${r.url}  (on ${pagesOf(r.url)})`);
-    summary += report('Could not verify (site blocks automated checks, or timed out)', unverified, r => `  ${r.status}: ${r.url}`);
+    const brokenSummary = formatExternalByPage('Broken external links', broken, external);
+    unverifiedSummary = formatExternalByPage('Could not verify (site blocks automated checks, or timed out)', unverified, external, true);
+    if (brokenSummary) console.log(brokenSummary.trimEnd());
+    if (unverifiedSummary) console.log(unverifiedSummary.trimEnd());
+    summary += brokenSummary;
     failed = failed || broken.length > 0;
   }
-  if (process.env.GITHUB_STEP_SUMMARY && summary) {
-    fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, '## Link check\n```\n' + summary + '```\n');
+  if (process.env.GITHUB_STEP_SUMMARY && (summary || unverifiedSummary)) {
+    let markdown = '## Link check\n\n';
+    if (summary) markdown += '```text\n' + summary + '```\n\n';
+    if (unverifiedSummary) {
+      markdown += '<details><summary>External links the checker could not verify (informational)</summary>\n\n';
+      markdown += '```text\n' + unverifiedSummary + '```\n\n</details>\n';
+    }
+    fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, markdown);
   }
   process.exit(failed ? 1 : 0);
 })();
