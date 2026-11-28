@@ -586,7 +586,9 @@ blockquote a:hover {
   overflow: hidden;
   overflow-x: auto !important;
   display: table;
-  table-layout: fixed !important;
+  /* auto, not fixed: columns get width by content, so a long Description column
+     isn't squeezed to the same width as a short Cost column */
+  table-layout: auto;
 }
 
 /* .docs-content tableheader */
@@ -611,9 +613,16 @@ blockquote a:hover {
   background-color: #fafafa;
 }
 
-/* Responsive: tables become card-like on small screens */
-@media (max-width: 640px) {
-  /* opt-in class responsive-table added via JS or markdown shortcode */
+/* Responsive: tables become card-like when the content column is narrow. This is based on the
+   column's width, not the screen's: between roughly 1024px and 1300px both sidebars are shown and
+   the column is narrower than on some phones. */
+.docs-body.documentation {
+  container-type: inline-size;
+  container-name: docs-body;
+}
+
+@container docs-body (max-width: 640px) {
+  /* opt-in class responsive-table added via JS (static/js/script.js) */
   .docs-content table.responsive-table {
     display: block;
     border: 0;
@@ -652,6 +661,10 @@ blockquote a:hover {
   }
   .docs-content table.responsive-table td:last-child {
     border-bottom: 0;
+  }
+  /* Empty cells (e.g. a category only filled in on the first row of its group) add nothing to a card */
+  .docs-content table.responsive-table td:empty {
+    display: none;
   }
   .docs-content table.responsive-table td::before {
     content: attr(data-label);
