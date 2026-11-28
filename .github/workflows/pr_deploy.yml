@@ -17,6 +17,10 @@ on:
   pull_request:
     paths:
       - "content/**"
+      - "scripts/**"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/pr_deploy.yml"
 
 jobs:
   # PRs from branches in this repo: build and deploy automatically.
@@ -29,7 +33,7 @@ jobs:
         with:
           ref: refs/pull/${{ github.event.pull_request.number }}/merge
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3.2.1
+        uses: peaceiris/actions-hugo@v3.3.0
         with:
           hugo-version: '0.147.0'
           extended: true
@@ -66,7 +70,7 @@ jobs:
         with:
           ref: refs/pull/${{ github.event.pull_request.number }}/merge
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3.2.1
+        uses: peaceiris/actions-hugo@v3.3.0
         with:
           hugo-version: '0.147.0'
           extended: true
