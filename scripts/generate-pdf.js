@@ -319,7 +319,8 @@ async function main() {
         console.warn(`No .docs-content found in ${pagePath}`);
         continue;
       }
-      mainContent.querySelectorAll('a[title="Suggest an improvement via GitHub"]').forEach(el => el.remove());
+      // The "Edit page" link and its GitHub help tooltip only make sense on the website
+      mainContent.querySelectorAll('.edit-page-wrapper, a[title="Suggest an improvement via GitHub"]').forEach(el => el.remove());
       const headings = mainContent.querySelectorAll('h1, h2, h3, h4, h5');
       headings.forEach(h => {
         const id = h.id || h.textContent.trim().replace(/\s+/g, '-').toLowerCase();
