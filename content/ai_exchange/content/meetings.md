@@ -1,5 +1,5 @@
 ---
-# AI Exchange Team Meetings
+title: AI Exchange Team Meetings
 ---
 ## Meetings
 - The Authors team meets bi-weekly on **Thursdays 5 PM Amsterdam time**

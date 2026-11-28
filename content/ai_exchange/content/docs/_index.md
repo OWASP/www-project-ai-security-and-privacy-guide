@@ -10,6 +10,7 @@ title: Content
     {{< small-card link="/docs/3_development_time_threats/" title="3. Development-time threats">}}
     {{< small-card link="/docs/4_runtime_application_security_threats/" title="4. Runtime conventional security threats">}}
     {{< small-card link="/docs/5_testing/" title="5. AI security testing">}}
+    {{< small-card link="/docs/6_privacy/" title="6. AI privacy">}}
     {{< small-card link="/docs/ai_security_references/" title="References">}}
     {{< small-card link="/docs/ai_security_index/" title="Index">}}
 {{< /cards >}}
