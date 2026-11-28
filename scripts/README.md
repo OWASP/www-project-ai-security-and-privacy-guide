@@ -64,3 +64,10 @@ npm run check:links:external   # also external URLs (a few minutes)
 ```
 
 The internal check runs on every PR preview, before the PDF is generated. External links are checked weekly by the `Check external links` workflow, and can be run by hand from the Actions tab.
+
+The report is grouped by the file to edit: the content page that contains the link, or the layout file for links in the header or footer. Files with broken links come first.
+
+- **BROKEN** fails the check: a missing page or anchor, a `/go/` link without a redirect, or an external URL that returns an error.
+- **NOT VERIFIED** doesn't fail the check: the site blocked the request (for example 403) or timed out. The link may be fine, so check it in a browser.
+- DOI links (`doi.org/...`, `dl.acm.org/doi/...`) are checked through the doi.org API, because publishers block automated requests.
+- Links to sites that block every automated check (`BLOCKING_HOSTS` in `check-links.js`, such as LinkedIn and iso.org) are not checked, only counted.
