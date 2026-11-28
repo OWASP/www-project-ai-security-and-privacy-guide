@@ -91,8 +91,11 @@
   <!-- ✅ Desktop Layout (unchanged) -->
   <div class="hidden min-[1025px]:flex docs-sidebar-column">
     <aside class="docs-sidebar p-0">
+      <!-- pt-6 matches the height of the Edit page row in the right column, so "Pages" and
+           "On this page" (and the boxes below them) line up -->
       <div class="sidebar-container pt-6">
-        <nav class="sidebar-nav">
+        <h3 class="toc-title sidebar-title-pages py-2">Pages</h3>
+        <nav class="sidebar-nav" aria-label="Pages">
           <ul class="flex flex-col">
             <li><a href="/docs/ai_security_overview/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/ai_security_overview/" }}active{{ end }}"><span>0. AI Security Overview</span></a></li>
             <li><a href="/docs/1_general_controls/" class="sidebar-nav-link {{ if eq $.RelPermalink "/docs/1_general_controls/" }}active{{ end }}"><span>1. General controls</span></a></li>
