@@ -11,9 +11,9 @@ jobs:
   check_links:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.4.0
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
+        uses: peaceiris/actions-hugo@v3.3.0
         with:
           hugo-version: '0.147.0'
           extended: true
